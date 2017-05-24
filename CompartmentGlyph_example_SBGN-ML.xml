@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map>
+        <glyph id="CompartmentGlyph_1" class="compartment">
+            <label text="CompartmentGlyph_1"/>
+            <bbox y="5.0" x="5.0" h="220.0" w="390.0"/>
+        </glyph>
+    </map>
+</sbgn>
