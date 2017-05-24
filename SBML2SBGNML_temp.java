@@ -3,6 +3,7 @@ package org.sbfc.converter.sbml2sbgnml;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
@@ -22,6 +23,9 @@ import org.sbfc.converter.models.SBGNModel;
 import org.sbfc.converter.models.SBMLModel;
 import org.sbfc.converter.utils.sbgn.SBGNUtils;
 import org.sbgn.SbgnUtil;
+import org.sbgn.bindings.Bbox;
+import org.sbgn.bindings.Glyph;
+import org.sbgn.bindings.Label;
 import org.sbgn.bindings.Map;
 import org.sbgn.bindings.Sbgn;
 import org.sbml.jsbml.ListOf;
@@ -33,9 +37,17 @@ import org.sbml.jsbml.SBMLReader;
 import org.sbml.jsbml.SBase;
 import org.sbml.jsbml.Species;
 import org.xml.sax.SAXException;
-
+import org.sbml.jsbml.ext.layout.BoundingBox;
+import org.sbml.jsbml.ext.layout.CompartmentGlyph;
+import org.sbml.jsbml.ext.layout.Dimensions;
+import org.sbml.jsbml.ext.layout.GraphicalObject;
 import org.sbml.jsbml.ext.layout.Layout;
 import org.sbml.jsbml.ext.layout.LayoutModelPlugin;
+import org.sbml.jsbml.ext.layout.Point;
+import org.sbml.jsbml.ext.layout.ReactionGlyph;
+import org.sbml.jsbml.ext.layout.SpeciesGlyph;
+import org.sbml.jsbml.ext.layout.TextGlyph;
+import org.sbgn.bindings.Sbgn;
 
 public class SBML2SBGNML_temp extends GeneralConverter { 
 	
@@ -107,26 +119,138 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 	
 	public Sbgn convertSBGNML(SBMLDocument sbmlDocument) throws SBMLException {
 
-		Sbgn sbgnObject = new Sbgn();
-
-		Map map = new Map();
-		sbgnObject.setMap(map);
+		Sbgn sbgnObject = null;
+		Map map = null;
+		
+		LayoutModelPlugin sbmlLayoutModel = null;
+		ListOf<Layout> listOfLayouts = null;
+		HashMap<String, Sbgn> listOfSbgnObjects = new HashMap<String, Sbgn>();
+		
+		int numAdditionalGraphicalObject = 0;
+		int numCompartmentGlyphs = 0;
+		int numReactionGlyphs = 0;
+		int numSpeciesGlyphs = 0;
+		int numTextGlyphs = 0;			
+		
+		Dimensions layoutDimensions = null;
+		ListOf<GraphicalObject> listOfAdditionalGraphicalObjects;
+		ListOf<CompartmentGlyph> listOfCompartmentGlyphs;
+		ListOf<ReactionGlyph> listOfReactionGlyphs;
+		ListOf<SpeciesGlyph> listOfSpeciesGlyphs;
+		ListOf<TextGlyph> listOfTextGlyphs;		
 
 		try { 
 			sbmlModel = sbmlDocument.getModel();
 		} catch(Exception e) {
 			throw new SBMLException("SBML2SBGN: Input file is not a regular SBML file.");
 		}
-		LayoutModelPlugin sbmlLayoutModel = new LayoutModelPlugin(sbmlModel);
 		
-		ListOf<Species> listOfSpecies = sbmlModel.getListOfSpecies();
-		ListOf<Reaction> listOfReactions = sbmlModel.getListOfReactions();
-		ListOf<Layout> listOfLayouts = sbmlLayoutModel.getListOfLayouts();
+		//System.out.println(sbmlModel.isSetPlugin("layout"));
+		if (sbmlModel.isSetPlugin("layout")){
+			sbmlLayoutModel = (LayoutModelPlugin) sbmlModel.getExtension("layout");
+		}
+
+		if (sbmlModel.isSetPlugin("layout")){
+			listOfLayouts = sbmlLayoutModel.getListOfLayouts();
+		}
 		
 		System.out.println("listOfLayouts size=" + Integer.toString(sbmlLayoutModel.getLayoutCount()));
-		System.out.println(sbmlLayoutModel.toString());
+		//System.out.println(sbmlLayoutModel.toString());
 		
+		
+		for (Layout layout : listOfLayouts){
+			sbgnObject = new Sbgn();
+			map = new Map();
+			sbgnObject.setMap(map);		
+			
+			listOfSbgnObjects.put(layout.getId(), sbgnObject);
+			
+			if (layout.isSetDimensions()){
+				layoutDimensions = layout.getDimensions();
+				System.out.println(layoutDimensions.toString());
+			}
+			
+			if (layout.isSetListOfAdditionalGraphicalObjects()){
+				numAdditionalGraphicalObject = layout.getAdditionalGraphicalObjectCount();
+				listOfAdditionalGraphicalObjects = layout.getListOfAdditionalGraphicalObjects();
+				//System.out.println(listOfAdditionalGraphicalObjects.toString());
+			}
+			if (layout.isSetListOfCompartmentGlyphs()){
+				numCompartmentGlyphs = layout.getNumCompartmentGlyphs();
+				listOfCompartmentGlyphs = layout.getListOfCompartmentGlyphs();
+				//System.out.println(listOfCompartmentGlyphs.toString());
+				System.out.println("numCompartmentGlyphs = " + Integer.toString(numCompartmentGlyphs));
+				createSbgnCompartmentGlyphs(sbgnObject, listOfCompartmentGlyphs);
+				
+			}			
+			if (layout.isSetListOfReactionGlyphs()){
+				numReactionGlyphs = layout.getNumReactionGlyphs();
+				listOfReactionGlyphs = layout.getListOfReactionGlyphs();
+				//System.out.println(listOfReactionGlyphs.toString());
+			}			
+			if (layout.isSetListOfSpeciesGlyphs()){
+				numSpeciesGlyphs = layout.getNumSpeciesGlyphs();
+				listOfSpeciesGlyphs = layout.getListOfSpeciesGlyphs();
+				//System.out.println(listOfSpeciesGlyphs.toString());
+			}
+			if (layout.isSetListOfTextGlyphs()){
+				numTextGlyphs = layout.getNumTextGlyphs();
+				listOfTextGlyphs = layout.getListOfTextGlyphs();
+				//System.out.println(listOfTextGlyphs.toString());
+			}			
+			
+		}
+		
+		// return one of the sbgnObjects?
 		return sbgnObject;		
+	}
+	
+	public void createSbgnCompartmentGlyphs(Sbgn sbgnObject, ListOf<CompartmentGlyph> listOfCompartmentGlyphs) {
+		Glyph sbgnCompartmentGlyph;
+		Label label;
+		
+		for (CompartmentGlyph compartmentGlyph : listOfCompartmentGlyphs){
+			sbgnCompartmentGlyph = new Glyph();
+			sbgnCompartmentGlyph.setId(compartmentGlyph.getId());
+			sbgnCompartmentGlyph.setClazz("compartment");
+			
+			sbgnObject.getMap().getGlyph().add(sbgnCompartmentGlyph);		
+			
+			label = new Label();
+			label.setText(compartmentGlyph.getId());
+			sbgnCompartmentGlyph.setLabel(label);
+			
+			createSbgnBBox(compartmentGlyph, sbgnCompartmentGlyph);
+			
+			// create Auxiliary items
+		}
+
+	}
+	
+	public void createSbgnBBox(CompartmentGlyph compartmentGlyph, Glyph glyph) {
+		Bbox bbox = new Bbox();
+		
+		BoundingBox boundingBox = compartmentGlyph.getBoundingBox();
+		Dimensions dimensions = boundingBox.getDimensions();
+		Point position = boundingBox.getPosition();
+
+		// can't set depth
+		double depth = dimensions.getDepth();
+		double height = dimensions.getHeight();
+		double width = dimensions.getWidth();	
+		
+		// one of the values will be lost
+		double x = position.getX();
+		double y = position.getY();
+		double z = position.getZ();
+		
+		bbox.setX((float) x);
+		bbox.setY((float) y);
+		bbox.setH((float) height);
+		bbox.setW((float) width);
+		
+		glyph.setBbox(bbox);
+		
 	}
 	
 	public SBMLDocument getSBMLDocument(String sbmlFileName) {
