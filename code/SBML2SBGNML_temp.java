@@ -3,8 +3,10 @@ package org.sbfc.converter.sbml2sbgnml;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.lang.Math;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
@@ -38,7 +40,6 @@ import org.sbml.jsbml.SBMLException;
 import org.sbml.jsbml.SBMLReader;
 import org.sbml.jsbml.SBase;
 import org.sbml.jsbml.Species;
-import org.xml.sax.SAXException;
 import org.sbml.jsbml.ext.layout.BoundingBox;
 import org.sbml.jsbml.ext.layout.CompartmentGlyph;
 import org.sbml.jsbml.ext.layout.Curve;
@@ -50,8 +51,9 @@ import org.sbml.jsbml.ext.layout.LayoutModelPlugin;
 import org.sbml.jsbml.ext.layout.Point;
 import org.sbml.jsbml.ext.layout.ReactionGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
+import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 import org.sbml.jsbml.ext.layout.TextGlyph;
-import org.sbgn.bindings.Sbgn;
+import org.xml.sax.SAXException;
 
 public class SBML2SBGNML_temp extends GeneralConverter { 
 	
@@ -71,7 +73,7 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 
 		// temporary
 		//String sbmlFileNameInput = args[0];
-		String sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\TextGlyph_Example.xml";
+		String sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\Complete_Example.xml";
 		
 		SBML2SBGNML_temp sbml = new SBML2SBGNML_temp();
 				
@@ -160,7 +162,7 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 			listOfLayouts = sbmlLayoutModel.getListOfLayouts();
 		}
 		
-		System.out.println("listOfLayouts size=" + Integer.toString(sbmlLayoutModel.getLayoutCount()));
+		//System.out.println("listOfLayouts size=" + Integer.toString(sbmlLayoutModel.getLayoutCount()));
 		//System.out.println(sbmlLayoutModel.toString());
 		
 		
@@ -173,9 +175,10 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 			
 			if (layout.isSetDimensions()){
 				layoutDimensions = layout.getDimensions();
-				System.out.println(layoutDimensions.toString());
+				//System.out.println(layoutDimensions.toString());
 			}
 			
+			// the order of reading the lists matters
 			if (layout.isSetListOfAdditionalGraphicalObjects()){
 				numAdditionalGraphicalObject = layout.getAdditionalGraphicalObjectCount();
 				listOfAdditionalGraphicalObjects = layout.getListOfAdditionalGraphicalObjects();
@@ -185,21 +188,15 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 				numCompartmentGlyphs = layout.getNumCompartmentGlyphs();
 				listOfCompartmentGlyphs = layout.getListOfCompartmentGlyphs();
 				//System.out.println(listOfCompartmentGlyphs.toString());
-				System.out.println("numCompartmentGlyphs = " + Integer.toString(numCompartmentGlyphs));
+				//System.out.println("numCompartmentGlyphs = " + Integer.toString(numCompartmentGlyphs));
 				createSbgnCompartmentGlyphs(sbgnObject, listOfCompartmentGlyphs);
 				
-			}			
-			if (layout.isSetListOfReactionGlyphs()){
-				numReactionGlyphs = layout.getNumReactionGlyphs();
-				listOfReactionGlyphs = layout.getListOfReactionGlyphs();
-				//System.out.println(listOfReactionGlyphs.toString());
-				createSbgnReactionGlyphs(sbgnObject, listOfReactionGlyphs);
 			}			
 			if (layout.isSetListOfSpeciesGlyphs()){
 				numSpeciesGlyphs = layout.getNumSpeciesGlyphs();
 				listOfSpeciesGlyphs = layout.getListOfSpeciesGlyphs();
 				//System.out.println(listOfSpeciesGlyphs.toString());
-				System.out.println("numSpeciesGlyphs = " + Integer.toString(numSpeciesGlyphs));
+				//System.out.println("numSpeciesGlyphs = " + Integer.toString(numSpeciesGlyphs));
 				createSbgnSpeciesGlyphs(sbgnObject, listOfSpeciesGlyphs);
 			}
 			if (layout.isSetListOfTextGlyphs()){
@@ -208,6 +205,13 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 				//System.out.println(listOfTextGlyphs.toString());
 				createSbgnTextGlyphs(sbgnObject, listOfTextGlyphs);
 			}			
+			if (layout.isSetListOfReactionGlyphs()){
+				numReactionGlyphs = layout.getNumReactionGlyphs();
+				listOfReactionGlyphs = layout.getListOfReactionGlyphs();
+				//System.out.println(listOfReactionGlyphs.toString());
+				createSbgnReactionGlyphs(sbgnObject, listOfReactionGlyphs);
+			}				
+			
 			
 		}
 		
@@ -261,53 +265,46 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 	}
 	
 	public void createSbgnReactionGlyphs(Sbgn sbgnObject, ListOf<ReactionGlyph> listOfReactionGlyphs) {
-		Glyph sbgnReactionGlyph;
+		Glyph processNode;
 		Label label;	
 		Arc arc;
 		Curve sbmlCurve;
 		ListOf<CurveSegment> listOfCurveSegments;
-		int indexOfArc = 0;
+		ListOf<SpeciesReferenceGlyph> listOfSpeciesReferenceGlyphs;
 		
 		for (ReactionGlyph reactionGlyph : listOfReactionGlyphs){
 			
 			label = new Label();
 			if (reactionGlyph.isSetReaction()) {
-								
+				
+				// create a process node from dimensions of the curve
 				if (reactionGlyph.isSetCurve()) {
 					sbmlCurve = reactionGlyph.getCurve();
 					listOfCurveSegments = sbmlCurve.getListOfCurveSegments();
 					
-					for (CurveSegment curveSegment : listOfCurveSegments) {
-						arc = createSbgnArc(curveSegment);
-						// but many arcs will have the same id, but no id
-						arc.setId(sbmlCurve.getId());
-						// need to determine from getOutputFromClass
-						arc.setClazz("process");
-						
-						// need source/target glyphs, need correct class (not process), no need id
-						sbgnObject.getMap().getArc().add(arc);		
-						
-						// debugging
-						indexOfArc = sbgnObject.getMap().getArc().size() - 1;
-					}
-					
-					// if curve is connected to nothing, we create a fake glyph to connect to the start (for debugging only)
-//					if (reactionGlyph.getListOfSpeciesReferenceGlyphs().size() == 0) {
-//						sbgnReactionGlyph = new Glyph();
-//						sbgnReactionGlyph.setId(reactionGlyph.getId());
-//						// or class could be simple chemical etc.
-//						sbgnReactionGlyph.setClazz("macromolecule");
-//						
-//						sbgnObject.getMap().getGlyph().add(sbgnReactionGlyph);		
-//						
-//						//label.setText(reactionGlyph.getReaction());
-//						//sbgnReactionGlyph.setLabel(label);	
-//						
-//						arc = sbgnObject.getMap().getArc().get(indexOfArc);
-//						arc.setSource(sbgnReactionGlyph);
-//					}						
-					
+					processNode = createSbgnProcessNode(reactionGlyph, listOfCurveSegments);
+					sbgnObject.getMap().getGlyph().add(processNode);	
 				}
+				
+				listOfSpeciesReferenceGlyphs = reactionGlyph.getListOfSpeciesReferenceGlyphs();
+				
+				if (listOfSpeciesReferenceGlyphs.size() > 0) {
+					
+					for (SpeciesReferenceGlyph speciesReferenceGlyph : listOfSpeciesReferenceGlyphs){
+						sbmlCurve = reactionGlyph.getCurve();
+						listOfCurveSegments = sbmlCurve.getListOfCurveSegments();
+						for (CurveSegment curveSegment : listOfCurveSegments) {
+							arc = createSbgnArc(curveSegment);
+							// but many arcs will have the same id, but no id
+							//arc.setId(sbmlCurve.getId());
+							// need to determine from getOutputFromClass
+							arc.setClazz("consumption");
+							
+							// need source/target glyphs, need correct class (not process), no need id
+							sbgnObject.getMap().getArc().add(arc);	
+						}						
+					}
+				}					
 			}
 
 			// create Auxiliary items?
@@ -358,6 +355,75 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 		}
 	}
 	
+	public Glyph createSbgnProcessNode(ReactionGlyph reactionGlyph, ListOf<CurveSegment> listOfCurveSegments) {
+		Glyph processNode;
+		Arc arc;
+		Arc.Start start;
+		Arc.End end;
+		
+		double minCurveXCoord = 0;
+		double maxCurveXCoord = 0;
+		double minCurveYCoord = 0;
+		double maxCurveYCoord = 0;
+		
+		double minXCoord;
+		double maxXCoord;
+		double minYCoord;
+		double maxYCoord;		
+		
+		double startX;
+		double startY;
+		double endX;
+		double endY;
+		
+		int index = 0;
+		
+		for (CurveSegment curveSegment : listOfCurveSegments) {
+			arc = createSbgnArc(curveSegment);
+			
+			start = arc.getStart();
+			end = arc.getEnd();
+			
+			startX = start.getX();
+			startY = start.getY();
+			endX = end.getX();
+			endY = end.getY();
+			
+			minXCoord = Math.min(startX, endX);
+			maxXCoord = Math.max(startX, endX);
+			minYCoord = Math.min(startY, endY);
+			maxYCoord = Math.max(startY, endY);		
+			
+			if (index == 0){
+				minCurveXCoord = minXCoord;
+				maxCurveXCoord = maxXCoord;
+				minCurveYCoord = minYCoord;
+				maxCurveYCoord = maxYCoord;
+			} else {
+				minCurveXCoord = Math.min(minXCoord, minCurveXCoord);
+				maxCurveXCoord = Math.max(maxXCoord, maxCurveXCoord);
+				minCurveYCoord = Math.min(minYCoord, minCurveYCoord);
+				maxCurveYCoord = Math.max(maxYCoord, maxCurveYCoord);
+			}
+			index ++;
+		}
+
+		System.out.format("createSbgnProcessNode dimensions = (%s, %s), (%s, %s) \n", 
+				Double.toString(minCurveXCoord),
+				Double.toString(minCurveYCoord),
+				Double.toString(maxCurveXCoord),
+				Double.toString(maxCurveYCoord));
+		
+		
+		
+		processNode = new Glyph();
+		processNode.setId(reactionGlyph.getId());
+		processNode.setClazz("process");
+		createVoidBBox(processNode);
+		setBBoxDimensions(processNode, (float) minCurveXCoord, (float) maxCurveXCoord, (float) minCurveYCoord, (float) maxCurveYCoord);
+		return processNode;
+	}
+	
 	public void createSbgnBBox(GraphicalObject sbmlGlyph, Glyph glyph) {
 		Bbox bbox = new Bbox();
 		
@@ -392,8 +458,19 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 		bbox.setH(0);
 		bbox.setW(0);
 		g.setBbox(bbox);
-		return;
 	}	
+	
+	private void setBBoxDimensions(Glyph glyph, 
+			float minCurveXCoord, float maxCurveXCoord, float minCurveYCoord, float maxCurveYCoord) {
+		// assume bbox has already been set
+		Bbox bbox = glyph.getBbox();
+				
+		bbox.setX(minCurveXCoord);
+		bbox.setY(minCurveYCoord);
+		bbox.setH(maxCurveYCoord - minCurveYCoord);
+		bbox.setW(maxCurveXCoord - minCurveXCoord);
+		
+	}
 	
 	public Arc createSbgnArc(CurveSegment sbmlGlyph) {
 		Arc arc = new Arc();
