@@ -2,7 +2,6 @@
 <sbgn xmlns="http://sbgn.org/libsbgn/0.2">
     <map>
         <glyph id="CompartmentGlyph_1" class="compartment">
-            <label text="Yeast"/>
             <bbox y="5.0" x="5.0" h="220.0" w="390.0"/>
         </glyph>
         <glyph id="SpeciesGlyph_Glucose" class="macromolecule">
@@ -36,19 +35,19 @@
             <start y="100.0" x="170.0"/>
             <end y="80.0" x="260.0"/>
         </arc>
-        <arc class="consumption">
+        <arc class="production">
             <start y="130.0" x="170.0"/>
             <end y="180.0" x="170.0"/>
         </arc>
-        <arc class="consumption">
+        <arc class="production">
             <start y="130.0" x="170.0"/>
             <end y="150.0" x="260.0"/>
         </arc>
-        <arc class="consumption">
+        <arc class="inhibition">
             <start y="200.0" x="45.0"/>
             <end y="120.0" x="165.0"/>
         </arc>
-        <arc class="consumption">
+        <arc class="catalysis">
             <start y="110.0" x="115.0"/>
             <end y="110.0" x="165.0"/>
         </arc>

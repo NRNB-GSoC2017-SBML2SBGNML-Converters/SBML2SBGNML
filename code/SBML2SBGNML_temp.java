@@ -3,7 +3,6 @@ package org.sbfc.converter.sbml2sbgnml;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.lang.Math;
@@ -52,19 +51,25 @@ import org.sbml.jsbml.ext.layout.Point;
 import org.sbml.jsbml.ext.layout.ReactionGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
+import org.sbml.jsbml.ext.layout.SpeciesReferenceRole;
 import org.sbml.jsbml.ext.layout.TextGlyph;
 import org.xml.sax.SAXException;
 
 public class SBML2SBGNML_temp extends GeneralConverter { 
 	
 	private static Logger logger = Logger.getLogger(SBML2SBGNML_temp.class);
-	
 	private Model sbmlModel;
 	private static SBGNUtils sbu = new SBGNUtils("sbgnml");
-	
+		
 	public static void main(String[] args) throws FileNotFoundException, SAXException, IOException {
 		
 		BasicConfigurator.configure();
+		String sbmlFileNameInput;
+		String outputFile;
+		SBMLDocument sbmlDocument;
+		SBML2SBGNML_temp sbml = new SBML2SBGNML_temp();
+		Sbgn sbgnObject;
+		File f;
 		
 		if (args.length < 1 || args.length > 3) {
 			System.out.println("usage: java org.sbfc.converter.sbml2sbgnml.SBML2SBGN <SBML filename> [SBGNML milestone for output file]");
@@ -73,17 +78,19 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 
 		// temporary
 		//String sbmlFileNameInput = args[0];
-		String sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\Complete_Example.xml";
+		//sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\CompartmentGlyph_example.xml";
+		//sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\SpeciesGlyph_Example.xml";
+		//sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\TextGlyph_Example.xml";
+		//sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\ReactionGlyph_Example.xml";
+		sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\Complete_Example.xml";
+						
+		sbmlDocument = sbml.getSBMLDocument(sbmlFileNameInput);
 		
-		SBML2SBGNML_temp sbml = new SBML2SBGNML_temp();
-				
-		SBMLDocument sbmlDocument = sbml.getSBMLDocument(sbmlFileNameInput);
-
 		if (sbmlDocument == null) {
 			System.exit(1);
 		}
 		
-		String outputFile = sbmlFileNameInput + "_SBGN-ML" ;
+		outputFile = sbmlFileNameInput.replaceAll(".xml", "_SBGN-ML.xml");
 		
 		// visualize JTree
 		try {		
@@ -92,9 +99,9 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 			e.printStackTrace();
 		}		
 		
-		Sbgn sbgnObject = sbml.convertSBGNML(sbmlDocument);	
+		sbgnObject = sbml.convertSBGNML(sbmlDocument);	
 		
-		File f = new File(outputFile);
+		f = new File(outputFile);
 		try {
 			SbgnUtil.writeToFile(sbgnObject, f);
 		} catch (JAXBException e) {
@@ -165,7 +172,6 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 		//System.out.println("listOfLayouts size=" + Integer.toString(sbmlLayoutModel.getLayoutCount()));
 		//System.out.println(sbmlLayoutModel.toString());
 		
-		
 		for (Layout layout : listOfLayouts){
 			sbgnObject = new Sbgn();
 			map = new Map();
@@ -190,7 +196,6 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 				//System.out.println(listOfCompartmentGlyphs.toString());
 				//System.out.println("numCompartmentGlyphs = " + Integer.toString(numCompartmentGlyphs));
 				createSbgnCompartmentGlyphs(sbgnObject, listOfCompartmentGlyphs);
-				
 			}			
 			if (layout.isSetListOfSpeciesGlyphs()){
 				numSpeciesGlyphs = layout.getNumSpeciesGlyphs();
@@ -211,8 +216,6 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 				//System.out.println(listOfReactionGlyphs.toString());
 				createSbgnReactionGlyphs(sbgnObject, listOfReactionGlyphs);
 			}				
-			
-			
 		}
 		
 		// return one of the sbgnObjects?
@@ -232,13 +235,12 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 			
 			label = new Label();
 			label.setText(compartmentGlyph.getCompartment());
-			sbgnCompartmentGlyph.setLabel(label);
+			//sbgnCompartmentGlyph.setLabel(label);
 			
 			createSbgnBBox(compartmentGlyph, sbgnCompartmentGlyph);
 			
 			// create Auxiliary items?
 		}
-
 		// need to keep compartment name
 	}
 	
@@ -298,18 +300,19 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 						listOfCurveSegments = sbmlCurve.getListOfCurveSegments();
 						for (CurveSegment curveSegment : listOfCurveSegments) {
 							arc = createSbgnArc(curveSegment);
-							// but many arcs will have the same id, but no id
-							//arc.setId(sbmlCurve.getId());
-							// need to determine from getOutputFromClass
-							arc.setClazz("consumption");
+							// need role
+							// need to determine from getOutputFromClass between production/consumption etc (todo)
+							String clazz = searchForReactionRole(speciesReferenceGlyph.getSpeciesReferenceRole());
+							arc.setClazz(clazz);
 							
-							// need source/target glyphs, need correct class (not process), no need id
+							// need source/target glyphs without violating syntax?
+							// need bezier (can't do?)
+							// need port
 							sbgnObject.getMap().getArc().add(arc);	
 						}						
 					}
 				}					
 			}
-
 			// create Auxiliary items?
 		}		
 	}
@@ -417,8 +420,6 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 				Double.toString(maxCurveXCoord),
 				Double.toString(maxCurveYCoord));
 		
-		
-		
 		processNode = new Glyph();
 		processNode.setId(reactionGlyph.getId());
 		processNode.setClazz("process");
@@ -450,10 +451,9 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 		bbox.setW((float) width);
 		
 		glyph.setBbox(bbox);
-		
 	}
 	
-	private void createVoidBBox(Glyph g) {
+	public void createVoidBBox(Glyph g) {
 
 		Bbox bbox = new Bbox();
 		bbox.setX(0);
@@ -463,16 +463,16 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 		g.setBbox(bbox);
 	}	
 	
-	private void setBBoxDimensions(Glyph glyph, 
+	public void setBBoxDimensions(Glyph glyph, 
 			float minCurveXCoord, float maxCurveXCoord, float minCurveYCoord, float maxCurveYCoord) {
 		// assume bbox has already been set
 		Bbox bbox = glyph.getBbox();
 				
 		bbox.setX(minCurveXCoord);
 		bbox.setY(minCurveYCoord);
+		// in case H and W is 0, we need +1
 		bbox.setH(maxCurveYCoord - minCurveYCoord + 1);
 		bbox.setW(maxCurveXCoord - minCurveXCoord + 1);
-		
 	}
 	
 	public Arc createSbgnArc(CurveSegment sbmlGlyph) {
@@ -516,6 +516,39 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 		}
 		
 		return -1;
+	}
+	
+	public String searchForReactionRole(SpeciesReferenceRole speciesReferenceRole) {
+		String sbgnClazz = null;
+		int sbo;
+		
+		sbo = speciesReferenceRole.toSBOterm();
+		// substrate
+		if (sbo == 10) {
+			sbgnClazz = "consumption";
+		}
+		// product
+		if (sbo == 11) {
+			sbgnClazz = "production";
+		} 
+		// sidesubstrate
+		if (sbo == 603) {
+			sbgnClazz = "consumption";
+		} 
+		// sideproduct
+		if (sbo == 604) {
+			sbgnClazz = "production";
+		} 
+		// activator
+		if (sbo == 459) {
+			sbgnClazz = "catalysis";
+		} 
+		// inhibitor
+		if (sbo == 20) {
+			sbgnClazz = "inhibition";
+		}
+		
+		return sbgnClazz;
 	}
 	
 	public SBMLDocument getSBMLDocument(String sbmlFileName) {
