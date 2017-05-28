@@ -5,7 +5,7 @@ level="3" version="1" layout:required="false" >
 <model id="TestModel_with_modifiers">
 <listOfReactions>
 <reaction id="Hexokinase" reversible="false" fast="false">
-</reaction
+</reaction>
 </listOfReactions>
 <layout:listOfLayouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1">

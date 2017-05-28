@@ -23,6 +23,7 @@ import org.sbfc.converter.models.SBGNModel;
 import org.sbfc.converter.models.SBMLModel;
 import org.sbfc.converter.utils.sbgn.SBGNUtils;
 import org.sbgn.SbgnUtil;
+import org.sbgn.bindings.Arc;
 import org.sbgn.bindings.Bbox;
 import org.sbgn.bindings.Glyph;
 import org.sbgn.bindings.Label;
@@ -39,6 +40,8 @@ import org.sbml.jsbml.Species;
 import org.xml.sax.SAXException;
 import org.sbml.jsbml.ext.layout.BoundingBox;
 import org.sbml.jsbml.ext.layout.CompartmentGlyph;
+import org.sbml.jsbml.ext.layout.Curve;
+import org.sbml.jsbml.ext.layout.CurveSegment;
 import org.sbml.jsbml.ext.layout.Dimensions;
 import org.sbml.jsbml.ext.layout.GraphicalObject;
 import org.sbml.jsbml.ext.layout.Layout;
@@ -65,7 +68,9 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 			return;
 		}
 
-		String sbmlFileNameInput = args[0];
+		// temporary
+		//String sbmlFileNameInput = args[0];
+		String sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\ReactionGlyph_Example.xml";
 		
 		SBML2SBGNML_temp sbml = new SBML2SBGNML_temp();
 				
@@ -187,11 +192,14 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 				numReactionGlyphs = layout.getNumReactionGlyphs();
 				listOfReactionGlyphs = layout.getListOfReactionGlyphs();
 				//System.out.println(listOfReactionGlyphs.toString());
+				createSbgnReactionGlyphs(sbgnObject, listOfReactionGlyphs);
 			}			
 			if (layout.isSetListOfSpeciesGlyphs()){
 				numSpeciesGlyphs = layout.getNumSpeciesGlyphs();
 				listOfSpeciesGlyphs = layout.getListOfSpeciesGlyphs();
 				//System.out.println(listOfSpeciesGlyphs.toString());
+				System.out.println("numSpeciesGlyphs = " + Integer.toString(numSpeciesGlyphs));
+				createSbgnSpeciesGlyphs(sbgnObject, listOfSpeciesGlyphs);
 			}
 			if (layout.isSetListOfTextGlyphs()){
 				numTextGlyphs = layout.getNumTextGlyphs();
@@ -217,20 +225,90 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 			sbgnObject.getMap().getGlyph().add(sbgnCompartmentGlyph);		
 			
 			label = new Label();
-			label.setText(compartmentGlyph.getId());
+			label.setText(compartmentGlyph.getCompartment());
 			sbgnCompartmentGlyph.setLabel(label);
 			
 			createSbgnBBox(compartmentGlyph, sbgnCompartmentGlyph);
 			
-			// create Auxiliary items
+			// create Auxiliary items?
 		}
 
+		// need to keep compartment name
 	}
 	
-	public void createSbgnBBox(CompartmentGlyph compartmentGlyph, Glyph glyph) {
+	public void createSbgnSpeciesGlyphs(Sbgn sbgnObject, ListOf<SpeciesGlyph> listOfSpeciesGlyphs) {
+		Glyph sbgnSpeciesGlyph;
+		Label label;
+		
+		for (SpeciesGlyph speciesGlyph : listOfSpeciesGlyphs){
+			sbgnSpeciesGlyph = new Glyph();
+			sbgnSpeciesGlyph.setId(speciesGlyph.getId());
+			// or class could be simple chemical etc.
+			sbgnSpeciesGlyph.setClazz("macromolecule");
+			
+			sbgnObject.getMap().getGlyph().add(sbgnSpeciesGlyph);		
+			
+			label = new Label();
+			label.setText(speciesGlyph.getSpecies());
+			sbgnSpeciesGlyph.setLabel(label);
+			
+			createSbgnBBox(speciesGlyph, sbgnSpeciesGlyph);
+			
+			// create Auxiliary items?
+		}
+		
+	}
+	
+	public void createSbgnReactionGlyphs(Sbgn sbgnObject, ListOf<ReactionGlyph> listOfReactionGlyphs) {
+		Glyph sbgnReactionGlyph;
+		Label label;	
+		Arc arc;
+		Curve sbmlCurve;
+		ListOf<CurveSegment> listOfCurveSegments;
+		
+		for (ReactionGlyph reactionGlyph : listOfReactionGlyphs){
+			//sbgnReactionGlyph = new Glyph();
+			//sbgnReactionGlyph.setId(reactionGlyph.getId());
+			// or class could be simple chemical etc.
+			//sbgnReactionGlyph.setClazz("process");
+			
+			//sbgnObject.getMap().getGlyph().add(sbgnReactionGlyph);		
+			
+			label = new Label();
+			if (reactionGlyph.isSetReaction()) {
+				//label.setText(reactionGlyph.getReaction());
+				//sbgnReactionGlyph.setLabel(label);	
+				
+				if (reactionGlyph.isSetCurve()) {
+					sbmlCurve = reactionGlyph.getCurve();
+					listOfCurveSegments = sbmlCurve.getListOfCurveSegments();
+					
+					for (CurveSegment curveSegment : listOfCurveSegments) {
+						arc = createSbgnArc(curveSegment);
+						// but many arcs will have the same id, but no id
+						arc.setId(sbmlCurve.getId());
+						// need to determine from getOutputFromClass
+						arc.setClazz("process");
+						
+						// need source/target glyphs, need correct class (not process), no need id
+						sbgnObject.getMap().getArc().add(arc);							
+					}
+
+				}
+				
+				if (reactionGlyph.isSetListOfSpeciesReferencesGlyphs()) {
+					
+				}
+			}
+
+			// create Auxiliary items?
+		}		
+	}
+	
+	public void createSbgnBBox(GraphicalObject sbmlGlyph, Glyph glyph) {
 		Bbox bbox = new Bbox();
 		
-		BoundingBox boundingBox = compartmentGlyph.getBoundingBox();
+		BoundingBox boundingBox = sbmlGlyph.getBoundingBox();
 		Dimensions dimensions = boundingBox.getDimensions();
 		Point position = boundingBox.getPosition();
 
@@ -251,6 +329,27 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 		
 		glyph.setBbox(bbox);
 		
+	}
+	
+	public Arc createSbgnArc(CurveSegment sbmlGlyph) {
+		Arc arc = new Arc();
+		
+		Arc.Start start;
+		Arc.End end;
+		
+		start = new Arc.Start();
+		end = new Arc.End();
+			
+		// note z will be lost
+		start.setX((float) sbmlGlyph.getStart().getX());
+		start.setY((float) sbmlGlyph.getStart().getY());
+		end.setX((float) sbmlGlyph.getEnd().getX());
+		end.setY((float) sbmlGlyph.getEnd().getY());
+		
+		arc.setStart(start);
+		arc.setEnd(end);
+		
+		return arc;
 	}
 	
 	public SBMLDocument getSBMLDocument(String sbmlFileName) {

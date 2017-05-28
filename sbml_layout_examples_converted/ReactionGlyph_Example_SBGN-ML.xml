@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map>
+        <arc id="" class="process">
+            <start y="100.0" x="170.0"/>
+            <end y="130.0" x="170.0"/>
+        </arc>
+    </map>
+</sbgn>
