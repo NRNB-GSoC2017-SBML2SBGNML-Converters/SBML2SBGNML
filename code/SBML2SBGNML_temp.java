@@ -291,7 +291,10 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 				if (listOfSpeciesReferenceGlyphs.size() > 0) {
 					
 					for (SpeciesReferenceGlyph speciesReferenceGlyph : listOfSpeciesReferenceGlyphs){
-						sbmlCurve = reactionGlyph.getCurve();
+						System.out.format("speciesReferenceGlyph speciesGlyph = %s, speciesReference = %s \n", 
+								speciesReferenceGlyph.getSpeciesGlyph(), speciesReferenceGlyph.getSpeciesReference());
+						
+						sbmlCurve = speciesReferenceGlyph.getCurve();
 						listOfCurveSegments = sbmlCurve.getListOfCurveSegments();
 						for (CurveSegment curveSegment : listOfCurveSegments) {
 							arc = createSbgnArc(curveSegment);
@@ -467,8 +470,8 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 				
 		bbox.setX(minCurveXCoord);
 		bbox.setY(minCurveYCoord);
-		bbox.setH(maxCurveYCoord - minCurveYCoord);
-		bbox.setW(maxCurveXCoord - minCurveXCoord);
+		bbox.setH(maxCurveYCoord - minCurveYCoord + 1);
+		bbox.setW(maxCurveXCoord - minCurveXCoord + 1);
 		
 	}
 	
@@ -489,6 +492,12 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 		
 		arc.setStart(start);
 		arc.setEnd(end);
+		
+		System.out.format("createSbgnArc dimensions = (%s, %s), (%s, %s) \n", 
+				Double.toString(start.getX()),
+				Double.toString(start.getY()),
+				Double.toString(end.getX()),
+				Double.toString(end.getY()));		
 		
 		return arc;
 	}

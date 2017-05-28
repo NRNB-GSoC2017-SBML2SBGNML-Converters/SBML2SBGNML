@@ -26,31 +26,31 @@
             <bbox y="100.0" x="50.0" h="20.0" w="60.0"/>
         </glyph>
         <glyph id="glyph_Hexokinase" class="process">
-            <bbox y="100.0" x="170.0" h="30.0" w="30.0"/>
+            <bbox y="100.0" x="170.0" h="31.0" w="1.0"/>
         </glyph>
         <arc class="consumption">
             <start y="100.0" x="170.0"/>
-            <end y="130.0" x="170.0"/>
+            <end y="50.0" x="170.0"/>
         </arc>
         <arc class="consumption">
             <start y="100.0" x="170.0"/>
-            <end y="130.0" x="170.0"/>
+            <end y="80.0" x="260.0"/>
         </arc>
         <arc class="consumption">
-            <start y="100.0" x="170.0"/>
-            <end y="130.0" x="170.0"/>
+            <start y="130.0" x="170.0"/>
+            <end y="180.0" x="170.0"/>
         </arc>
         <arc class="consumption">
-            <start y="100.0" x="170.0"/>
-            <end y="130.0" x="170.0"/>
+            <start y="130.0" x="170.0"/>
+            <end y="150.0" x="260.0"/>
         </arc>
         <arc class="consumption">
-            <start y="100.0" x="170.0"/>
-            <end y="130.0" x="170.0"/>
+            <start y="200.0" x="45.0"/>
+            <end y="120.0" x="165.0"/>
         </arc>
         <arc class="consumption">
-            <start y="100.0" x="170.0"/>
-            <end y="130.0" x="170.0"/>
+            <start y="110.0" x="115.0"/>
+            <end y="110.0" x="165.0"/>
         </arc>
     </map>
 </sbgn>
