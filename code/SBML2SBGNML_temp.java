@@ -78,14 +78,16 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 			return;
 		}
 
+		String workingDirectory = System.getProperty("user.dir");
+
 		// temporary
 		//String sbmlFileNameInput = args[0];
-		//sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\CompartmentGlyph_example.xml";
-		//sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\SpeciesGlyph_Example.xml";
-		//sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\TextGlyph_Example.xml";
-		//sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\ReactionGlyph_Example.xml";
-		//sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\Complete_Example.xml";
-		sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\GeneralGlyph_Example.xml";
+		//sbmlFileNameInput = "workingDirectory\\..\\examples\\sbml_layout_examples\\CompartmentGlyph_example.xml";
+		//sbmlFileNameInput = "workingDirectory\\..\\examples\\sbml_layout_examples\\SpeciesGlyph_Example.xml";
+		//sbmlFileNameInput = "workingDirectory\\..\\examples\\sbml_layout_examples\\TextGlyph_Example.xml";
+		//sbmlFileNameInput = "workingDirectory\\..\\examples\\sbml_layout_examples\\ReactionGlyph_Example.xml";
+		//sbmlFileNameInput = "workingDirectory\\..\\examples\\sbml_layout_examples\\Complete_Example.xml";
+		sbmlFileNameInput = "workingDirectory\\..\\examples\\sbml_layout_examples\\GeneralGlyph_Example.xml";
 						
 		sbmlDocument = sbml.getSBMLDocument(sbmlFileNameInput);
 		
