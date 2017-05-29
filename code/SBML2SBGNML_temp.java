@@ -44,11 +44,13 @@ import org.sbml.jsbml.ext.layout.CompartmentGlyph;
 import org.sbml.jsbml.ext.layout.Curve;
 import org.sbml.jsbml.ext.layout.CurveSegment;
 import org.sbml.jsbml.ext.layout.Dimensions;
+import org.sbml.jsbml.ext.layout.GeneralGlyph;
 import org.sbml.jsbml.ext.layout.GraphicalObject;
 import org.sbml.jsbml.ext.layout.Layout;
 import org.sbml.jsbml.ext.layout.LayoutModelPlugin;
 import org.sbml.jsbml.ext.layout.Point;
 import org.sbml.jsbml.ext.layout.ReactionGlyph;
+import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceRole;
@@ -82,7 +84,8 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 		//sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\SpeciesGlyph_Example.xml";
 		//sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\TextGlyph_Example.xml";
 		//sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\ReactionGlyph_Example.xml";
-		sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\Complete_Example.xml";
+		//sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\Complete_Example.xml";
+		sbmlFileNameInput = "C:\\Users\\HY\\Documents\\SBML2SBGN\\SBML2SBGNML\\sbml_layout_examples\\GeneralGlyph_Example.xml";
 						
 		sbmlDocument = sbml.getSBMLDocument(sbmlFileNameInput);
 		
@@ -185,11 +188,6 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 			}
 			
 			// the order of reading the lists matters
-			if (layout.isSetListOfAdditionalGraphicalObjects()){
-				numAdditionalGraphicalObject = layout.getAdditionalGraphicalObjectCount();
-				listOfAdditionalGraphicalObjects = layout.getListOfAdditionalGraphicalObjects();
-				//System.out.println(listOfAdditionalGraphicalObjects.toString());
-			}
 			if (layout.isSetListOfCompartmentGlyphs()){
 				numCompartmentGlyphs = layout.getNumCompartmentGlyphs();
 				listOfCompartmentGlyphs = layout.getListOfCompartmentGlyphs();
@@ -204,6 +202,12 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 				//System.out.println("numSpeciesGlyphs = " + Integer.toString(numSpeciesGlyphs));
 				createSbgnSpeciesGlyphs(sbgnObject, listOfSpeciesGlyphs);
 			}
+			if (layout.isSetListOfAdditionalGraphicalObjects()){
+				numAdditionalGraphicalObject = layout.getAdditionalGraphicalObjectCount();
+				listOfAdditionalGraphicalObjects = layout.getListOfAdditionalGraphicalObjects();
+				//System.out.println(listOfAdditionalGraphicalObjects.size());
+				createGeneralGlyphs(sbgnObject, listOfAdditionalGraphicalObjects);
+			}			
 			if (layout.isSetListOfTextGlyphs()){
 				numTextGlyphs = layout.getNumTextGlyphs();
 				listOfTextGlyphs = layout.getListOfTextGlyphs();
@@ -215,7 +219,7 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 				listOfReactionGlyphs = layout.getListOfReactionGlyphs();
 				//System.out.println(listOfReactionGlyphs.toString());
 				createSbgnReactionGlyphs(sbgnObject, listOfReactionGlyphs);
-			}				
+			}			
 		}
 		
 		// return one of the sbgnObjects?
@@ -276,7 +280,6 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 		
 		for (ReactionGlyph reactionGlyph : listOfReactionGlyphs){
 			
-			label = new Label();
 			if (reactionGlyph.isSetReaction()) {
 				
 				// create a process node from dimensions of the curve
@@ -305,9 +308,9 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 							String clazz = searchForReactionRole(speciesReferenceGlyph.getSpeciesReferenceRole());
 							arc.setClazz(clazz);
 							
-							// need source/target glyphs without violating syntax?
+							// need source/target glyphs without violating syntax? i.e process nodes always connect arcs?
 							// need bezier (can't do?)
-							// need port
+							// need port (is it useful?)
 							sbgnObject.getMap().getArc().add(arc);	
 						}						
 					}
@@ -357,6 +360,65 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 				sbgnGlyph.setLabel(label);
 				
 				createVoidBBox(sbgnGlyph);				
+			}
+		}
+	}
+	
+	public void createGeneralGlyphs(Sbgn sbgnObject, ListOf<GraphicalObject> listOfAdditionalGraphicalObjects) {
+		GeneralGlyph generalGlyph;
+		BoundingBox bbox;
+		Curve sbmlCurve;
+		ListOf<ReferenceGlyph> listOfReferenceGlyphs;
+		ListOf<GraphicalObject> listOfSubGlyphs;	
+		ListOf<CurveSegment> listOfCurveSegments;
+		
+		String referenceGlyphId;
+		String glyph;
+		String reference;
+		String role;
+		Arc arc;
+		
+		// treat each generalGlyph like a ReactionGlyph
+		for (GraphicalObject graphicalObject : listOfAdditionalGraphicalObjects) {
+			System.out.println("createGeneralGlyphs " + graphicalObject.toString());
+			bbox = graphicalObject.getBoundingBox();
+			
+			generalGlyph = (GeneralGlyph) graphicalObject;
+
+			if (generalGlyph.isSetCurve()){
+				
+			}
+			if (generalGlyph.isSetListOfReferenceGlyphs()){
+				listOfReferenceGlyphs = generalGlyph.getListOfReferenceGlyphs();
+				
+				for (ReferenceGlyph referenceGlyph : listOfReferenceGlyphs) {
+					referenceGlyphId = referenceGlyph.getId();
+					glyph = referenceGlyph.getGlyph();
+					reference = referenceGlyph.getReference();
+					role = referenceGlyph.getRole();
+					
+					System.out.format("createGeneralGlyphs id=%s, glyph=%s, reference=%s, role=%s \n", 
+							referenceGlyphId, glyph, reference, role);
+					
+					sbmlCurve = referenceGlyph.getCurve();
+					listOfCurveSegments = sbmlCurve.getListOfCurveSegments();
+					for (CurveSegment curveSegment : listOfCurveSegments) {
+						arc = createSbgnArc(curveSegment);
+						// need to determine from getOutputFromClass between production/consumption etc (todo)
+						String clazz = searchForReactionRole(role);
+						arc.setClazz(clazz);
+						
+						// need source/target glyphs without violating syntax? i.e process nodes always connect arcs?
+						// need bezier (can't do?)
+						// need port (is it useful?)
+						// what is referenceGlyph.getReference() used for?
+						// If regular Species are connected by ReferenceGlyphs, then the shape of the BBox changes?
+						sbgnObject.getMap().getArc().add(arc);						
+					}
+				}
+			}
+			if (generalGlyph.isSetListOfSubGlyphs()){
+
 			}
 		}
 	}
@@ -549,6 +611,30 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 		}
 		
 		return sbgnClazz;
+	}
+	
+	public String searchForReactionRole(String speciesReferenceRole) {
+		String sbgnClazz = null;
+
+		if (speciesReferenceRole.equals("substrate")) {
+			sbgnClazz = "consumption";
+		} if (speciesReferenceRole.equals("product")) {
+			sbgnClazz = "production";
+		} if (speciesReferenceRole.equals("sidesubstrate")) {
+			sbgnClazz = "consumption";
+		} if (speciesReferenceRole.equals("sideproduct")) {
+			sbgnClazz = "production";
+		} if (speciesReferenceRole.equals("activator")) {
+			sbgnClazz = "catalysis";
+		} if (speciesReferenceRole.equals("inhibitor")) {
+			sbgnClazz = "inhibition";
+		} if (speciesReferenceRole.equals("modifier")) {
+			sbgnClazz = "modulation";	// not sure
+		} if (speciesReferenceRole.equals("undefined")) {
+			sbgnClazz = "unknown influence";
+		}
+		
+		return sbgnClazz;		
 	}
 	
 	public SBMLDocument getSBMLDocument(String sbmlFileName) {

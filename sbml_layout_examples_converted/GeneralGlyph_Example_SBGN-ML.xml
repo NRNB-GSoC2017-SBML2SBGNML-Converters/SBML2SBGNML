@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map>
+        <glyph id="sGlyph_0" class="macromolecule">
+            <label text="Node0"/>
+            <bbox y="18.0" x="16.0" h="40.0" w="62.0"/>
+        </glyph>
+        <glyph id="sGlyph_1" class="macromolecule">
+            <label text="Node1"/>
+            <bbox y="18.0" x="161.0" h="40.0" w="62.0"/>
+        </glyph>
+        <arc class="inhibition">
+            <start y="38.0" x="86.0"/>
+            <end y="38.0" x="153.0"/>
+        </arc>
+    </map>
+</sbgn>
