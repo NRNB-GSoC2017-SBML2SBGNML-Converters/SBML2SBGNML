@@ -1,3 +1,3 @@
 # SBML-SBGNML Converters
 ## How to run the converters
-First, download the SBFC framework. Load the project in an IDE such as Eclipse. Add all JAR files in sbfc/lib, sbfc/lib/pathviso to Java Build Path. Go to [code](code), copy SBML2SBGNML_temp.java to src/org/sbfc/converter/sbml2sbgnml of the SBFC project. TODO: specify input file path in a Properties file. Run the `main()` method. The converted file will be located in the same directory as the input file.
+First, download the SBFC framework. Load the project in an IDE such as Eclipse. Add all JAR files in sbfc/lib, sbfc/lib/pathviso to Java Build Path. Go to [code](code), copy SBML2SBGNML_temp.java to src/org/sbfc/converter/sbml2sbgnml of the SBFC project. Specify input file path (relative path) in Run Configurations Arguments. Run the `main()` method. The converted file will be located in the same directory as the input file.

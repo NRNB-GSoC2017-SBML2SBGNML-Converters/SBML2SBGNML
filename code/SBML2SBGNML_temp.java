@@ -74,21 +74,24 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 		File f;
 		
 		if (args.length < 1 || args.length > 3) {
-			System.out.println("usage: java org.sbfc.converter.sbml2sbgnml.SBML2SBGN <SBML filename> [SBGNML milestone for output file]");
+			System.out.println("usage: java org.sbfc.converter.sbml2sbgnml.SBML2SBGN <SBML filename>. "
+					+ "Use relative path, such as: /examples/sbml_layout_examples/GeneralGlyph_Example.xml");
 			return;
 		}
 
 		String workingDirectory = System.getProperty("user.dir");
 
 		// temporary
-		//String sbmlFileNameInput = args[0];
 		//sbmlFileNameInput = "workingDirectory\\..\\examples\\sbml_layout_examples\\CompartmentGlyph_example.xml";
 		//sbmlFileNameInput = "workingDirectory\\..\\examples\\sbml_layout_examples\\SpeciesGlyph_Example.xml";
 		//sbmlFileNameInput = "workingDirectory\\..\\examples\\sbml_layout_examples\\TextGlyph_Example.xml";
 		//sbmlFileNameInput = "workingDirectory\\..\\examples\\sbml_layout_examples\\ReactionGlyph_Example.xml";
 		//sbmlFileNameInput = "workingDirectory\\..\\examples\\sbml_layout_examples\\Complete_Example.xml";
-		sbmlFileNameInput = "workingDirectory\\..\\examples\\sbml_layout_examples\\GeneralGlyph_Example.xml";
-						
+		//sbmlFileNameInput = "workingDirectory\\..\\examples\\sbml_layout_examples\\GeneralGlyph_Example.xml";
+		
+		sbmlFileNameInput = args[0];
+		sbmlFileNameInput = workingDirectory + "\\" + sbmlFileNameInput;	
+		
 		sbmlDocument = sbml.getSBMLDocument(sbmlFileNameInput);
 		
 		if (sbmlDocument == null) {
