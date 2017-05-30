@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map>
+        <glyph id="CompartmentGlyph_cytosol" class="compartment">
+            <bbox y="5.0" x="5.0" h="120.0" w="590.0"/>
+        </glyph>
+        <glyph id="sGlyph_0" class="macromolecule">
+            <label text="E"/>
+            <bbox y="18.0" x="16.0" h="40.0" w="62.0"/>
+        </glyph>
+        <glyph id="sGlyph_1" class="macromolecule">
+            <label text="S"/>
+            <bbox y="68.0" x="16.0" h="40.0" w="62.0"/>
+        </glyph>
+        <glyph id="sGlyph_2" class="macromolecule">
+            <label text="ES"/>
+            <bbox y="18.0" x="161.0" h="40.0" w="62.0"/>
+        </glyph>
+        <glyph id="sGlyph_3" class="macromolecule">
+            <label text="E"/>
+            <bbox y="18.0" x="300.0" h="40.0" w="62.0"/>
+        </glyph>
+        <glyph id="sGlyph_4" class="macromolecule">
+            <label text="P"/>
+            <bbox y="68.0" x="300.0" h="40.0" w="62.0"/>
+        </glyph>
+        <glyph id="Reaction1" class="process">
+            <extension>
+                <math:math xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns="http://www.w3.org/1998/Math/MathML">
+  <apply>
+    <times/>
+    <ci> cytosol </ci>
+    <apply>
+      <minus/>
+      <apply>
+        <times/>
+        <ci> kon </ci>
+        <ci> E </ci>
+        <ci> S </ci>
+      </apply>
+      <apply>
+        <times/>
+        <ci> koff </ci>
+        <ci> ES </ci>
+      </apply>
+    </apply>
+  </apply>
+</math:math>
+            </extension>
+            <bbox y="60.0" x="118.0" h="1.0" w="11.0"/>
+        </glyph>
+        <arc class="consumption">
+            <start y="38.0" x="80.0"/>
+            <end y="60.0" x="118.0"/>
+        </arc>
+    </map>
+</sbgn>

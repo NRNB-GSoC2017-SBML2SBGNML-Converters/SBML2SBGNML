@@ -3,6 +3,7 @@ package org.sbfc.converter.sbml2sbgnml;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.StringReader;
 import java.util.HashMap;
 import java.util.List;
 import java.lang.Math;
@@ -13,6 +14,9 @@ import javax.swing.JTree;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.xml.bind.JAXBException;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.XMLStreamException;
 
 import org.apache.log4j.BasicConfigurator;
@@ -30,7 +34,9 @@ import org.sbgn.bindings.Bbox;
 import org.sbgn.bindings.Glyph;
 import org.sbgn.bindings.Label;
 import org.sbgn.bindings.Map;
+import org.sbgn.bindings.SBGNBase;
 import org.sbgn.bindings.Sbgn;
+import org.sbgn.bindings.SBGNBase.Extension;
 import org.sbml.jsbml.ListOf;
 import org.sbml.jsbml.Model;
 import org.sbml.jsbml.Reaction;
@@ -55,6 +61,9 @@ import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceRole;
 import org.sbml.jsbml.ext.layout.TextGlyph;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 public class SBML2SBGNML_temp extends GeneralConverter { 
@@ -276,17 +285,19 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 	}
 	
 	public void createSbgnReactionGlyphs(Sbgn sbgnObject, ListOf<ReactionGlyph> listOfReactionGlyphs) {
-		Glyph processNode;
+		Glyph processNode = null;
 		Label label;	
 		Arc arc;
 		Curve sbmlCurve;
 		ListOf<CurveSegment> listOfCurveSegments;
 		ListOf<SpeciesReferenceGlyph> listOfSpeciesReferenceGlyphs;
 		
+		Reaction reaction;
+		
 		for (ReactionGlyph reactionGlyph : listOfReactionGlyphs){
 			
 			if (reactionGlyph.isSetReaction()) {
-				
+			
 				// create a process node from dimensions of the curve
 				if (reactionGlyph.isSetCurve()) {
 					sbmlCurve = reactionGlyph.getCurve();
@@ -319,7 +330,14 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 							sbgnObject.getMap().getArc().add(arc);	
 						}						
 					}
-				}					
+				}	
+				
+				reaction = (Reaction) reactionGlyph.getReactionInstance();
+				if (reaction.getKineticLaw() != null && reactionGlyph.isSetCurve()) {
+
+					String math = reaction.getKineticLaw().getMathMLString();
+					addExtensionElement(processNode, math);
+				}
 			}
 			// create Auxiliary items?
 		}		
@@ -348,6 +366,7 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 			label.setText(text);
 			
 			if (textGlyph.isSetGraphicalObject()) {
+				//try{id = textGlyph.getGraphicalObjectInstance().getId();}catch(Exception e){System.out.format("Exception: %s \n",textGlyph.toString());}
 				id = textGlyph.getGraphicalObjectInstance().getId();
 				listOfGlyphs = sbgnObject.getMap().getGlyph();
 				indexOfSpeciesGlyph = searchForIndex(listOfGlyphs, id);
@@ -657,6 +676,61 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 
 		return document;
 	}	
+	
+	/**
+	 * Add an {@link Extension} tag for an {@link SBGNBase} object with a {@link Element} inside. If the {@link Extension} is alredy present 
+	 * for the object, a new one is created, the {@link Element} is simply added otherwise.
+	 * The String will have to be in a xml structure compliant.
+	 * 
+	 * @param {@link SBGNbase} base
+	 * @param {@link String} elementString
+	 */
+	private static void addExtensionElement(SBGNBase base, String elementString) {
+		
+		// ... and add it as extension for the SBGN-ML glyph
+		Extension ex = new Extension();
+
+		// if the Extension exists alredy
+		if ( base.getExtension() != null ) {
+			ex = base.getExtension();
+		}
+		
+		// source: http://www.java2s.com/Code/JavaAPI/org.w3c.dom/DocumentgetDocumentElement.htm
+		// prepare a builder factory, details have to be set
+	    DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+	    builderFactory.setNamespaceAware(false);       // Set namespace aware
+	    builderFactory.setValidating(false);           // and validating parser features
+	    builderFactory.setIgnoringElementContentWhitespace(false); 
+		
+	    DocumentBuilder builder = null;
+
+		try {
+			builder = builderFactory.newDocumentBuilder();  // Create the parser
+		} catch(ParserConfigurationException exception) {
+			exception.printStackTrace();
+		}
+		Document xmlDoc = null;
+		
+		try {
+			xmlDoc = builder.parse(new InputSource(new StringReader(elementString)));
+
+		} catch(SAXException exception) {
+			exception.printStackTrace();
+
+		} catch(IOException exception) {
+			exception.printStackTrace();
+		}
+		
+		// finally we have our dom element
+		Element e = xmlDoc.getDocumentElement();
+		
+		// fill the list<Element> of Extension with our dom element
+		ex.getAny().add(e);
+
+		// set the Extension for the SBGNBase
+		base.setExtension(ex);
+		
+	}
 	
 	@Override
 	public GeneralModel convert(GeneralModel model) throws ConversionException, ReadModelException {
