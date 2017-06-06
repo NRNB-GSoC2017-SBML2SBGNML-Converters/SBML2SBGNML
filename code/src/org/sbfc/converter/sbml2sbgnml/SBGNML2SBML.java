@@ -20,6 +20,7 @@ import org.sbml.jsbml.Annotation;
 import org.sbml.jsbml.CVTerm;
 import org.sbml.jsbml.CVTerm.Qualifier;
 import org.sbml.jsbml.CVTerm.Type;
+import org.sbml.jsbml.Compartment;
 import org.sbml.jsbml.ListOf;
 import org.sbml.jsbml.Model;
 import org.sbml.jsbml.Reaction;
@@ -29,6 +30,7 @@ import org.sbml.jsbml.SBMLWriter;
 import org.sbml.jsbml.Species;
 import org.sbml.jsbml.SpeciesReference;
 import org.sbml.jsbml.ext.layout.BoundingBox;
+import org.sbml.jsbml.ext.layout.CompartmentGlyph;
 import org.sbml.jsbml.ext.layout.Curve;
 import org.sbml.jsbml.ext.layout.CurveSegment;
 import org.sbml.jsbml.ext.layout.Dimensions;
@@ -40,6 +42,7 @@ import org.sbml.jsbml.ext.layout.ReactionGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceRole;
+import org.sbml.jsbml.ext.layout.TextGlyph;
 import org.sbgn.SbgnUtil;
 
 public class SBGNML2SBML {
@@ -47,11 +50,18 @@ public class SBGNML2SBML {
 	HashMap<String, Glyph> entityPoolNodes = new HashMap<String, Glyph>();
 	HashMap<String, Arc> inwardArcs = new HashMap<String, Arc>();
 	HashMap<String, Arc> outwardArcs = new HashMap<String, Arc>();
-	HashMap<String, String> glyphMap = new HashMap<String, String>(40);
-	HashMap<String, String> arcMap = new HashMap<String, String>(16);
+	HashMap<String, Arc> undirectedArcs = new HashMap<String, Arc>();
+	HashMap<String, Glyph> compartments = new HashMap<String, Glyph>();
+	//HashMap<String, String> glyphMap = new HashMap<String, String>(40);
+	//HashMap<String, String> arcMap = new HashMap<String, String>(16);
 	Map map;
 	Model model;
 	Layout layout;
+	Double dimensionX;
+	Double dimensionY;
+	Double dimensionZ;
+	int numberOfSpeciesReferences;
+	int numberOfEntities;
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		String sbgnFileNameInput;
@@ -92,7 +102,7 @@ public class SBGNML2SBML {
 		
 		sbmlDocument = new SBMLDocument(3, 1);
 		sbmlDocument.setModel(converter.model);
-		Dimensions dimensions = new Dimensions(400, 200, 0, 3, 1);
+		Dimensions dimensions = new Dimensions(converter.dimensionX, converter.dimensionY, converter.dimensionZ, 3, 1);
 		converter.layout.setDimensions(dimensions);
 		sbmlWriter = new SBMLWriter();
 		try {
@@ -114,42 +124,13 @@ public class SBGNML2SBML {
 		this.model = new Model(3, 1);
 		LayoutModelPlugin plugin = (LayoutModelPlugin) model.getPlugin("layout");
 		this.layout = plugin.createLayout();
+		dimensionX = 0.0;
+		dimensionY = 0.0;
+		dimensionZ = 0.0;
+		numberOfSpeciesReferences = 0;
+		numberOfEntities = 0;
 	}
 		
-	public Boolean isProcessNode(String clazz) {
-		if (clazz.equals("process")) {
-			return true;
-		} else if (clazz.equals("omitted process")) {
-			return true;
-		} else if (clazz.equals("uncertain process")) {
-			return true;
-		} else if (clazz.equals("association")) {
-			return true;
-		} else if (clazz.equals("dissociation")) {
-			return true;
-		} else if (clazz.equals("phenotype")) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	public Boolean isInwardArc(String clazz) {
-		if (clazz.equals("consumption")) {
-			return true;
-		} else {
-			return false;
-		} 
-	}
-	
-	public Boolean isOutwardArc(String clazz) {
-		if (clazz.equals("production")) {
-			return true;
-		} else {
-			return false;
-		} 		
-	}
-	
 	public void convertToSBML() {
 		List<Glyph> listOfGlyphs = map.getGlyph();
 		List<Arc> listOfArcs = map.getArc();
@@ -158,12 +139,21 @@ public class SBGNML2SBML {
 		
 		for (Glyph glyph: listOfGlyphs) {
 			id = glyph.getId();
+			if (id == null) {
+				id = "Entities" + Integer.toString(this.numberOfEntities);
+				glyph.setId(id);
+				//System.out.format("===Entities id=%s \n", id);
+			}				
+			numberOfEntities++;
 			clazz = glyph.getClazz();
 			System.out.format("glyph clazz=%s \n", clazz);
 			
 			if (isProcessNode(clazz)) {
 				processNodes.put(id, glyph);
-				System.out.format("processNodes size=%d \n", processNodes.size());
+				//System.out.format("processNodes size=%d \n", processNodes.size());
+			} else if (clazz.equals("compartment")) {
+				compartments.put(id, glyph);
+				System.out.format("===Entities id=%s \n", id);
 			} else {
 				entityPoolNodes.put(id, glyph);
 			}
@@ -171,15 +161,25 @@ public class SBGNML2SBML {
 		
 		for (Arc arc: listOfArcs) {
 			id = arc.getId();
+			if (id == null) {
+				id = "SpeciesReferences" + Integer.toString(this.numberOfSpeciesReferences);
+				arc.setId(id);
+				//System.out.format("===SpeciesReferences id=%s \n", id);
+			}				
+			this.numberOfSpeciesReferences++;			
+			
 			clazz = arc.getClazz();
 			
-			if (isInwardArc(clazz)) {
+			if (arc.getTarget() instanceof Glyph && arc.getSource() instanceof Glyph) {
+				undirectedArcs.put(id, arc);
+			} else if (isInwardArc(clazz)) {
 				inwardArcs.put(id, arc);
 			} else if (isOutwardArc(clazz)) {
 				outwardArcs.put(id, arc);
-			}			
+			} 		
 		}		
 		
+		createCompartments();
 		createSpecies();
 		createReactions();
 	}
@@ -194,10 +194,9 @@ public class SBGNML2SBML {
 		String id;
 		String name = "";
 		String clazz; 
-		Annotation annotation;
-		CVTerm cvTerm;
 		BoundingBox boundingBox;
 		Bbox bbox;
+		TextGlyph textGlyph;
 		
 		for (String key : entityPoolNodes.keySet()) {
 			glyph = entityPoolNodes.get(key);
@@ -205,18 +204,17 @@ public class SBGNML2SBML {
 				name = glyph.getLabel().getText();
 			}
 			clazz = glyph.getClazz();
+			// Species id
 			id = key;
 			
 			species = new Species(id, name, 3, 1);
-			annotation = species.getAnnotation();
-			cvTerm = new CVTerm(Type.BIOLOGICAL_QUALIFIER, Qualifier.BQB_IS_VERSION_OF);
-			// should be urn
-			cvTerm.addResource(clazz);
-			annotation.addCVTerm(cvTerm);
+			addAnnotation(species, clazz);
+			addSBO(species, clazz);
 			listOfSpecies.add(species);
 			
 			speciesGlyph = new SpeciesGlyph();
 			speciesGlyph.setId(id+"_Glyph");
+			speciesGlyph.setSpecies(species);
 			bbox = glyph.getBbox();
 			boundingBox = new BoundingBox();
 			// horizontal?
@@ -224,6 +222,8 @@ public class SBGNML2SBML {
 			boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);
 			speciesGlyph.setBoundingBox(boundingBox);
 			listOfSpeciesGlyphs.add(speciesGlyph);
+			
+			createTextGlyph(species, speciesGlyph);
 		}
 	}
 	
@@ -258,6 +258,7 @@ public class SBGNML2SBML {
 		
 		for (String key: processNodes.keySet()) {
 			glyph = processNodes.get(key);
+			// Reaction id
 			id = glyph.getId();
 			reaction = new Reaction();
 			
@@ -279,12 +280,13 @@ public class SBGNML2SBML {
 			reactionGlyph.setCurve(curve);
 			listOfReactionGlyphs.add(reactionGlyph);
 			
-			System.out.format("listOfReactions size=%s \n", listOfReactions.size());
-			System.out.format("listOfReactionGlyphs size=%s \n", layout.getListOfReactionGlyphs().size());
+			//System.out.format("listOfReactions size=%s \n", listOfReactions.size());
+			//System.out.format("listOfReactionGlyphs size=%s \n", layout.getListOfReactionGlyphs().size());
 			
 		}		
 		for (String key: inwardArcs.keySet()) {
 			arc = inwardArcs.get(key);
+			// SpeciesReference id
 			id = key;
 			source = arc.getSource();
 			target = arc.getTarget();
@@ -293,40 +295,243 @@ public class SBGNML2SBML {
 			targetPort = (Port) target;
 			
 			speciesReference = new SpeciesReference();
-			speciesReference.setId(id);
 			species = findSpecies(model.getListOfSpecies(), sourceGlyph.getId());
+			speciesReference.setId(id);
 			speciesReference.setSpecies(species);
 			
 			reactionId = targetPort.getId().substring(0, targetPort.getId().indexOf("."));
-			System.out.format("reactionId=%s \n", reactionId);
+			//System.out.format("reactionId=%s \n", reactionId);
 			reaction = findReaction(model.getListOfReactions(), reactionId);
 			reaction.addReactant(speciesReference);
 			
-			speciesReferenceGlyph = new SpeciesReferenceGlyph();
-			speciesReferenceGlyph.setId(id+"_Glyph");
-			speciesReferenceGlyph.setRole(searchForReactionRole(arc.getClazz()));
-			speciesReferenceGlyph.setSpeciesGlyph(sourceGlyph.getId()+"_Glyph");
-			speciesReferenceGlyph.setSpeciesReference(speciesReference);
+			speciesReferenceGlyph = createSpeciesReferenceGlyph(id, arc, speciesReference, sourceGlyph);
 			
-			start = arc.getStart();
-			//next = arc.getNext();
-			end = arc.getEnd();
-			curve = new Curve();
-			curveSegment = new LineSegment();
-			point = new Point(start.getX(), start.getY());
-			curveSegment.setStart(point);
-			point = new Point(end.getX(), end.getY());
-			curveSegment.setEnd(point);			
-			curve.addCurveSegment(curveSegment);
-			
+			curve = createSpeciesReferenceCurve(arc);
 			speciesReferenceGlyph.setCurve(curve);
 			reactionGlyph = findReactionGlyph(layout.getListOfReactionGlyphs(), reactionId+"_Glyph");
 			reactionGlyph.addSpeciesReferenceGlyph(speciesReferenceGlyph);
-			
 		}	
 		for (String key: outwardArcs.keySet()) {
+			arc = outwardArcs.get(key);
+			// SpeciesReference id
+			id = key;
+			source = arc.getSource();
+			target = arc.getTarget();
 			
+			sourcePort = (Port) source;
+			targetGlyph = (Glyph) target;	
+			
+			speciesReference = new SpeciesReference();
+			species = findSpecies(model.getListOfSpecies(), targetGlyph.getId());
+			speciesReference.setId(id);
+			speciesReference.setSpecies(species);
+			
+			reactionId = sourcePort.getId().substring(0, sourcePort.getId().indexOf("."));
+			//System.out.format("reactionId=%s \n", reactionId);
+			reaction = findReaction(model.getListOfReactions(), reactionId);
+			reaction.addProduct(speciesReference);
+			
+			speciesReferenceGlyph = createSpeciesReferenceGlyph(id, arc, speciesReference, targetGlyph);
+			
+			curve = createSpeciesReferenceCurve(arc);
+			speciesReferenceGlyph.setCurve(curve);
+			reactionGlyph = findReactionGlyph(layout.getListOfReactionGlyphs(), reactionId+"_Glyph");
+			reactionGlyph.addSpeciesReferenceGlyph(speciesReferenceGlyph);			
 		}
+		for (String key: undirectedArcs.keySet()) {
+			arc = undirectedArcs.get(key);
+			// SpeciesReference id
+			id = key;
+			//System.out.format("undirectedArcs id=%s arc=%s \n", id, arc.getId());
+			source = arc.getSource();
+			target = arc.getTarget();
+			
+			sourceGlyph = (Glyph) source;
+			// assuming target is a process node, may not be true
+			targetGlyph = (Glyph) target;	
+			
+			speciesReference = new SpeciesReference();
+			species = findSpecies(model.getListOfSpecies(), sourceGlyph.getId());
+			speciesReference.setId(id);
+			speciesReference.setSpecies(species);
+			
+			reactionId = targetGlyph.getId();
+			//System.out.format("reactionId=%s \n", reactionId);
+			reaction = findReaction(model.getListOfReactions(), reactionId);
+			reaction.addReactant(speciesReference);
+			
+			speciesReferenceGlyph = createSpeciesReferenceGlyph(id, arc, speciesReference, sourceGlyph);
+			
+			curve = createSpeciesReferenceCurve(arc);
+			speciesReferenceGlyph.setCurve(curve);
+			reactionGlyph = findReactionGlyph(layout.getListOfReactionGlyphs(), reactionId+"_Glyph");
+			reactionGlyph.addSpeciesReferenceGlyph(speciesReferenceGlyph);			
+		}
+	}
+	
+	public Curve createSpeciesReferenceCurve(Arc arc) {
+		Curve curve;
+		CurveSegment curveSegment;
+		Point point;
+		
+		Arc.Start start;
+		Arc.End end;		
+		
+		start = arc.getStart();
+		//next = arc.getNext();
+		end = arc.getEnd();
+		curve = new Curve();
+		curveSegment = new LineSegment();
+		point = new Point(start.getX(), start.getY());
+		curveSegment.setStart(point);
+		point = new Point(end.getX(), end.getY());
+		curveSegment.setEnd(point);			
+		curve.addCurveSegment(curveSegment);	
+				
+		return curve;
+	}
+	
+	public void createCompartments() {
+		ListOf<Compartment> listOfCompartments = model.getListOfCompartments();
+		ListOf<CompartmentGlyph> listOfCompartmentGlyphs = layout.getListOfCompartmentGlyphs();			
+		
+		Glyph glyph;
+		String id;
+		String name;
+		Compartment compartment;
+		CompartmentGlyph compartmentGlyph;
+		Bbox bbox;
+		BoundingBox boundingBox;
+
+		for (String key: compartments.keySet()) {
+			glyph = compartments.get(key);
+			System.out.format("===Entities=%s \n", glyph.toString());
+			// Compartment id
+			id = glyph.getId();		
+			name = glyph.getLabel().getText();
+			
+			compartment = new Compartment(id, name, 3, 1);
+			listOfCompartments.add(compartment);
+			
+			compartmentGlyph = new CompartmentGlyph();
+			compartmentGlyph.setId(id+"_Glyph");
+			compartmentGlyph.setCompartment(compartment);
+			bbox = glyph.getBbox();
+			boundingBox = new BoundingBox();
+			// horizontal?
+			boundingBox.createDimensions(bbox.getW(), bbox.getH(), 0);
+			boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);
+			compartmentGlyph.setBoundingBox(boundingBox);
+			listOfCompartmentGlyphs.add(compartmentGlyph);			
+		}
+	}
+	
+	public SpeciesReferenceGlyph createSpeciesReferenceGlyph(String id, Arc arc, SpeciesReference speciesReference, Glyph speciesGlyph) {
+		SpeciesReferenceGlyph speciesReferenceGlyph;
+		
+		speciesReferenceGlyph = new SpeciesReferenceGlyph();
+		speciesReferenceGlyph.setId(id+"_Glyph");
+		speciesReferenceGlyph.setRole(findReactionRole(arc.getClazz()));
+		speciesReferenceGlyph.setSpeciesGlyph(speciesGlyph.getId()+"_Glyph");
+		speciesReferenceGlyph.setSpeciesReference(speciesReference);	
+					
+		return speciesReferenceGlyph;
+	}
+	
+	public void createTextGlyph(Species species, SpeciesGlyph speciesGlyph) {
+		TextGlyph textGlyph;
+		String id;
+		BoundingBox boundingBoxText;
+		BoundingBox boundingBoxSpecies;
+		
+		textGlyph = new TextGlyph(3, 1);
+		id = species.getId() + "_TextGlyph";
+		textGlyph.setId(id);
+		textGlyph.setOriginOfText(species);
+		textGlyph.setGraphicalObject(speciesGlyph);
+		boundingBoxText = new BoundingBox();
+		boundingBoxSpecies = speciesGlyph.getBoundingBox();
+		boundingBoxText.setDimensions(boundingBoxSpecies.getDimensions());
+		boundingBoxText.setPosition(boundingBoxSpecies.getPosition());
+		textGlyph.setBoundingBox(boundingBoxText);
+		
+		ListOf<TextGlyph> listOfTextGlyphs = layout.getListOfTextGlyphs();
+		listOfTextGlyphs.add(textGlyph);
+	}
+	
+	public void updateDimensions(Point point) {
+		if (point.getX() > this.dimensionX) {
+			this.dimensionX = point.getX();
+		}
+		if (point.getY() > this.dimensionY) {
+			this.dimensionY = point.getY();
+		}
+		if (point.getZ() > this.dimensionZ) {
+			this.dimensionZ = point.getZ();
+		}		
+	}
+	
+	public void updateDimensions(BoundingBox boundingBox) {
+		Dimensions dimensions;
+		Point point;
+		
+		dimensions = boundingBox.getDimensions();
+		point = boundingBox.getPosition();
+		
+		if (point.getX() + dimensions.getWidth() > this.dimensionX) {
+			this.dimensionX = point.getX() + dimensions.getWidth();
+		}
+		if (point.getY() + dimensions.getHeight() > this.dimensionY) {
+			this.dimensionY = point.getY() + dimensions.getHeight();
+		}
+		if (point.getZ() + dimensions.getDepth() > this.dimensionZ) {
+			this.dimensionZ = point.getZ() + dimensions.getDepth();
+		}
+	}
+	
+	public Boolean isProcessNode(String clazz) {
+		if (clazz.equals("process")) {
+			return true;
+		} else if (clazz.equals("omitted process")) {
+			return true;
+		} else if (clazz.equals("uncertain process")) {
+			return true;
+		} else if (clazz.equals("association")) {
+			return true;
+		} else if (clazz.equals("dissociation")) {
+			return true;
+		} else if (clazz.equals("phenotype")) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public Boolean isInwardArc(String clazz) {
+		if (clazz.equals("consumption")) {
+			return true;
+		} if (clazz.equals("modulation")) {
+			return true;
+		} if (clazz.equals("stimulation")) {
+			return true;
+		} if (clazz.equals("catalysis")) {
+			return true;
+		} if (clazz.equals("inhibition")) {
+			return true;
+		} if (clazz.equals("necessary stimulation")) {
+			return true;
+		} // ...
+		else {
+			return false;
+		} 
+	}
+	
+	public Boolean isOutwardArc(String clazz) {
+		if (clazz.equals("production")) {
+			return true;
+		} else {
+			return false;
+		} 		
 	}
 	
 	public Species findSpecies(ListOf<Species> listOfSpecies, String id) {
@@ -366,28 +571,50 @@ public class SBGNML2SBML {
 		return null;
 	}		
 	
-	public SpeciesReferenceRole searchForReactionRole(String clazz) {
+	public SpeciesReferenceRole findReactionRole(String clazz) {
 		SpeciesReferenceRole role = null;
 
 		if (clazz.equals("consumption")) {
 			role = SpeciesReferenceRole.SUBSTRATE;
-		} if (clazz.equals("production")) {
+		} else if (clazz.equals("production")) {
 			role = SpeciesReferenceRole.PRODUCT;
-		} if (clazz.equals("consumption")) {
+		} else if (clazz.equals("consumption")) {
 			role = SpeciesReferenceRole.SIDESUBSTRATE;
-		} if (clazz.equals("production")) {
+		} else if (clazz.equals("production")) {
 			role = SpeciesReferenceRole.SIDEPRODUCT;
-		} if (clazz.equals("catalysis")) {
+		} else if (clazz.equals("catalysis")) {
 			role = SpeciesReferenceRole.ACTIVATOR;
-		} if (clazz.equals("inhibition")) {
+		} else if (clazz.equals("inhibition")) {
 			role = SpeciesReferenceRole.INHIBITOR;
-		} if (clazz.equals("modulation")) {
+		} else if (clazz.equals("modulation")) {
 			role = SpeciesReferenceRole.MODIFIER;	// not sure
-		} if (clazz.equals("unknown influence")) {
+		} else if (clazz.equals("unknown influence")) {
 			role = SpeciesReferenceRole.UNDEFINED;
 		}
 		
 		return role;		
+	}
+	
+	public void addAnnotation(Species species, String clazz) {
+		Annotation annotation;
+		CVTerm cvTerm;
+		
+		annotation = species.getAnnotation();
+		cvTerm = new CVTerm(Type.BIOLOGICAL_QUALIFIER, Qualifier.BQB_IS_VERSION_OF);
+		// should be urn
+		// add hasPart
+		cvTerm.addResource(clazz);
+		annotation.addCVTerm(cvTerm);
+	}
+	
+	public void addSBO(Species species, String clazz) {
+		int sboTerm = -1;
+		
+		if (clazz.equals("complex")) {
+			sboTerm = 253;
+			species.setSBOTerm(sboTerm);
+		} // ...
+		
 	}
 	
 	public static void debugSbgnObject(Map map){
@@ -469,6 +696,9 @@ public class SBGNML2SBML {
 		}
 		if (source instanceof Port && target instanceof Glyph ) {
 			type = "outward";
+		}	
+		if (source instanceof Glyph && target instanceof Glyph ) {
+			type = "undirected";
 		}		
 		
 		return String.format("%s %s %s", source.getClass(), target.getClass(), type);		

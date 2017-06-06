@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" level="3" version="1">
+  <model>
+    <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <layout:layout>
+        <layout:dimensions layout:height="0" layout:depth="0" layout:width="0"/>
+        <layout:listOfSpeciesGlyphs>
+          <layout:speciesGlyph layout:id="glyph_ethanal_Glyph" layout:species="glyph_ethanal">
+            <layout:boundingBox>
+              <layout:position layout:x="220" layout:y="110" layout:z="0"/>
+              <layout:dimensions layout:height="60" layout:depth="0" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="glyph_nad_Glyph" layout:species="glyph_nad">
+            <layout:boundingBox>
+              <layout:position layout:x="40" layout:y="190" layout:z="0"/>
+              <layout:dimensions layout:height="60" layout:depth="0" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="glyph_nadh_Glyph" layout:species="glyph_nadh">
+            <layout:boundingBox>
+              <layout:position layout:x="300" layout:y="150" layout:z="0"/>
+              <layout:dimensions layout:height="60" layout:depth="0" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="glyph1_Glyph" layout:species="glyph1">
+            <layout:boundingBox>
+              <layout:position layout:x="40" layout:y="120" layout:z="0"/>
+              <layout:dimensions layout:height="60" layout:depth="0" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="glyph_adh1_Glyph" layout:species="glyph_adh1">
+            <layout:boundingBox>
+              <layout:position layout:x="106" layout:y="20" layout:z="0"/>
+              <layout:dimensions layout:height="60" layout:depth="0" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="glyph_h_Glyph" layout:species="glyph_h">
+            <layout:boundingBox>
+              <layout:position layout:x="220" layout:y="190" layout:z="0"/>
+              <layout:dimensions layout:height="60" layout:depth="0" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+        </layout:listOfSpeciesGlyphs>
+        <layout:listOfReactionGlyphs>
+          <layout:reactionGlyph layout:id="pn1_Glyph" layout:reaction="pn1">
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="148" layout:y="168"/>
+                  <layout:end layout:x="172" layout:y="192"/>
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="a01_Glyph" layout:role="substrate" layout:speciesGlyph="glyph1_Glyph" layout:speciesReference="a01">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="98" layout:y="160"/>
+                      <layout:end layout:x="136" layout:y="180"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="a06_Glyph" layout:role="substrate" layout:speciesGlyph="glyph_nad_Glyph" layout:speciesReference="a06">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="95" layout:y="202"/>
+                      <layout:end layout:x="136" layout:y="180"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="a02_Glyph" layout:role="product" layout:speciesGlyph="glyph_nadh_Glyph" layout:speciesReference="a02">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="184" layout:y="180"/>
+                      <layout:end layout:x="300" layout:y="180"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="a04_Glyph" layout:role="product" layout:speciesGlyph="glyph_h_Glyph" layout:speciesReference="a04">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="184" layout:y="180"/>
+                      <layout:end layout:x="224" layout:y="202"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="a05_Glyph" layout:role="product" layout:speciesGlyph="glyph_ethanal_Glyph" layout:speciesReference="a05">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="184" layout:y="180"/>
+                      <layout:end layout:x="224" layout:y="154"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="a03_Glyph" layout:role="activator" layout:speciesGlyph="glyph_adh1_Glyph" layout:speciesReference="a03">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="160" layout:y="80"/>
+                      <layout:end layout:x="160" layout:y="168"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+        </layout:listOfReactionGlyphs>
+        <layout:listOfTextGlyphs>
+          <layout:textGlyph layout:id="glyph_ethanal_TextGlyph" layout:originOfText="glyph_ethanal" layout:graphicalObject="glyph_ethanal_Glyph">
+            <layout:boundingBox>
+              <layout:position layout:x="220" layout:y="110" layout:z="0"/>
+              <layout:dimensions layout:height="60" layout:depth="0" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:id="glyph_nad_TextGlyph" layout:originOfText="glyph_nad" layout:graphicalObject="glyph_nad_Glyph">
+            <layout:boundingBox>
+              <layout:position layout:x="40" layout:y="190" layout:z="0"/>
+              <layout:dimensions layout:height="60" layout:depth="0" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:id="glyph_nadh_TextGlyph" layout:originOfText="glyph_nadh" layout:graphicalObject="glyph_nadh_Glyph">
+            <layout:boundingBox>
+              <layout:position layout:x="300" layout:y="150" layout:z="0"/>
+              <layout:dimensions layout:height="60" layout:depth="0" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:id="glyph1_TextGlyph" layout:originOfText="glyph1" layout:graphicalObject="glyph1_Glyph">
+            <layout:boundingBox>
+              <layout:position layout:x="40" layout:y="120" layout:z="0"/>
+              <layout:dimensions layout:height="60" layout:depth="0" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:id="glyph_adh1_TextGlyph" layout:originOfText="glyph_adh1" layout:graphicalObject="glyph_adh1_Glyph">
+            <layout:boundingBox>
+              <layout:position layout:x="106" layout:y="20" layout:z="0"/>
+              <layout:dimensions layout:height="60" layout:depth="0" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:id="glyph_h_TextGlyph" layout:originOfText="glyph_h" layout:graphicalObject="glyph_h_Glyph">
+            <layout:boundingBox>
+              <layout:position layout:x="220" layout:y="190" layout:z="0"/>
+              <layout:dimensions layout:height="60" layout:depth="0" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+        </layout:listOfTextGlyphs>
+      </layout:layout>
+    </layout:listOfLayouts>
+    <listOfSpecies>
+      <species name="Ethanal" id="glyph_ethanal" metaid="f5d72c65-d9e0-4760-8868-7ac628e0796e">
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#f5d72c65-d9e0-4760-8868-7ac628e0796e">
+	<bqbiol:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="simple chemical"/>
+	</rdf:Bag>
+	</bqbiol:isVersionOf>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </species>
+      <species name="NAD+" id="glyph_nad" metaid="_237eca51-f95b-4505-a3ee-32e3064ac925">
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_237eca51-f95b-4505-a3ee-32e3064ac925">
+	<bqbiol:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="simple chemical"/>
+	</rdf:Bag>
+	</bqbiol:isVersionOf>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </species>
+      <species name="NADH" id="glyph_nadh" metaid="ba69b767-3f89-48eb-bb25-4e41065c8230">
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#ba69b767-3f89-48eb-bb25-4e41065c8230">
+	<bqbiol:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="simple chemical"/>
+	</rdf:Bag>
+	</bqbiol:isVersionOf>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </species>
+      <species name="Ethanol" id="glyph1" metaid="_2fddddd5-e3e2-4d66-94c2-a05011d087ae">
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_2fddddd5-e3e2-4d66-94c2-a05011d087ae">
+	<bqbiol:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="simple chemical"/>
+	</rdf:Bag>
+	</bqbiol:isVersionOf>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </species>
+      <species name="ADH1" id="glyph_adh1" metaid="_03568d98-1deb-413d-b1c1-3e5489a04528">
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_03568d98-1deb-413d-b1c1-3e5489a04528">
+	<bqbiol:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="macromolecule"/>
+	</rdf:Bag>
+	</bqbiol:isVersionOf>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </species>
+      <species name="H+" id="glyph_h" metaid="_20d1d536-565c-4882-a2ea-871f9475029f">
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_20d1d536-565c-4882-a2ea-871f9475029f">
+	<bqbiol:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="simple chemical"/>
+	</rdf:Bag>
+	</bqbiol:isVersionOf>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </species>
+    </listOfSpecies>
+    <listOfReactions>
+      <reaction id="pn1">
+        <listOfReactants>
+          <speciesReference species="glyph1" id="a01"/>
+          <speciesReference species="glyph_nad" id="a06"/>
+          <speciesReference species="glyph_adh1" id="a03"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="glyph_nadh" id="a02"/>
+          <speciesReference species="glyph_h" id="a04"/>
+          <speciesReference species="glyph_ethanal" id="a05"/>
+        </listOfProducts>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
