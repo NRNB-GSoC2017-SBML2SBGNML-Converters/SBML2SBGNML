@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+
+<project default ="usage" basedir=".">
+	<!-- =================================================================== -->
+	<!-- Initialization target                                               -->
+	<!-- =================================================================== -->
+
+	<target name="init">
+		<tstamp>
+			<format property="YEAR" pattern="yyyy"/>
+		</tstamp>
+		<property name="Name" value="GSOG 2017 SBML-SBGNML converters"/>
+		<property name="name" value="sbfc-gsoc2017-converters"/>
+		<property name="version" value="0.6"/>
+
+		<property name="year" value="${YEAR}"/>
+
+		<echo message="----------- ${Name} ${version} [${year}] ------------"/>
+		<echo message="-----------     ${TODAY}   ------------"/>
+		<echo message="-----------     ${DSTAMP} ${TSTAMP}  ------------"/>
+
+		<property environment="env"/>
+		<property name="build.compiler" value="modern"/>
+		<property name="build.sysclasspath" value="ignore"/>
+		<property name="debug" value="on"/>
+		<property name="optimize" value="off"/>
+		<property name="deprecation" value="false"/>
+		<property name="depend" value="true"/>
+		<property name="verbose" value="false"/>
+
+		<property name="build.number" value="${DSTAMP}-${TSTAMP}"/>
+		<property name="build.name" value="${version} (build ${build.number})"/>
+
+		<property name="src.dir" value="${basedir}/src"/>
+		<property name="build.dir" value="${basedir}/build"/>
+		<property name="build.src" value="${basedir}/build/src"/>
+		<property name="build.dest" value="${basedir}/build/classes"/>
+		<property name="build.javadocs" value="${basedir}/build/apidocs"/>
+		<property name="jars.dir" value="${basedir}/lib"/>
+		<property name="dist.root" value="${basedir}/dist"/>
+		<property name="dist.dir" value="${dist.root}/${name}-${version}"/>
+
+		<filter token="year" value="${year}"/>
+		<filter token="version" value="${version}"/>
+		<filter token="date" value="${TODAY}"/>
+		<filter token="log" value="true"/>
+		<filter token="verbose" value="true"/>
+
+		<!-- add everything needed to the classpath -->
+		<!-- adjust the settings to your local environment -->
+		<path id="compile.classpath">
+			<fileset dir="${jars.dir}">
+				<include name="*.jar"/>
+				<exclude name="${name}-*.jar"/>
+			</fileset>
+		</path>
+		<path id="all.classpath">
+			<fileset dir="${jars.dir}">
+				<include name="*.jar"/>
+			</fileset>
+		</path>
+	</target>
+
+
+	<!-- =================================================================== -->
+	<!-- Help on usage                                                       -->
+	<!-- =================================================================== -->
+	<target name="usage" depends="init">
+		<echo message=""/>
+		<echo message=""/>
+		<echo message="${Name} Build file"/>
+		<echo message="-------------------------------------------------------------"/>
+		<echo message=""/>
+		<echo message="The GSOC 2017 project aims to provide a SBML2SBGNML and SBGNML2SBML converter."/>
+		<echo message="The software is written in Java and released under LGPL v2 License. "/>
+		<echo message=""/>
+		<echo message="In order to use this build file, the user should run the command 'ant target', "/> 
+		<echo message="where target is one of the following options:"/>
+		<echo message=""/>
+		<echo message="   compile    --> compile the source code"/>
+		<echo message="   jar        --> generate the ${name}-${version}.jar file"/>
+		<echo message="   javadoc    --> generate the API documentation (javadoc)"/>
+		<echo message="   models     --> list the available models"/>		
+		<echo message="   converters --> list the available converters"/>		
+		<echo message="   clean      --> clean up the directory"/>
+		<echo message=""/>
+		<echo message=" See the comments inside the build.xml file for more details."/>
+		<echo message="-------------------------------------------------------------"/>
+		<echo message=""/>
+		<echo message=""/>
+	</target>
+	
+	
+	<!-- =================================================================== -->
+	<!-- Prepares the build directory                                        -->
+	<!-- =================================================================== -->
+	<target name="prepare" depends="init">
+		<mkdir dir="${build.dir}"/>
+		<echo message="Done"/>
+	</target>
+
+	<!-- =================================================================== -->
+	<!-- Prepares the source code                                            -->
+	<!-- =================================================================== -->
+	<target name="prepare-src" depends="prepare">
+		<!-- create directories -->
+		<mkdir dir="${build.src}"/>
+		<mkdir dir="${build.dest}"/>
+		<mkdir dir="${dist.root}"/>
+		<mkdir dir="${dist.dir}"/>
+		<mkdir dir="${dist.dir}/log"/>
+
+
+		<!-- copy src files -->
+		<copy todir="${build.src}" overwrite="yes">
+			<fileset dir="${src.dir}"
+                        excludes="**/CVS*, **/*.class, **/*~, **/*.tgz">
+			</fileset>
+		</copy>
+		<copy todir="${build.src}" overwrite="yes">
+			<fileset dir="${basedir}"
+		                        includes="log4j.properties">
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- =================================================================== -->
+	<!-- Compiles the source directory                                       -->
+	<!-- =================================================================== -->
+	<target name="compile" depends="prepare-src">
+		<javac srcdir="${build.src}"
+           destdir="${build.dest}"
+           debug="${debug}"
+           optimize="${optimize}"
+           verbose="${verbose}"
+           source="1.7"
+           target="1.7"
+           classpathref="compile.classpath">
+		</javac>
+	</target>
+
+
+	<!-- =================================================================== -->
+	<!-- Creates the class package                                           -->
+	<!-- =================================================================== -->
+	<target name="jar" depends="compile">
+
+		<copy todir="${build.dest}">
+			<fileset dir="${build.src}"
+                                 includes="**/*.png **/*.gif **/*.xsd **/*.xsl **/data/* **/*.xml **/*.properties">
+			</fileset>
+		</copy>
+
+		<jar jarfile="${build.dir}/${name}-${version}.jar" basedir="${build.dest}"/>
+
+		<copy todir="${basedir}/lib" preservelastmodified="true" overwrite="true" verbose="true">
+			<fileset dir="${build.dir}"
+                                 includes="${name}-${version}.jar">
+			</fileset>
+		</copy>
+	</target>
+
+	
+
+	<!-- =================================================================== -->
+	<!-- Creates the API documentation                                       -->
+	<!-- =================================================================== -->
+	<target name="javadoc" depends="prepare-src">
+		<mkdir dir="${build.javadocs}"/>
+		<javadoc packagenames="org.*"
+             sourcepath="${build.src}"
+             destdir="${build.javadocs}"
+             classpathref="all.classpath"
+             maxmemory="256m"
+             author="true"
+             version="true"
+             use="true"
+             splitindex="true"
+             noindex="false"
+             windowtitle="${Name} API"
+             doctitle="${Name}"
+    		 breakiterator="yes"
+    >
+			<link href="http://java.sun.com/j2se/1.5.0/docs/api"/>
+		</javadoc>
+	</target>
+
+	
+	
+	<!-- =================================================================== -->
+	<!-- List of Converters		                                             -->
+	<!-- =================================================================== -->
+    <!--checking if for unix or windows -->
+	<condition property="isOSUnix">
+	    <os family="unix" />
+	</condition> 
+	<condition property="isOSWindows">
+	    <os family="windows" />
+	</condition>
+	
+	<target name="converters" depends="convertersIfUnix, convertersIfWindows"/>
+	
+	<!-- if OS is Unix -->
+	<target name="convertersIfUnix" if="isOSUnix">
+		<echo message="Current operating system is Unix"/>
+	    <exec dir="." executable="/bin/sh">
+	    <arg line="sbfConverterList.sh"/>
+	    </exec>
+	</target>	
+	
+	<!-- if OS is windows -->
+	<target name="convertersIfWindows" if="isOSWindows">
+		<echo message="Current operating system is Windows"/>
+	    <exec dir="." executable="cmd" >
+	    <arg line="sbfConverterList.bat"/>
+	    </exec>
+	</target>
+	
+	
+	<!-- =================================================================== -->
+	<!-- List of Models  		                                             -->
+	<!-- =================================================================== -->
+    <!--checking if for unix or windows -->
+	<condition property="isOSUnix">
+	    <os family="unix" />
+	</condition> 
+	<condition property="isOSWindows">
+	    <os family="windows" />
+	</condition>
+	
+	<target name="models" depends="modelsIfUnix, modelsIfWindows"/>
+	
+	<!-- if OS is Unix -->
+	<target name="modelsIfUnix" if="isOSUnix">
+		<echo message="Current operating system is Unix"/>
+	    <exec dir="." executable="/bin/sh">
+	    <arg line="sbfModelList.sh"/>
+	    </exec>
+	</target>	
+	
+	<!-- if OS is windows -->
+	<target name="modelsIfWindows" if="isOSWindows">
+		<echo message="Current operating system is Windows"/>
+	    <exec dir="." executable="cmd" >
+	    <arg line="sbfModelList.bat"/>
+	    </exec>
+	</target>
+
+	
+	
+	<!-- =================================================================== -->
+	<!-- Cleans everything                                                   -->
+	<!-- =================================================================== -->
+	<target name="clean" depends="init">
+		<delete includeEmptyDirs="true" quiet="yes">
+			<fileset dir="${build.dir}" includes="**"/>
+		</delete>
+		<delete dir="${dist.root}" includeEmptyDirs="true" quiet="yes"/>
+	</target>
+</project>
+
+<!-- End of file -->
