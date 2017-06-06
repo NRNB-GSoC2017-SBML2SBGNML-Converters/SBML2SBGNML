@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns:xlink="http://www.w3.org/2000/svg" height="1000cm" version="1.1" viewBox="0 0 1200 400" width="12cm">
+  <desc>Example ellipse01 - examples of ellipses</desc>
+
+  <!-- Show outline of canvas using 'rect' element -->
+  <rect fill="none" height="398" stroke="blue" stroke-width="2" width="1198" x="1" y="1"/>
+
+  <!-- ellipse -->
+
+  <g transform="translate(300, 200)">
+   <ellipse fill="red" rx="250" ry="100"/>
+   
+   <!-- cLm&#45;&gt;reaction_2 -->
+   <g class="edge" id="edge26"><title>cLm-&gt;reaction_2</title>
+    <path d="M40.8297,-612.565C52.3995,-601.326 68.9129,-585.285 81.0411,-573.503" fill="none" stroke="black"/>
+    <polygon fill="none" points="81.0419,-573.502 82.5585,-566.452 89.6493,-565.141 88.1328,-572.191 81.0419,-573.502" stroke="black"/>
+   </g>
+   
+   <!-- cLc -->
+   <g class="node" id="node2"><title>cLc</title>
+    <image height="87px" preserveAspectRatio="xMinYMin meet" width="238px" x="191" xlink:href="/automount/nas17b_vol-vol_homes-homes/jalowcki/workspace/sbfc/sbfc/bin/org/sbfc/converter/sbml2dot/dotImages/multimerNAF.png" y="-451.5"/>
+    <text font-family="Times Roman,serif" font-size="10.00" text-anchor="middle" x="310" y="-405.5">LHY protein in cytoplasm</text>
+   </g>
+   
+  </g>
+
+<foreignObject height="180" width="180" x="10" y="10">
+
+<body xmlns="http://www.w3.org/1999/xhtml">
+<b>DynAPI <br/>Examples - Explorer</b>
+
+<script>
+<!--alert("test");-->
+</script>
+</body>
+
+</foreignObject></svg>

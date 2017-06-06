@@ -84,7 +84,7 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 		
 		if (args.length < 1 || args.length > 3) {
 			System.out.println("usage: java org.sbfc.converter.sbml2sbgnml.SBML2SBGN <SBML filename>. "
-					+ "Use relative path, such as: /examples/sbml_layout_examples/GeneralGlyph_Example.xml");
+					+ "relative path example: /examples/sbml_layout_examples/GeneralGlyph_Example.xml");
 			return;
 		}
 

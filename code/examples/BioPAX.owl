@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+ xmlns:owl="http://www.w3.org/2002/07/owl#"
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:bp="http://www.biopax.org/release/biopax-level3.owl#">
+<owl:Ontology rdf:about="">
+ <owl:imports rdf:resource="http://www.biopax.org/release/biopax-level3.owl#" />
+</owl:Ontology>
+
+<bp:BiochemicalReaction rdf:about="id26">
+ <bp:right rdf:resource="f917f" />
+ <bp:right rdf:resource="da9a8" />
+ <bp:left rdf:resource="f9e19" />
+</bp:BiochemicalReaction>
+
+<bp:Catalysis rdf:about="id25">
+ <bp:controlled rdf:resource="id24" />
+ <bp:controller rdf:resource="f376f" />
+</bp:Catalysis>
+
+<bp:BiochemicalReaction rdf:about="id24">
+ <bp:right rdf:resource="a489f" />
+ <bp:left rdf:resource="da9a8" />
+</bp:BiochemicalReaction>
+
+<bp:BiochemicalReaction rdf:about="id23">
+ <bp:left rdf:resource="daafb" />
+</bp:BiochemicalReaction>
+
+<bp:Catalysis rdf:about="id22">
+ <bp:controlled rdf:resource="id21" />
+ <bp:controller rdf:resource="c7084" />
+</bp:Catalysis>
+
+<bp:BiochemicalReaction rdf:about="id21">
+ <bp:right rdf:resource="daafb" />
+ <bp:left rdf:resource="a489f" />
+</bp:BiochemicalReaction>
+
+<bp:RelationshipXref rdf:about="id20">
+ <bp:db rdf:datatype = "xsd:string">undefined</bp:db>
+ <bp:id rdf:datatype = "xsd:string">HMDB01532</bp:id>
+</bp:RelationshipXref>
+
+<bp:SmallMolecule rdf:about="d32e4">
+ <bp:displayName rdf:datatype = "xsd:string">Isocitric acid</bp:displayName>
+ <bp:entityReference rdf:resource="id13" />
+</bp:SmallMolecule>
+
+<bp:SmallMolecule rdf:about="f917f">
+ <bp:displayName rdf:datatype = "xsd:string">ADP</bp:displayName>
+ <bp:entityReference rdf:resource="id15" />
+</bp:SmallMolecule>
+
+<bp:PublicationXref rdf:about="fbe">
+ <bp:source rdf:datatype = "xsd:string">PLoS Biol</bp:source>
+ <bp:title rdf:datatype = "xsd:string">Finding the right questions: exploratory pathway analysis to enhance biological discovery in large datasets.</bp:title>
+ <bp:db rdf:datatype = "xsd:string">PubMed</bp:db>
+ <bp:author rdf:datatype = "xsd:string">Conklin BR</bp:author>
+ <bp:author rdf:datatype = "xsd:string">Evelo CT</bp:author>
+ <bp:author rdf:datatype = "xsd:string">Kelder T</bp:author>
+ <bp:author rdf:datatype = "xsd:string">Pico AR</bp:author>
+ <bp:year rdf:datatype = "xsd:int">2010</bp:year>
+ <bp:id rdf:datatype = "xsd:string">20824171</bp:id>
+</bp:PublicationXref>
+
+<bp:Protein rdf:about="c7084">
+ <bp:entityReference rdf:resource="id5" />
+ <bp:xref rdf:resource="fbe" />
+ <bp:displayName rdf:datatype = "xsd:string">BRCA1</bp:displayName>
+</bp:Protein>
+
+<bp:SmallMolecule rdf:about="a489f">
+ <bp:displayName rdf:datatype = "xsd:string">Substrate</bp:displayName>
+ <bp:entityReference rdf:resource="id3" />
+</bp:SmallMolecule>
+
+<bp:RelationshipXref rdf:about="id18">
+ <bp:db rdf:datatype = "xsd:string">undefined</bp:db>
+ <bp:id rdf:datatype = "xsd:string">843</bp:id>
+</bp:RelationshipXref>
+
+<bp:SmallMoleculeReference rdf:about="id19">
+ <bp:xref rdf:resource="id20" />
+</bp:SmallMoleculeReference>
+
+<bp:RelationshipXref rdf:about="id16">
+ <bp:db rdf:datatype = "xsd:string">undefined</bp:db>
+ <bp:id rdf:datatype = "xsd:string">HMDB01341</bp:id>
+</bp:RelationshipXref>
+
+<bp:ProteinReference rdf:about="id17">
+ <bp:xref rdf:resource="id18" />
+ <bp:organism rdf:resource="id2" />
+</bp:ProteinReference>
+
+<bp:SmallMolecule rdf:about="da9a8">
+ <bp:displayName rdf:datatype = "xsd:string">D-Glucose</bp:displayName>
+ <bp:entityReference rdf:resource="id7" />
+</bp:SmallMolecule>
+
+<bp:BioSource rdf:about="id2">
+ <bp:standardName rdf:datatype = "xsd:string">Homo sapiens</bp:standardName>
+</bp:BioSource>
+
+<bp:Protein rdf:about="a80da">
+ <bp:entityReference rdf:resource="id17" />
+ <bp:displayName rdf:datatype = "xsd:string">CASP10</bp:displayName>
+</bp:Protein>
+
+<bp:SmallMolecule rdf:about="daafb">
+ <bp:displayName rdf:datatype = "xsd:string">Product node</bp:displayName>
+ <bp:entityReference rdf:resource="id3" />
+</bp:SmallMolecule>
+
+<bp:Pathway rdf:about="http://www.wikipathways.org/index.php/Pathway:WP4">
+ <bp:comment rdf:datatype = "xsd:string">This is just one test pathway with a variety of object types including datanodes which can be connected to database entries (double-click on them when in edit mode). Feel free to edit anything on this page.  (http://www.wikipathways.org/index.php/WikiPathways:License_Terms)</bp:comment>
+ <bp:comment rdf:datatype = "xsd:string">20160201000002 (BotTest)</bp:comment>
+ <bp:displayName rdf:datatype = "xsd:string">Sandbox Pathway</bp:displayName>
+ <bp:pathwayComponent rdf:resource="id28" />
+ <bp:pathwayComponent rdf:resource="id27" />
+ <bp:pathwayComponent rdf:resource="id21" />
+ <bp:pathwayComponent rdf:resource="id22" />
+ <bp:pathwayComponent rdf:resource="id25" />
+ <bp:pathwayComponent rdf:resource="id23" />
+ <bp:pathwayComponent rdf:resource="id24" />
+ <bp:pathwayComponent rdf:resource="id26" />
+ <bp:organism rdf:resource="id2" />
+</bp:Pathway>
+
+<bp:Protein rdf:about="d0619">
+ <bp:entityReference rdf:resource="id9" />
+ <bp:displayName rdf:datatype = "xsd:string">APC</bp:displayName>
+</bp:Protein>
+
+<bp:RelationshipXref rdf:about="id6">
+ <bp:db rdf:datatype = "xsd:string">undefined</bp:db>
+ <bp:id rdf:datatype = "xsd:string">ENSG00000012048</bp:id>
+</bp:RelationshipXref>
+
+<bp:ProteinReference rdf:about="id5">
+ <bp:xref rdf:resource="id6" />
+ <bp:organism rdf:resource="id2" />
+</bp:ProteinReference>
+
+<bp:Protein rdf:about="f376f">
+ <bp:entityReference rdf:resource="id11" />
+ <bp:displayName rdf:datatype = "xsd:string">TP53</bp:displayName>
+</bp:Protein>
+
+<bp:RelationshipXref rdf:about="id4">
+ <bp:db rdf:datatype = "xsd:string">undefined</bp:db>
+ <bp:id rdf:datatype = "xsd:string">undefined</bp:id>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="id10">
+ <bp:db rdf:datatype = "xsd:string">undefined</bp:db>
+ <bp:id rdf:datatype = "xsd:string">ENSG00000134982</bp:id>
+</bp:RelationshipXref>
+
+<bp:SmallMoleculeReference rdf:about="id3">
+ <bp:xref rdf:resource="id4" />
+</bp:SmallMoleculeReference>
+
+<bp:ProteinReference rdf:about="id11">
+ <bp:xref rdf:resource="id12" />
+ <bp:organism rdf:resource="id2" />
+</bp:ProteinReference>
+
+<bp:RelationshipXref rdf:about="id12">
+ <bp:db rdf:datatype = "xsd:string">undefined</bp:db>
+ <bp:id rdf:datatype = "xsd:string">ENSG00000141510</bp:id>
+</bp:RelationshipXref>
+
+<bp:ProteinReference rdf:about="id9">
+ <bp:xref rdf:resource="id10" />
+ <bp:organism rdf:resource="id2" />
+</bp:ProteinReference>
+
+<bp:SmallMoleculeReference rdf:about="id13">
+ <bp:xref rdf:resource="id14" />
+</bp:SmallMoleculeReference>
+
+<bp:RelationshipXref rdf:about="id8">
+ <bp:db rdf:datatype = "xsd:string">undefined</bp:db>
+ <bp:id rdf:datatype = "xsd:string">HMDB00122</bp:id>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="id14">
+ <bp:db rdf:datatype = "xsd:string">undefined</bp:db>
+ <bp:id rdf:datatype = "xsd:string">HMDB00193</bp:id>
+</bp:RelationshipXref>
+
+<bp:SmallMoleculeReference rdf:about="id7">
+ <bp:xref rdf:resource="id8" />
+</bp:SmallMoleculeReference>
+
+<bp:SmallMoleculeReference rdf:about="id15">
+ <bp:xref rdf:resource="id16" />
+</bp:SmallMoleculeReference>
+
+<bp:SmallMolecule rdf:about="f9e19">
+ <bp:displayName rdf:datatype = "xsd:string">2Isocitric acid</bp:displayName>
+ <bp:entityReference rdf:resource="id13" />
+</bp:SmallMolecule>
+
+<bp:Catalysis rdf:about="id27">
+ <bp:controlled rdf:resource="id26" />
+ <bp:controller rdf:resource="d6c00" />
+</bp:Catalysis>
+
+<bp:PublicationXref rdf:about="b25">
+ <bp:source rdf:datatype = "xsd:string">PLoS One</bp:source>
+ <bp:title rdf:datatype = "xsd:string">Mining biological pathways using WikiPathways web services.</bp:title>
+ <bp:db rdf:datatype = "xsd:string">PubMed</bp:db>
+ <bp:author rdf:datatype = "xsd:string">Conklin BR</bp:author>
+ <bp:author rdf:datatype = "xsd:string">van Iersel MP</bp:author>
+ <bp:author rdf:datatype = "xsd:string">Evelo C</bp:author>
+ <bp:author rdf:datatype = "xsd:string">Hanspers K</bp:author>
+ <bp:author rdf:datatype = "xsd:string">Kelder T</bp:author>
+ <bp:author rdf:datatype = "xsd:string">Pico AR</bp:author>
+ <bp:year rdf:datatype = "xsd:int">2009</bp:year>
+ <bp:id rdf:datatype = "xsd:string">19649250</bp:id>
+</bp:PublicationXref>
+
+<bp:BiochemicalReaction rdf:about="id28">
+ <bp:right rdf:resource="f9e19" />
+ <bp:left rdf:resource="d32e4" />
+</bp:BiochemicalReaction>
+
+<bp:Complex rdf:about="id29">
+ <bp:component rdf:resource="d0619" />
+ <bp:component rdf:resource="a80da" />
+ <bp:xref rdf:resource="b25" />
+</bp:Complex>
+
+<bp:SmallMolecule rdf:about="d6c00">
+ <bp:displayName rdf:datatype = "xsd:string">ATP</bp:displayName>
+ <bp:entityReference rdf:resource="id19" />
+</bp:SmallMolecule>
+</rdf:RDF>

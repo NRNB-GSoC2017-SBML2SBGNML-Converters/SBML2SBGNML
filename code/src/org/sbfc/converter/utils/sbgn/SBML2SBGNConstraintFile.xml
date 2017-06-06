@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- SBML2SBGN configuration file
+ This file is the SBML2SBGN program configuration file for the export from SBML to SBGN
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
+ 
+ Arnaud HENRY
+ Nicolas LE NOVERE
+ EMBL-EBI, Wellcome-Trust Genome Campus, Hinxton, Cambridge, CB10 1SD, UK
+ biomodels-net-support@lists.sourceforge.net
+ -->
+<sbml2sbgn>
+  <!-- Part to indicate the different SBML annotation URI -->
+  <constraints>
+    
+    <publicationModel>
+      <publication>urn:miriam:doi</publication>
+      <publication>urn:miriam:pubmed</publication>
+    </publicationModel>
+
+    <!-- Please update with all the URI of MIRIAM database: http://www.ebi.ac.uk/compneur-srv/miriam/ -->
+    <speciesAnnotationMap>
+      <species>urn:miriam:obo.chebi</species>
+      <species>urn:miriam:ensembl</species>
+      <species>urn:miriam:uniprot</species>
+      <species>urn:miriam:interpro</species>
+      <species>urn:miriam:kegg.compound</species>
+      <species>urn:miriam:pirsf</species>
+      <species>urn:miriam:obo.go</species><!--for the GO component (compartment)-->
+      <species>urn:miriam:ec-code</species>
+      <species>urn:miriam:taxonomy</species>
+    </speciesAnnotationMap>
+
+    <taxonomyMap>
+      <taxonomy>urn:miriam:taxonomy</taxonomy>
+    </taxonomyMap>
+
+    <!-- Annotation part to modify for change the mapping SBML->SBGN -->    
+    <annotationSpecies>
+      <physicalEntity classBioPAX="complex" classSBGN="complex">
+        <species>urn:miriam:intact</species>
+      </physicalEntity>
+
+      <physicalEntity classBioPAX="protein" classSBGN="macromolecule">
+        <constraint>urn:miriam:ensembl:ENSRNOP</constraint>
+        <species>urn:miriam:uniprot</species>
+        <species>urn:miriam:interpro</species>
+        <species>urn:miriam:pirsf</species>
+        <species>urn:miriam:clustr</species>
+<!--KEGG entries for protein, update the 31-07-2006 on http://www.genome.jp/kegg/ligand.html-->
+	<constraint>urn:miriam:kegg.compound:C00017</constraint><!--  Protein -->
+	<constraint>urn:miriam:kegg.compound:C00173</constraint><!--  Acyl-[acyl-carrier protein]; Long-chain-acyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C00229</constraint><!--  Acyl-carrier protein; ACP; [Acyl-carrier protein]; Holo-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C00326</constraint><!--  Glycoprotein -->
+	<constraint>urn:miriam:kegg.compound:C00562</constraint><!--  Phosphoprotein -->
+	<constraint>urn:miriam:kegg.compound:C00585</constraint><!--  Protein tyrosine; [protein]-L-tyrosine -->
+	<constraint>urn:miriam:kegg.compound:C00613</constraint><!--  Peptidyl-L-arginine; Protein L-arginine; L-Arginyl-protein -->
+	<constraint>urn:miriam:kegg.compound:C00614</constraint><!--  Protein glutamate; Protein L-glutamate -->
+	<constraint>urn:miriam:kegg.compound:C00615</constraint><!--  Protein histidine; Protein L-histidine -->
+	<constraint>urn:miriam:kegg.compound:C00685</constraint><!--  3-Oxoacyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C00693</constraint><!--  trans-2,3-Dehydroacyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C01140</constraint><!--  alpha-D-Glucosyl-protein -->
+	<constraint>urn:miriam:kegg.compound:C01167</constraint><!--  Protein tyrosine phosphate; [protein]-L-tyrosine phosphate -->
+	<constraint>urn:miriam:kegg.compound:C01203</constraint><!--  Oleoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C01209</constraint><!--  Malonyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C01237</constraint><!--  Enoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C01242</constraint><!--  S-Aminomethyldihydrolipoylprotein -->
+	<constraint>urn:miriam:kegg.compound:C01271</constraint><!--  (3R)-3-Hydroxyacyl-[acyl-carrier protein]; (R)-3-Hydroxyacyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C01560</constraint><!--  C-Protein -->
+	<constraint>urn:miriam:kegg.compound:C01834</constraint><!--  Lipoprotein -->
+	<constraint>urn:miriam:kegg.compound:C01867</constraint><!--  tau-Protein -->
+	<constraint>urn:miriam:kegg.compound:C02051</constraint><!--  Lipoylprotein -->
+	<constraint>urn:miriam:kegg.compound:C02065</constraint><!--  Protein alanine -->
+	<constraint>urn:miriam:kegg.compound:C02188</constraint><!--  Protein lysine -->
+	<constraint>urn:miriam:kegg.compound:C02189</constraint><!--  Protein serine -->
+	<constraint>urn:miriam:kegg.compound:C02315</constraint><!--  Protein dithiol -->
+	<constraint>urn:miriam:kegg.compound:C02399</constraint><!--  D-Xylosylprotein -->
+	<constraint>urn:miriam:kegg.compound:C02429</constraint><!--  L-Leucyl-protein -->
+	<constraint>urn:miriam:kegg.compound:C02461</constraint><!--  Protein Cys-Cys -->
+	<constraint>urn:miriam:kegg.compound:C02582</constraint><!--  Protein disulfide -->
+	<constraint>urn:miriam:kegg.compound:C02583</constraint><!--  Protein glutamine; Protein L-glutamine -->
+	<constraint>urn:miriam:kegg.compound:C02705</constraint><!--  Mucus glycoprotein -->
+	<constraint>urn:miriam:kegg.compound:C02743</constraint><!--  Protein L-cysteine -->
+	<constraint>urn:miriam:kegg.compound:C02815</constraint><!--  C4b-binding protein -->
+	<constraint>urn:miriam:kegg.compound:C02863</constraint><!--  O-D-Mannosylprotein -->
+	<constraint>urn:miriam:kegg.compound:C02972</constraint><!--  Dihydrolipoylprotein -->
+	<constraint>urn:miriam:kegg.compound:C03021</constraint><!--  Protein asparagine; Protein L-asparagine -->
+	<constraint>urn:miriam:kegg.compound:C03022</constraint><!--  Protein L-citrulline -->
+	<constraint>urn:miriam:kegg.compound:C03023</constraint><!--  Protein L-methionine -->
+	<constraint>urn:miriam:kegg.compound:C03024</constraint><!--  Reduced flavoprotein -->
+	<constraint>urn:miriam:kegg.compound:C03121</constraint><!--  Glycoprotein inositol -->
+	<constraint>urn:miriam:kegg.compound:C03157</constraint><!--  O-Phospho-tau-protein -->
+	<constraint>urn:miriam:kegg.compound:C03161</constraint><!--  Oxidized flavoprotein -->
+	<constraint>urn:miriam:kegg.compound:C03268</constraint><!--  D-Mannosylglycoprotein; Glycoprotein D-mannose -->
+	<constraint>urn:miriam:kegg.compound:C03304</constraint><!--  Poliovirus polyprotein -->
+	<constraint>urn:miriam:kegg.compound:C03306</constraint><!--  Protein L-isoaspartate -->
+	<constraint>urn:miriam:kegg.compound:C03371</constraint><!--  Acyl-protein thiolester -->
+	<constraint>urn:miriam:kegg.compound:C03412</constraint><!--  N-Palmitoylglycoprotein -->
+	<constraint>urn:miriam:kegg.compound:C03422</constraint><!--  O-Palmitoylglycoprotein -->
+	<constraint>urn:miriam:kegg.compound:C03424</constraint><!--  O-beta-D-Xylosylprotein -->
+	<constraint>urn:miriam:kegg.compound:C03429</constraint><!--  Protein 5-hydroxylysine -->
+	<constraint>urn:miriam:kegg.compound:C03533</constraint><!--  Picornavirus polyprotein -->
+	<constraint>urn:miriam:kegg.compound:C03635</constraint><!--  Protein N-ubiquityllysine -->
+	<constraint>urn:miriam:kegg.compound:C03636</constraint><!--  Protein N5-alkylglutamine -->
+	<constraint>urn:miriam:kegg.compound:C03637</constraint><!--  Protein serine D-xyloside -->
+	<constraint>urn:miriam:kegg.compound:C03688</constraint><!--  Apo-[acyl-carrier protein]; Apoprotein -->
+	<constraint>urn:miriam:kegg.compound:C03721</constraint><!--  Protein tyrosine-O-sulfate -->
+	<constraint>urn:miriam:kegg.compound:C03788</constraint><!--  Microsomal-membrane protein -->
+	<constraint>urn:miriam:kegg.compound:C03800</constraint><!--  Protein S-methyl-L-cysteine -->
+	<constraint>urn:miriam:kegg.compound:C03803</constraint><!--  Ribosomal-protein L-alanine -->
+	<constraint>urn:miriam:kegg.compound:C03895</constraint><!--  Protein L-methionine S-oxide -->
+	<constraint>urn:miriam:kegg.compound:C03896</constraint><!--  Protein(N-Glu, Asp, Cystine) -->
+	<constraint>urn:miriam:kegg.compound:C03939</constraint><!--  Acetyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C04010</constraint><!--  Glycoprotein phospho-D-mannose -->
+	<constraint>urn:miriam:kegg.compound:C04087</constraint><!--  Protein Ntau-methyl-L-histidine -->
+	<constraint>urn:miriam:kegg.compound:C04088</constraint><!--  Stearoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C04128</constraint><!--  Low-density lipoprotein L-serine -->
+	<constraint>urn:miriam:kegg.compound:C04142</constraint><!--  Protein glutamate methyl ester; Protein L-glutamate methyl ester -->
+	<constraint>urn:miriam:kegg.compound:C04143</constraint><!--  Protein N(omega)-Methyl-L-arginine -->
+	<constraint>urn:miriam:kegg.compound:C04174</constraint><!--  2-Decenoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C04180</constraint><!--  3-Decenoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C04195</constraint><!--  Glycoprotein phosphatidylinositol -->
+	<constraint>urn:miriam:kegg.compound:C04246</constraint><!--  But-2-enoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C04253</constraint><!--  Electron-transferring flavoprotein -->
+	<constraint>urn:miriam:kegg.compound:C04261</constraint><!--  Protein N(pi)-phospho-L-histidine -->
+	<constraint>urn:miriam:kegg.compound:C04262</constraint><!--  Protein N(tau)-phospho-L-histidine -->
+	<constraint>urn:miriam:kegg.compound:C04263</constraint><!--  Protein N6-(4-Aminobutyl)-L-lysine -->
+	<constraint>urn:miriam:kegg.compound:C04310</constraint><!--  Protein L-glutamate O5-methyl ester -->
+	<constraint>urn:miriam:kegg.compound:C04311</constraint><!--  Protein L-isoaspartate methyl ester; Protein L-isoaspartate alpha-methyl ester -->
+	<constraint>urn:miriam:kegg.compound:C04341</constraint><!--  Ribosomal-protein N-acetyl-L-alanine -->
+	<constraint>urn:miriam:kegg.compound:C04342</constraint><!--  Soluble variant-surface-glycoprotein -->
+	<constraint>urn:miriam:kegg.compound:C04364</constraint><!--  2-Hexadecenoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C04375</constraint><!--  4-N-(N-Acetyl-D-glucosaminyl)-protein -->
+	<constraint>urn:miriam:kegg.compound:C04386</constraint><!--  Myelin proteolipid O-palmitoylprotein; O-Palmitoyl-[myelin proteolipid] -->
+	<constraint>urn:miriam:kegg.compound:C04391</constraint><!--  O-Phospho-microsomal-membrane protein -->
+	<constraint>urn:miriam:kegg.compound:C04419</constraint><!--  Carboxybiotin-carboxyl-carrier protein -->
+	<constraint>urn:miriam:kegg.compound:C04506</constraint><!--  Protein C-terminal S-farnesyl-L-cysteine -->
+	<constraint>urn:miriam:kegg.compound:C04542</constraint><!--  Protein beta-D-galactosyl-L-hydroxylysine -->
+	<constraint>urn:miriam:kegg.compound:C04565</constraint><!--  Low-density lipoprotein O-phospho-L-serine -->
+	<constraint>urn:miriam:kegg.compound:C04570</constraint><!--  Reduced electron-transferring flavoprotein -->
+	<constraint>urn:miriam:kegg.compound:C04571</constraint><!--  Retinol-(cellular-retinol-binding-protein) -->
+	<constraint>urn:miriam:kegg.compound:C04618</constraint><!--  (3R)-3-Hydroxybutanoyl-[acyl-carrier protein]; (R)-3-Hydroxybutanoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C04619</constraint><!--  (3R)-3-Hydroxydecanoyl-[acyl-carrier protein]; (R)-3-Hydroxydecanoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C04620</constraint><!--  (3R)-3-Hydroxyoctanoyl-[acyl-carrier protein]; (R)-3-Hydroxyoctanoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C04633</constraint><!--  (3R)-3-Hydroxypalmitoyl-[acyl-carrier protein]; (R)-3-Hydroxypalmitoyl-[acyl-carrier protein]; (3R)-3-Hydroxyhexadecanoyl-[acyl-carrier protein]; (R)-3-Hydroxyhexadecanoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C04645</constraint><!--  6-(D-Glucose-1-phospho)-D-mannosylglycoprotein; Glycoprotein 6-(D-glucose-1-phospho)-D-mannose -->
+	<constraint>urn:miriam:kegg.compound:C04648</constraint><!--  Glycoprotein alpha-L-fucosyl-(1,2)-D-galactose; alpha-L-Fucosyl-(1->2)-D-galactosyl-R -->
+	<constraint>urn:miriam:kegg.compound:C04679</constraint><!--  Protein N6-[(R)-4-amino-2-hydroxybutyl]-L-lysine -->
+	<constraint>urn:miriam:kegg.compound:C04680</constraint><!--  Retinyl-ester-(cellular-retinol-binding-protein) -->
+	<constraint>urn:miriam:kegg.compound:C04688</constraint><!--  (3R)-3-Hydroxytetradecanoyl-[acyl-carrier protein]; (R)-3-Hydroxytetradecanoyl-[acyl-carrier protein]; beta-Hydroxymyristyl-[acyl-carrier protein]; HMA -->
+	<constraint>urn:miriam:kegg.compound:C04748</constraint><!--  Protein C-terminal S-farnesyl-L-cysteine methyl ester -->
+	<constraint>urn:miriam:kegg.compound:C04750</constraint><!--  beta-D-Galactosyl-1,3-N-acetyl-alpha-D-galactosaminyl-R; beta-D-Galactosyl-1,3-N-acetyl-D-galactosaminyl-R; Glycoprotein D-galactosyl-1,3-N-acetyl-D-galactosamine -->
+	<constraint>urn:miriam:kegg.compound:C04755</constraint><!--  Glycoprotein N-acetyl-D-glucosaminyl-phospho-D-mannose -->
+	<constraint>urn:miriam:kegg.compound:C04781</constraint><!--  Glycoprotein(non-reducing N- or O-acylneuraminyl residue) -->
+	<constraint>urn:miriam:kegg.compound:C04786</constraint><!--  3-beta-D-Galactosyl-4-D-galactosyl-O-beta-D-xylosylprotein -->
+	<constraint>urn:miriam:kegg.compound:C04788</constraint><!--  Glycano-1,3-(N-acetyl-alpha-D-galactosaminyl)-glycoprotein -->
+	<constraint>urn:miriam:kegg.compound:C04791</constraint><!--  beta-D-Galactosyl-1,4-N-acetyl-D-glucosaminyl-glycoprotein -->
+	<constraint>urn:miriam:kegg.compound:C04817</constraint><!--  Protein alpha-D-glucosyl-1,2-beta-D-galactosyl-L-hydroxylysine -->
+	<constraint>urn:miriam:kegg.compound:C04825</constraint><!--  3-beta-D-Galactosyl-4-beta-D-galactosyl-O-beta-D-xylosylprotein -->
+	<constraint>urn:miriam:kegg.compound:C04848</constraint><!--  Variant-surface-glycoprotein 1,2-didecanoyl-sn-phosphatidylinositol; 1,2-Didecanoyl-sn-phosphatidylinositol; 1,2-Didecanoyl-sn-glycero-3-phosphoinositol -->
+	<constraint>urn:miriam:kegg.compound:C04866</constraint><!--  Glycoprotein alpha-D-galactosyl-(1,3)-[alpha-L-fucosyl-(1,2)]-D-galactose; alpha-D-Galactosyl-(1->3)-[alpha-L-fucosyl(1->2)]-D-galactosyl-R -->
+	<constraint>urn:miriam:kegg.compound:C04903</constraint><!--  3-beta-D-Glucuronosyl-3-beta-D-galactosyl-4-beta-D-galactosyl-O-beta-D-xylosylprotein; beta-D-Glucuronyl-1,3-D-galactosylproteoglycan -->
+	<constraint>urn:miriam:kegg.compound:C04907</constraint><!--  alpha-N-Acetylneuraminyl-2,3-beta-D-galactosyl-1,4-N-acetyl-D-glucosaminyl-glycoprotein -->
+	<constraint>urn:miriam:kegg.compound:C05046</constraint><!--  Protein(Arg,Arg-Pro) -->
+	<constraint>urn:miriam:kegg.compound:C05047</constraint><!--  Protein(Arg-,Lys-,Phe-) -->
+	<constraint>urn:miriam:kegg.compound:C05048</constraint><!--  Protein(Gly-,Ala-,Val-,Leu-,Ile-) -->
+	<constraint>urn:miriam:kegg.compound:C05049</constraint><!--  Protein(Phe-,Leu) -->
+	<constraint>urn:miriam:kegg.compound:C05169</constraint><!--  Protein aspartate -->
+	<constraint>urn:miriam:kegg.compound:C05207</constraint><!--  [Myeline basic protein] L-arginine; [Myelin basic protein]-arginine -->
+	<constraint>urn:miriam:kegg.compound:C05223</constraint><!--  Dodecanoyl-[acyl-carrier protein]; --> Dodecanoyl-[acp]; Lauroyl-[acyl-carrier protein]
+	<constraint>urn:miriam:kegg.compound:C05250</constraint><!--  [Protein-PII] -->
+	<constraint>urn:miriam:kegg.compound:C05321</constraint><!--  [Myeline basic protein] N(omega)-methyl-L-arginine; [Myelin basic protein]-N(omega)-methylarginine -->
+	<constraint>urn:miriam:kegg.compound:C05326</constraint><!--  Uridylyl-[protein-PII] -->
+	<constraint>urn:miriam:kegg.compound:C05517</constraint><!--  5-Aminomethyldihydrolipoylprotein -->
+	<constraint>urn:miriam:kegg.compound:C05544</constraint><!--  Protein N6-methyl-L-lysine -->
+	<constraint>urn:miriam:kegg.compound:C05545</constraint><!--  Protein N6,N6-dimethyl-L-lysine -->
+	<constraint>urn:miriam:kegg.compound:C05546</constraint><!--  Protein N6,N6,N6-trimethyl-L-lysine -->
+	<constraint>urn:miriam:kegg.compound:C05744</constraint><!--  Acetoacetyl-[acp]; Acetoacetyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C05745</constraint><!--  Butyryl-[acp]; Butyryl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C05746</constraint><!--  3-Oxohexanoyl-[acp]; 3-Oxohexanoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C05747</constraint><!--  (R)-3-Hydroxyhexanoyl-[acp]; (R)-3-Hydroxyhexanoyl-[acyl-carrier protein]; D-3-Hydroxyhexanoyl-[acp]; D-3-Hydroxyhexanoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C05748</constraint><!--  trans-Hex-2-enoyl-[acp]; trans-Hex-2-enoyl-[acyl-carrier protein]; (2E)-Hexenoyl-[acp]-->
+	<constraint>urn:miriam:kegg.compound:C05749</constraint><!--  Hexanoyl-[acp]; Hexanoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C05750</constraint><!--  3-Oxooctanoyl-[acp]; 3-Oxooctanoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C05751</constraint><!--  trans-Oct-2-enoyl-[acp]; trans-Oct-2-enoyl-[acyl-carrier protein]; 2-Octenoyl-[acyl-carrier protein]; (2E)-Octenoyl-[acp] -->
+	<constraint>urn:miriam:kegg.compound:C05752</constraint><!--  Octanoyl-[acp]; Octanoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C05753</constraint><!--  3-Oxodecanoyl-[acp]; 3-Oxodecanoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C05754</constraint><!--  trans-Dec-2-enoyl-[acp]; trans-Dec-2-enoyl-[acyl-carrier protein]; (2E)-Decenoyl-[acp] -->
+	<constraint>urn:miriam:kegg.compound:C05755</constraint><!--  Decanoyl-[acp]; Decanoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C05756</constraint><!--  3-Oxododecanoyl-[acp]; 3-Oxododecanoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C05757</constraint><!--  (R)-3-Hydroxydodecanoyl-[acp]; (R)-3-Hydroxydodecanoyl-[acyl-carrier protein]; D-3-Hydroxydodecanoyl-[acp]; D-3-Hydroxydodecanoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C05758</constraint><!--  trans-Dodec-2-enoyl-[acp]; trans-Dodec-2-enoyl-[acyl-carrier protein]; (2E)-Dodecenoyl-[acp] -->
+	<constraint>urn:miriam:kegg.compound:C05759</constraint><!--  3-Oxotetradecanoyl-[acp]; 3-Oxotetradecanoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C05760</constraint><!--  trans-Tetradec-2-enoyl-[acp]; trans-Tetradec-2-enoyl-[acyl-carrier protein]; (2E)-Tetradecenoyl-[acp] -->
+	<constraint>urn:miriam:kegg.compound:C05761</constraint><!--  Tetradecanoyl-[acp]; Tetradecanoyl-[acyl-carrier protein]; Myristoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C05762</constraint><!--  3-Oxohexadecanoyl-[acp]; 3-Oxohexadecanoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C05763</constraint><!--  trans-Hexadec-2-enoyl-[acp]; trans-Hexadec-2-enoyl-[acyl-carrier protein]; (2E)-Hexadecenoyl-[acp] -->
+	<constraint>urn:miriam:kegg.compound:C05764</constraint><!--  Hexadecanoyl-[acp]; Hexadecanoyl-[acyl-carrier protein] -->
+	<constraint>urn:miriam:kegg.compound:C05883</constraint><!--  Protein N-(N-acetyl-D-glucosaminyl-(alpha-D-mannosyl)3-beta-D-mannosyl-diacetylchitobiosyl)-L-asparagine -->
+	<constraint>urn:miriam:kegg.compound:C06246</constraint><!--  Gla protein -->
+	<constraint>urn:miriam:kegg.compound:C06247</constraint><!--  Gla protein precursor -->
+	<constraint>urn:miriam:kegg.compound:C06250</constraint><!--  Holo-[carboxylase]; Biotin-carboxyl-carrier protein -->
+	<constraint>urn:miriam:kegg.compound:C06395</constraint><!--  [Protein]-L-serine -->
+	<constraint>urn:miriam:kegg.compound:C06396</constraint><!--  [Protein]-D-serine -->
+	<constraint>urn:miriam:kegg.compound:C06411</constraint><!--  Flavoprotein -->
+	<constraint>urn:miriam:kegg.compound:C06412</constraint><!--  Palmitoyl-protein -->
+	<constraint>urn:miriam:kegg.compound:C06483</constraint><!--  Glycoprotein-N-Acetyl-alpha-D-galactosaminyl-(1,3)-[alpha-L-fucosyl-(1,2)]-D-galactose -->
+	<constraint>urn:miriam:kegg.compound:C11377</constraint><!--  alpha-N-Acetylneuraminyl-2,6-beta-D-galactosyl-1,4-N-acetyl-D-glucosaminyl-glycoprotein -->
+	<constraint>urn:miriam:kegg.compound:C11572</constraint><!--  Glycoprotein with the oligosaccharide chain attached by N-glycosyl linkage to protein L-asparagine -->
+      </physicalEntity>
+
+      <physicalEntity classBioPAX="rna" classSBGN="macromolecule">
+        <constraint>urn:miriam:ensembl:ENSRNOT</constraint>
+        <constraint>urn:miriam:obo.chebi:CHEBI%3A18111</constraint><!-- ribosomal RNA -->
+        <constraint>urn:miriam:obo.chebi:CHEBI%3A33699</constraint><!-- messenger RNA  -->
+        <constraint>urn:miriam:obo.chebi:CHEBI%3A17843</constraint><!-- transfer RNA  -->
+        <constraint>urn:miriam:obo.chebi:CHEBI%3A33697</constraint><!-- ribonucleic acids-->
+<!--KEGG put the complete URI of KEGG entries which not define a smallMolecule
+non-exhaustive!! list about the rna and dna in KEGG, update the 31-07-2006 on http://www.genome.jp/kegg/ligand.html
+RNA-->
+	<constraint>urn:miriam:kegg.compound:C00046</constraint><!-- RNA; RNAn; RNAn+1; RNA(linear); (Ribonucleotide)n; (Ribonucleotide)m; (Ribonucleotide)n+m; Ribonucleic acid -->
+	<constraint>urn:miriam:kegg.compound:C00066</constraint><!-- tRNA; tRNA(n); tRNA(n+1); transfer RNA -->
+	<constraint>urn:miriam:kegg.compound:C00240</constraint><!-- rRNA; Ribosomal RNA -->
+	<constraint>urn:miriam:kegg.compound:C00549</constraint><!-- RNA (poly(U)) -->
+	<constraint>urn:miriam:kegg.compound:C00731</constraint><!-- 28S rRNA -->
+	<constraint>urn:miriam:kegg.compound:C00787</constraint><!-- tRNA(Tyr) -->
+	<constraint>urn:miriam:kegg.compound:C00868</constraint><!-- tRNA uridine -->
+	<constraint>urn:miriam:kegg.compound:C00886</constraint><!-- L-Alanyl-tRNA; L-Alanyl-tRNA(Ala) -->
+	<constraint>urn:miriam:kegg.compound:C00895</constraint><!-- RNA (poly(A)) -->
+	<constraint>urn:miriam:kegg.compound:C00960</constraint><!-- RNA 5'-phosphate -->
+	<constraint>urn:miriam:kegg.compound:C01050</constraint><!-- UDP-N-acetylmuramate; UDP-N-acetylmuramic acid; UDP-MurNAc -->
+	<constraint>urn:miriam:kegg.compound:C01396</constraint><!-- 5S-rRNA -->
+	<constraint>urn:miriam:kegg.compound:C01522</constraint><!-- Pre-tRNA -->
+	<constraint>urn:miriam:kegg.compound:C01635</constraint><!-- tRNA(Ala) -->
+	<constraint>urn:miriam:kegg.compound:C01636</constraint><!-- tRNA(Arg) -->
+	<constraint>urn:miriam:kegg.compound:C01637</constraint><!-- tRNA(Asn) -->
+	<constraint>urn:miriam:kegg.compound:C01638</constraint><!-- tRNA(Asp) -->
+	<constraint>urn:miriam:kegg.compound:C01639</constraint><!-- tRNA(Cys) -->
+	<constraint>urn:miriam:kegg.compound:C01640</constraint><!-- tRNA(Gln) -->
+	<constraint>urn:miriam:kegg.compound:C01641</constraint><!-- tRNA(Glu) -->
+	<constraint>urn:miriam:kegg.compound:C01642</constraint><!-- tRNA(Gly) -->
+	<constraint>urn:miriam:kegg.compound:C01643</constraint><!-- tRNA(His) -->
+	<constraint>urn:miriam:kegg.compound:C01644</constraint><!-- tRNA(Ile) -->
+	<constraint>urn:miriam:kegg.compound:C01645</constraint><!-- tRNA(Leu) -->
+	<constraint>urn:miriam:kegg.compound:C01646</constraint><!-- tRNA(Lys) -->
+	<constraint>urn:miriam:kegg.compound:C01647</constraint><!-- tRNA(Met) -->
+	<constraint>urn:miriam:kegg.compound:C01648</constraint><!-- tRNA(Phe) -->
+	<constraint>urn:miriam:kegg.compound:C01649</constraint><!-- tRNA(Pro) -->
+	<constraint>urn:miriam:kegg.compound:C01650</constraint><!-- tRNA(Ser) -->
+	<constraint>urn:miriam:kegg.compound:C01651</constraint><!-- tRNA(Thr) -->
+	<constraint>urn:miriam:kegg.compound:C01652</constraint><!-- tRNA(Trp) -->
+	<constraint>urn:miriam:kegg.compound:C01653</constraint><!-- tRNA(Val) -->
+	<constraint>urn:miriam:kegg.compound:C01683</constraint><!-- D-Ornaline -->
+	<constraint>urn:miriam:kegg.compound:C01763</constraint><!-- tRNA TpsiC -->
+	<constraint>urn:miriam:kegg.compound:C01764</constraint><!-- tRNA UpsiC -->
+	<constraint>urn:miriam:kegg.compound:C01765</constraint><!-- (+)-Borneol; d-Borneol; Borneocamphor; endo-2-Bornanol; Sumatra camphor; (1R,2S,4R)-(+)-Borneol -->
+	<constraint>urn:miriam:kegg.compound:C01931</constraint><!-- L-Lysyl-tRNA; L-Lysyl-tRNA(Lys) -->
+	<constraint>urn:miriam:kegg.compound:C01977</constraint><!-- tRNA guanine -->
+	<constraint>urn:miriam:kegg.compound:C01978</constraint><!-- tRNA queuine -->
+	<constraint>urn:miriam:kegg.compound:C02031</constraint><!-- G(5')pppR-RNA -->
+	<constraint>urn:miriam:kegg.compound:C02047</constraint><!-- L-Leucyl-tRNA; L-Leucyl-tRNA(Leu) -->
+	<constraint>urn:miriam:kegg.compound:C02056</constraint><!-- Peptidyl-tRNA -->
+	<constraint>urn:miriam:kegg.compound:C02072</constraint><!-- RNA (poly(C)) -->
+	<constraint>urn:miriam:kegg.compound:C02073</constraint><!-- RNA(circular) -->
+	<constraint>urn:miriam:kegg.compound:C02100</constraint><!-- (5')ppPur-mRNA -->
+	<constraint>urn:miriam:kegg.compound:C02163</constraint><!-- L-Arginyl-tRNA(Arg); L-Arginyl-tRNA -->
+	<constraint>urn:miriam:kegg.compound:C02211</constraint><!-- tRNA precursor -->
+	<constraint>urn:miriam:kegg.compound:C02282</constraint><!-- Glutaminyl-tRNA; L-Glutaminyl-tRNA(Gln); Gln-tRNA(Gln) -->
+	<constraint>urn:miriam:kegg.compound:C02339</constraint><!-- m7G(5')pppR-RNA -->
+	<constraint>urn:miriam:kegg.compound:C02342</constraint><!-- 'Activated' tRNA -->
+	<constraint>urn:miriam:kegg.compound:C02377</constraint><!-- 5-Oxoprolyl-tRNA -->
+	<constraint>urn:miriam:kegg.compound:C02407</constraint><!-- G(5')pppPur-mRNA -->
+	<constraint>urn:miriam:kegg.compound:C02412</constraint><!-- Glycyl-tRNA(Gly) -->
+	<constraint>urn:miriam:kegg.compound:C02430</constraint><!-- L-Methionyl-tRNA; L-Methionyl-tRNA(Met) -->
+	<constraint>urn:miriam:kegg.compound:C02447</constraint><!-- O-Methylated RNA -->
+	<constraint>urn:miriam:kegg.compound:C02521</constraint><!-- 5S-rRNA precursor -->
+	<constraint>urn:miriam:kegg.compound:C02553</constraint><!-- L-Seryl-tRNA(Ser) -->
+	<constraint>urn:miriam:kegg.compound:C02554</constraint><!-- L-Valyl-tRNA(Val) -->
+	<constraint>urn:miriam:kegg.compound:C02702</constraint><!-- L-Prolyl-tRNA(Pro) -->
+	<constraint>urn:miriam:kegg.compound:C02764</constraint><!-- tRNA pseudouridine -->
+	<constraint>urn:miriam:kegg.compound:C02839</constraint><!-- L-Tyrosyl-tRNA(Tyr) -->
+	<constraint>urn:miriam:kegg.compound:C02905</constraint><!-- tRNA(Asp)-queuosine -->
+	<constraint>urn:miriam:kegg.compound:C02984</constraint><!-- L-Aspartyl-tRNA(Asp) -->
+	<constraint>urn:miriam:kegg.compound:C02987</constraint><!-- L-Glutamyl-tRNA(Glu) -->
+	<constraint>urn:miriam:kegg.compound:C02988</constraint><!-- L-Histidyl-tRNA(His) -->
+	<constraint>urn:miriam:kegg.compound:C02992</constraint><!-- L-Threonyl-tRNA(Thr) -->
+	<constraint>urn:miriam:kegg.compound:C03037</constraint><!-- (+)-Bornane-2,5-dione; 2,5-Diketocamphane -->
+	<constraint>urn:miriam:kegg.compound:C03125</constraint><!-- L-Cysteinyl-tRNA(Cys) -->
+	<constraint>urn:miriam:kegg.compound:C03127</constraint><!-- L-Isoleucyl-tRNA(Ile) -->
+	<constraint>urn:miriam:kegg.compound:C03294</constraint><!-- N-Formylmethionyl-tRNA -->
+	<constraint>urn:miriam:kegg.compound:C03402</constraint><!-- L-Asparaginyl-tRNA(Asn); Asn-tRNA(Asn) -->
+	<constraint>urn:miriam:kegg.compound:C03446</constraint><!-- tRNA containing thymine -->
+	<constraint>urn:miriam:kegg.compound:C03511</constraint><!-- L-Phenylalanyl-tRNA(Phe) -->
+	<constraint>urn:miriam:kegg.compound:C03512</constraint><!-- L-Tryptophanyl-tRNA(Trp) -->
+<!--	<constraint>urn:miriam:kegg.compound:C03533</constraint> --><!-- Picornavirus polyprotein -->
+	<constraint>urn:miriam:kegg.compound:C03617</constraint><!-- L-Methionylaminoacyl-tRNA -->
+	<constraint>urn:miriam:kegg.compound:C03638</constraint><!-- RNA 3'-terminal-phosphate -->
+	<constraint>urn:miriam:kegg.compound:C03880</constraint><!-- N-Substituted aminoacyl-tRNA -->
+<!--	<constraint>urn:miriam:kegg.compound:C03959</constraint> --><!-- [DNA-directed RNA polymerase]; [RNA polymerase] -->
+	<constraint>urn:miriam:kegg.compound:C04117</constraint><!-- 5'-Phospho-RNA 3'-mononucleotide -->
+	<constraint>urn:miriam:kegg.compound:C04152</constraint><!-- rRNA containing N1-methylguanine -->
+	<constraint>urn:miriam:kegg.compound:C04153</constraint><!-- rRNA containing N2-methylguanine -->
+	<constraint>urn:miriam:kegg.compound:C04154</constraint><!-- rRNA containing N6-methyladenine -->
+	<constraint>urn:miriam:kegg.compound:C04155</constraint><!-- tRNA containing 5-methylcytosine -->
+	<constraint>urn:miriam:kegg.compound:C04156</constraint><!-- tRNA containing N1-methyladenine -->
+	<constraint>urn:miriam:kegg.compound:C04157</constraint><!-- tRNA containing N1-methylguanine -->
+	<constraint>urn:miriam:kegg.compound:C04158</constraint><!-- tRNA containing N2-methylguanine -->
+	<constraint>urn:miriam:kegg.compound:C04159</constraint><!-- tRNA containing N6-methyladenine -->
+	<constraint>urn:miriam:kegg.compound:C04160</constraint><!-- tRNA containing N7-methylguanine -->
+	<constraint>urn:miriam:kegg.compound:C04161</constraint><!-- tRNA containing a thionucleotide -->
+	<constraint>urn:miriam:kegg.compound:C04239</constraint><!-- 5'-Dephospho-RNA 3'-mononucleotide -->
+	<constraint>urn:miriam:kegg.compound:C04258</constraint><!-- N-Formyl-L-methionylaminoacyl-tRNA -->
+	<constraint>urn:miriam:kegg.compound:C04312</constraint><!-- RNA terminal-2',3'-cyclic-phosphate -->
+<!--	<constraint>urn:miriam:kegg.compound:C04395</constraint> --><!-- Phospho-[DNA-directed RNA polymerase] -->
+	<constraint>urn:miriam:kegg.compound:C04432</constraint><!-- tRNA containing 6-isopentenyladenosine -->
+	<constraint>urn:miriam:kegg.compound:C04510</constraint><!-- tRNA 3-(3-amino-3-carboxypropyl)-uridine -->
+	<constraint>urn:miriam:kegg.compound:C04511</constraint><!-- tRNA(Asp)-O-5''-beta-D-mannosylqueuosine -->
+	<constraint>urn:miriam:kegg.compound:C04545</constraint><!-- tRNA containing 2'-O-methylguanosine -->
+	<constraint>urn:miriam:kegg.compound:C04728</constraint><!-- tRNA containing 5-methylaminomethyl-2-thiouridylate -->
+	<constraint>urn:miriam:kegg.compound:C04779</constraint><!-- rRNA containing a single residue of 2'-O-methyladenosine -->
+	<constraint>urn:miriam:kegg.compound:C04802</constraint><!-- m7G(5')pppRm-RNA (mRNA containing a 2'-O-methylpurine cap) -->
+	<constraint>urn:miriam:kegg.compound:C04833</constraint><!-- m7G(5')pppm6Am (mRNA containing an N6,2'-O-dimethyladenosine cap) -->
+	<constraint>urn:miriam:kegg.compound:C05065</constraint><!-- rRNA(N6-methyladenine) -->
+	<constraint>urn:miriam:kegg.compound:C05156</constraint><!-- Aminoacyl-tRNA -->
+	<constraint>urn:miriam:kegg.compound:C05157</constraint><!-- Peptidyl-aminoacyl-tRNA -->
+	<constraint>urn:miriam:kegg.compound:C05173</constraint><!-- L-Selenocysteinyl-tRNA(Ser) -->
+	<constraint>urn:miriam:kegg.compound:C05336</constraint><!-- Selenomethionyl-tRNA(Met) -->
+	<constraint>urn:miriam:kegg.compound:C06112</constraint><!-- L-Glutamyl-tRNA(Gln); Glu-tRNA(Gln) -->
+	<constraint>urn:miriam:kegg.compound:C06113</constraint><!-- L-Aspartyl-tRNA(Asn); Asp-tRNA(Asn) -->
+	<constraint>urn:miriam:kegg.compound:C06481</constraint><!-- L-Seryl-tRNA -->
+	<constraint>urn:miriam:kegg.compound:C06482</constraint><!-- L-Selenocysteinyl-tRNA -->
+<!--	<constraint>urn:miriam:kegg.compound:C06703</constraint> --><!-- Quaternary amine -->
+<!--	<constraint>urn:miriam:kegg.compound:C08884</constraint> --><!-- Vernadigin; Strophadogenin 3-O-beta-D-diginoside -->
+<!--	<constraint>urn:miriam:kegg.compound:C09146</constraint> --><!-- Eburnamine; Eburnamenin-14-ol, 14,15-dihydro-, (14alpha)- -->
+<!--	<constraint>urn:miriam:kegg.compound:C09149</constraint> --><!-- Eburnamonine; Vinburnine -->
+<!--	<constraint>urn:miriam:kegg.compound:C09242</constraint> --><!-- Tabernamine -->
+<!--	<constraint>urn:miriam:kegg.compound:C09274</constraint> --><!-- Tabernanthine -->
+<!--	<constraint>urn:miriam:kegg.compound:C09461</constraint> --><!-- Hernandezine -->
+<!--	<constraint>urn:miriam:kegg.compound:C09681</constraint> --><!-- Hernandulcin -->
+	<constraint>urn:miriam:kegg.compound:C11478</constraint><!-- tRNA containing 5-aminomethyl-2-thiouridine -->
+<!--	<constraint>urn:miriam:kegg.compound:C11615</constraint> --><!-- Pristinamycin IA; Vernamycin B alpha; Mikamycin B; 4-[4-(Dimethylamino)-N-methyl-L-phenylalanine]virginiamycin S1 -->
+<!--	<constraint>urn:miriam:kegg.compound:C11616</constraint> --><!-- Pristinamycin IB; Vernamycin B beta; 4-[N-Methyl-4-(methylamino)-L-phenylalanine]virginiamycin S1 -->
+<!--	<constraint>urn:miriam:kegg.compound:C11617</constraint> --><!-- Pristinamycin IC; Vernamycin B gamma; 2-D-Alanine-4-[4-(dimethylamino)-N-methyl-L-phenylalanine]virginiamycin S1 -->
+
+      </physicalEntity>
+      
+      <physicalEntity classBioPAX="dna"  classSBGN="macromolecule">
+        <constraint>urn:miriam:ensembl:ENSRNOG</constraint>
+        <constraint>urn:miriam:obo.chebi:CHEBI%3A9160</constraint><!-- deoxyribonucleic acids -->
+        <constraint>urn:miriam:obo.chebi:CHEBI%3A16991</constraint><!-- double-stranded DNA  -->
+        <constraint>urn:miriam:obo.chebi:CHEBI%3A4705</constraint><!-- single-stranded DNA -->
+<!--KEGG put the complete URI of KEGG entries which not define a smallMolecule
+non-exhaustive!! list about the rna and dna in KEGG, update the 31-07-2006 on http://www.genome.jp/kegg/ligand.html
+DNA-->
+	<constraint>urn:miriam:kegg.compound:C00039</constraint><!-- DNA; DNAn; DNAn+1; (Deoxyribonucleotide)n; (Deoxyribonucleotide)m; (Deoxyribonucleotide)n+m; Deoxyribonucleic acid -->
+	<constraint>urn:miriam:kegg.compound:C00271</constraint><!-- Single-stranded DNA -->
+	<constraint>urn:miriam:kegg.compound:C00434</constraint><!-- Double-stranded DNA -->
+	<constraint>urn:miriam:kegg.compound:C00578</constraint><!-- DNA 5'-phosphate -->
+<!--	<constraint>urn:miriam:kegg.compound:C00396</constraint> --><!-- is DNA? Pyrimidine; Pyrimidine (in DNA); 1,3-Diazine; Metadiazine -->
+<!--	<constraint>urn:miriam:kegg.compound:C00821</constraint> --><!-- is DNA? DNA adenine -->
+<!--	<constraint>urn:miriam:kegg.compound:C00856</constraint> --><!-- is DNA? DNA cytosine; Cytosine (in DNA) -->
+<!--	<constraint>urn:miriam:kegg.compound:C00242</constraint> --><!-- is DNA? Guanine; 2-Amino-6-hydroxypurine -->
+	<constraint>urn:miriam:kegg.compound:C00871</constraint> Alkylated DNA -->
+	<constraint>urn:miriam:kegg.compound:C02128</constraint><!-- 5'-Phospho-DNA -->
+	<constraint>urn:miriam:kegg.compound:C02270</constraint><!-- Depurinated DNA -->
+	<constraint>urn:miriam:kegg.compound:C02374</constraint><!-- 5'-Dephospho-DNA -->
+	<constraint>urn:miriam:kegg.compound:C02410</constraint><!-- Glucosylated DNA -->
+	<constraint>urn:miriam:kegg.compound:C02840</constraint><!-- Linear DNA duplexes -->
+	<constraint>urn:miriam:kegg.compound:C02959</constraint><!-- Apurinic site in DNA -->
+	<constraint>urn:miriam:kegg.compound:C02967</constraint><!-- DNA 5-methylcytosine; DNA containing 5-methylcytosine; 5-Methylcytosine (in DNA) -->
+	<constraint>urn:miriam:kegg.compound:C03103</constraint><!-- Cyclobutadipyrimidine; Cyclobutadipyrimidine (in DNA) -->
+	<constraint>urn:miriam:kegg.compound:C03110</constraint><!-- DNA N4-methylcytosine -->
+	<constraint>urn:miriam:kegg.compound:C03310</constraint><!-- Supercoiled plasma DNA -->
+	<constraint>urn:miriam:kegg.compound:C03391</constraint><!-- DNA 6-methylaminopurine -->
+	<constraint>urn:miriam:kegg.compound:C03484</constraint><!-- Apyrimidinic site in DNA -->
+	<constraint>urn:miriam:kegg.compound:C03959</constraint><!-- [DNA-directed RNA polymerase]; [RNA polymerase] -->
+	<constraint>urn:miriam:kegg.compound:C04249</constraint><!-- DNA (containing Holliday junction) -->
+	<constraint>urn:miriam:kegg.compound:C04250</constraint><!-- DNA containing 6-O-methylguanine -->
+	<constraint>urn:miriam:kegg.compound:C04381</constraint><!-- DNA 4,6-diamino-5-formamidopyrimidine -->
+	<constraint>urn:miriam:kegg.compound:C04395</constraint><!-- Phospho-[DNA-directed RNA polymerase] -->
+	<constraint>urn:miriam:kegg.compound:C11475</constraint><!-- DNA containing guanine -->
+      </physicalEntity>
+
+      <physicalEntity classBioPAX="smallMolecule"  classSBGN="simple chemical">
+        <species>urn:miriam:obo.chebi</species>
+        <species>urn:miriam:kegg.compound</species>
+      </physicalEntity>
+    </annotationSpecies>
+
+  </constraints>
+
+</sbml2sbgn>

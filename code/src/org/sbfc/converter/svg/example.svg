@@ -1,0 +1,1165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="2792pt" height="698pt"
+ viewBox="0.00 0.00 2792.00 698.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph1" class="graph" transform="scale(1 1) rotate(0) translate(4 694)">
+<title>G</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-694 2789,-694 2789,5 -4,5"/>
+<!-- cLm -->
+<g id="node1" class="node"><title>cLm</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-626" rx="19.1937" ry="19.6988"/>
+<text text-anchor="middle" x="27" y="-623.5" font-family="Times Roman,serif" font-size="10.00">OR</text>
+</g>
+<!-- reaction_0_intermediate_r -->
+<g id="node29" class="node"><title>reaction_0_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="97" cy="-663" rx="0.036" ry="0.036"/>
+</g>
+<!-- cLm&#45;&gt;reaction_0_intermediate_r -->
+<g id="edge18" class="edge"><title>cLm&#45;&gt;reaction_0_intermediate_r</title>
+<path fill="none" stroke="black" d="M44.3034,-635.146C64.3846,-645.76 95.013,-661.95 96.9077,-662.951"/>
+</g>
+<!-- reaction_2 -->
+<g id="node32" class="node"><title>reaction_2</title>
+<polygon fill="none" stroke="black" points="104,-565 90,-565 90,-551 104,-551 104,-565"/>
+</g>
+<!-- cLm&#45;&gt;reaction_2 -->
+<g id="edge26" class="edge"><title>cLm&#45;&gt;reaction_2</title>
+<path fill="none" stroke="black" d="M40.8297,-612.565C52.3995,-601.326 68.9129,-585.285 81.0411,-573.503"/>
+<polygon fill="none" stroke="black" points="81.0419,-573.502 82.5585,-566.452 89.6493,-565.141 88.1328,-572.191 81.0419,-573.502"/>
+</g>
+<!-- cLc -->
+<g id="node2" class="node"><title>cLc</title>
+<image xlink:href="/automount/nas17b_vol-vol_homes-homes/jalowcki/workspace/sbfc/sbfc/bin/org/sbfc/converter/sbml2dot/dotImages/multimerNAF.png" width="238px" height="87px" preserveAspectRatio="xMinYMin meet" x="191" y="-451.5"/>
+<text text-anchor="middle" x="310" y="-405.5" font-family="Times Roman,serif" font-size="10.00">LHY protein in cytoplasm</text>
+</g>
+<!-- reaction_3_intermediate_r -->
+<g id="node40" class="node"><title>reaction_3_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="467" cy="-358" rx="0.036" ry="0.036"/>
+</g>
+<!-- cLc&#45;&gt;reaction_3_intermediate_r -->
+<g id="edge30" class="edge"><title>cLc&#45;&gt;reaction_3_intermediate_r</title>
+<path fill="none" stroke="black" d="M439.562,-366.738C455.275,-361.734 466.167,-358.265 466.954,-358.015"/>
+<polygon fill="black" stroke="black" points="438.26,-363.48 429.793,-369.849 440.384,-370.15 438.26,-363.48"/>
+</g>
+<!-- reaction_4_intermediate_r -->
+<g id="node49" class="node"><title>reaction_4_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="467" cy="-408" rx="0.036" ry="0.036"/>
+</g>
+<!-- cLc&#45;&gt;reaction_4_intermediate_r -->
+<g id="edge40" class="edge"><title>cLc&#45;&gt;reaction_4_intermediate_r</title>
+<path fill="none" stroke="black" d="M429.793,-408C450.611,-408 466.012,-408 466.954,-408"/>
+</g>
+<!-- cLn -->
+<g id="node3" class="node"><title>cLn</title>
+<polyline fill="none" stroke="black" points="759,-352 657,-352 "/>
+<path fill="none" stroke="black" d="M657,-352C651,-352 645,-346 645,-340"/>
+<polyline fill="none" stroke="black" points="645,-340 645,-328 "/>
+<path fill="none" stroke="black" d="M645,-328C645,-322 651,-316 657,-316"/>
+<polyline fill="none" stroke="black" points="657,-316 759,-316 "/>
+<path fill="none" stroke="black" d="M759,-316C765,-316 771,-322 771,-328"/>
+<polyline fill="none" stroke="black" points="771,-328 771,-340 "/>
+<path fill="none" stroke="black" d="M771,-340C771,-346 765,-352 759,-352"/>
+<text text-anchor="middle" x="708" y="-331.5" font-family="Times Roman,serif" font-size="10.00">LHY protein in nucleus</text>
+</g>
+<!-- reaction_5_intermediate_r -->
+<g id="node55" class="node"><title>reaction_5_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="815" cy="-297" rx="0.036" ry="0.036"/>
+</g>
+<!-- cLn&#45;&gt;reaction_5_intermediate_r -->
+<g id="edge46" class="edge"><title>cLn&#45;&gt;reaction_5_intermediate_r</title>
+<path fill="none" stroke="black" d="M760.246,-315.934C786.559,-306.835 813.276,-297.596 814.92,-297.028"/>
+</g>
+<!-- reaction_6 -->
+<g id="node58" class="node"><title>reaction_6</title>
+<polygon fill="none" stroke="black" points="822,-391 808,-391 808,-377 822,-377 822,-391"/>
+</g>
+<!-- cLn&#45;&gt;reaction_6 -->
+<g id="edge56" class="edge"><title>cLn&#45;&gt;reaction_6</title>
+<path fill="none" stroke="black" d="M752.304,-352.065C758.95,-354.955 765.687,-357.988 772,-361 780.424,-365.019 789.568,-369.843 797.248,-374.032"/>
+<polygon fill="none" stroke="black" points="797.307,-374.065 804.495,-373.478 807.801,-379.886 800.613,-380.473 797.307,-374.065"/>
+</g>
+<!-- reaction_26 -->
+<g id="node175" class="node"><title>reaction_26</title>
+<polygon fill="none" stroke="black" points="1728,-187 1714,-187 1714,-173 1728,-173 1728,-187"/>
+</g>
+<!-- cLn&#45;&gt;reaction_26 -->
+<g id="edge180" class="edge"><title>cLn&#45;&gt;reaction_26</title>
+<path fill="none" stroke="black" d="M712.704,-315.899C726.702,-266.667 772.963,-134 865,-134 865,-134 865,-134 1479,-134 1567.85,-134 1593.89,-124.383 1678,-153 1687.31,-156.167 1696.67,-161.699 1704.27,-166.934"/>
+<polygon fill="none" stroke="black" points="1704.28,-166.946 1711.48,-167.299 1713.93,-174.083 1706.73,-173.73 1704.28,-166.946"/>
+</g>
+<!-- reaction_39 -->
+<g id="node239" class="node"><title>reaction_39</title>
+<polygon fill="none" stroke="black" points="1728,-328 1714,-328 1714,-314 1728,-314 1728,-328"/>
+</g>
+<!-- cLn&#45;&gt;reaction_39 -->
+<g id="edge250" class="edge"><title>cLn&#45;&gt;reaction_39</title>
+<path fill="none" stroke="black" d="M771.784,-334C800.303,-334 834.336,-334 865,-334 865,-334 865,-334 1479,-334 1562,-334 1660.77,-326.281 1701.73,-322.739"/>
+<polygon fill="none" stroke="black" points="1701.93,-322.722 1707.55,-318.208 1713.88,-321.663 1708.26,-326.177 1701.93,-322.722"/>
+</g>
+<!-- cTm -->
+<g id="node4" class="node"><title>cTm</title>
+<polygon fill="none" stroke="black" points="986,-399 908,-399 908,-363 986,-363 986,-399"/>
+<text text-anchor="middle" x="947" y="-378.5" font-family="Times Roman,serif" font-size="10.00">TOC1 mRNA</text>
+</g>
+<!-- reaction_7_intermediate_r -->
+<g id="node69" class="node"><title>reaction_7_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="1029" cy="-381" rx="0.036" ry="0.036"/>
+</g>
+<!-- cTm&#45;&gt;reaction_7_intermediate_r -->
+<g id="edge62" class="edge"><title>cTm&#45;&gt;reaction_7_intermediate_r</title>
+<path fill="none" stroke="black" d="M986.079,-381C1006.54,-381 1027.64,-381 1028.94,-381"/>
+</g>
+<!-- reaction_30 -->
+<g id="node201" class="node"><title>reaction_30</title>
+<polygon fill="none" stroke="black" points="1036,-241 1022,-241 1022,-227 1036,-227 1036,-241"/>
+</g>
+<!-- cTm&#45;&gt;reaction_30 -->
+<g id="edge208" class="edge"><title>cTm&#45;&gt;reaction_30</title>
+<path fill="none" stroke="black" d="M957.985,-362.92C965.925,-349.729 976.825,-331.37 986,-315 998.034,-293.529 1011.21,-268.452 1019.77,-251.953"/>
+<polygon fill="none" stroke="black" points="1019.81,-251.875 1019.01,-244.708 1025.31,-241.211 1026.12,-248.377 1019.81,-251.875"/>
+</g>
+<!-- cTc -->
+<g id="node5" class="node"><title>cTc</title>
+<polyline fill="none" stroke="black" points="1263,-252 1135,-252 "/>
+<path fill="none" stroke="black" d="M1135,-252C1129,-252 1123,-246 1123,-240"/>
+<polyline fill="none" stroke="black" points="1123,-240 1123,-228 "/>
+<path fill="none" stroke="black" d="M1123,-228C1123,-222 1129,-216 1135,-216"/>
+<polyline fill="none" stroke="black" points="1135,-216 1263,-216 "/>
+<path fill="none" stroke="black" d="M1263,-216C1269,-216 1275,-222 1275,-228"/>
+<polyline fill="none" stroke="black" points="1275,-228 1275,-240 "/>
+<path fill="none" stroke="black" d="M1275,-240C1275,-246 1269,-252 1263,-252"/>
+<text text-anchor="middle" x="1199" y="-231.5" font-family="Times Roman,serif" font-size="10.00">TOC1 protein &#160;in cytoplasm</text>
+</g>
+<!-- reaction_31_intermediate_r -->
+<g id="node209" class="node"><title>reaction_31_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="1339" cy="-209" rx="0.036" ry="0.036"/>
+</g>
+<!-- cTc&#45;&gt;reaction_31_intermediate_r -->
+<g id="edge212" class="edge"><title>cTc&#45;&gt;reaction_31_intermediate_r</title>
+<path fill="none" stroke="black" d="M1285.48,-218.557C1313.2,-213.607 1337.27,-209.309 1338.91,-209.016"/>
+<polygon fill="black" stroke="black" points="1284.78,-215.126 1275.55,-220.33 1286.01,-222.017 1284.78,-215.126"/>
+</g>
+<!-- reaction_32_intermediate_r -->
+<g id="node218" class="node"><title>reaction_32_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="1339" cy="-234" rx="0.036" ry="0.036"/>
+</g>
+<!-- cTc&#45;&gt;reaction_32_intermediate_r -->
+<g id="edge222" class="edge"><title>cTc&#45;&gt;reaction_32_intermediate_r</title>
+<path fill="none" stroke="black" d="M1275.55,-234C1307.22,-234 1337.08,-234 1338.91,-234"/>
+</g>
+<!-- reaction_33_intermediate_r -->
+<g id="node224" class="node"><title>reaction_33_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="1339" cy="-265" rx="0.036" ry="0.036"/>
+</g>
+<!-- cTc&#45;&gt;reaction_33_intermediate_r -->
+<g id="edge228" class="edge"><title>cTc&#45;&gt;reaction_33_intermediate_r</title>
+<path fill="none" stroke="black" d="M1275.55,-250.951C1307.22,-257.962 1337.08,-264.574 1338.91,-264.98"/>
+</g>
+<!-- cTn -->
+<g id="node6" class="node"><title>cTn</title>
+<polyline fill="none" stroke="black" points="1665,-252 1555,-252 "/>
+<path fill="none" stroke="black" d="M1555,-252C1549,-252 1543,-246 1543,-240"/>
+<polyline fill="none" stroke="black" points="1543,-240 1543,-228 "/>
+<path fill="none" stroke="black" d="M1543,-228C1543,-222 1549,-216 1555,-216"/>
+<polyline fill="none" stroke="black" points="1555,-216 1665,-216 "/>
+<path fill="none" stroke="black" d="M1665,-216C1671,-216 1677,-222 1677,-228"/>
+<polyline fill="none" stroke="black" points="1677,-228 1677,-240 "/>
+<path fill="none" stroke="black" d="M1677,-240C1677,-246 1671,-252 1665,-252"/>
+<text text-anchor="middle" x="1610" y="-231.5" font-family="Times Roman,serif" font-size="10.00">TOC1 protein in nucleus</text>
+</g>
+<!-- reaction_28 -->
+<g id="node188" class="node"><title>reaction_28</title>
+<polygon fill="none" stroke="black" points="1728,-77 1714,-77 1714,-63 1728,-63 1728,-77"/>
+</g>
+<!-- cTn&#45;&gt;reaction_28 -->
+<g id="edge194" class="edge"><title>cTn&#45;&gt;reaction_28</title>
+<path fill="none" stroke="black" d="M1667.45,-215.875C1671.31,-213.293 1674.89,-210.351 1678,-207 1694.11,-189.659 1709.98,-122.675 1717.1,-89.2286"/>
+<polygon fill="none" stroke="black" points="1717.16,-88.9408 1714.46,-82.2544 1719.59,-77.1901 1722.29,-83.8765 1717.16,-88.9408"/>
+</g>
+<!-- reaction_34_intermediate_r -->
+<g id="node230" class="node"><title>reaction_34_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="1721" cy="-267" rx="0.036" ry="0.036"/>
+</g>
+<!-- cTn&#45;&gt;reaction_34_intermediate_r -->
+<g id="edge234" class="edge"><title>cTn&#45;&gt;reaction_34_intermediate_r</title>
+<path fill="none" stroke="black" d="M1670.7,-252.045C1695.8,-259.508 1719.47,-266.546 1720.93,-266.979"/>
+</g>
+<!-- reaction_38_intermediate_r -->
+<g id="node236" class="node"><title>reaction_38_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="1721" cy="-227" rx="0.036" ry="0.036"/>
+</g>
+<!-- cTn&#45;&gt;reaction_38_intermediate_r -->
+<g id="edge240" class="edge"><title>cTn&#45;&gt;reaction_38_intermediate_r</title>
+<path fill="none" stroke="black" d="M1677.77,-229.726C1700.15,-228.315 1719.74,-227.079 1720.94,-227.004"/>
+</g>
+<!-- cTn&#45;&gt;reaction_39 -->
+<g id="edge248" class="edge"><title>cTn&#45;&gt;reaction_39</title>
+<path fill="none" stroke="black" d="M1664.3,-252.171C1669.14,-254.78 1673.8,-257.714 1678,-261 1692.53,-272.36 1704.32,-289.914 1711.85,-303.105"/>
+<polygon fill="none" stroke="black" points="1711.85,-303.115 1718.22,-306.511 1717.53,-313.69 1711.17,-310.293 1711.85,-303.115"/>
+</g>
+<!-- cXm -->
+<g id="node7" class="node"><title>cXm</title>
+<polygon fill="none" stroke="black" points="1886,-36 1830,-36 1830,-1.77636e-14 1886,-3.55271e-15 1886,-36"/>
+<text text-anchor="middle" x="1858" y="-15.5" font-family="Times Roman,serif" font-size="10.00">X mRNA</text>
+</g>
+<!-- reaction_15 -->
+<g id="node111" class="node"><title>reaction_15</title>
+<polygon fill="none" stroke="black" points="1952,-79 1938,-79 1938,-65 1952,-65 1952,-79"/>
+</g>
+<!-- cXm&#45;&gt;reaction_15 -->
+<g id="edge112" class="edge"><title>cXm&#45;&gt;reaction_15</title>
+<path fill="none" stroke="black" d="M1886.9,-35.6763C1891.94,-38.7748 1897.13,-41.9749 1902,-45 1910.36,-50.1865 1919.59,-55.9802 1927.36,-60.8669"/>
+<polygon fill="none" stroke="black" points="1927.56,-60.9918 1934.77,-60.8075 1937.71,-67.3908 1930.5,-67.5752 1927.56,-60.9918"/>
+</g>
+<!-- reaction_29_intermediate_r -->
+<g id="node198" class="node"><title>reaction_29_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="1945" cy="-18" rx="0.036" ry="0.036"/>
+</g>
+<!-- cXm&#45;&gt;reaction_29_intermediate_r -->
+<g id="edge200" class="edge"><title>cXm&#45;&gt;reaction_29_intermediate_r</title>
+<path fill="none" stroke="black" d="M1886.97,-18C1911.49,-18 1942.96,-18 1944.91,-18"/>
+</g>
+<!-- cXc -->
+<g id="node8" class="node"><title>cXc</title>
+<polyline fill="none" stroke="black" points="2169,-117 2065,-117 "/>
+<path fill="none" stroke="black" d="M2065,-117C2059,-117 2053,-111 2053,-105"/>
+<polyline fill="none" stroke="black" points="2053,-105 2053,-93 "/>
+<path fill="none" stroke="black" d="M2053,-93C2053,-87 2059,-81 2065,-81"/>
+<polyline fill="none" stroke="black" points="2065,-81 2169,-81 "/>
+<path fill="none" stroke="black" d="M2169,-81C2175,-81 2181,-87 2181,-93"/>
+<polyline fill="none" stroke="black" points="2181,-93 2181,-105 "/>
+<path fill="none" stroke="black" d="M2181,-105C2181,-111 2175,-117 2169,-117"/>
+<text text-anchor="middle" x="2117" y="-96.5" font-family="Times Roman,serif" font-size="10.00">X protein in cytoplasm</text>
+</g>
+<!-- reaction_13_intermediate_r -->
+<g id="node99" class="node"><title>reaction_13_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="2233" cy="-126" rx="0.036" ry="0.036"/>
+</g>
+<!-- cXc&#45;&gt;reaction_13_intermediate_r -->
+<g id="edge94" class="edge"><title>cXc&#45;&gt;reaction_13_intermediate_r</title>
+<path fill="none" stroke="black" d="M2191.6,-116.365C2213.32,-121.42 2231.65,-125.685 2232.93,-125.983"/>
+<polygon fill="black" stroke="black" points="2192.32,-112.937 2181.78,-114.079 2190.73,-119.755 2192.32,-112.937"/>
+</g>
+<!-- reaction_14_intermediate_r -->
+<g id="node108" class="node"><title>reaction_14_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="2233" cy="-99" rx="0.036" ry="0.036"/>
+</g>
+<!-- cXc&#45;&gt;reaction_14_intermediate_r -->
+<g id="edge104" class="edge"><title>cXc&#45;&gt;reaction_14_intermediate_r</title>
+<path fill="none" stroke="black" d="M2181.78,-99C2207.52,-99 2231.46,-99 2232.93,-99"/>
+</g>
+<!-- cXn -->
+<g id="node9" class="node"><title>cXn</title>
+<polyline fill="none" stroke="black" points="2527,-247 2437,-247 "/>
+<path fill="none" stroke="black" d="M2437,-247C2431,-247 2425,-241 2425,-235"/>
+<polyline fill="none" stroke="black" points="2425,-235 2425,-223 "/>
+<path fill="none" stroke="black" d="M2425,-223C2425,-217 2431,-211 2437,-211"/>
+<polyline fill="none" stroke="black" points="2437,-211 2527,-211 "/>
+<path fill="none" stroke="black" d="M2527,-211C2533,-211 2539,-217 2539,-223"/>
+<polyline fill="none" stroke="black" points="2539,-223 2539,-235 "/>
+<path fill="none" stroke="black" d="M2539,-235C2539,-241 2533,-247 2527,-247"/>
+<text text-anchor="middle" x="2482" y="-226.5" font-family="Times Roman,serif" font-size="10.00">X protein in nucleus</text>
+</g>
+<!-- reaction_1 -->
+<g id="node17" class="node"><title>reaction_1</title>
+<polygon fill="none" stroke="black" points="2644,-406 2590,-406 2590,-370 2644,-370 2644,-406"/>
+<text text-anchor="middle" x="2617" y="-385.5" font-family="Times Roman,serif" font-size="10.00">\\</text>
+</g>
+<!-- cXn&#45;&gt;reaction_1 -->
+<g id="edge10" class="edge"><title>cXn&#45;&gt;reaction_1</title>
+<path fill="none" stroke="black" d="M2500.7,-247.214C2515.63,-262.051 2536.82,-283.779 2554,-304 2569.2,-321.892 2585.05,-343.041 2597.05,-359.642"/>
+<polygon fill="none" stroke="black" points="2597.35,-360.058 2604.09,-362.608 2604.34,-369.815 2597.59,-367.265 2597.35,-360.058"/>
+</g>
+<!-- reaction_16_intermediate_r -->
+<g id="node121" class="node"><title>reaction_16_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="2617" cy="-229" rx="0.036" ry="0.036"/>
+</g>
+<!-- cXn&#45;&gt;reaction_16_intermediate_r -->
+<g id="edge118" class="edge"><title>cXn&#45;&gt;reaction_16_intermediate_r</title>
+<path fill="none" stroke="black" d="M2539.25,-229C2574.9,-229 2614.44,-229 2616.88,-229"/>
+</g>
+<!-- cYm -->
+<g id="node10" class="node"><title>cYm</title>
+<polygon fill="none" stroke="black" points="1886,-360 1830,-360 1830,-324 1886,-324 1886,-360"/>
+<text text-anchor="middle" x="1858" y="-339.5" font-family="Times Roman,serif" font-size="10.00">Y mRNA</text>
+</g>
+<!-- reaction_11 -->
+<g id="node85" class="node"><title>reaction_11</title>
+<polygon fill="none" stroke="black" points="1952,-540 1938,-540 1938,-526 1952,-526 1952,-540"/>
+</g>
+<!-- cYm&#45;&gt;reaction_11 -->
+<g id="edge84" class="edge"><title>cYm&#45;&gt;reaction_11</title>
+<path fill="none" stroke="black" d="M1872.29,-360.244C1881.66,-372.847 1893.68,-390.288 1902,-407 1920.08,-443.312 1933.58,-489.054 1940.28,-514.23"/>
+<polygon fill="none" stroke="black" points="1940.3,-514.291 1945.67,-519.103 1943.29,-525.911 1937.92,-521.099 1940.3,-514.291"/>
+</g>
+<!-- reaction_40_intermediate_r -->
+<g id="node251" class="node"><title>reaction_40_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="1945" cy="-342" rx="0.036" ry="0.036"/>
+</g>
+<!-- cYm&#45;&gt;reaction_40_intermediate_r -->
+<g id="edge258" class="edge"><title>cYm&#45;&gt;reaction_40_intermediate_r</title>
+<path fill="none" stroke="black" d="M1886.97,-342C1911.49,-342 1942.96,-342 1944.91,-342"/>
+</g>
+<!-- cYc -->
+<g id="node11" class="node"><title>cYc</title>
+<polyline fill="none" stroke="black" points="2179,-551 2055,-551 "/>
+<path fill="none" stroke="black" d="M2055,-551C2049,-551 2043,-545 2043,-539"/>
+<polyline fill="none" stroke="black" points="2043,-539 2043,-527 "/>
+<path fill="none" stroke="black" d="M2043,-527C2043,-521 2049,-515 2055,-515"/>
+<polyline fill="none" stroke="black" points="2055,-515 2179,-515 "/>
+<path fill="none" stroke="black" d="M2179,-515C2185,-515 2191,-521 2191,-527"/>
+<polyline fill="none" stroke="black" points="2191,-527 2191,-539 "/>
+<path fill="none" stroke="black" d="M2191,-539C2191,-545 2185,-551 2179,-551"/>
+<text text-anchor="middle" x="2117" y="-530.5" font-family="Times Roman,serif" font-size="10.00">Y protein in the cytoplasm</text>
+</g>
+<!-- reaction_9_intermediate_r -->
+<g id="node73" class="node"><title>reaction_9_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="2233" cy="-549" rx="0.036" ry="0.036"/>
+</g>
+<!-- cYc&#45;&gt;reaction_9_intermediate_r -->
+<g id="edge66" class="edge"><title>cYc&#45;&gt;reaction_9_intermediate_r</title>
+<path fill="none" stroke="black" d="M2202.14,-544.743C2219.06,-547.078 2232.01,-548.863 2232.95,-548.992"/>
+<polygon fill="black" stroke="black" points="2202.16,-541.213 2191.78,-543.314 2201.2,-548.148 2202.16,-541.213"/>
+</g>
+<!-- reaction_12_intermediate_r -->
+<g id="node95" class="node"><title>reaction_12_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="2233" cy="-524" rx="0.036" ry="0.036"/>
+</g>
+<!-- cYc&#45;&gt;reaction_12_intermediate_r -->
+<g id="edge90" class="edge"><title>cYc&#45;&gt;reaction_12_intermediate_r</title>
+<path fill="none" stroke="black" d="M2191.78,-527.198C2213.52,-525.511 2231.82,-524.091 2232.95,-524.004"/>
+</g>
+<!-- cYn -->
+<g id="node12" class="node"><title>cYn</title>
+<polyline fill="none" stroke="black" points="2527,-598 2437,-598 "/>
+<path fill="none" stroke="black" d="M2437,-598C2431,-598 2425,-592 2425,-586"/>
+<polyline fill="none" stroke="black" points="2425,-586 2425,-574 "/>
+<path fill="none" stroke="black" d="M2425,-574C2425,-568 2431,-562 2437,-562"/>
+<polyline fill="none" stroke="black" points="2437,-562 2527,-562 "/>
+<path fill="none" stroke="black" d="M2527,-562C2533,-562 2539,-568 2539,-574"/>
+<polyline fill="none" stroke="black" points="2539,-574 2539,-586 "/>
+<path fill="none" stroke="black" d="M2539,-586C2539,-592 2533,-598 2527,-598"/>
+<text text-anchor="middle" x="2482" y="-577.5" font-family="Times Roman,serif" font-size="10.00">Y protein in nucleus</text>
+</g>
+<!-- cYn&#45;&gt;reaction_6 -->
+<g id="edge54" class="edge"><title>cYn&#45;&gt;reaction_6</title>
+<path fill="none" stroke="black" d="M2424.59,-583.439C2383.5,-585.607 2326.86,-588 2277,-588 947,-588 947,-588 947,-588 859.471,-588 827.114,-453.985 817.994,-403.198"/>
+<polygon fill="none" stroke="black" points="817.978,-403.098 813.049,-397.835 816.011,-391.26 820.94,-396.524 817.978,-403.098"/>
+</g>
+<!-- reaction_10_intermediate_r -->
+<g id="node82" class="node"><title>reaction_10_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="2617" cy="-654" rx="0.036" ry="0.036"/>
+</g>
+<!-- cYn&#45;&gt;reaction_10_intermediate_r -->
+<g id="edge76" class="edge"><title>cYn&#45;&gt;reaction_10_intermediate_r</title>
+<path fill="none" stroke="black" d="M2515.02,-598.102C2554.37,-619.668 2615.07,-652.941 2616.95,-653.975"/>
+</g>
+<!-- cPn -->
+<g id="node13" class="node"><title>cPn</title>
+<polyline fill="none" stroke="black" points="1665,-452 1555,-452 "/>
+<path fill="none" stroke="black" d="M1555,-452C1549,-452 1543,-446 1543,-440"/>
+<polyline fill="none" stroke="black" points="1543,-440 1543,-428 "/>
+<path fill="none" stroke="black" d="M1543,-428C1543,-422 1549,-416 1555,-416"/>
+<polyline fill="none" stroke="black" points="1555,-416 1665,-416 "/>
+<path fill="none" stroke="black" d="M1665,-416C1671,-416 1677,-422 1677,-428"/>
+<polyline fill="none" stroke="black" points="1677,-428 1677,-440 "/>
+<path fill="none" stroke="black" d="M1677,-440C1677,-446 1671,-452 1665,-452"/>
+<text text-anchor="middle" x="1610" y="-431.5" font-family="Times Roman,serif" font-size="10.00">light sensitive protein P</text>
+</g>
+<!-- cPn&#45;&gt;reaction_1 -->
+<g id="edge12" class="edge"><title>cPn&#45;&gt;reaction_1</title>
+<path fill="none" stroke="black" d="M1661.48,-415.952C1700.06,-403.064 1749.71,-388 1771,-388 1771,-388 1771,-388 2347,-388 2429.06,-388 2525.15,-388 2577.71,-388"/>
+<polygon fill="none" stroke="black" points="2577.79,-388 2583.79,-384 2589.79,-388 2583.79,-392 2577.79,-388"/>
+</g>
+<!-- reaction_22_intermediate_r -->
+<g id="node159" class="node"><title>reaction_22_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="1721" cy="-434" rx="0.036" ry="0.036"/>
+</g>
+<!-- cPn&#45;&gt;reaction_22_intermediate_r -->
+<g id="edge158" class="edge"><title>cPn&#45;&gt;reaction_22_intermediate_r</title>
+<path fill="none" stroke="black" d="M1677.77,-434C1700.15,-434 1719.74,-434 1720.94,-434"/>
+</g>
+<!-- reaction_23_intermediate_r -->
+<g id="node165" class="node"><title>reaction_23_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="1721" cy="-461" rx="0.036" ry="0.036"/>
+</g>
+<!-- cPn&#45;&gt;reaction_23_intermediate_r -->
+<g id="edge164" class="edge"><title>cPn&#45;&gt;reaction_23_intermediate_r</title>
+<path fill="none" stroke="black" d="M1677.77,-450.484C1700.15,-455.93 1719.74,-460.693 1720.94,-460.986"/>
+</g>
+<!-- reaction_25 -->
+<g id="node168" class="node"><title>reaction_25</title>
+<polygon fill="none" stroke="black" points="1728,-360 1714,-360 1714,-346 1728,-346 1728,-360"/>
+</g>
+<!-- cPn&#45;&gt;reaction_25 -->
+<g id="edge172" class="edge"><title>cPn&#45;&gt;reaction_25</title>
+<path fill="none" stroke="black" d="M1663.43,-415.968C1668.56,-413.312 1673.51,-410.329 1678,-407 1691.28,-397.148 1702.74,-382.226 1710.48,-370.563"/>
+<polygon fill="none" stroke="black" points="1710.54,-370.465 1710.34,-363.256 1716.91,-360.295 1717.12,-367.503 1710.54,-370.465"/>
+</g>
+<!-- cPn&#45;&gt;reaction_39 -->
+<g id="edge252" class="edge"><title>cPn&#45;&gt;reaction_39</title>
+<path fill="none" stroke="black" d="M1665.88,-415.909C1670.23,-413.305 1674.35,-410.35 1678,-407 1683.45,-402.001 1701.95,-362.735 1712.83,-339.023"/>
+<polygon fill="none" stroke="black" points="1712.86,-338.955 1711.71,-331.837 1717.83,-328.036 1718.99,-335.154 1712.86,-338.955"/>
+</g>
+<!-- cAm -->
+<g id="node14" class="node"><title>cAm</title>
+<polygon fill="none" stroke="black" points="1901,-198 1815,-198 1815,-162 1901,-162 1901,-198"/>
+<text text-anchor="middle" x="1858" y="-177.5" font-family="Times Roman,serif" font-size="10.00">PPR7/9 mRNA</text>
+</g>
+<!-- reaction_17 -->
+<g id="node124" class="node"><title>reaction_17</title>
+<polygon fill="none" stroke="black" points="1952,-241 1938,-241 1938,-227 1952,-227 1952,-241"/>
+</g>
+<!-- cAm&#45;&gt;reaction_17 -->
+<g id="edge126" class="edge"><title>cAm&#45;&gt;reaction_17</title>
+<path fill="none" stroke="black" d="M1887.85,-198.258C1892.59,-201.174 1897.43,-204.164 1902,-207 1910.36,-212.187 1919.59,-217.98 1927.36,-222.867"/>
+<polygon fill="none" stroke="black" points="1927.56,-222.992 1934.77,-222.807 1937.71,-229.391 1930.5,-229.575 1927.56,-222.992"/>
+</g>
+<!-- reaction_27_intermediate_r -->
+<g id="node185" class="node"><title>reaction_27_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="1945" cy="-180" rx="0.036" ry="0.036"/>
+</g>
+<!-- cAm&#45;&gt;reaction_27_intermediate_r -->
+<g id="edge186" class="edge"><title>cAm&#45;&gt;reaction_27_intermediate_r</title>
+<path fill="none" stroke="black" d="M1901.5,-180C1922.57,-180 1943.64,-180 1944.94,-180"/>
+</g>
+<!-- cAc -->
+<g id="node15" class="node"><title>cAc</title>
+<polyline fill="none" stroke="black" points="2184,-279 2050,-279 "/>
+<path fill="none" stroke="black" d="M2050,-279C2044,-279 2038,-273 2038,-267"/>
+<polyline fill="none" stroke="black" points="2038,-267 2038,-255 "/>
+<path fill="none" stroke="black" d="M2038,-255C2038,-249 2044,-243 2050,-243"/>
+<polyline fill="none" stroke="black" points="2050,-243 2184,-243 "/>
+<path fill="none" stroke="black" d="M2184,-243C2190,-243 2196,-249 2196,-255"/>
+<polyline fill="none" stroke="black" points="2196,-255 2196,-267 "/>
+<path fill="none" stroke="black" d="M2196,-267C2196,-273 2190,-279 2184,-279"/>
+<text text-anchor="middle" x="2117" y="-258.5" font-family="Times Roman,serif" font-size="10.00">PPR7/9 protein in cytoplasm</text>
+</g>
+<!-- reaction_18_intermediate_r -->
+<g id="node132" class="node"><title>reaction_18_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="2233" cy="-286" rx="0.036" ry="0.036"/>
+</g>
+<!-- cAc&#45;&gt;reaction_18_intermediate_r -->
+<g id="edge130" class="edge"><title>cAc&#45;&gt;reaction_18_intermediate_r</title>
+<path fill="none" stroke="black" d="M2206.09,-280.2C2221.08,-283.432 2232.14,-285.816 2232.95,-285.99"/>
+<polygon fill="black" stroke="black" points="2206.81,-276.775 2196.3,-278.09 2205.34,-283.618 2206.81,-276.775"/>
+</g>
+<!-- reaction_19_intermediate_r -->
+<g id="node141" class="node"><title>reaction_19_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="2233" cy="-261" rx="0.036" ry="0.036"/>
+</g>
+<!-- cAc&#45;&gt;reaction_19_intermediate_r -->
+<g id="edge140" class="edge"><title>cAc&#45;&gt;reaction_19_intermediate_r</title>
+<path fill="none" stroke="black" d="M2196.3,-261C2216.05,-261 2231.98,-261 2232.95,-261"/>
+</g>
+<!-- cAn -->
+<g id="node16" class="node"><title>cAn</title>
+<polyline fill="none" stroke="black" points="2542,-349 2422,-349 "/>
+<path fill="none" stroke="black" d="M2422,-349C2416,-349 2410,-343 2410,-337"/>
+<polyline fill="none" stroke="black" points="2410,-337 2410,-325 "/>
+<path fill="none" stroke="black" d="M2410,-325C2410,-319 2416,-313 2422,-313"/>
+<polyline fill="none" stroke="black" points="2422,-313 2542,-313 "/>
+<path fill="none" stroke="black" d="M2542,-313C2548,-313 2554,-319 2554,-325"/>
+<polyline fill="none" stroke="black" points="2554,-325 2554,-337 "/>
+<path fill="none" stroke="black" d="M2554,-337C2554,-343 2548,-349 2542,-349"/>
+<text text-anchor="middle" x="2482" y="-328.5" font-family="Times Roman,serif" font-size="10.00">PPR7/9 protein in nucleus</text>
+</g>
+<!-- cAn&#45;&gt;reaction_1 -->
+<g id="edge8" class="edge"><title>cAn&#45;&gt;reaction_1</title>
+<path fill="none" stroke="black" d="M2524.71,-349.035C2542.04,-356.349 2561.89,-364.731 2578.73,-371.842"/>
+<polygon fill="none" stroke="black" points="2578.79,-371.866 2585.87,-370.515 2589.84,-376.534 2582.76,-377.885 2578.79,-371.866"/>
+</g>
+<!-- reaction_20_intermediate_r -->
+<g id="node147" class="node"><title>reaction_20_intermediate_r</title>
+<ellipse fill="black" stroke="black" cx="2617" cy="-331" rx="0.036" ry="0.036"/>
+</g>
+<!-- cAn&#45;&gt;reaction_20_intermediate_r -->
+<g id="edge146" class="edge"><title>cAn&#45;&gt;reaction_20_intermediate_r</title>
+<path fill="none" stroke="black" d="M2554.24,-331C2585.34,-331 2615.08,-331 2616.91,-331"/>
+</g>
+<!-- reaction_1_intermediate_p -->
+<g id="node20" class="node"><title>reaction_1_intermediate_p</title>
+<ellipse fill="black" stroke="black" cx="2687" cy="-507" rx="0.036" ry="0.036"/>
+</g>
+<!-- reaction_1&#45;&gt;reaction_1_intermediate_p -->
+<g id="edge4" class="edge"><title>reaction_1&#45;&gt;reaction_1_intermediate_p</title>
+<path fill="none" stroke="black" d="M2627.63,-406.074C2646.91,-438.843 2685.76,-504.895 2686.97,-506.951"/>
+</g>
+<!-- reaction_1_empty -->
+<g id="node18" class="node"><title>reaction_1_empty</title>
+<text text-anchor="middle" x="2482" y="-429.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_1_empty&#45;&gt;reaction_1 -->
+<g id="edge2" class="edge"><title>reaction_1_empty&#45;&gt;reaction_1</title>
+<path fill="none" stroke="black" d="M2509.32,-424.691C2532.74,-416.71 2566.31,-405.272 2589.72,-397.295"/>
+</g>
+<!-- reaction_1_intermediate_p&#45;&gt;cLm -->
+<g id="edge6" class="edge"><title>reaction_1_intermediate_p&#45;&gt;cLm</title>
+<path fill="none" stroke="black" d="M2686.93,-507.086C2683.88,-510.69 2585.7,-626 2482,-626 147,-626 147,-626 147,-626 116.149,-626 80.836,-626 56.5466,-626"/>
+<polygon fill="black" stroke="black" points="56.5379,-622.5 46.5378,-626 56.5378,-629.5 56.5379,-622.5"/>
+</g>
+<!-- reaction_0 -->
+<g id="node26" class="node"><title>reaction_0</title>
+<polygon fill="none" stroke="black" points="154,-673 140,-673 140,-659 154,-659 154,-673"/>
+</g>
+<!-- reaction_0_empty -->
+<g id="node27" class="node"><title>reaction_0_empty</title>
+<text text-anchor="middle" x="310" y="-667.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_0&#45;&gt;reaction_0_empty -->
+<g id="edge14" class="edge"><title>reaction_0&#45;&gt;reaction_0_empty</title>
+<path fill="none" stroke="black" d="M154.004,-666.258C174.141,-666.999 233.272,-669.176 272.67,-670.626"/>
+<polygon fill="black" stroke="black" points="272.595,-674.125 282.717,-670.996 272.853,-667.13 272.595,-674.125"/>
+</g>
+<!-- reaction_0_intermediate_r&#45;&gt;reaction_0 -->
+<g id="edge16" class="edge"><title>reaction_0_intermediate_r&#45;&gt;reaction_0</title>
+<path fill="none" stroke="black" d="M97.1434,-663.009C99.343,-663.141 126.288,-664.757 139.622,-665.557"/>
+</g>
+<!-- reaction_2_intermediate_p -->
+<g id="node35" class="node"><title>reaction_2_intermediate_p</title>
+<ellipse fill="black" stroke="black" cx="147" cy="-458" rx="0.036" ry="0.036"/>
+</g>
+<!-- reaction_2&#45;&gt;reaction_2_intermediate_p -->
+<g id="edge22" class="edge"><title>reaction_2&#45;&gt;reaction_2_intermediate_p</title>
+<path fill="none" stroke="black" d="M100.596,-550.808C111.881,-528.237 145.914,-460.172 146.975,-458.051"/>
+</g>
+<!-- reaction_2_empty -->
+<g id="node33" class="node"><title>reaction_2_empty</title>
+<text text-anchor="middle" x="27" y="-553.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_2_empty&#45;&gt;reaction_2 -->
+<g id="edge20" class="edge"><title>reaction_2_empty&#45;&gt;reaction_2</title>
+<path fill="none" stroke="black" d="M54.2643,-558C67.1627,-558 81.5367,-558 89.8947,-558"/>
+</g>
+<!-- reaction_2_intermediate_p&#45;&gt;cLc -->
+<g id="edge24" class="edge"><title>reaction_2_intermediate_p&#45;&gt;cLc</title>
+<path fill="none" stroke="black" d="M147.118,-457.964C148.51,-457.537 162.068,-453.378 180.821,-447.626"/>
+<polygon fill="black" stroke="black" points="181.88,-450.962 190.413,-444.683 179.827,-444.27 181.88,-450.962"/>
+</g>
+<!-- reaction_3 -->
+<g id="node39" class="node"><title>reaction_3</title>
+<polygon fill="none" stroke="black" points="518,-356 504,-356 504,-342 518,-342 518,-356"/>
+</g>
+<!-- reaction_3_intermediate_p -->
+<g id="node43" class="node"><title>reaction_3_intermediate_p</title>
+<ellipse fill="black" stroke="black" cx="581" cy="-347" rx="0.036" ry="0.036"/>
+</g>
+<!-- reaction_3&#45;&gt;reaction_3_intermediate_p -->
+<g id="edge32" class="edge"><title>reaction_3&#45;&gt;reaction_3_intermediate_p</title>
+<path fill="none" stroke="black" d="M518.228,-348.793C535.554,-348.298 578.221,-347.079 580.871,-347.004"/>
+</g>
+<!-- reaction_3_intermediate_r&#45;&gt;reaction_3 -->
+<g id="edge28" class="edge"><title>reaction_3_intermediate_r&#45;&gt;reaction_3</title>
+<path fill="none" stroke="black" d="M467.126,-357.974C469.022,-357.587 491.795,-352.928 503.759,-350.481"/>
+</g>
+<!-- reaction_3_intermediate_p&#45;&gt;cLn -->
+<g id="edge34" class="edge"><title>reaction_3_intermediate_p&#45;&gt;cLn</title>
+<path fill="none" stroke="black" d="M581.092,-346.991C582.771,-346.819 607.177,-344.32 634.143,-341.56"/>
+<polygon fill="black" stroke="black" points="634.565,-345.035 644.157,-340.535 633.853,-338.072 634.565,-345.035"/>
+</g>
+<!-- reaction_4 -->
+<g id="node46" class="node"><title>reaction_4</title>
+<polygon fill="none" stroke="black" points="518,-415 504,-415 504,-401 518,-401 518,-415"/>
+</g>
+<!-- reaction_4_empty -->
+<g id="node47" class="node"><title>reaction_4_empty</title>
+<text text-anchor="middle" x="581" y="-403.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_4&#45;&gt;reaction_4_empty -->
+<g id="edge36" class="edge"><title>reaction_4&#45;&gt;reaction_4_empty</title>
+<path fill="none" stroke="black" d="M518.228,-408C524.45,-408 533.94,-408 543.672,-408"/>
+<polygon fill="black" stroke="black" points="543.773,-411.5 553.773,-408 543.773,-404.5 543.773,-411.5"/>
+</g>
+<!-- reaction_4_intermediate_r&#45;&gt;reaction_4 -->
+<g id="edge38" class="edge"><title>reaction_4_intermediate_r&#45;&gt;reaction_4</title>
+<path fill="none" stroke="black" d="M467.126,-408C469.022,-408 491.795,-408 503.759,-408"/>
+</g>
+<!-- reaction_5 -->
+<g id="node52" class="node"><title>reaction_5</title>
+<polygon fill="none" stroke="black" points="872,-301 858,-301 858,-287 872,-287 872,-301"/>
+</g>
+<!-- reaction_5_empty -->
+<g id="node53" class="node"><title>reaction_5_empty</title>
+<text text-anchor="middle" x="947" y="-283.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_5&#45;&gt;reaction_5_empty -->
+<g id="edge42" class="edge"><title>reaction_5&#45;&gt;reaction_5_empty</title>
+<path fill="none" stroke="black" d="M872.277,-293.468C880.793,-292.844 895.537,-291.766 909.69,-290.73"/>
+<polygon fill="black" stroke="black" points="910.075,-294.211 919.793,-289.991 909.564,-287.23 910.075,-294.211"/>
+</g>
+<!-- reaction_5_intermediate_r&#45;&gt;reaction_5 -->
+<g id="edge44" class="edge"><title>reaction_5_intermediate_r&#45;&gt;reaction_5</title>
+<path fill="none" stroke="black" d="M815.143,-296.991C817.343,-296.859 844.288,-295.243 857.622,-294.443"/>
+</g>
+<!-- reaction_6_intermediate_p -->
+<g id="node61" class="node"><title>reaction_6_intermediate_p</title>
+<ellipse fill="black" stroke="black" cx="865" cy="-382" rx="0.036" ry="0.036"/>
+</g>
+<!-- reaction_6&#45;&gt;reaction_6_intermediate_p -->
+<g id="edge50" class="edge"><title>reaction_6&#45;&gt;reaction_6_intermediate_p</title>
+<path fill="none" stroke="black" d="M822.378,-383.705C835.851,-383.166 863.22,-382.071 864.917,-382.003"/>
+</g>
+<!-- reaction_6_empty -->
+<g id="node59" class="node"><title>reaction_6_empty</title>
+<text text-anchor="middle" x="708" y="-383.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_6_empty&#45;&gt;reaction_6 -->
+<g id="edge48" class="edge"><title>reaction_6_empty&#45;&gt;reaction_6</title>
+<path fill="none" stroke="black" d="M735.001,-386.991C759.269,-386.083 793.271,-384.812 807.876,-384.266"/>
+</g>
+<!-- reaction_6_intermediate_p&#45;&gt;cTm -->
+<g id="edge52" class="edge"><title>reaction_6_intermediate_p&#45;&gt;cTm</title>
+<path fill="none" stroke="black" d="M865.059,-381.999C866.113,-381.986 881.038,-381.804 897.868,-381.599"/>
+<polygon fill="black" stroke="black" points="897.95,-385.099 907.906,-381.477 897.864,-378.099 897.95,-385.099"/>
+</g>
+<!-- reaction_7 -->
+<g id="node66" class="node"><title>reaction_7</title>
+<polygon fill="none" stroke="black" points="1086,-388 1072,-388 1072,-374 1086,-374 1086,-388"/>
+</g>
+<!-- reaction_7_empty -->
+<g id="node67" class="node"><title>reaction_7_empty</title>
+<text text-anchor="middle" x="1199" y="-376.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_7&#45;&gt;reaction_7_empty -->
+<g id="edge58" class="edge"><title>reaction_7&#45;&gt;reaction_7_empty</title>
+<path fill="none" stroke="black" d="M1086.15,-381C1100.71,-381 1134.73,-381 1161.63,-381"/>
+<polygon fill="black" stroke="black" points="1161.91,-384.5 1171.91,-381 1161.91,-377.5 1161.91,-384.5"/>
+</g>
+<!-- reaction_7_intermediate_r&#45;&gt;reaction_7 -->
+<g id="edge60" class="edge"><title>reaction_7_intermediate_r&#45;&gt;reaction_7</title>
+<path fill="none" stroke="black" d="M1029.14,-381C1031.34,-381 1058.29,-381 1071.62,-381"/>
+</g>
+<!-- reaction_9 -->
+<g id="node72" class="node"><title>reaction_9</title>
+<polygon fill="none" stroke="black" points="2284,-560 2270,-560 2270,-546 2284,-546 2284,-560"/>
+</g>
+<!-- reaction_9_intermediate_p -->
+<g id="node76" class="node"><title>reaction_9_intermediate_p</title>
+<ellipse fill="black" stroke="black" cx="2347" cy="-559" rx="0.036" ry="0.036"/>
+</g>
+<!-- reaction_9&#45;&gt;reaction_9_intermediate_p -->
+<g id="edge68" class="edge"><title>reaction_9&#45;&gt;reaction_9_intermediate_p</title>
+<path fill="none" stroke="black" d="M2284.23,-553.62C2301.55,-555.105 2344.22,-558.762 2346.87,-558.989"/>
+</g>
+<!-- reaction_9_intermediate_r&#45;&gt;reaction_9 -->
+<g id="edge64" class="edge"><title>reaction_9_intermediate_r&#45;&gt;reaction_9</title>
+<path fill="none" stroke="black" d="M2233.13,-549.011C2235.02,-549.184 2257.79,-551.254 2269.76,-552.342"/>
+</g>
+<!-- reaction_9_intermediate_p&#45;&gt;cYn -->
+<g id="edge70" class="edge"><title>reaction_9_intermediate_p&#45;&gt;cYn</title>
+<path fill="none" stroke="black" d="M2347.1,-559.015C2349.12,-559.329 2382.04,-564.451 2414.85,-569.555"/>
+<polygon fill="black" stroke="black" points="2414.58,-573.054 2425,-571.133 2415.66,-566.138 2414.58,-573.054"/>
+</g>
+<!-- reaction_10 -->
+<g id="node79" class="node"><title>reaction_10</title>
+<polygon fill="none" stroke="black" points="2694,-661 2680,-661 2680,-647 2694,-647 2694,-661"/>
+</g>
+<!-- reaction_10_empty -->
+<g id="node80" class="node"><title>reaction_10_empty</title>
+<text text-anchor="middle" x="2757" y="-649.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_10&#45;&gt;reaction_10_empty -->
+<g id="edge72" class="edge"><title>reaction_10&#45;&gt;reaction_10_empty</title>
+<path fill="none" stroke="black" d="M2694.23,-654C2700.45,-654 2709.94,-654 2719.67,-654"/>
+<polygon fill="black" stroke="black" points="2719.77,-657.5 2729.77,-654 2719.77,-650.5 2719.77,-657.5"/>
+</g>
+<!-- reaction_10_intermediate_r&#45;&gt;reaction_10 -->
+<g id="edge74" class="edge"><title>reaction_10_intermediate_r&#45;&gt;reaction_10</title>
+<path fill="none" stroke="black" d="M2617.05,-654C2618.75,-654 2662.58,-654 2679.98,-654"/>
+</g>
+<!-- reaction_11_intermediate_p -->
+<g id="node88" class="node"><title>reaction_11_intermediate_p</title>
+<ellipse fill="black" stroke="black" cx="1995" cy="-533" rx="0.036" ry="0.036"/>
+</g>
+<!-- reaction_11&#45;&gt;reaction_11_intermediate_p -->
+<g id="edge80" class="edge"><title>reaction_11&#45;&gt;reaction_11_intermediate_p</title>
+<path fill="none" stroke="black" d="M1952.38,-533C1965.85,-533 1993.22,-533 1994.92,-533"/>
+</g>
+<!-- reaction_11_empty -->
+<g id="node86" class="node"><title>reaction_11_empty</title>
+<text text-anchor="middle" x="1858" y="-537.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_11_empty&#45;&gt;reaction_11 -->
+<g id="edge78" class="edge"><title>reaction_11_empty&#45;&gt;reaction_11</title>
+<path fill="none" stroke="black" d="M1885.05,-539.202C1903.41,-537.303 1926.35,-534.93 1937.8,-533.745"/>
+</g>
+<!-- reaction_11_intermediate_p&#45;&gt;cYc -->
+<g id="edge82" class="edge"><title>reaction_11_intermediate_p&#45;&gt;cYc</title>
+<path fill="none" stroke="black" d="M1995.09,-533C1996.41,-533 2012.37,-533 2032.33,-533"/>
+<polygon fill="black" stroke="black" points="2032.4,-536.5 2042.4,-533 2032.4,-529.5 2032.4,-536.5"/>
+</g>
+<!-- reaction_12 -->
+<g id="node92" class="node"><title>reaction_12</title>
+<polygon fill="none" stroke="black" points="2284,-528 2270,-528 2270,-514 2284,-514 2284,-528"/>
+</g>
+<!-- reaction_12_empty -->
+<g id="node93" class="node"><title>reaction_12_empty</title>
+<text text-anchor="middle" x="2347" y="-516.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_12&#45;&gt;reaction_12_empty -->
+<g id="edge86" class="edge"><title>reaction_12&#45;&gt;reaction_12_empty</title>
+<path fill="none" stroke="black" d="M2284.23,-521C2290.45,-521 2299.94,-521 2309.67,-521"/>
+<polygon fill="black" stroke="black" points="2309.77,-524.5 2319.77,-521 2309.77,-517.5 2309.77,-524.5"/>
+</g>
+<!-- reaction_12_intermediate_r&#45;&gt;reaction_12 -->
+<g id="edge88" class="edge"><title>reaction_12_intermediate_r&#45;&gt;reaction_12</title>
+<path fill="none" stroke="black" d="M2233.13,-523.991C2235.02,-523.862 2257.79,-522.309 2269.76,-521.494"/>
+</g>
+<!-- reaction_13 -->
+<g id="node98" class="node"><title>reaction_13</title>
+<polygon fill="none" stroke="black" points="2284,-185 2270,-185 2270,-171 2284,-171 2284,-185"/>
+</g>
+<!-- reaction_13_intermediate_p -->
+<g id="node102" class="node"><title>reaction_13_intermediate_p</title>
+<ellipse fill="black" stroke="black" cx="2347" cy="-180" rx="0.036" ry="0.036"/>
+</g>
+<!-- reaction_13&#45;&gt;reaction_13_intermediate_p -->
+<g id="edge96" class="edge"><title>reaction_13&#45;&gt;reaction_13_intermediate_p</title>
+<path fill="none" stroke="black" d="M2284.23,-178.207C2301.55,-178.702 2344.22,-179.921 2346.87,-179.996"/>
+</g>
+<!-- reaction_13_intermediate_r&#45;&gt;reaction_13 -->
+<g id="edge92" class="edge"><title>reaction_13_intermediate_r&#45;&gt;reaction_13</title>
+<path fill="none" stroke="black" d="M2233.13,-126.149C2235.08,-128.461 2259.27,-157.046 2270.87,-170.756"/>
+</g>
+<!-- reaction_13_intermediate_p&#45;&gt;cXn -->
+<g id="edge98" class="edge"><title>reaction_13_intermediate_p&#45;&gt;cXn</title>
+<path fill="none" stroke="black" d="M2347.1,-180.036C2349.27,-180.825 2387.32,-194.633 2422.45,-207.384"/>
+<polygon fill="black" stroke="black" points="2421.65,-210.819 2432.25,-210.941 2424.04,-204.239 2421.65,-210.819"/>
+</g>
+<!-- reaction_14 -->
+<g id="node105" class="node"><title>reaction_14</title>
+<polygon fill="none" stroke="black" points="2284,-106 2270,-106 2270,-92 2284,-92 2284,-106"/>
+</g>
+<!-- reaction_14_empty -->
+<g id="node106" class="node"><title>reaction_14_empty</title>
+<text text-anchor="middle" x="2347" y="-94.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_14&#45;&gt;reaction_14_empty -->
+<g id="edge100" class="edge"><title>reaction_14&#45;&gt;reaction_14_empty</title>
+<path fill="none" stroke="black" d="M2284.23,-99C2290.45,-99 2299.94,-99 2309.67,-99"/>
+<polygon fill="black" stroke="black" points="2309.77,-102.5 2319.77,-99 2309.77,-95.5001 2309.77,-102.5"/>
+</g>
+<!-- reaction_14_intermediate_r&#45;&gt;reaction_14 -->
+<g id="edge102" class="edge"><title>reaction_14_intermediate_r&#45;&gt;reaction_14</title>
+<path fill="none" stroke="black" d="M2233.13,-99C2235.02,-99 2257.79,-99 2269.76,-99"/>
+</g>
+<!-- reaction_15_intermediate_p -->
+<g id="node114" class="node"><title>reaction_15_intermediate_p</title>
+<ellipse fill="black" stroke="black" cx="1995" cy="-86" rx="0.036" ry="0.036"/>
+</g>
+<!-- reaction_15&#45;&gt;reaction_15_intermediate_p -->
+<g id="edge108" class="edge"><title>reaction_15&#45;&gt;reaction_15_intermediate_p</title>
+<path fill="none" stroke="black" d="M1952.38,-74.0657C1965.85,-77.8384 1993.22,-85.5016 1994.92,-85.9768"/>
+</g>
+<!-- reaction_15_empty -->
+<g id="node112" class="node"><title>reaction_15_empty</title>
+<text text-anchor="middle" x="1858" y="-67.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_15_empty&#45;&gt;reaction_15 -->
+<g id="edge106" class="edge"><title>reaction_15_empty&#45;&gt;reaction_15</title>
+<path fill="none" stroke="black" d="M1885.05,-72C1903.41,-72 1926.35,-72 1937.8,-72"/>
+</g>
+<!-- reaction_15_intermediate_p&#45;&gt;cXc -->
+<g id="edge110" class="edge"><title>reaction_15_intermediate_p&#45;&gt;cXc</title>
+<path fill="none" stroke="black" d="M1995.09,-86.0094C1996.62,-86.1723 2017.75,-88.4237 2042,-91.0078"/>
+<polygon fill="black" stroke="black" points="2041.84,-94.5109 2052.15,-92.0902 2042.58,-87.5503 2041.84,-94.5109"/>
+</g>
+<!-- reaction_16 -->
+<g id="node118" class="node"><title>reaction_16</title>
+<polygon fill="none" stroke="black" points="2694,-236 2680,-236 2680,-222 2694,-222 2694,-236"/>
+</g>
+<!-- reaction_16_empty -->
+<g id="node119" class="node"><title>reaction_16_empty</title>
+<text text-anchor="middle" x="2757" y="-224.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_16&#45;&gt;reaction_16_empty -->
+<g id="edge114" class="edge"><title>reaction_16&#45;&gt;reaction_16_empty</title>
+<path fill="none" stroke="black" d="M2694.23,-229C2700.45,-229 2709.94,-229 2719.67,-229"/>
+<polygon fill="black" stroke="black" points="2719.77,-232.5 2729.77,-229 2719.77,-225.5 2719.77,-232.5"/>
+</g>
+<!-- reaction_16_intermediate_r&#45;&gt;reaction_16 -->
+<g id="edge116" class="edge"><title>reaction_16_intermediate_r&#45;&gt;reaction_16</title>
+<path fill="none" stroke="black" d="M2617.05,-229C2618.75,-229 2662.58,-229 2679.98,-229"/>
+</g>
+<!-- reaction_17_intermediate_p -->
+<g id="node127" class="node"><title>reaction_17_intermediate_p</title>
+<ellipse fill="black" stroke="black" cx="1995" cy="-248" rx="0.036" ry="0.036"/>
+</g>
+<!-- reaction_17&#45;&gt;reaction_17_intermediate_p -->
+<g id="edge122" class="edge"><title>reaction_17&#45;&gt;reaction_17_intermediate_p</title>
+<path fill="none" stroke="black" d="M1952.38,-236.066C1965.85,-239.838 1993.22,-247.502 1994.92,-247.977"/>
+</g>
+<!-- reaction_17_empty -->
+<g id="node125" class="node"><title>reaction_17_empty</title>
+<text text-anchor="middle" x="1858" y="-229.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_17_empty&#45;&gt;reaction_17 -->
+<g id="edge120" class="edge"><title>reaction_17_empty&#45;&gt;reaction_17</title>
+<path fill="none" stroke="black" d="M1885.05,-234C1903.41,-234 1926.35,-234 1937.8,-234"/>
+</g>
+<!-- reaction_17_intermediate_p&#45;&gt;cAc -->
+<g id="edge124" class="edge"><title>reaction_17_intermediate_p&#45;&gt;cAc</title>
+<path fill="none" stroke="black" d="M1995.09,-248.009C1996.31,-248.139 2009.96,-249.595 2027.73,-251.488"/>
+<polygon fill="black" stroke="black" points="2027.66,-254.999 2037.97,-252.579 2028.4,-248.039 2027.66,-254.999"/>
+</g>
+<!-- reaction_18 -->
+<g id="node131" class="node"><title>reaction_18</title>
+<polygon fill="none" stroke="black" points="2284,-302 2270,-302 2270,-288 2284,-288 2284,-302"/>
+</g>
+<!-- reaction_18_intermediate_p -->
+<g id="node135" class="node"><title>reaction_18_intermediate_p</title>
+<ellipse fill="black" stroke="black" cx="2347" cy="-319" rx="0.036" ry="0.036"/>
+</g>
+<!-- reaction_18&#45;&gt;reaction_18_intermediate_p -->
+<g id="edge132" class="edge"><title>reaction_18&#45;&gt;reaction_18_intermediate_p</title>
+<path fill="none" stroke="black" d="M2284.23,-297.478C2301.55,-303.418 2344.22,-318.047 2346.87,-318.956"/>
+</g>
+<!-- reaction_18_intermediate_r&#45;&gt;reaction_18 -->
+<g id="edge128" class="edge"><title>reaction_18_intermediate_r&#45;&gt;reaction_18</title>
+<path fill="none" stroke="black" d="M2233.13,-286.026C2235.02,-286.413 2257.79,-291.072 2269.76,-293.519"/>
+</g>
+<!-- reaction_18_intermediate_p&#45;&gt;cAn -->
+<g id="edge134" class="edge"><title>reaction_18_intermediate_p&#45;&gt;cAn</title>
+<path fill="none" stroke="black" d="M2347.1,-319.009C2348.8,-319.16 2372.6,-321.275 2399.74,-323.688"/>
+<polygon fill="black" stroke="black" points="2399.59,-327.188 2409.86,-324.587 2400.21,-320.215 2399.59,-327.188"/>
+</g>
+<!-- reaction_19 -->
+<g id="node138" class="node"><title>reaction_19</title>
+<polygon fill="none" stroke="black" points="2284,-268 2270,-268 2270,-254 2284,-254 2284,-268"/>
+</g>
+<!-- reaction_19_empty -->
+<g id="node139" class="node"><title>reaction_19_empty</title>
+<text text-anchor="middle" x="2347" y="-256.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_19&#45;&gt;reaction_19_empty -->
+<g id="edge136" class="edge"><title>reaction_19&#45;&gt;reaction_19_empty</title>
+<path fill="none" stroke="black" d="M2284.23,-261C2290.45,-261 2299.94,-261 2309.67,-261"/>
+<polygon fill="black" stroke="black" points="2309.77,-264.5 2319.77,-261 2309.77,-257.5 2309.77,-264.5"/>
+</g>
+<!-- reaction_19_intermediate_r&#45;&gt;reaction_19 -->
+<g id="edge138" class="edge"><title>reaction_19_intermediate_r&#45;&gt;reaction_19</title>
+<path fill="none" stroke="black" d="M2233.13,-261C2235.02,-261 2257.79,-261 2269.76,-261"/>
+</g>
+<!-- reaction_20 -->
+<g id="node144" class="node"><title>reaction_20</title>
+<polygon fill="none" stroke="black" points="2694,-338 2680,-338 2680,-324 2694,-324 2694,-338"/>
+</g>
+<!-- reaction_20_empty -->
+<g id="node145" class="node"><title>reaction_20_empty</title>
+<text text-anchor="middle" x="2757" y="-326.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_20&#45;&gt;reaction_20_empty -->
+<g id="edge142" class="edge"><title>reaction_20&#45;&gt;reaction_20_empty</title>
+<path fill="none" stroke="black" d="M2694.23,-331C2700.45,-331 2709.94,-331 2719.67,-331"/>
+<polygon fill="black" stroke="black" points="2719.77,-334.5 2729.77,-331 2719.77,-327.5 2719.77,-334.5"/>
+</g>
+<!-- reaction_20_intermediate_r&#45;&gt;reaction_20 -->
+<g id="edge144" class="edge"><title>reaction_20_intermediate_r&#45;&gt;reaction_20</title>
+<path fill="none" stroke="black" d="M2617.05,-331C2618.75,-331 2662.58,-331 2679.98,-331"/>
+</g>
+<!-- reaction_21 -->
+<g id="node150" class="node"><title>reaction_21</title>
+<polygon fill="none" stroke="black" points="1416,-441 1402,-441 1402,-427 1416,-427 1416,-441"/>
+</g>
+<!-- reaction_21_intermediate_p -->
+<g id="node153" class="node"><title>reaction_21_intermediate_p</title>
+<ellipse fill="black" stroke="black" cx="1479" cy="-434" rx="0.036" ry="0.036"/>
+</g>
+<!-- reaction_21&#45;&gt;reaction_21_intermediate_p -->
+<g id="edge150" class="edge"><title>reaction_21&#45;&gt;reaction_21_intermediate_p</title>
+<path fill="none" stroke="black" d="M1416.23,-434C1433.55,-434 1476.22,-434 1478.87,-434"/>
+</g>
+<!-- reaction_21_empty -->
+<g id="node151" class="node"><title>reaction_21_empty</title>
+<text text-anchor="middle" x="1339" y="-429.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_21_empty&#45;&gt;reaction_21 -->
+<g id="edge148" class="edge"><title>reaction_21_empty&#45;&gt;reaction_21</title>
+<path fill="none" stroke="black" d="M1366.26,-434C1379.16,-434 1393.54,-434 1401.89,-434"/>
+</g>
+<!-- reaction_21_intermediate_p&#45;&gt;cPn -->
+<g id="edge152" class="edge"><title>reaction_21_intermediate_p&#45;&gt;cPn</title>
+<path fill="none" stroke="black" d="M1479.09,-434C1480.79,-434 1505.01,-434 1532.16,-434"/>
+<polygon fill="black" stroke="black" points="1532.26,-437.5 1542.26,-434 1532.26,-430.5 1532.26,-437.5"/>
+</g>
+<!-- reaction_22 -->
+<g id="node156" class="node"><title>reaction_22</title>
+<polygon fill="none" stroke="black" points="1778,-441 1764,-441 1764,-427 1778,-427 1778,-441"/>
+</g>
+<!-- reaction_22_empty -->
+<g id="node157" class="node"><title>reaction_22_empty</title>
+<text text-anchor="middle" x="1858" y="-429.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_22&#45;&gt;reaction_22_empty -->
+<g id="edge154" class="edge"><title>reaction_22&#45;&gt;reaction_22_empty</title>
+<path fill="none" stroke="black" d="M1778.12,-434C1787.44,-434 1804.47,-434 1820.43,-434"/>
+<polygon fill="black" stroke="black" points="1820.66,-437.5 1830.66,-434 1820.66,-430.5 1820.66,-437.5"/>
+</g>
+<!-- reaction_22_intermediate_r&#45;&gt;reaction_22 -->
+<g id="edge156" class="edge"><title>reaction_22_intermediate_r&#45;&gt;reaction_22</title>
+<path fill="none" stroke="black" d="M1721.14,-434C1723.34,-434 1750.29,-434 1763.62,-434"/>
+</g>
+<!-- reaction_23 -->
+<g id="node162" class="node"><title>reaction_23</title>
+<polygon fill="none" stroke="black" points="1778,-486 1764,-486 1764,-472 1778,-472 1778,-486"/>
+</g>
+<!-- reaction_23_empty -->
+<g id="node163" class="node"><title>reaction_23_empty</title>
+<text text-anchor="middle" x="1858" y="-483.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_23&#45;&gt;reaction_23_empty -->
+<g id="edge160" class="edge"><title>reaction_23&#45;&gt;reaction_23_empty</title>
+<path fill="none" stroke="black" d="M1778.12,-479.737C1787.44,-480.701 1804.47,-482.463 1820.43,-484.113"/>
+<polygon fill="black" stroke="black" points="1820.35,-487.624 1830.66,-485.172 1821.07,-480.661 1820.35,-487.624"/>
+</g>
+<!-- reaction_23_intermediate_r&#45;&gt;reaction_23 -->
+<g id="edge162" class="edge"><title>reaction_23_intermediate_r&#45;&gt;reaction_23</title>
+<path fill="none" stroke="black" d="M1721.14,-461.052C1723.34,-461.843 1750.29,-471.544 1763.62,-476.344"/>
+</g>
+<!-- reaction_25_intermediate_p -->
+<g id="node171" class="node"><title>reaction_25_intermediate_p</title>
+<ellipse fill="black" stroke="black" cx="1771" cy="-253" rx="0.036" ry="0.036"/>
+</g>
+<!-- reaction_25&#45;&gt;reaction_25_intermediate_p -->
+<g id="edge168" class="edge"><title>reaction_25&#45;&gt;reaction_25_intermediate_p</title>
+<path fill="none" stroke="black" d="M1724.6,-345.808C1735.88,-323.237 1769.91,-255.172 1770.97,-253.051"/>
+</g>
+<!-- reaction_25_empty -->
+<g id="node169" class="node"><title>reaction_25_empty</title>
+<text text-anchor="middle" x="1610" y="-375.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_25_empty&#45;&gt;reaction_25 -->
+<g id="edge166" class="edge"><title>reaction_25_empty&#45;&gt;reaction_25</title>
+<path fill="none" stroke="black" d="M1637.15,-373.395C1662.57,-367.213 1698.83,-358.393 1713.95,-354.714"/>
+</g>
+<!-- reaction_25_intermediate_p&#45;&gt;cAm -->
+<g id="edge170" class="edge"><title>reaction_25_intermediate_p&#45;&gt;cAm</title>
+<path fill="none" stroke="black" d="M1771.06,-252.918C1772.33,-251.242 1793,-224.147 1814,-207 1815.17,-206.043 1816.38,-205.096 1817.61,-204.16"/>
+<polygon fill="black" stroke="black" points="1819.91,-206.821 1826.05,-198.185 1815.87,-201.109 1819.91,-206.821"/>
+</g>
+<!-- reaction_26_intermediate_p -->
+<g id="node178" class="node"><title>reaction_26_intermediate_p</title>
+<ellipse fill="black" stroke="black" cx="1771" cy="-180" rx="0.036" ry="0.036"/>
+</g>
+<!-- reaction_26&#45;&gt;reaction_26_intermediate_p -->
+<g id="edge176" class="edge"><title>reaction_26&#45;&gt;reaction_26_intermediate_p</title>
+<path fill="none" stroke="black" d="M1728.38,-180C1741.85,-180 1769.22,-180 1770.92,-180"/>
+</g>
+<!-- reaction_26_empty -->
+<g id="node176" class="node"><title>reaction_26_empty</title>
+<text text-anchor="middle" x="1610" y="-175.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_26_empty&#45;&gt;reaction_26 -->
+<g id="edge174" class="edge"><title>reaction_26_empty&#45;&gt;reaction_26</title>
+<path fill="none" stroke="black" d="M1637.15,-180C1662.57,-180 1698.83,-180 1713.95,-180"/>
+</g>
+<!-- reaction_26_intermediate_p&#45;&gt;cAm -->
+<g id="edge178" class="edge"><title>reaction_26_intermediate_p&#45;&gt;cAm</title>
+<path fill="none" stroke="black" d="M1771.06,-180C1772.14,-180 1786.94,-180 1804.03,-180"/>
+<polygon fill="black" stroke="black" points="1804.27,-183.5 1814.27,-180 1804.26,-176.5 1804.27,-183.5"/>
+</g>
+<!-- reaction_27 -->
+<g id="node182" class="node"><title>reaction_27</title>
+<polygon fill="none" stroke="black" points="2002,-187 1988,-187 1988,-173 2002,-173 2002,-187"/>
+</g>
+<!-- reaction_27_empty -->
+<g id="node183" class="node"><title>reaction_27_empty</title>
+<text text-anchor="middle" x="2117" y="-175.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_27&#45;&gt;reaction_27_empty -->
+<g id="edge182" class="edge"><title>reaction_27&#45;&gt;reaction_27_empty</title>
+<path fill="none" stroke="black" d="M2002.27,-180C2017.23,-180 2052.39,-180 2079.87,-180"/>
+<polygon fill="black" stroke="black" points="2079.97,-183.5 2089.97,-180 2079.97,-176.5 2079.97,-183.5"/>
+</g>
+<!-- reaction_27_intermediate_r&#45;&gt;reaction_27 -->
+<g id="edge184" class="edge"><title>reaction_27_intermediate_r&#45;&gt;reaction_27</title>
+<path fill="none" stroke="black" d="M1945.14,-180C1947.34,-180 1974.29,-180 1987.62,-180"/>
+</g>
+<!-- reaction_28_intermediate_p -->
+<g id="node191" class="node"><title>reaction_28_intermediate_p</title>
+<ellipse fill="black" stroke="black" cx="1771" cy="-35" rx="0.036" ry="0.036"/>
+</g>
+<!-- reaction_28&#45;&gt;reaction_28_intermediate_p -->
+<g id="edge190" class="edge"><title>reaction_28&#45;&gt;reaction_28_intermediate_p</title>
+<path fill="none" stroke="black" d="M1728.38,-64.8356C1741.85,-55.404 1769.22,-36.2461 1770.92,-35.058"/>
+</g>
+<!-- reaction_28_empty -->
+<g id="node189" class="node"><title>reaction_28_empty</title>
+<text text-anchor="middle" x="1610" y="-65.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_28_empty&#45;&gt;reaction_28 -->
+<g id="edge188" class="edge"><title>reaction_28_empty&#45;&gt;reaction_28</title>
+<path fill="none" stroke="black" d="M1637.15,-70C1662.57,-70 1698.83,-70 1713.95,-70"/>
+</g>
+<!-- reaction_28_intermediate_p&#45;&gt;cXm -->
+<g id="edge192" class="edge"><title>reaction_28_intermediate_p&#45;&gt;cXm</title>
+<path fill="none" stroke="black" d="M1771.06,-34.9877C1772.46,-34.7144 1796.87,-29.9446 1819.47,-25.529"/>
+<polygon fill="black" stroke="black" points="1820.16,-28.9605 1829.3,-23.6077 1818.82,-22.0905 1820.16,-28.9605"/>
+</g>
+<!-- reaction_29 -->
+<g id="node195" class="node"><title>reaction_29</title>
+<polygon fill="none" stroke="black" points="2002,-25 1988,-25 1988,-11 2002,-11 2002,-25"/>
+</g>
+<!-- reaction_29_empty -->
+<g id="node196" class="node"><title>reaction_29_empty</title>
+<text text-anchor="middle" x="2117" y="-13.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_29&#45;&gt;reaction_29_empty -->
+<g id="edge196" class="edge"><title>reaction_29&#45;&gt;reaction_29_empty</title>
+<path fill="none" stroke="black" d="M2002.27,-18C2017.23,-18 2052.39,-18 2079.87,-18"/>
+<polygon fill="black" stroke="black" points="2079.97,-21.5001 2089.97,-18 2079.97,-14.5001 2079.97,-21.5001"/>
+</g>
+<!-- reaction_29_intermediate_r&#45;&gt;reaction_29 -->
+<g id="edge198" class="edge"><title>reaction_29_intermediate_r&#45;&gt;reaction_29</title>
+<path fill="none" stroke="black" d="M1945.14,-18C1947.34,-18 1974.29,-18 1987.62,-18"/>
+</g>
+<!-- reaction_30_intermediate_p -->
+<g id="node204" class="node"><title>reaction_30_intermediate_p</title>
+<ellipse fill="black" stroke="black" cx="1079" cy="-234" rx="0.036" ry="0.036"/>
+</g>
+<!-- reaction_30&#45;&gt;reaction_30_intermediate_p -->
+<g id="edge204" class="edge"><title>reaction_30&#45;&gt;reaction_30_intermediate_p</title>
+<path fill="none" stroke="black" d="M1036.38,-234C1049.85,-234 1077.22,-234 1078.92,-234"/>
+</g>
+<!-- reaction_30_empty -->
+<g id="node202" class="node"><title>reaction_30_empty</title>
+<text text-anchor="middle" x="947" y="-229.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_30_empty&#45;&gt;reaction_30 -->
+<g id="edge202" class="edge"><title>reaction_30_empty&#45;&gt;reaction_30</title>
+<path fill="none" stroke="black" d="M974.305,-234C991.077,-234 1011.3,-234 1021.84,-234"/>
+</g>
+<!-- reaction_30_intermediate_p&#45;&gt;cTc -->
+<g id="edge206" class="edge"><title>reaction_30_intermediate_p&#45;&gt;cTc</title>
+<path fill="none" stroke="black" d="M1079.09,-234C1080.3,-234 1094.12,-234 1111.98,-234"/>
+<polygon fill="black" stroke="black" points="1112.26,-237.5 1122.26,-234 1112.26,-230.5 1112.26,-237.5"/>
+</g>
+<!-- reaction_31 -->
+<g id="node208" class="node"><title>reaction_31</title>
+<polygon fill="none" stroke="black" points="1416,-207 1402,-207 1402,-193 1416,-193 1416,-207"/>
+</g>
+<!-- reaction_31_intermediate_p -->
+<g id="node212" class="node"><title>reaction_31_intermediate_p</title>
+<ellipse fill="black" stroke="black" cx="1479" cy="-198" rx="0.036" ry="0.036"/>
+</g>
+<!-- reaction_31&#45;&gt;reaction_31_intermediate_p -->
+<g id="edge214" class="edge"><title>reaction_31&#45;&gt;reaction_31_intermediate_p</title>
+<path fill="none" stroke="black" d="M1416.23,-199.793C1433.55,-199.298 1476.22,-198.079 1478.87,-198.004"/>
+</g>
+<!-- reaction_31_intermediate_r&#45;&gt;reaction_31 -->
+<g id="edge210" class="edge"><title>reaction_31_intermediate_r&#45;&gt;reaction_31</title>
+<path fill="none" stroke="black" d="M1339.05,-208.993C1340.75,-208.775 1384.58,-203.139 1401.98,-200.903"/>
+</g>
+<!-- reaction_31_intermediate_p&#45;&gt;cTn -->
+<g id="edge216" class="edge"><title>reaction_31_intermediate_p&#45;&gt;cTn</title>
+<path fill="none" stroke="black" d="M1479.09,-198.026C1480.83,-198.504 1506.22,-205.481 1534.18,-213.165"/>
+<polygon fill="black" stroke="black" points="1533.58,-216.628 1544.15,-215.903 1535.43,-209.878 1533.58,-216.628"/>
+</g>
+<!-- reaction_32 -->
+<g id="node215" class="node"><title>reaction_32</title>
+<polygon fill="none" stroke="black" points="1416,-241 1402,-241 1402,-227 1416,-227 1416,-241"/>
+</g>
+<!-- reaction_32_empty -->
+<g id="node216" class="node"><title>reaction_32_empty</title>
+<text text-anchor="middle" x="1479" y="-229.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_32&#45;&gt;reaction_32_empty -->
+<g id="edge218" class="edge"><title>reaction_32&#45;&gt;reaction_32_empty</title>
+<path fill="none" stroke="black" d="M1416.23,-234C1422.45,-234 1431.94,-234 1441.67,-234"/>
+<polygon fill="black" stroke="black" points="1441.77,-237.5 1451.77,-234 1441.77,-230.5 1441.77,-237.5"/>
+</g>
+<!-- reaction_32_intermediate_r&#45;&gt;reaction_32 -->
+<g id="edge220" class="edge"><title>reaction_32_intermediate_r&#45;&gt;reaction_32</title>
+<path fill="none" stroke="black" d="M1339.05,-234C1340.75,-234 1384.58,-234 1401.98,-234"/>
+</g>
+<!-- reaction_33 -->
+<g id="node221" class="node"><title>reaction_33</title>
+<polygon fill="none" stroke="black" points="1416,-284 1402,-284 1402,-270 1416,-270 1416,-284"/>
+</g>
+<!-- reaction_33_empty -->
+<g id="node222" class="node"><title>reaction_33_empty</title>
+<text text-anchor="middle" x="1479" y="-283.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_33&#45;&gt;reaction_33_empty -->
+<g id="edge224" class="edge"><title>reaction_33&#45;&gt;reaction_33_empty</title>
+<path fill="none" stroke="black" d="M1416.23,-278.136C1422.45,-279.114 1431.94,-280.605 1441.67,-282.134"/>
+<polygon fill="black" stroke="black" points="1441.35,-285.627 1451.77,-283.722 1442.44,-278.711 1441.35,-285.627"/>
+</g>
+<!-- reaction_33_intermediate_r&#45;&gt;reaction_33 -->
+<g id="edge226" class="edge"><title>reaction_33_intermediate_r&#45;&gt;reaction_33</title>
+<path fill="none" stroke="black" d="M1339.05,-265.009C1340.75,-265.3 1384.58,-272.814 1401.98,-275.797"/>
+</g>
+<!-- reaction_34 -->
+<g id="node227" class="node"><title>reaction_34</title>
+<polygon fill="none" stroke="black" points="1778,-290 1764,-290 1764,-276 1778,-276 1778,-290"/>
+</g>
+<!-- reaction_34_empty -->
+<g id="node228" class="node"><title>reaction_34_empty</title>
+<text text-anchor="middle" x="1858" y="-283.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_34&#45;&gt;reaction_34_empty -->
+<g id="edge230" class="edge"><title>reaction_34&#45;&gt;reaction_34_empty</title>
+<path fill="none" stroke="black" d="M1778.12,-283.409C1787.44,-283.945 1804.47,-284.924 1820.43,-285.841"/>
+<polygon fill="black" stroke="black" points="1820.47,-289.349 1830.66,-286.429 1820.88,-282.361 1820.47,-289.349"/>
+</g>
+<!-- reaction_34_intermediate_r&#45;&gt;reaction_34 -->
+<g id="edge232" class="edge"><title>reaction_34_intermediate_r&#45;&gt;reaction_34</title>
+<path fill="none" stroke="black" d="M1721.14,-267.046C1723.34,-267.75 1750.29,-276.372 1763.62,-280.639"/>
+</g>
+<!-- reaction_38 -->
+<g id="node233" class="node"><title>reaction_38</title>
+<polygon fill="none" stroke="black" points="1778,-226 1764,-226 1764,-212 1778,-212 1778,-226"/>
+</g>
+<!-- reaction_38_empty -->
+<g id="node234" class="node"><title>reaction_38_empty</title>
+<text text-anchor="middle" x="1858" y="-121.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_38&#45;&gt;reaction_38_empty -->
+<g id="edge236" class="edge"><title>reaction_38&#45;&gt;reaction_38_empty</title>
+<path fill="none" stroke="black" d="M1774.39,-211.715C1780.71,-198.7 1795.38,-171.123 1814,-153 1816.52,-150.55 1819.29,-148.218 1822.19,-146.024"/>
+<polygon fill="black" stroke="black" points="1824.34,-148.796 1830.57,-140.228 1820.36,-143.04 1824.34,-148.796"/>
+</g>
+<!-- reaction_38_intermediate_r&#45;&gt;reaction_38 -->
+<g id="edge238" class="edge"><title>reaction_38_intermediate_r&#45;&gt;reaction_38</title>
+<path fill="none" stroke="black" d="M1721.14,-226.977C1723.34,-226.625 1750.29,-222.314 1763.62,-220.18"/>
+</g>
+<!-- reaction_39_intermediate_p -->
+<g id="node242" class="node"><title>reaction_39_intermediate_p</title>
+<ellipse fill="black" stroke="black" cx="1771" cy="-331" rx="0.036" ry="0.036"/>
+</g>
+<!-- reaction_39&#45;&gt;reaction_39_intermediate_p -->
+<g id="edge244" class="edge"><title>reaction_39&#45;&gt;reaction_39_intermediate_p</title>
+<path fill="none" stroke="black" d="M1728.38,-322.476C1741.85,-325.17 1769.22,-330.644 1770.92,-330.983"/>
+</g>
+<!-- reaction_39_empty -->
+<g id="node240" class="node"><title>reaction_39_empty</title>
+<text text-anchor="middle" x="1610" y="-283.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_39_empty&#45;&gt;reaction_39 -->
+<g id="edge242" class="edge"><title>reaction_39_empty&#45;&gt;reaction_39</title>
+<path fill="none" stroke="black" d="M1637.15,-296.073C1662.57,-303.629 1698.83,-314.408 1713.95,-318.905"/>
+</g>
+<!-- reaction_39_intermediate_p&#45;&gt;cYm -->
+<g id="edge246" class="edge"><title>reaction_39_intermediate_p&#45;&gt;cYm</title>
+<path fill="none" stroke="black" d="M1771.06,-331.008C1772.46,-331.184 1796.65,-334.244 1819.17,-337.09"/>
+<polygon fill="black" stroke="black" points="1818.94,-340.589 1829.3,-338.372 1819.82,-333.645 1818.94,-340.589"/>
+</g>
+<!-- reaction_40 -->
+<g id="node248" class="node"><title>reaction_40</title>
+<polygon fill="none" stroke="black" points="2002,-349 1988,-349 1988,-335 2002,-335 2002,-349"/>
+</g>
+<!-- reaction_40_empty -->
+<g id="node249" class="node"><title>reaction_40_empty</title>
+<text text-anchor="middle" x="2117" y="-337.5" font-family="Times Roman,serif" font-size="15.00" fill="blue">Ø</text>
+</g>
+<!-- reaction_40&#45;&gt;reaction_40_empty -->
+<g id="edge254" class="edge"><title>reaction_40&#45;&gt;reaction_40_empty</title>
+<path fill="none" stroke="black" d="M2002.27,-342C2017.23,-342 2052.39,-342 2079.87,-342"/>
+<polygon fill="black" stroke="black" points="2079.97,-345.5 2089.97,-342 2079.97,-338.5 2079.97,-345.5"/>
+</g>
+<!-- reaction_40_intermediate_r&#45;&gt;reaction_40 -->
+<g id="edge256" class="edge"><title>reaction_40_intermediate_r&#45;&gt;reaction_40</title>
+<path fill="none" stroke="black" d="M1945.14,-342C1947.34,-342 1974.29,-342 1987.62,-342"/>
+</g>
+</g>
+</svg>
