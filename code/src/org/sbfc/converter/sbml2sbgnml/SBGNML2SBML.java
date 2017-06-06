@@ -27,13 +27,19 @@ import org.sbml.jsbml.SBMLDocument;
 import org.sbml.jsbml.SBMLException;
 import org.sbml.jsbml.SBMLWriter;
 import org.sbml.jsbml.Species;
+import org.sbml.jsbml.SpeciesReference;
 import org.sbml.jsbml.ext.layout.BoundingBox;
+import org.sbml.jsbml.ext.layout.Curve;
+import org.sbml.jsbml.ext.layout.CurveSegment;
 import org.sbml.jsbml.ext.layout.Dimensions;
 import org.sbml.jsbml.ext.layout.Layout;
 import org.sbml.jsbml.ext.layout.LayoutModelPlugin;
+import org.sbml.jsbml.ext.layout.LineSegment;
 import org.sbml.jsbml.ext.layout.Point;
 import org.sbml.jsbml.ext.layout.ReactionGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
+import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
+import org.sbml.jsbml.ext.layout.SpeciesReferenceRole;
 import org.sbgn.SbgnUtil;
 
 public class SBGNML2SBML {
@@ -111,17 +117,17 @@ public class SBGNML2SBML {
 	}
 		
 	public Boolean isProcessNode(String clazz) {
-		if (clazz == "process") {
+		if (clazz.equals("process")) {
 			return true;
-		} else if (clazz == "omitted process") {
+		} else if (clazz.equals("omitted process")) {
 			return true;
-		} else if (clazz == "uncertain process") {
+		} else if (clazz.equals("uncertain process")) {
 			return true;
-		} else if (clazz == "association") {
+		} else if (clazz.equals("association")) {
 			return true;
-		} else if (clazz == "dissociation") {
+		} else if (clazz.equals("dissociation")) {
 			return true;
-		} else if (clazz == "phenotype") {
+		} else if (clazz.equals("phenotype")) {
 			return true;
 		} else {
 			return false;
@@ -129,7 +135,7 @@ public class SBGNML2SBML {
 	}
 	
 	public Boolean isInwardArc(String clazz) {
-		if (clazz == "consumption") {
+		if (clazz.equals("consumption")) {
 			return true;
 		} else {
 			return false;
@@ -137,7 +143,7 @@ public class SBGNML2SBML {
 	}
 	
 	public Boolean isOutwardArc(String clazz) {
-		if (clazz == "production") {
+		if (clazz.equals("production")) {
 			return true;
 		} else {
 			return false;
@@ -153,9 +159,11 @@ public class SBGNML2SBML {
 		for (Glyph glyph: listOfGlyphs) {
 			id = glyph.getId();
 			clazz = glyph.getClazz();
+			System.out.format("glyph clazz=%s \n", clazz);
 			
 			if (isProcessNode(clazz)) {
 				processNodes.put(id, glyph);
+				System.out.format("processNodes size=%d \n", processNodes.size());
 			} else {
 				entityPoolNodes.put(id, glyph);
 			}
@@ -208,7 +216,7 @@ public class SBGNML2SBML {
 			listOfSpecies.add(species);
 			
 			speciesGlyph = new SpeciesGlyph();
-			speciesGlyph.setId(id+"Glyph");
+			speciesGlyph.setId(id+"_Glyph");
 			bbox = glyph.getBbox();
 			boundingBox = new BoundingBox();
 			// horizontal?
@@ -226,19 +234,160 @@ public class SBGNML2SBML {
 		Reaction reaction;
 		ReactionGlyph reactionGlyph;
 		Arc arc;
+		Glyph glyph;
 		String id;
+		String reactionId;
+		Curve curve;
+		CurveSegment curveSegment;
+		Point point;
+		Bbox bbox;
+		
+		Object source;
+		Object target;
+		Glyph sourceGlyph;
+		Port targetPort;
+		Port sourcePort;
+		Glyph targetGlyph;	
+		
+		Species species;
+		SpeciesReference speciesReference;
+		SpeciesReferenceGlyph speciesReferenceGlyph;
+		
+		Arc.Start start;
+		Arc.End end;
 		
 		for (String key: processNodes.keySet()) {
+			glyph = processNodes.get(key);
+			id = glyph.getId();
+			reaction = new Reaction();
+			
+			reaction.setId(id);
+			listOfReactions.add(reaction);
+			
+			reactionGlyph = new ReactionGlyph();
+			reactionGlyph.setId(id+"_Glyph");
+			reactionGlyph.setReaction(reaction);
+						
+			curve = new Curve();
+			curveSegment = new LineSegment();
+			bbox = glyph.getBbox();
+			point = new Point(bbox.getX(), bbox.getY());
+			curveSegment.setStart(point);
+			point = new Point(bbox.getX()+bbox.getW(), bbox.getY()+bbox.getH());
+			curveSegment.setEnd(point);
+			curve.addCurveSegment(curveSegment);
+			reactionGlyph.setCurve(curve);
+			listOfReactionGlyphs.add(reactionGlyph);
+			
+			System.out.format("listOfReactions size=%s \n", listOfReactions.size());
+			System.out.format("listOfReactionGlyphs size=%s \n", layout.getListOfReactionGlyphs().size());
 			
 		}		
 		for (String key: inwardArcs.keySet()) {
 			arc = inwardArcs.get(key);
 			id = key;
+			source = arc.getSource();
+			target = arc.getTarget();
+			
+			sourceGlyph = (Glyph) source;
+			targetPort = (Port) target;
+			
+			speciesReference = new SpeciesReference();
+			speciesReference.setId(id);
+			species = findSpecies(model.getListOfSpecies(), sourceGlyph.getId());
+			speciesReference.setSpecies(species);
+			
+			reactionId = targetPort.getId().substring(0, targetPort.getId().indexOf("."));
+			System.out.format("reactionId=%s \n", reactionId);
+			reaction = findReaction(model.getListOfReactions(), reactionId);
+			reaction.addReactant(speciesReference);
+			
+			speciesReferenceGlyph = new SpeciesReferenceGlyph();
+			speciesReferenceGlyph.setId(id+"_Glyph");
+			speciesReferenceGlyph.setRole(searchForReactionRole(arc.getClazz()));
+			speciesReferenceGlyph.setSpeciesGlyph(sourceGlyph.getId()+"_Glyph");
+			speciesReferenceGlyph.setSpeciesReference(speciesReference);
+			
+			start = arc.getStart();
+			//next = arc.getNext();
+			end = arc.getEnd();
+			curve = new Curve();
+			curveSegment = new LineSegment();
+			point = new Point(start.getX(), start.getY());
+			curveSegment.setStart(point);
+			point = new Point(end.getX(), end.getY());
+			curveSegment.setEnd(point);			
+			curve.addCurveSegment(curveSegment);
+			
+			speciesReferenceGlyph.setCurve(curve);
+			reactionGlyph = findReactionGlyph(layout.getListOfReactionGlyphs(), reactionId+"_Glyph");
+			reactionGlyph.addSpeciesReferenceGlyph(speciesReferenceGlyph);
 			
 		}	
 		for (String key: outwardArcs.keySet()) {
 			
 		}
+	}
+	
+	public Species findSpecies(ListOf<Species> listOfSpecies, String id) {
+		for (Species species : listOfSpecies) {
+			if (species.getId().equals(id)) {
+				return species;
+			}
+		}
+		return null;
+	}
+	
+	public SpeciesGlyph findSpeciesGlyph(ListOf<SpeciesGlyph> listOfSpeciesGlyph, String id) {
+		for (SpeciesGlyph speciesGlyph : listOfSpeciesGlyph) {
+			if (speciesGlyph.getId().equals(id)) {
+				return speciesGlyph;
+			}
+		}
+		return null;
+	}	
+	
+	public Reaction findReaction(ListOf<Reaction> listOfReactions, String id) {
+		for (Reaction reaction : listOfReactions) {
+			if (reaction.getId().equals(id)) {
+				System.out.format("findReaction reaction=%s \n", reaction.getId());
+				return reaction;
+			}
+		}
+		return null;		
+	}
+	
+	public ReactionGlyph findReactionGlyph(ListOf<ReactionGlyph> listOfReactionGlyph, String id) {
+		for (ReactionGlyph reactionGlyph : listOfReactionGlyph) {
+			if (reactionGlyph.getId().equals(id)) {
+				return reactionGlyph;
+			}
+		}
+		return null;
+	}		
+	
+	public SpeciesReferenceRole searchForReactionRole(String clazz) {
+		SpeciesReferenceRole role = null;
+
+		if (clazz.equals("consumption")) {
+			role = SpeciesReferenceRole.SUBSTRATE;
+		} if (clazz.equals("production")) {
+			role = SpeciesReferenceRole.PRODUCT;
+		} if (clazz.equals("consumption")) {
+			role = SpeciesReferenceRole.SIDESUBSTRATE;
+		} if (clazz.equals("production")) {
+			role = SpeciesReferenceRole.SIDEPRODUCT;
+		} if (clazz.equals("catalysis")) {
+			role = SpeciesReferenceRole.ACTIVATOR;
+		} if (clazz.equals("inhibition")) {
+			role = SpeciesReferenceRole.INHIBITOR;
+		} if (clazz.equals("modulation")) {
+			role = SpeciesReferenceRole.MODIFIER;	// not sure
+		} if (clazz.equals("unknown influence")) {
+			role = SpeciesReferenceRole.UNDEFINED;
+		}
+		
+		return role;		
 	}
 	
 	public static void debugSbgnObject(Map map){
@@ -279,9 +428,11 @@ public class SBGNML2SBML {
 			target = arc.getTarget();
 			
 			System.out.format("arc id=%s clazz=%s start,end=%s \n"
-					+ "next=%s source=%s target=%s \n \n",
+					+ "next=%s source=%s target=%s \n "
+					+ "source,target=%s \n \n",
 					id, clazz, displayCoordinates(start, end),
-					sizeOf(next, 3), isNull(source), isNull(target));
+					sizeOf(next, 3), isNull(source), isNull(target),
+					displaySourceAndTarget(source, target));
 		}
 		for (Glyph glyph: listOfGlyphs) {
 			id = glyph.getId();
@@ -308,6 +459,19 @@ public class SBGNML2SBML {
 					orientation, isNull(compartmentRef), isNull(compartmentOrder));
 			
 		}
+	}
+	
+	public static String displaySourceAndTarget(Object source, Object target) {
+
+		String type = "";
+		if (source instanceof Glyph && target instanceof Port ) {
+			type = "inward";
+		}
+		if (source instanceof Port && target instanceof Glyph ) {
+			type = "outward";
+		}		
+		
+		return String.format("%s %s %s", source.getClass(), target.getClass(), type);		
 	}
 	
 	public static String displayCoordinates(Bbox bbox) {

@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" level="3" version="1">
+  <model>
+    <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <layout:layout>
+        <layout:dimensions layout:height="200" layout:depth="0" layout:width="400"/>
+        <layout:listOfSpeciesGlyphs>
+          <layout:speciesGlyph layout:id="glyph1_Glyph">
+            <layout:boundingBox>
+              <layout:position layout:x="326" layout:y="30" layout:z="0"/>
+              <layout:dimensions layout:height="60" layout:depth="0" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="glyph2_Glyph">
+            <layout:boundingBox>
+              <layout:position layout:x="116" layout:y="30" layout:z="0"/>
+              <layout:dimensions layout:height="60" layout:depth="0" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+        </layout:listOfSpeciesGlyphs>
+        <layout:listOfReactionGlyphs>
+          <layout:reactionGlyph layout:id="pn1_Glyph" layout:reaction="pn1">
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="268" layout:y="48"/>
+                  <layout:end layout:x="292" layout:y="72"/>
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="a1_Glyph" layout:role="sidesubstrate" layout:speciesGlyph="glyph1_Glyph" layout:speciesReference="a1">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="326" layout:y="60"/>
+                      <layout:end layout:x="304" layout:y="60"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+        </layout:listOfReactionGlyphs>
+      </layout:layout>
+    </layout:listOfLayouts>
+    <listOfSpecies>
+      <species name="Monomer" id="glyph1" metaid="cb8101bc-aa48-4e44-a29e-922a0354ae53">
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#cb8101bc-aa48-4e44-a29e-922a0354ae53">
+	<bqbiol:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="macromolecule"/>
+	</rdf:Bag>
+	</bqbiol:isVersionOf>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </species>
+      <species name="Dimer" id="glyph2" metaid="efa5ac4f-758d-418b-9d6f-23b7ae75af18">
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#efa5ac4f-758d-418b-9d6f-23b7ae75af18">
+	<bqbiol:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="macromolecule multimer"/>
+	</rdf:Bag>
+	</bqbiol:isVersionOf>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </species>
+    </listOfSpecies>
+    <listOfReactions>
+      <reaction id="pn1">
+        <listOfReactants>
+          <speciesReference species="glyph1" id="a1"/>
+        </listOfReactants>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
