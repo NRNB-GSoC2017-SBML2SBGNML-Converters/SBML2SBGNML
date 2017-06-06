@@ -92,7 +92,7 @@ import org.xml.sax.SAXException;
  * 
  * @author jalowcki
  */
-public class SBML2SBGNML extends GeneralConverter {
+public class SBML2SBGNML_2011 extends GeneralConverter {
 
 	private static final String SBFCANNO_PREFIX = "sbfcanno";
 	public static final String SBFC_ANNO_NAMESPACE = "http://www.sbfc.org/sbfcanno";
@@ -101,7 +101,7 @@ public class SBML2SBGNML extends GeneralConverter {
 	private static int SBGNML_MILESTONE = 2;
 
 	// Set a logger for debug message
-	private static Logger logger = Logger.getLogger(SBML2SBGNML.class);
+	private static Logger logger = Logger.getLogger(SBML2SBGNML_2011.class);
 	
 	private Model sbmlModel;
 	private static SBGNUtils sbu = new SBGNUtils("sbgnml");
@@ -133,7 +133,7 @@ public class SBML2SBGNML extends GeneralConverter {
 
 	}
 	
-	public SBML2SBGNML(){
+	public SBML2SBGNML_2011(){
 	}
 	
 	
@@ -752,7 +752,7 @@ public class SBML2SBGNML extends GeneralConverter {
 			createVoidBBox(glyph);
 		}
 
-		SBML2SBGNML stsML = new SBML2SBGNML();
+		SBML2SBGNML_2011 stsML = new SBML2SBGNML_2011();
 		
 		// CLONE TAG TODO has to duplicate the clone nodes and their arcs
 		if (stsML.canBeCloned(species)) {
@@ -996,7 +996,7 @@ public class SBML2SBGNML extends GeneralConverter {
 		String sbmlFileNameInput = args[0];
 		
 		
-		SBML2SBGNML sbml = new SBML2SBGNML();
+		SBML2SBGNML_2011 sbml = new SBML2SBGNML_2011();
 				
 		// reading SBML file input and creating SBMLDocument
 		SBMLDocument sbmlDocument = sbml.getSBMLDocument(sbmlFileNameInput);
