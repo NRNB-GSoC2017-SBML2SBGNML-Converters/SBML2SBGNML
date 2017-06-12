@@ -66,9 +66,9 @@ import org.w3c.dom.Element;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-public class SBML2SBGNML_temp extends GeneralConverter { 
+public class SBML2SBGNML_GSOC2017 extends GeneralConverter { 
 	
-	private static Logger logger = Logger.getLogger(SBML2SBGNML_temp.class);
+	private static Logger logger = Logger.getLogger(SBML2SBGNML_GSOC2017.class);
 	private Model sbmlModel;
 	private static SBGNUtils sbu = new SBGNUtils("sbgnml");
 		
@@ -78,7 +78,7 @@ public class SBML2SBGNML_temp extends GeneralConverter {
 		String sbmlFileNameInput;
 		String outputFile;
 		SBMLDocument sbmlDocument;
-		SBML2SBGNML_temp sbml = new SBML2SBGNML_temp();
+		SBML2SBGNML_GSOC2017 sbml = new SBML2SBGNML_GSOC2017();
 		Sbgn sbgnObject;
 		File f;
 		

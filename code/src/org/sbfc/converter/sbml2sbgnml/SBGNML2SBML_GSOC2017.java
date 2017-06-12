@@ -45,7 +45,7 @@ import org.sbml.jsbml.ext.layout.SpeciesReferenceRole;
 import org.sbml.jsbml.ext.layout.TextGlyph;
 import org.sbgn.SbgnUtil;
 
-public class SBGNML2SBML {
+public class SBGNML2SBML_GSOC2017 {
 	HashMap<String, Glyph> processNodes = new HashMap<String, Glyph>();
 	HashMap<String, Glyph> entityPoolNodes = new HashMap<String, Glyph>();
 	HashMap<String, Arc> inwardArcs = new HashMap<String, Arc>();
@@ -71,7 +71,7 @@ public class SBGNML2SBML {
 		File outputFile;
 		Sbgn sbgnObject = null;
 		Map map;
-		SBGNML2SBML converter;
+		SBGNML2SBML_GSOC2017 converter;
 		SBMLDocument sbmlDocument;
 		SBMLWriter sbmlWriter;
 		
@@ -97,7 +97,7 @@ public class SBGNML2SBML {
 		map = sbgnObject.getMap();	
 		debugSbgnObject(map);
 		
-		converter = new SBGNML2SBML(map);
+		converter = new SBGNML2SBML_GSOC2017(map);
 		converter.convertToSBML();
 		
 		sbmlDocument = new SBMLDocument(3, 1);
@@ -119,7 +119,7 @@ public class SBGNML2SBML {
 		}
 	}
 	
-	public SBGNML2SBML(Map map) {
+	public SBGNML2SBML_GSOC2017(Map map) {
 		this.map = map;
 		this.model = new Model(3, 1);
 		LayoutModelPlugin plugin = (LayoutModelPlugin) model.getPlugin("layout");
@@ -628,7 +628,7 @@ public class SBGNML2SBML {
 		String id;
 		Glyph.State state;
 		Glyph.Clone clone;
-		Glyph.Callout callout;
+		//Glyph.Callout callout;
 		Glyph.Entity entity;
 		Label label;
 		Bbox bbox;
@@ -665,7 +665,7 @@ public class SBGNML2SBML {
 			id = glyph.getId();
 			state = glyph.getState();
 			clone = glyph.getClone();
-			callout = glyph.getCallout();
+			//callout = glyph.getCallout();
 			entity = glyph.getEntity();
 			label = glyph.getLabel();
 			bbox = glyph.getBbox();
@@ -681,7 +681,7 @@ public class SBGNML2SBML {
 					+ "listOfContainingGlyphs=%s listOfPorts=%s \n"
 					+ "orientation=%s compartmentRef=%s compartmentOrder=%s \n \n",
 					id, clazz, isNull(label), displayCoordinates(bbox), 
-					isNull(state), isNull(clone), isNull(callout), isNull(entity),  
+					isNull(state), isNull(clone), "isNull(callout)", isNull(entity),  
 					sizeOf(listOfContainingGlyphs, 0), sizeOf(listOfPorts, 2), 
 					orientation, isNull(compartmentRef), isNull(compartmentOrder));
 			
