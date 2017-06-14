@@ -145,6 +145,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	/**
 	 * Create multiple SBML <code>SpeciesGlyph</code> and its associated <code>Species</code> from list of SBGN <code>Glyph</code>. 
 	 * TODO: add more details to Javadoc
+	 * TODO: use recursion for complex
 	 */	
 	public void createSpecies() {
 		ListOf<Species> listOfSpecies = model.getListOfSpecies();
@@ -159,6 +160,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		BoundingBox boundingBox;
 		Bbox bbox;
 		TextGlyph textGlyph;
+		List<Glyph> nestedGlyphs;
 		
 		for (String key : entityPoolNodes.keySet()) {
 			glyph = entityPoolNodes.get(key);
@@ -184,7 +186,41 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			speciesGlyph.setBoundingBox(boundingBox);
 			listOfSpeciesGlyphs.add(speciesGlyph);
 			
-			createTextGlyph(species, speciesGlyph);
+			// todo: not just complex
+			//debugMode = 1;
+			printHelper("clazz==",clazz);
+			if (clazz.equals("complex")) {
+				nestedGlyphs = glyph.getGlyph();
+				for (Glyph nestedGlyph : nestedGlyphs) {
+					if (nestedGlyph.getLabel() != null) {
+						name = nestedGlyph.getLabel().getText();
+					}
+					clazz = nestedGlyph.getClazz();
+					speciesId = nestedGlyph.getId();
+					
+					species = new Species(speciesId, name, 3, 1);
+					addAnnotation(species, clazz);
+					addSBO(species, clazz);
+					listOfSpecies.add(species);
+					
+					printHelper("speciesId==",speciesId);
+					speciesGlyph = new SpeciesGlyph();
+					speciesGlyph.setId(speciesId+"_Glyph");
+					speciesGlyph.setSpecies(species);
+					bbox = nestedGlyph.getBbox();
+					boundingBox = new BoundingBox();
+					// todo: horizontal or vertical orientation?
+					boundingBox.createDimensions(bbox.getW(), bbox.getH(), 0);
+					boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);
+					speciesGlyph.setBoundingBox(boundingBox);		
+					listOfSpeciesGlyphs.add(speciesGlyph);
+					
+					createTextGlyph(species, speciesGlyph);
+				}
+			} else {
+				createTextGlyph(species, speciesGlyph);
+			}
+			
 		}
 	}
 	
@@ -268,6 +304,8 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			speciesReferenceGlyph.setCurve(curve);
 			reactionGlyph = findReactionGlyph(layout.getListOfReactionGlyphs(), reactionId+"_Glyph");
 			reactionGlyph.addSpeciesReferenceGlyph(speciesReferenceGlyph);
+			
+			updateReactionGlyph(reactionGlyph, speciesReferenceGlyph, "start");
 		}	
 		for (String key: outwardArcs.keySet()) {
 			arc = outwardArcs.get(key);
@@ -292,7 +330,9 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			curve = createSpeciesReferenceCurve(arc);
 			speciesReferenceGlyph.setCurve(curve);
 			reactionGlyph = findReactionGlyph(layout.getListOfReactionGlyphs(), reactionId+"_Glyph");
-			reactionGlyph.addSpeciesReferenceGlyph(speciesReferenceGlyph);			
+			reactionGlyph.addSpeciesReferenceGlyph(speciesReferenceGlyph);
+			
+			updateReactionGlyph(reactionGlyph, speciesReferenceGlyph, "end");
 		}
 		for (String key: undirectedArcs.keySet()) {
 			arc = undirectedArcs.get(key);
@@ -318,8 +358,28 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			curve = createSpeciesReferenceCurve(arc);
 			speciesReferenceGlyph.setCurve(curve);
 			reactionGlyph = findReactionGlyph(layout.getListOfReactionGlyphs(), reactionId+"_Glyph");
-			reactionGlyph.addSpeciesReferenceGlyph(speciesReferenceGlyph);			
+			reactionGlyph.addSpeciesReferenceGlyph(speciesReferenceGlyph);
 		}
+	}
+	
+	/**
+	 * Update the start or end <code>Point</code> of <code>ReactionGlyph</code> using values in a <code>SpeciesReferenceGlyph</code>. 
+	 */			
+	public void updateReactionGlyph(ReactionGlyph reactionGlyph, SpeciesReferenceGlyph speciesReferenceGlyph, String reactionGlyphPointType){
+		Point curvePoint = null;
+		Point reactionGlyphPoint = null;
+		if (reactionGlyphPointType.equals("start")) {
+			// for now,  we assume there is only 1 CurveSegment in this Curve, so getCurveSegment(0)
+			curvePoint = speciesReferenceGlyph.getCurve().getCurveSegment(0).getEnd();
+			reactionGlyphPoint = reactionGlyph.getCurve().getCurveSegment(0).getStart();
+		} else if (reactionGlyphPointType.equals("end")) {
+			curvePoint = speciesReferenceGlyph.getCurve().getCurveSegment(0).getStart();
+			reactionGlyphPoint = reactionGlyph.getCurve().getCurveSegment(0).getEnd();			
+		}
+	
+		reactionGlyphPoint.setX(curvePoint.getX());
+		reactionGlyphPoint.setY(curvePoint.getY());
+		reactionGlyphPoint.setZ(curvePoint.getZ());
 	}
 	
 	/**

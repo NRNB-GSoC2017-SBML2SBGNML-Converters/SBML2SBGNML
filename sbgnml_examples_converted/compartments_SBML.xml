@@ -1,20 +1,20 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" level="3" version="1">
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" level="3" version="1" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1">
   <model>
     <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <layout:layout>
-        <layout:dimensions layout:height="0" layout:depth="0" layout:width="0"/>
+        <layout:dimensions layout:depth="0" layout:height="0" layout:width="0"/>
         <layout:listOfCompartmentGlyphs>
-          <layout:compartmentGlyph layout:id="glyph8_Glyph" layout:compartment="glyph8">
+          <layout:compartmentGlyph layout:compartment="glyph8" layout:id="glyph8_Glyph">
             <layout:boundingBox>
               <layout:position layout:x="90" layout:y="230" layout:z="0"/>
-              <layout:dimensions layout:height="260" layout:depth="0" layout:width="440"/>
+              <layout:dimensions layout:depth="0" layout:height="260" layout:width="440"/>
             </layout:boundingBox>
           </layout:compartmentGlyph>
-          <layout:compartmentGlyph layout:id="glyph1_Glyph" layout:compartment="glyph1">
+          <layout:compartmentGlyph layout:compartment="glyph1" layout:id="glyph1_Glyph">
             <layout:boundingBox>
               <layout:position layout:x="90" layout:y="70" layout:z="0"/>
-              <layout:dimensions layout:height="140" layout:depth="0" layout:width="440"/>
+              <layout:dimensions layout:depth="0" layout:height="140" layout:width="440"/>
             </layout:boundingBox>
           </layout:compartmentGlyph>
         </layout:listOfCompartmentGlyphs>
@@ -22,19 +22,31 @@
           <layout:speciesGlyph layout:id="glyph5_Glyph" layout:species="glyph5">
             <layout:boundingBox>
               <layout:position layout:x="170" layout:y="130" layout:z="0"/>
-              <layout:dimensions layout:height="60" layout:depth="0" layout:width="100"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="100"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
           <layout:speciesGlyph layout:id="glyph4_Glyph" layout:species="glyph4">
             <layout:boundingBox>
               <layout:position layout:x="120" layout:y="250" layout:z="0"/>
-              <layout:dimensions layout:height="60" layout:depth="0" layout:width="100"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="100"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
           <layout:speciesGlyph layout:id="glyph2_Glyph" layout:species="glyph2">
             <layout:boundingBox>
               <layout:position layout:x="360" layout:y="150" layout:z="0"/>
-              <layout:dimensions layout:height="160" layout:depth="0" layout:width="140"/>
+              <layout:dimensions layout:depth="0" layout:height="160" layout:width="140"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="glyph3_Glyph" layout:species="glyph3">
+            <layout:boundingBox>
+              <layout:position layout:x="380" layout:y="171" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="glyph6_Glyph" layout:species="glyph6">
+            <layout:boundingBox>
+              <layout:position layout:x="380" layout:y="232" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="100"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
         </layout:listOfSpeciesGlyphs>
@@ -43,8 +55,8 @@
             <layout:curve>
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
-                  <layout:start layout:x="280" layout:y="270"/>
-                  <layout:end layout:x="300" layout:y="290"/>
+                  <layout:start layout:x="270" layout:y="280"/>
+                  <layout:end layout:x="310" layout:y="280"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>
@@ -83,36 +95,42 @@
           </layout:reactionGlyph>
         </layout:listOfReactionGlyphs>
         <layout:listOfTextGlyphs>
-          <layout:textGlyph layout:id="glyph5_TextGlyph" layout:originOfText="glyph5" layout:graphicalObject="glyph5_Glyph">
+          <layout:textGlyph layout:graphicalObject="glyph5_Glyph" layout:id="glyph5_TextGlyph" layout:originOfText="glyph5">
             <layout:boundingBox>
               <layout:position layout:x="170" layout:y="130" layout:z="0"/>
-              <layout:dimensions layout:height="60" layout:depth="0" layout:width="100"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="100"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:id="glyph4_TextGlyph" layout:originOfText="glyph4" layout:graphicalObject="glyph4_Glyph">
+          <layout:textGlyph layout:graphicalObject="glyph4_Glyph" layout:id="glyph4_TextGlyph" layout:originOfText="glyph4">
             <layout:boundingBox>
               <layout:position layout:x="120" layout:y="250" layout:z="0"/>
-              <layout:dimensions layout:height="60" layout:depth="0" layout:width="100"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="100"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:id="glyph2_TextGlyph" layout:originOfText="glyph2" layout:graphicalObject="glyph2_Glyph">
+          <layout:textGlyph layout:graphicalObject="glyph3_Glyph" layout:id="glyph3_TextGlyph" layout:originOfText="glyph3">
             <layout:boundingBox>
-              <layout:position layout:x="360" layout:y="150" layout:z="0"/>
-              <layout:dimensions layout:height="160" layout:depth="0" layout:width="140"/>
+              <layout:position layout:x="380" layout:y="171" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="100"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="glyph6_Glyph" layout:id="glyph6_TextGlyph" layout:originOfText="glyph6">
+            <layout:boundingBox>
+              <layout:position layout:x="380" layout:y="232" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="100"/>
             </layout:boundingBox>
           </layout:textGlyph>
         </layout:listOfTextGlyphs>
       </layout:layout>
     </layout:listOfLayouts>
     <listOfCompartments>
-      <compartment name="cytosol" id="glyph8"/>
-      <compartment name="extracellular" id="glyph1"/>
+      <compartment id="glyph8" name="cytosol"/>
+      <compartment id="glyph1" name="extracellular"/>
     </listOfCompartments>
     <listOfSpecies>
-      <species name="IGF" id="glyph5" metaid="_483118a2-1570-482f-ac3b-731ffe22ac85">
+      <species id="glyph5" metaid="b21de717-1145-433f-9702-42c956b190d6" name="IGF">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_483118a2-1570-482f-ac3b-731ffe22ac85">
+	<rdf:Description rdf:about="#b21de717-1145-433f-9702-42c956b190d6">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>
@@ -122,10 +140,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species name="IGFR" id="glyph4" metaid="b0825959-8307-45f4-8675-c7b550d591db">
+      <species id="glyph4" metaid="aa1a6799-49ed-4f44-84a1-fab5c26b8fc8" name="IGFR">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#b0825959-8307-45f4-8675-c7b550d591db">
+	<rdf:Description rdf:about="#aa1a6799-49ed-4f44-84a1-fab5c26b8fc8">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>
@@ -135,13 +153,39 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species name="IGFR" id="glyph2" metaid="_066cdfd0-ac94-405d-813e-26e4f6101f9c" sboTerm="SBO:0000253">
+      <species id="glyph2" metaid="db509a74-7aa3-42b3-95f6-ea2616d64e2e" name="IGFR" sboTerm="SBO:0000253">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_066cdfd0-ac94-405d-813e-26e4f6101f9c">
+	<rdf:Description rdf:about="#db509a74-7aa3-42b3-95f6-ea2616d64e2e">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="complex"/>
+	</rdf:Bag>
+	</bqbiol:isVersionOf>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </species>
+      <species id="glyph3" metaid="_69cae371-55cd-4b14-a5f0-fc732d93884d" name="IGF">
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_69cae371-55cd-4b14-a5f0-fc732d93884d">
+	<bqbiol:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="macromolecule"/>
+	</rdf:Bag>
+	</bqbiol:isVersionOf>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </species>
+      <species id="glyph6" metaid="_98083a4e-f4f7-4570-9560-9f35808bfa8c" name="IGFR">
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_98083a4e-f4f7-4570-9560-9f35808bfa8c">
+	<bqbiol:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="macromolecule"/>
 	</rdf:Bag>
 	</bqbiol:isVersionOf>
 	</rdf:Description>
@@ -152,11 +196,11 @@
     <listOfReactions>
       <reaction id="pn1">
         <listOfReactants>
-          <speciesReference species="glyph4" id="a02"/>
-          <speciesReference species="glyph5" id="a03"/>
+          <speciesReference id="a02" species="glyph4"/>
+          <speciesReference id="a03" species="glyph5"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="glyph2" id="a01"/>
+          <speciesReference id="a01" species="glyph2"/>
         </listOfProducts>
       </reaction>
     </listOfReactions>
