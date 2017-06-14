@@ -1,4 +1,4 @@
-package org.sbfc.converter.sbml2sbgnml;
+package org.sbfc.converter.sbgnml2sbml;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -43,82 +43,37 @@ import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceRole;
 import org.sbml.jsbml.ext.layout.TextGlyph;
+import org.sbfc.converter.GeneralConverter;
+import org.sbfc.converter.exceptions.ConversionException;
+import org.sbfc.converter.exceptions.ReadModelException;
+import org.sbfc.converter.models.GeneralModel;
 import org.sbgn.SbgnUtil;
 
-public class SBGNML2SBML_GSOC2017 {
+public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	HashMap<String, Glyph> processNodes = new HashMap<String, Glyph>();
 	HashMap<String, Glyph> entityPoolNodes = new HashMap<String, Glyph>();
+	HashMap<String, Glyph> compartments = new HashMap<String, Glyph>();
+	
+	// see code below for definition of inwardArcs, outwardArcs, and undirectedArcs
 	HashMap<String, Arc> inwardArcs = new HashMap<String, Arc>();
 	HashMap<String, Arc> outwardArcs = new HashMap<String, Arc>();
 	HashMap<String, Arc> undirectedArcs = new HashMap<String, Arc>();
-	HashMap<String, Glyph> compartments = new HashMap<String, Glyph>();
-	//HashMap<String, String> glyphMap = new HashMap<String, String>(40);
-	//HashMap<String, String> arcMap = new HashMap<String, String>(16);
+	
 	Map map;
 	Model model;
 	Layout layout;
+	
+	// keep track of the maximum value for each dimension. Finally, set these 3 values as the dimensions of the layout
 	Double dimensionX;
 	Double dimensionY;
 	Double dimensionZ;
+	
+	// keep track of how many Arcs are in Sbgn
 	int numberOfSpeciesReferences;
+	// keep track of how many Glyphs are in Sbgn
 	int numberOfEntities;
-	
-	public static void main(String[] args) throws FileNotFoundException {
-		String sbgnFileNameInput;
-		String sbmlFileNameOutput;
-		String workingDirectory;
-		File inputFile;
-		File outputFile;
-		Sbgn sbgnObject = null;
-		Map map;
-		SBGNML2SBML_GSOC2017 converter;
-		SBMLDocument sbmlDocument;
-		SBMLWriter sbmlWriter;
+	public int debugMode = 0;
 		
-		if (args.length < 1 || args.length > 3) {
-			System.out.println("usage: java org.sbfc.converter.sbml2sbgnml.SBGNML2SBML <SBGNML filename>. "
-					+ "filename example: /examples/sbml_layout_examples/GeneralGlyph_Example.xml");
-			return;
-		}		
-		
-		workingDirectory = System.getProperty("user.dir");
-		sbgnFileNameInput = args[0];
-		sbgnFileNameInput = workingDirectory + "\\" + sbgnFileNameInput;			
-		sbmlFileNameOutput = sbgnFileNameInput.replaceAll("\\.sbgn", "_SBML.xml");
-		
-		inputFile = new File(sbgnFileNameInput);
-		outputFile = new File(sbmlFileNameOutput);
-		try {
-			sbgnObject = SbgnUtil.readFromFile(inputFile);
-		} catch (JAXBException e) {
-			e.printStackTrace();
-		}
-		
-		map = sbgnObject.getMap();	
-		debugSbgnObject(map);
-		
-		converter = new SBGNML2SBML_GSOC2017(map);
-		converter.convertToSBML();
-		
-		sbmlDocument = new SBMLDocument(3, 1);
-		sbmlDocument.setModel(converter.model);
-		Dimensions dimensions = new Dimensions(converter.dimensionX, converter.dimensionY, converter.dimensionZ, 3, 1);
-		converter.layout.setDimensions(dimensions);
-		sbmlWriter = new SBMLWriter();
-		try {
-			sbmlWriter.writeSBML(sbmlDocument, outputFile);
-		} catch (SBMLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (XMLStreamException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
 	public SBGNML2SBML_GSOC2017(Map map) {
 		this.map = map;
 		this.model = new Model(3, 1);
@@ -129,31 +84,28 @@ public class SBGNML2SBML_GSOC2017 {
 		dimensionZ = 0.0;
 		numberOfSpeciesReferences = 0;
 		numberOfEntities = 0;
-	}
 		
-	public void convertToSBML() {
 		List<Glyph> listOfGlyphs = map.getGlyph();
 		List<Arc> listOfArcs = map.getArc();
 		String id;
-		String clazz; 
+		String clazz; 		
 		
 		for (Glyph glyph: listOfGlyphs) {
 			id = glyph.getId();
 			if (id == null) {
 				id = "Entities" + Integer.toString(this.numberOfEntities);
 				glyph.setId(id);
-				//System.out.format("===Entities id=%s \n", id);
 			}				
 			numberOfEntities++;
 			clazz = glyph.getClazz();
-			System.out.format("glyph clazz=%s \n", clazz);
+			//System.out.format("glyph clazz=%s \n", clazz);
 			
 			if (isProcessNode(clazz)) {
 				processNodes.put(id, glyph);
-				//System.out.format("processNodes size=%d \n", processNodes.size());
 			} else if (clazz.equals("compartment")) {
 				compartments.put(id, glyph);
-				System.out.format("===Entities id=%s \n", id);
+			} else if (isEntityPoolNode(clazz)) {
+				entityPoolNodes.put(id, glyph);
 			} else {
 				entityPoolNodes.put(id, glyph);
 			}
@@ -164,7 +116,6 @@ public class SBGNML2SBML_GSOC2017 {
 			if (id == null) {
 				id = "SpeciesReferences" + Integer.toString(this.numberOfSpeciesReferences);
 				arc.setId(id);
-				//System.out.format("===SpeciesReferences id=%s \n", id);
 			}				
 			this.numberOfSpeciesReferences++;			
 			
@@ -177,13 +128,24 @@ public class SBGNML2SBML_GSOC2017 {
 			} else if (isOutwardArc(clazz)) {
 				outwardArcs.put(id, arc);
 			} 		
-		}		
-		
+		}			
+	}
+
+	/**
+	 * Create an SBML <code>Model</code>, which corresponds to contents of <code>Map</code> of the <code>Sbgn</code>. 
+	 * Each <code>Glyph</code> or <code>Arc</code> of the <code>Map</code> is mapped to elements of the <code>Model</code>.
+	 */	
+	public void convertToSBML() {
+
 		createCompartments();
 		createSpecies();
 		createReactions();
 	}
 	
+	/**
+	 * Create multiple SBML <code>SpeciesGlyph</code> and its associated <code>Species</code> from list of SBGN <code>Glyph</code>. 
+	 * TODO: add more details to Javadoc
+	 */	
 	public void createSpecies() {
 		ListOf<Species> listOfSpecies = model.getListOfSpecies();
 		ListOf<SpeciesGlyph> listOfSpeciesGlyphs = layout.getListOfSpeciesGlyphs();	
@@ -191,7 +153,7 @@ public class SBGNML2SBML_GSOC2017 {
 		Species species;
 		SpeciesGlyph speciesGlyph;
 		Glyph glyph;
-		String id;
+		String speciesId;
 		String name = "";
 		String clazz; 
 		BoundingBox boundingBox;
@@ -204,20 +166,19 @@ public class SBGNML2SBML_GSOC2017 {
 				name = glyph.getLabel().getText();
 			}
 			clazz = glyph.getClazz();
-			// Species id
-			id = key;
+			speciesId = key;
 			
-			species = new Species(id, name, 3, 1);
+			species = new Species(speciesId, name, 3, 1);
 			addAnnotation(species, clazz);
 			addSBO(species, clazz);
 			listOfSpecies.add(species);
 			
 			speciesGlyph = new SpeciesGlyph();
-			speciesGlyph.setId(id+"_Glyph");
+			speciesGlyph.setId(speciesId+"_Glyph");
 			speciesGlyph.setSpecies(species);
 			bbox = glyph.getBbox();
 			boundingBox = new BoundingBox();
-			// horizontal?
+			// todo: horizontal or vertical orientation?
 			boundingBox.createDimensions(bbox.getW(), bbox.getH(), 0);
 			boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);
 			speciesGlyph.setBoundingBox(boundingBox);
@@ -227,6 +188,9 @@ public class SBGNML2SBML_GSOC2017 {
 		}
 	}
 	
+	/**
+	 * Create multiple SBML <code>ReactionGlyph</code> and its associated <code>Reaction</code> from list of SBGN <code>Glyph</code> and <code>Arc</code>. 
+	 */			
 	public void createReactions() {
 		ListOf<Reaction> listOfReactions = model.getListOfReactions();
 		ListOf<ReactionGlyph> listOfReactionGlyphs = layout.getListOfReactionGlyphs();
@@ -235,7 +199,7 @@ public class SBGNML2SBML_GSOC2017 {
 		ReactionGlyph reactionGlyph;
 		Arc arc;
 		Glyph glyph;
-		String id;
+		String speciesReferenceId;
 		String reactionId;
 		Curve curve;
 		CurveSegment curveSegment;
@@ -258,15 +222,14 @@ public class SBGNML2SBML_GSOC2017 {
 		
 		for (String key: processNodes.keySet()) {
 			glyph = processNodes.get(key);
-			// Reaction id
-			id = glyph.getId();
+			reactionId = glyph.getId();
 			reaction = new Reaction();
 			
-			reaction.setId(id);
+			reaction.setId(reactionId);
 			listOfReactions.add(reaction);
 			
 			reactionGlyph = new ReactionGlyph();
-			reactionGlyph.setId(id+"_Glyph");
+			reactionGlyph.setId(reactionId+"_Glyph");
 			reactionGlyph.setReaction(reaction);
 						
 			curve = new Curve();
@@ -280,14 +243,10 @@ public class SBGNML2SBML_GSOC2017 {
 			reactionGlyph.setCurve(curve);
 			listOfReactionGlyphs.add(reactionGlyph);
 			
-			//System.out.format("listOfReactions size=%s \n", listOfReactions.size());
-			//System.out.format("listOfReactionGlyphs size=%s \n", layout.getListOfReactionGlyphs().size());
-			
 		}		
 		for (String key: inwardArcs.keySet()) {
 			arc = inwardArcs.get(key);
-			// SpeciesReference id
-			id = key;
+			speciesReferenceId = key;
 			source = arc.getSource();
 			target = arc.getTarget();
 			
@@ -296,15 +255,14 @@ public class SBGNML2SBML_GSOC2017 {
 			
 			speciesReference = new SpeciesReference();
 			species = findSpecies(model.getListOfSpecies(), sourceGlyph.getId());
-			speciesReference.setId(id);
+			speciesReference.setId(speciesReferenceId);
 			speciesReference.setSpecies(species);
 			
 			reactionId = targetPort.getId().substring(0, targetPort.getId().indexOf("."));
-			//System.out.format("reactionId=%s \n", reactionId);
 			reaction = findReaction(model.getListOfReactions(), reactionId);
 			reaction.addReactant(speciesReference);
 			
-			speciesReferenceGlyph = createSpeciesReferenceGlyph(id, arc, speciesReference, sourceGlyph);
+			speciesReferenceGlyph = createSpeciesReferenceGlyph(speciesReferenceId, arc, speciesReference, sourceGlyph);
 			
 			curve = createSpeciesReferenceCurve(arc);
 			speciesReferenceGlyph.setCurve(curve);
@@ -313,8 +271,7 @@ public class SBGNML2SBML_GSOC2017 {
 		}	
 		for (String key: outwardArcs.keySet()) {
 			arc = outwardArcs.get(key);
-			// SpeciesReference id
-			id = key;
+			speciesReferenceId = key;
 			source = arc.getSource();
 			target = arc.getTarget();
 			
@@ -323,15 +280,14 @@ public class SBGNML2SBML_GSOC2017 {
 			
 			speciesReference = new SpeciesReference();
 			species = findSpecies(model.getListOfSpecies(), targetGlyph.getId());
-			speciesReference.setId(id);
+			speciesReference.setId(speciesReferenceId);
 			speciesReference.setSpecies(species);
 			
 			reactionId = sourcePort.getId().substring(0, sourcePort.getId().indexOf("."));
-			//System.out.format("reactionId=%s \n", reactionId);
 			reaction = findReaction(model.getListOfReactions(), reactionId);
 			reaction.addProduct(speciesReference);
 			
-			speciesReferenceGlyph = createSpeciesReferenceGlyph(id, arc, speciesReference, targetGlyph);
+			speciesReferenceGlyph = createSpeciesReferenceGlyph(speciesReferenceId, arc, speciesReference, targetGlyph);
 			
 			curve = createSpeciesReferenceCurve(arc);
 			speciesReferenceGlyph.setCurve(curve);
@@ -340,9 +296,7 @@ public class SBGNML2SBML_GSOC2017 {
 		}
 		for (String key: undirectedArcs.keySet()) {
 			arc = undirectedArcs.get(key);
-			// SpeciesReference id
-			id = key;
-			//System.out.format("undirectedArcs id=%s arc=%s \n", id, arc.getId());
+			speciesReferenceId = key;
 			source = arc.getSource();
 			target = arc.getTarget();
 			
@@ -352,15 +306,14 @@ public class SBGNML2SBML_GSOC2017 {
 			
 			speciesReference = new SpeciesReference();
 			species = findSpecies(model.getListOfSpecies(), sourceGlyph.getId());
-			speciesReference.setId(id);
+			speciesReference.setId(speciesReferenceId);
 			speciesReference.setSpecies(species);
 			
 			reactionId = targetGlyph.getId();
-			//System.out.format("reactionId=%s \n", reactionId);
 			reaction = findReaction(model.getListOfReactions(), reactionId);
 			reaction.addReactant(speciesReference);
 			
-			speciesReferenceGlyph = createSpeciesReferenceGlyph(id, arc, speciesReference, sourceGlyph);
+			speciesReferenceGlyph = createSpeciesReferenceGlyph(speciesReferenceId, arc, speciesReference, sourceGlyph);
 			
 			curve = createSpeciesReferenceCurve(arc);
 			speciesReferenceGlyph.setCurve(curve);
@@ -369,6 +322,10 @@ public class SBGNML2SBML_GSOC2017 {
 		}
 	}
 	
+	/**
+	 * Create an SBML <code>Curve</code> from values in an SBGN <code>Arc</code>. 
+	 * TODO: need to handle more complex cases where an Arc consists of multiple parts
+	 */		
 	public Curve createSpeciesReferenceCurve(Arc arc) {
 		Curve curve;
 		CurveSegment curveSegment;
@@ -391,12 +348,15 @@ public class SBGNML2SBML_GSOC2017 {
 		return curve;
 	}
 	
+	/**
+	 * Create multiple SBML <code>CompartmentGlyph</code> and its associated <code>Compartment</code> from list of SBGN <code>Glyph</code>. 
+	 */		
 	public void createCompartments() {
 		ListOf<Compartment> listOfCompartments = model.getListOfCompartments();
 		ListOf<CompartmentGlyph> listOfCompartmentGlyphs = layout.getListOfCompartmentGlyphs();			
 		
 		Glyph glyph;
-		String id;
+		String compartmentId;
 		String name;
 		Compartment compartment;
 		CompartmentGlyph compartmentGlyph;
@@ -405,20 +365,19 @@ public class SBGNML2SBML_GSOC2017 {
 
 		for (String key: compartments.keySet()) {
 			glyph = compartments.get(key);
-			System.out.format("===Entities=%s \n", glyph.toString());
-			// Compartment id
-			id = glyph.getId();		
+			//System.out.format("Entities=%s \n", glyph.toString());
+			compartmentId = glyph.getId();		
 			name = glyph.getLabel().getText();
 			
-			compartment = new Compartment(id, name, 3, 1);
+			compartment = new Compartment(compartmentId, name, 3, 1);
 			listOfCompartments.add(compartment);
 			
 			compartmentGlyph = new CompartmentGlyph();
-			compartmentGlyph.setId(id+"_Glyph");
+			compartmentGlyph.setId(compartmentId+"_Glyph");
 			compartmentGlyph.setCompartment(compartment);
 			bbox = glyph.getBbox();
 			boundingBox = new BoundingBox();
-			// horizontal?
+			// todo: horizontal?
 			boundingBox.createDimensions(bbox.getW(), bbox.getH(), 0);
 			boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);
 			compartmentGlyph.setBoundingBox(boundingBox);
@@ -426,6 +385,16 @@ public class SBGNML2SBML_GSOC2017 {
 		}
 	}
 	
+	/**
+	 * Create a <code>SpeciesReferenceGlyph</code> using values from an SBGN <code>Arc</code>. 
+	 * Associate the <code>SpeciesReferenceGlyph</code> with a <code>SpeciesGlyph</code> and a <code>SpeciesReference</code>.
+	 * 
+	 * @param <code>String</code> id
+	 * @param <code>Arc</code> arc
+	 * @param <code>SpeciesReference</code> speciesReference
+	 * @param <code>Glyph</code> speciesGlyph
+	 * @return <code>SpeciesReferenceGlyph</code> speciesReferenceGlyph
+	 */		
 	public SpeciesReferenceGlyph createSpeciesReferenceGlyph(String id, Arc arc, SpeciesReference speciesReference, Glyph speciesGlyph) {
 		SpeciesReferenceGlyph speciesReferenceGlyph;
 		
@@ -438,6 +407,12 @@ public class SBGNML2SBML_GSOC2017 {
 		return speciesReferenceGlyph;
 	}
 	
+	/**
+	 * Create a TextGlyph using values from a <code>SpeciesGlyph</code> and its associated <code>Species</code>.
+	 * 
+	 * @param <code>Species</code> species
+	 * @param <code>SpeciesGlyph</code> speciesGlyph
+	 */		
 	public void createTextGlyph(Species species, SpeciesGlyph speciesGlyph) {
 		TextGlyph textGlyph;
 		String id;
@@ -459,6 +434,11 @@ public class SBGNML2SBML_GSOC2017 {
 		listOfTextGlyphs.add(textGlyph);
 	}
 	
+	/**
+	 * Set the dimensionX, dimensionY, dimensionZ from the <code>Point</code> values.
+	 * 
+	 * @param <code>Point</code> point
+	 */			
 	public void updateDimensions(Point point) {
 		if (point.getX() > this.dimensionX) {
 			this.dimensionX = point.getX();
@@ -471,6 +451,11 @@ public class SBGNML2SBML_GSOC2017 {
 		}		
 	}
 	
+	/**
+	 * Set the dimensionX, dimensionY, dimensionZ from the <code>BoundingBox</code> values.
+	 * 
+	 * @param <code>BoundingBox</code> boundingBox
+	 */		
 	public void updateDimensions(BoundingBox boundingBox) {
 		Dimensions dimensions;
 		Point point;
@@ -507,6 +492,32 @@ public class SBGNML2SBML_GSOC2017 {
 		}
 	}
 	
+	public Boolean isEntityPoolNode(String clazz){
+		if (clazz.equals("unspecified entity")) {
+			return true;
+		} else if (clazz.equals("simple chemical")) {
+			return true;
+		} else if (clazz.equals("macromolecule")) {
+			return true;
+		} else if (clazz.equals("nucleic acid feature")) {
+			return true;
+		} else if (clazz.equals("complex multimer")) {
+			return true;
+		} else if (clazz.equals("complex")) {
+			return true;
+		} else if (clazz.equals("macromolecule multimer")) {
+			return true;
+		} else if (clazz.equals("nucleic acid feature multimer")) {
+			return true;
+		} else if (clazz.equals("source and sink")) {
+			return true;
+		} else if (clazz.equals("perturbing agent")) {
+			return true;
+		} else {
+			return false;
+		}		
+	}
+	
 	public Boolean isInwardArc(String clazz) {
 		if (clazz.equals("consumption")) {
 			return true;
@@ -534,6 +545,13 @@ public class SBGNML2SBML_GSOC2017 {
 		} 		
 	}
 	
+	/**
+	 * Find a <code>Species</code> that has a matching <code>id</code>.
+	 * 
+	 * @param <code>ListOf<ReactionGlyph></code> listOfSpecies
+	 * @param <code>String</code> id
+	 * @return the Species from the listOfSpecies
+	 */			
 	public Species findSpecies(ListOf<Species> listOfSpecies, String id) {
 		for (Species species : listOfSpecies) {
 			if (species.getId().equals(id)) {
@@ -543,6 +561,13 @@ public class SBGNML2SBML_GSOC2017 {
 		return null;
 	}
 	
+	/**
+	 * Find a <code>SpeciesGlyph</code> that has a matching <code>id</code>.
+	 * 
+	 * @param <code>ListOf<SpeciesGlyph></code> listOfSpeciesGlyph
+	 * @param <code>String</code> id
+	 * @return the SpeciesGlyph from the listOfSpeciesGlyph
+	 */			
 	public SpeciesGlyph findSpeciesGlyph(ListOf<SpeciesGlyph> listOfSpeciesGlyph, String id) {
 		for (SpeciesGlyph speciesGlyph : listOfSpeciesGlyph) {
 			if (speciesGlyph.getId().equals(id)) {
@@ -552,16 +577,30 @@ public class SBGNML2SBML_GSOC2017 {
 		return null;
 	}	
 	
+	/**
+	 * Find a <code>Reaction</code> that has a matching <code>id</code>.
+	 * 
+	 * @param <code>ListOf<Reaction></code> listOfReactions
+	 * @param <code>String</code> id
+	 * @return the Reaction from the listOfReactions
+	 */			
 	public Reaction findReaction(ListOf<Reaction> listOfReactions, String id) {
 		for (Reaction reaction : listOfReactions) {
 			if (reaction.getId().equals(id)) {
-				System.out.format("findReaction reaction=%s \n", reaction.getId());
+				//System.out.format("findReaction reaction=%s \n", reaction.getId());
 				return reaction;
 			}
 		}
 		return null;		
 	}
 	
+	/**
+	 * Find a <code>ReactionGlyph</code> that has a matching <code>id</code>.
+	 * 
+	 * @param <code>ListOf<ReactionGlyph></code> listOfReactionGlyph
+	 * @param <code>String</code> id
+	 * @return the ReactionGlyph from the listOfReactionGlyph
+	 */		
 	public ReactionGlyph findReactionGlyph(ListOf<ReactionGlyph> listOfReactionGlyph, String id) {
 		for (ReactionGlyph reactionGlyph : listOfReactionGlyph) {
 			if (reactionGlyph.getId().equals(id)) {
@@ -616,7 +655,7 @@ public class SBGNML2SBML_GSOC2017 {
 		} // ...
 		
 	}
-	
+
 	public static void debugSbgnObject(Map map){
 		
 		List<Arc> listOfArcs = map.getArc();
@@ -643,6 +682,7 @@ public class SBGNML2SBML_GSOC2017 {
 		Object source;
 		Object target;
 		
+		System.out.println("sbgnml2sbml.SBGNML2SBML_GSOC2017.debugSbgnObject: \n");
 		for (Arc arc: listOfArcs) {
 			id = arc.getId();
 			listOfContainingGlyphs = arc.getGlyph();
@@ -762,5 +802,97 @@ public class SBGNML2SBML_GSOC2017 {
 			
 		return "0";
 	}
-}
+	
+	public void printHelper(String source, String message){
+		if (debugMode == 1){
+			System.out.println("[" + source + "] " + message);
+		}
+	}	
+	
+	public static void main(String[] args) throws FileNotFoundException {
+		String sbgnFileNameInput;
+		String sbmlFileNameOutput;
+		String workingDirectory;
+		File inputFile;
+		File outputFile;
+		Sbgn sbgnObject = null;
+		Map map;
+		SBGNML2SBML_GSOC2017 converter;
+		SBMLDocument sbmlDocument;
+		SBMLWriter sbmlWriter;
+		
+		if (args.length < 1 || args.length > 3) {
+			System.out.println("usage: java org.sbfc.converter.sbgnml2sbml.SBGNML2SBML_GSOC2017 <SBGNML filename>. "
+					+ "filename example: /examples/sbgnml_examples/multimer.sbgn");
+			return;
+		}		
+		
+		workingDirectory = System.getProperty("user.dir");
+		sbgnFileNameInput = args[0];
+		sbgnFileNameInput = workingDirectory + sbgnFileNameInput;			
+		sbmlFileNameOutput = sbgnFileNameInput.replaceAll("\\.sbgn", "_SBML.xml");
+		
+		inputFile = new File(sbgnFileNameInput);
+		outputFile = new File(sbmlFileNameOutput);
+		try {
+			sbgnObject = SbgnUtil.readFromFile(inputFile);
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+		
+		map = sbgnObject.getMap();	
+		debugSbgnObject(map);
+		
+		converter = new SBGNML2SBML_GSOC2017(map);
+		converter.convertToSBML();
+		
+		sbmlDocument = new SBMLDocument(3, 1);
+		sbmlDocument.setModel(converter.model);
+		Dimensions dimensions = new Dimensions(converter.dimensionX, converter.dimensionY, converter.dimensionZ, 3, 1);
+		converter.layout.setDimensions(dimensions);
+		sbmlWriter = new SBMLWriter();
+		try {
+			sbmlWriter.writeSBML(sbmlDocument, outputFile);
+		} catch (SBMLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (XMLStreamException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
+	@Override
+	public GeneralModel convert(GeneralModel sbgn) throws ConversionException, ReadModelException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getHtmlDescription() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getResultExtension() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+		
+}

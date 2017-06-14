@@ -27,11 +27,11 @@
         <listOfReactions>
             <reaction id="veq">
                 <listOfReactants>
-                    <speciesReference species="E"/>
-                    <speciesReference species="S"/>
+                    <speciesReference id="SpeciesReference_1" species="E"/>
+                    <speciesReference id="SpeciesReference_2" species="S"/>
                 </listOfReactants>
                 <listOfProducts>
-                    <speciesReference species="ES"/>
+                    <speciesReference id="SpeciesReference_3" species="ES"/>
                 </listOfProducts>
                 <kineticLaw>
                     <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -62,11 +62,11 @@
             </reaction>
             <reaction id="vcat" reversible="false">
                 <listOfReactants>
-                    <speciesReference species="ES"/>
+                    <speciesReference id="SpeciesReference_4" species="ES"/>
                 </listOfReactants>
                 <listOfProducts>
-                    <speciesReference species="E"/>
-                    <speciesReference species="P"/>
+                    <speciesReference id="SpeciesReference_5" species="E"/>
+                    <speciesReference id="SpeciesReference_6" species="P"/>
                 </listOfProducts>
                 <kineticLaw>
                     <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -180,7 +180,7 @@
 						</layout:curve>
 						<layout:listOfSpeciesReferenceGlyphs>
 							<layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_1"
-							layout:speciesReference=""
+							layout:speciesReference="SpeciesReference_1"
 							layout:speciesGlyph="sGlyph_0"
 							layout:role="substrate">
 								<layout:curve>
@@ -194,8 +194,97 @@
 									</layout:listOfCurveSegments>
 								</layout:curve>
 							</layout:speciesReferenceGlyph>
-						</layout:listOfSpeciesReferenceGlyphs>
+							<layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_2"
+							layout:speciesReference="SpeciesReference_2"
+							layout:speciesGlyph="sGlyph_1"
+							layout:role="substrate">
+								<layout:curve>
+									<layout:listOfCurveSegments>
+										<layout:curveSegment
+										xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+										xsi:type="LineSegment">
+											<layout:start layout:x="80" layout:y="88"/>
+											<layout:end layout:x="118" layout:y="60"/>
+										</layout:curveSegment>
+									</layout:listOfCurveSegments>
+								</layout:curve>
+							</layout:speciesReferenceGlyph>
+							<layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_3"
+							layout:speciesReference="SpeciesReference_3"
+							layout:speciesGlyph="sGlyph_2"
+							layout:role="product">
+								<layout:curve>
+									<layout:listOfCurveSegments>
+										<layout:curveSegment
+										xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+										xsi:type="LineSegment">
+											<layout:start layout:x="128" layout:y="60"/>
+											<layout:end layout:x="161" layout:y="38"/>
+										</layout:curveSegment>
+									</layout:listOfCurveSegments>
+								</layout:curve>
+							</layout:speciesReferenceGlyph>
+						</layout:listOfSpeciesReferenceGlyphs>						
 					</layout:reactionGlyph>
+					<layout:reactionGlyph layout:id="Reaction2" layout:reaction="vcat">
+						<layout:curve>
+							<layout:listOfCurveSegments>
+								<layout:curveSegment
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+								xsi:type="LineSegment">
+									<layout:start layout:x="240" layout:y="60"/>
+									<layout:end layout:x="250" layout:y="60"/>
+								</layout:curveSegment>
+							</layout:listOfCurveSegments>
+						</layout:curve>
+						<layout:listOfSpeciesReferenceGlyphs>
+							<layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_4"
+							layout:speciesReference="SpeciesReference_4"
+							layout:speciesGlyph="sGlyph_3"
+							layout:role="substrate">
+								<layout:curve>
+									<layout:listOfCurveSegments>
+										<layout:curveSegment
+										xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+										xsi:type="LineSegment">
+											<layout:start layout:x="223" layout:y="38"/>
+											<layout:end layout:x="240" layout:y="60"/>
+										</layout:curveSegment>
+									</layout:listOfCurveSegments>
+								</layout:curve>
+							</layout:speciesReferenceGlyph>
+							<layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_5"
+							layout:speciesReference="SpeciesReference_5"
+							layout:speciesGlyph="sGlyph_4"
+							layout:role="product">
+								<layout:curve>
+									<layout:listOfCurveSegments>
+										<layout:curveSegment
+										xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+										xsi:type="LineSegment">
+											<layout:start layout:x="250" layout:y="60"/>
+											<layout:end layout:x="300" layout:y="38"/>
+										</layout:curveSegment>
+									</layout:listOfCurveSegments>
+								</layout:curve>
+							</layout:speciesReferenceGlyph>
+							<layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_6"
+							layout:speciesReference="SpeciesReference_6"
+							layout:speciesGlyph="sGlyph_5"
+							layout:role="product">
+								<layout:curve>
+									<layout:listOfCurveSegments>
+										<layout:curveSegment
+										xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+										xsi:type="LineSegment">
+											<layout:start layout:x="250" layout:y="60"/>
+											<layout:end layout:x="300" layout:y="88"/>
+										</layout:curveSegment>
+									</layout:listOfCurveSegments>
+								</layout:curve>
+							</layout:speciesReferenceGlyph>
+						</layout:listOfSpeciesReferenceGlyphs>						
+					</layout:reactionGlyph>					
 				</layout:listOfReactionGlyphs>					
 			</layout:layout>
 		</layout:listOfLayouts>		

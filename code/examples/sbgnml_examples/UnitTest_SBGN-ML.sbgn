@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map language="process description">
+		<glyph class="compartment" id="compartment_glyph">
+			<label text="cytoplasm"/>
+			<bbox x="5" y="5" w="560" h="300"/>
+		</glyph>	
+        <glyph id="glyph9" class="macromolecule">
+            <label text="hexokinase"/>
+            <bbox y="40.0" x="170.0" h="60.0" w="120.0"/>
+        </glyph>
+        <glyph id="glyph0" class="simple chemical">
+            <label text="glucose"/>
+            <bbox y="140.0" x="90.0" h="60.0" w="60.0"/>
+        </glyph>
+        <glyph id="glyph6" class="simple chemical">
+            <label text="ATP"/>
+            <clone/>
+            <bbox y="230.0" x="140.0" h="60.0" w="60.0"/>
+        </glyph>
+        <glyph id="glyph8" class="process">
+            <bbox y="160.0" x="220.0" h="20.0" w="20.0"/>
+            <port id="glyph8.1" y="170.0" x="210.0"/>
+            <port id="glyph8.2" y="170.0" x="250.0"/>
+        </glyph>
+        <glyph id="glyph7" class="simple chemical">
+            <label text="ADP"/>
+            <clone/>
+            <bbox y="230.0" x="270.0" h="60.0" w="60.0"/>
+        </glyph>
+        <glyph id="glyph1" class="simple chemical">
+            <label text="glucose&#xA;6P"/>
+            <bbox y="140.0" x="320.0" h="60.0" w="60.0"/>
+        </glyph>
+         <arc target="glyph8" source="glyph9" class="catalysis">
+            <start y="100.0" x="230.0"/>
+            <end y="160.0" x="230.0"/>
+        </arc>
+        <arc target="glyph8.1" source="glyph0" class="consumption">
+            <start y="170.0" x="150.0"/>
+            <end y="170.0" x="210.0"/>
+        </arc>
+        <arc target="glyph1" source="glyph8.2" class="production">
+            <start y="170.0" x="250.0"/>
+            <end y="170.0" x="320.0"/>
+        </arc>
+        <arc target="glyph8.1" source="glyph6" class="consumption">
+            <start y="232.58565" x="182.18416"/>
+            <end y="170.0" x="210.0"/>
+        </arc>
+        <arc target="glyph7" source="glyph8.2" class="production">
+            <start y="170.0" x="250.0"/>
+            <end y="236.31943" x="281.5818"/>
+        </arc>
+    </map>
+</sbgn>
