@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" level="3" render:required="false" version="1" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
+  <model>
+    <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <layout:layout>
+        <render:listOfRenderInformation xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
+          <render:renderInformation render:id="LocalRenderInformation_01">
+            <render:listOfColorDefinitions>
+              <render:colorDefinition render:id="white" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="black" render:value="#000000FF"/>
+            </render:listOfColorDefinitions>
+            <render:listOfStyles>
+              <render:style id="LocalStyle_01" render:roleList="LocalStyle_01">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:rectangle render:height="100%" render:rx="10" render:ry="10" render:width="90%" render:x="0" render:y="0"/>
+                  <render:ellipse render:cx="90%" render:cy="50%" render:fill="white" render:rx="10"/>
+                  <render:text name="Protein" render:font-family="monospace" render:text-anchor="middle" render:vtext-anchor="middle" render:x="-10" render:y="-9.6"/>
+                  <render:text name="P" render:font-family="monospace" render:text-anchor="end" render:vtext-anchor="middle" render:x="-5%" render:y="-9.6"/>
+                </render:g>
+              </render:style>
+            </render:listOfStyles>
+          </render:renderInformation>
+        </render:listOfRenderInformation>
+        <layout:dimensions layout:depth="0" layout:height="400" layout:width="450"/>
+        <layout:listOfSpeciesGlyphs>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_01" layout:species="Species_01" render:objectRole="LocalStyle_01">
+            <layout:boundingBox>
+              <layout:position layout:x="330" layout:y="230" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="40" layout:width="93"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+        </layout:listOfSpeciesGlyphs>
+      </layout:layout>
+    </layout:listOfLayouts>
+    <listOfCompartments>
+      <compartment id="Compartment_01"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species compartment="Compartment_01" id="Species_01" name="Protein"/>
+    </listOfSpecies>
+  </model>
+</sbml>

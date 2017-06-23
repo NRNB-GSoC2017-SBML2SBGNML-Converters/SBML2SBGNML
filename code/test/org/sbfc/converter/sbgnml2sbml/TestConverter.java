@@ -68,6 +68,12 @@ public class TestConverter {
 		testFiles.add(examplesDirectory + "compartments.sbgn");
 		testFiles.add(examplesDirectory + "glycolysis.sbgn");
 		testFiles.add(examplesDirectory + "multimer.sbgn");
+		testFiles.add(examplesDirectory + "compartmentOrder1.sbgn");
+		testFiles.add(examplesDirectory + "compartmentOrder2.sbgn");
+		testFiles.add(examplesDirectory + "multimer2.sbgn");
+		testFiles.add(examplesDirectory + "protein_degradation.sbgn");
+		testFiles.add(examplesDirectory + "reversible-verticalpn.sbgn");	
+		//testFiles.add(examplesDirectory + "or-simple.sbgn");
 		
 		inputFile = new File(sbgnFileNameInput);
 		

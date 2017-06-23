@@ -136,7 +136,6 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	 * Each <code>Glyph</code> or <code>Arc</code> of the <code>Map</code> is mapped to elements of the <code>Model</code>.
 	 */	
 	public void convertToSBML() {
-
 		createCompartments();
 		createSpecies();
 		createReactions();
@@ -187,7 +186,6 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			listOfSpeciesGlyphs.add(speciesGlyph);
 			
 			// todo: not just complex
-			//debugMode = 1;
 			printHelper("clazz==",clazz);
 			if (clazz.equals("complex")) {
 				nestedGlyphs = glyph.getGlyph();
@@ -422,6 +420,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		CompartmentGlyph compartmentGlyph;
 		Bbox bbox;
 		BoundingBox boundingBox;
+		float z;
 
 		for (String key: compartments.keySet()) {
 			glyph = compartments.get(key);
@@ -432,13 +431,25 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			compartment = new Compartment(compartmentId, name, 3, 1);
 			listOfCompartments.add(compartment);
 			
+			try {
+				z = glyph.getCompartmentOrder();
+				debugMode = 1;
+				printHelper("depth==", Float.toString(z));
+				debugMode = 0;
+				if (isNull(z).equals("NULL")) {
+					z = 0;
+				}				
+			} catch (NullPointerException e) {
+				z = 0;
+			}
+						
 			compartmentGlyph = new CompartmentGlyph();
 			compartmentGlyph.setId(compartmentId+"_Glyph");
 			compartmentGlyph.setCompartment(compartment);
 			bbox = glyph.getBbox();
 			boundingBox = new BoundingBox();
 			// todo: horizontal?
-			boundingBox.createDimensions(bbox.getW(), bbox.getH(), 0);
+			boundingBox.createDimensions(bbox.getW(), bbox.getH(), z);
 			boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);
 			compartmentGlyph.setBoundingBox(boundingBox);
 			listOfCompartmentGlyphs.add(compartmentGlyph);			
@@ -709,10 +720,37 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	public void addSBO(Species species, String clazz) {
 		int sboTerm = -1;
 		
-		if (clazz.equals("complex")) {
+		if (clazz.equals("simple chemical")) {
+			sboTerm = 247;
+			species.setSBOTerm(sboTerm);
+		} else if (clazz.equals("macromolecule")) {
+			sboTerm = 245;
+			species.setSBOTerm(sboTerm);
+		} else if (clazz.equals("nucleic acid feature")) {
+			sboTerm = 354;
+			species.setSBOTerm(sboTerm);
+		} else if (clazz.equals("complex multimer")) {
+			sboTerm = 420;
+			species.setSBOTerm(sboTerm);
+		} else if (clazz.equals("complex")) {
 			sboTerm = 253;
 			species.setSBOTerm(sboTerm);
-		} // ...
+		} else if (clazz.equals("macromolecule multimer")) {
+			sboTerm = 420;
+			species.setSBOTerm(sboTerm);
+		} else if (clazz.equals("nucleic acid feature multimer")) {
+			sboTerm = 420;
+			species.setSBOTerm(sboTerm);
+		} else if (clazz.equals("source and sink")) {
+			sboTerm = 291;
+			species.setSBOTerm(sboTerm);
+		} else if (clazz.equals("perturbing agent")) {
+			sboTerm = 405;
+			species.setSBOTerm(sboTerm);
+		} else if (clazz.equals("unspecified entity")) {
+			sboTerm = 285;
+			species.setSBOTerm(sboTerm);			
+		}// ...
 		
 	}
 

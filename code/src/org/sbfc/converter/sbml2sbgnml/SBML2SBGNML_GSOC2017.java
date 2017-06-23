@@ -817,6 +817,8 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		
 	}
 	
+	private static void addAnnotationInExtension() {}
+	
 	@Override
 	public GeneralModel convert(GeneralModel model) throws ConversionException, ReadModelException {
 

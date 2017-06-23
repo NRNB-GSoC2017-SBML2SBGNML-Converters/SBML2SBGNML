@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core"
+xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1"
+xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1"
+level="3" version="1" layout:required="false" render:required="false">
+<model id="ProteinPhosphorylation" substanceUnits="substance"
+timeUnits="second" volumeUnits="volume" areaUnits="area"
+lengthUnits="metre" extentUnits="substance">
+<listOfUnitDefinitions>
+<unitDefinition id="volume">
+<listOfUnits>
+<unit kind="litre" exponent="1" scale="0" multiplier="1"/>
+</listOfUnits>
+</unitDefinition>
+<unitDefinition id="substance">
+<listOfUnits>
+<unit kind="mole" exponent="1" scale="0" multiplier="1"/>
+</listOfUnits>
+</unitDefinition>
+<unitDefinition id="area">
+<listOfUnits>
+<unit kind="metre" exponent="2" scale="0" multiplier="1"/>
+</listOfUnits>
+</unitDefinition>
+</listOfUnitDefinitions>
+<listOfCompartments>
+<compartment id="Cell" spatialDimensions="3" units="volume" constant="true"/>
+</listOfCompartments>
+<listOfSpecies>
+<species id="Protein" name="Protein" compartment="Cell"
+substanceUnits="substance" hasOnlySubstanceUnits="false"
+boundaryCondition="false" constant="false"/>
+<species id="ProteinP" name="Protein" compartment="Cell"
+substanceUnits="substance" hasOnlySubstanceUnits="false"
+boundaryCondition="false" constant="false"/>
+<species id="ATP" name="ATP" compartment="Cell"
+substanceUnits="substance" hasOnlySubstanceUnits="false"
+boundaryCondition="false" constant="false"/>
+<species id="ADP" name="ADP" compartment="Cell"
+substanceUnits="substance" hasOnlySubstanceUnits="false"
+boundaryCondition="false" constant="false"/>
+<species id="P" name="P" compartment="Cell"
+substanceUnits="substance" hasOnlySubstanceUnits="false"
+boundaryCondition="false" constant="false"/>
+<species id="ProteinKinase" name="Protein Kinase" compartment="Cell"
+substanceUnits="substance" hasOnlySubstanceUnits="false"
+boundaryCondition="false" constant="false"/>
+</listOfSpecies>
+<listOfReactions>
+<reaction id="Phosphorylation" reversible="false" fast="false">
+<listOfReactants>
+<speciesReference id="SpeciesReference_Protein"
+species="Protein" stoichiometry="1" constant="true"/>
+<speciesReference id="SpeciesReference_ATP"
+species="ATP" stoichiometry="1" constant="true"/>
+</listOfReactants>
+<listOfProducts>
+<speciesReference id="SpeciesReference_ProteinP"
+species="ProteinP" stoichiometry="1" constant="true"/>
+<speciesReference id="SpeciesReference_ADP"
+species="ADP" stoichiometry="1" constant="true"/>
+</listOfProducts>
+<listOfModifiers>
+<modifierSpeciesReference id="ModifierSpeciesReference_ProteinKinase"
+species="ProteinKinase"/>
+</listOfModifiers>
+</reaction>
+<reaction id="Dephosphorylation" reversible="false" fast="false">
+<listOfReactants>
+<speciesReference id="SpeciesReference_ProteinP_rev"
+species="ProteinP" stoichiometry="1" constant="true"/>
+</listOfReactants>
+<listOfProducts>
+<speciesReference id="SpeciesReference_Protein_rev"
+species="Protein" stoichiometry="1" constant="true"/>
+<speciesReference id="SpeciesReference_P"
+species="P" stoichiometry="1" constant="true"/>
+</listOfProducts>
+</reaction>
+</listOfReactions>
+<layout:listOfLayouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1">
+<layout:layout layout:id="Layout_1">
+<layout:dimensions layout:width="450" layout:height="400"/>
+<layout:listOfSpeciesGlyphs>
+<layout:speciesGlyph layout:id="SpeciesGlyph_Protein" layout:species="Protein">
+<layout:boundingBox layout:id="bb1">
+<layout:position layout:x="30" layout:y="230"/>
+<layout:dimensions layout:width="80" layout:height="40"/>
+</layout:boundingBox>
+</layout:speciesGlyph>
+<layout:speciesGlyph layout:id="SpeciesGlyph_ProteinP"
+render:objectRole="phosphorylated" layout:species="ProteinP">
+<layout:boundingBox layout:id="bb2">
+<layout:position layout:x="330" layout:y="230"/>
+<layout:dimensions layout:width="93" layout:height="40"/>
+</layout:boundingBox>
+</layout:speciesGlyph>
+<layout:speciesGlyph layout:id="SpeciesGlyph_ATP" layout:species="ATP">
+<layout:boundingBox layout:id="bb3">
+<layout:position layout:x="110" layout:y="100"/>
+<layout:dimensions layout:width="50" layout:height="30"/>
+</layout:boundingBox>
+</layout:speciesGlyph>
+<layout:speciesGlyph layout:id="SpeciesGlyph_ADP" layout:species="ADP">
+<layout:boundingBox layout:id="bb4">
+<layout:position layout:x="280" layout:y="100"/>
+<layout:dimensions layout:width="50" layout:height="30"/>
+</layout:boundingBox>
+</layout:speciesGlyph>
+<layout:speciesGlyph layout:id="SpeciesGlyph_P" layout:species="P">
+<layout:boundingBox layout:id="bb5">
+<layout:position layout:x="170" layout:y="320"/>
+<layout:dimensions layout:width="30" layout:height="30"/>
+</layout:boundingBox>
+</layout:speciesGlyph>
+<layout:speciesGlyph layout:id="SpeciesGlyph_ProteinKinase"
+layout:species="ProteinKinase">
+<layout:boundingBox layout:id="bb6">
+<layout:position layout:x="180" layout:y="30"/>
+<layout:dimensions layout:width="80" layout:height="50"/>
+</layout:boundingBox>
+</layout:speciesGlyph>
+</layout:listOfSpeciesGlyphs>
+<layout:listOfReactionGlyphs>
+<layout:reactionGlyph layout:id="ReactionGlyph_Phosphorylation"
+layout:reaction="Phosphorylation">
+<layout:curve>
+<layout:listOfCurveSegments>
+<layout:curveSegment
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CubicBezier">
+<layout:start layout:x="115" layout:y="225"/>
+<layout:end layout:x="205" layout:y="200"/>
+<layout:basePoint1 layout:x="170" layout:y="200"/>
+<layout:basePoint2 layout:x="170" layout:y="200"/>
+</layout:curveSegment>
+</layout:listOfCurveSegments>
+</layout:curve>
+<layout:listOfSpeciesReferenceGlyphs>
+<layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Protein"
+render:objectRole="substrate" layout:speciesReference="SpeciesReference_Protein"
+layout:speciesGlyph="SpeciesGlyph_Protein" layout:role="substrate">
+<layout:curve>
+<layout:listOfCurveSegments>
+<layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="CubicBezier">
+<layout:start layout:x="115" layout:y="225"/>
+<layout:end layout:x="205" layout:y="200"/>
+<layout:basePoint1 layout:x="170" layout:y="200"/>
+<layout:basePoint2 layout:x="170" layout:y="200"/>
+</layout:curveSegment>
+</layout:listOfCurveSegments>
+</layout:curve>
+</layout:speciesReferenceGlyph>
+<layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_ATP"
+render:objectRole="sidesubstrate" layout:speciesReference="SpeciesReference_ATP"
+layout:speciesGlyph="SpeciesGlyph_ATP" layout:role="sidesubstrate">
+<layout:curve>
+<layout:listOfCurveSegments>
+<layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="CubicBezier">
+<layout:start layout:x="160" layout:y="135"/>
+<layout:end layout:x="205" layout:y="200"/>
+<layout:basePoint1 layout:x="180" layout:y="200"/>
+<layout:basePoint2 layout:x="180" layout:y="200"/>
+</layout:curveSegment>
+</layout:listOfCurveSegments>
+</layout:curve>
+</layout:speciesReferenceGlyph>
+<layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_ProteinP"
+render:objectRole="product" layout:speciesReference="SpeciesReference_ProteinP"
+layout:speciesGlyph="SpeciesGlyph_ProteinP" layout:role="product">
+<layout:curve>
+<layout:listOfCurveSegments>
+<layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="CubicBezier">
+<layout:start layout:x="235" layout:y="200"/>
+<layout:end layout:x="320" layout:y="230"/>
+<layout:basePoint1 layout:x="270" layout:y="200"/>
+<layout:basePoint2 layout:x="270" layout:y="200"/>
+</layout:curveSegment>
+</layout:listOfCurveSegments>
+</layout:curve>
+</layout:speciesReferenceGlyph>
+<layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_ADP"
+render:objectRole="sideproduct" layout:speciesReference="SpeciesReference_ADP"
+layout:speciesGlyph="SpeciesGlyph_ADP" layout:role="sideproduct">
+<layout:curve>
+<layout:listOfCurveSegments>
+<layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="CubicBezier">
+<layout:start layout:x="235" layout:y="200"/>
+<layout:end layout:x="275" layout:y="140"/>
+<layout:basePoint1 layout:x="260" layout:y="200"/>
+<layout:basePoint2 layout:x="260" layout:y="200"/>
+</layout:curveSegment>
+</layout:listOfCurveSegments>
+</layout:curve>
+</layout:speciesReferenceGlyph>
+<layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_ProteinKinase"
+render:objectRole="catalyst"
+layout:speciesReference="ModifierSpeciesReference_ProteinKinase"
+layout:speciesGlyph="SpeciesGlyph_ProteinKinase" layout:role="activator">
+<layout:curve>
+<layout:listOfCurveSegments>
+<layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="LineSegment">
+<layout:start layout:x="220" layout:y="85"/>
+<layout:end layout:x="220" layout:y="180"/>
+</layout:curveSegment>
+</layout:listOfCurveSegments>
+</layout:curve>
+</layout:speciesReferenceGlyph>
+</layout:listOfSpeciesReferenceGlyphs>
+</layout:reactionGlyph>
+<layout:reactionGlyph layout:id="ReactionGlyph_Dephosphorylation"
+layout:reaction="Dephosphorylation">
+<layout:curve>
+<layout:listOfCurveSegments>
+<layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="CubicBezier">
+<layout:start layout:x="325" layout:y="265"/>
+<layout:end layout:x="235" layout:y="290"/>
+<layout:basePoint1 layout:x="270" layout:y="290"/>
+<layout:basePoint2 layout:x="270" layout:y="290"/>
+</layout:curveSegment>
+</layout:listOfCurveSegments>
+</layout:curve>
+<layout:listOfSpeciesReferenceGlyphs>
+<layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_ProteinP_rev"
+render:objectRole="substrate" layout:speciesReference="SpeciesReference_ProteinP_rev"
+layout:speciesGlyph="SpeciesGlyph_ProteinP" layout:role="substrate">
+<layout:curve>
+<layout:listOfCurveSegments>
+<layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="CubicBezier">
+<layout:start layout:x="325" layout:y="265"/>
+<layout:end layout:x="235" layout:y="290"/>
+<layout:basePoint1 layout:x="270" layout:y="290"/>
+<layout:basePoint2 layout:x="270" layout:y="290"/>
+</layout:curveSegment>
+</layout:listOfCurveSegments>
+</layout:curve>
+</layout:speciesReferenceGlyph>
+<layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Protein_rev"
+render:objectRole="product" layout:speciesReference="SpeciesReference_Protein_rev"
+layout:speciesGlyph="SpeciesGlyph_Protein" layout:role="product">
+<layout:curve>
+<layout:listOfCurveSegments>
+<layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="CubicBezier">
+<layout:start layout:x="205" layout:y="290"/>
+<layout:end layout:x="115" layout:y="265"/>
+<layout:basePoint1 layout:x="170" layout:y="290"/>
+<layout:basePoint2 layout:x="170" layout:y="290"/>
+</layout:curveSegment>
+</layout:listOfCurveSegments>
+</layout:curve>
+</layout:speciesReferenceGlyph>
+<layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_P"
+render:objectRole="sideproduct" layout:speciesReference="SpeciesReference_P"
+layout:speciesGlyph="SpeciesGlyph_P" layout:role="sideproduct">
+<layout:curve>
+<layout:listOfCurveSegments>
+<layout:curveSegment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="CubicBezier">
+<layout:start layout:x="205" layout:y="290"/>
+<layout:end layout:x="185" layout:y="310"/>
+<layout:basePoint1 layout:x="190" layout:y="300"/>
+<layout:basePoint2 layout:x="190" layout:y="300"/>
+</layout:curveSegment>
+</layout:listOfCurveSegments>
+</layout:curve>
+</layout:speciesReferenceGlyph>
+</layout:listOfSpeciesReferenceGlyphs>
+</layout:reactionGlyph>
+</layout:listOfReactionGlyphs>
+<layout:listOfTextGlyphs>
+<layout:textGlyph layout:id="TextGlyph_Protein" layout:originOfText="Protein"
+layout:graphicalObject="SpeciesGlyph_Protein">
+<layout:boundingBox layout:id="bb9">
+<layout:position layout:x="30" layout:y="220"/>
+<layout:dimensions layout:width="80" layout:height="40"/>
+</layout:boundingBox>
+</layout:textGlyph>
+<layout:textGlyph layout:id="TextGlyph_ProteinP" layout:originOfText="ProteinP"
+layout:graphicalObject="SpeciesGlyph_ProteinP">
+<layout:boundingBox layout:id="bb10">
+<layout:position layout:x="330" layout:y="220"/>
+<layout:dimensions layout:width="80" layout:height="40"/>
+</layout:boundingBox>
+</layout:textGlyph>
+<layout:textGlyph layout:id="TextGlyph_ATP" layout:originOfText="ATP"
+layout:graphicalObject="SpeciesGlyph_ATP">
+<layout:boundingBox layout:id="bb11">
+<layout:position layout:x="110" layout:y="95"/>
+<layout:dimensions layout:width="50" layout:height="30"/>
+</layout:boundingBox>
+</layout:textGlyph>
+<layout:textGlyph layout:id="TextGlyph_ADP" layout:originOfText="ADP"
+layout:graphicalObject="SpeciesGlyph_ADP">
+<layout:boundingBox layout:id="bb12">
+<layout:position layout:x="280" layout:y="95"/>
+<layout:dimensions layout:width="50" layout:height="30"/>
+</layout:boundingBox>
+</layout:textGlyph>
+<layout:textGlyph layout:id="TextGlyph_P" layout:originOfText="P"
+layout:graphicalObject="SpeciesGlyph_P">
+<layout:boundingBox layout:id="bb13">
+<layout:position layout:x="170" layout:y="315"/>
+<layout:dimensions layout:width="30" layout:height="30"/>
+</layout:boundingBox>
+</layout:textGlyph>
+<layout:textGlyph layout:id="TextGlyph_ProteinKinase1" layout:text="Protein-"
+layout:graphicalObject="SpeciesGlyph_ProteinKinase">
+<layout:boundingBox layout:id="bb14">
+<layout:position layout:x="180" layout:y="35"/>
+<layout:dimensions layout:width="80" layout:height="20"/>
+</layout:boundingBox>
+</layout:textGlyph>
+<layout:textGlyph layout:id="TextGlyph_Proteinkinase2" layout:text="kinase"
+layout:graphicalObject="SpeciesGlyph_ProteinKinase">
+<layout:boundingBox layout:id="bb15">
+<layout:position layout:x="180" layout:y="55"/>
+<layout:dimensions layout:width="80" layout:height="20"/>
+</layout:boundingBox>
+</layout:textGlyph>
+</layout:listOfTextGlyphs>
+<render:listOfRenderInformation
+xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1"
+render:versionMajor="1" render:versionMinor="0">
+<render:renderInformation render:id="SBGN"
+render:programName="Ralph Gauges" render:programVersion="1.0"
+render:backgroundColor="#FFFFFFFF">
+<render:listOfColorDefinitions>
+<render:colorDefinition render:id="black" render:value="#000000"/>
+<render:colorDefinition render:id="white" render:value="#ffffff"/>
+</render:listOfColorDefinitions>
+<render:listOfLineEndings>
+<render:lineEnding
+xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1"
+render:id="productionHead">
+<layout:boundingBox>
+<layout:position layout:x="-10" layout:y="-6"/>
+<layout:dimensions layout:width="14" layout:height="10"/>
+</layout:boundingBox>
+<render:g render:stroke="black" render:stroke-width="1" render:fill="black">
+<render:polygon>
+<render:listOfElements>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="0" render:y="0"/>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="14" render:y="5"/>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="14" render:y="5"/>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="0" render:y="10"/>
+</render:listOfElements>
+</render:polygon>
+</render:g>
+</render:lineEnding>
+<render:lineEnding
+xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1"
+render:id="catalysisHead">
+<layout:boundingBox>
+<layout:position layout:x="0" layout:y="-7"/>
+<layout:dimensions layout:width="14" layout:height="14"/>
+</layout:boundingBox>
+<render:g render:stroke="black" render:stroke-width="2">
+<render:ellipse render:cx="50%" render:cy="50%" render:rx="50%"/>
+</render:g>
+</render:lineEnding>
+</render:listOfLineEndings>
+<render:listOfStyles>
+<render:style render:id="proteinKinaseStyle"
+render:idList="SpeciesGlyph_ProteinKinase">
+<render:g render:stroke="black" render:stroke-width="3"
+render:fill-rule="nonzero" render:font-size="12" render:font-family="monospace"
+render:font-style="normal" render:font-weight="normal"
+render:text-anchor="middle" render:vtext-anchor="top">
+<render:rectangle render:x="0" render:y="0" render:width="100%"
+render:height="100%" render:rx="10" render:ry="10"/>
+<text render:x="0" render:y="-4.6" render:text-anchor="middle"
+render:vtext-anchor="top">Protein-</text>
+<text render:x="0" render:y="15.4" render:text-anchor="middle"
+render:vtext-anchor="top">kinase</text>
+</render:g>
+</render:style>
+<render:style render:id="proteinStyle" render:idList="SpeciesGlyph_Protein">
+<render:g render:stroke="black" render:stroke-width="3"
+render:fill-rule="nonzero" render:font-size="12" render:font-family="sans-serif"
+render:font-style="normal" render:font-weight="normal" render:text-anchor="middle"
+render:vtext-anchor="middle">
+<render:rectangle render:x="0" render:y="0"
+render:width="100%" render:height="100%" render:rx="10" render:ry="10"/>
+<text render:x="0" render:y="-9.6" render:font-family="monospace"
+render:text-anchor="middle" render:vtext-anchor="middle">Protein</text>
+</render:g>
+</render:style>
+<render:style render:id="proteinPStyle" render:idList="SpeciesGlyph_ProteinP">
+<render:g render:stroke="black" render:stroke-width="3"
+render:fill-rule="nonzero" render:font-size="12" render:font-family="sans-serif"
+render:font-style="normal" render:font-weight="normal" render:text-anchor="middle"
+render:vtext-anchor="middle">
+<render:rectangle render:x="0" render:y="0"
+render:width="90%" render:height="100%" render:rx="10" render:ry="10"/>
+<render:ellipse render:fill="white" render:cx="90%" render:cy="50%" render:rx="10"/>
+<text render:x="-10" render:y="-9.6" render:font-family="monospace"
+render:text-anchor="middle" render:vtext-anchor="middle">Protein</text>
+<text render:x="-5%" render:y="-9.6" render:font-family="monospace"
+render:text-anchor="end" render:vtext-anchor="middle">P</text>
+</render:g>
+</render:style>
+<render:style render:id="ATPStyle" render:idList="SpeciesGlyph_ATP">
+<render:g render:stroke="black" render:stroke-width="3"
+render:fill-rule="nonzero" render:font-size="12" render:font-family="sans-serif"
+render:font-style="normal" render:font-weight="normal" render:text-anchor="middle"
+render:vtext-anchor="middle">
+<render:ellipse render:cx="20+50%" render:cy="50%" render:rx="17"/>
+<text render:x="20" render:y="-5.6" render:font-family="monospace"
+render:text-anchor="middle" render:vtext-anchor="middle">ATP</text>
+</render:g>
+</render:style>
+<render:style render:id="ADPStyle" render:idList="SpeciesGlyph_ADP">
+<render:g render:stroke="black" render:stroke-width="3"
+render:fill-rule="nonzero" render:font-size="12" render:font-family="sans-serif"
+render:font-style="normal" render:font-weight="normal" render:text-anchor="middle"
+render:vtext-anchor="middle">
+<render:ellipse render:cx="-20+50%" render:cy="50%" render:rx="17"/>
+<text render:x="-20" render:y="-5.6" render:font-family="monospace"
+render:text-anchor="middle" render:vtext-anchor="middle">ADP</text>
+</render:g>
+</render:style>
+<render:style render:id="PStyle" render:idList="SpeciesGlyph_P">
+<render:g render:stroke="black" render:stroke-width="3"
+render:fill-rule="nonzero" render:font-size="12" render:font-family="sans-serif"
+render:font-style="normal" render:font-weight="normal" render:text-anchor="middle"
+render:vtext-anchor="middle">
+<render:ellipse render:cx="50%" render:cy="50%" render:rx="15"/>
+<text render:x="0" render:y="-5.6" render:font-family="monospace"
+render:text-anchor="middle" render:vtext-anchor="middle">P</text>
+</render:g>
+</render:style>
+<render:style render:id="reactionGlyphStyle" render:typeList="REACTIONGLYPH">
+<render:g render:stroke="black" render:stroke-width="2"
+render:fill-rule="nonzero" render:font-size="0" render:font-family="sans-serif"
+render:font-style="normal" render:font-weight="normal">
+<render:curve>
+<render:listOfElements>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="0" render:y="5"/>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="10" render:y="5"/>
+</render:listOfElements>
+</render:curve>
+<render:curve>
+<render:listOfElements>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="20" render:y="5"/>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="30" render:y="5"/>
+</render:listOfElements>
+</render:curve>
+<render:rectangle render:x="10" render:y="0" render:width="10" render:height="10"/>
+</render:g>
+</render:style>
+<render:style render:id="textGlyphStyle" render:typeList="TEXTGLYPH">
+<render:g render:stroke-width="0" render:fill-rule="nonzero"
+render:font-size="0" render:font-family="sans-serif" render:font-style="normal"
+render:font-weight="normal"/>
+</render:style>
+<render:style render:id="substrateSpeciesReferenceGlyphStyle"
+render:roleList="sidesubstrate substrate">
+<render:g render:stroke="#000000" render:stroke-width="2"
+render:fill-rule="nonzero" render:font-size="0" render:font-family="sans-serif"
+render:font-style="normal" render:font-weight="normal"/>
+</render:style>
+<render:style render:id="productSpeciesReferenceGlyphStyle"
+render:roleList="product sideproduct">
+<render:g render:stroke="#000000" render:stroke-width="2"
+render:fill-rule="nonzero" render:font-size="0" render:font-family="sans-serif"
+render:font-style="normal" render:font-weight="normal"
+render:endHead="productionHead"/>
+</render:style>
+<render:style render:id="activatorSpeciesReferenceGlyphStyle"
+render:roleList="activator catalyst">
+<render:g render:stroke="black" render:stroke-width="2"
+render:fill-rule="nonzero" render:font-size="0" render:font-family="sans-serif"
+render:font-style="normal" render:font-weight="normal"
+render:endHead="catalysisHead"/>
+</render:style>
+</render:listOfStyles>
+</render:renderInformation>
+</render:listOfRenderInformation>
+</layout:layout>
+<render:listOfGlobalRenderInformation
+xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1"
+render:versionMajor="1" render:versionMinor="0">
+<render:renderInformation render:id="wireFrame" render:programName="Ralph Gauges"
+render:programVersion="1.0" render:backgroundColor="#FFFFFFFF">
+<render:listOfColorDefinitions>
+<render:colorDefinition render:id="white" render:value="#ffffff"/>
+<render:colorDefinition render:id="black" render:value="#000000"/>
+</render:listOfColorDefinitions>
+<render:listOfLineEndings>
+<render:lineEnding
+xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1"
+render:id="simpleHead_black">
+<layout:boundingBox>
+<layout:position layout:x="-8" layout:y="-3"/>
+<layout:dimensions layout:width="10" layout:height="6"/>
+</layout:boundingBox>
+<render:g render:stroke="black" render:stroke-width="1" render:fill="black">
+<render:polygon>
+<render:listOfElements>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="0" render:y="0"/>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="10" render:y="3"/>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="10" render:y="3"/>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="0" render:y="6"/>
+</render:listOfElements>
+</render:polygon>
+</render:g>
+</render:lineEnding>
+<render:lineEnding
+xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1"
+render:id="catalysisHead_black">
+<layout:boundingBox>
+<layout:position layout:x="0" layout:y="-5"/>
+<layout:dimensions layout:width="10" layout:height="10"/>
+</layout:boundingBox>
+<render:g render:stroke="black" render:stroke-width="1">
+<render:ellipse render:cx="50%" render:cy="50%" render:rx="50%"/>
+</render:g>
+</render:lineEnding>
+</render:listOfLineEndings>
+<render:listOfStyles>
+<render:style render:id="speciesGlyphStyle" render:typeList="SPECIESGLYPH">
+<render:g render:stroke="black" render:stroke-width="1"
+render:fill-rule="nonzero" render:font-size="0" render:font-family="sans-serif"
+render:font-style="normal" render:font-weight="normal">
+<render:rectangle render:x="0" render:y="0" render:width="100%"
+render:height="100%"/>
+</render:g>
+</render:style>
+<render:style render:id="phosphorylatedSpeciesGlyphStyle"
+render:roleList="phosphorylated">
+<render:g render:stroke="black" render:stroke-width="1"
+render:fill-rule="nonzero" render:font-size="12" render:font-family="monospace"
+render:font-style="normal" render:font-weight="normal">
+<render:rectangle render:x="0" render:y="0" render:width="90%"
+render:height="100%"/>
+<render:ellipse render:fill="white" render:cx="90%" render:cy="50%"
+render:rx="10"/>
+<text render:x="85%" render:y="-9.6" render:vtext-anchor="middle">P</text>
+</render:g>
+</render:style>
+<render:style render:id="speciesReferenceAndTextGlyphStyle"
+render:typeList="SPECIESREFERENCEGLYPH TEXTGLYPH">
+<render:g render:stroke="black" render:stroke-width="1"
+render:fill-rule="nonzero" render:font-size="12" render:font-family="sans"
+render:font-style="normal" render:font-weight="normal" render:text-anchor="middle"/>
+</render:style>
+<render:style render:id="productStyle" render:roleList="product sideproduct">
+<render:g render:stroke="black" render:stroke-width="1"
+render:fill-rule="nonzero" render:font-size="0" render:font-family="sans-serif"
+render:font-style="normal" render:font-weight="normal"
+render:endHead="simpleHead_black"/>
+</render:style>
+<render:style render:id="activatorStyle" render:roleList="activator catalyst">
+<render:g render:stroke="black" render:stroke-width="1"
+render:fill-rule="nonzero" render:font-size="0" render:font-family="sans-serif"
+render:font-style="normal" render:font-weight="normal"
+render:endHead="catalysisHead_black"/>
+</render:style>
+<render:style render:id="reactionGlyphStyle" render:typeList="REACTIONGLYPH">
+<render:g render:stroke="black" render:stroke-width="1"
+render:fill-rule="nonzero" render:font-size="0" render:font-family="sans-serif"
+render:font-style="normal" render:font-weight="normal">
+<render:curve>
+<render:listOfElements>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="0" render:y="5"/>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="10" render:y="5"/>
+</render:listOfElements>
+</render:curve>
+<render:curve>
+<render:listOfElements>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="20" render:y="5"/>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="30" render:y="5"/>
+</render:listOfElements>
+</render:curve>
+<render:rectangle render:x="10" render:y="0"
+render:width="10" render:height="10"/>
+</render:g>
+</render:style>
+</render:listOfStyles>
+</render:renderInformation>
+<render:renderInformation render:id="defaultGrayStyle"
+render:programName="Ralph Gauges" render:programVersion="1.0"
+render:backgroundColor="#FFFFFFFF">
+<render:listOfColorDefinitions>
+<render:colorDefinition render:id="lightGray" render:value="#cecece"/>
+<render:colorDefinition render:id="white" render:value="#ffffff"/>
+<render:colorDefinition render:id="black" render:value="#000000"/>
+<render:colorDefinition render:id="lightGray2" render:value="#f0f0f0"/>
+<render:colorDefinition render:id="gray" render:value="#0b0b0b"/>
+</render:listOfColorDefinitions>
+<render:listOfGradientDefinitions>
+<render:radialGradient render:id="speciesGlyphGradient">
+<render:stop render:offset="0" render:stop-color="white"/>
+<render:stop render:offset="100%" render:stop-color="lightGray"/>
+</render:radialGradient>
+</render:listOfGradientDefinitions>
+<render:listOfLineEndings>
+<render:lineEnding
+xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1"
+render:id="simpleHead_black">
+<layout:boundingBox>
+<layout:position layout:x="-8" layout:y="-3"/>
+<layout:dimensions layout:width="10" layout:height="6"/>
+</layout:boundingBox>
+<render:g render:stroke="black" render:stroke-width="1" render:fill="black">
+<render:polygon>
+<render:listOfElements>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="0" render:y="0"/>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="10" render:y="3"/>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="10" render:y="3"/>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="0" render:y="6"/>
+</render:listOfElements>
+</render:polygon>
+</render:g>
+</render:lineEnding>
+<render:lineEnding
+xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1"
+render:id="catalysisHead_black">
+<layout:boundingBox>
+<layout:position layout:x="0" layout:y="-5"/>
+<layout:dimensions layout:width="10" layout:height="10"/>
+</layout:boundingBox>
+<render:g render:stroke="black" render:stroke-width="1">
+<render:ellipse render:cx="50%" render:cy="50%" render:rx="50%"/>
+</render:g>
+</render:lineEnding>
+</render:listOfLineEndings>
+<render:listOfStyles>
+<render:style render:id="speciesGlyphStyle" render:typeList="SPECIESGLYPH">
+<render:g render:stroke="black" render:stroke-width="1"
+render:fill-rule="nonzero" render:font-size="0" render:font-family="sans-serif"
+render:font-style="normal" render:font-weight="normal">
+<render:rectangle render:fill="speciesGlyphGradient" render:x="0"
+render:y="0" render:width="100%" render:height="100%"
+render:rx="5%" render:ry="5%"/>
+</render:g>
+</render:style>
+<render:style render:id="phosphorylatedSpeciesGlyphStyle"
+render:roleList="phosphorylated">
+<render:g render:stroke="black" render:stroke-width="1"
+render:fill-rule="nonzero" render:font-size="12" render:font-family="monospace"
+render:font-style="normal" render:font-weight="normal">
+<render:rectangle render:fill="speciesGlyphGradient" render:x="0" render:y="0"
+render:width="90%" render:height="100%"/>
+<render:ellipse render:fill="speciesGlyphGradient"
+render:cx="90%" render:cy="50%" render:rx="10"/>
+<text render:x="85%" render:y="-9.6" render:vtext-anchor="middle">P</text>
+</render:g>
+</render:style>
+<render:style render:id="speciesReferenceAndTextGlyphStyle"
+render:typeList="SPECIESREFERENCEGLYPH TEXTGLYPH">
+<render:g render:stroke="black" render:stroke-width="1"
+render:fill-rule="nonzero" render:font-size="12" render:font-family="sans"
+render:font-style="normal" render:font-weight="normal"
+render:text-anchor="middle"/>
+</render:style>
+<render:style render:id="speciesReferenceGlyphStyle"
+render:roleList="product sideproduct">
+<render:g render:stroke="#000000" render:stroke-width="1"
+render:fill-rule="nonzero" render:font-size="0" render:font-family="sans-serif"
+render:font-style="normal" render:font-weight="normal"
+render:endHead="simpleHead_black"/>
+</render:style>
+<render:style render:id="activatorStyle" render:roleList="activator catalyst">
+<render:g render:stroke="black" render:stroke-width="1"
+render:fill-rule="nonzero" render:font-size="0" render:font-family="sans-serif"
+render:font-style="normal" render:font-weight="normal"
+render:endHead="catalysisHead_black"/>
+</render:style>
+<render:style render:id="reactionGlyphStyle" render:typeList="REACTIONGLYPH">
+<render:g render:stroke="black" render:stroke-width="1"
+render:fill-rule="nonzero" render:font-size="0" render:font-family="sans-serif"
+render:font-style="normal" render:font-weight="normal">
+<render:curve>
+<render:listOfElements>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="0" render:y="5"/>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="10" render:y="5"/>
+</render:listOfElements>
+</render:curve>
+<render:curve>
+<render:listOfElements>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="20" render:y="5"/>
+<render:element xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="RenderPoint" render:x="30" render:y="5"/>
+</render:listOfElements>
+</render:curve>
+<render:rectangle render:x="10" render:y="0" render:width="10" render:height="10"/>
+</render:g>
+</render:style>
+</render:listOfStyles>
+</render:renderInformation>
+<render:renderInformation render:id="colorStyle"
+render:referenceRenderInformation="defaultGrayStyle"
+render:programName="Ralph Gauges" render:programVersion="1.0"
+render:backgroundColor="#FFFFFFFF">
+<render:listOfColorDefinitions>
+<render:colorDefinition render:id="lightGray" render:value="#9999f0"/>
+<render:colorDefinition render:id="lightGray2" render:value="#9999f0"/>
+<render:colorDefinition render:id="gray" render:value="#cecece"/>
+</render:listOfColorDefinitions>
+</render:renderInformation>
+</render:listOfGlobalRenderInformation>
+</layout:listOfLayouts>
+</model>
+</sbml>
