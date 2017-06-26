@@ -127,10 +127,10 @@
       <compartment id="glyph1" name="extracellular"/>
     </listOfCompartments>
     <listOfSpecies>
-      <species id="glyph5" metaid="b21de717-1145-433f-9702-42c956b190d6" name="IGF">
+      <species id="glyph5" metaid="_195cd0e1-0616-4c70-b29b-32bacdccf52c" name="IGF" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#b21de717-1145-433f-9702-42c956b190d6">
+	<rdf:Description rdf:about="#_195cd0e1-0616-4c70-b29b-32bacdccf52c">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>
@@ -140,10 +140,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph4" metaid="aa1a6799-49ed-4f44-84a1-fab5c26b8fc8" name="IGFR">
+      <species id="glyph4" metaid="afef6ee4-4c07-4e93-9cd3-74dc111ae463" name="IGFR" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#aa1a6799-49ed-4f44-84a1-fab5c26b8fc8">
+	<rdf:Description rdf:about="#afef6ee4-4c07-4e93-9cd3-74dc111ae463">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>
@@ -153,10 +153,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph2" metaid="db509a74-7aa3-42b3-95f6-ea2616d64e2e" name="IGFR" sboTerm="SBO:0000253">
+      <species id="glyph2" metaid="d5b89501-fde0-4287-b84b-3d41c28f01a1" name="IGFR" sboTerm="SBO:0000253">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#db509a74-7aa3-42b3-95f6-ea2616d64e2e">
+	<rdf:Description rdf:about="#d5b89501-fde0-4287-b84b-3d41c28f01a1">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="complex"/>
@@ -166,10 +166,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph3" metaid="_69cae371-55cd-4b14-a5f0-fc732d93884d" name="IGF">
+      <species id="glyph3" metaid="_28ca4a3d-5b21-4911-8460-e2d2878dcd73" name="IGF" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_69cae371-55cd-4b14-a5f0-fc732d93884d">
+	<rdf:Description rdf:about="#_28ca4a3d-5b21-4911-8460-e2d2878dcd73">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>
@@ -179,10 +179,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph6" metaid="_98083a4e-f4f7-4570-9560-9f35808bfa8c" name="IGFR">
+      <species id="glyph6" metaid="f0e07276-e134-4a0a-b96d-3b5d08a044f8" name="IGFR" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_98083a4e-f4f7-4570-9560-9f35808bfa8c">
+	<rdf:Description rdf:about="#f0e07276-e134-4a0a-b96d-3b5d08a044f8">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>

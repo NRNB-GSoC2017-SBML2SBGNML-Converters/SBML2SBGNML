@@ -69,10 +69,10 @@
       </layout:layout>
     </layout:listOfLayouts>
         <listOfSpecies>
-      <species id="glyph1" metaid="f5e00d31-051e-46bf-831d-99e6186b9752" name="Monomer">
+      <species id="glyph1" metaid="_27491ef7-c9a8-4ae2-93a0-42cccac2cf15" name="Monomer" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#f5e00d31-051e-46bf-831d-99e6186b9752">
+	<rdf:Description rdf:about="#_27491ef7-c9a8-4ae2-93a0-42cccac2cf15">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>
@@ -82,10 +82,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph2" metaid="a19b857a-176e-4e9a-9cc1-959020e86008" name="Dimer">
+      <species id="glyph2" metaid="bdf207a4-3f2a-446f-8326-ec4b714d7930" name="Dimer" sboTerm="SBO:0000420">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#a19b857a-176e-4e9a-9cc1-959020e86008">
+	<rdf:Description rdf:about="#bdf207a4-3f2a-446f-8326-ec4b714d7930">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule multimer"/>

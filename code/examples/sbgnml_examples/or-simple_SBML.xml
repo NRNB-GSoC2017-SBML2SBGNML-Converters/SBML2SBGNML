@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" level="3" version="1" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1">
+  <model>
+    <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <layout:layout>
+        <layout:dimensions layout:depth="0" layout:height="0" layout:width="0"/>
+        <layout:listOfSpeciesGlyphs>
+          <layout:speciesGlyph layout:id="glyph5_Glyph" layout:species="glyph5">
+            <layout:boundingBox>
+              <layout:position layout:x="70" layout:y="260" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="glyph6_Glyph" layout:species="glyph6">
+            <layout:boundingBox>
+              <layout:position layout:x="260" layout:y="260" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="glyph1_Glyph" layout:species="glyph1">
+            <layout:boundingBox>
+              <layout:position layout:x="56" layout:y="50" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="glyph2_Glyph" layout:species="glyph2">
+            <layout:boundingBox>
+              <layout:position layout:x="216" layout:y="50" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+        </layout:listOfSpeciesGlyphs>
+        <layout:listOfReactionGlyphs>
+          <layout:reactionGlyph layout:id="glyph4_Glyph" layout:reaction="glyph4">
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="166" layout:y="290"/>
+                  <layout:end layout:x="214" layout:y="290"/>
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="a4_Glyph" layout:role="substrate" layout:speciesGlyph="glyph5_Glyph" layout:speciesReference="a4">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="130" layout:y="290"/>
+                      <layout:end layout:x="166" layout:y="290"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="a5_Glyph" layout:role="product" layout:speciesGlyph="glyph6_Glyph" layout:speciesReference="a5">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="214" layout:y="290"/>
+                      <layout:end layout:x="260" layout:y="290"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="glyph3_Glyph" layout:reaction="glyph3">
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="190" layout:y="168"/>
+                  <layout:end layout:x="211" layout:y="231"/>
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="a1_Glyph" layout:speciesGlyph="glyph1_Glyph" layout:speciesReference="a1">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="139" layout:y="110"/>
+                      <layout:end layout:x="190" layout:y="168"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="a2_Glyph" layout:speciesGlyph="glyph2_Glyph" layout:speciesReference="a2">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="241" layout:y="110"/>
+                      <layout:end layout:x="190" layout:y="168"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+        </layout:listOfReactionGlyphs>
+        <layout:listOfTextGlyphs>
+          <layout:textGlyph layout:graphicalObject="glyph5_Glyph" layout:id="glyph5_TextGlyph" layout:originOfText="glyph5">
+            <layout:boundingBox>
+              <layout:position layout:x="70" layout:y="260" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="glyph6_Glyph" layout:id="glyph6_TextGlyph" layout:originOfText="glyph6">
+            <layout:boundingBox>
+              <layout:position layout:x="260" layout:y="260" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="glyph1_Glyph" layout:id="glyph1_TextGlyph" layout:originOfText="glyph1">
+            <layout:boundingBox>
+              <layout:position layout:x="56" layout:y="50" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="glyph2_Glyph" layout:id="glyph2_TextGlyph" layout:originOfText="glyph2">
+            <layout:boundingBox>
+              <layout:position layout:x="216" layout:y="50" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+        </layout:listOfTextGlyphs>
+      </layout:layout>
+    </layout:listOfLayouts>
+        <listOfSpecies>
+      <species id="glyph5" metaid="_8244d420-a76f-40ee-9e02-36bb9c694930" name="Subst" sboTerm="SBO:0000247">
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_8244d420-a76f-40ee-9e02-36bb9c694930">
+	<bqbiol:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="simple chemical"/>
+	</rdf:Bag>
+	</bqbiol:isVersionOf>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </species>
+      <species id="glyph6" metaid="_652b1bf5-08e4-4b77-9eac-ea318790fd16" name="Prod" sboTerm="SBO:0000247">
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_652b1bf5-08e4-4b77-9eac-ea318790fd16">
+	<bqbiol:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="simple chemical"/>
+	</rdf:Bag>
+	</bqbiol:isVersionOf>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </species>
+      <species id="glyph1" metaid="c2693b9c-0c98-4183-9073-3fed7e436ab4" name="Enzym1" sboTerm="SBO:0000245">
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#c2693b9c-0c98-4183-9073-3fed7e436ab4">
+	<bqbiol:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="macromolecule"/>
+	</rdf:Bag>
+	</bqbiol:isVersionOf>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </species>
+      <species id="glyph2" metaid="a6a0a060-ead6-489d-b22e-34da323f01ff" name="Enzym2" sboTerm="SBO:0000245">
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#a6a0a060-ead6-489d-b22e-34da323f01ff">
+	<bqbiol:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="macromolecule"/>
+	</rdf:Bag>
+	</bqbiol:isVersionOf>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+            </species>
+    </listOfSpecies>
+    <listOfReactions>
+      <reaction id="glyph4">
+        <listOfReactants>
+          <speciesReference id="a4" species="glyph5"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference id="a5" species="glyph6"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="glyph3">
+        <listOfReactants>
+          <speciesReference id="a1" species="glyph1"/>
+          <speciesReference id="a2" species="glyph2"/>
+        </listOfReactants>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

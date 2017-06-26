@@ -981,10 +981,10 @@
       </layout:layout>
     </layout:listOfLayouts>
         <listOfSpecies>
-      <species id="glyph30" metaid="e0523cae-8fc8-4b71-893e-0676c181e98d" name="pyruvate">
+      <species id="glyph30" metaid="a00ae7f9-4e43-4931-b44d-79730f2e80b8" name="pyruvate" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#e0523cae-8fc8-4b71-893e-0676c181e98d">
+	<rdf:Description rdf:about="#a00ae7f9-4e43-4931-b44d-79730f2e80b8">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -994,10 +994,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph13" metaid="d226a063-f65b-49f4-897c-03864836dd13" name="ATP">
+      <species id="glyph13" metaid="_50db3a8d-8378-4a76-868b-9ef71d87b090" name="ATP" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#d226a063-f65b-49f4-897c-03864836dd13">
+	<rdf:Description rdf:about="#_50db3a8d-8378-4a76-868b-9ef71d87b090">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1007,10 +1007,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph35" metaid="_0dc1c348-d84e-45ca-b89a-fb65d21776f8" name="PGK1">
+      <species id="glyph35" metaid="_6c0f20ec-3056-4825-98ad-abccf86c55c2" name="PGK1" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_0dc1c348-d84e-45ca-b89a-fb65d21776f8">
+	<rdf:Description rdf:about="#_6c0f20ec-3056-4825-98ad-abccf86c55c2">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>
@@ -1020,10 +1020,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph36" metaid="_7531123f-792f-4c6b-87fe-b64dccf99378" name="PG mutase">
+      <species id="glyph36" metaid="_0b01a6cd-4a91-47ef-ab70-ee726203596b" name="PG mutase" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_7531123f-792f-4c6b-87fe-b64dccf99378">
+	<rdf:Description rdf:about="#_0b01a6cd-4a91-47ef-ab70-ee726203596b">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>
@@ -1033,10 +1033,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph12" metaid="_9e2a79ef-6839-4348-9642-b8df5615f0a2" name="ADP">
+      <species id="glyph12" metaid="_770bb4a4-ce1c-41cf-93fc-1fe598f213e3" name="ADP" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_9e2a79ef-6839-4348-9642-b8df5615f0a2">
+	<rdf:Description rdf:about="#_770bb4a4-ce1c-41cf-93fc-1fe598f213e3">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1046,10 +1046,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph17" metaid="_59b9d5cb-ee0a-482f-bfc9-b5745fe380e3" name="glucose-6P&#xa;isomerase">
+      <species id="glyph17" metaid="_5606e72c-8a94-47e9-bb00-c545e091e0d8" name="glucose-6P&#xa;isomerase" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_59b9d5cb-ee0a-482f-bfc9-b5745fe380e3">
+	<rdf:Description rdf:about="#_5606e72c-8a94-47e9-bb00-c545e091e0d8">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>
@@ -1059,10 +1059,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph39" metaid="fc7814f3-3cdb-4803-9428-9c65a92ae8d8" name="ADP">
+      <species id="glyph39" metaid="_3ed49c24-43cc-4134-8053-a2288e70e97a" name="ADP" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#fc7814f3-3cdb-4803-9428-9c65a92ae8d8">
+	<rdf:Description rdf:about="#_3ed49c24-43cc-4134-8053-a2288e70e97a">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1072,10 +1072,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph18" metaid="b0a5bb5b-0efb-4d01-9ea8-aa03ae574a34" name="adolase">
+      <species id="glyph18" metaid="d68e9b7b-6e34-4f6c-bec9-37e4372ecd46" name="adolase" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#b0a5bb5b-0efb-4d01-9ea8-aa03ae574a34">
+	<rdf:Description rdf:about="#d68e9b7b-6e34-4f6c-bec9-37e4372ecd46">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>
@@ -1085,10 +1085,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph15" metaid="ceb965eb-4208-45f7-946c-a4166c16972e" name="triose-P&#xa;isomerase">
+      <species id="glyph15" metaid="_7a28f261-45dc-4277-906f-b93a768f80c5" name="triose-P&#xa;isomerase" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#ceb965eb-4208-45f7-946c-a4166c16972e">
+	<rdf:Description rdf:about="#_7a28f261-45dc-4277-906f-b93a768f80c5">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>
@@ -1098,10 +1098,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph37" metaid="_661de26a-1c1c-445c-b77d-2d521eb83e7f" name="enolase">
+      <species id="glyph37" metaid="_66c35bee-cd3b-4961-ab51-7800004d72a3" name="enolase" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_661de26a-1c1c-445c-b77d-2d521eb83e7f">
+	<rdf:Description rdf:about="#_66c35bee-cd3b-4961-ab51-7800004d72a3">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>
@@ -1111,10 +1111,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph38" metaid="_3d9838c1-4359-4c10-8c49-714d083d7745" name="pyruvate&#xa;kinase">
+      <species id="glyph38" metaid="_336fdaa0-e66e-4f36-bc5c-33bd90140772" name="pyruvate&#xa;kinase" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_3d9838c1-4359-4c10-8c49-714d083d7745">
+	<rdf:Description rdf:about="#_336fdaa0-e66e-4f36-bc5c-33bd90140772">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>
@@ -1124,10 +1124,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph19" metaid="_448344a4-40d8-4ddd-bce4-2cbb71743cd8" name="phospho&#xa;fructokinase">
+      <species id="glyph19" metaid="c279d835-0f7d-4d08-b799-b8970bdf545f" name="phospho&#xa;fructokinase" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_448344a4-40d8-4ddd-bce4-2cbb71743cd8">
+	<rdf:Description rdf:about="#c279d835-0f7d-4d08-b799-b8970bdf545f">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>
@@ -1137,10 +1137,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph9" metaid="ade6fb0d-0aa6-493f-9e89-4038620f263e" name="hexokinase">
+      <species id="glyph9" metaid="b045c456-92f9-436c-9589-c27b24f76307" name="hexokinase" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#ade6fb0d-0aa6-493f-9e89-4038620f263e">
+	<rdf:Description rdf:about="#b045c456-92f9-436c-9589-c27b24f76307">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>
@@ -1150,10 +1150,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph42" metaid="d1594c3f-97e7-42cb-937b-98c0d3854099" name="ADP">
+      <species id="glyph42" metaid="e3a2e55a-5a03-4d34-866b-ce974e8609d6" name="ADP" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#d1594c3f-97e7-42cb-937b-98c0d3854099">
+	<rdf:Description rdf:about="#e3a2e55a-5a03-4d34-866b-ce974e8609d6">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1163,10 +1163,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph21" metaid="_470c8d22-94ef-4a3d-97f0-14bcccf15ee7" name="1,3 BPG">
+      <species id="glyph21" metaid="_2594583d-a74a-4887-bcd5-ea50850d116b" name="1,3 BPG" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_470c8d22-94ef-4a3d-97f0-14bcccf15ee7">
+	<rdf:Description rdf:about="#_2594583d-a74a-4887-bcd5-ea50850d116b">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1176,10 +1176,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph43" metaid="c9d6783d-6e00-4329-b7a3-d5775ae8e6ec" name="H2O">
+      <species id="glyph43" metaid="f215cce7-e148-4f5a-9798-4c8e7b618616" name="H2O" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#c9d6783d-6e00-4329-b7a3-d5775ae8e6ec">
+	<rdf:Description rdf:about="#f215cce7-e148-4f5a-9798-4c8e7b618616">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1189,10 +1189,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph40" metaid="fc286e54-045f-452e-ae83-a1b0dfbacfc2" name="ATP">
+      <species id="glyph40" metaid="_27242b89-587c-4e35-b9d0-c938a0bd1352" name="ATP" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#fc286e54-045f-452e-ae83-a1b0dfbacfc2">
+	<rdf:Description rdf:about="#_27242b89-587c-4e35-b9d0-c938a0bd1352">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1202,10 +1202,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph41" metaid="_8b1bbc55-50ab-4c69-84af-1232490fa4dc" name="ATP">
+      <species id="glyph41" metaid="feecfa3a-6e0b-4e94-9e7f-97309e07b7bb" name="ATP" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_8b1bbc55-50ab-4c69-84af-1232490fa4dc">
+	<rdf:Description rdf:about="#feecfa3a-6e0b-4e94-9e7f-97309e07b7bb">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1215,10 +1215,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph24" metaid="eb78df73-01c8-466d-b26f-2408890dff25" name="NAD">
+      <species id="glyph24" metaid="_83602068-3770-4b60-944d-d7eccb1c09c8" name="NAD" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#eb78df73-01c8-466d-b26f-2408890dff25">
+	<rdf:Description rdf:about="#_83602068-3770-4b60-944d-d7eccb1c09c8">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1228,10 +1228,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph5" metaid="b5bfc06d-ec70-4750-916c-6236e7f24b4e" name="DHA-P">
+      <species id="glyph5" metaid="_9e66ab4e-e2db-437c-85bb-3bdcd7f1fe63" name="DHA-P" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#b5bfc06d-ec70-4750-916c-6236e7f24b4e">
+	<rdf:Description rdf:about="#_9e66ab4e-e2db-437c-85bb-3bdcd7f1fe63">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1241,10 +1241,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph4" metaid="a9cb2ec0-9cad-4663-8cf0-2c42d87ef983" name="GA-3P">
+      <species id="glyph4" metaid="_29f06be7-e424-4783-9e48-666150bbcb97" name="GA-3P" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#a9cb2ec0-9cad-4663-8cf0-2c42d87ef983">
+	<rdf:Description rdf:about="#_29f06be7-e424-4783-9e48-666150bbcb97">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1254,10 +1254,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph25" metaid="_32d9ac34-e6d8-43d0-950b-59448776cc8f" name="H+">
+      <species id="glyph25" metaid="d5357314-c7d3-4632-8b22-ea7eae5c468a" name="H+" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_32d9ac34-e6d8-43d0-950b-59448776cc8f">
+	<rdf:Description rdf:about="#d5357314-c7d3-4632-8b22-ea7eae5c468a">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1267,10 +1267,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph7" metaid="_7af4c2e7-9d18-457d-9c10-992043e29929" name="ADP">
+      <species id="glyph7" metaid="_6f18c86b-455a-4b31-89ef-eb02366aea37" name="ADP" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_7af4c2e7-9d18-457d-9c10-992043e29929">
+	<rdf:Description rdf:about="#_6f18c86b-455a-4b31-89ef-eb02366aea37">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1280,10 +1280,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph22" metaid="_01eed12f-c652-4fee-860e-da0397e2ba0a" name="GAPDH">
+      <species id="glyph22" metaid="ed36c438-c7c7-4b93-8e9d-70e7a7a2191e" name="GAPDH" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_01eed12f-c652-4fee-860e-da0397e2ba0a">
+	<rdf:Description rdf:about="#ed36c438-c7c7-4b93-8e9d-70e7a7a2191e">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>
@@ -1293,10 +1293,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph6" metaid="a486abe7-bd7d-46da-82e8-6246f4e0c933" name="ATP">
+      <species id="glyph6" metaid="_2e7c8b80-2f55-4935-a43f-e8cdaa82495b" name="ATP" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#a486abe7-bd7d-46da-82e8-6246f4e0c933">
+	<rdf:Description rdf:about="#_2e7c8b80-2f55-4935-a43f-e8cdaa82495b">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1306,10 +1306,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph23" metaid="_224ab273-fd9d-445f-93fe-f20335162218" name="Pi">
+      <species id="glyph23" metaid="d62d5d54-65bd-4cc9-b0cf-bff4293efd96" name="Pi" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_224ab273-fd9d-445f-93fe-f20335162218">
+	<rdf:Description rdf:about="#d62d5d54-65bd-4cc9-b0cf-bff4293efd96">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1319,10 +1319,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph1" metaid="_28c9758a-e117-4c6a-85a1-be4f0767cf0c" name="glucose&#xa;6P">
+      <species id="glyph1" metaid="_0bab19ef-f9e0-4d5e-998e-2f806e3ff9ad" name="glucose&#xa;6P" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_28c9758a-e117-4c6a-85a1-be4f0767cf0c">
+	<rdf:Description rdf:about="#_0bab19ef-f9e0-4d5e-998e-2f806e3ff9ad">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1332,10 +1332,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph0" metaid="_89820fc4-a255-4154-a0d7-d03edd1ded48" name="glucose">
+      <species id="glyph0" metaid="d5989b86-b9e2-456d-a1a6-6553f4abcb26" name="glucose" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_89820fc4-a255-4154-a0d7-d03edd1ded48">
+	<rdf:Description rdf:about="#d5989b86-b9e2-456d-a1a6-6553f4abcb26">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1345,10 +1345,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph3" metaid="_478be933-d05f-4c4a-b2b4-c188cef058a7" name="fructose&#xa;1,6P">
+      <species id="glyph3" metaid="_24788e38-cb97-4c50-b559-8c5e4e4b8f41" name="fructose&#xa;1,6P" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_478be933-d05f-4c4a-b2b4-c188cef058a7">
+	<rdf:Description rdf:about="#_24788e38-cb97-4c50-b559-8c5e4e4b8f41">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1358,10 +1358,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph2" metaid="cc48cd4f-3dfd-4d44-bb6e-0eb99de451db" name="fructose&#xa;6P">
+      <species id="glyph2" metaid="_33586105-d4a8-4066-be15-fa1d80e18913" name="fructose&#xa;6P" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#cc48cd4f-3dfd-4d44-bb6e-0eb99de451db">
+	<rdf:Description rdf:about="#_33586105-d4a8-4066-be15-fa1d80e18913">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1371,10 +1371,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph28" metaid="_2045b6d8-f5bd-43ed-bbe6-931d41ca172f" name="2 PG">
+      <species id="glyph28" metaid="ce06feb5-2932-4b55-b85a-334a79466c33" name="2 PG" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_2045b6d8-f5bd-43ed-bbe6-931d41ca172f">
+	<rdf:Description rdf:about="#ce06feb5-2932-4b55-b85a-334a79466c33">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1384,10 +1384,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph29" metaid="_3ad31d59-36b7-4ffb-b858-ecd793182414" name="PEP">
+      <species id="glyph29" metaid="_819cdcc0-ee65-4d30-974e-e8431869075e" name="PEP" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_3ad31d59-36b7-4ffb-b858-ecd793182414">
+	<rdf:Description rdf:about="#_819cdcc0-ee65-4d30-974e-e8431869075e">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1397,10 +1397,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph26" metaid="_37bb0edb-cd8f-47f3-89c8-b9cb54b8b786" name="NADH">
+      <species id="glyph26" metaid="_997f7791-fcad-4ac1-a139-cbc5fa66233b" name="NADH" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_37bb0edb-cd8f-47f3-89c8-b9cb54b8b786">
+	<rdf:Description rdf:about="#_997f7791-fcad-4ac1-a139-cbc5fa66233b">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -1410,10 +1410,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph27" metaid="_95d661fa-47f6-4524-aa23-2ccced4eda4a" name="3 PG">
+      <species id="glyph27" metaid="eca5bf50-6af4-47d3-9357-82e3d49af81b" name="3 PG" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_95d661fa-47f6-4524-aa23-2ccced4eda4a">
+	<rdf:Description rdf:about="#eca5bf50-6af4-47d3-9357-82e3d49af81b">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>

@@ -157,10 +157,10 @@
       </layout:layout>
     </layout:listOfLayouts>
         <listOfSpecies>
-      <species id="glyph_ethanal" metaid="b53f3b80-b1a2-440b-9db0-e6e52119f7be" name="Ethanal">
+      <species id="glyph_ethanal" metaid="_7ad1fcf7-be8d-4542-bdc6-53a0cafb6e04" name="Ethanal" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#b53f3b80-b1a2-440b-9db0-e6e52119f7be">
+	<rdf:Description rdf:about="#_7ad1fcf7-be8d-4542-bdc6-53a0cafb6e04">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -170,10 +170,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph_nad" metaid="_9915304e-0bdc-43ef-b4c0-18e6e2e5f4ae" name="NAD+">
+      <species id="glyph_nad" metaid="fe1c8212-a4d2-4e7d-9f1c-d60fa4a8348c" name="NAD+" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_9915304e-0bdc-43ef-b4c0-18e6e2e5f4ae">
+	<rdf:Description rdf:about="#fe1c8212-a4d2-4e7d-9f1c-d60fa4a8348c">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -183,10 +183,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph_nadh" metaid="d9bcd873-ae42-46f6-8fe3-b477536a45fb" name="NADH">
+      <species id="glyph_nadh" metaid="_39aa2efa-12ac-4b8e-89c3-a1a334b228c9" name="NADH" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#d9bcd873-ae42-46f6-8fe3-b477536a45fb">
+	<rdf:Description rdf:about="#_39aa2efa-12ac-4b8e-89c3-a1a334b228c9">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -196,10 +196,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph1" metaid="_88298914-2e69-4b0d-99c7-b6defbb819e1" name="Ethanol">
+      <species id="glyph1" metaid="f83a0456-a6fa-40f8-a5c2-bafae8f1f17a" name="Ethanol" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_88298914-2e69-4b0d-99c7-b6defbb819e1">
+	<rdf:Description rdf:about="#f83a0456-a6fa-40f8-a5c2-bafae8f1f17a">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -209,10 +209,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph_adh1" metaid="f10c3f19-722c-400c-831b-95c477b9cbd0" name="ADH1">
+      <species id="glyph_adh1" metaid="e9f753d2-b08b-4a22-8008-6080bdc20ff7" name="ADH1" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#f10c3f19-722c-400c-831b-95c477b9cbd0">
+	<rdf:Description rdf:about="#e9f753d2-b08b-4a22-8008-6080bdc20ff7">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>
@@ -222,10 +222,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species id="glyph_h" metaid="bb849056-4ed3-4b19-9dcc-3d361fc4e68d" name="H+">
+      <species id="glyph_h" metaid="_0a7536c4-aea4-4559-9b4b-2e92dce97c37" name="H+" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#bb849056-4ed3-4b19-9dcc-3d361fc4e68d">
+	<rdf:Description rdf:about="#_0a7536c4-aea4-4559-9b4b-2e92dce97c37">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>

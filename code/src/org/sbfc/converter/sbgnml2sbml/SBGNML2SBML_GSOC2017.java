@@ -54,6 +54,8 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	HashMap<String, Glyph> entityPoolNodes = new HashMap<String, Glyph>();
 	HashMap<String, Glyph> compartments = new HashMap<String, Glyph>();
 	
+	HashMap<String, String> portToGlyphMap = new HashMap<String, String>();
+				
 	// see code below for definition of inwardArcs, outwardArcs, and undirectedArcs
 	HashMap<String, Arc> inwardArcs = new HashMap<String, Arc>();
 	HashMap<String, Arc> outwardArcs = new HashMap<String, Arc>();
@@ -100,6 +102,8 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			clazz = glyph.getClazz();
 			//System.out.format("glyph clazz=%s \n", clazz);
 			
+			updatePortToGlyphMap(glyph);
+			
 			if (isProcessNode(clazz)) {
 				processNodes.put(id, glyph);
 			} else if (clazz.equals("compartment")) {
@@ -121,14 +125,20 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			
 			clazz = arc.getClazz();
 			
-			if (arc.getTarget() instanceof Glyph && arc.getSource() instanceof Glyph) {
+			if (isUndirectedArc(arc)) {
 				undirectedArcs.put(id, arc);
-			} else if (isInwardArc(clazz)) {
+			} else if (isInwardArc(arc)) {
 				inwardArcs.put(id, arc);
-			} else if (isOutwardArc(clazz)) {
+			} else if (isOutwardArc(arc)) {
 				outwardArcs.put(id, arc);
 			} 		
-		}			
+		}
+		
+		debugMode = 1;
+		printHelper("", undirectedArcs.size());
+		printHelper("", inwardArcs.size());
+		printHelper("", outwardArcs.size());
+		debugMode = 0;
 	}
 
 	/**
@@ -289,11 +299,20 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			
 			speciesReference = new SpeciesReference();
 			species = findSpecies(model.getListOfSpecies(), sourceGlyph.getId());
+			if (species == null) {
+				debugMode = 1;
+				printHelper("createReactions", "inward "+key);
+				debugMode = 0;
+				continue;
+			}
 			speciesReference.setId(speciesReferenceId);
 			speciesReference.setSpecies(species);
 			
-			reactionId = targetPort.getId().substring(0, targetPort.getId().indexOf("."));
+			//reactionId = targetPort.getId().substring(0, targetPort.getId().indexOf("."));
+			reactionId = findGlyphFromPort(targetPort);
 			reaction = findReaction(model.getListOfReactions(), reactionId);
+	
+			//try {reaction.addReactant(speciesReference);} catch (Exception e) {printHelper("createReactions", arc.toString()); continue;}
 			reaction.addReactant(speciesReference);
 			
 			speciesReferenceGlyph = createSpeciesReferenceGlyph(speciesReferenceId, arc, speciesReference, sourceGlyph);
@@ -301,6 +320,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			curve = createSpeciesReferenceCurve(arc);
 			speciesReferenceGlyph.setCurve(curve);
 			reactionGlyph = findReactionGlyph(layout.getListOfReactionGlyphs(), reactionId+"_Glyph");
+			//try {reactionGlyph.addSpeciesReferenceGlyph(speciesReferenceGlyph);} catch (Exception e) {printHelper("createReactions", arc.toString()); continue;}
 			reactionGlyph.addSpeciesReferenceGlyph(speciesReferenceGlyph);
 			
 			updateReactionGlyph(reactionGlyph, speciesReferenceGlyph, "start");
@@ -316,11 +336,19 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			
 			speciesReference = new SpeciesReference();
 			species = findSpecies(model.getListOfSpecies(), targetGlyph.getId());
+			if (species == null) {
+				debugMode = 1;
+				printHelper("createReactions", "outward "+key);
+				debugMode = 0;
+				continue;
+			}
 			speciesReference.setId(speciesReferenceId);
 			speciesReference.setSpecies(species);
 			
-			reactionId = sourcePort.getId().substring(0, sourcePort.getId().indexOf("."));
+			//reactionId = sourcePort.getId().substring(0, sourcePort.getId().indexOf("."));
+			reactionId = findGlyphFromPort(sourcePort);
 			reaction = findReaction(model.getListOfReactions(), reactionId);
+
 			reaction.addProduct(speciesReference);
 			
 			speciesReferenceGlyph = createSpeciesReferenceGlyph(speciesReferenceId, arc, speciesReference, targetGlyph);
@@ -342,13 +370,17 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			// assuming target is a process node, may not be true
 			targetGlyph = (Glyph) target;	
 			
+			//todo: check the clazz first, then decide
+			
 			speciesReference = new SpeciesReference();
 			species = findSpecies(model.getListOfSpecies(), sourceGlyph.getId());
+
 			speciesReference.setId(speciesReferenceId);
 			speciesReference.setSpecies(species);
 			
 			reactionId = targetGlyph.getId();
 			reaction = findReaction(model.getListOfReactions(), reactionId);
+
 			reaction.addReactant(speciesReference);
 			
 			speciesReferenceGlyph = createSpeciesReferenceGlyph(speciesReferenceId, arc, speciesReference, sourceGlyph);
@@ -545,6 +577,18 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		}
 	}
 	
+	public void updatePortToGlyphMap(Glyph glyph){
+		List<Port> listOfPorts;
+		listOfPorts = glyph.getPort();
+		for (Port port: listOfPorts) {
+			portToGlyphMap.put(port.getId(), glyph.getId());
+		}
+	}
+	
+	public String findGlyphFromPort(Port port) {
+		return portToGlyphMap.get(port.getId());
+	}
+	
 	public Boolean isProcessNode(String clazz) {
 		if (clazz.equals("process")) {
 			return true;
@@ -557,6 +601,12 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		} else if (clazz.equals("dissociation")) {
 			return true;
 		} else if (clazz.equals("phenotype")) {
+			return true;
+		} else if (clazz.equals("and")) {		// todo: move to separate
+			return true;
+		} else if (clazz.equals("or")) {
+			return true;
+		} else if (clazz.equals("not")) {
 			return true;
 		} else {
 			return false;
@@ -584,9 +634,44 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			return true;
 		} else if (clazz.equals("perturbing agent")) {
 			return true;
+		} else if (clazz.equals("and")) {		// todo: move to separate
+			return true;
+		} else if (clazz.equals("or")) {
+			return true;
+		} else if (clazz.equals("not")) {
+			return true;
 		} else {
 			return false;
 		}		
+	}
+	
+	public Boolean isUndirectedArc(Arc arc) {
+		if (arc.getTarget() instanceof Glyph && arc.getSource() instanceof Glyph) {
+			return true;
+		}
+		return false;
+	}
+	
+	public Boolean isInwardArc(Arc arc) {
+		if (arc.getTarget() instanceof Port && arc.getSource() instanceof Glyph) {
+			return true;
+		}
+		return false;		
+	}
+	
+	public Boolean isOutwardArc(Arc arc) {
+		if (arc.getTarget() instanceof Glyph && arc.getSource() instanceof Port) {
+			return true;
+		}
+		return false;		
+	}
+	
+	// todo
+	public Boolean isPortToPortArc(Arc arc) {
+		if (arc.getTarget() instanceof Port && arc.getSource() instanceof Port) {
+			return true;
+		}		
+		return false;
 	}
 	
 	public Boolean isInwardArc(String clazz) {
@@ -904,6 +989,12 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	public void printHelper(String source, String message){
 		if (debugMode == 1){
 			System.out.println("[" + source + "] " + message);
+		}
+	}	
+	
+	public void printHelper(String source, Integer message){
+		if (debugMode == 1){
+			System.out.println("[" + source + "] " + Integer.toString(message));
 		}
 	}	
 	

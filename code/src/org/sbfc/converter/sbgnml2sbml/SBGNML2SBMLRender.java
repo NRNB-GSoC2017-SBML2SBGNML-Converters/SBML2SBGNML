@@ -1,5 +1,7 @@
 package org.sbfc.converter.sbgnml2sbml;
 
+import static org.junit.Assert.fail;
+
 import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,8 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 
+import org.sbgn.SbgnUtil;
+import org.sbgn.bindings.Arc;
+import org.sbgn.bindings.Glyph;
+import org.sbgn.bindings.Map;
+import org.sbgn.bindings.Sbgn;
 import org.sbml.jsbml.Compartment;
 import org.sbml.jsbml.ListOf;
 import org.sbml.jsbml.Model;
@@ -256,6 +264,24 @@ public class SBGNML2SBMLRender {
 		this.dimensions = dimensions;
 		
 	}	
+
+//	public void example_04(File inputFile) {
+//		Sbgn sbgnObject;
+//		Map map = null;
+//		try {
+//			sbgnObject = SbgnUtil.readFromFile(inputFile);
+//			map = sbgnObject.getMap();
+//		} catch (JAXBException e) {
+//			e.printStackTrace();
+//		}		
+//		
+//		List<Glyph> listOfGlyphs = map.getGlyph();
+//		List<Arc> lisOfArcs = map.getArc();
+//		
+//		for (Glyph glyph: listOfGlyphs) {
+//			
+//		}
+//	}
 	
 	public void createColourDefinitions() {
 		ColorDefinition colorDefinition;
@@ -374,7 +400,7 @@ public class SBGNML2SBMLRender {
 		outputFile = new File(sbmlFileNameOutput);	
 		
 		SBGNML2SBMLRender renderer = new SBGNML2SBMLRender();
-		renderer.example_01();	
+		//renderer.example_01();	
 		
 		sbmlDocument = new SBMLDocument(3, 1);
 		sbmlDocument.setModel(renderer.model);
@@ -394,7 +420,8 @@ public class SBGNML2SBMLRender {
 		sbmlDocument = renderer.getSBMLDocument(sbmlFileNameInput);
 		
 		renderer = new SBGNML2SBMLRender(sbmlDocument.getModel());
-		Model newModel = renderer.example_02();	
+		Model newModel = null;
+		//newModel = renderer.example_02();	
 		
 		sbmlDocument = new SBMLDocument(3, 1);
 		sbmlDocument.setModel(newModel);
@@ -410,7 +437,7 @@ public class SBGNML2SBMLRender {
 		outputFile = new File(sbmlFileNameOutput);	
 		
 		renderer = new SBGNML2SBMLRender();
-		renderer.example_03();	
+		//renderer.example_03();	
 		
 		sbmlDocument = new SBMLDocument(3, 1);
 		sbmlDocument.setModel(renderer.model);
@@ -431,6 +458,25 @@ public class SBGNML2SBMLRender {
 		// wrappers
 		// edit points
 		// bounding box for reaction glyphs
+		
+//		sbmlFileNameOutput = examplesDirectory + "Render_example_04.xml";
+//		outputFile = new File(sbmlFileNameOutput);		
+//		
+//		sbmlFileNameInput = examplesDirectory + "or-simple.sbgn";
+//		sbmlDocument = renderer.getSBMLDocument(sbmlFileNameInput);
+//		
+//		inputFile = new File(sbmlFileNameInput);
+//		renderer = new SBGNML2SBMLRender(sbmlDocument.getModel());
+//		renderer.example_04(inputFile);	
+//		
+//		sbmlDocument = new SBMLDocument(3, 1);
+//		sbmlDocument.setModel(renderer.model);
+//
+//		try {
+//			sbmlWriter.writeSBML(sbmlDocument, outputFile);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}			
 	}
 
 }
