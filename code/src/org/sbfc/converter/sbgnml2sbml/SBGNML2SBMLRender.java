@@ -28,17 +28,22 @@ import org.sbml.jsbml.SBMLWriter;
 import org.sbml.jsbml.Species;
 import org.sbml.jsbml.ext.layout.BoundingBox;
 import org.sbml.jsbml.ext.layout.Dimensions;
+import org.sbml.jsbml.ext.layout.GeneralGlyph;
+import org.sbml.jsbml.ext.layout.GraphicalObject;
 import org.sbml.jsbml.ext.layout.Layout;
 import org.sbml.jsbml.ext.layout.LayoutModelPlugin;
 import org.sbml.jsbml.ext.layout.Point;
 import org.sbml.jsbml.ext.layout.ReactionGlyph;
+import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
+import org.sbml.jsbml.ext.layout.TextGlyph;
 import org.sbml.jsbml.ext.render.ColorDefinition;
 import org.sbml.jsbml.ext.render.Ellipse;
 import org.sbml.jsbml.ext.render.FontFamily;
 import org.sbml.jsbml.ext.render.GraphicalPrimitive2D.FillRule;
 import org.sbml.jsbml.ext.render.HTextAnchor;
 import org.sbml.jsbml.ext.render.Image;
+import org.sbml.jsbml.ext.render.LineEnding;
 import org.sbml.jsbml.ext.render.ListOfLocalRenderInformation;
 import org.sbml.jsbml.ext.render.LocalRenderInformation;
 import org.sbml.jsbml.ext.render.LocalStyle;
@@ -60,6 +65,9 @@ public class SBGNML2SBMLRender {
 	LocalRenderInformation localRenderInformation;
 	Dimensions dimensions;
 	ListOf<ColorDefinition> listOfColorDefinitions;
+	ListOf<LineEnding> listOfLineEndings;
+	
+	SBGNML2SBML_GSOC2017 converter;
 	
 	public SBGNML2SBMLRender() {
 		model = new Model(3, 1);
@@ -240,7 +248,7 @@ public class SBGNML2SBMLRender {
 		image.setAbsoluteY(false);		
 		image.setAbsoluteWidth(false);
 		image.setAbsoluteHeight(false);		
-		image.setHref("https://2.bp.blogspot.com/-W6ljvUx0q0g/WUzwohODWqI/AAAAAAAAGZU/OOX4cHCT1ks0yWctZShFgrsAgYdXmpKxgCLcBGAs/s1600/multimer-1.jpg");
+		image.setHref("multimer-1.png");
 		
 		Ellipse ellipse = createEllipse(90, 50.0, 10.0, false, false, true);
 		Text text1 = createText(-10, -9.6, true, true);
@@ -264,24 +272,177 @@ public class SBGNML2SBMLRender {
 		this.dimensions = dimensions;
 		
 	}	
+	
+	public void displayReactionGlyphInfo() {
+		for (SWrapperReactionGlyph sWrapper : converter.sWrapperModel.getListOfWrapperReactionGlyphs()){
+			converter.debugMode = 1;
+			converter.printHelper(sWrapper.reactionId+"-inward", sWrapper.inwardArcs.size());
+			converter.printHelper(sWrapper.reactionId+"-outward", sWrapper.outwardArcs.size());
+			converter.printHelper(sWrapper.reactionId+"-undirected", sWrapper.undirectedArcs.size());
+			converter.printHelper(sWrapper.reactionId+"-bidirected", sWrapper.bidirectedArcs.size());
+			converter.debugMode = 0;
+		}
+	}
+	
+	public void createDefaultCompartment(Model modelObject) {
+		String compartmentId = "Compartment_01";
+		Compartment compartment = new Compartment(compartmentId);
+		modelObject.getListOfCompartments().add(compartment);
+		
+		for (Species species: modelObject.getListOfSpecies()){
+			species.setCompartment(compartment);	
+		}
+	}
+		
+	public void renderReferenceGlyphs(LocalRenderInformation localRenderInformation, SWrapperReactionGlyph sWrapperReactionGlyph) {
+		for (String arcKey : sWrapperReactionGlyph.referenceGlyphs.keySet()){
+			System.out.println("[===renderReferenceGlyphs] "+sWrapperReactionGlyph.reactionId+"===>"+arcKey);
+			ReferenceGlyph referenceGlyph = sWrapperReactionGlyph.referenceGlyphs.get(arcKey);
+			
+			//temp
+			Arc arc = sWrapperReactionGlyph.inwardArcs.get(arcKey);
+			if (arc == null){arc = sWrapperReactionGlyph.outwardArcs.get(arcKey);}
+			
+			createStyle(localRenderInformation, referenceGlyph, arc);
+		}		
+	}
+	
+	public void renderGeneralGlyphs(SWrapperModel sWrapperModel) {
+		//todo: generalGlyphs as reactions (for a process node) or species (for a logic operator)?
+		// as reactions might not work
+		SBGNML2SBMLRender renderer = new SBGNML2SBMLRender(sWrapperModel.getModel());
+		
+		//LocalRenderInformation localRenderInfo = renderer.listOfLocalRenderInformation.get(0);
+		renderer.localRenderInformation = new LocalRenderInformation("LocalRenderInformation_01");
+		renderer.renderLayoutPlugin.addLocalRenderInformation(renderer.localRenderInformation);
+		renderer.listOfLineEndings = this.listOfLineEndings;
+		
+		for (LineEnding lineEnding: renderer.listOfLineEndings) {System.out.println("[renderGeneralGlyphs] lineEnding "+lineEnding.getId());}
+		
+		for (SWrapperReactionGlyph sWrapperReactionGlyph : sWrapperModel.getListOfWrapperReactionGlyphs()){
+			if (!sWrapperReactionGlyph.isGeneralGlyph){
+				continue;
+			}
+			createStyle(renderer.localRenderInformation, sWrapperReactionGlyph.generalGlyph, sWrapperReactionGlyph.clazz);
+			renderReferenceGlyphs(renderer.localRenderInformation, sWrapperReactionGlyph);
+		}
+		
+		for (SWrapperReactionGlyph sWrapperReactionGlyph : sWrapperModel.getListOfWrapperReactionGlyphs()){
+			if (sWrapperReactionGlyph.isGeneralGlyph){
+				continue;
+			}
+			createStyle(renderer.localRenderInformation, sWrapperReactionGlyph.reactionGlyph, sWrapperReactionGlyph.clazz);
+			renderReferenceGlyphs(renderer.localRenderInformation, sWrapperReactionGlyph);
+		}
+		
+		for (SWrapperSpeciesGlyph sWrapperSpeciesGlyph : sWrapperModel.getListOfWrapperSpeciesGlyphs()){
+			createStyle(renderer.localRenderInformation, sWrapperSpeciesGlyph.speciesGlyph, sWrapperSpeciesGlyph.clazz);
+		}
+	}
 
-//	public void example_04(File inputFile) {
-//		Sbgn sbgnObject;
-//		Map map = null;
-//		try {
-//			sbgnObject = SbgnUtil.readFromFile(inputFile);
-//			map = sbgnObject.getMap();
-//		} catch (JAXBException e) {
-//			e.printStackTrace();
-//		}		
-//		
-//		List<Glyph> listOfGlyphs = map.getGlyph();
-//		List<Arc> lisOfArcs = map.getArc();
-//		
-//		for (Glyph glyph: listOfGlyphs) {
-//			
-//		}
-//	}
+	public void createStyle(LocalRenderInformation localRenderInfo, GraphicalObject generalGlyph, String clazz) {
+		RenderGroup renderGroup;
+		LocalStyle localStyle;
+		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin;
+		
+		
+		String styleId = "LocalStyle_" + generalGlyph.getId();
+		renderGroup = new RenderGroup(layout.getLevel(), layout.getVersion());
+		initializeDefaultRenderGroup(renderGroup);
+		localStyle = new LocalStyle(styleId, layout.getLevel(), layout.getVersion(), renderGroup);
+		localRenderInfo.addLocalStyle(localStyle);
+		localStyle.getRoleList().add(styleId);
+		
+		renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) generalGlyph.getPlugin(RenderConstants.shortLabel);
+		renderGraphicalObjectPlugin.setObjectRole(styleId);		
+				
+		Image image = createImage(generalGlyph, clazz);
+		
+		renderGroup.addElement(image);		
+	}
+	
+	public void createStyle(LocalRenderInformation localRenderInfo, ReferenceGlyph generalGlyph, Arc arc) {
+		RenderGroup renderGroup;
+		LocalStyle localStyle;
+		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin;
+		
+		
+		String styleId = "LocalStyle_" + generalGlyph.getId();
+		renderGroup = new RenderGroup(layout.getLevel(), layout.getVersion());
+		initializeDefaultRenderGroup(renderGroup);
+		localStyle = new LocalStyle(styleId, layout.getLevel(), layout.getVersion(), renderGroup);
+		localRenderInfo.addLocalStyle(localStyle);
+		localStyle.getRoleList().add(styleId);
+		
+		renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) generalGlyph.getPlugin(RenderConstants.shortLabel);
+		renderGraphicalObjectPlugin.setObjectRole(styleId);		
+		
+		System.out.println("createStyle "+ this.listOfLineEndings.size());
+		
+		if (arc.getClazz().equals("catalysis")){
+			//String endHead = this.listOfLineEndings.get("catalysisHead").getId();
+			renderGroup.setEndHead("catalysisHead");			
+		}
+		if (arc.getClazz().equals("production")){
+			LineEnding lineEnding = this.listOfLineEndings.get("productionHead");
+			renderGroup.setEndHead("productionHead");			
+		}
+		
+	}	
+	
+	public Image createImage(GraphicalObject generalGlyph, String clazz){
+		Image image = new Image("Image_" + generalGlyph.getId());
+		image.setX(0);
+		image.setX(0);
+		image.setWidth(100);
+		image.setHeight(100);
+		image.setAbsoluteX(false);
+		image.setAbsoluteY(false);		
+		image.setAbsoluteWidth(false);
+		image.setAbsoluteHeight(false);	
+		
+		
+		// todo: horizontal or vertical?
+		if (clazz.equals("or")){
+			image.setHref("or-glyph.png");	
+		}
+		
+		if (clazz.equals("process")){
+			image.setHref("process-glyph.png");	
+		} 
+		if (clazz.equals("macromolecule")){
+			image.setHref("macromolecule-glyph.png");	
+		}
+		
+		if (clazz.equals("simple chemical")){
+			image.setHref("simple-chemical-glyph.png");	
+		} 
+		
+		return image;
+	}
+	
+	public Model example_04(Sbgn sbgnObject, ListOf<LineEnding> listOfLineEndings) {
+
+		Map map = sbgnObject.getMap();		
+		
+		converter = new SBGNML2SBML_GSOC2017(map);
+		converter.convertToSBML();
+		
+		converter.debugMode = 1;
+//		converter.printHelper("example_04", converter.sWrapperModel.getListOfWrapperCompartmentGlyphs().size());
+//		converter.printHelper("example_04", converter.sWrapperModel.getListOfWrapperReactionGlyphs().size());
+//		converter.printHelper("example_04", converter.sWrapperModel.getListOfWrapperSpeciesGlyphs().size());
+		converter.printHelper("example_04 listOfLineEndings",listOfLineEndings.size());
+		converter.debugMode = 0;
+		
+		displayReactionGlyphInfo();
+		
+		this.listOfLineEndings = listOfLineEndings;
+		createDefaultCompartment(converter.sWrapperModel.getModel());
+		renderGeneralGlyphs(converter.sWrapperModel);
+		
+		return converter.model;
+	}
 	
 	public void createColourDefinitions() {
 		ColorDefinition colorDefinition;
@@ -377,15 +538,16 @@ public class SBGNML2SBMLRender {
 		return document;
 	}		
 	
-	public static void main(String[] args) {
+	public void runExample_01(){
 		String sbmlFileNameOutput;
-		File inputFile;
 		File outputFile;
-		List<String> testFiles = new ArrayList<String>();
+
 		
 		Properties properties = new Properties();	
 		InputStream inputProperties;	
 		SBMLDocument sbmlDocument;
+		SBGNML2SBMLRender renderer = new SBGNML2SBMLRender();
+		SBMLWriter sbmlWriter = new SBMLWriter();
 	
 		try {
 			inputProperties = new FileInputStream("config_unittest.properties");
@@ -395,33 +557,56 @@ public class SBGNML2SBMLRender {
 		}
 		
 		String examplesDirectory = properties.getProperty("sbgnml2sbml.examples.path");
+		
 		//testFiles.add(examplesDirectory + "Render_example_01.xml");
 		sbmlFileNameOutput = examplesDirectory + "Render_example_01.xml";
 		outputFile = new File(sbmlFileNameOutput);	
 		
-		SBGNML2SBMLRender renderer = new SBGNML2SBMLRender();
+		renderer = new SBGNML2SBMLRender();
 		//renderer.example_01();	
 		
 		sbmlDocument = new SBMLDocument(3, 1);
 		sbmlDocument.setModel(renderer.model);
 		
 		renderer.layout.setDimensions(renderer.dimensions);
-		SBMLWriter sbmlWriter = new SBMLWriter();
+		sbmlWriter = new SBMLWriter();
 		try {
 			sbmlWriter.writeSBML(sbmlDocument, outputFile);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}			
+		}				
+	}
+	public static Model runExample_02(){
+		String sbmlFileNameOutput;
+		String sbmlFileNameInput;
+		File outputFile;
+
+		List<String> testFiles = new ArrayList<String>();
+		
+		Properties properties = new Properties();	
+		InputStream inputProperties;	
+		SBMLDocument sbmlDocument;
+		SBGNML2SBMLRender renderer = new SBGNML2SBMLRender();
+		SBMLWriter sbmlWriter = new SBMLWriter();
+	
+		try {
+			inputProperties = new FileInputStream("config_unittest.properties");
+			properties.load(inputProperties);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		String examplesDirectory = properties.getProperty("sbgnml2sbml.examples.path");
 		
 		sbmlFileNameOutput = examplesDirectory + "Render_example_02.xml";
 		outputFile = new File(sbmlFileNameOutput);		
 		
-		String sbmlFileNameInput = examplesDirectory + "Render_example - Copy.xml";
+		sbmlFileNameInput = examplesDirectory + "Render_example_localRenderOnly.xml";
 		sbmlDocument = renderer.getSBMLDocument(sbmlFileNameInput);
 		
 		renderer = new SBGNML2SBMLRender(sbmlDocument.getModel());
 		Model newModel = null;
-		//newModel = renderer.example_02();	
+		newModel = renderer.example_02();	
 		
 		sbmlDocument = new SBMLDocument(3, 1);
 		sbmlDocument.setModel(newModel);
@@ -430,9 +615,29 @@ public class SBGNML2SBMLRender {
 			sbmlWriter.writeSBML(sbmlDocument, outputFile);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}		
+		}	
 		
+		return newModel;
+	}
+	public void runExample_03(){
+		String sbmlFileNameOutput;
+		File outputFile;
 
+		Properties properties = new Properties();	
+		InputStream inputProperties;	
+		SBMLDocument sbmlDocument;
+		SBGNML2SBMLRender renderer = new SBGNML2SBMLRender();
+		SBMLWriter sbmlWriter = new SBMLWriter();
+	
+		try {
+			inputProperties = new FileInputStream("config_unittest.properties");
+			properties.load(inputProperties);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		String examplesDirectory = properties.getProperty("sbgnml2sbml.examples.path");
+		
 		sbmlFileNameOutput = examplesDirectory + "Render_example_03.xml";
 		outputFile = new File(sbmlFileNameOutput);	
 		
@@ -447,8 +652,45 @@ public class SBGNML2SBMLRender {
 			sbmlWriter.writeSBML(sbmlDocument, outputFile);
 		} catch (Exception e) {
 			e.printStackTrace();
+		}		
+	}
+	public static void runExample_04(Model newModel){
+		String sbmlFileNameOutput;
+		String sbmlFileNameInput;
+		Sbgn sbgn;
+		
+		Properties properties = new Properties();	
+		InputStream inputProperties;	
+		SBGNML2SBMLRender renderer = new SBGNML2SBMLRender();
+		
+		// temp
+		RenderLayoutPlugin renderLayoutPlugin = (RenderLayoutPlugin) ((LayoutModelPlugin) newModel.getPlugin("layout")).getLayout(0).getPlugin(RenderConstants.shortLabel);
+		LocalRenderInformation localRenderInformation = renderLayoutPlugin.getListOfLocalRenderInformation().get(0);
+		ListOf<LineEnding> listOfLineEndings = localRenderInformation.getListOfLineEndings();
+		
+		try {
+			inputProperties = new FileInputStream("config_unittest.properties");
+			properties.load(inputProperties);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		
+		String examplesDirectory = properties.getProperty("sbgnml2sbml.examples.path");
+
+		sbmlFileNameOutput = examplesDirectory + "Render_example_04.xml";
+		sbmlFileNameInput = examplesDirectory + "or-simple.sbgn";
+
+		sbgn = SBGNML2SBML_GSOC2017.readSbgnFile(sbmlFileNameInput);
+		
+		renderer = new SBGNML2SBMLRender();
+		renderer.model = renderer.example_04(sbgn, listOfLineEndings);	
+		
+		SBGNML2SBML_GSOC2017.writeSbgnFile(sbmlFileNameOutput, renderer.model);
+
+	}
+	
+	public static void main(String[] args) {
+
 		// with species reference
 		// with image
 		// use general glyph
@@ -459,24 +701,7 @@ public class SBGNML2SBMLRender {
 		// edit points
 		// bounding box for reaction glyphs
 		
-//		sbmlFileNameOutput = examplesDirectory + "Render_example_04.xml";
-//		outputFile = new File(sbmlFileNameOutput);		
-//		
-//		sbmlFileNameInput = examplesDirectory + "or-simple.sbgn";
-//		sbmlDocument = renderer.getSBMLDocument(sbmlFileNameInput);
-//		
-//		inputFile = new File(sbmlFileNameInput);
-//		renderer = new SBGNML2SBMLRender(sbmlDocument.getModel());
-//		renderer.example_04(inputFile);	
-//		
-//		sbmlDocument = new SBMLDocument(3, 1);
-//		sbmlDocument.setModel(renderer.model);
-//
-//		try {
-//			sbmlWriter.writeSBML(sbmlDocument, outputFile);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}			
+		Model model = runExample_02();
+		runExample_04(model);
 	}
-
 }
