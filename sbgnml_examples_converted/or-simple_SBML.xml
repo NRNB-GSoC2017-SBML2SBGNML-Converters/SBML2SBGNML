@@ -5,6 +5,33 @@
       <layout:layout>
         <render:listOfRenderInformation xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
           <render:renderInformation render:id="LocalRenderInformation_01">
+            <render:listOfLineEndings>
+              <render:lineEnding render:id="productionHead">
+                <layout:boundingBox>
+                  <layout:position layout:x="-10" layout:y="-6"/>
+                  <layout:dimensions layout:height="10" layout:width="14"/>
+                </layout:boundingBox>
+                <render:g render:fill="black" render:stroke="black" render:stroke-width="1.0">
+                  <render:polygon>
+                    <render:listOfElements>
+                      <render:element render:x="0" render:y="0" xsi:type="RenderPoint"/>
+                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
+                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
+                      <render:element render:x="0" render:y="10" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:lineEnding>
+              <render:lineEnding render:id="catalysisHead">
+                <layout:boundingBox>
+                  <layout:position layout:x="0" layout:y="-7"/>
+                  <layout:dimensions layout:height="14" layout:width="14"/>
+                </layout:boundingBox>
+                <render:g render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:rx="50%"/>
+                </render:g>
+              </render:lineEnding>
+            </render:listOfLineEndings>		  
             <render:listOfStyles>
               <render:style id="LocalStyle_glyph4_Glyph" render:roleList="LocalStyle_glyph4_Glyph">
                 <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
@@ -181,10 +208,10 @@
       <compartment id="Compartment_01"/>
     </listOfCompartments>
     <listOfSpecies>
-      <species compartment="Compartment_01" id="glyph5" metaid="bb918f16-b136-456d-b824-33b4851bcc04" name="Subst" sboTerm="SBO:0000247">
+      <species compartment="Compartment_01" id="glyph5" metaid="_50ea85e7-2edb-497e-8b12-1340ebb0bf7a" name="Subst" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#bb918f16-b136-456d-b824-33b4851bcc04">
+	<rdf:Description rdf:about="#_50ea85e7-2edb-497e-8b12-1340ebb0bf7a">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -194,10 +221,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species compartment="Compartment_01" id="glyph6" metaid="bdaecb5a-209b-408d-b0fb-e94c14deaca4" name="Prod" sboTerm="SBO:0000247">
+      <species compartment="Compartment_01" id="glyph6" metaid="e78572f0-61c7-4e57-9634-94457bd53f57" name="Prod" sboTerm="SBO:0000247">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#bdaecb5a-209b-408d-b0fb-e94c14deaca4">
+	<rdf:Description rdf:about="#e78572f0-61c7-4e57-9634-94457bd53f57">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="simple chemical"/>
@@ -207,10 +234,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species compartment="Compartment_01" id="glyph1" metaid="_78e1d92e-fa8d-439b-863d-f4184a6695e0" name="Enzym1" sboTerm="SBO:0000245">
+      <species compartment="Compartment_01" id="glyph1" metaid="_199ed9e5-7df8-404c-90ed-0cd6a1980886" name="Enzym1" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_78e1d92e-fa8d-439b-863d-f4184a6695e0">
+	<rdf:Description rdf:about="#_199ed9e5-7df8-404c-90ed-0cd6a1980886">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>
@@ -220,10 +247,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species compartment="Compartment_01" id="glyph2" metaid="c216e116-831f-4bdb-b8fb-9516516b7022" name="Enzym2" sboTerm="SBO:0000245">
+      <species compartment="Compartment_01" id="glyph2" metaid="f9630a04-a3be-410b-bc77-f5ac0b6979e3" name="Enzym2" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#c216e116-831f-4bdb-b8fb-9516516b7022">
+	<rdf:Description rdf:about="#f9630a04-a3be-410b-bc77-f5ac0b6979e3">
 	<bqbiol:isVersionOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="macromolecule"/>

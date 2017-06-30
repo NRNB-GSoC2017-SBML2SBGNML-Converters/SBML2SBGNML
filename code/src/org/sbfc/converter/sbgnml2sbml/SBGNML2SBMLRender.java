@@ -56,223 +56,11 @@ import org.sbml.jsbml.ext.render.Text;
 import org.sbml.jsbml.ext.render.VTextAnchor;
 
 public class SBGNML2SBMLRender {
-	
-	Model model;
-	Layout layout;
-	LayoutModelPlugin layoutPlugin;
-	RenderLayoutPlugin renderLayoutPlugin;
-	ListOfLocalRenderInformation listOfLocalRenderInformation;
-	LocalRenderInformation localRenderInformation;
-	Dimensions dimensions;
-	ListOf<ColorDefinition> listOfColorDefinitions;
-	ListOf<LineEnding> listOfLineEndings;
-	
-	SBGNML2SBML_GSOC2017 converter;
-	
+
 	public SBGNML2SBMLRender() {
-		model = new Model(3, 1);
-		
-		layoutPlugin = (LayoutModelPlugin) model.getPlugin("layout");
-		layout = layoutPlugin.createLayout();
-		
-		renderLayoutPlugin = (RenderLayoutPlugin) layout.getPlugin(RenderConstants.shortLabel);
-		localRenderInformation = new LocalRenderInformation("LocalRenderInformation_01");
-		renderLayoutPlugin.addLocalRenderInformation(localRenderInformation);		
-		listOfLocalRenderInformation = renderLayoutPlugin.getListOfLocalRenderInformation();
-		
 		createColourDefinitions();
 	}
-	
-	public SBGNML2SBMLRender(Model model) {
-		this.model = model;
 		
-		layoutPlugin = (LayoutModelPlugin) model.getPlugin("layout");
-		layout = layoutPlugin.getLayout(0);
-		
-		renderLayoutPlugin = (RenderLayoutPlugin) layout.getPlugin(RenderConstants.shortLabel);
-			
-		listOfLocalRenderInformation = renderLayoutPlugin.getListOfLocalRenderInformation();
-		localRenderInformation = listOfLocalRenderInformation.get(0);	
-	}
-	
-	public void example_01() {
-		RenderGroup renderGroup;
-		LocalStyle localStyle;
-		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin;
-		
-		
-		String styleId = "LocalStyle_01";
-		renderGroup = new RenderGroup(layout.getLevel(), layout.getVersion());
-		initializeDefaultRenderGroup(renderGroup);
-		localStyle = new LocalStyle(styleId, layout.getLevel(), layout.getVersion(), renderGroup);
-		localRenderInformation.addLocalStyle(localStyle);
-		localStyle.getRoleList().add(styleId);
-		//localStyle.getTypeList();
-		
-		String speciesId = "Species_01";
-		String speciesName = "Protein";
-		Species species = new Species(speciesId, speciesName, 3, 1);
-		model.getListOfSpecies().add(species);
-		
-		String compartmentId = "Compartment_01";
-		Compartment compartment = new Compartment(compartmentId);
-		model.getListOfCompartments().add(compartment);
-		species.setCompartment(compartment);
-		
-		SpeciesGlyph speciesGlyph = layout.createSpeciesGlyph("SpeciesGlyph_01");
-		speciesGlyph.setSpecies(species);
-		BoundingBox boundingBox = new BoundingBox();
-		speciesGlyph.setBoundingBox(boundingBox);
-		Point point = new Point(330, 230, 0, 3, 1);
-		Dimensions dimension = new Dimensions(93, 40, 0, 3, 1);
-		boundingBox.setPosition(point);
-		boundingBox.setDimensions(dimension);
-		renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) speciesGlyph.getPlugin(RenderConstants.shortLabel);
-		renderGraphicalObjectPlugin.setObjectRole(styleId);		
-		//localStyle.getIDList();
-				
-		Rectangle rectangle = createRectangle(0, 0, 90, 100, 10, 10, true, true, true, true, false, false);
-		Ellipse ellipse = createEllipse(90, 50.0, 10.0, false, false, true);
-		Text text1 = createText(-10, -9.6, true, true);
-		text1.setFontFamily(FontFamily.MONOSPACE);
-		text1.setTextAnchor(HTextAnchor.MIDDLE);
-		text1.setVTextAnchor(VTextAnchor.MIDDLE);
-		text1.setName("Protein");
-		Text text2 = createText(-5, -9.6, false, true);
-		text2.setFontFamily(FontFamily.MONOSPACE);
-		text2.setTextAnchor(HTextAnchor.END);
-		text2.setVTextAnchor(VTextAnchor.MIDDLE);	
-		text2.setName("P");
-				
-		renderGroup.addElement(rectangle);
-		renderGroup.addElement(ellipse);
-		renderGroup.addElement(text1);
-		renderGroup.addElement(text2);
-		//localRenderInformation.getListOfLineEndings();
-		
-		Dimensions dimensions = new Dimensions(450, 400, 0, 3, 1);
-		this.dimensions = dimensions;
-		
-	}
-	
-	public Model example_02() {
-		Model newModel = new Model(3, 1);
-		
-		newModel.setListOfCompartments(model.getListOfCompartments());
-		newModel.setListOfSpecies(model.getListOfSpecies());
-		newModel.getListOfSpecies().remove("ATP");
-		newModel.getListOfSpecies().remove("ADP");
-		newModel.setListOfReactions(model.getListOfReactions());
-		newModel.getListOfReactions().remove("Dephosphorylation");
-		newModel.getListOfReactions().get("Phosphorylation").getListOfReactants().remove("SpeciesReference_ATP");
-		newModel.getListOfReactions().get("Phosphorylation").getListOfProducts().remove("SpeciesReference_ADP");
-		
-		LayoutModelPlugin plugin = (LayoutModelPlugin) newModel.getPlugin("layout");
-		Layout newLayout = plugin.createLayout();
-		
-		newLayout.setDimensions(layout.getDimensions());
-		newLayout.setListOfSpeciesGlyphs(layout.getListOfSpeciesGlyphs());
-		newLayout.getListOfSpeciesGlyphs().remove("SpeciesGlyph_ATP");
-		newLayout.getListOfSpeciesGlyphs().remove("SpeciesGlyph_ADP");
-		newLayout.getListOfSpeciesGlyphs().remove("SpeciesGlyph_P");
-
-		newLayout.setListOfReactionGlyphs(layout.getListOfReactionGlyphs());
-		newLayout.getListOfReactionGlyphs().remove("ReactionGlyph_Dephosphorylation");
-		ReactionGlyph reactionGlyph = newLayout.getListOfReactionGlyphs().get(0);
-		reactionGlyph.getListOfSpeciesReferenceGlyphs().remove("SpeciesReferenceGlyph_ATP");
-		reactionGlyph.getListOfSpeciesReferenceGlyphs().remove("SpeciesReferenceGlyph_ADP");
-		reactionGlyph.getListOfSpeciesReferenceGlyphs().remove("SpeciesReferenceGlyph_P");
-
-		newLayout.setListOfTextGlyphs(layout.getListOfTextGlyphs());
-		newLayout.getListOfTextGlyphs().remove("TextGlyph_ATP");
-		newLayout.getListOfTextGlyphs().remove("TextGlyph_ADP");
-		newLayout.getListOfTextGlyphs().remove("TextGlyph_P");
-				
-		RenderLayoutPlugin newRenderLayoutPlugin = (RenderLayoutPlugin) newLayout.getPlugin(RenderConstants.shortLabel);
-		//LocalRenderInformation newLocalRenderInformation = new LocalRenderInformation("LocalRenderInformation_01");
-		//newRenderLayoutPlugin.addLocalRenderInformation(newLocalRenderInformation);			
-		
-		newRenderLayoutPlugin.setListOfLocalRenderInformation(renderLayoutPlugin.getListOfLocalRenderInformation());
-		LocalRenderInformation newLocalRenderInformation = newRenderLayoutPlugin.getListOfLocalRenderInformation().get(0);
-		if (newModel.isSetPlugin("render")) {System.out.println("[" + "NO" + "] " + newLocalRenderInformation.toString());}
-		
-		//...... not done yet
-		
-		return newModel;
-	}	
-	
-	
-	public void example_03() {
-		RenderGroup renderGroup;
-		LocalStyle localStyle;
-		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin;
-		
-		
-		String styleId = "LocalStyle_01";
-		renderGroup = new RenderGroup(layout.getLevel(), layout.getVersion());
-		initializeDefaultRenderGroup(renderGroup);
-		localStyle = new LocalStyle(styleId, layout.getLevel(), layout.getVersion(), renderGroup);
-		localRenderInformation.addLocalStyle(localStyle);
-		localStyle.getRoleList().add(styleId);
-		//localStyle.getTypeList();
-		
-		String speciesId = "Species_01";
-		String speciesName = "Protein";
-		Species species = new Species(speciesId, speciesName, 3, 1);
-		model.getListOfSpecies().add(species);
-		
-		String compartmentId = "Compartment_01";
-		Compartment compartment = new Compartment(compartmentId);
-		model.getListOfCompartments().add(compartment);
-		species.setCompartment(compartment);
-		
-		SpeciesGlyph speciesGlyph = layout.createSpeciesGlyph("SpeciesGlyph_01");
-		speciesGlyph.setSpecies(species);
-		BoundingBox boundingBox = new BoundingBox();
-		speciesGlyph.setBoundingBox(boundingBox);
-		Point point = new Point(330, 230, 0, 3, 1);
-		Dimensions dimension = new Dimensions(93, 40, 0, 3, 1);
-		boundingBox.setPosition(point);
-		boundingBox.setDimensions(dimension);
-		renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) speciesGlyph.getPlugin(RenderConstants.shortLabel);
-		renderGraphicalObjectPlugin.setObjectRole(styleId);		
-		//localStyle.getIDList();
-				
-		//Rectangle rectangle = createRectangle(0, 0, 90, 100, 10, 10, true, true, true, true, false, false);
-		Image image = new Image("Image_01");
-		image.setX(0);
-		image.setX(0);
-		image.setWidth(90);
-		image.setHeight(100);
-		image.setAbsoluteX(false);
-		image.setAbsoluteY(false);		
-		image.setAbsoluteWidth(false);
-		image.setAbsoluteHeight(false);		
-		image.setHref("multimer-1.png");
-		
-		Ellipse ellipse = createEllipse(90, 50.0, 10.0, false, false, true);
-		Text text1 = createText(-10, -9.6, true, true);
-		text1.setFontFamily(FontFamily.MONOSPACE);
-		text1.setTextAnchor(HTextAnchor.MIDDLE);
-		text1.setVTextAnchor(VTextAnchor.MIDDLE);
-		text1.setName("Protein");
-		Text text2 = createText(-5, -9.6, false, true);
-		text2.setFontFamily(FontFamily.MONOSPACE);
-		text2.setTextAnchor(HTextAnchor.END);
-		text2.setVTextAnchor(VTextAnchor.MIDDLE);	
-		text2.setName("P");
-				
-		renderGroup.addElement(image);
-		renderGroup.addElement(ellipse);
-		renderGroup.addElement(text1);
-		renderGroup.addElement(text2);
-		//localRenderInformation.getListOfLineEndings();
-		
-		Dimensions dimensions = new Dimensions(450, 400, 0, 3, 1);
-		this.dimensions = dimensions;
-		
-	}	
-	
 	public void displayReactionGlyphInfo() {
 		for (SWrapperReactionGlyph sWrapper : converter.sWrapperModel.getListOfWrapperReactionGlyphs()){
 			converter.debugMode = 1;
@@ -421,29 +209,6 @@ public class SBGNML2SBMLRender {
 		return image;
 	}
 	
-	public Model example_04(Sbgn sbgnObject, ListOf<LineEnding> listOfLineEndings) {
-
-		Map map = sbgnObject.getMap();		
-		
-		converter = new SBGNML2SBML_GSOC2017(map);
-		converter.convertToSBML();
-		
-		converter.debugMode = 1;
-//		converter.printHelper("example_04", converter.sWrapperModel.getListOfWrapperCompartmentGlyphs().size());
-//		converter.printHelper("example_04", converter.sWrapperModel.getListOfWrapperReactionGlyphs().size());
-//		converter.printHelper("example_04", converter.sWrapperModel.getListOfWrapperSpeciesGlyphs().size());
-		converter.printHelper("example_04 listOfLineEndings",listOfLineEndings.size());
-		converter.debugMode = 0;
-		
-		displayReactionGlyphInfo();
-		
-		this.listOfLineEndings = listOfLineEndings;
-		createDefaultCompartment(converter.sWrapperModel.getModel());
-		renderGeneralGlyphs(converter.sWrapperModel);
-		
-		return converter.model;
-	}
-	
 	public void createColourDefinitions() {
 		ColorDefinition colorDefinition;
 		colorDefinition = new ColorDefinition(layout.getLevel(), layout.getVersion());
@@ -522,138 +287,29 @@ public class SBGNML2SBMLRender {
 		return text;
 	}
 
-	public SBMLDocument getSBMLDocument(String sbmlFileName) {
+	public Model example_04(Sbgn sbgnObject, ListOf<LineEnding> listOfLineEndings) {
 
-		SBMLDocument document = null;
-		SBMLReader reader = new SBMLReader();
-		try {
-			document = reader.readSBML(sbmlFileName);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (XMLStreamException e) {
-			e.printStackTrace();
-		}
-
-		return document;
-	}		
-	
-	public void runExample_01(){
-		String sbmlFileNameOutput;
-		File outputFile;
-
+		Map map = sbgnObject.getMap();		
 		
-		Properties properties = new Properties();	
-		InputStream inputProperties;	
-		SBMLDocument sbmlDocument;
-		SBGNML2SBMLRender renderer = new SBGNML2SBMLRender();
-		SBMLWriter sbmlWriter = new SBMLWriter();
-	
-		try {
-			inputProperties = new FileInputStream("config_unittest.properties");
-			properties.load(inputProperties);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		converter = new SBGNML2SBML_GSOC2017(map);
+		converter.convertToSBML();
 		
-		String examplesDirectory = properties.getProperty("sbgnml2sbml.examples.path");
+		converter.debugMode = 1;
+//		converter.printHelper("example_04", converter.sWrapperModel.getListOfWrapperCompartmentGlyphs().size());
+//		converter.printHelper("example_04", converter.sWrapperModel.getListOfWrapperReactionGlyphs().size());
+//		converter.printHelper("example_04", converter.sWrapperModel.getListOfWrapperSpeciesGlyphs().size());
+		converter.printHelper("example_04 listOfLineEndings",listOfLineEndings.size());
+		converter.debugMode = 0;
 		
-		//testFiles.add(examplesDirectory + "Render_example_01.xml");
-		sbmlFileNameOutput = examplesDirectory + "Render_example_01.xml";
-		outputFile = new File(sbmlFileNameOutput);	
+		displayReactionGlyphInfo();
 		
-		renderer = new SBGNML2SBMLRender();
-		//renderer.example_01();	
+		this.listOfLineEndings = listOfLineEndings;
+		createDefaultCompartment(converter.sWrapperModel.getModel());
+		renderGeneralGlyphs(converter.sWrapperModel);
 		
-		sbmlDocument = new SBMLDocument(3, 1);
-		sbmlDocument.setModel(renderer.model);
-		
-		renderer.layout.setDimensions(renderer.dimensions);
-		sbmlWriter = new SBMLWriter();
-		try {
-			sbmlWriter.writeSBML(sbmlDocument, outputFile);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}				
+		return converter.model;
 	}
-	public static Model runExample_02(){
-		String sbmlFileNameOutput;
-		String sbmlFileNameInput;
-		File outputFile;
-
-		List<String> testFiles = new ArrayList<String>();
 		
-		Properties properties = new Properties();	
-		InputStream inputProperties;	
-		SBMLDocument sbmlDocument;
-		SBGNML2SBMLRender renderer = new SBGNML2SBMLRender();
-		SBMLWriter sbmlWriter = new SBMLWriter();
-	
-		try {
-			inputProperties = new FileInputStream("config_unittest.properties");
-			properties.load(inputProperties);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		String examplesDirectory = properties.getProperty("sbgnml2sbml.examples.path");
-		
-		sbmlFileNameOutput = examplesDirectory + "Render_example_02.xml";
-		outputFile = new File(sbmlFileNameOutput);		
-		
-		sbmlFileNameInput = examplesDirectory + "Render_example_localRenderOnly.xml";
-		sbmlDocument = renderer.getSBMLDocument(sbmlFileNameInput);
-		
-		renderer = new SBGNML2SBMLRender(sbmlDocument.getModel());
-		Model newModel = null;
-		newModel = renderer.example_02();	
-		
-		sbmlDocument = new SBMLDocument(3, 1);
-		sbmlDocument.setModel(newModel);
-
-		try {
-			sbmlWriter.writeSBML(sbmlDocument, outputFile);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}	
-		
-		return newModel;
-	}
-	public void runExample_03(){
-		String sbmlFileNameOutput;
-		File outputFile;
-
-		Properties properties = new Properties();	
-		InputStream inputProperties;	
-		SBMLDocument sbmlDocument;
-		SBGNML2SBMLRender renderer = new SBGNML2SBMLRender();
-		SBMLWriter sbmlWriter = new SBMLWriter();
-	
-		try {
-			inputProperties = new FileInputStream("config_unittest.properties");
-			properties.load(inputProperties);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		String examplesDirectory = properties.getProperty("sbgnml2sbml.examples.path");
-		
-		sbmlFileNameOutput = examplesDirectory + "Render_example_03.xml";
-		outputFile = new File(sbmlFileNameOutput);	
-		
-		renderer = new SBGNML2SBMLRender();
-		//renderer.example_03();	
-		
-		sbmlDocument = new SBMLDocument(3, 1);
-		sbmlDocument.setModel(renderer.model);
-		
-		renderer.layout.setDimensions(renderer.dimensions);
-		try {
-			sbmlWriter.writeSBML(sbmlDocument, outputFile);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}		
-	}
 	public static void runExample_04(Model newModel){
 		String sbmlFileNameOutput;
 		String sbmlFileNameInput;

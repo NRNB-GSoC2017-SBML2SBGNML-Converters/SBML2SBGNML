@@ -1,6 +1,7 @@
 package org.sbfc.converter.sbgnml2sbml;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.sbgn.bindings.Arc;
 import org.sbgn.bindings.Glyph;
@@ -8,6 +9,7 @@ import org.sbml.jsbml.Reaction;
 import org.sbml.jsbml.ext.layout.GeneralGlyph;
 import org.sbml.jsbml.ext.layout.ReactionGlyph;
 import org.sbml.jsbml.ext.layout.ReferenceGlyph;
+import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 
 public class SWrapperReactionGlyph {
 	String reactionId;
@@ -23,6 +25,7 @@ public class SWrapperReactionGlyph {
 	HashMap<String, Arc> bidirectedArcs = new HashMap<String, Arc>();
 	
 	HashMap<String, ReferenceGlyph> referenceGlyphs = new HashMap<String, ReferenceGlyph>();
+	HashMap<String, SpeciesReferenceGlyph> speciesReferenceGlyphs = new HashMap<String, SpeciesReferenceGlyph>();
 	
 	SWrapperReactionGlyph(Reaction reaction, ReactionGlyph reactionGlyph, Glyph glyph) {
 		reactionId = reaction.getId();
@@ -53,5 +56,9 @@ public class SWrapperReactionGlyph {
 	
 	void addReferenceGlyph(String id, ReferenceGlyph referenceGlyph){
 		referenceGlyphs.put(id, referenceGlyph);
+	}
+	
+	void addSpeciesReferenceGlyph(String id, SpeciesReferenceGlyph speciesReferenceGlyph){
+		speciesReferenceGlyphs.put(id, speciesReferenceGlyph);
 	}
 }

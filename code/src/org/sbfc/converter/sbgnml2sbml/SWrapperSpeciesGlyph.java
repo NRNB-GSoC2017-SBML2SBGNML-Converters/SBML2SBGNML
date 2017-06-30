@@ -1,7 +1,10 @@
 package org.sbfc.converter.sbgnml2sbml;
 
+import java.util.List;
+
 import org.sbgn.bindings.Glyph;
 import org.sbml.jsbml.Species;
+import org.sbml.jsbml.ext.layout.GeneralGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.TextGlyph;
 
@@ -18,6 +21,7 @@ public class SWrapperSpeciesGlyph {
 	boolean hasLabel = false;
 	String labelText = "";
 	boolean hasAuxillaryUnits = false;
+	List<GeneralGlyph> listOfGeneralGlyphs;
 	
 	TextGlyph textGlyph;		
 	
@@ -26,4 +30,8 @@ public class SWrapperSpeciesGlyph {
 		this.speciesGlyph = speciesGlyph;		
 		this.clazz = glyph.getClazz();
 	}	
+
+	public void setListOfGeneralGlyphs(List<GeneralGlyph> listOfGeneralGlyphs) {
+		this.listOfGeneralGlyphs = listOfGeneralGlyphs;
+	}
 }
