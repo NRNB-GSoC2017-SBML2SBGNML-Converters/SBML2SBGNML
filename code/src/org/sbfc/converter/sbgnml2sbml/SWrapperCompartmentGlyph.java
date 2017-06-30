@@ -16,10 +16,12 @@ public class SWrapperCompartmentGlyph {
 	
 	Compartment compartment;
 	CompartmentGlyph compartmentGlyph;
+	Glyph glyph;
 	
-	SWrapperCompartmentGlyph(Compartment compartment, CompartmentGlyph compartmentGlyph) {
+	SWrapperCompartmentGlyph(Compartment compartment, CompartmentGlyph compartmentGlyph, Glyph glyph) {
 		this.compartment = compartment;
 		this.compartmentGlyph = compartmentGlyph;		
+		this.glyph = glyph;
 	}
 	
 }

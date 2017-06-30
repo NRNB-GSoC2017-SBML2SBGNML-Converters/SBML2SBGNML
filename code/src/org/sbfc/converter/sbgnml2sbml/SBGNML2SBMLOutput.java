@@ -5,12 +5,16 @@ import java.util.HashMap;
 import org.sbgn.bindings.Arc;
 import org.sbgn.bindings.Glyph;
 import org.sbgn.bindings.Map;
+import org.sbml.jsbml.Compartment;
 import org.sbml.jsbml.ListOf;
 import org.sbml.jsbml.Model;
 import org.sbml.jsbml.Reaction;
 import org.sbml.jsbml.Species;
 import org.sbml.jsbml.ext.layout.BoundingBox;
+import org.sbml.jsbml.ext.layout.CompartmentGlyph;
 import org.sbml.jsbml.ext.layout.Dimensions;
+import org.sbml.jsbml.ext.layout.GeneralGlyph;
+import org.sbml.jsbml.ext.layout.GraphicalObject;
 import org.sbml.jsbml.ext.layout.Layout;
 import org.sbml.jsbml.ext.layout.LayoutModelPlugin;
 import org.sbml.jsbml.ext.layout.Point;
@@ -210,6 +214,22 @@ public class SBGNML2SBMLOutput {
 	}
 	
 	public void addSpeciesReferenceGlyph() {
+		
+	}
+	
+	public void addCompartment(Compartment compartment) {
+		ListOf<Compartment> listOfCompartment = model.getListOfCompartments();
+		listOfCompartment.add(compartment);
+	}
+	
+	public void addCompartmentGlyph(CompartmentGlyph compartmentGlyph) {
+		ListOf<CompartmentGlyph> listOfCompartmentGlyphs = layout.getListOfCompartmentGlyphs();	
+		listOfCompartmentGlyphs.add(compartmentGlyph);
+	}
+	
+	public void addGeneralGlyph(GeneralGlyph generalGlyph) {
+		ListOf<GraphicalObject> listOfGeneralGlyphs = layout.getListOfAdditionalGraphicalObjects();
+		listOfGeneralGlyphs.add(generalGlyph);
 		
 	}
 	

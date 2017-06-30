@@ -24,19 +24,20 @@ public class SWrapperModel {
 	HashMap<String, Glyph> logicOperators;
 	
 	// see code below for definition of inwardArcs, outwardArcs, and undirectedArcs
-	HashMap<String, Arc> inwardArcs;
-	HashMap<String, Arc> outwardArcs;
-	HashMap<String, Arc> undirectedArcs;
+	HashMap<String, Arc> glyphToPortArcs;
+	HashMap<String, Arc> portToGlyphArcs;
+	HashMap<String, Arc> glyphToGlyphArcs;
+	HashMap<String, Arc> logicArcs;
 	
-	List<SWrapperSpeciesGlyph> listOfWrapperSpeciesGlyphs;
-	List<SWrapperCompartmentGlyph> listOfWrapperCompartmentGlyphs;
-	List<SWrapperReactionGlyph> listOfWrapperReactionGlyphs;
-	List<SWrapperSpeciesReferenceGlyph> listOfWrapperSpeciesReferenceGlyphs;
-	List<SWrapperGeneralGlyph> listOfWrapperGeneralGlyphs;
+	HashMap<String, SWrapperSpeciesGlyph> listOfWrapperSpeciesGlyphs;
+	HashMap<String, SWrapperCompartmentGlyph> listOfWrapperCompartmentGlyphs;
+	HashMap<String, SWrapperReactionGlyph> listOfWrapperReactionGlyphs;
+	HashMap<String, SWrapperSpeciesReferenceGlyph> listOfWrapperSpeciesReferenceGlyphs;
+	HashMap<String, SWrapperGeneralGlyph> listOfWrapperGeneralGlyphs;
 	
 	Model model;
 	
-	HashMap<String, String> portToGlyphMap = new HashMap<String, String>();
+	HashMap<String, String> portGlyphMap = new HashMap<String, String>();
 	
 	// keep track of how many Arcs are in Sbgn
 	int numberOfArcs;
@@ -49,17 +50,19 @@ public class SWrapperModel {
 		this.compartments = new HashMap<String, Glyph>();
 		this.logicOperators = new HashMap<String, Glyph>();
 		
-		this.inwardArcs = new HashMap<String, Arc>();
-		this.outwardArcs = new HashMap<String, Arc>();
-		this.undirectedArcs = new HashMap<String, Arc>();			
-		
-		this.listOfWrapperSpeciesGlyphs = new ArrayList<SWrapperSpeciesGlyph>();
-		this.listOfWrapperCompartmentGlyphs = new ArrayList<SWrapperCompartmentGlyph>();
-		this.listOfWrapperReactionGlyphs = new ArrayList<SWrapperReactionGlyph>();
-		this.listOfWrapperSpeciesReferenceGlyphs = new ArrayList<SWrapperSpeciesReferenceGlyph>();
-		this.listOfWrapperGeneralGlyphs = new ArrayList<SWrapperGeneralGlyph>();
+		this.glyphToPortArcs = new HashMap<String, Arc>();
+		this.portToGlyphArcs = new HashMap<String, Arc>();
+		this.glyphToGlyphArcs = new HashMap<String, Arc>();
+		this.logicArcs = new HashMap<String, Arc>();
+			
+		this.listOfWrapperSpeciesGlyphs = new HashMap<String, SWrapperSpeciesGlyph>();
+		this.listOfWrapperCompartmentGlyphs = new HashMap<String, SWrapperCompartmentGlyph>();
+		this.listOfWrapperReactionGlyphs = new HashMap<String, SWrapperReactionGlyph>();
+		this.listOfWrapperSpeciesReferenceGlyphs = new HashMap<String, SWrapperSpeciesReferenceGlyph>();
+		this.listOfWrapperGeneralGlyphs = new HashMap<String, SWrapperGeneralGlyph>();
 		
 		this.model = model;
+		this.map = map;
 		
 		this.numberOfArcs = 0;
 		this.numberOfGlyphs = 0;	
@@ -69,15 +72,28 @@ public class SWrapperModel {
 		return model;
 	}
 	
-//	public List<SWrapperSpeciesGlyph> getListOfWrapperSpeciesGlyphs() {
-//		return listOfWrapperSpeciesGlyphs;
-//	}
-//	public List<SWrapperCompartmentGlyph> getListOfWrapperCompartmentGlyphs() {
-//		return listOfWrapperCompartmentGlyphs;
-//	}
-//	public List<SWrapperReactionGlyph> getListOfWrapperReactionGlyphs() {
-//		return listOfWrapperReactionGlyphs;
-//	}
+	public SWrapperSpeciesGlyph getWrapperSpeciesGlyph(String speciesId) {
+		return listOfWrapperSpeciesGlyphs.get(speciesId);
+	}
+	public SWrapperCompartmentGlyph getWrapperCompartmentGlyph(String compartmentId) {
+		return listOfWrapperCompartmentGlyphs.get(compartmentId);
+	}
+	public SWrapperReactionGlyph getWrapperReactionGlyph(String reactionId) {
+		return listOfWrapperReactionGlyphs.get(reactionId);
+	}
+	
+	public void addSWrapperSpeciesGlyph(String speciesId, SWrapperSpeciesGlyph sWrapperSpeciesGlyph){
+		listOfWrapperSpeciesGlyphs.put(speciesId, sWrapperSpeciesGlyph);
+	}
+	public void addSWrapperCompartmentGlyph(String compartmentId, SWrapperCompartmentGlyph sWrapperCompartmentGlyph){
+		listOfWrapperCompartmentGlyphs.put(compartmentId, sWrapperCompartmentGlyph);
+	}
+	public void addSWrapperReactionGlyph(String reactionId, SWrapperReactionGlyph sWrapperReactionGlyph){
+		listOfWrapperReactionGlyphs.put(reactionId, sWrapperReactionGlyph);
+	}
+	public void addWrapperGeneralGlyph(String glyphId, SWrapperGeneralGlyph sWrapperGeneralGlyph){
+		listOfWrapperGeneralGlyphs.put(glyphId, sWrapperGeneralGlyph);
+	}
 	
 	private String checkGlyphId(String id, HashMap<String, Glyph> container) {
 		numberOfGlyphs++;	
@@ -106,52 +122,54 @@ public class SWrapperModel {
 	public void addSbgnProcessNode(String id, Glyph glyph) {
 		id = checkGlyphId(id, processNodes);
 		processNodes.put(id, glyph);
-		updatePortToGlyphMap(glyph);
+		updatePortGlyphMap(glyph);
 	}
 	
 	public void addSbgnCompartment(String id, Glyph glyph) {
 		id = checkGlyphId(id, compartments);
 		compartments.put(id, glyph);
-		updatePortToGlyphMap(glyph);
+		updatePortGlyphMap(glyph);
 	}
 	
 	public void addSbgnEntityPoolNode(String id, Glyph glyph) {
 		id = checkGlyphId(id, entityPoolNodes);
 		entityPoolNodes.put(id, glyph);
-		updatePortToGlyphMap(glyph);		
+		updatePortGlyphMap(glyph);		
 	}
 	
 	public void addSbgnLogicOperator(String id, Glyph glyph) {
 		id = checkGlyphId(id, logicOperators);
 		logicOperators.put(id, glyph);
-		updatePortToGlyphMap(glyph);		
+		updatePortGlyphMap(glyph);		
 	}
 	
-	public void addSbgnUndirectedArc(String id, Arc arc) {
-		id = checkArcId(id, undirectedArcs);
-		undirectedArcs.put(id, arc);
+	public void addGlyphToGlyphArc(String id, Arc arc) {
+		id = checkArcId(id, glyphToGlyphArcs);
+		glyphToGlyphArcs.put(id, arc);
+	}
+	public void addGlyphToPortArc(String id, Arc arc) {
+		id = checkArcId(id, glyphToPortArcs);
+		glyphToPortArcs.put(id, arc);		
+	}
+	public void addPortToGlyphArc(String id, Arc arc) {
+		id = checkArcId(id, portToGlyphArcs);
+		portToGlyphArcs.put(id, arc);		
+	}
+	public void addLogicArc(String id, Arc arc) {
+		id = checkArcId(id, logicArcs);
+		logicArcs.put(id, arc);
 	}
 	
-	public void addSbgnInwardArc(String id, Arc arc) {
-		id = checkArcId(id, inwardArcs);
-		inwardArcs.put(id, arc);		
-	}
-	
-	public void addSbgnOutwardArc(String id, Arc arc) {
-		id = checkArcId(id, outwardArcs);
-		outwardArcs.put(id, arc);		
-	}
-	
-	public void updatePortToGlyphMap(Glyph glyph){
+	public void updatePortGlyphMap(Glyph glyph){
 		List<Port> listOfPorts;
 		listOfPorts = glyph.getPort();
 		for (Port port: listOfPorts) {
-			portToGlyphMap.put(port.getId(), glyph.getId());
+			portGlyphMap.put(port.getId(), glyph.getId());
 		}
 	}
 	
 	public String findGlyphFromPort(Port port) {
-		return portToGlyphMap.get(port.getId());
+		return portGlyphMap.get(port.getId());
 	}
 	
 	

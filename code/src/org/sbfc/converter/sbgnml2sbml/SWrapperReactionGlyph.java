@@ -15,50 +15,32 @@ public class SWrapperReactionGlyph {
 	String reactionId;
 	Reaction reaction;
 	ReactionGlyph reactionGlyph;
-	GeneralGlyph generalGlyph;
-	boolean isGeneralGlyph = false;
 	String clazz;
 	
-	HashMap<String, Arc> inwardArcs = new HashMap<String, Arc>();
-	HashMap<String, Arc> outwardArcs = new HashMap<String, Arc>();
-	HashMap<String, Arc> undirectedArcs = new HashMap<String, Arc>();
-	HashMap<String, Arc> bidirectedArcs = new HashMap<String, Arc>();
-	
-	HashMap<String, ReferenceGlyph> referenceGlyphs = new HashMap<String, ReferenceGlyph>();
+	HashMap<String, Arc> glyphToPortArcs = new HashMap<String, Arc>();
+	HashMap<String, Arc> portToGlyphArcs = new HashMap<String, Arc>();
+	HashMap<String, Arc> glyphToGlyphArcs = new HashMap<String, Arc>();
+
 	HashMap<String, SpeciesReferenceGlyph> speciesReferenceGlyphs = new HashMap<String, SpeciesReferenceGlyph>();
 	
 	SWrapperReactionGlyph(Reaction reaction, ReactionGlyph reactionGlyph, Glyph glyph) {
-		reactionId = reaction.getId();
+		this.reactionId = reaction.getId();
 		this.reaction = reaction;
 		this.reactionGlyph = reactionGlyph;	
-		clazz = glyph.getClazz();
+		this.clazz = glyph.getClazz();
 	}		
-	
-	SWrapperReactionGlyph(Reaction reaction, GeneralGlyph generalGlyph, Glyph glyph) {
-		reactionId = reaction.getId();
-		this.reaction = reaction;
-		this.generalGlyph = generalGlyph;	
-		this.isGeneralGlyph = true;
-		clazz = glyph.getClazz();
-	}		
-	
-	void addArc(String id, Arc arc, String type) {
-		if (type == "inward"){
-			inwardArcs.put(id, arc);
-		} else if (type == "outward"){
-			outwardArcs.put(id, arc);
-		} else if (type == "undirected"){
-			undirectedArcs.put(id, arc);
-		} else if (type == "bidirected"){
-			bidirectedArcs.put(id, arc);
+
+	void addArc(String arcId, Arc arc, String type) {
+		if (type == "glyphToPort"){
+			glyphToPortArcs.put(arcId, arc);
+		} else if (type == "portToGlyph"){
+			portToGlyphArcs.put(arcId, arc);
+		} else if (type == "glyphToGlyph"){
+			glyphToGlyphArcs.put(arcId, arc);
 		} else {}
 	}
-	
-	void addReferenceGlyph(String id, ReferenceGlyph referenceGlyph){
-		referenceGlyphs.put(id, referenceGlyph);
-	}
-	
-	void addSpeciesReferenceGlyph(String id, SpeciesReferenceGlyph speciesReferenceGlyph){
-		speciesReferenceGlyphs.put(id, speciesReferenceGlyph);
+		
+	void addSpeciesReferenceGlyph(String arcId, SpeciesReferenceGlyph speciesReferenceGlyph){
+		speciesReferenceGlyphs.put(arcId, speciesReferenceGlyph);
 	}
 }

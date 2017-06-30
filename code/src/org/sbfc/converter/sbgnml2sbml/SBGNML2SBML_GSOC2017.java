@@ -80,41 +80,6 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		sUtil = new SBGNML2SBMLUtil(3, 1);
 		sRender = new SBGNML2SBMLRender();
 		sWrapperModel = new SWrapperModel(sOutput.getModel(), map);
-
-		// Go over every Glyph or Arc in the libSBGN Map, classify them, and 
-		// store the Glyph or Arc in the appropriate container in SWrapperModel 
-		List<Glyph> listOfGlyphs = map.getGlyph();
-		List<Arc> listOfArcs = map.getArc();
-		String id;
-		String clazz; 		
-		
-		for (Glyph glyph: listOfGlyphs) {
-			id = glyph.getId();
-			clazz = glyph.getClazz();
-
-			if (sUtil.isProcessNode(clazz)) {
-				sWrapperModel.addSbgnProcessNode(id, glyph);
-			} else if (sUtil.isCompartment(clazz)) {
-				sWrapperModel.addSbgnCompartment(id, glyph);
-			} else if (sUtil.isEntityPoolNode(clazz)) {
-				sWrapperModel.addSbgnEntityPoolNode(id, glyph);
-			} else if (sUtil.isLogicOperator(clazz)) {
-				sWrapperModel.addSbgnLogicOperator(id, glyph);
-			}
-		}
-
-		for (Arc arc: listOfArcs) {
-			id = arc.getId();
-			clazz = arc.getClazz();
-			
-			if (sUtil.isUndirectedArc(arc)) {
-				sWrapperModel.addSbgnUndirectedArc(id, arc);
-			} else if (sUtil.isInwardArc(arc)) {
-				sWrapperModel.addSbgnInwardArc(id, arc);
-			} else if (sUtil.isOutwardArc(arc)) {
-				sWrapperModel.addSbgnOutwardArc(id, arc);
-			} 		
-		}
 	}
 
 	/**
@@ -124,10 +89,19 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	 * is mapped to elements of the <code>Model</code>.
 	 */	
 	public void convertToSBML() {
+		// Go over every Glyph or Arc in the libSBGN Map, classify them, and 
+		// store the Glyph or Arc in the appropriate container in SWrapperModel 
+		List<Glyph> listOfGlyphs = sWrapperModel.map.getGlyph();
+		List<Arc> listOfArcs = sWrapperModel.map.getArc();
+		
+		addGlyphsToSWrapperModel(listOfGlyphs);
+
 		createCompartments();
-		createSpecies();
+		createSpecies();		
+	
+		addArcsToSWrapperModel(listOfArcs);
+		
 		createReactions();
-		createGeneralGlyphs();
 		
 		sOutput.createCanvasDimensions();
 	}
@@ -142,7 +116,12 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		SWrapperSpeciesGlyph speciesGlyphTuple;
 		for (String key : sWrapperModel.entityPoolNodes.keySet()) {
 			speciesGlyphTuple = createOneSpecies(key);
-			sWrapperModel.listOfWrapperSpeciesGlyphs.add(speciesGlyphTuple);
+			sWrapperModel.addSWrapperSpeciesGlyph(key, speciesGlyphTuple);
+		}
+		
+		for (String key : sWrapperModel.logicOperators.keySet()) {
+			speciesGlyphTuple = createOneSpecies(key);
+			sWrapperModel.addSWrapperSpeciesGlyph(key, speciesGlyphTuple);
 		}
 	}
 	
@@ -153,7 +132,6 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		String speciesId;
 		String name;
 		String clazz; 
-		BoundingBox boundingBox;
 		Bbox bbox;
 		TextGlyph textGlyph;
 		List<Glyph> nestedGlyphs;	
@@ -193,26 +171,15 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	
 	public List<GeneralGlyph> createGeneralGlyphs(List<Glyph> glyphs, GraphicalObject parent) {
 		List<GeneralGlyph> listOfGeneralGlyphs = new ArrayList<GeneralGlyph>();
-		String text;
-		String clazz;
-		String id;
-		Bbox bbox;
-		GeneralGlyph generalGlyph;
 		SWrapperGeneralGlyph sWrapperGeneralGlyph;
 		
 		for (Glyph glyph : glyphs) {
-			text = sUtil.getText(glyph);
-			clazz = glyph.getClazz();
-			bbox = glyph.getBbox();
-			generalGlyph = sUtil.createJsbmlGeneralGlyph(glyph, true, bbox);
-			
-			sUtil.createJsbmlTextGlyph(generalGlyph, text);		
-			listOfGeneralGlyphs.add(generalGlyph);
-			
 			// create a new SWrapperGeneralGlyph, add it to the SWrapperModel
-			sWrapperGeneralGlyph = new SWrapperGeneralGlyph(generalGlyph, glyph, parent);
-			sWrapperModel.listOfWrapperGeneralGlyphs.add(sWrapperGeneralGlyph);
+			sWrapperGeneralGlyph = createOneGeneralGlyph(glyph, parent);
 			
+			sWrapperModel.addWrapperGeneralGlyph(glyph.getId(), sWrapperGeneralGlyph);
+			listOfGeneralGlyphs.add(sWrapperGeneralGlyph.generalGlyph);
+			sOutput.addGeneralGlyph(sWrapperGeneralGlyph.generalGlyph);
 		}		
 		return listOfGeneralGlyphs;
 	}
@@ -228,13 +195,13 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		for (String key: sWrapperModel.processNodes.keySet()) {
 			glyph = sWrapperModel.processNodes.get(key);
 			sWrapperReactionGlyph =  createOneReactionGlyph(glyph);
-			sWrapperModel.listOfWrapperReactionGlyphs.add(sWrapperReactionGlyph);
+			sWrapperModel.addSWrapperReactionGlyph(key, sWrapperReactionGlyph);
 		}
 		
 		for (String key: sWrapperModel.logicOperators.keySet()) {
 			glyph = sWrapperModel.logicOperators.get(key);
 			sWrapperReactionGlyph =  createOneReactionGlyph(glyph);
-			sWrapperModel.listOfWrapperReactionGlyphs.add(sWrapperReactionGlyph);			
+			sWrapperModel.addSWrapperReactionGlyph(key, sWrapperReactionGlyph);			
 		}
 		
 	}	
@@ -261,38 +228,141 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		sOutput.addReactionGlyph(reactionGlyph);
 		
 		sWrapperReactionGlyph = new SWrapperReactionGlyph(reaction, reactionGlyph, glyph);
-		createSpeciesReferenceGlyphs(reaction, reactionGlyph, sWrapperReactionGlyph);	
+		//createSpeciesReferenceGlyphs(reaction, reactionGlyph, sWrapperReactionGlyph);	
 		
 		return sWrapperReactionGlyph;
 	} 
 	
-	public SWrapperSpeciesReferenceGlyph createOneSpeciesReferenceGlyphs(Reaction reaction, ReactionGlyph reactionGlyph,
+	public SWrapperSpeciesReferenceGlyph createOneSpeciesReferenceGlyph(Reaction reaction, ReactionGlyph reactionGlyph,
 			Arc arc, String speciesId, Glyph speciesGlyph, String reactionId, String speciesReferenceId) {
 		Curve curve;
 		Species species;
 		SpeciesReference speciesReference;
 		SpeciesReferenceGlyph speciesReferenceGlyph;
 		
+		// create a SpeciesReference
 		species = sOutput.findSpecies(speciesId);
 		speciesReference = sUtil.createSpeciesReference(reaction, species, speciesReferenceId);
 		
+		// create a SpeciesReferenceGlyph
 		speciesReferenceGlyph = sUtil.createOneSpeciesReferenceGlyph(speciesReferenceId, arc, 
 			speciesReference, speciesGlyph);
 		
+		// create the center Curve for the SpeciesReferenceGlyph
 		curve = sUtil.createOneSpeciesReferenceCurve(arc);
 		speciesReferenceGlyph.setCurve(curve);
 		
-		reactionGlyph = sOutput.findReactionGlyph(reactionId+"_Glyph");
+		// add the SpeciesReferenceGlyph to the ReactionGlyph
+		reactionGlyph = sOutput.findReactionGlyph("ReactionGlyph_"+reactionId);
 		reactionGlyph.addSpeciesReferenceGlyph(speciesReferenceGlyph);		
 		
 		return new SWrapperSpeciesReferenceGlyph(speciesReference, speciesReferenceGlyph, arc);
 	}
 
+	public void addGlyphsToSWrapperModel(List<Glyph> listOfGlyphs) {
+		String id;
+		String clazz; 	
+		for (Glyph glyph: listOfGlyphs) {
+			id = glyph.getId();
+			clazz = glyph.getClazz();
+
+			if (sUtil.isProcessNode(clazz)) {
+				sWrapperModel.addSbgnProcessNode(id, glyph);
+			} else if (sUtil.isCompartment(clazz)) {
+				sWrapperModel.addSbgnCompartment(id, glyph);
+			} else if (sUtil.isEntityPoolNode(clazz)) {
+				sWrapperModel.addSbgnEntityPoolNode(id, glyph);
+			} else if (sUtil.isLogicOperator(clazz)) {
+				sWrapperModel.addSbgnLogicOperator(id, glyph);
+			}
+		}		
+	}
 	
-	public List<SpeciesReferenceGlyph> createSpeciesReferenceGlyphs(Reaction reaction, ReactionGlyph reactionGlyph, 
-			SWrapperReactionGlyph reactionGlyphTuple) {
-		List<SpeciesReferenceGlyph> listOfSpeciesReferenceGlyph = new ArrayList<SpeciesReferenceGlyph>();
+	public void addArcsToSWrapperModel(List<Arc> listOfArcs) {
+		String id;
 		
+		for (Arc arc: listOfArcs) {
+			id = arc.getId();
+			
+			if (sUtil.isLogicArc(arc)){
+				sWrapperModel.addLogicArc(id, arc);
+			} else if (sUtil.isUndirectedArc(arc)) {
+				sWrapperModel.addGlyphToGlyphArc(id, arc);
+			} else if (sUtil.isInwardArc(arc)) {
+				sWrapperModel.addGlyphToPortArc(id, arc);
+			} else if (sUtil.isOutwardArc(arc)) {
+				sWrapperModel.addPortToGlyphArc(id, arc);
+			} 		
+		}	
+		
+		Arc arc;
+		String speciesReferenceId;
+		String reactionId;
+		
+		Object source;
+		Object target;
+		Glyph sourceGlyph;
+		Port targetPort;
+		Port sourcePort;
+		Glyph targetGlyph;	
+		String speciesId;
+		
+		SWrapperReactionGlyph sWrapperReactionGlyph;
+		
+		for (String key: sWrapperModel.glyphToPortArcs.keySet()) {
+			arc = sWrapperModel.glyphToPortArcs.get(key);
+			speciesReferenceId = key;
+			source = arc.getSource();
+			target = arc.getTarget();
+			
+			sourceGlyph = (Glyph) source;
+			targetPort = (Port) target;
+			speciesId = sourceGlyph.getId();
+			
+			reactionId = sWrapperModel.findGlyphFromPort(targetPort);
+			sWrapperReactionGlyph = sWrapperModel.getWrapperReactionGlyph(reactionId);
+			// store the Arc in the Wrapper
+			sWrapperReactionGlyph.addArc(speciesReferenceId, arc, "inward");
+			
+		}	
+		for (String key: sWrapperModel.portToGlyphArcs.keySet()) {
+			arc = sWrapperModel.portToGlyphArcs.get(key);
+			speciesReferenceId = key;
+			source = arc.getSource();
+			target = arc.getTarget();
+			
+			sourcePort = (Port) source;
+			targetGlyph = (Glyph) target;	
+			speciesId = targetGlyph.getId();
+			
+			reactionId = sWrapperModel.findGlyphFromPort(sourcePort);
+			sWrapperReactionGlyph = sWrapperModel.getWrapperReactionGlyph(reactionId);
+			sWrapperReactionGlyph.addArc(speciesReferenceId, arc, "outward");
+		}
+		for (String key: sWrapperModel.glyphToGlyphArcs.keySet()) {
+			arc = sWrapperModel.glyphToGlyphArcs.get(key);
+			speciesReferenceId = key;
+			source = arc.getSource();
+			target = arc.getTarget();
+			
+			sourceGlyph = (Glyph) source;
+			// assuming target is a process node, may not be true
+			// todo: check the clazz first, then decide
+			// it seems that for Modifier Arcs, they point into a ProcessNode, 
+			// but does not point into a Port, it just points to the whole Glyph
+			// this is why we have a 'Glyph to Glyph' Arc
+			targetGlyph = (Glyph) target;	
+			speciesId = sourceGlyph.getId();
+			
+			reactionId = targetGlyph.getId();
+			sWrapperReactionGlyph = sWrapperModel.getWrapperReactionGlyph(reactionId);
+			sWrapperReactionGlyph.addArc(speciesReferenceId, arc, "undirected");			
+		}		
+	}
+	
+	public List<SWrapperSpeciesReferenceGlyph> createSpeciesReferenceGlyphs(Reaction reaction, ReactionGlyph reactionGlyph, 
+			SWrapperReactionGlyph reactionGlyphTuple) {
+		List<SWrapperSpeciesReferenceGlyph> listOfSWrappersSRG = new ArrayList<SWrapperSpeciesReferenceGlyph>();
 		Arc arc;
 		String speciesReferenceId;
 		String reactionId;
@@ -326,15 +396,25 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			if (reactionId != reaction.getId()){
 				continue;
 			} else {
+				// store the Arc in the Wrapper
 				reactionGlyphTuple.addArc(speciesReferenceId, arc, "inward");
 			}
 			
-			sWrapperSpeciesReferenceGlyph = createOneSpeciesReferenceGlyphs(reaction, reactionGlyph,
+			// create a SpeciesReference and a SpeciesReferenceGlyph, add the SpeciesReferenceGlyph to the ReactionGlyph
+			sWrapperSpeciesReferenceGlyph = createOneSpeciesReferenceGlyph(reaction, reactionGlyph,
 					arc, speciesId, sourceGlyph, reactionId, speciesReferenceId);
-			reaction.addReactant(sWrapperSpeciesReferenceGlyph.speciesReference);		
-			reactionGlyphTuple.addSpeciesReferenceGlyph(speciesReferenceId, 
-					sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph);
+			// add the SpeciesReference to the Reaction
+			reaction.addReactant(sWrapperSpeciesReferenceGlyph.speciesReference);	
+			// this is a trick to correctly set the Start and End point of the center Curve of the ReactionGlyph
+			// note that this doesn't work well
 			updateReactionGlyph(reactionGlyph, sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph, "start");
+		
+			// add the SpeciesReferenceGlyph to the SWrapperReactionGlyph
+			// and add the enclosing SWrapperSpeciesReferenceGlyph to the List<SWrapperSpeciesReferenceGlyph>
+			// note that the second step is optional
+			reactionGlyphTuple.addSpeciesReferenceGlyph(speciesReferenceId, 
+					sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph);	
+			listOfSWrappersSRG.add(sWrapperSpeciesReferenceGlyph);
 		}	
 		for (String key: sWrapperModel.outwardArcs.keySet()) {
 			arc = sWrapperModel.outwardArcs.get(key);
@@ -350,16 +430,29 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			if (reactionId != reaction.getId()){
 				continue;
 			} else {
+				// skip Modifier Arcs coming out of a LogicOperator going into a ProcessNode
+				// these Arcs, once created a SpeciesReferenceGlyph, does not have a SpeciesGlyph to reference to.
+				// i.e. these arcs points to a ReactionGlyph, not a SpeciesGlyph
+				// check if the Arc is a Modifier, and it comes out of a LogicOperator
+				if (isModifierArcsOutOfLogicOperator(arc)){
+					sWrapperSpeciesReferenceGlyph = createOneReferenceGlyph(reactionGlyph, arc);
+					reactionGlyphTuple.addReferenceGlyph(speciesReferenceId, referenceGlyph);
+					continue;
+				}
 				reactionGlyphTuple.addArc(speciesReferenceId, arc, "outward");
 			}
 			
-			sWrapperSpeciesReferenceGlyph = createOneSpeciesReferenceGlyphs(reaction, reactionGlyph,
+			sWrapperSpeciesReferenceGlyph = createOneSpeciesReferenceGlyph(reaction, reactionGlyph,
 					arc, speciesId, targetGlyph, reactionId, speciesReferenceId);
 			reaction.addProduct(sWrapperSpeciesReferenceGlyph.speciesReference);
+			updateReactionGlyph(reactionGlyph, sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph, "end");
+			
 			reactionGlyphTuple.addSpeciesReferenceGlyph(speciesReferenceId, 
 					sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph);
-			updateReactionGlyph(reactionGlyph, sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph, "end");
+			listOfSWrappersSRG.add(sWrapperSpeciesReferenceGlyph);
 		}
+		
+		// todo: change ReferenceGlyph to ModifierReferenceGlyph
 		for (String key: sWrapperModel.undirectedArcs.keySet()) {
 			arc = sWrapperModel.undirectedArcs.get(key);
 			speciesReferenceId = key;
@@ -369,6 +462,9 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			sourceGlyph = (Glyph) source;
 			// assuming target is a process node, may not be true
 			// todo: check the clazz first, then decide
+			// it seems that for Modifier Arcs, they point into a ProcessNode, 
+			// but does not point into a Port, it just points to the whole Glyph
+			// this is why we have a 'Glyph to Glyph' Arc
 			targetGlyph = (Glyph) target;	
 			speciesId = sourceGlyph.getId();
 			
@@ -376,19 +472,46 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			if (reactionId != reaction.getId()){
 				continue;
 			} else {
+				// this check might be redundant, we assume only Modifiers Arcs connects to Glyphs only.
+				if (isModifierArcsOutOfLogicOperator(arc)){continue;}
+				
 				reactionGlyphTuple.addArc(speciesReferenceId, arc, "undirected");
 			}
 			
-			sWrapperSpeciesReferenceGlyph = createOneSpeciesReferenceGlyphs(reaction, reactionGlyph,
+			sWrapperSpeciesReferenceGlyph = createOneSpeciesReferenceGlyph(reaction, reactionGlyph,
 					arc, speciesId, targetGlyph, reactionId, speciesReferenceId);
 			reaction.addReactant(sWrapperSpeciesReferenceGlyph.speciesReference);
+			
 			reactionGlyphTuple.addSpeciesReferenceGlyph(speciesReferenceId, 
 					sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph);
+			listOfSWrappersSRG.add(sWrapperSpeciesReferenceGlyph);
 		}
-		return listOfSpeciesReferenceGlyph;
+		return listOfSWrappersSRG;
 	}
 				
 
+	public boolean isModifierArcsOutOfLogicOperator(Arc arc){
+		String clazz = arc.getClazz();
+		
+		if (clazz.equals("catalysis") || 
+				clazz.equals("modulation") ||
+				clazz.equals("stimulation") ||
+				clazz.equals("inhibition") ){		// todo: and many others
+			Object source = arc.getSource();
+			if (source instanceof Glyph){
+				if (sUtil.isLogicOperator(((Glyph) source).getClazz())){
+					return true;
+				}
+			} else if (source instanceof Port){
+				String reactionId = sWrapperModel.findGlyphFromPort((Port) source);
+				if (sWrapperModel.logicOperators.get(reactionId) != null){
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
 	
 	/**
 	 * Update the start or end <code>Point</code> of <code>ReactionGlyph</code> using values in a <code>SpeciesReferenceGlyph</code>. 
@@ -416,246 +539,71 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	 */		
 	public void createCompartments() {
 
-		for (String key: compartments.keySet()) {
+		for (String key: sWrapperModel.compartments.keySet()) {
 			SWrapperCompartmentGlyph compartmentGlyphTuple = createOneCompartment(key);
-			listOfCompartmentGlyphTuples.add(compartmentGlyphTuple);
-			//printHelper("===createCompartments",key);
+			sWrapperModel.listOfWrapperCompartmentGlyphs.add(compartmentGlyphTuple);
 		}
 	}
 		
 	public SWrapperCompartmentGlyph createOneCompartment(String key) {
-		ListOf<Compartment> listOfCompartments = model.getListOfCompartments();
-		ListOf<CompartmentGlyph> listOfCompartmentGlyphs = layout.getListOfCompartmentGlyphs();			
-		
 		Glyph glyph;
 		String compartmentId;
 		String name;
 		Compartment compartment;
 		CompartmentGlyph compartmentGlyph;
-		Bbox bbox;
-		BoundingBox boundingBox;
-		float z;		
 		
-		glyph = compartments.get(key);
-		//System.out.format("Entities=%s \n", glyph.toString());
+		glyph = sWrapperModel.compartments.get(key);
 		compartmentId = glyph.getId();		
-		name = glyph.getLabel().getText();
+		name = sUtil.getText(glyph);
 		
-		compartment = new Compartment(compartmentId, name, 3, 1);
-		listOfCompartments.add(compartment);
+		compartment = sUtil.createJsbmlCompartment(compartmentId, name);
+		sOutput.addCompartment(compartment);
 		
-		try {
-			z = glyph.getCompartmentOrder();
-			debugMode = 1;
-			printHelper("depth==", Float.toString(z));
-			debugMode = 0;
-			if (isNull(z).equals("NULL")) {
-				z = 0;
-			}				
-		} catch (NullPointerException e) {
-			z = 0;
-		}
-					
-		compartmentGlyph = new CompartmentGlyph();
-		compartmentGlyph.setId(compartmentId+"_Glyph");
-		compartmentGlyph.setCompartment(compartment);
+		compartmentGlyph = sUtil.createJsbmlCompartmentGlyph(glyph, compartmentId, compartment, true);
+		sOutput.addCompartmentGlyph(compartmentGlyph);				
+		
+		sUtil.setCompartmentOrder(compartmentGlyph, glyph);
+		
+		return new SWrapperCompartmentGlyph(compartment, compartmentGlyph, glyph);
+	}	
+
+	
+	public SWrapperGeneralGlyph createOneGeneralGlyph(Glyph glyph, GraphicalObject parent) {
+		String text;
+		String clazz;
+		String id;
+		Bbox bbox;
+		GeneralGlyph generalGlyph;
+		SWrapperGeneralGlyph sWrapperGeneralGlyph;
+		
+		text = sUtil.getText(glyph);
+		clazz = glyph.getClazz();
 		bbox = glyph.getBbox();
-		boundingBox = new BoundingBox();
-		// todo: horizontal?
-		boundingBox.createDimensions(bbox.getW(), bbox.getH(), z);
-		boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);
-		compartmentGlyph.setBoundingBox(boundingBox);
-		listOfCompartmentGlyphs.add(compartmentGlyph);	
+		generalGlyph = sUtil.createJsbmlGeneralGlyph(glyph, true, bbox);
 		
-		return new SWrapperCompartmentGlyph(compartment, compartmentGlyph);
-	}	
-	
-	
+		sUtil.createJsbmlTextGlyph(generalGlyph, text);		
 
-	
-	public ReferenceGlyph createOneReferenceGlyph(String id, Arc arc, SpeciesReference reference, Glyph glyph) {
-		ReferenceGlyph referenceGlyph;
-		
-		referenceGlyph = new ReferenceGlyph();
-		referenceGlyph.setId(id+"_Glyph");
-		referenceGlyph.setGlyph(glyph.getId()+"_Glyph");
-
-		return referenceGlyph;
-	}	
-	
-	
-
-	
-	
-	public SWrapperReactionGlyph createOneGeneralGlyph(Reaction reaction, GeneralGlyph generalGlyph, SWrapperReactionGlyph reactionGlyphTuple) {
-		Arc arc;
-		String speciesReferenceId;
-		String reactionId;
-		Curve curve;
-		
-		Object source;
-		Object target;
-		Glyph sourceGlyph;
-		Port targetPort;
-		Port sourcePort;
-		Glyph targetGlyph;	
-		
-		Species species;
-		SpeciesReference speciesReference;
-		SpeciesReferenceGlyph speciesReferenceGlyph;
-		
-		ReferenceGlyph referenceGlyph;
-		
-		for (String key: inwardArcs.keySet()) {
-			arc = inwardArcs.get(key);
-			speciesReferenceId = key;
-			source = arc.getSource();
-			target = arc.getTarget();
-			
-			sourceGlyph = (Glyph) source;
-			targetPort = (Port) target;
-			
-			//temp
-			reactionId = findGlyphFromPort(targetPort);
-			if (reactionId != reaction.getId()){continue;} else {reactionGlyphTuple.addArc(speciesReferenceId, arc, "inward");}
-			
-//			speciesReference = new SpeciesReference();
-//			species = findSpecies(model.getListOfSpecies(), sourceGlyph.getId());
-//			speciesReference.setId(speciesReferenceId);
-//			speciesReference.setSpecies(species);
-//			
-//			reactionId = findGlyphFromPort(targetPort);
-//			reaction = findReaction(model.getListOfReactions(), reactionId);
-//	
-//			reaction.addReactant(speciesReference);
-			
-			referenceGlyph = createOneReferenceGlyph(speciesReferenceId, arc, null, sourceGlyph);
-			
-			curve = createOneSpeciesReferenceCurve(arc);
-			referenceGlyph.setCurve(curve);
-			generalGlyph.getListOfReferenceGlyphs().add(referenceGlyph);
-			
-			reactionGlyphTuple.addReferenceGlyph(speciesReferenceId, referenceGlyph);
-			
-//			updateReactionGlyph(reactionGlyph, speciesReferenceGlyph, "start");
-		}	
-		for (String key: outwardArcs.keySet()) {
-			arc = outwardArcs.get(key);
-			speciesReferenceId = key;
-			source = arc.getSource();
-			target = arc.getTarget();
-			
-			sourcePort = (Port) source;
-			targetGlyph = (Glyph) target;	
-			
-			//temp
-			reactionId = findGlyphFromPort(sourcePort);
-			if (reactionId != reaction.getId()){continue;} else {reactionGlyphTuple.addArc(speciesReferenceId, arc, "outward");}
-			
-//			speciesReference = new SpeciesReference();
-//			species = findSpecies(model.getListOfSpecies(), targetGlyph.getId());
-//			speciesReference.setId(speciesReferenceId);
-//			speciesReference.setSpecies(species);
-//			
-//			reactionId = findGlyphFromPort(sourcePort);
-//			reaction = findReaction(model.getListOfReactions(), reactionId);
-//
-//			reaction.addProduct(speciesReference);
-//			
-			referenceGlyph = createOneReferenceGlyph(speciesReferenceId, arc, null, targetGlyph);
-			
-			curve = createOneSpeciesReferenceCurve(arc);
-			referenceGlyph.setCurve(curve);
-			generalGlyph.getListOfReferenceGlyphs().add(referenceGlyph);
-
-			reactionGlyphTuple.addReferenceGlyph(speciesReferenceId, referenceGlyph);
-			
-//			updateReactionGlyph(reactionGlyph, speciesReferenceGlyph, "end");
-		}
-		for (String key: undirectedArcs.keySet()) {
-			arc = undirectedArcs.get(key);
-			speciesReferenceId = key;
-			source = arc.getSource();
-			target = arc.getTarget();
-			
-			sourceGlyph = (Glyph) source;
-			// assuming target is a process node, may not be true
-			targetGlyph = (Glyph) target;	
-			
-			//todo: check the clazz first, then decide
-			
-			//temp
-			reactionId = targetGlyph.getId();
-			if (reactionId != reaction.getId()){continue;} else {reactionGlyphTuple.addArc(speciesReferenceId, arc, "undirected");}
-			
-//			speciesReference = new SpeciesReference();
-//			species = findSpecies(model.getListOfSpecies(), sourceGlyph.getId());
-//			speciesReference.setId(speciesReferenceId);
-//			speciesReference.setSpecies(species);
-//			
-//			reactionId = targetGlyph.getId();
-//			reaction = findReaction(model.getListOfReactions(), reactionId);
-//
-//			reaction.addReactant(speciesReference);
-//			
-//			speciesReferenceGlyph = createOneSpeciesReferenceGlyph(speciesReferenceId, arc, speciesReference, sourceGlyph);
-//			
-//			curve = createOneSpeciesReferenceCurve(arc);
-//			speciesReferenceGlyph.setCurve(curve);
-//			reactionGlyph = findReactionGlyph(layout.getListOfReactionGlyphs(), reactionId+"_Glyph");
-//			reactionGlyph.addSpeciesReferenceGlyph(speciesReferenceGlyph);
-		}
-		return reactionGlyphTuple;		
+		// create a new SWrapperGeneralGlyph, add it to the SWrapperModel
+		sWrapperGeneralGlyph = new SWrapperGeneralGlyph(generalGlyph, glyph, parent);
+		return sWrapperGeneralGlyph;		
 	}
 	
-	public void createGeneralGlyphs() {
-		ListOf<Reaction> listOfReactions = model.getListOfReactions();
-		ListOf<GraphicalObject> listOfGeneralGlyphs = layout.getListOfAdditionalGraphicalObjects();
-		
-		Reaction reaction;
-		GeneralGlyph generalGlyph;
-		Glyph glyph;
-		String reactionId;
+	public SWrapperSpeciesReferenceGlyph createOneReferenceGlyph(ReactionGlyph reactionGlyph, Arc arc) {
 		Curve curve;
-		CurveSegment curveSegment;
-		Point point;
-		Bbox bbox;
+		ReferenceGlyph referenceGlyph;
+		GraphicalObject object;
 		
-		SWrapperReactionGlyph reactionGlyphTuple;
+		object = 
 		
-		Set<String> allReactions = new HashSet<String>();
-		allReactions.addAll(logicOperators.keySet());
-		allReactions.addAll(processNodes.keySet());
+		// create a SpeciesReferenceGlyph
+		referenceGlyph = sUtil.createOneReferenceGlyph(arc.getId(), arc, 
+			null, object);
 		
-		debugMode = 1;
-		printHelper("createGeneralGlyphs", allReactions.size());
-		debugMode = 0;
+		// create the center Curve for the SpeciesReferenceGlyph
+		curve = sUtil.createOneSpeciesReferenceCurve(arc);
+		referenceGlyph.setCurve(curve);
 		
-		for (String key: allReactions) {
-			glyph = logicOperators.get(key);
-			
-			//temp
-			if (glyph==null){glyph = processNodes.get(key);}
-				
-			reactionId = glyph.getId();
-			reaction = new Reaction();
-			
-			reaction.setId(reactionId);
-			listOfReactions.add(reaction);
-			
-			generalGlyph = new GeneralGlyph();
-			generalGlyph.setId(reactionId+"_Glyph");
-			generalGlyph.setReference(reactionId);
-			
-			createBoundingBox(generalGlyph, glyph);
-						
-			listOfGeneralGlyphs.add(generalGlyph);
-			
-			reactionGlyphTuple = new SWrapperReactionGlyph(reaction, generalGlyph, glyph);
-			
-			listOfReactionGlyphTuples.add(reactionGlyphTuple);
-			createOneGeneralGlyph(reaction, generalGlyph, reactionGlyphTuple);
-		}		
+		return new SWrapperSpeciesReferenceGlyph(referenceGlyph, arc);
 	}
 	
 

@@ -17,8 +17,10 @@ import org.sbgn.bindings.Port;
 import org.sbgn.bindings.Sbgn;
 import org.sbml.jsbml.Annotation;
 import org.sbml.jsbml.CVTerm;
+import org.sbml.jsbml.Compartment;
 import org.sbml.jsbml.ListOf;
 import org.sbml.jsbml.Model;
+import org.sbml.jsbml.ModifierSpeciesReference;
 import org.sbml.jsbml.Reaction;
 import org.sbml.jsbml.SBMLDocument;
 import org.sbml.jsbml.SBMLException;
@@ -28,6 +30,7 @@ import org.sbml.jsbml.SpeciesReference;
 import org.sbml.jsbml.CVTerm.Qualifier;
 import org.sbml.jsbml.CVTerm.Type;
 import org.sbml.jsbml.ext.layout.BoundingBox;
+import org.sbml.jsbml.ext.layout.CompartmentGlyph;
 import org.sbml.jsbml.ext.layout.Curve;
 import org.sbml.jsbml.ext.layout.CurveSegment;
 import org.sbml.jsbml.ext.layout.Dimensions;
@@ -36,6 +39,7 @@ import org.sbml.jsbml.ext.layout.GraphicalObject;
 import org.sbml.jsbml.ext.layout.LineSegment;
 import org.sbml.jsbml.ext.layout.Point;
 import org.sbml.jsbml.ext.layout.ReactionGlyph;
+import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceRole;
@@ -72,7 +76,7 @@ public class SBGNML2SBMLUtil {
 		BoundingBox boundingBox;
 		
 		speciesGlyph = new SpeciesGlyph();
-		speciesGlyph.setId(speciesId+"_Glyph");
+		speciesGlyph.setId("SpeciesGlyph_" + speciesId);
 		speciesGlyph.setSpecies(species);
 		
 		if (createBoundingBox) {
@@ -92,7 +96,7 @@ public class SBGNML2SBMLUtil {
 		
 		id = glyph.getId();
 		generalGlyph = new GeneralGlyph();
-		generalGlyph.setId(id+"_GeneralGlyph");
+		generalGlyph.setId("GeneralGlyph_" + id);
 		
 		if (createBoundingBox) {
 			boundingBox = new BoundingBox();
@@ -118,7 +122,7 @@ public class SBGNML2SBMLUtil {
 		BoundingBox boundingBoxSpecies;
 		
 		textGlyph = new TextGlyph(level, version);
-		id = species.getId() + "_TextGlyph";
+		id = "TextGlyph_" + species.getId();
 		textGlyph.setId(id);
 		textGlyph.setOriginOfText(species);
 		textGlyph.setGraphicalObject(speciesGlyph);
@@ -140,7 +144,7 @@ public class SBGNML2SBMLUtil {
 		BoundingBox boundingBoxGeneralGlyph;
 		
 		textGlyph = new TextGlyph(level, version);
-		id = generalGlyph.getId() + "_TextGlyph";
+		id = "TextGlyph_" + generalGlyph.getId();
 		textGlyph.setId(id);
 		textGlyph.setGraphicalObject(generalGlyph);
 		textGlyph.setText(text);
@@ -177,7 +181,7 @@ public class SBGNML2SBMLUtil {
 		BoundingBox boundingBox;
 		
 		reactionGlyph = new ReactionGlyph();
-		reactionGlyph.setId(reactionId+"_Glyph");
+		reactionGlyph.setId("ReactionGlyph_" + reactionId);
 		reactionGlyph.setReaction(reaction);
 		
 		if (createBoundingBox) {
@@ -262,9 +266,9 @@ public class SBGNML2SBMLUtil {
 		SpeciesReferenceGlyph speciesReferenceGlyph;
 		
 		speciesReferenceGlyph = new SpeciesReferenceGlyph();
-		speciesReferenceGlyph.setId(id+"_Glyph");
+		speciesReferenceGlyph.setId("SpeciesReferenceGlyph_"+id);
 		speciesReferenceGlyph.setRole(findReactionRole(arc.getClazz()));
-		speciesReferenceGlyph.setSpeciesGlyph(speciesGlyph.getId()+"_Glyph");
+		speciesReferenceGlyph.setSpeciesGlyph("SpeciesGlyph_"+speciesGlyph.getId());
 		speciesReferenceGlyph.setSpeciesReference(speciesReference);	
 					
 		return speciesReferenceGlyph;
@@ -295,6 +299,57 @@ public class SBGNML2SBMLUtil {
 				
 		return curve;
 	}	
+	
+	public Compartment createJsbmlCompartment(String compartmentId, String name) {
+		Compartment compartment = new Compartment(compartmentId, name, level, version);
+		return compartment;
+	}
+	
+	public CompartmentGlyph createJsbmlCompartmentGlyph(Glyph glyph, String compartmentId, Compartment compartment,
+			boolean createBoundingBox) {
+		CompartmentGlyph compartmentGlyph;
+		Bbox bbox;
+		BoundingBox boundingBox;
+		
+		compartmentGlyph = new CompartmentGlyph();
+		compartmentGlyph.setId("CompartmentGlyph_" + compartmentId);
+		compartmentGlyph.setCompartment(compartment);
+		
+		if (createBoundingBox){
+			bbox = glyph.getBbox();
+			boundingBox = new BoundingBox();
+			// todo: horizontal?
+			boundingBox.createDimensions(bbox.getW(), bbox.getH(), 0);
+			boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);
+			compartmentGlyph.setBoundingBox(boundingBox);			
+		}
+		return compartmentGlyph;
+	}
+	
+	public void setCompartmentOrder(CompartmentGlyph compartmentGlyph, Glyph glyph) {
+		float order = glyph.getCompartmentOrder();
+		if ((Object) order != null){
+			compartmentGlyph.setOrder(order);
+		}
+	}
+	
+	
+	public ReferenceGlyph createOneReferenceGlyph(String id, Arc arc, ModifierSpeciesReference reference, 
+			GraphicalObject object) {
+		ReferenceGlyph referenceGlyph;
+		
+		referenceGlyph = new ReferenceGlyph();
+		referenceGlyph.setId("ReferenceGlyph_" + id);
+		referenceGlyph.setGlyph(object.getId());
+		
+		// does not work because we can't create a ModifierSpeciesReference. 
+		// A ModifierSpeciesReference needs to associate with a Species, but we don't have a Species
+		//referenceGlyph.setReference(reference.getId());
+
+		return referenceGlyph;
+	}	
+	
+	
 	
 	public Boolean isProcessNode(String clazz) {
 		if (clazz.equals("process")) {
@@ -384,6 +439,14 @@ public class SBGNML2SBMLUtil {
 		if (arc.getTarget() instanceof Port && arc.getSource() instanceof Port) {
 			return true;
 		}		
+		return false;
+	}
+	
+	public Boolean isLogicArc(Arc arc) {
+		String clazz = arc.getClazz();
+		if (clazz.equals("logic arc")) {
+			return true;
+		}
 		return false;
 	}
 	
