@@ -15,11 +15,10 @@ public class SWrapperGeneralGlyph {
 	Glyph glyph;
 	boolean hasParent;
 	GraphicalObject parent;
+	boolean glyphIsMissing;
+	Arc arc;
 	
-	HashMap<String, Arc> glyphToPortArcs = new HashMap<String, Arc>();
-	HashMap<String, Arc> portToGlyphArcs = new HashMap<String, Arc>();
-	HashMap<String, Arc> glyphToGlyphArcs = new HashMap<String, Arc>();
-	
+	HashMap<String, Arc> arcs = new HashMap<String, Arc>();
 	HashMap<String, ReferenceGlyph> referenceGlyphs = new HashMap<String, ReferenceGlyph>();
 	
 	SWrapperGeneralGlyph(GeneralGlyph generalGlyph, Glyph glyph, GraphicalObject parent) {
@@ -28,26 +27,26 @@ public class SWrapperGeneralGlyph {
 		this.hasParent = true;
 		this.parent = parent;
 		this.glyph = glyph;
+		this.glyphIsMissing = false;
 	}
 	
 	SWrapperGeneralGlyph(GeneralGlyph generalGlyph, Glyph glyph){
 		this.generalGlyph = generalGlyph;
 		this.clazz = glyph.getClazz();
 		this.hasParent = false;
-		this.glyph = glyph;		
+		this.glyph = glyph;	
+		this.glyphIsMissing = false;
 	}
 	
-	void addArc(String arcId, Arc arc, String type) {
-		if (type == "glyphToPort"){
-			glyphToPortArcs.put(arcId, arc);
-		} else if (type == "portToGlyph"){
-			portToGlyphArcs.put(arcId, arc);
-		} else if (type == "glyphToGlyph"){
-			glyphToGlyphArcs.put(arcId, arc);
-		} else {}
+	SWrapperGeneralGlyph(GeneralGlyph generalGlyph, Arc arc) {
+		this.generalGlyph = generalGlyph;
+		this.clazz = arc.getClazz();
+		this.hasParent = false;
+		this.glyphIsMissing = true;
 	}
-		
-	void addSpeciesReferenceGlyph(String arcId, ReferenceGlyph referenceGlyph){
+			
+	void addSpeciesReferenceGlyph(String arcId, ReferenceGlyph referenceGlyph, Arc arc){
 		referenceGlyphs.put(arcId, referenceGlyph);
+		arcs.put(arcId, arc);
 	}
 }

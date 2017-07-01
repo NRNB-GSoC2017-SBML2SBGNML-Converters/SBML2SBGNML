@@ -89,12 +89,10 @@ public class SBGNML2SBMLUtil {
 		return speciesGlyph;
 	}
 	
-	public GeneralGlyph createJsbmlGeneralGlyph(Glyph glyph, boolean createBoundingBox, Bbox bbox) {
+	public GeneralGlyph createJsbmlGeneralGlyph(String id, boolean createBoundingBox, Bbox bbox) {
 		GeneralGlyph generalGlyph;
 		BoundingBox boundingBox;
-		String id;
-		
-		id = glyph.getId();
+
 		generalGlyph = new GeneralGlyph();
 		generalGlyph.setId("GeneralGlyph_" + id);
 		
@@ -330,6 +328,19 @@ public class SBGNML2SBMLUtil {
 		float order = glyph.getCompartmentOrder();
 		if ((Object) order != null){
 			compartmentGlyph.setOrder(order);
+		}
+	}
+	
+	// todo: move to a ModelCompleter
+	public void createDefaultCompartment(Model modelObject) {
+		String compartmentId = "DefaultCompartment_01";
+		Compartment compartment = new Compartment(compartmentId);
+		modelObject.getListOfCompartments().add(compartment);
+		
+		for (Species species: modelObject.getListOfSpecies()){
+			if (species.getCompartment() == ""){
+				species.setCompartment(compartment);	
+			}
 		}
 	}
 	
@@ -709,6 +720,18 @@ public class SBGNML2SBMLUtil {
 			System.out.println("[" + source + "] " + Integer.toString(message));
 		}
 	}	
+	
+	public void displayReactionGlyphInfo(SWrapperModel sWrapperModel) {
+		for (String key : sWrapperModel.listOfWrapperReactionGlyphs.keySet()){
+			SWrapperReactionGlyph sWrapper = sWrapperModel.getWrapperReactionGlyph(key);
+			debugMode = 1;
+			printHelper(sWrapper.reactionId+"-inward", sWrapper.glyphToPortArcs.size());
+			printHelper(sWrapper.reactionId+"-outward", sWrapper.portToGlyphArcs.size());
+			printHelper(sWrapper.reactionId+"-undirected", sWrapper.glyphToGlyphArcs.size());
+			debugMode = 0;
+		}
+	}
+	
 	
 	public static Sbgn readSbgnFile(String sbgnFileNameInput) {
 		Sbgn sbgnObject = null;

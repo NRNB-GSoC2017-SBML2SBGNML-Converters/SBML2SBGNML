@@ -27,6 +27,7 @@ import org.sbml.jsbml.ext.render.ListOfLocalRenderInformation;
 import org.sbml.jsbml.ext.render.LocalRenderInformation;
 import org.sbml.jsbml.ext.render.RenderConstants;
 import org.sbml.jsbml.ext.render.RenderLayoutPlugin;
+import org.sbml.jsbml.ext.render.Style;
 
 public class SBGNML2SBMLOutput {
 	Model model;
@@ -40,6 +41,7 @@ public class SBGNML2SBMLOutput {
 	
 	ListOf<ColorDefinition> listOfColorDefinitions;
 	ListOf<LineEnding> listOfLineEndings;	
+	ListOf<Style> listOfStyles;
 	
 	// keep track of the maximum value for each dimension. Finally, set these 3 values as the dimensions of the layout
 	Double dimensionX;
@@ -55,7 +57,7 @@ public class SBGNML2SBMLOutput {
 		this.dimensionX = 0.0;
 		this.dimensionY = 0.0;
 		this.dimensionZ = 0.0;		
-			
+		
 	}
 	
 	public Model getModel() {
@@ -72,6 +74,13 @@ public class SBGNML2SBMLOutput {
 		this.localRenderInformation = new LocalRenderInformation("LocalRenderInformation_01");
 		this.renderLayoutPlugin.addLocalRenderInformation(localRenderInformation);		
 		this.listOfLocalRenderInformation = renderLayoutPlugin.getListOfLocalRenderInformation();		
+	}
+	
+	public void addListOfColorDefinitions(ListOf<ColorDefinition> listOfColorDefinitions) {
+		this.listOfColorDefinitions = listOfColorDefinitions.clone();
+	}
+	public void addListOfLineEndings(ListOf<LineEnding> listOfLineEndings) {
+		this.listOfLineEndings = listOfLineEndings.clone();
 	}
 	
 	/**

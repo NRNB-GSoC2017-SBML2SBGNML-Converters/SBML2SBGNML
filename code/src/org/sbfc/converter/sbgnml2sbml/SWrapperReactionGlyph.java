@@ -43,4 +43,15 @@ public class SWrapperReactionGlyph {
 	void addSpeciesReferenceGlyph(String arcId, SpeciesReferenceGlyph speciesReferenceGlyph){
 		speciesReferenceGlyphs.put(arcId, speciesReferenceGlyph);
 	}
+	
+	Arc getArc(String arcId) {
+		if (glyphToPortArcs.get(arcId) != null){
+			return glyphToPortArcs.get(arcId);
+		} else if (portToGlyphArcs.get(arcId) != null){
+			return portToGlyphArcs.get(arcId);
+		} else if (glyphToGlyphArcs.get(arcId) != null){
+			return glyphToGlyphArcs.get(arcId);
+		}		
+		return null;
+	}
 }

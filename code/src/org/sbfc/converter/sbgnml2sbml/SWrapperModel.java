@@ -81,6 +81,9 @@ public class SWrapperModel {
 	public SWrapperReactionGlyph getWrapperReactionGlyph(String reactionId) {
 		return listOfWrapperReactionGlyphs.get(reactionId);
 	}
+	public SWrapperGeneralGlyph getWrapperGeneralGlyph(String reactionId) {
+		return listOfWrapperGeneralGlyphs.get(reactionId);
+	}
 	
 	public void addSWrapperSpeciesGlyph(String speciesId, SWrapperSpeciesGlyph sWrapperSpeciesGlyph){
 		listOfWrapperSpeciesGlyphs.put(speciesId, sWrapperSpeciesGlyph);

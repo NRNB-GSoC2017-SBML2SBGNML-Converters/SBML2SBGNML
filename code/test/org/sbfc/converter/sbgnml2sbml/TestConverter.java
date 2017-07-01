@@ -39,6 +39,7 @@ import org.sbml.jsbml.ext.render.Ellipse;
 import org.sbml.jsbml.ext.render.FontFamily;
 import org.sbml.jsbml.ext.render.HTextAnchor;
 import org.sbml.jsbml.ext.render.Image;
+import org.sbml.jsbml.ext.render.LineEnding;
 import org.sbml.jsbml.ext.render.LocalRenderInformation;
 import org.sbml.jsbml.ext.render.LocalStyle;
 import org.sbml.jsbml.ext.render.Rectangle;
@@ -560,5 +561,80 @@ public class TestConverter {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}		
+	}	
+	
+
+	public Model example_04(Sbgn sbgnObject, ListOf<LineEnding> listOfLineEndings) {
+
+		Map map = sbgnObject.getMap();		
+		
+		converter = new SBGNML2SBML_GSOC2017(map);
+		converter.convertToSBML();
+		
+		converter.debugMode = 1;
+//		converter.printHelper("example_04", converter.sWrapperModel.getListOfWrapperCompartmentGlyphs().size());
+//		converter.printHelper("example_04", converter.sWrapperModel.getListOfWrapperReactionGlyphs().size());
+//		converter.printHelper("example_04", converter.sWrapperModel.getListOfWrapperSpeciesGlyphs().size());
+		converter.printHelper("example_04 listOfLineEndings",listOfLineEndings.size());
+		converter.debugMode = 0;
+		
+		displayReactionGlyphInfo();
+		
+		this.listOfLineEndings = listOfLineEndings;
+		createDefaultCompartment(converter.sWrapperModel.getModel());
+		renderGeneralGlyphs(converter.sWrapperModel);
+		
+		return converter.model;
+	}
+		
+	public static void runExample_04(Model newModel){
+		String sbmlFileNameOutput;
+		String sbmlFileNameInput;
+		Sbgn sbgn;
+		
+		Properties properties = new Properties();	
+		InputStream inputProperties;	
+		SBGNML2SBMLRender renderer = new SBGNML2SBMLRender();
+		
+		// temp
+		RenderLayoutPlugin renderLayoutPlugin = (RenderLayoutPlugin) ((LayoutModelPlugin) newModel.getPlugin("layout")).getLayout(0).getPlugin(RenderConstants.shortLabel);
+		LocalRenderInformation localRenderInformation = renderLayoutPlugin.getListOfLocalRenderInformation().get(0);
+		ListOf<LineEnding> listOfLineEndings = localRenderInformation.getListOfLineEndings();
+		
+		try {
+			inputProperties = new FileInputStream("config_unittest.properties");
+			properties.load(inputProperties);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		String examplesDirectory = properties.getProperty("sbgnml2sbml.examples.path");
+
+		sbmlFileNameOutput = examplesDirectory + "Render_example_04.xml";
+		sbmlFileNameInput = examplesDirectory + "or-simple.sbgn";
+
+		sbgn = SBGNML2SBML_GSOC2017.readSbgnFile(sbmlFileNameInput);
+		
+		renderer = new SBGNML2SBMLRender();
+		renderer.model = renderer.example_04(sbgn, listOfLineEndings);	
+		
+		SBGNML2SBML_GSOC2017.writeSbgnFile(sbmlFileNameOutput, renderer.model);
+
+	}
+	
+	public static void main(String[] args) {
+
+		// with species reference
+		// with image
+		// use general glyph
+		// from sbgn
+		// show 2 versions of render
+		
+		// wrappers
+		// edit points
+		// bounding box for reaction glyphs
+		
+		Model model = runExample_02();
+		runExample_04(model);
 	}	
 }
