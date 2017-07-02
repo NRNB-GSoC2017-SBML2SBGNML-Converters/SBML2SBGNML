@@ -461,6 +461,21 @@ public class SBGNML2SBMLUtil {
 		return false;
 	}
 	
+	public Boolean isModifierArc(String clazz) {
+		if (clazz.equals("stimulation")) {
+			return true;
+		} if (clazz.equals("catalysis")) {
+			return true;
+		} if (clazz.equals("inhibition")) {
+			return true;
+		} if (clazz.equals("necessary stimulation")) {
+			return true;
+		} // ...
+		else {
+			return false;
+		} 
+	}
+	
 	public Boolean isInwardArc(String clazz) {
 		if (clazz.equals("consumption")) {
 			return true;

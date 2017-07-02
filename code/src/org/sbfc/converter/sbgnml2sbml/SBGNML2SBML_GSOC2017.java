@@ -113,12 +113,16 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			
 			if (sUtil.isLogicArc(arc)){
 				sWrapperModel.addLogicArc(id, arc);
+				System.out.println("isLogicArc "+arc.getClazz());
 			} else if (sUtil.isUndirectedArc(arc)) {
 				sWrapperModel.addGlyphToGlyphArc(id, arc);
+				System.out.println("isUndirectedArc "+arc.getClazz());
 			} else if (sUtil.isInwardArc(arc)) {
 				sWrapperModel.addGlyphToPortArc(id, arc);
+				System.out.println("isInwardArc "+arc.getClazz());
 			} else if (sUtil.isOutwardArc(arc)) {
 				sWrapperModel.addPortToGlyphArc(id, arc);
+				System.out.println("isOutwardArc "+arc.getClazz());
 			} 		
 		}	
 	}	
@@ -155,7 +159,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		SWrapperSpeciesGlyph speciesGlyphTuple;
 		List<GeneralGlyph> listOfGeneralGlyphs = null;
 		
-		glyph = sWrapperModel.entityPoolNodes.get(key);
+		glyph = sWrapperModel.getGlyph(key);
 		name = sUtil.getText(glyph);
 		clazz = glyph.getClazz();
 		speciesId = key;
@@ -215,11 +219,11 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			sWrapperModel.addSWrapperReactionGlyph(key, sWrapperReactionGlyph);
 		}
 		
-		for (String key: sWrapperModel.logicOperators.keySet()) {
-			glyph = sWrapperModel.logicOperators.get(key);
-			sWrapperReactionGlyph =  createOneReactionGlyph(glyph);
-			sWrapperModel.addSWrapperReactionGlyph(key, sWrapperReactionGlyph);			
-		}
+//		for (String key: sWrapperModel.logicOperators.keySet()) {
+//			glyph = sWrapperModel.logicOperators.get(key);
+//			sWrapperReactionGlyph =  createOneReactionGlyph(glyph);
+//			sWrapperModel.addSWrapperReactionGlyph(key, sWrapperReactionGlyph);			
+//		}
 		
 	}	
 	
@@ -315,7 +319,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 				continue;
 			} else {
 				// store the Arc in the Wrapper
-				reactionGlyphTuple.addArc(speciesReferenceId, arc, "inward");
+				reactionGlyphTuple.addArc(speciesReferenceId, arc, "glyphToPort");
 			}
 			
 			// create a SpeciesReference and a SpeciesReferenceGlyph, add the SpeciesReferenceGlyph to the ReactionGlyph
@@ -343,13 +347,25 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			sourcePort = (Port) source;
 			targetGlyph = (Glyph) target;	
 			speciesId = targetGlyph.getId();
-			
+					
 			reactionId = sWrapperModel.findGlyphFromPort(sourcePort);
-			if (reactionId != reaction.getId()){
+			if (sUtil.isModifierArc(arc.getClazz()) == true) {
+				reactionId = targetGlyph.getId();
+				System.out.println(reactionId);
+				if (reactionId != reaction.getId()){
+					continue;
+				}
+				reactionGlyphTuple.addArc(speciesReferenceId, arc, "portToGlyph");
+			} else if (reactionId != reaction.getId()){
 				continue;
 			} else {
-				reactionGlyphTuple.addArc(speciesReferenceId, arc, "outward");
+				reactionGlyphTuple.addArc(speciesReferenceId, arc, "portToGlyph");
 			}
+			
+			System.out.println(key);
+			System.out.println(speciesId);
+			System.out.println(reactionId);
+			System.out.println();
 			
 			sWrapperSpeciesReferenceGlyph = createOneSpeciesReferenceGlyph(reaction, reactionGlyph,
 					arc, speciesId, targetGlyph, reactionId, speciesReferenceId);
@@ -380,7 +396,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			if (reactionId != reaction.getId()){
 				continue;
 			} else {
-				reactionGlyphTuple.addArc(speciesReferenceId, arc, "undirected");
+				reactionGlyphTuple.addArc(speciesReferenceId, arc, "glyphToGlyph");
 			}
 			
 			sWrapperSpeciesReferenceGlyph = createOneSpeciesReferenceGlyph(reaction, reactionGlyph,
@@ -460,6 +476,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		for (String key: sWrapperModel.compartments.keySet()) {
 			SWrapperCompartmentGlyph compartmentGlyphTuple = createOneCompartment(key);
 			sWrapperModel.addSWrapperCompartmentGlyph(key, compartmentGlyphTuple);
+			System.out.println("createCompartments " + sWrapperModel.listOfWrapperCompartmentGlyphs.size());
 		}
 	}
 		
@@ -478,7 +495,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		sOutput.addCompartment(compartment);
 		
 		compartmentGlyph = sUtil.createJsbmlCompartmentGlyph(glyph, compartmentId, compartment, true);
-		sOutput.addCompartmentGlyph(compartmentGlyph);				
+		sOutput.addCompartmentGlyph(compartmentGlyph);	
 		
 		sUtil.setCompartmentOrder(compartmentGlyph, glyph);
 		
@@ -572,6 +589,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			
 			speciesGlyph = sWrapperModel.getWrapperSpeciesGlyph(objectId).speciesGlyph;
 			sWrapperReferenceGlyph = createOneReferenceGlyph(arc, speciesGlyph);
+			sWrapperGeneralGlyph.generalGlyph.addReferenceGlyph(sWrapperReferenceGlyph.referenceGlyph);
 			sWrapperGeneralGlyph.addSpeciesReferenceGlyph(arc.getId(), sWrapperReferenceGlyph.referenceGlyph, arc);
 			
 			sOutput.addGeneralGlyph(sWrapperGeneralGlyph.generalGlyph);

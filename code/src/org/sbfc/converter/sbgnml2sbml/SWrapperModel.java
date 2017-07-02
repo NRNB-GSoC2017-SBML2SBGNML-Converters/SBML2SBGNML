@@ -72,6 +72,15 @@ public class SWrapperModel {
 		return model;
 	}
 	
+	public Glyph getGlyph(String key) {
+		Glyph glyph = entityPoolNodes.get(key);
+		if (glyph == null){
+			glyph = logicOperators.get(key);
+		}
+		
+		return glyph;
+	}
+	
 	public SWrapperSpeciesGlyph getWrapperSpeciesGlyph(String speciesId) {
 		return listOfWrapperSpeciesGlyphs.get(speciesId);
 	}
@@ -107,18 +116,18 @@ public class SWrapperModel {
 			id = "Glyph_" + Integer.toString(numberOfGlyphs);
 			return id;			
 		}
+
 		return id;
 	}
 	
 	private String checkArcId(String id, HashMap<String, Arc> container) {
 		numberOfArcs++;
 		if (id == null) {
-			id = "Arc_" + Integer.toString(numberOfArcs);
-			return id;
+			return "Arc_" + Integer.toString(numberOfArcs);
 		} else if (container.get(id) != null) {
-			id = "Arc_" + Integer.toString(numberOfArcs);
-			return id;			
+			return "Arc_" + Integer.toString(numberOfArcs);		
 		}
+
 		return id;
 	}	
 	

@@ -81,7 +81,7 @@ public class SBGNML2SBMLRender {
 	
 	public void renderCompartmentGlyphs() {
 		SWrapperCompartmentGlyph sWrapperCompartmentGlyph;
-		for (String key : sWrapperModel.listOfWrapperSpeciesGlyphs.keySet()){
+		for (String key : sWrapperModel.listOfWrapperCompartmentGlyphs.keySet()){
 			sWrapperCompartmentGlyph = sWrapperModel.getWrapperCompartmentGlyph(key);
 			createStyle(sWrapperCompartmentGlyph.compartmentGlyph, sWrapperCompartmentGlyph.clazz);
 		}			
