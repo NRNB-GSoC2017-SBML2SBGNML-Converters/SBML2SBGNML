@@ -36,8 +36,8 @@
                                     <render:ellipse render:cx="50%" render:cy="50%" render:rx="50%"/>
                                 </render:g>
                             </render:lineEnding>
-                        </render:listOfLineEndings>			
-			
+                        </render:listOfLineEndings>
+						
             <render:listOfStyles>
               <render:style id="LocalStyle_SpeciesGlyph_glyph5" render:roleList="LocalStyle_SpeciesGlyph_glyph5">
                 <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
@@ -185,22 +185,22 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a3" layout:role="activator" layout:speciesGlyph="SpeciesGlyph_glyph4" layout:speciesReference="a3" render:objectRole="LocalStyle_SpeciesReferenceGlyph_a3">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xsi:type="LineSegment">
-                      <layout:start layout:x="190" layout:y="252"/>
-                      <layout:end layout:x="190" layout:y="278"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
               <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a5" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph6" layout:speciesReference="a5" render:objectRole="LocalStyle_SpeciesReferenceGlyph_a5">
                 <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="214" layout:y="290"/>
                       <layout:end layout:x="260" layout:y="290"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a3" layout:role="activator" layout:speciesGlyph="SpeciesGlyph_glyph4" layout:speciesReference="a3" render:objectRole="LocalStyle_SpeciesReferenceGlyph_a3">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="190" layout:y="252"/>
+                      <layout:end layout:x="190" layout:y="278"/>
                     </layout:curveSegment>
                   </layout:listOfCurveSegments>
                 </layout:curve>
@@ -258,9 +258,11 @@
           <speciesReference id="a4" species="glyph5"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference id="a3"/>
           <speciesReference id="a5" species="glyph6"/>
         </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference id="a3" species="glyph3"/>
+        </listOfModifiers>
       </reaction>
     </listOfReactions>
   </model>

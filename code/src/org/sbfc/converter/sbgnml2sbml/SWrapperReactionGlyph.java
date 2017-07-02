@@ -6,6 +6,7 @@ import java.util.List;
 import org.sbgn.bindings.Arc;
 import org.sbgn.bindings.Glyph;
 import org.sbml.jsbml.Reaction;
+import org.sbml.jsbml.SimpleSpeciesReference;
 import org.sbml.jsbml.ext.layout.GeneralGlyph;
 import org.sbml.jsbml.ext.layout.ReactionGlyph;
 import org.sbml.jsbml.ext.layout.ReferenceGlyph;
@@ -20,6 +21,7 @@ public class SWrapperReactionGlyph {
 	HashMap<String, Arc> glyphToPortArcs = new HashMap<String, Arc>();
 	HashMap<String, Arc> portToGlyphArcs = new HashMap<String, Arc>();
 	HashMap<String, Arc> glyphToGlyphArcs = new HashMap<String, Arc>();
+	HashMap<String, Arc> modifierArcs = new HashMap<String, Arc>();
 
 	HashMap<String, SpeciesReferenceGlyph> speciesReferenceGlyphs = new HashMap<String, SpeciesReferenceGlyph>();
 	
@@ -37,7 +39,9 @@ public class SWrapperReactionGlyph {
 			portToGlyphArcs.put(arcId, arc);
 		} else if (type == "glyphToGlyph"){
 			glyphToGlyphArcs.put(arcId, arc);
-		} else {}
+		} else if (type == "modifierArcs") {
+			modifierArcs.put(arcId, arc);
+		}
 	}
 		
 	void addSpeciesReferenceGlyph(String arcId, SpeciesReferenceGlyph speciesReferenceGlyph){
@@ -51,6 +55,8 @@ public class SWrapperReactionGlyph {
 			return portToGlyphArcs.get(arcId);
 		} else if (glyphToGlyphArcs.get(arcId) != null){
 			return glyphToGlyphArcs.get(arcId);
+		} else if (modifierArcs.get(arcId) != null){
+			return modifierArcs.get(arcId);
 		}		
 		return null;
 	}

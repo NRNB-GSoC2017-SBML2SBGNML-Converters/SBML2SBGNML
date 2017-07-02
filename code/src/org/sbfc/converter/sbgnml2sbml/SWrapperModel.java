@@ -23,11 +23,11 @@ public class SWrapperModel {
 	HashMap<String, Glyph> compartments;
 	HashMap<String, Glyph> logicOperators;
 	
-	// see code below for definition of inwardArcs, outwardArcs, and undirectedArcs
 	HashMap<String, Arc> glyphToPortArcs;
 	HashMap<String, Arc> portToGlyphArcs;
 	HashMap<String, Arc> glyphToGlyphArcs;
 	HashMap<String, Arc> logicArcs;
+	HashMap<String, Arc> modifierArcs;
 	
 	HashMap<String, SWrapperSpeciesGlyph> listOfWrapperSpeciesGlyphs;
 	HashMap<String, SWrapperCompartmentGlyph> listOfWrapperCompartmentGlyphs;
@@ -54,6 +54,7 @@ public class SWrapperModel {
 		this.portToGlyphArcs = new HashMap<String, Arc>();
 		this.glyphToGlyphArcs = new HashMap<String, Arc>();
 		this.logicArcs = new HashMap<String, Arc>();
+		this.modifierArcs = new HashMap<String, Arc>();
 			
 		this.listOfWrapperSpeciesGlyphs = new HashMap<String, SWrapperSpeciesGlyph>();
 		this.listOfWrapperCompartmentGlyphs = new HashMap<String, SWrapperCompartmentGlyph>();
@@ -170,6 +171,10 @@ public class SWrapperModel {
 	public void addLogicArc(String id, Arc arc) {
 		id = checkArcId(id, logicArcs);
 		logicArcs.put(id, arc);
+	}
+	public void addModifierArcs(String id, Arc arc) {
+		id = checkArcId(id, modifierArcs);
+		modifierArcs.put(id, arc);
 	}
 	
 	public void updatePortGlyphMap(Glyph glyph){

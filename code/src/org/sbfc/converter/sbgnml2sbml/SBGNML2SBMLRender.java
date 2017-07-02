@@ -110,7 +110,7 @@ public class SBGNML2SBMLRender {
 		for (String arcKey : sWrapperReactionGlyph.speciesReferenceGlyphs.keySet()){
 			speciesReferenceGlyph = sWrapperReactionGlyph.speciesReferenceGlyphs.get(arcKey);
 			arc = sWrapperReactionGlyph.getArc(arcKey);
-			
+
 			createStyle((GraphicalObject) speciesReferenceGlyph, arc);
 		}		
 	}

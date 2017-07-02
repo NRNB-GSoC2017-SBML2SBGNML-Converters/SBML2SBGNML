@@ -25,6 +25,7 @@ import org.sbml.jsbml.Reaction;
 import org.sbml.jsbml.SBMLDocument;
 import org.sbml.jsbml.SBMLException;
 import org.sbml.jsbml.SBMLWriter;
+import org.sbml.jsbml.SimpleSpeciesReference;
 import org.sbml.jsbml.Species;
 import org.sbml.jsbml.SpeciesReference;
 import org.sbml.jsbml.CVTerm.Qualifier;
@@ -248,6 +249,17 @@ public class SBGNML2SBMLUtil {
 		return speciesReference;
 	}	
 	
+	public ModifierSpeciesReference createModifierSpeciesReference(Reaction reaction, Species species, 
+			String speciesReferenceId) {
+		ModifierSpeciesReference speciesReference;
+		
+		speciesReference = new ModifierSpeciesReference();
+		speciesReference.setId(speciesReferenceId);
+		speciesReference.setSpecies(species);
+	
+		return speciesReference;
+	}		
+	
 	/**
 	 * Create a <code>SpeciesReferenceGlyph</code> using values from an SBGN <code>Arc</code>. 
 	 * Associate the <code>SpeciesReferenceGlyph</code> with a <code>SpeciesGlyph</code> and 
@@ -260,7 +272,7 @@ public class SBGNML2SBMLUtil {
 	 * @return <code>SpeciesReferenceGlyph</code> speciesReferenceGlyph
 	 */		
 	public SpeciesReferenceGlyph createOneSpeciesReferenceGlyph(String id, Arc arc, 
-			SpeciesReference speciesReference, Glyph speciesGlyph) {
+			SimpleSpeciesReference speciesReference, Glyph speciesGlyph) {
 		SpeciesReferenceGlyph speciesReferenceGlyph;
 		
 		speciesReferenceGlyph = new SpeciesReferenceGlyph();
@@ -276,7 +288,7 @@ public class SBGNML2SBMLUtil {
 	 * Create an SBML <code>Curve</code> from values in an SBGN <code>Arc</code>. 
 	 * TODO: need to handle more complex cases where an Arc consists of multiple parts
 	 */		
-	public Curve createOneSpeciesReferenceCurve(Arc arc) {
+	public Curve createOneCurve(Arc arc) {
 		Curve curve;
 		CurveSegment curveSegment;
 		Point point;
@@ -762,7 +774,7 @@ public class SBGNML2SBMLUtil {
 		return sbgnObject;
 	}
 	
-	public static void writeSbgnFile(String sbmlFileNameOutput, Model model) {
+	public static void writeSbmlFile(String sbmlFileNameOutput, Model model) {
 		File outputFile;
 		outputFile = new File(sbmlFileNameOutput);
 		
