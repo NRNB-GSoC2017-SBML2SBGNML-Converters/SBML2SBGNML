@@ -422,7 +422,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			reaction.addReactant(sWrapperSpeciesReferenceGlyph.speciesReference);	
 			// this is a trick to correctly set the Start and End point of the center Curve of the ReactionGlyph
 			// note that this doesn't work well
-			updateReactionGlyph(reactionGlyph, sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph, "start");
+			//updateReactionGlyph(reactionGlyph, sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph, "start");
 		
 			// add the SpeciesReferenceGlyph to the SWrapperReactionGlyph
 			// and add the enclosing SWrapperSpeciesReferenceGlyph to the List<SWrapperSpeciesReferenceGlyph>
@@ -454,7 +454,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			sWrapperSpeciesReferenceGlyph = createOneSpeciesReferenceGlyph(reaction, reactionGlyph,
 					arc, speciesId, targetGlyph, reactionId, speciesReferenceId);
 			reaction.addProduct(sWrapperSpeciesReferenceGlyph.speciesReference);
-			updateReactionGlyph(reactionGlyph, sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph, "end");
+			//updateReactionGlyph(reactionGlyph, sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph, "end");
 			
 			reactionGlyphTuple.addSpeciesReferenceGlyph(speciesReferenceId, 
 					sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph);
@@ -728,9 +728,12 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			// Add the GeneralGlyph created to the output
 			sOutput.addGeneralGlyph(sWrapperGeneralGlyph.generalGlyph);
 		}		
-		
 	}
 			
+	public void storeTemplateRenderInformation() {
+		sOutput.storeTemplateLocalRenderInformation(sOutput.loadTemplateFromFile());
+	}
+	
 	public static void main(String[] args) throws FileNotFoundException {
 		String sbgnFileNameInput;
 		String sbmlFileNameOutput;
@@ -758,8 +761,11 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		// optional
 		SBGNML2SBMLUtil.debugSbgnObject(map);
 		
-		// Create a new converter, convert the file
+		// Create a new converter
 		converter = new SBGNML2SBML_GSOC2017(map);
+		// Load a template file containing predefined RenderInformation
+		converter.storeTemplateRenderInformation();
+		// Convert the file
 		converter.convertToSBML();
 		
 		// Write converted SBML file

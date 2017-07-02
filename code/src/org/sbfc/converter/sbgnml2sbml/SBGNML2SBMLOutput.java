@@ -1,6 +1,12 @@
 package org.sbfc.converter.sbgnml2sbml;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
+import java.util.Properties;
+
+import javax.xml.stream.XMLStreamException;
 
 import org.sbgn.bindings.Arc;
 import org.sbgn.bindings.Glyph;
@@ -9,6 +15,9 @@ import org.sbml.jsbml.Compartment;
 import org.sbml.jsbml.ListOf;
 import org.sbml.jsbml.Model;
 import org.sbml.jsbml.Reaction;
+import org.sbml.jsbml.SBMLDocument;
+import org.sbml.jsbml.SBMLReader;
+import org.sbml.jsbml.SBase;
 import org.sbml.jsbml.Species;
 import org.sbml.jsbml.ext.layout.BoundingBox;
 import org.sbml.jsbml.ext.layout.CompartmentGlyph;
@@ -22,12 +31,16 @@ import org.sbml.jsbml.ext.layout.ReactionGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.TextGlyph;
 import org.sbml.jsbml.ext.render.ColorDefinition;
+import org.sbml.jsbml.ext.render.Ellipse;
 import org.sbml.jsbml.ext.render.LineEnding;
 import org.sbml.jsbml.ext.render.ListOfLocalRenderInformation;
 import org.sbml.jsbml.ext.render.LocalRenderInformation;
+import org.sbml.jsbml.ext.render.LocalStyle;
 import org.sbml.jsbml.ext.render.RenderConstants;
+import org.sbml.jsbml.ext.render.RenderGroup;
 import org.sbml.jsbml.ext.render.RenderLayoutPlugin;
 import org.sbml.jsbml.ext.render.Style;
+import org.sbml.jsbml.ext.render.Transformation2D;
 
 public class SBGNML2SBMLOutput {
 	Model model;
@@ -41,7 +54,7 @@ public class SBGNML2SBMLOutput {
 	
 	ListOf<ColorDefinition> listOfColorDefinitions;
 	ListOf<LineEnding> listOfLineEndings;	
-	ListOf<Style> listOfStyles;
+	ListOf<LocalStyle> listOfStyles;
 	
 	// keep track of the maximum value for each dimension. Finally, set these 3 values as the dimensions of the layout
 	Double dimensionX;
@@ -74,13 +87,20 @@ public class SBGNML2SBMLOutput {
 		this.localRenderInformation = new LocalRenderInformation("LocalRenderInformation_01");
 		this.renderLayoutPlugin.addLocalRenderInformation(localRenderInformation);		
 		this.listOfLocalRenderInformation = renderLayoutPlugin.getListOfLocalRenderInformation();		
+
+		this.listOfColorDefinitions = renderLayoutPlugin.getLocalRenderInformation(0).getListOfColorDefinitions();
+		this.listOfLineEndings = renderLayoutPlugin.getLocalRenderInformation(0).getListOfLineEndings();
+		this.listOfStyles = renderLayoutPlugin.getLocalRenderInformation(0).getListOfLocalStyles();
 	}
 	
 	public void addListOfColorDefinitions(ListOf<ColorDefinition> listOfColorDefinitions) {
-		this.listOfColorDefinitions = listOfColorDefinitions.clone();
+		this.listOfColorDefinitions.addAll(listOfColorDefinitions.clone());
 	}
 	public void addListOfLineEndings(ListOf<LineEnding> listOfLineEndings) {
-		this.listOfLineEndings = listOfLineEndings.clone();
+		this.listOfLineEndings.addAll(listOfLineEndings.clone());
+	}
+	public void addListOfStyles(ListOf<LocalStyle> listOfStyles) {
+		this.listOfStyles.addAll(listOfStyles.clone());
 	}
 	
 	/**
@@ -241,6 +261,93 @@ public class SBGNML2SBMLOutput {
 		listOfGeneralGlyphs.add(generalGlyph);
 		
 	}
+	
+	public static SBMLDocument getSBMLDocument(String sbmlFileName) {
+
+		SBMLDocument document = null;
+		SBMLReader reader = new SBMLReader();
+		try {
+			document = reader.readSBML(sbmlFileName);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (XMLStreamException e) {
+			e.printStackTrace();
+		}
+
+		return document;
+	}	
+	
+	public LocalRenderInformation loadTemplateFromFile() {
+		Properties properties = new Properties();	
+		InputStream inputProperties;	
+		SBMLDocument sbmlDocument;		
+		
+		try {
+			inputProperties = new FileInputStream("sbgnml2sbml.properties");
+			properties.load(inputProperties);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		String examplesDirectory = properties.getProperty("sbgnml2sbml.examples.path");		
+		
+		String sbmlFileNameInput;
+		sbmlFileNameInput = examplesDirectory + "template.xml";
+		sbmlDocument = getSBMLDocument(sbmlFileNameInput);
+		
+		Model model =  sbmlDocument.getModel();
+		LayoutModelPlugin layoutPlugin = (LayoutModelPlugin) model.getPlugin("layout");
+		Layout templateLayout = layoutPlugin.getLayout(0);
+		RenderLayoutPlugin renderLayoutPlugin = (RenderLayoutPlugin) templateLayout.getPlugin(RenderConstants.shortLabel);
+		LocalRenderInformation localRenderInformation = renderLayoutPlugin.getLocalRenderInformation(0);
+		
+		//System.out.println("loadTemplateFromFile "+localRenderInformation.getId());
+		
+		return localRenderInformation;
+	}
+	
+	public void storeTemplateLocalRenderInformation(LocalRenderInformation localRenderInformation) {
+		//System.out.println("storeTemplateLocalRenderInformation "+localRenderInformation.getId());
+		
+		ListOf<ColorDefinition> listOfColorDefinitions = localRenderInformation.getListOfColorDefinitions();
+		for (ColorDefinition cd : listOfColorDefinitions){
+			this.listOfColorDefinitions.add(cd.clone());
+		}
+		
+		// deep clone does not work
+		ListOf<LineEnding> listOfLineEndings = localRenderInformation.getListOfLineEndings();
+		for (LineEnding le : listOfLineEndings){
+			LineEnding leClone = le.clone();
+			RenderGroup rgClone = le.getGroup().clone();
+			ListOf<Transformation2D> listOfTransformation2D = le.getGroup().getListOfElements();
+			for (Transformation2D t2d : listOfTransformation2D){
+				System.out.println("storeTemplateLocalRenderInformation "+t2d.getClass().toString());
+				if (t2d instanceof Ellipse){
+					// does not work
+					rgClone.addElement((Ellipse) t2d.clone());
+				} else {
+					rgClone.addElement(t2d.clone());
+				}	
+			}
+			
+			leClone.setGroup(rgClone);
+			this.listOfLineEndings.add(leClone);
+			//this.listOfLineEndings.add(new LineEnding(le));
+		}
+		
+		ListOf<LocalStyle> listOfStyles = localRenderInformation.getListOfLocalStyles();
+		for (LocalStyle ls : listOfStyles){
+			//System.out.println("storeTemplateLocalRenderInformation "+ls.getId());
+			this.listOfStyles.add(new LocalStyle(ls.getId(), 3, 1, ls.getGroup()));
+		}
+				
+		//System.out.println("storeTemplateLocalRenderInformation "+this.listOfColorDefinitions.size());
+		//System.out.println("storeTemplateLocalRenderInformation "+this.listOfLineEndings.size());
+		//System.out.println("storeTemplateLocalRenderInformation "+this.listOfStyles.size());
+		
+	}
+		
 	
 }
 

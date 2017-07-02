@@ -9,36 +9,39 @@
               <render:colorDefinition render:id="white" render:value="#FFFFFFFF"/>
               <render:colorDefinition render:id="black" render:value="#000000FF"/>
             </render:listOfColorDefinitions>
-			
-                        <render:listOfLineEndings>
-                            <render:lineEnding render:id="productionHead">
-                                <layout:boundingBox>
-                                    <layout:position layout:x="-10" layout:y="-6"/>
-                                    <layout:dimensions layout:height="10" layout:width="14"/>
-                                </layout:boundingBox>
-                                <render:g render:fill="black" render:stroke="black" render:stroke-width="1.0">
-                                    <render:polygon>
-                                        <render:listOfElements>
-                                            <render:element render:x="0" render:y="0" xsi:type="RenderPoint"/>
-                                            <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
-                                            <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
-                                            <render:element render:x="0" render:y="10" xsi:type="RenderPoint"/>
-                                        </render:listOfElements>
-                                    </render:polygon>
-                                </render:g>
-                            </render:lineEnding>
-                            <render:lineEnding render:id="catalysisHead">
-                                <layout:boundingBox>
-                                    <layout:position layout:x="0" layout:y="-7"/>
-                                    <layout:dimensions layout:height="14" layout:width="14"/>
-                                </layout:boundingBox>
-                                <render:g render:stroke="black" render:fill="white" render:stroke-width="2.0">
-                                    <render:ellipse render:cx="50%" render:cy="50%" render:rx="50%"/>
-                                </render:g>
-                            </render:lineEnding>
-                        </render:listOfLineEndings>
-						
+            <render:listOfLineEndings>
+              <render:lineEnding render:id="productionHead">
+                <layout:boundingBox>
+                  <layout:position layout:x="-10" layout:y="-6"/>
+                  <layout:dimensions layout:height="10" layout:width="14"/>
+                </layout:boundingBox>
+                <render:g render:fill="black" render:stroke="black" render:stroke-width="1.0">
+                  <render:polygon>
+                    <render:listOfElements>
+                      <render:element render:x="0" render:y="0" xsi:type="RenderPoint"/>
+                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
+                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
+                      <render:element render:x="0" render:y="10" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                  </render:polygon>
+                </render:g>
+              </render:lineEnding>
+              <render:lineEnding render:id="catalysisHead">
+                <layout:boundingBox>
+                  <layout:position layout:x="0" layout:y="-7"/>
+                  <layout:dimensions layout:height="14" layout:width="14"/>
+                </layout:boundingBox>
+                <render:g render:fill="white" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse/>
+                </render:g>
+              </render:lineEnding>
+            </render:listOfLineEndings>
             <render:listOfStyles>
+              <render:style id="LocalStyle_simple_chemical_glyph">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:href="simple-chemical-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:style>
               <render:style id="LocalStyle_SpeciesGlyph_glyph5" render:roleList="LocalStyle_SpeciesGlyph_glyph5">
                 <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
                   <render:image render:height="100%" render:href="simple-chemical-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
@@ -169,8 +172,8 @@
             <layout:curve>
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
-                  <layout:start layout:x="166" layout:y="290"/>
-                  <layout:end layout:x="214" layout:y="290"/>
+                  <layout:start layout:x="178" layout:y="278"/>
+                  <layout:end layout:x="202" layout:y="302"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>

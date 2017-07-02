@@ -61,7 +61,7 @@ public class SBGNML2SBMLRender {
 	public SBGNML2SBMLRender(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput) {
 		this.sWrapperModel = sWrapperModel;
 		this.sOutput = sOutput;
-		createColourDefinitions();
+		//createColourDefinitions();
 		
 		// todo import file containing all LineEnding definitions
 		//createLineEndings();
