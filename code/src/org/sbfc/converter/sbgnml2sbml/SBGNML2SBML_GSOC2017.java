@@ -293,6 +293,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		sWrapperReactionGlyph = new SWrapperReactionGlyph(reaction, reactionGlyph, glyph);
 		// Create all SpeciesReferenceGlyphs associated with this ReactionGlyph.
 		createSpeciesReferenceGlyphs(reaction, reactionGlyph, sWrapperReactionGlyph);	
+		setStartAndEndPointForCurve(sWrapperReactionGlyph);
 		
 		return sWrapperReactionGlyph;
 	} 
@@ -422,7 +423,9 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			reaction.addReactant(sWrapperSpeciesReferenceGlyph.speciesReference);	
 			// this is a trick to correctly set the Start and End point of the center Curve of the ReactionGlyph
 			// note that this doesn't work well
-			//updateReactionGlyph(reactionGlyph, sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph, "start");
+			updateReactionGlyph(reactionGlyph, sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph, "start", 
+					reactionGlyphTuple);
+
 		
 			// add the SpeciesReferenceGlyph to the SWrapperReactionGlyph
 			// and add the enclosing SWrapperSpeciesReferenceGlyph to the List<SWrapperSpeciesReferenceGlyph>
@@ -454,7 +457,8 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			sWrapperSpeciesReferenceGlyph = createOneSpeciesReferenceGlyph(reaction, reactionGlyph,
 					arc, speciesId, targetGlyph, reactionId, speciesReferenceId);
 			reaction.addProduct(sWrapperSpeciesReferenceGlyph.speciesReference);
-			//updateReactionGlyph(reactionGlyph, sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph, "end");
+			updateReactionGlyph(reactionGlyph, sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph, "end",
+					reactionGlyphTuple);
 			
 			reactionGlyphTuple.addSpeciesReferenceGlyph(speciesReferenceId, 
 					sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph);
@@ -486,6 +490,8 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			sWrapperSpeciesReferenceGlyph = createOneSpeciesReferenceGlyph(reaction, reactionGlyph,
 					arc, speciesId, targetGlyph, reactionId, speciesReferenceId);
 			reaction.addReactant(sWrapperSpeciesReferenceGlyph.speciesReference);
+			updateReactionGlyph(reactionGlyph, sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph, "start",
+					reactionGlyphTuple);
 			
 			reactionGlyphTuple.addSpeciesReferenceGlyph(speciesReferenceId, 
 					sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph);
@@ -532,7 +538,9 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		return listOfSWrappersSRG;
 	}
 				
-	// obsolete
+	/**
+	 * Obsolete. 
+	 */		
 	public boolean isModifierArcOutOfLogicOperator(Arc arc){
 		String clazz = arc.getClazz();
 		
@@ -557,23 +565,58 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	}
 	
 	/**
-	 * Update the start or end <code>Point</code> of <code>ReactionGlyph</code> using values in a <code>SpeciesReferenceGlyph</code>. 
+	 * TODO: rename method name
+	 * Update the start or end <code>Point</code> of <code>ReactionGlyph</code> using values 
+	 * in a <code>SpeciesReferenceGlyph</code>. 
 	 */			
-	public void updateReactionGlyph(ReactionGlyph reactionGlyph, SpeciesReferenceGlyph speciesReferenceGlyph, String reactionGlyphPointType){
+	public void updateReactionGlyph(ReactionGlyph reactionGlyph, SpeciesReferenceGlyph speciesReferenceGlyph, 
+			String reactionGlyphPointType, SWrapperReactionGlyph sWrapperReactionGlyph){
 		Point curvePoint = null;
 		Point reactionGlyphPoint = null;
 		if (reactionGlyphPointType.equals("start")) {
 			// for now,  we assume there is only 1 CurveSegment in this Curve, so getCurveSegment(0)
 			curvePoint = speciesReferenceGlyph.getCurve().getCurveSegment(0).getEnd();
+			// update the Start Point of the ReactionGlyph
 			reactionGlyphPoint = reactionGlyph.getCurve().getCurveSegment(0).getStart();
 		} else if (reactionGlyphPointType.equals("end")) {
 			curvePoint = speciesReferenceGlyph.getCurve().getCurveSegment(0).getStart();
+			// update the End Point of the ReactionGlyph
 			reactionGlyphPoint = reactionGlyph.getCurve().getCurveSegment(0).getEnd();			
 		}
 	
-		reactionGlyphPoint.setX(curvePoint.getX());
-		reactionGlyphPoint.setY(curvePoint.getY());
-		reactionGlyphPoint.setZ(curvePoint.getZ());
+//		reactionGlyphPoint.setX(curvePoint.getX());
+//		reactionGlyphPoint.setY(curvePoint.getY());
+//		reactionGlyphPoint.setZ(curvePoint.getZ());
+		sWrapperReactionGlyph.addPoint(curvePoint);
+		
+		System.out.println(reactionGlyphPointType + "curvePoint x "+curvePoint.getX());
+		System.out.println(reactionGlyphPointType + "curvePoint y "+curvePoint.getY());
+		System.out.println(reactionGlyphPointType + "curvePoint z "+curvePoint.getZ());
+	}
+	
+	void setStartAndEndPointForCurve(SWrapperReactionGlyph sWrapperReactionGlyph){
+		int _nrows = sWrapperReactionGlyph.listOfEndPoints.size();
+		System.out.println("setStartAndEndPointForCurve _nrows="+_nrows);
+		
+	     KMeans KM = new KMeans( sWrapperReactionGlyph.listOfEndPoints, null );
+	     KM.clustering(2, 10, null); // 2 clusters, maximum 10 iterations
+	     KM.printResults();
+	     double[][] centroids = KM._centroids;
+	     
+	     // assume only 1 CurveSegment for the Curve
+	     Point start = sWrapperReactionGlyph.reactionGlyph.getCurve().getCurveSegment(0).getStart();
+	     Point end = sWrapperReactionGlyph.reactionGlyph.getCurve().getCurveSegment(0).getEnd();
+	     
+	     // arbitrary assignment of values
+	     start.setX(centroids[0][0]);
+	     start.setY(centroids[0][1]);
+	     end.setX(centroids[1][0]);
+	     end.setY(centroids[1][1]);
+	     
+	     System.out.println("X"+start.getX());
+	     System.out.println("Y"+start.getY());
+	     System.out.println("X"+end.getX());
+	     System.out.println("Y"+end.getY());
 	}
 	
 	

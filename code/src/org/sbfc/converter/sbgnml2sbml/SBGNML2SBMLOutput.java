@@ -322,7 +322,7 @@ public class SBGNML2SBMLOutput {
 			RenderGroup rgClone = le.getGroup().clone();
 			ListOf<Transformation2D> listOfTransformation2D = le.getGroup().getListOfElements();
 			for (Transformation2D t2d : listOfTransformation2D){
-				System.out.println("storeTemplateLocalRenderInformation "+t2d.getClass().toString());
+				//System.out.println("storeTemplateLocalRenderInformation "+t2d.getClass().toString());
 				if (t2d instanceof Ellipse){
 					// does not work
 					rgClone.addElement((Ellipse) t2d.clone());

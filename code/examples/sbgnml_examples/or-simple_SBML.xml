@@ -172,8 +172,8 @@
             <layout:curve>
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
-                  <layout:start layout:x="178" layout:y="278"/>
-                  <layout:end layout:x="202" layout:y="302"/>
+                  <layout:start layout:x="166" layout:y="290"/>
+                  <layout:end layout:x="214" layout:y="290"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>
