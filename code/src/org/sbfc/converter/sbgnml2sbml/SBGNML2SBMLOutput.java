@@ -347,6 +347,15 @@ public class SBGNML2SBMLOutput {
 		//System.out.println("storeTemplateLocalRenderInformation "+this.listOfStyles.size());
 		
 	}
+	
+	public void completeModel() {
+		// Auto-fill missing values for required fields in the SBML Model
+		SBMLModelCompleter modelCompleter = new SBMLModelCompleter();
+		SBMLDocument document = new SBMLDocument(3, 1);
+		document.setModel(model);		
+		document = modelCompleter.autoCompleteRequiredAttributes(document);
+		model = document.getModel();
+	}
 		
 	
 }

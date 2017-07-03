@@ -102,6 +102,8 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		sRender.renderSpeciesGlyphs();
 		sRender.renderReactionGlyphs();
 		sRender.renderGeneralGlyphs();
+		
+		//sOutput.completeModel();
 	}
 
 	/**
@@ -810,7 +812,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		converter.storeTemplateRenderInformation();
 		// Convert the file
 		converter.convertToSBML();
-		
+				
 		// Write converted SBML file
 		SBGNML2SBMLUtil.writeSbmlFile(sbmlFileNameOutput, converter.sOutput.model);
 	}
