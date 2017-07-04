@@ -246,22 +246,22 @@
       </layout:layout>
     </layout:listOfLayouts>
     <listOfCompartments>
-      <compartment id="DefaultCompartment_01"/>
+      <compartment constant="true" id="DefaultCompartment_01"/>
     </listOfCompartments>
     <listOfSpecies>
-      <species compartment="DefaultCompartment_01" id="glyph5" name="Subst" sboTerm="SBO:0000247"/>
-      <species compartment="DefaultCompartment_01" id="glyph6" name="Prod" sboTerm="SBO:0000247"/>
-      <species compartment="DefaultCompartment_01" id="glyph1" name="Enzym1" sboTerm="SBO:0000245"/>
-      <species compartment="DefaultCompartment_01" id="glyph2" name="Enzym2" sboTerm="SBO:0000245"/>
-      <species compartment="DefaultCompartment_01" id="glyph3"/>
+      <species boundaryCondition="true" compartment="DefaultCompartment_01" constant="true" hasOnlySubstanceUnits="true" id="glyph5" name="Subst" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="true" compartment="DefaultCompartment_01" constant="true" hasOnlySubstanceUnits="true" id="glyph6" name="Prod" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="true" compartment="DefaultCompartment_01" constant="true" hasOnlySubstanceUnits="true" id="glyph1" name="Enzym1" sboTerm="SBO:0000245"/>
+      <species boundaryCondition="true" compartment="DefaultCompartment_01" constant="true" hasOnlySubstanceUnits="true" id="glyph2" name="Enzym2" sboTerm="SBO:0000245"/>
+      <species boundaryCondition="true" compartment="DefaultCompartment_01" constant="true" hasOnlySubstanceUnits="true" id="glyph3"/>
     </listOfSpecies>
     <listOfReactions>
-      <reaction id="glyph4">
+      <reaction fast="true" id="glyph4" reversible="true">
         <listOfReactants>
-          <speciesReference id="a4" species="glyph5"/>
+          <speciesReference constant="true" id="a4" species="glyph5" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference id="a5" species="glyph6"/>
+          <speciesReference constant="true" id="a5" species="glyph6" stoichiometry="1"/>
         </listOfProducts>
         <listOfModifiers>
           <modifierSpeciesReference id="a3" species="glyph3"/>

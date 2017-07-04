@@ -103,7 +103,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		sRender.renderReactionGlyphs();
 		sRender.renderGeneralGlyphs();
 		
-		//sOutput.completeModel();
+		sOutput.completeModel();
 	}
 
 	/**

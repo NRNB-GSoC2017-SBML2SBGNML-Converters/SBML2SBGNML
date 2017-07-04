@@ -59,8 +59,8 @@ public class SBMLModelCompleter {
    * @return SBMLDocument
    *         TODO
    */
-  public static SBMLDocument autoCompleteRequiredAttributes(SBMLDocument doc) {
-    document = doc;
+  public static Model autoCompleteRequiredAttributes(Model inputModel) {
+
 
     // Namespace correction in the document: remove references to the previous
     // Level and Version combination:
@@ -70,7 +70,7 @@ public class SBMLModelCompleter {
 //        level, version));
 
     // Now proceed with the model:
-    model = document.getModel();
+    model = inputModel;
     if (model.isSetListOfUnitDefinitions()) {
       completeUnitDefinitions(model.getListOfUnitDefinitions());
     }
@@ -106,7 +106,7 @@ public class SBMLModelCompleter {
       model.setTimeUnits(UnitDefinition.TIME);
     }
 
-    return document;
+    return model;
   }
 
 

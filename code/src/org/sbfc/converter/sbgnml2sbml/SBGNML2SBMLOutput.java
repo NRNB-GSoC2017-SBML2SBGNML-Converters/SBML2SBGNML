@@ -316,6 +316,11 @@ public class SBGNML2SBMLOutput {
 		}
 		
 		// deep clone does not work
+		// I should be able to create a deep copy using 
+//		for (LineEnding le : listOfLineEndings){
+//			this.listOfLineEndings.add(le.clone());
+//		}
+		// but I get a shallow copy of the LineEnding instead
 		ListOf<LineEnding> listOfLineEndings = localRenderInformation.getListOfLineEndings();
 		for (LineEnding le : listOfLineEndings){
 			LineEnding leClone = le.clone();
@@ -324,7 +329,7 @@ public class SBGNML2SBMLOutput {
 			for (Transformation2D t2d : listOfTransformation2D){
 				//System.out.println("storeTemplateLocalRenderInformation "+t2d.getClass().toString());
 				if (t2d instanceof Ellipse){
-					// does not work
+					// note: this still does not work, I cannot clone a Ellipse at all
 					rgClone.addElement((Ellipse) t2d.clone());
 				} else {
 					rgClone.addElement(t2d.clone());
@@ -351,10 +356,9 @@ public class SBGNML2SBMLOutput {
 	public void completeModel() {
 		// Auto-fill missing values for required fields in the SBML Model
 		SBMLModelCompleter modelCompleter = new SBMLModelCompleter();
-		SBMLDocument document = new SBMLDocument(3, 1);
-		document.setModel(model);		
-		document = modelCompleter.autoCompleteRequiredAttributes(document);
-		model = document.getModel();
+	
+		model = modelCompleter.autoCompleteRequiredAttributes(model);
+
 	}
 		
 	

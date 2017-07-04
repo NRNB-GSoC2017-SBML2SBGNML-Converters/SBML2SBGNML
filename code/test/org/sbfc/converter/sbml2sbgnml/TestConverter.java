@@ -194,7 +194,7 @@ public class TestConverter {
 		
 	@Test
 	public void testCreateGlyphsFomCompartmentGlyphs(){
-		converter.createGlyphsFomCompartmentGlyphs(sbgnObject, listOfCompartmentGlyphs);
+		converter.createFromCompartmentGlyphs(sbgnObject, listOfCompartmentGlyphs);
 		int numOfGlyphs = sbgnObject.getMap().getGlyph().size();
 		
 		assertEquals(numCompartmentGlyphs, numOfGlyphs);
@@ -228,7 +228,7 @@ public class TestConverter {
 	
 	@Test
 	public void testCreateGlyphsFromReactionGlyphs(){
-		converter.createGlyphsFromReactionGlyphs(sbgnObject, listOfReactionGlyphs);
+		converter.createFromReactionGlyphs(sbgnObject, listOfReactionGlyphs);
 		int numOfGlyphs = sbgnObject.getMap().getGlyph().size();
 		
 		assertEquals(numReactionGlyphs, numOfGlyphs);
@@ -237,7 +237,7 @@ public class TestConverter {
 	@Test
 	public void testCreateGlyphFromReactionGlyph(){
 		ReactionGlyph sbmlGlyph = listOfReactionGlyphs.get(0);
-		converter.createGlyphFromReactionGlyph(sbgnObject, sbmlGlyph);
+		converter.createFromOneReactionGlyph(sbgnObject, sbmlGlyph);
 		
 		sbgnObject.getMap().getGlyph();
 		sbgnObject.getMap().getArc();
@@ -274,7 +274,7 @@ public class TestConverter {
 	
 	@Test
 	public void testCreateGlyphsFromSpeciesGlyphs(){
-		converter.createGlyphsFromSpeciesGlyphs(sbgnObject, listOfSpeciesGlyphs);
+		converter.createFromSpeciesGlyphs(sbgnObject, listOfSpeciesGlyphs);
 		int numOfGlyphs = sbgnObject.getMap().getGlyph().size();
 		
 		assertEquals(numSpeciesGlyphs, numOfGlyphs);
@@ -297,7 +297,7 @@ public class TestConverter {
 	
 	@Test
 	public void testCreateLabelsFromTextGlyphs(){
-		converter.createGlyphsFromSpeciesGlyphs(sbgnObject, listOfSpeciesGlyphs);
+		converter.createFromSpeciesGlyphs(sbgnObject, listOfSpeciesGlyphs);
 		converter.createLabelsFromTextGlyphs(sbgnObject, listOfTextGlyphs);
 		
 		for (TextGlyph sbmlGlyph : listOfTextGlyphs){
