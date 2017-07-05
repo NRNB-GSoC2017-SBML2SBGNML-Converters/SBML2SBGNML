@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -165,7 +166,11 @@ public class SBGNML2SBMLUtil {
 	
 	public String getText(Glyph glyph){
 		if (glyph.getLabel() != null) {
+
 			return glyph.getLabel().getText();
+		}
+		if (glyph.getClazz().equals("state variable")){
+			return glyph.getState().getValue() + "@" + glyph.getState().getVariable();
 		}
 		return "";
 	}
@@ -544,7 +549,7 @@ public class SBGNML2SBMLUtil {
 		
 		return role;		
 	}
-	
+		
 	public void addAnnotation(Species species, String clazz) {
 		Annotation annotation;
 		CVTerm cvTerm;

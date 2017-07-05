@@ -34,6 +34,7 @@ public class SWrapperModel {
 	HashMap<String, SWrapperReactionGlyph> listOfWrapperReactionGlyphs;
 	HashMap<String, SWrapperSpeciesReferenceGlyph> listOfWrapperSpeciesReferenceGlyphs;
 	HashMap<String, SWrapperGeneralGlyph> listOfWrapperGeneralGlyphs;
+	HashMap<String, SWrapperReferenceGlyph> listOfWrapperReferenceGlyphs;
 	
 	Model model;
 	
@@ -60,6 +61,7 @@ public class SWrapperModel {
 		this.listOfWrapperCompartmentGlyphs = new HashMap<String, SWrapperCompartmentGlyph>();
 		this.listOfWrapperReactionGlyphs = new HashMap<String, SWrapperReactionGlyph>();
 		this.listOfWrapperSpeciesReferenceGlyphs = new HashMap<String, SWrapperSpeciesReferenceGlyph>();
+		this.listOfWrapperReferenceGlyphs = new HashMap<String, SWrapperReferenceGlyph>();
 		this.listOfWrapperGeneralGlyphs = new HashMap<String, SWrapperGeneralGlyph>();
 		
 		this.model = model;
@@ -106,6 +108,21 @@ public class SWrapperModel {
 	}
 	public void addWrapperGeneralGlyph(String glyphId, SWrapperGeneralGlyph sWrapperGeneralGlyph){
 		listOfWrapperGeneralGlyphs.put(glyphId, sWrapperGeneralGlyph);
+	}
+	
+	public void addSWrapperReferenceGlyph(String speciesRefId, SWrapperReferenceGlyph sWrapperReferenceGlyph){
+		listOfWrapperReferenceGlyphs.put(speciesRefId, sWrapperReferenceGlyph);
+	}
+	public void addSWrapperSpeciesReferenceGlyph(String refId, SWrapperSpeciesReferenceGlyph sWrapperSpeciesReferenceGlyph){
+		listOfWrapperSpeciesReferenceGlyphs.put(refId, sWrapperSpeciesReferenceGlyph);
+	}
+	
+	public SWrapperSpeciesReferenceGlyph getSWrapperSpeciesReferenceGlyph(String speciesRefId){
+		return listOfWrapperSpeciesReferenceGlyphs.get(speciesRefId);
+	}
+	
+	public SWrapperReferenceGlyph getSWrapperReferenceGlyph(String refId){
+		return listOfWrapperReferenceGlyphs.get(refId);
 	}
 	
 	private String checkGlyphId(String id, HashMap<String, Glyph> container) {
@@ -188,8 +205,6 @@ public class SWrapperModel {
 	public String findGlyphFromPort(Port port) {
 		return portGlyphMap.get(port.getId());
 	}
-	
-	
-	
+		
 				
 }

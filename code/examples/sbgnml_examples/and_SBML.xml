@@ -1,0 +1,495 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" level="3" render:required="false" version="1" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
+  <model>
+    <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <layout:layout>
+        <render:listOfRenderInformation xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
+          <render:renderInformation render:id="LocalRenderInformation_01">
+            <render:listOfColorDefinitions>
+              <render:colorDefinition render:id="white" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="black" render:value="#000000FF"/>
+            </render:listOfColorDefinitions>
+            <render:listOfLineEndings>
+              <render:lineEnding render:id="productionHead">
+                <layout:boundingBox>
+                  <layout:position layout:x="-10" layout:y="-6"/>
+                  <layout:dimensions layout:height="10" layout:width="14"/>
+                </layout:boundingBox>
+                <render:g render:fill="black" render:stroke="black" render:stroke-width="1.0">
+                  <render:polygon>
+                    <render:listOfElements>
+                      <render:element render:x="0" render:y="0" xsi:type="RenderPoint"/>
+                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
+                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
+                      <render:element render:x="0" render:y="10" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                  <render:polygon>
+                    <render:listOfElements>
+                      <render:element render:x="0" render:y="0" xsi:type="RenderPoint"/>
+                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
+                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
+                      <render:element render:x="0" render:y="10" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:lineEnding>
+              <render:lineEnding render:id="necessaryStimulationHead">
+                <layout:boundingBox>
+                  <layout:position layout:x="-10" layout:y="-6"/>
+                  <layout:dimensions layout:height="10" layout:width="14"/>
+                </layout:boundingBox>
+                <render:g render:fill="black" render:stroke="black" render:stroke-width="1.0">
+                  <render:polygon>
+                    <render:listOfElements>
+                      <render:element render:x="3" render:y="3" xsi:type="RenderPoint"/>
+                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
+                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
+                      <render:element render:x="3" render:y="10" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                  <render:polygon>
+                    <render:listOfElements>
+                      <render:element render:x="0" render:y="0" xsi:type="RenderPoint"/>
+                      <render:element render:x="0" render:y="10" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                  <render:polygon>
+                    <render:listOfElements>
+                      <render:element render:x="3" render:y="3" xsi:type="RenderPoint"/>
+                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
+                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
+                      <render:element render:x="3" render:y="10" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                  <render:polygon>
+                    <render:listOfElements>
+                      <render:element render:x="0" render:y="0" xsi:type="RenderPoint"/>
+                      <render:element render:x="0" render:y="10" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:lineEnding>
+              <render:lineEnding render:id="catalysisHead">
+                <layout:boundingBox>
+                  <layout:position layout:x="-14" layout:y="-7"/>
+                  <layout:dimensions layout:height="14" layout:width="14"/>
+                </layout:boundingBox>
+                <render:g render:fill="white" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:rx="50%"/>
+                  <render:ellipse render:cx="50%" render:cy="50%" render:rx="50%"/>
+                </render:g>
+              </render:lineEnding>
+            </render:listOfLineEndings>
+            <render:listOfStyles>
+              <render:style id="LocalStyle_state_variable_glyph">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:rx="50%"/>
+                </render:g>
+              </render:style>
+              <render:style id="LocalStyle_unit_of_information_glyph">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:polygon>
+                    <render:listOfElements>
+                      <render:element render:x="0" render:y="0" xsi:type="RenderPoint"/>
+                      <render:element render:x="10" render:y="0" xsi:type="RenderPoint"/>
+                      <render:element render:x="10" render:y="10" xsi:type="RenderPoint"/>
+                      <render:element render:x="0" render:y="10" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="LocalStyle_SpeciesGlyph_glyph8" render:roleList="LocalStyle_SpeciesGlyph_glyph8">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:href="nucleic-acid-feature-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="LocalStyle_SpeciesGlyph_glyph5" render:roleList="LocalStyle_SpeciesGlyph_glyph5">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:href="complex-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="LocalStyle_SpeciesGlyph_glyph4" render:roleList="LocalStyle_SpeciesGlyph_glyph4">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:href="macromolecule-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="LocalStyle_SpeciesGlyph_glyph7" render:roleList="LocalStyle_SpeciesGlyph_glyph7">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:href="complex-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="LocalStyle_SpeciesGlyph_glyph6" render:roleList="LocalStyle_SpeciesGlyph_glyph6">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:href="nucleic-acid-feature-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="LocalStyle_SpeciesGlyph_glyph1" render:roleList="LocalStyle_SpeciesGlyph_glyph1">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:href="and-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="LocalStyle_SpeciesGlyph_glyph0" render:roleList="LocalStyle_SpeciesGlyph_glyph0">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:href="nucleic-acid-feature-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="LocalStyle_SpeciesGlyph_glyph3" render:roleList="LocalStyle_SpeciesGlyph_glyph3">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:href="source-and-sink-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="LocalStyle_ReactionGlyph_glyph2" render:roleList="LocalStyle_ReactionGlyph_glyph2">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:href="process-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="LocalStyle_SpeciesReferenceGlyph_a02" render:roleList="LocalStyle_SpeciesReferenceGlyph_a02">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle"/>
+              </render:style>
+              <render:style id="LocalStyle_SpeciesReferenceGlyph_a01" render:roleList="LocalStyle_SpeciesReferenceGlyph_a01">
+                <render:g font-style="normal" font-weight="normal" render:endHead="necessaryStimulationHead" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle"/>
+              </render:style>
+              <render:style id="LocalStyle_SpeciesReferenceGlyph_a03" render:roleList="LocalStyle_SpeciesReferenceGlyph_a03">
+                <render:g font-style="normal" font-weight="normal" render:endHead="productionHead" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle"/>
+              </render:style>
+              <render:style id="LocalStyle_GeneralGlyph_glyph4b" render:roleList="LocalStyle_GeneralGlyph_glyph4b">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:href="state-variable-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="LocalStyle_GeneralGlyph_glyph4c" render:roleList="LocalStyle_GeneralGlyph_glyph4c">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:href="state-variable-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="LocalStyle_GeneralGlyph_glyph4a" render:roleList="LocalStyle_GeneralGlyph_glyph4a">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:href="unit-of-information-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="LocalStyle_GeneralGlyph_a04" render:roleList="LocalStyle_GeneralGlyph_a04">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="LocalStyle_ReferenceGlyph_a04" render:roleList="LocalStyle_ReferenceGlyph_a04">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle"/>
+              </render:style>
+              <render:style id="LocalStyle_GeneralGlyph_glyph0a" render:roleList="LocalStyle_GeneralGlyph_glyph0a">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:href="unit-of-information-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="LocalStyle_GeneralGlyph_a05" render:roleList="LocalStyle_GeneralGlyph_a05">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="LocalStyle_ReferenceGlyph_a05" render:roleList="LocalStyle_ReferenceGlyph_a05">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle"/>
+              </render:style>
+              <render:style id="LocalStyle_GeneralGlyph_glyph6a" render:roleList="LocalStyle_GeneralGlyph_glyph6a">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:href="unit-of-information-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="LocalStyle_GeneralGlyph_glyph8a" render:roleList="LocalStyle_GeneralGlyph_glyph8a">
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:href="unit-of-information-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:style>
+            </render:listOfStyles>
+          </render:renderInformation>
+        </render:listOfRenderInformation>
+        <layout:dimensions layout:depth="0" layout:height="0" layout:width="0"/>
+        <layout:listOfAdditionalGraphicalObjects>
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph8a" render:objectRole="LocalStyle_GeneralGlyph_glyph8a">
+            <layout:boundingBox>
+              <layout:position layout:x="462" layout:y="131" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="18" layout:width="55"/>
+            </layout:boundingBox>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph4a" render:objectRole="LocalStyle_GeneralGlyph_glyph4a">
+            <layout:boundingBox>
+              <layout:position layout:x="123" layout:y="86" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="18" layout:width="53"/>
+            </layout:boundingBox>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph4b" render:objectRole="LocalStyle_GeneralGlyph_glyph4b">
+            <layout:boundingBox>
+              <layout:position layout:x="80" layout:y="141" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="28" layout:width="69"/>
+            </layout:boundingBox>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph4c" render:objectRole="LocalStyle_GeneralGlyph_glyph4c">
+            <layout:boundingBox>
+              <layout:position layout:x="150" layout:y="141" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="28" layout:width="69"/>
+            </layout:boundingBox>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph6a" render:objectRole="LocalStyle_GeneralGlyph_glyph6a">
+            <layout:boundingBox>
+              <layout:position layout:x="129" layout:y="211" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="18" layout:width="42"/>
+            </layout:boundingBox>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph0a" render:objectRole="LocalStyle_GeneralGlyph_glyph0a">
+            <layout:boundingBox>
+              <layout:position layout:x="468" layout:y="321" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="18" layout:width="63"/>
+            </layout:boundingBox>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_a04" render:objectRole="LocalStyle_GeneralGlyph_a04">
+            <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph8" layout:id="ReferenceGlyph_a04" render:objectRole="LocalStyle_ReferenceGlyph_a04">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="430" layout:y="189"/>
+                      <layout:end layout:x="370" layout:y="210"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_a05" render:objectRole="LocalStyle_GeneralGlyph_a05">
+            <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph7" layout:id="ReferenceGlyph_a05" render:objectRole="LocalStyle_ReferenceGlyph_a05">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="260" layout:y="188"/>
+                      <layout:end layout:x="370" layout:y="210"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph1">
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="370" layout:y="210"/>
+                  <layout:end layout:x="370" layout:y="290"/>
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+          </layout:generalGlyph>
+        </layout:listOfAdditionalGraphicalObjects>
+        <layout:listOfSpeciesGlyphs>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph8" layout:species="glyph8" render:objectRole="LocalStyle_SpeciesGlyph_glyph8">
+            <layout:boundingBox>
+              <layout:position layout:x="430" layout:y="140" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph7" layout:species="glyph7" render:objectRole="LocalStyle_SpeciesGlyph_glyph7">
+            <layout:boundingBox>
+              <layout:position layout:x="40" layout:y="30" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="270" layout:width="220"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph5" layout:species="glyph5" render:objectRole="LocalStyle_SpeciesGlyph_glyph5">
+            <layout:boundingBox>
+              <layout:position layout:x="60" layout:y="55" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="140" layout:width="180"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph4" layout:species="glyph4" render:objectRole="LocalStyle_SpeciesGlyph_glyph4">
+            <layout:boundingBox>
+              <layout:position layout:x="80" layout:y="95" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="140"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph6" layout:species="glyph6" render:objectRole="LocalStyle_SpeciesGlyph_glyph6">
+            <layout:boundingBox>
+              <layout:position layout:x="90" layout:y="220" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph0" layout:species="glyph0" render:objectRole="LocalStyle_SpeciesGlyph_glyph0">
+            <layout:boundingBox>
+              <layout:position layout:x="440" layout:y="330" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph3" layout:species="glyph3" render:objectRole="LocalStyle_SpeciesGlyph_glyph3">
+            <layout:boundingBox>
+              <layout:position layout:x="250" layout:y="330" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph1" layout:species="glyph1" render:objectRole="LocalStyle_SpeciesGlyph_glyph1">
+            <layout:boundingBox>
+              <layout:position layout:x="350" layout:y="230" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="40" layout:width="40"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+        </layout:listOfSpeciesGlyphs>
+        <layout:listOfReactionGlyphs>
+          <layout:reactionGlyph layout:id="ReactionGlyph_glyph2" layout:reaction="glyph2" render:objectRole="LocalStyle_ReactionGlyph_glyph2">
+            <layout:boundingBox>
+              <layout:position layout:x="360" layout:y="350" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="350" layout:y="360"/>
+                  <layout:end layout:x="390" layout:y="360"/>
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a02" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph3" layout:speciesReference="a02" render:objectRole="LocalStyle_SpeciesReferenceGlyph_a02">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="310" layout:y="360"/>
+                      <layout:end layout:x="350" layout:y="360"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a03" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph0" layout:speciesReference="a03" render:objectRole="LocalStyle_SpeciesReferenceGlyph_a03">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="390" layout:y="360"/>
+                      <layout:end layout:x="440" layout:y="360"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a01" layout:speciesGlyph="SpeciesGlyph_glyph2" layout:speciesReference="a01" render:objectRole="LocalStyle_SpeciesReferenceGlyph_a01">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="370" layout:y="290"/>
+                      <layout:end layout:x="370" layout:y="350"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+        </layout:listOfReactionGlyphs>
+        <layout:listOfTextGlyphs>
+          <layout:textGlyph layout:graphicalObject="GeneralGlyph_glyph8a" layout:id="TextGlyph_GeneralGlyph_glyph8a" layout:text="ct:gene">
+            <layout:boundingBox>
+              <layout:position layout:x="462" layout:y="131" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="18" layout:width="55"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph8" layout:id="TextGlyph_glyph8" layout:originOfText="glyph8">
+            <layout:boundingBox>
+              <layout:position layout:x="430" layout:y="140" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="GeneralGlyph_glyph4a" layout:id="TextGlyph_GeneralGlyph_glyph4a" layout:text="mt:prot">
+            <layout:boundingBox>
+              <layout:position layout:x="123" layout:y="86" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="18" layout:width="53"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="GeneralGlyph_glyph4b" layout:id="TextGlyph_GeneralGlyph_glyph4b" layout:text="P@Y701">
+            <layout:boundingBox>
+              <layout:position layout:x="80" layout:y="141" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="28" layout:width="69"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="GeneralGlyph_glyph4c" layout:id="TextGlyph_GeneralGlyph_glyph4c" layout:text="P@Y727">
+            <layout:boundingBox>
+              <layout:position layout:x="150" layout:y="141" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="28" layout:width="69"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph4" layout:id="TextGlyph_glyph4" layout:originOfText="glyph4">
+            <layout:boundingBox>
+              <layout:position layout:x="80" layout:y="95" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="140"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph5" layout:id="TextGlyph_glyph5" layout:originOfText="glyph5">
+            <layout:boundingBox>
+              <layout:position layout:x="60" layout:y="55" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="140" layout:width="180"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="GeneralGlyph_glyph6a" layout:id="TextGlyph_GeneralGlyph_glyph6a" layout:text="ct:grr">
+            <layout:boundingBox>
+              <layout:position layout:x="129" layout:y="211" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="18" layout:width="42"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph6" layout:id="TextGlyph_glyph6" layout:originOfText="glyph6">
+            <layout:boundingBox>
+              <layout:position layout:x="90" layout:y="220" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph7" layout:id="TextGlyph_glyph7" layout:originOfText="glyph7">
+            <layout:boundingBox>
+              <layout:position layout:x="40" layout:y="30" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="270" layout:width="220"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="GeneralGlyph_glyph0a" layout:id="TextGlyph_GeneralGlyph_glyph0a" layout:text="ct:mRNA">
+            <layout:boundingBox>
+              <layout:position layout:x="468" layout:y="321" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="18" layout:width="63"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph0" layout:id="TextGlyph_glyph0" layout:originOfText="glyph0">
+            <layout:boundingBox>
+              <layout:position layout:x="440" layout:y="330" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph3" layout:id="TextGlyph_glyph3" layout:originOfText="glyph3">
+            <layout:boundingBox>
+              <layout:position layout:x="250" layout:y="330" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph1" layout:id="TextGlyph_glyph1" layout:originOfText="glyph1">
+            <layout:boundingBox>
+              <layout:position layout:x="350" layout:y="230" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="40" layout:width="40"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+        </layout:listOfTextGlyphs>
+      </layout:layout>
+    </layout:listOfLayouts>
+    <listOfCompartments>
+      <compartment constant="true" id="DefaultCompartment_01"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species boundaryCondition="true" compartment="DefaultCompartment_01" constant="true" hasOnlySubstanceUnits="true" id="glyph8" name="IRF1" sboTerm="SBO:0000354"/>
+      <species boundaryCondition="true" compartment="DefaultCompartment_01" constant="true" hasOnlySubstanceUnits="true" id="glyph7" sboTerm="SBO:0000253"/>
+      <species boundaryCondition="true" compartment="DefaultCompartment_01" constant="true" hasOnlySubstanceUnits="true" id="glyph5" sboTerm="SBO:0000253"/>
+      <species boundaryCondition="true" compartment="DefaultCompartment_01" constant="true" hasOnlySubstanceUnits="true" id="glyph4" name="STAT1α" sboTerm="SBO:0000245"/>
+      <species boundaryCondition="true" compartment="DefaultCompartment_01" constant="true" hasOnlySubstanceUnits="true" id="glyph6" name="IRF1-GAS" sboTerm="SBO:0000354"/>
+      <species boundaryCondition="true" compartment="DefaultCompartment_01" constant="true" hasOnlySubstanceUnits="true" id="glyph0" name="IRF1" sboTerm="SBO:0000354"/>
+      <species boundaryCondition="true" compartment="DefaultCompartment_01" constant="true" hasOnlySubstanceUnits="true" id="glyph3" sboTerm="SBO:0000291"/>
+      <species boundaryCondition="true" compartment="DefaultCompartment_01" constant="true" hasOnlySubstanceUnits="true" id="glyph1"/>
+    </listOfSpecies>
+    <listOfReactions>
+      <reaction fast="true" id="glyph2" reversible="true">
+        <listOfReactants>
+          <speciesReference constant="true" id="a02" species="glyph3" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" id="a03" species="glyph0" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference id="a01" species="glyph1"/>
+        </listOfModifiers>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

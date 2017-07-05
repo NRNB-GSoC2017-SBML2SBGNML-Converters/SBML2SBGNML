@@ -29,11 +29,14 @@ public class SWrapperReactionGlyph {
 	
 	List<Point> listOfEndPoints = new ArrayList<Point>();
 	
-	SWrapperReactionGlyph(Reaction reaction, ReactionGlyph reactionGlyph, Glyph glyph) {
+	SWrapperModel sWrapperModel;
+	
+	SWrapperReactionGlyph(Reaction reaction, ReactionGlyph reactionGlyph, Glyph glyph, SWrapperModel sWrapperModel) {
 		this.reactionId = reaction.getId();
 		this.reaction = reaction;
 		this.reactionGlyph = reactionGlyph;	
 		this.clazz = glyph.getClazz();
+		this.sWrapperModel = sWrapperModel;
 	}		
 
 	void addArc(String arcId, Arc arc, String type) {
@@ -48,8 +51,9 @@ public class SWrapperReactionGlyph {
 		}
 	}
 		
-	void addSpeciesReferenceGlyph(String arcId, SpeciesReferenceGlyph speciesReferenceGlyph){
-		speciesReferenceGlyphs.put(arcId, speciesReferenceGlyph);
+	void addSpeciesReferenceGlyph(String arcId, SWrapperSpeciesReferenceGlyph sWrapperSpeciesReferenceGlyph){
+		speciesReferenceGlyphs.put(arcId, sWrapperSpeciesReferenceGlyph.speciesReferenceGlyph);
+		this.sWrapperModel.addSWrapperSpeciesReferenceGlyph(arcId, sWrapperSpeciesReferenceGlyph);
 	}
 	
 	Arc getArc(String arcId) {

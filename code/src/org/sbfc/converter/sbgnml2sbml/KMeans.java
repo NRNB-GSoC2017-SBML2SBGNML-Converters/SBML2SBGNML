@@ -40,7 +40,7 @@ public class KMeans
       // 3 DIMENSIONS X Y Z
       _ndims = 3;
 
-      System.out.println("KMeans " + _nrows + " "+_ndims);
+      //System.out.println("KMeans " + _nrows + " "+_ndims);
 
       // initialize the _data variable
       _data = new double[_nrows][];
@@ -60,9 +60,9 @@ public class KMeans
         	dv[2] = point.getZ();
         }
         
-        System.out.println("dv[0] "+dv[0]);
-        System.out.println("dv[1] "+dv[1]);
-        System.out.println("dv[2] "+dv[2]);
+        //System.out.println("dv[0] "+dv[0]);
+        //System.out.println("dv[1] "+dv[1]);
+        //System.out.println("dv[2] "+dv[2]);
 
         _data[nrow] = dv;
 

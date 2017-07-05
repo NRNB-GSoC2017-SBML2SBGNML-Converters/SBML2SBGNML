@@ -167,12 +167,14 @@ public class SBGNML2SBMLRender {
 		
 		if (arc.getClazz().equals("catalysis")){
 			renderGroup.setEndHead("catalysisHead");			
-		}
-		if (arc.getClazz().equals("production")){
+		} else if (arc.getClazz().equals("production")){
 			//LineEnding lineEnding = sOutput.listOfLineEndings.get("productionHead");
 			renderGroup.setEndHead("productionHead");			
+		} else if (arc.getClazz().equals("necessary stimulation")){
+			//LineEnding lineEnding = sOutput.listOfLineEndings.get("productionHead");
+			renderGroup.setEndHead("necessaryStimulationHead");			
 		}
-		
+
 	}	
 	
 	public void createColourDefinitions() {
@@ -221,18 +223,25 @@ public class SBGNML2SBMLRender {
 		// todo: horizontal or vertical?
 		if (clazz.equals("or")){
 			image.setHref("or-glyph.png");	
-		}
-		
-		if (clazz.equals("process")){
+		} else if (clazz.equals("process")){
 			image.setHref("process-glyph.png");	
-		} 
-		if (clazz.equals("macromolecule")){
+		} else if (clazz.equals("macromolecule")){
 			image.setHref("macromolecule-glyph.png");	
-		}
-		
-		if (clazz.equals("simple chemical")){
+		} else if (clazz.equals("simple chemical")){
 			image.setHref("simple-chemical-glyph.png");	
-		} 
+		} else if (clazz.equals("source and sink")){
+			image.setHref("source-and-sink-glyph.png");
+		} else if (clazz.equals("and")){
+			image.setHref("and-glyph.png");
+		} else if (clazz.equals("nucleic acid feature")){
+			image.setHref("nucleic-acid-feature-glyph.png");
+		} else if (clazz.equals("complex")){
+			image.setHref("complex-glyph.png");
+		} else if (clazz.equals("unit of information")){
+			image.setHref("unit-of-information-glyph.png");
+		} else if (clazz.equals("state variable")){
+			image.setHref("state-variable-glyph.png");
+		}		
 		
 		return image;
 	}

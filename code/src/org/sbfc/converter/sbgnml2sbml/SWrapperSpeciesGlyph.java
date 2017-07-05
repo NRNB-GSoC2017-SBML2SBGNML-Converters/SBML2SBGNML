@@ -5,6 +5,7 @@ import java.util.List;
 import org.sbgn.bindings.Glyph;
 import org.sbml.jsbml.Species;
 import org.sbml.jsbml.ext.layout.GeneralGlyph;
+import org.sbml.jsbml.ext.layout.GraphicalObject;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.TextGlyph;
 
@@ -21,17 +22,19 @@ public class SWrapperSpeciesGlyph {
 	boolean hasLabel = false;
 	String labelText = "";
 	boolean hasAuxillaryUnits = false;
-	List<GeneralGlyph> listOfGeneralGlyphs;
+	List<GraphicalObject> listOfGlyphs;
 	
 	TextGlyph textGlyph;		
 	
-	SWrapperSpeciesGlyph(Species species, SpeciesGlyph speciesGlyph, Glyph glyph) {
+	SWrapperSpeciesGlyph(Species species, SpeciesGlyph speciesGlyph, Glyph glyph, TextGlyph textGlyph) {
 		this.species = species;
 		this.speciesGlyph = speciesGlyph;		
 		this.clazz = glyph.getClazz();
+		this.textGlyph = textGlyph;
 	}	
 
-	public void setListOfGeneralGlyphs(List<GeneralGlyph> listOfGeneralGlyphs) {
-		this.listOfGeneralGlyphs = listOfGeneralGlyphs;
+	public void setListOfNestedGlyphs(List<GraphicalObject> listOfGeneralGlyphs) {
+		this.listOfGlyphs = listOfGeneralGlyphs;
 	}
+	
 }

@@ -26,9 +26,31 @@
                                     </render:polygon>
                                 </render:g>
                             </render:lineEnding>
+                            <render:lineEnding render:id="necessaryStimulationHead">
+                                <layout:boundingBox>
+                                    <layout:position layout:x="-10" layout:y="-6"/>
+                                    <layout:dimensions layout:height="10" layout:width="14"/>
+                                </layout:boundingBox>
+                                <render:g render:fill="black" render:stroke="black" render:stroke-width="1.0">
+                                    <render:polygon>
+                                        <render:listOfElements>
+                                            <render:element render:x="3" render:y="3" xsi:type="RenderPoint"/>
+                                            <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
+                                            <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
+                                            <render:element render:x="3" render:y="10" xsi:type="RenderPoint"/>
+                                        </render:listOfElements>
+                                    </render:polygon>
+                                    <render:polygon>
+                                        <render:listOfElements>
+                                            <render:element render:x="0" render:y="0" xsi:type="RenderPoint"/>
+                                            <render:element render:x="0" render:y="10" xsi:type="RenderPoint"/>
+                                        </render:listOfElements>
+                                    </render:polygon>									
+                                </render:g>
+                            </render:lineEnding>							
                             <render:lineEnding render:id="catalysisHead">
                                 <layout:boundingBox>
-                                    <layout:position layout:x="0" layout:y="-7"/>
+                                    <layout:position layout:x="-14" layout:y="-7"/>
                                     <layout:dimensions layout:height="14" layout:width="14"/>
                                 </layout:boundingBox>
                                 <render:g render:stroke="black" render:fill="white" render:stroke-width="2.0">
@@ -36,36 +58,47 @@
                                 </render:g>
                             </render:lineEnding>
                         </render:listOfLineEndings>
-                        <render:listOfStyles>
-                            <render:style id="LocalStyle_simple_chemical_glyph" render:roleList="">
+                        <render:listOfStyles>				
+                            <render:style id="LocalStyle_state_variable_glyph" render:roleList="">
+							<layout:boundingBox>
+								<layout:position layout:x="0" layout:y="0"/>
+								<layout:dimensions layout:height="10" layout:width="10"/>
+							</layout:boundingBox>								
                                 <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
-                                    <render:image render:height="100%" render:href="simple-chemical-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+                                    <render:ellipse render:cx="50%" render:cy="50%" render:rx="50%"/>
                                 </render:g>
                             </render:style>
+                            <render:style id="LocalStyle_unit_of_information_glyph" render:roleList="">
+							<layout:boundingBox>
+								<layout:position layout:x="0" layout:y="0"/>
+								<layout:dimensions layout:height="10" layout:width="10"/>
+							</layout:boundingBox>								
+                                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                                    <render:polygon>
+                                        <render:listOfElements>
+                                            <render:element render:x="0" render:y="0" xsi:type="RenderPoint"/>
+                                            <render:element render:x="10" render:y="0" xsi:type="RenderPoint"/>
+                                            <render:element render:x="10" render:y="10" xsi:type="RenderPoint"/>
+                                            <render:element render:x="0" render:y="10" xsi:type="RenderPoint"/>
+                                        </render:listOfElements>
+                                    </render:polygon>                                    
+                                </render:g>
+                            </render:style>							
                         </render:listOfStyles>
                     </render:renderInformation>
                 </render:listOfRenderInformation>
                 <layout:dimensions layout:depth="0" layout:height="0" layout:width="0"/>
                 <layout:listOfAdditionalGraphicalObjects>
                 </layout:listOfAdditionalGraphicalObjects>
-                <layout:listOfSpeciesGlyphs>
-                    <layout:speciesGlyph layout:id="glyph5_Glyph" layout:species="glyph5" render:objectRole="LocalStyle_glyph5_Glyph">
-                        <layout:boundingBox>
-                            <layout:position layout:x="70" layout:y="260" layout:z="0"/>
-                            <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
-                        </layout:boundingBox>
-                    </layout:speciesGlyph>				
+                <layout:listOfSpeciesGlyphs>				
                 </layout:listOfSpeciesGlyphs>
                 <layout:listOfTextGlyphs>
                 </layout:listOfTextGlyphs>
             </layout:layout>
         </layout:listOfLayouts>
         <listOfCompartments>
-            <compartment id="Compartment_01"/>
         </listOfCompartments>
         <listOfSpecies>
-            <species compartment="Compartment_01" id="glyph5" metaid="_50ea85e7-2edb-497e-8b12-1340ebb0bf7a" name="Subst" sboTerm="SBO:0000247">
-            </species>
         </listOfSpecies>
         <listOfReactions>
 
