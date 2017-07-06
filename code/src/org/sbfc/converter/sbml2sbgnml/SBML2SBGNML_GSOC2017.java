@@ -50,15 +50,15 @@ import org.xml.sax.SAXException;
 public class SBML2SBGNML_GSOC2017 extends GeneralConverter { 
 	
 	private static Logger logger;
-	SBML2SBGNMLUtil sUtil;
-	SBML2SBGNMLOutput sOutput;
+	public SBML2SBGNMLUtil sUtil;
+	public SBML2SBGNMLOutput sOutput;
 			
 	/**
 	 * Initialize the converter with a SBML2SBGNMLUtil and a SBML2SBGNMLOutput
 	 * 
 	 * @param <code>SBMLDocument</code> sbmlDocument
 	 */	
-	SBML2SBGNML_GSOC2017(SBMLDocument sbmlDocument) {
+	public SBML2SBGNML_GSOC2017(SBMLDocument sbmlDocument) {
 		logger = Logger.getLogger(SBML2SBGNML_GSOC2017.class);
 		
 		sUtil = new SBML2SBGNMLUtil();

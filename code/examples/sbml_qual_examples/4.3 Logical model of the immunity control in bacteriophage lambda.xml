@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1"
+xmlns:qual="http://www.sbml.org/sbml/level3/version1/qual/version1" qual:required="true">
+<model id="phage_lambda">
+<listOfCompartments>
+<compartment id="comp1" constant="true"/>
+</listOfCompartments>
+<qual:listOfQualitativeSpecies>
+<qual:qualitativeSpecies qual:id="s_Cl" qual:compartment="comp1"
+qual:maxLevel="2" qual:constant="false"/>
+<qual:qualitativeSpecies qual:id="s_Cro" qual:compartment="comp1"
+qual:maxLevel="3" qual:constant="false"/>
+<qual:qualitativeSpecies qual:id="s_Cll" qual:compartment="comp1"
+qual:maxLevel="1" qual:constant="false"/>
+<qual:qualitativeSpecies qual:id="s_N" qual:compartment="comp1"
+qual:maxLevel="1" qual:constant="false"/>
+</qual:listOfQualitativeSpecies>
+<qual:listOfTransitions>
+<qual:transition qual:id="tr_CI">
+<qual:listOfInputs>
+<qual:input qual:qualitativeSpecies="s_Cro" qual:sign="negative"
+qual:transitionEffect="none" />
+<qual:input qual:qualitativeSpecies="s_Cll" qual:sign="positive"
+qual:transitionEffect="none" />
+</qual:listOfInputs>
+<qual:listOfOutputs>
+<qual:output qual:qualitativeSpecies="s_CI"
+qual:transitionEffect="assignmentLevel"/>
+</qual:listOfOutputs>
+<qual:listOfFunctionTerms>
+<qual:defaultTerm qual:resultLevel="0"/>
+<qual:functionTerm qual:resultLevel="2">
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<or/>
+<apply>
+<eq/>
+<ci> s_Cro </ci>
+<cn type="integer"> 0 </cn>
+</apply>
+<apply>
+<and/>
+<apply>
+<geq/>
+<ci> s_Cro </ci>
+<cn type="integer"> 1 </cn>
+</apply>
+<apply>
+<eq/>
+<ci> s_CII </ci>
+<cn type="integer"> 1 </cn>
+</apply>
+</apply>
+</apply>
+</math>
+</qual:functionTerm>
+</qual:listOfFunctionTerms>
+</qual:transition>
+<qual:transition qual:id="tr_Cro">
+<qual:listOfInputs>
+<qual:input qual:qualitativeSpecies="s_Cl" qual:sign="negative"
+qual:transitionEffect="none" />
+<qual:input qual:qualitativeSpecies="s_Cro" qual:sign="negative"
+qual:transitionEffect="none" />
+</qual:listOfInputs>
+<qual:listOfOutputs>
+<qual:output qual:qualitativeSpecies="s_Cro"
+qual:transitionEffect="assignmentLevel"/>
+</qual:listOfOutputs>
+<qual:listOfFunctionTerms>
+<qual:defaultTerm qual:resultLevel="0"/>
+<qual:functionTerm qual:resultLevel="2">
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<and/>
+<apply>
+<leq/>
+<ci> s_CI </ci>
+<cn type="integer"> 1 </cn>
+</apply>
+<apply>
+<eq/>
+<ci> s_Cro </ci>
+<cn type="integer"> 3 </cn>
+</apply>
+</apply>
+</math>
+</qual:functionTerm>
+<qual:functionTerm qual:resultLevel="3">
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<and/>
+<apply>
+<leq/>
+<ci> s_CI </ci>
+<cn type="integer"> 1 </cn>
+</apply>
+<apply>
+<eq/>
+<ci> s_Cro </ci>
+<cn type="integer"> 2 </cn>
+</apply>
+</apply>
+</math>
+</qual:functionTerm>
+</qual:listOfFunctionTerms>
+</qual:transition>
+<qual:transition qual:id="tr_Cll">
+<qual:listOfInputs>
+<qual:input qual:qualitativeSpecies="s_Cl" qual:sign="negative"
+qual:transitionEffect="none" />
+<qual:input qual:qualitativeSpecies="s_Cro" qual:sign="negative"
+qual:transitionEffect="none" />
+<qual:input qual:qualitativeSpecies="s_N" qual:sign="negative"
+qual:transitionEffect="none" />
+</qual:listOfInputs>
+<qual:listOfOutputs>
+<qual:output qual:qualitativeSpecies="s_Cll"
+qual:transitionEffect="assignmentLevel"/>
+</qual:listOfOutputs>
+<qual:listOfFunctionTerms>
+<qual:defaultTerm qual:resultLevel="0"/>
+<qual:functionTerm qual:resultLevel="1">
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<and/>
+<apply>
+<leq/>
+<ci> s_CI </ci>
+<cn type="integer"> 1 </cn>
+</apply>
+<apply>
+<leq/>
+<ci> s_Cro </ci>
+<cn type="integer"> 2 </cn>
+</apply>
+<apply>
+<eq/>
+<ci> s_N </ci>
+<cn type="integer"> 1 </cn>
+</apply>
+</apply>
+</math>
+</qual:functionTerm>
+</qual:listOfFunctionTerms>
+</qual:transition>
+<qual:transition qual:id="tr_N">
+<qual:listOfInputs>
+<qual:input qual:qualitativeSpecies="s_Cl" qual:sign="negative"
+qual:transitionEffect="none" />
+<qual:input qual:qualitativeSpecies="s_Cro" qual:sign="negative"
+qual:transitionEffect="none" />
+</qual:listOfInputs>
+<qual:listOfOutputs>
+<qual:output qual:qualitativeSpecies="s_N"
+qual:transitionEffect="assignmentLevel"/>
+</qual:listOfOutputs>
+<qual:listOfFunctionTerms>
+<qual:defaultTerm qual:resultLevel="0"/>
+<qual:functionTerm qual:resultLevel="1">
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<and/>
+<apply>
+<eq/>
+<ci> s_CI </ci>
+<cn type="integer"> 0 </cn>
+</apply>
+<apply>
+<leq/>
+<ci> s_Cro </ci>
+<cn type="integer"> 1 </cn>
+</apply>
+</apply>
+</math>
+</qual:functionTerm>
+</qual:listOfFunctionTerms>
+</qual:transition>
+</qual:listOfTransitions>
+</model>
+</sbml>

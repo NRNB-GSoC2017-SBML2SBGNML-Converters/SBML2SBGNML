@@ -39,7 +39,7 @@ public class SBML2SBGNMLOutput {
 	ListOf<SpeciesGlyph> listOfSpeciesGlyphs;
 	ListOf<TextGlyph> listOfTextGlyphs;		
 	
-	SBML2SBGNMLOutput(SBMLDocument sbmlDocument) {
+	public SBML2SBGNMLOutput(SBMLDocument sbmlDocument) {
 		BasicConfigurator.configure();
 		
 		try { 
@@ -57,6 +57,7 @@ public class SBML2SBGNMLOutput {
 		}
 		
 		int numOfLayouts = 0;
+		if (listOfLayouts == null){return;}
 		
 		for (Layout layout : listOfLayouts){
 			
@@ -103,6 +104,10 @@ public class SBML2SBGNMLOutput {
 	
 	public void addArcgroupToMap(Arcgroup arcgroup) {
 		sbgnObject.getMap().getArcgroup().add(arcgroup);
+	}
+	
+	public Model getModel(){
+		return sbmlModel;
 	}
 	
 }
