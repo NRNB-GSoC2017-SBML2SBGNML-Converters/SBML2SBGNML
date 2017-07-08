@@ -43,7 +43,7 @@ import org.sbml.jsbml.ext.render.Style;
 import org.sbml.jsbml.ext.render.Transformation2D;
 
 public class SBGNML2SBMLOutput {
-	Model model;
+	public Model model;
 	
 	LayoutModelPlugin layoutPlugin;
 	Layout layout;

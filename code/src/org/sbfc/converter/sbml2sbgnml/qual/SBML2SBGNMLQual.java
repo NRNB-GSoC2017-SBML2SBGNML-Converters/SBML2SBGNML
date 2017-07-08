@@ -27,7 +27,7 @@ import org.xml.sax.SAXException;
 import org.sbml.jsbml.ASTNode;
 import org.sbml.jsbml.AbstractMathContainer;
 
-public class SBMLQualApplication {
+public class SBML2SBGNMLQual {
 	public static void main(String[] args) throws FileNotFoundException, SAXException, IOException {
 				
 		String sbmlFileNameInput;

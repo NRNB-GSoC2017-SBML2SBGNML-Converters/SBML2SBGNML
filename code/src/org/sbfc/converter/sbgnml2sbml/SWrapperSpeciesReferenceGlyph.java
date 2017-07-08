@@ -7,15 +7,18 @@ import org.sbml.jsbml.SpeciesReference;
 import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 
-public class SWrapperSpeciesReferenceGlyph {
+public class SWrapperSpeciesReferenceGlyph{
 	SpeciesReference speciesReference;
 	SpeciesReferenceGlyph speciesReferenceGlyph;
 	Arc arc;
+	SWrapperArc sWrapperArc;
 	
-	SWrapperSpeciesReferenceGlyph(SpeciesReference speciesReference, SpeciesReferenceGlyph speciesReferenceGlyph, Arc arc) {
+	SWrapperSpeciesReferenceGlyph(SpeciesReference speciesReference, SpeciesReferenceGlyph speciesReferenceGlyph, 
+			SWrapperArc sWrapperArc) {
 		this.speciesReference = speciesReference;
 		this.speciesReferenceGlyph = speciesReferenceGlyph;
-		this.arc = arc;
+		this.arc = sWrapperArc.arc;
+		this.sWrapperArc = sWrapperArc;
 	}
 	
 }

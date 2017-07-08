@@ -80,6 +80,16 @@
                   <render:ellipse render:cx="50%" render:cy="50%" render:rx="50%"/>
                 </render:g>
               </render:lineEnding>
+              <render:lineEnding render:id="unknownModulationHead">
+                <layout:boundingBox>
+                  <layout:position layout:x="-14" layout:y="-7"/>
+                  <layout:dimensions layout:height="14" layout:width="14"/>
+                </layout:boundingBox>
+                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                  <render:image render:height="100%" render:href="modulation-head.png.png" render:width="100%" render:x="0%" render:z="0"/>
+                  <render:image render:height="100%" render:href="modulation-head.png.png" render:width="100%" render:x="0%" render:z="0"/>
+                </render:g>
+              </render:lineEnding>
             </render:listOfLineEndings>
             <render:listOfStyles>
               <render:style id="LocalStyle_state_variable_glyph">
@@ -273,7 +283,7 @@
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
                   <layout:start layout:x="370" layout:y="210"/>
-                  <layout:end layout:x="370" layout:y="290"/>
+                  <layout:end layout:x="370" layout:y="210"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>

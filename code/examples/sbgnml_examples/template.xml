@@ -57,6 +57,22 @@
                                     <render:ellipse render:cx="50%" render:cy="50%" render:rx="50%"/>
                                 </render:g>
                             </render:lineEnding>
+                            <render:lineEnding render:id="unknownModulationHead">
+                                <layout:boundingBox>
+                                    <layout:position layout:x="-14" layout:y="-7"/>
+                                    <layout:dimensions layout:height="14" layout:width="14"/>
+                                </layout:boundingBox>
+								<render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
+                                    <render:polygon>
+                                        <render:listOfElements>
+                                            <render:element render:x="7" render:y="0" xsi:type="RenderPoint"/>
+                                            <render:element render:x="14" render:y="7" xsi:type="RenderPoint"/>
+                                            <render:element render:x="7" render:y="14" xsi:type="RenderPoint"/>
+                                            <render:element render:x="0" render:y="7" xsi:type="RenderPoint"/>
+                                        </render:listOfElements>
+                                    </render:polygon>								  
+								</render:g>								
+                            </render:lineEnding>							
                         </render:listOfLineEndings>
                         <render:listOfStyles>				
                             <render:style id="LocalStyle_state_variable_glyph" render:roleList="">

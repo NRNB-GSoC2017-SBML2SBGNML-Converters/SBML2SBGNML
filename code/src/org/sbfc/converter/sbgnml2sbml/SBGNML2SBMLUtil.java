@@ -441,26 +441,28 @@ public class SBGNML2SBMLUtil {
 			return true;
 		} else if (clazz.equals("perturbing agent")) {
 			return true;
+		} else if (clazz.equals("biological activity")) {
+			return true;
 		} else {
 			return false;
 		}		
 	}
 	
-	public Boolean isUndirectedArc(Arc arc) {
+	public Boolean isGlyphToGlyphArc(Arc arc) {
 		if (arc.getTarget() instanceof Glyph && arc.getSource() instanceof Glyph) {
 			return true;
 		}
 		return false;
 	}
 	
-	public Boolean isInwardArc(Arc arc) {
+	public Boolean isPortToGlyphArc(Arc arc) {
 		if (arc.getTarget() instanceof Port && arc.getSource() instanceof Glyph) {
 			return true;
 		}
 		return false;		
 	}
 	
-	public Boolean isOutwardArc(Arc arc) {
+	public Boolean isGlyphToPortArc(Arc arc) {
 		if (arc.getTarget() instanceof Glyph && arc.getSource() instanceof Port) {
 			return true;
 		}
@@ -492,24 +494,16 @@ public class SBGNML2SBMLUtil {
 			return true;
 		} if (clazz.equals("necessary stimulation")) {
 			return true;
-		} // ...
-		else {
-			return false;
-		} 
-	}
-	
-	public Boolean isInwardArc(String clazz) {
-		if (clazz.equals("consumption")) {
-			return true;
 		} if (clazz.equals("modulation")) {
 			return true;
-		} if (clazz.equals("stimulation")) {
-			return true;
-		} if (clazz.equals("catalysis")) {
-			return true;
-		} if (clazz.equals("inhibition")) {
-			return true;
-		} if (clazz.equals("necessary stimulation")) {
+		} // ...
+		else {
+			return false;
+		} 
+	}
+	
+	public Boolean isConsumptionArc(String clazz) {
+		if (clazz.equals("consumption")) {
 			return true;
 		} // ...
 		else {
@@ -517,7 +511,7 @@ public class SBGNML2SBMLUtil {
 		} 
 	}
 	
-	public Boolean isOutwardArc(String clazz) {
+	public Boolean isProductionArc(String clazz) {
 		if (clazz.equals("production")) {
 			return true;
 		} else {
@@ -758,16 +752,16 @@ public class SBGNML2SBMLUtil {
 		}
 	}	
 	
-	public void displayReactionGlyphInfo(SWrapperModel sWrapperModel) {
-		for (String key : sWrapperModel.listOfWrapperReactionGlyphs.keySet()){
-			SWrapperReactionGlyph sWrapper = sWrapperModel.getWrapperReactionGlyph(key);
-			debugMode = 1;
-			printHelper(sWrapper.reactionId+"-inward", sWrapper.glyphToPortArcs.size());
-			printHelper(sWrapper.reactionId+"-outward", sWrapper.portToGlyphArcs.size());
-			printHelper(sWrapper.reactionId+"-undirected", sWrapper.glyphToGlyphArcs.size());
-			debugMode = 0;
-		}
-	}
+//	public void displayReactionGlyphInfo(SWrapperModel sWrapperModel) {
+//		for (String key : sWrapperModel.listOfWrapperReactionGlyphs.keySet()){
+//			SWrapperReactionGlyph sWrapper = sWrapperModel.getWrapperReactionGlyph(key);
+//			debugMode = 1;
+//			printHelper(sWrapper.reactionId+"-inward", sWrapper.glyphToPortArcs.size());
+//			printHelper(sWrapper.reactionId+"-outward", sWrapper.portToGlyphArcs.size());
+//			printHelper(sWrapper.reactionId+"-undirected", sWrapper.glyphToGlyphArcs.size());
+//			debugMode = 0;
+//		}
+//	}
 	
 	
 	public static Sbgn readSbgnFile(String sbgnFileNameInput) {

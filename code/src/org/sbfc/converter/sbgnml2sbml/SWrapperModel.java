@@ -23,11 +23,10 @@ public class SWrapperModel {
 	HashMap<String, Glyph> compartments;
 	HashMap<String, Glyph> logicOperators;
 	
-	HashMap<String, Arc> glyphToPortArcs;
-	HashMap<String, Arc> portToGlyphArcs;
-	HashMap<String, Arc> glyphToGlyphArcs;
-	HashMap<String, Arc> logicArcs;
-	HashMap<String, Arc> modifierArcs;
+	HashMap<String, SWrapperArc> consumptionArcs;
+	HashMap<String, SWrapperArc> productionArcs;
+	HashMap<String, SWrapperArc> logicArcs;
+	HashMap<String, SWrapperArc> modifierArcs;
 	
 	HashMap<String, SWrapperSpeciesGlyph> listOfWrapperSpeciesGlyphs;
 	HashMap<String, SWrapperCompartmentGlyph> listOfWrapperCompartmentGlyphs;
@@ -51,11 +50,10 @@ public class SWrapperModel {
 		this.compartments = new HashMap<String, Glyph>();
 		this.logicOperators = new HashMap<String, Glyph>();
 		
-		this.glyphToPortArcs = new HashMap<String, Arc>();
-		this.portToGlyphArcs = new HashMap<String, Arc>();
-		this.glyphToGlyphArcs = new HashMap<String, Arc>();
-		this.logicArcs = new HashMap<String, Arc>();
-		this.modifierArcs = new HashMap<String, Arc>();
+		this.consumptionArcs = new HashMap<String, SWrapperArc>();
+		this.productionArcs = new HashMap<String, SWrapperArc>();
+		this.logicArcs = new HashMap<String, SWrapperArc>();
+		this.modifierArcs = new HashMap<String, SWrapperArc>();
 			
 		this.listOfWrapperSpeciesGlyphs = new HashMap<String, SWrapperSpeciesGlyph>();
 		this.listOfWrapperCompartmentGlyphs = new HashMap<String, SWrapperCompartmentGlyph>();
@@ -138,7 +136,7 @@ public class SWrapperModel {
 		return id;
 	}
 	
-	private String checkArcId(String id, HashMap<String, Arc> container) {
+	private String checkArcId(String id, HashMap<String, SWrapperArc> container) {
 		numberOfArcs++;
 		if (id == null) {
 			return "Arc_" + Integer.toString(numberOfArcs);
@@ -173,23 +171,19 @@ public class SWrapperModel {
 		updatePortGlyphMap(glyph);		
 	}
 	
-	public void addGlyphToGlyphArc(String id, Arc arc) {
-		id = checkArcId(id, glyphToGlyphArcs);
-		glyphToGlyphArcs.put(id, arc);
+	public void addConsumptionArc(String id, SWrapperArc arc) {
+		id = checkArcId(id, consumptionArcs);
+		consumptionArcs.put(id, arc);
 	}
-	public void addGlyphToPortArc(String id, Arc arc) {
-		id = checkArcId(id, glyphToPortArcs);
-		glyphToPortArcs.put(id, arc);		
+	public void addProductionArc(String id, SWrapperArc arc) {
+		id = checkArcId(id, consumptionArcs);
+		productionArcs.put(id, arc);
 	}
-	public void addPortToGlyphArc(String id, Arc arc) {
-		id = checkArcId(id, portToGlyphArcs);
-		portToGlyphArcs.put(id, arc);		
-	}
-	public void addLogicArc(String id, Arc arc) {
+	public void addLogicArc(String id, SWrapperArc arc) {
 		id = checkArcId(id, logicArcs);
 		logicArcs.put(id, arc);
 	}
-	public void addModifierArcs(String id, Arc arc) {
+	public void addModifierArc(String id, SWrapperArc arc) {
 		id = checkArcId(id, modifierArcs);
 		modifierArcs.put(id, arc);
 	}

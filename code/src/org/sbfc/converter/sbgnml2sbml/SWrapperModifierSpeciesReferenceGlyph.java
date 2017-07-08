@@ -8,13 +8,9 @@ import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 public class SWrapperModifierSpeciesReferenceGlyph extends SWrapperSpeciesReferenceGlyph {
 	ModifierSpeciesReference speciesReference;
 	SpeciesReferenceGlyph speciesReferenceGlyph;
-	Arc arc;
 	
 	SWrapperModifierSpeciesReferenceGlyph(ModifierSpeciesReference speciesReference, 
-			SpeciesReferenceGlyph speciesReferenceGlyph, Arc arc) {
-		super(new SpeciesReference(), speciesReferenceGlyph, arc);
-		this.speciesReference = speciesReference;
-		this.speciesReferenceGlyph = speciesReferenceGlyph;
-		this.arc = arc;
+			SpeciesReferenceGlyph speciesReferenceGlyph, SWrapperArc sWrapperArc) {
+		super(new SpeciesReference(), speciesReferenceGlyph, sWrapperArc);
 	}
 }

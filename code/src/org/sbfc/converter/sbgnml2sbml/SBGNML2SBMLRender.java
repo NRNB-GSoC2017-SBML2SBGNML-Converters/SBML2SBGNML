@@ -173,6 +173,8 @@ public class SBGNML2SBMLRender {
 		} else if (arc.getClazz().equals("necessary stimulation")){
 			//LineEnding lineEnding = sOutput.listOfLineEndings.get("productionHead");
 			renderGroup.setEndHead("necessaryStimulationHead");			
+		} else if (arc.getClazz().equals("unknown influence")){
+			renderGroup.setEndHead("unknownModulationHead");	
 		}
 
 	}	
@@ -241,6 +243,8 @@ public class SBGNML2SBMLRender {
 			image.setHref("unit-of-information-glyph.png");
 		} else if (clazz.equals("state variable")){
 			image.setHref("state-variable-glyph.png");
+		} else if (clazz.equals("biological activity")){
+			image.setHref("biological-activity-glyph.png");
 		}		
 		
 		return image;

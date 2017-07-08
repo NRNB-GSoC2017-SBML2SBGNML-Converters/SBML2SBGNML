@@ -20,10 +20,9 @@ public class SWrapperReactionGlyph {
 	ReactionGlyph reactionGlyph;
 	String clazz;
 	
-	HashMap<String, Arc> glyphToPortArcs = new HashMap<String, Arc>();
-	HashMap<String, Arc> portToGlyphArcs = new HashMap<String, Arc>();
-	HashMap<String, Arc> glyphToGlyphArcs = new HashMap<String, Arc>();
-	HashMap<String, Arc> modifierArcs = new HashMap<String, Arc>();
+	HashMap<String, SWrapperArc> consumptionArcs = new HashMap<String, SWrapperArc>();
+	HashMap<String, SWrapperArc> productionArcs = new HashMap<String, SWrapperArc>();
+	HashMap<String, SWrapperArc> modifierArcs = new HashMap<String, SWrapperArc>();
 
 	HashMap<String, SpeciesReferenceGlyph> speciesReferenceGlyphs = new HashMap<String, SpeciesReferenceGlyph>();
 	
@@ -39,13 +38,11 @@ public class SWrapperReactionGlyph {
 		this.sWrapperModel = sWrapperModel;
 	}		
 
-	void addArc(String arcId, Arc arc, String type) {
-		if (type == "glyphToPort"){
-			glyphToPortArcs.put(arcId, arc);
-		} else if (type == "portToGlyph"){
-			portToGlyphArcs.put(arcId, arc);
-		} else if (type == "glyphToGlyph"){
-			glyphToGlyphArcs.put(arcId, arc);
+	void addArc(String arcId, SWrapperArc arc, String type) {
+		if (type == "consumption"){
+			consumptionArcs.put(arcId, arc);
+		} else if (type == "production"){
+			productionArcs.put(arcId, arc);
 		} else if (type == "modifierArcs") {
 			modifierArcs.put(arcId, arc);
 		}
@@ -57,14 +54,12 @@ public class SWrapperReactionGlyph {
 	}
 	
 	Arc getArc(String arcId) {
-		if (glyphToPortArcs.get(arcId) != null){
-			return glyphToPortArcs.get(arcId);
-		} else if (portToGlyphArcs.get(arcId) != null){
-			return portToGlyphArcs.get(arcId);
-		} else if (glyphToGlyphArcs.get(arcId) != null){
-			return glyphToGlyphArcs.get(arcId);
+		if (consumptionArcs.get(arcId) != null){
+			return consumptionArcs.get(arcId).arc;
+		} else if (productionArcs.get(arcId) != null){
+			return productionArcs.get(arcId).arc;
 		} else if (modifierArcs.get(arcId) != null){
-			return modifierArcs.get(arcId);
+			return modifierArcs.get(arcId).arc;
 		}		
 		return null;
 	}
