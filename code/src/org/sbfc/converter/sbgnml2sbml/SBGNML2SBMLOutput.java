@@ -30,6 +30,7 @@ import org.sbml.jsbml.ext.layout.Point;
 import org.sbml.jsbml.ext.layout.ReactionGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.TextGlyph;
+import org.sbml.jsbml.ext.qual.QualModelPlugin;
 import org.sbml.jsbml.ext.render.ColorDefinition;
 import org.sbml.jsbml.ext.render.Ellipse;
 import org.sbml.jsbml.ext.render.LineEnding;
@@ -55,6 +56,9 @@ public class SBGNML2SBMLOutput {
 	ListOf<ColorDefinition> listOfColorDefinitions;
 	ListOf<LineEnding> listOfLineEndings;	
 	ListOf<LocalStyle> listOfStyles;
+	
+	QualModelPlugin qualModelPlugin;
+	
 	
 	// keep track of the maximum value for each dimension. Finally, set these 3 values as the dimensions of the layout
 	Double dimensionX;
@@ -91,6 +95,11 @@ public class SBGNML2SBMLOutput {
 		this.listOfColorDefinitions = renderLayoutPlugin.getLocalRenderInformation(0).getListOfColorDefinitions();
 		this.listOfLineEndings = renderLayoutPlugin.getLocalRenderInformation(0).getListOfLineEndings();
 		this.listOfStyles = renderLayoutPlugin.getLocalRenderInformation(0).getListOfLocalStyles();
+	}
+	
+	private void createQual() {
+		this.qualModelPlugin = (QualModelPlugin) model.getPlugin("qual");
+		
 	}
 	
 	public void addListOfColorDefinitions(ListOf<ColorDefinition> listOfColorDefinitions) {

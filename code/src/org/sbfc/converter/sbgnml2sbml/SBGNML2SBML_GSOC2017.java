@@ -31,6 +31,7 @@ import org.sbfc.converter.GeneralConverter;
 import org.sbfc.converter.exceptions.ConversionException;
 import org.sbfc.converter.exceptions.ReadModelException;
 import org.sbfc.converter.models.GeneralModel;
+import org.sbfc.converter.sbgnml2sbml.qual.SWrapperQualitativeSpecies;
 
 /**
  * The SBGNML2SBML_GSOC2017 class is the primary converter. 
@@ -41,15 +42,15 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	// A Model wrapper that stores every Model element. 
 	// Example: Species, Reaction, Compartment, etc.
 	// SBGNML2SBML_GSOC2017 does not store any Model information.
-	SWrapperModel sWrapperModel;
+	public SWrapperModel sWrapperModel;
 	// Contains all data structures needed to create the output XML document. 
 	// Example: LayoutModelPlugin.
 	public SBGNML2SBMLOutput sOutput;
 	// Contains methods that do not depend on any information in the Model. 
 	// Example: finding a value from a given list.
-	SBGNML2SBMLUtil sUtil;
+	public SBGNML2SBMLUtil sUtil;
 	// Contains methods to create the RenderInformation.
-	SBGNML2SBMLRender sRender;
+	public SBGNML2SBMLRender sRender;
 		
 	public SBGNML2SBML_GSOC2017(Map map) {
 		sOutput = new SBGNML2SBMLOutput(3, 1);
@@ -934,5 +935,116 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public SWrapperQualitativeSpecies createOneQualitativeSpecies(Glyph glyph) {
+		Species species;
+		SpeciesGlyph speciesGlyph;
+		String speciesId;
+		String name;
+		String clazz; 
+		Bbox bbox;
+		TextGlyph textGlyph;
+		List<Glyph> nestedGlyphs;	
+		SWrapperSpeciesGlyph speciesGlyphTuple;
+		List<GraphicalObject> listOfGeneralGlyphs = null;
 		
+		name = sUtil.getText(glyph);
+		clazz = glyph.getClazz();
+		speciesId = glyph.getId();
+		
+		// create a Species, add it to the output
+		species = sUtil.createJsbmlSpecies(speciesId, name, clazz, false, true);
+		sOutput.addSpecies(species);
+		
+		// create a SpeciesGlyph, add it to the output 
+		bbox = glyph.getBbox();
+		speciesGlyph = sUtil.createJsbmlSpeciesGlyph(speciesId, name, clazz, species, true, bbox);
+		sOutput.addSpeciesGlyph(speciesGlyph);
+		
+		// if the Glyph contains nested Glyphs, create GeneralGlyphs for these, add them to output
+		// example: a Species might have Units of Information
+		if (glyph.getGlyph().size() != 0){
+			nestedGlyphs = glyph.getGlyph();
+			listOfGeneralGlyphs = createNestedGlyphs(nestedGlyphs, speciesGlyph);
+		} 
+		
+		// create TextGlyph for the SpeciesGlyph
+		textGlyph = sUtil.createJsbmlTextGlyph(species, speciesGlyph);
+		sOutput.addTextGlyph(textGlyph);
+		
+		// create a new SWrapperSpeciesGlyph class, store a list of GeneralGlyphs if present
+		speciesGlyphTuple =  new SWrapperSpeciesGlyph(species, speciesGlyph, glyph, textGlyph);
+		speciesGlyphTuple.setListOfNestedGlyphs(listOfGeneralGlyphs);
+		
+		return speciesGlyphTuple;
+	}	
+	
+	public void createQualitativeSpecies(){
+		SWrapperQualitativeSpecies sWrapperQualitativeSpecies;
+		Glyph glyph;
+		for (String key : sWrapperModel.entityPoolNodes.keySet()) {
+			glyph = sWrapperModel.getGlyph(key);
+			sWrapperQualitativeSpecies = createOneQualitativeSpecies(glyph);
+			sWrapperModel.addSWrapperQualitativeSpeciesGlyph(key, sWrapperQualitativeSpecies);
+
+		}
+		
+//		for (String key : sWrapperModel.logicOperators.keySet()) {
+//			glyph = sWrapperModel.getGlyph(key);
+//			sWrapperQualitativeSpecies = createOneSpecies(glyph);
+//			sWrapperModel.addSWrapperSpeciesGlyph(key, sWrapperQualitativeSpecies);
+//		}		
+	}
+		
+
+	public SWrapperReactionGlyph createOneTransition(Glyph glyph) {
+		String reactionId;
+		String name;
+		String clazz;
+		Reaction reaction;
+		ReactionGlyph reactionGlyph;
+		Bbox bbox;
+		SWrapperReactionGlyph sWrapperReactionGlyph;
+		
+		reactionId = glyph.getId();
+		name = sUtil.getText(glyph);
+		clazz = glyph.getClazz();
+		
+		// Create a Reaction
+		reaction = sUtil.createJsbmlReaction(reactionId);
+		sOutput.addReaction(reaction);
+		
+		// Create a ReactionGlyph
+		bbox = glyph.getBbox();
+		reactionGlyph = sUtil.createJsbmlReactionGlyph(reactionId, name, clazz, reaction, true, bbox);
+		sOutput.addReactionGlyph(reactionGlyph);
+		// Create a temporary center Curve for the ReactionGlyph
+		sUtil.createReactionGlyphCurve(reactionGlyph, glyph);
+				
+		sWrapperReactionGlyph = new SWrapperReactionGlyph(reaction, reactionGlyph, glyph, sWrapperModel);
+		// Create all SpeciesReferenceGlyphs associated with this ReactionGlyph.
+		createSpeciesReferenceGlyphs(reaction, reactionGlyph, sWrapperReactionGlyph);	
+		setStartAndEndPointForCurve(sWrapperReactionGlyph);
+		
+		return sWrapperReactionGlyph;
+	} 	
+	
+	public void createTransitions() {
+		SWrapperReactionGlyph sWrapperReactionGlyph;
+		Glyph glyph;
+		
+		for (String key: sWrapperModel.processNodes.keySet()) {
+			glyph = sWrapperModel.processNodes.get(key);
+			sWrapperReactionGlyph =  createOneReactionGlyph(glyph);
+			sWrapperModel.addSWrapperReactionGlyph(key, sWrapperReactionGlyph);
+		}
+		
+//		for (String key: sWrapperModel.logicOperators.keySet()) {
+//			glyph = sWrapperModel.logicOperators.get(key);
+//			sWrapperReactionGlyph =  createOneReactionGlyph(glyph);
+//			sWrapperModel.addSWrapperReactionGlyph(key, sWrapperReactionGlyph);			
+//		}
+		
+	}
+	
 }

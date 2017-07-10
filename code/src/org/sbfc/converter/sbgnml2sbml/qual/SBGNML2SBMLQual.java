@@ -1,9 +1,12 @@
 package org.sbfc.converter.sbgnml2sbml.qual;
 
 import java.io.FileNotFoundException;
+import java.util.List;
 
 import org.sbfc.converter.sbgnml2sbml.SBGNML2SBMLUtil;
 import org.sbfc.converter.sbgnml2sbml.SBGNML2SBML_GSOC2017;
+import org.sbgn.bindings.Arc;
+import org.sbgn.bindings.Glyph;
 import org.sbgn.bindings.Map;
 import org.sbgn.bindings.Sbgn;
 
@@ -39,9 +42,35 @@ public class SBGNML2SBMLQual {
 		// Load a template file containing predefined RenderInformation
 		converter.storeTemplateRenderInformation();
 		// Convert the file
-		converter.convertToSBML();
-				
+		//converter.convertToSBML();
+		
+		
+		List<Glyph> listOfGlyphs = converter.sWrapperModel.map.getGlyph();
+		List<Arc> listOfArcs = converter.sWrapperModel.map.getArc();
+	
+		converter.addGlyphsToSWrapperModel(listOfGlyphs);
+
+		converter.createCompartments();
+		//createSpecies();	
+		converter.sUtil.createDefaultCompartment(converter.sOutput.model);
+	
+		converter.addArcsToSWrapperModel(listOfArcs);
+		
+		//createReactions();
+		converter.createGeneralGlyphs();
+		
+		converter.sOutput.createCanvasDimensions();
+		
+		converter.sRender.renderCompartmentGlyphs();
+		converter.sRender.renderSpeciesGlyphs();
+		converter.sRender.renderReactionGlyphs();
+		converter.sRender.renderGeneralGlyphs();
+		
+		converter.sOutput.completeModel();
+		
+		
 		// Write converted SBML file
 		SBGNML2SBMLUtil.writeSbmlFile(sbmlFileNameOutput, converter.sOutput.model);
 	}
+		
 }

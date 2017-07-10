@@ -16,7 +16,7 @@ import org.sbml.jsbml.ext.layout.ReactionGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 
 public class SWrapperModel {
-	Map map;
+	public Map map;
 
 	HashMap<String, Glyph> processNodes;
 	HashMap<String, Glyph> entityPoolNodes;
