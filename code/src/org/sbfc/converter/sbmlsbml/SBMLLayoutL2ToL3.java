@@ -1,5 +1,8 @@
 package org.sbfc.converter.sbmlsbml;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.sbfc.converter.GeneralConverter;
 import org.sbfc.converter.exceptions.ConversionException;
 import org.sbfc.converter.exceptions.ReadModelException;
@@ -8,6 +11,7 @@ import org.sbfc.converter.models.GeneralModel;
 import org.sbfc.converter.models.SBMLModel;
 import org.sbml.libsbml.ConversionProperties;
 import org.sbml.libsbml.LayoutModelPlugin;
+import org.sbml.libsbml.SBMLDocument;
 import org.sbml.libsbml.SBMLNamespaces;
 import org.sbml.libsbml.SBMLReader;
 import org.sbml.libsbml.SBMLWriter;
@@ -33,11 +37,13 @@ public class SBMLLayoutL2ToL3 extends GeneralConverter {
 
   static {
     try {
-      System.loadLibrary("sbmlj");
+      //System.loadLibrary("sbmlj");
+    	System.load("C:/Program Files/SBML/libSBML-5.15.0-libxml2-x64/bindings/java/sbmlj.dll"); 
 
       Class.forName("org.sbml.libsbml.libsbml");
 
       isLibSBMLAvailable = true;
+      
 
     } catch (SecurityException e) {
       // System.out.println("SecurityException exception catch : Could not load libsbml library.");
@@ -76,12 +82,17 @@ public class SBMLLayoutL2ToL3 extends GeneralConverter {
       e1.printStackTrace();
       return null;
     }
+    
+    //System.out.println("currentSBML=\n"+currentSBML);
 
     if (isLibSBMLAvailable) {
+    	//System.out.println("isLibSBMLAvailable");
       // Code using libSBML directly
       SBMLReader libSBMLReader = new SBMLReader();
-      org.sbml.libsbml.SBMLDocument ldoc = libSBMLReader.readSBMLFromString(currentSBML);
+      //org.sbml.libsbml.SBMLDocument ldoc = libSBMLReader.readSBMLFromString(currentSBML);
+      org.sbml.libsbml.SBMLDocument ldoc = libSBMLReader.readSBMLFromFile("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/Complete_Example_level2.xml");
 
+      
       System.out.println("libsbml version = " + org.sbml.libsbml.libsbml.getLibSBMLDottedVersion());
 
       convertToL3(ldoc);
@@ -89,6 +100,7 @@ public class SBMLLayoutL2ToL3 extends GeneralConverter {
       SBMLWriter libSBMLWriter = new SBMLWriter();
 
       String targetSBML = libSBMLWriter.writeSBMLToString(ldoc);
+      System.out.println("targetSBML=\n"+targetSBML);
 
       // System.out.println("SBML2SBML : converted model : \n" + targetSBML.substring(0, 150));
 
@@ -188,6 +200,37 @@ public class SBMLLayoutL2ToL3 extends GeneralConverter {
     doc.setPackageRequired("render", false);
 
   }
+  
+	public static void main(String[] args) throws ReadModelException, ConversionException, WriteModelException {
+		
+		GeneralConverter converter = new SBMLLayoutL2ToL3();
+		GeneralModel inputModel = new SBMLModel();
+		Map<String, String> options = new HashMap<String, String>();
+		
+		//inputModel.setModelFromFile("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/Complete_Example_level2.xml");
+		SBMLReader libSBMLReader = new SBMLReader();
+		SBMLDocument SBMLDocument = libSBMLReader.readSBMLFromFile("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/Complete_Example_level2.xml");
+		String string = SBMLDocument.toSBML();
+		//System.out.println("modelToString=\n"+string);
+		
+		inputModel.setModelFromString(string) ;
+		
+		options.put("sbml.target.level", "3");
+		options.put("sbml.target.version", "1");
+		converter.setOptions(options);
+		
+		//System.out.println("modelToString=\n"+inputModel.modelToString());
+		
+		GeneralModel covertedModel = converter.convert(inputModel);
+
+		//System.out.println("modelToString=\n"+covertedModel.modelToString());
+		
+		if (covertedModel == null){
+			throw new WriteModelException();
+		}
+		covertedModel.modelToFile("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/Complete_Example_level2_level3.xml");
+	
+	} 
 
 }
 
