@@ -7,9 +7,10 @@ import org.sbml.jsbml.ext.qual.QualitativeSpecies;
 
 public class SWrapperQualitativeSpecies {
 	public QualitativeSpecies qualitativeSpecies;
-	SpeciesGlyph speciesGlyph;
+	public SpeciesGlyph speciesGlyph;
 	Glyph glyph;
 	TextGlyph textGlyph;
+	public String clazz;
 	
 	public SWrapperQualitativeSpecies(QualitativeSpecies qualitativeSpecies, SpeciesGlyph speciesGlyph, 
 			Glyph glyph, TextGlyph textGlyph) {
@@ -17,5 +18,6 @@ public class SWrapperQualitativeSpecies {
 		this.speciesGlyph = speciesGlyph;
 		this.glyph = glyph;
 		this.textGlyph = textGlyph;
+		this.clazz = glyph.getClazz();
 	}
 }

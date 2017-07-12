@@ -109,6 +109,7 @@ public class SBGNML2SBMLUtil {
 		speciesGlyph = new SpeciesGlyph();
 		speciesGlyph.setId("SpeciesGlyph_" + speciesId);
 		
+		// QualitativeSpecies is not Species
 		if (species != null){
 			speciesGlyph.setSpecies(species);
 		}
@@ -197,7 +198,14 @@ public class SBGNML2SBMLUtil {
 			return glyph.getLabel().getText();
 		}
 		if (glyph.getClazz().equals("state variable")){
-			return glyph.getState().getValue() + "@" + glyph.getState().getVariable();
+			if (glyph.getState() != null){
+				return glyph.getState().getValue() + "@" + glyph.getState().getVariable();
+			}
+			// todo: add more cases
+			else {
+				System.out.println("======getText no state");
+				return "";
+			}
 		}
 		return "";
 	}
@@ -483,6 +491,15 @@ public class SBGNML2SBMLUtil {
 		}
 		return false;
 	}
+	
+
+	public boolean isTag(String clazz) {
+		if (clazz.equals("tag")) {
+			return true;
+		}
+		
+		return false;
+	}	
 	
 	public Boolean isEntityPoolNode(String clazz){
 		if (clazz.equals("unspecified entity")) {
@@ -868,5 +885,6 @@ public class SBGNML2SBMLUtil {
 			e.printStackTrace();
 		}		
 	}
+
 		
 }

@@ -12,6 +12,7 @@ import java.util.Properties;
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 
+import org.sbfc.converter.sbgnml2sbml.qual.SWrapperQualitativeSpecies;
 import org.sbgn.SbgnUtil;
 import org.sbgn.bindings.Arc;
 import org.sbgn.bindings.Glyph;
@@ -93,6 +94,12 @@ public class SBGNML2SBMLRender {
 			sWrapperSpeciesGlyph = sWrapperModel.getWrapperSpeciesGlyph(key);
 			createStyle(sWrapperSpeciesGlyph.speciesGlyph, sWrapperSpeciesGlyph.clazz);
 		}		
+		
+		SWrapperQualitativeSpecies sWrapperQualitativeSpecies;
+		for (String key : sWrapperModel.listOfSWrapperQualitativeSpecies.keySet()){
+			sWrapperQualitativeSpecies = sWrapperModel.getSWrapperQualitativeSpecies(key);
+			createStyle(sWrapperQualitativeSpecies.speciesGlyph, sWrapperQualitativeSpecies.clazz);
+		}	
 	}
 	
 	public void renderReactionGlyphs() {
@@ -107,9 +114,14 @@ public class SBGNML2SBMLRender {
 	public void renderSpeciesReferenceGlyphs(SWrapperReactionGlyph sWrapperReactionGlyph) {
 		Arc arc;
 		SpeciesReferenceGlyph speciesReferenceGlyph;
+		System.out.println("===renderSpeciesReferenceGlyphs "+sWrapperReactionGlyph.speciesReferenceGlyphs.keySet().size());
+		
 		for (String arcKey : sWrapperReactionGlyph.speciesReferenceGlyphs.keySet()){
 			speciesReferenceGlyph = sWrapperReactionGlyph.speciesReferenceGlyphs.get(arcKey);
 			arc = sWrapperReactionGlyph.getArc(arcKey);
+			System.out.println("===renderSpeciesReferenceGlyphs "+sWrapperReactionGlyph.consumptionArcs.size());
+			System.out.println("===renderSpeciesReferenceGlyphs "+sWrapperReactionGlyph.productionArcs.size());
+			System.out.println("===renderSpeciesReferenceGlyphs "+sWrapperReactionGlyph.modifierArcs.size());
 
 			createStyle((GraphicalObject) speciesReferenceGlyph, arc);
 		}		
@@ -246,6 +258,12 @@ public class SBGNML2SBMLRender {
 		} else if (clazz.equals("biological activity")){
 			image.setHref("biological-activity-glyph.png");
 		}		
+		
+		else if (clazz.equals("tag_left")){
+			image.setHref("tag_left.png");
+		} else if (clazz.equals("tag_right")){
+			image.setHref("tag_right.png");
+		}
 		
 		return image;
 	}

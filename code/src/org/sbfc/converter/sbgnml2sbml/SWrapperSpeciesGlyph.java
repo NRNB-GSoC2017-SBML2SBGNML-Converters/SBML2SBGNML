@@ -28,8 +28,11 @@ public class SWrapperSpeciesGlyph {
 	
 	SWrapperSpeciesGlyph(Species species, SpeciesGlyph speciesGlyph, Glyph glyph, TextGlyph textGlyph) {
 		this.species = species;
-		this.speciesGlyph = speciesGlyph;		
+		this.speciesGlyph = speciesGlyph;	
 		this.clazz = glyph.getClazz();
+		
+		if (this.clazz.equals("tag")){this.clazz = glyph.getClazz()+"_"+glyph.getOrientation();}
+		
 		this.textGlyph = textGlyph;
 	}	
 

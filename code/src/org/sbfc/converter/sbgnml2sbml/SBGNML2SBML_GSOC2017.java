@@ -132,6 +132,8 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 				sWrapperModel.addSbgnEntityPoolNode(id, glyph);
 			} else if (sUtil.isLogicOperator(clazz)) {
 				sWrapperModel.addSbgnLogicOperator(id, glyph);
+			} else if (sUtil.isTag(clazz)) {
+				sWrapperModel.addSbgnLogicOperator(id, glyph);
 			}
 		}		
 	}
@@ -153,6 +155,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			} else if (sWrapperModel.getWrapperSpeciesGlyph(sWrapperArc.sourceId) != null &&
 					sWrapperModel.getWrapperSpeciesGlyph(sWrapperArc.targetId) != null){
 				sWrapperModel.addLogicArc(id, sWrapperArc);
+				// todo: check in QualitativeSpecies too
 			} else if (sUtil.isModifierArc(arc.getClazz())) {
 				sWrapperModel.addModifierArc(id, sWrapperArc);
 			} else if (sUtil.isConsumptionArc(arc.getClazz())) {
@@ -470,7 +473,8 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			if (reactionId != reaction.getId()){ continue; } 
 			else {
 				// store the Arc in the Wrapper
-				reactionGlyphTuple.addArc(speciesReferenceId, sWrapperArc, sWrapperArc.arcClazz);
+				reactionGlyphTuple.addArc(speciesReferenceId, sWrapperArc, "consumption");
+				System.out.println("===createSpeciesReferenceGlyphs "+reactionGlyphTuple.consumptionArcs.size());
 			}
 			
 			// create a SpeciesReference and a SpeciesReferenceGlyph, add the SpeciesReferenceGlyph to the ReactionGlyph
@@ -499,7 +503,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			if (reactionId != reaction.getId()){ continue; } 
 			else {
 				// Add the Production Arc in the Wrapper
-				reactionGlyphTuple.addArc(speciesReferenceId, sWrapperArc, sWrapperArc.arcClazz);
+				reactionGlyphTuple.addArc(speciesReferenceId, sWrapperArc, "production");
 			}
 			
 			sWrapperSpeciesReferenceGlyph = createOneSpeciesReferenceGlyph(reaction, reactionGlyph,
@@ -527,7 +531,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			if (reactionId != reaction.getId()){ continue; } 
 			else {
 				// Add the Modifier Arc in the Wrapper
-				reactionGlyphTuple.addArc(speciesReferenceId, sWrapperArc, sWrapperArc.arcClazz);
+				reactionGlyphTuple.addArc(speciesReferenceId, sWrapperArc, "modifierArcs");
 			}
 			
 			sWrapperModifierSpeciesReferenceGlyph = createOneModifierSpeciesReferenceGlyph(reaction, reactionGlyph,
@@ -797,20 +801,24 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 
 			ArrayList<Point> connectedPoints = new ArrayList<Point>();
 			List<Arc> allArcs = sWrapperModel.map.getArc();
+			
+			Arc tagArc = null;
+			
 			for (Arc candidate: allArcs){
 
 				source = candidate.getSource();
 				target = candidate.getTarget();
 				
-				checkLogicOperatorId(connectedPoints, source, key, candidate, "source");
-				checkLogicOperatorId(connectedPoints, target, key, candidate, "target");
+				// todo: move tag to separate function
+				tagArc = checkLogicOperatorId(connectedPoints, source, key, candidate, "source");
+				tagArc = checkLogicOperatorId(connectedPoints, target, key, candidate, "target");
 			}
 				
 			//System.out.println("sWrapperModel.logicOperators" + connectedPoints.size());
-			sWrapperSpeciesGlyph = sWrapperModel.getWrapperSpeciesGlyph(key);
-			sOutput.addTextGlyph(sWrapperSpeciesGlyph.textGlyph);
+			//sWrapperSpeciesGlyph = sWrapperModel.getWrapperSpeciesGlyph(key);
+			//sOutput.addTextGlyph(sWrapperSpeciesGlyph.textGlyph);
 			// todo: SpeciesGlyph already added, need to remove it
-			sOutput.addSpeciesGlyph(sWrapperSpeciesGlyph.speciesGlyph);
+			//sOutput.addSpeciesGlyph(sWrapperSpeciesGlyph.speciesGlyph);
 			GeneralGlyph generalGlyph = sUtil.createJsbmlGeneralGlyph(key, false, null);
 			
 			curve = new Curve();
@@ -820,10 +828,16 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			curve.addCurveSegment(curveSegment);
 			generalGlyph.setCurve(curve);
 			
-			boolean added = generalGlyph.addSubGlyph(sWrapperSpeciesGlyph.speciesGlyph);
+			//boolean added = generalGlyph.addSubGlyph(sWrapperSpeciesGlyph.speciesGlyph);
 			// todo: added = false
-			System.out.println("added?"+added);
-			setStartAndEndPointForCurve(connectedPoints, generalGlyph);
+			//System.out.println("added?"+added);
+			
+			if (sWrapperSpeciesGlyph.clazz.contains("tag")){			
+				curve = sUtil.createOneCurve(tagArc);
+				generalGlyph.setCurve(curve);
+			}
+			else {setStartAndEndPointForCurve(connectedPoints, generalGlyph);}
+			
 			sOutput.addGeneralGlyph(generalGlyph);
 			
 //			sWrapperGeneralGlyph = new SWrapperGeneralGlyph(generalGlyph, sWrapperSpeciesGlyph.sbgnGlyph, 
@@ -831,6 +845,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 //					sWrapperModel);
 			// todo sWrapperGeneralGlyph add to sWrapperModel
 		}
+		
 	}
 	
 	public Glyph getGlyph(Object source) {
@@ -847,7 +862,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		return glyph;
 	}
 	
-	public void checkLogicOperatorId(ArrayList<Point> connectedPoints, Object source, String key, Arc candidate, String direction) {
+	public Arc checkLogicOperatorId(ArrayList<Point> connectedPoints, Object source, String key, Arc candidate, String direction) {
 		
 		Glyph connectingGlyph = null;
 		String arcId = candidate.getId();
@@ -865,7 +880,9 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 				if (direction.equals("source")){connectedPoints.add(sWrapperModel.getSWrapperReferenceGlyph(arcId).referenceGlyph.getCurve().getCurveSegment(0).getStart());}
 				else if (direction.equals("target")){connectedPoints.add(sWrapperModel.getSWrapperReferenceGlyph(arcId).referenceGlyph.getCurve().getCurveSegment(0).getEnd());}				
 			}
-		}		
+		}	
+		
+		return candidate;
 	}
 			
 	public void storeTemplateRenderInformation() {
