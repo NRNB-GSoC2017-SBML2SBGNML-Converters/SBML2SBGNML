@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.sbfc.converter.sbgnml2sbml.qual.SWrapperQualitativeSpecies;
+import org.sbfc.converter.sbgnml2sbml.qual.SWrapperTransition;
 import org.sbgn.bindings.Arc;
 import org.sbgn.bindings.Glyph;
 import org.sbgn.bindings.Map;
@@ -34,6 +36,8 @@ public class SWrapperModel {
 	HashMap<String, SWrapperSpeciesReferenceGlyph> listOfWrapperSpeciesReferenceGlyphs;
 	HashMap<String, SWrapperGeneralGlyph> listOfWrapperGeneralGlyphs;
 	HashMap<String, SWrapperReferenceGlyph> listOfWrapperReferenceGlyphs;
+	HashMap<String, SWrapperQualitativeSpecies> listOfSWrapperQualitativeSpecies;
+	HashMap<String, SWrapperTransition> listOfSWrapperTransitions;
 	
 	Model model;
 	
@@ -61,6 +65,8 @@ public class SWrapperModel {
 		this.listOfWrapperSpeciesReferenceGlyphs = new HashMap<String, SWrapperSpeciesReferenceGlyph>();
 		this.listOfWrapperReferenceGlyphs = new HashMap<String, SWrapperReferenceGlyph>();
 		this.listOfWrapperGeneralGlyphs = new HashMap<String, SWrapperGeneralGlyph>();
+		this.listOfSWrapperQualitativeSpecies = new HashMap<String, SWrapperQualitativeSpecies>();
+		this.listOfSWrapperTransitions = new HashMap<String, SWrapperTransition>();
 		
 		this.model = model;
 		this.map = map;
@@ -198,6 +204,18 @@ public class SWrapperModel {
 	
 	public String findGlyphFromPort(Port port) {
 		return portGlyphMap.get(port.getId());
+	}
+
+	public void addSWrapperQualitativeSpecies(String id, SWrapperQualitativeSpecies sWrapperQualitativeSpecies) {
+		listOfSWrapperQualitativeSpecies.put(id, sWrapperQualitativeSpecies);
+	}
+
+	public void addSWrapperTransition(String id, SWrapperTransition sWrapperTransition) {
+		listOfSWrapperTransitions.put(id, sWrapperTransition);
+	}
+	
+	public SWrapperQualitativeSpecies getSWrapperQualitativeSpecies(String id) {
+		return listOfSWrapperQualitativeSpecies.get(id);
 	}
 		
 				

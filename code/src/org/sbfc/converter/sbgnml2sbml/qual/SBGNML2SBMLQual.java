@@ -52,12 +52,15 @@ public class SBGNML2SBMLQual {
 
 		converter.createCompartments();
 		//createSpecies();	
+		converter.createQualitativeSpecies();
+		
 		converter.sUtil.createDefaultCompartment(converter.sOutput.model);
 	
 		converter.addArcsToSWrapperModel(listOfArcs);
 		
 		//createReactions();
-		converter.createGeneralGlyphs();
+		converter.createTransitions();
+		//converter.createGeneralGlyphs();
 		
 		converter.sOutput.createCanvasDimensions();
 		

@@ -25,11 +25,13 @@ import org.sbml.jsbml.Compartment;
 import org.sbml.jsbml.ListOf;
 import org.sbml.jsbml.Model;
 import org.sbml.jsbml.ModifierSpeciesReference;
+import org.sbml.jsbml.NamedSBase;
 import org.sbml.jsbml.Reaction;
 import org.sbml.jsbml.SBMLDocument;
 import org.sbml.jsbml.SBMLException;
 import org.sbml.jsbml.SBMLReader;
 import org.sbml.jsbml.SBMLWriter;
+import org.sbml.jsbml.SBase;
 import org.sbml.jsbml.SimpleSpeciesReference;
 import org.sbml.jsbml.Species;
 import org.sbml.jsbml.SpeciesReference;
@@ -51,6 +53,13 @@ import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceRole;
 import org.sbml.jsbml.ext.layout.TextGlyph;
+import org.sbml.jsbml.ext.qual.FunctionTerm;
+import org.sbml.jsbml.ext.qual.Input;
+import org.sbml.jsbml.ext.qual.InputTransitionEffect;
+import org.sbml.jsbml.ext.qual.Output;
+import org.sbml.jsbml.ext.qual.OutputTransitionEffect;
+import org.sbml.jsbml.ext.qual.QualitativeSpecies;
+import org.sbml.jsbml.ext.qual.Transition;
 
 public class SBGNML2SBMLUtil {
 	int debugMode;
@@ -60,6 +69,21 @@ public class SBGNML2SBMLUtil {
 	SBGNML2SBMLUtil(int level, int version) {
 		this.level = level;
 		this.version = version;
+	}
+	
+	public QualitativeSpecies createQualitativeSpecies(String speciesId, String name, String clazz, 
+			boolean addAnnotation, boolean addSBO) {
+		QualitativeSpecies species;
+		species = new QualitativeSpecies(speciesId, name, level, version);
+		
+//		if (addAnnotation){
+//			addAnnotation(species, clazz);
+//		}
+//		if (addSBO){
+//			addSBO(species, clazz);	
+//		}
+		
+		return species;
 	}
 	
 	public Species createJsbmlSpecies(String speciesId, String name, String clazz, 
@@ -75,7 +99,7 @@ public class SBGNML2SBMLUtil {
 		}
 		
 		return species;
-	}
+	}	
 	
 	public SpeciesGlyph createJsbmlSpeciesGlyph(String speciesId, String name, String clazz, 
 			Species species, boolean createBoundingBox, Bbox bbox) {
@@ -84,8 +108,11 @@ public class SBGNML2SBMLUtil {
 		
 		speciesGlyph = new SpeciesGlyph();
 		speciesGlyph.setId("SpeciesGlyph_" + speciesId);
-		speciesGlyph.setSpecies(species);
 		
+		if (species != null){
+			speciesGlyph.setSpecies(species);
+		}
+				
 		if (createBoundingBox) {
 			boundingBox = new BoundingBox();
 			// todo: horizontal or vertical orientation?
@@ -120,7 +147,7 @@ public class SBGNML2SBMLUtil {
 	 * @param <code>Species</code> species
 	 * @param <code>SpeciesGlyph</code> speciesGlyph
 	 */		
-	public TextGlyph createJsbmlTextGlyph(Species species, SpeciesGlyph speciesGlyph) {
+	public TextGlyph createJsbmlTextGlyph(NamedSBase species, SpeciesGlyph speciesGlyph) {
 		TextGlyph textGlyph;
 		String id;
 		BoundingBox boundingBoxText;
@@ -270,6 +297,43 @@ public class SBGNML2SBMLUtil {
 		return speciesReference;
 	}		
 	
+	public Transition createTransition(String id, 
+			QualitativeSpecies inputQualitativeSpecies, QualitativeSpecies outputQualitativeSpecies){
+		Transition transition = new Transition();
+		Input input;
+		Output output;
+		String inputId;
+		String outputId;
+		FunctionTerm functionTerm;
+		
+		if (inputQualitativeSpecies != null){
+			inputId = "Input_" + inputQualitativeSpecies.getId() + "_in_" + id;
+			input = new Input(inputId, inputQualitativeSpecies, InputTransitionEffect.none);
+			transition.addInput(input);
+		}
+		
+		if (outputQualitativeSpecies != null){
+			outputId = "Output_" + outputQualitativeSpecies.getId() + "_in_" + id; 
+			output = new Output(outputId, outputQualitativeSpecies, OutputTransitionEffect.assignmentLevel);
+			transition.addOutput(output);
+		}
+		
+		functionTerm = new FunctionTerm();
+		functionTerm.setDefaultTerm(true);
+		functionTerm.setResultLevel(0);
+		transition.addFunctionTerm(functionTerm);
+		
+		// todo: only create one if both input and output is known
+		functionTerm = new FunctionTerm();
+		functionTerm.setDefaultTerm(true);
+		functionTerm.setResultLevel(1);
+		transition.addFunctionTerm(functionTerm);
+		
+		return transition;
+	}
+	
+	public void addToTransition(){}
+	
 	/**
 	 * Create a <code>SpeciesReferenceGlyph</code> using values from an SBGN <code>Arc</code>. 
 	 * Associate the <code>SpeciesReferenceGlyph</code> with a <code>SpeciesGlyph</code> and 
@@ -368,7 +432,7 @@ public class SBGNML2SBMLUtil {
 	
 	
 	public ReferenceGlyph createOneReferenceGlyph(String id, Arc arc, ModifierSpeciesReference reference, 
-			GraphicalObject object) {
+			SBase object) {
 		ReferenceGlyph referenceGlyph;
 		
 		referenceGlyph = new ReferenceGlyph();
@@ -480,6 +544,8 @@ public class SBGNML2SBMLUtil {
 	public Boolean isLogicArc(Arc arc) {
 		String clazz = arc.getClazz();
 		if (clazz.equals("logic arc")) {
+			return true;
+		} if (clazz.equals("unknown influence")) {
 			return true;
 		}
 		return false;

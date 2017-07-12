@@ -31,6 +31,8 @@ import org.sbml.jsbml.ext.layout.ReactionGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.TextGlyph;
 import org.sbml.jsbml.ext.qual.QualModelPlugin;
+import org.sbml.jsbml.ext.qual.QualitativeSpecies;
+import org.sbml.jsbml.ext.qual.Transition;
 import org.sbml.jsbml.ext.render.ColorDefinition;
 import org.sbml.jsbml.ext.render.Ellipse;
 import org.sbml.jsbml.ext.render.LineEnding;
@@ -70,6 +72,7 @@ public class SBGNML2SBMLOutput {
 		this.model = new Model(level, version);
 		createLayout();
 		createRenderInformation();
+		createQual();
 					
 		this.dimensionX = 0.0;
 		this.dimensionY = 0.0;
@@ -159,6 +162,11 @@ public class SBGNML2SBMLOutput {
 
 	public void addSpecies(Species species) {
 		ListOf<Species> listOfSpecies = model.getListOfSpecies();		
+		listOfSpecies.add(species);
+	}
+	
+	public void addQualitativeSpecies(QualitativeSpecies species) {
+		ListOf<QualitativeSpecies> listOfSpecies = qualModelPlugin.getListOfQualitativeSpecies();
 		listOfSpecies.add(species);
 	}
 	
@@ -368,6 +376,10 @@ public class SBGNML2SBMLOutput {
 	
 		model = modelCompleter.autoCompleteRequiredAttributes(model);
 
+	}
+
+	public void addTransition(Transition transition) {
+		qualModelPlugin.addTransition(transition);
 	}
 		
 	

@@ -13,6 +13,7 @@ import org.sbgn.bindings.Sbgn;
 import org.sbml.jsbml.Compartment;
 import org.sbml.jsbml.ModifierSpeciesReference;
 import org.sbml.jsbml.Reaction;
+import org.sbml.jsbml.SBase;
 import org.sbml.jsbml.Species;
 import org.sbml.jsbml.SpeciesReference;
 import org.sbml.jsbml.ext.layout.CompartmentGlyph;
@@ -27,11 +28,14 @@ import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 import org.sbml.jsbml.ext.layout.TextGlyph;
+import org.sbml.jsbml.ext.qual.QualitativeSpecies;
+import org.sbml.jsbml.ext.qual.Transition;
 import org.sbfc.converter.GeneralConverter;
 import org.sbfc.converter.exceptions.ConversionException;
 import org.sbfc.converter.exceptions.ReadModelException;
 import org.sbfc.converter.models.GeneralModel;
 import org.sbfc.converter.sbgnml2sbml.qual.SWrapperQualitativeSpecies;
+import org.sbfc.converter.sbgnml2sbml.qual.SWrapperTransition;
 
 /**
  * The SBGNML2SBML_GSOC2017 class is the primary converter. 
@@ -729,7 +733,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	/**
 	 * Create a <code>ReferenceGlyph</code> that associates with an <code>GraphicalObject</code> object.
 	 */		
-	public SWrapperReferenceGlyph createOneReferenceGlyph(SWrapperArc sWrapperArc, GraphicalObject object) {
+	public SWrapperReferenceGlyph createOneReferenceGlyph(SWrapperArc sWrapperArc, SBase object) {
 		Curve curve;
 		ReferenceGlyph referenceGlyph;
 		
@@ -937,46 +941,46 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	}
 	
 	public SWrapperQualitativeSpecies createOneQualitativeSpecies(Glyph glyph) {
-		Species species;
+		QualitativeSpecies qualitativeSpecies;
 		SpeciesGlyph speciesGlyph;
 		String speciesId;
 		String name;
 		String clazz; 
 		Bbox bbox;
 		TextGlyph textGlyph;
-		List<Glyph> nestedGlyphs;	
-		SWrapperSpeciesGlyph speciesGlyphTuple;
-		List<GraphicalObject> listOfGeneralGlyphs = null;
+		//List<Glyph> nestedGlyphs;	
+		SWrapperQualitativeSpecies sWrapperQualitativeSpecies;
+		//List<GraphicalObject> listOfGeneralGlyphs = null;
 		
 		name = sUtil.getText(glyph);
 		clazz = glyph.getClazz();
 		speciesId = glyph.getId();
 		
 		// create a Species, add it to the output
-		species = sUtil.createJsbmlSpecies(speciesId, name, clazz, false, true);
-		sOutput.addSpecies(species);
+		qualitativeSpecies = sUtil.createQualitativeSpecies(speciesId, name, clazz, false, true);
+		sOutput.addQualitativeSpecies(qualitativeSpecies);
 		
 		// create a SpeciesGlyph, add it to the output 
 		bbox = glyph.getBbox();
-		speciesGlyph = sUtil.createJsbmlSpeciesGlyph(speciesId, name, clazz, species, true, bbox);
+		speciesGlyph = sUtil.createJsbmlSpeciesGlyph(speciesId, name, clazz, null, true, bbox);
 		sOutput.addSpeciesGlyph(speciesGlyph);
 		
 		// if the Glyph contains nested Glyphs, create GeneralGlyphs for these, add them to output
 		// example: a Species might have Units of Information
-		if (glyph.getGlyph().size() != 0){
-			nestedGlyphs = glyph.getGlyph();
-			listOfGeneralGlyphs = createNestedGlyphs(nestedGlyphs, speciesGlyph);
-		} 
+//		if (glyph.getGlyph().size() != 0){
+//			nestedGlyphs = glyph.getGlyph();
+//			listOfGeneralGlyphs = createNestedGlyphs(nestedGlyphs, speciesGlyph);
+//		} 
 		
 		// create TextGlyph for the SpeciesGlyph
-		textGlyph = sUtil.createJsbmlTextGlyph(species, speciesGlyph);
+		textGlyph = sUtil.createJsbmlTextGlyph(qualitativeSpecies, speciesGlyph);
 		sOutput.addTextGlyph(textGlyph);
 		
 		// create a new SWrapperSpeciesGlyph class, store a list of GeneralGlyphs if present
-		speciesGlyphTuple =  new SWrapperSpeciesGlyph(species, speciesGlyph, glyph, textGlyph);
-		speciesGlyphTuple.setListOfNestedGlyphs(listOfGeneralGlyphs);
+		sWrapperQualitativeSpecies =  new SWrapperQualitativeSpecies(qualitativeSpecies, speciesGlyph, glyph, textGlyph);
+		//sWrapperQualitativeSpecies.setListOfNestedGlyphs(listOfGeneralGlyphs);
 		
-		return speciesGlyphTuple;
+		return sWrapperQualitativeSpecies;
 	}	
 	
 	public void createQualitativeSpecies(){
@@ -985,7 +989,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		for (String key : sWrapperModel.entityPoolNodes.keySet()) {
 			glyph = sWrapperModel.getGlyph(key);
 			sWrapperQualitativeSpecies = createOneQualitativeSpecies(glyph);
-			sWrapperModel.addSWrapperQualitativeSpeciesGlyph(key, sWrapperQualitativeSpecies);
+			sWrapperModel.addSWrapperQualitativeSpecies(key, sWrapperQualitativeSpecies);
 
 		}
 		
@@ -997,53 +1001,76 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	}
 		
 
-	public SWrapperReactionGlyph createOneTransition(Glyph glyph) {
-		String reactionId;
-		String name;
+	public SWrapperTransition createOneTransition(SWrapperArc sWrapperArc) {
+		String text;
 		String clazz;
-		Reaction reaction;
-		ReactionGlyph reactionGlyph;
+		String id;
 		Bbox bbox;
-		SWrapperReactionGlyph sWrapperReactionGlyph;
+		GeneralGlyph generalGlyph;
+		SWrapperGeneralGlyph sWrapperGeneralGlyph;
+		SWrapperReferenceGlyph sWrapperReferenceGlyph;
 		
-		reactionId = glyph.getId();
-		name = sUtil.getText(glyph);
-		clazz = glyph.getClazz();
+		String sourceId;
+		String targetId;
+		Transition transition;
+		SWrapperTransition sWrapperTransition;
+					
+		clazz = sWrapperArc.arcClazz;
+		sourceId = sWrapperArc.sourceId;
+		targetId = sWrapperArc.targetId;
+		// No BoundingBox
+		transition = sUtil.createTransition(sWrapperArc.arcId, 
+				sWrapperModel.getSWrapperQualitativeSpecies(sourceId).qualitativeSpecies,
+				sWrapperModel.getSWrapperQualitativeSpecies(targetId).qualitativeSpecies);
+		sOutput.addTransition(transition);
+
 		
-		// Create a Reaction
-		reaction = sUtil.createJsbmlReaction(reactionId);
-		sOutput.addReaction(reaction);
+		sWrapperGeneralGlyph = createOneGeneralGlyph(sWrapperArc.arc);
 		
-		// Create a ReactionGlyph
-		bbox = glyph.getBbox();
-		reactionGlyph = sUtil.createJsbmlReactionGlyph(reactionId, name, clazz, reaction, true, bbox);
-		sOutput.addReactionGlyph(reactionGlyph);
-		// Create a temporary center Curve for the ReactionGlyph
-		sUtil.createReactionGlyphCurve(reactionGlyph, glyph);
-				
-		sWrapperReactionGlyph = new SWrapperReactionGlyph(reaction, reactionGlyph, glyph, sWrapperModel);
-		// Create all SpeciesReferenceGlyphs associated with this ReactionGlyph.
-		createSpeciesReferenceGlyphs(reaction, reactionGlyph, sWrapperReactionGlyph);	
-		setStartAndEndPointForCurve(sWrapperReactionGlyph);
+		// Create a ReferenceGlyph
+		sWrapperReferenceGlyph = createOneReferenceGlyph(sWrapperArc, sWrapperModel.getSWrapperQualitativeSpecies(sourceId).qualitativeSpecies);
+		// Add the ReferenceGlyph to the generalGlyph
+		sWrapperGeneralGlyph.generalGlyph.addReferenceGlyph(sWrapperReferenceGlyph.referenceGlyph);
+		// Add the ReferenceGlyph to the wrapper. This step is optional
+		sWrapperGeneralGlyph.addSpeciesReferenceGlyph(sWrapperArc.arc.getId(), sWrapperReferenceGlyph, sWrapperArc.arc);
 		
-		return sWrapperReactionGlyph;
+		// Add the GeneralGlyph created to the output
+		sOutput.addGeneralGlyph(sWrapperGeneralGlyph.generalGlyph);
+		// todo sWrapperGeneralGlyph add to sWrapperModel		
+		
+		
+		// create a new SWrapperGeneralGlyph, add it to the SWrapperModel
+		sWrapperTransition = new SWrapperTransition(transition, sWrapperGeneralGlyph, sWrapperArc.arc, sWrapperModel);
+		
+		return sWrapperTransition;	
 	} 	
 	
 	public void createTransitions() {
-		SWrapperReactionGlyph sWrapperReactionGlyph;
-		Glyph glyph;
+		Arc arc;
+
+		String objectId;
+
+		SpeciesGlyph speciesGlyph;
 		
-		for (String key: sWrapperModel.processNodes.keySet()) {
-			glyph = sWrapperModel.processNodes.get(key);
-			sWrapperReactionGlyph =  createOneReactionGlyph(glyph);
-			sWrapperModel.addSWrapperReactionGlyph(key, sWrapperReactionGlyph);
-		}
+		SWrapperTransition sWrapperTransition;
+		SWrapperReferenceGlyph sWrapperReferenceGlyph;
+		SWrapperArc sWrapperArc;
 		
-//		for (String key: sWrapperModel.logicOperators.keySet()) {
-//			glyph = sWrapperModel.logicOperators.get(key);
-//			sWrapperReactionGlyph =  createOneReactionGlyph(glyph);
-//			sWrapperModel.addSWrapperReactionGlyph(key, sWrapperReactionGlyph);			
-//		}
+		// create a GeneralGlyph for each Logic Arc
+		for (String key: sWrapperModel.logicArcs.keySet()) {
+			sWrapperArc = sWrapperModel.logicArcs.get(key);
+			arc = sWrapperArc.arc;
+			// assume Arc.Source corresponds to Arc.Start
+			objectId = sWrapperArc.sourceId;
+			objectId = sWrapperArc.targetId;
+			
+			// Check if the Arc is not connected to a Logic Operator, proceed is not connected
+			// If connected to a Logic Operator, should not create a new Transition or new GeneralGlyph, add to existing
+			// Create a Transition, a GeneralGlyph
+			sWrapperTransition = createOneTransition(sWrapperArc);
+			sWrapperModel.addSWrapperTransition(arc.getId(), sWrapperTransition);
+
+		}	
 		
 	}
 	
