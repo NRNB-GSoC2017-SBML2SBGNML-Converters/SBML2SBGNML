@@ -7,11 +7,8 @@ import java.util.List;
 import org.sbgn.bindings.Arc;
 import org.sbgn.bindings.Glyph;
 import org.sbml.jsbml.Reaction;
-import org.sbml.jsbml.SimpleSpeciesReference;
-import org.sbml.jsbml.ext.layout.GeneralGlyph;
 import org.sbml.jsbml.ext.layout.Point;
 import org.sbml.jsbml.ext.layout.ReactionGlyph;
-import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 
 public class SWrapperReactionGlyph {
@@ -19,6 +16,8 @@ public class SWrapperReactionGlyph {
 	Reaction reaction;
 	ReactionGlyph reactionGlyph;
 	String clazz;
+	// todo: add
+	Glyph glyph;
 	
 	HashMap<String, SWrapperArc> consumptionArcs = new HashMap<String, SWrapperArc>();
 	HashMap<String, SWrapperArc> productionArcs = new HashMap<String, SWrapperArc>();

@@ -1,5 +1,11 @@
 package org.sbfc.converter.sbml2sbgnml;
 
-public class SWrapperGlyphEncapsulation {
+import org.sbgn.bindings.Glyph;
+import org.sbml.jsbml.Compartment;
+import org.sbml.jsbml.ext.layout.CompartmentGlyph;
 
+public class SWrapperGlyphEncapsulation {
+	Compartment compartment;
+	CompartmentGlyph compartmentGlyph;
+	Glyph glyph;
 }
