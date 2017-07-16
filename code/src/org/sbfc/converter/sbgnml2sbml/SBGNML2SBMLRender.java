@@ -64,7 +64,6 @@ public class SBGNML2SBMLRender {
 		this.sOutput = sOutput;
 		//createColourDefinitions();
 		
-		// todo import file containing all LineEnding definitions
 		//createLineEndings();
 	}
 	

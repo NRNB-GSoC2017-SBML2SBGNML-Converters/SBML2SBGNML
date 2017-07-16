@@ -2,12 +2,9 @@ package org.sbfc.converter.sbml2sbgnml;
 
 import java.util.HashMap;
 
-import org.sbgn.bindings.Arcgroup;
-import org.sbgn.bindings.Glyph;
 import org.sbml.jsbml.ModifierSpeciesReference;
 import org.sbml.jsbml.Reaction;
 import org.sbml.jsbml.SpeciesReference;
-import org.sbml.jsbml.ext.layout.GeneralGlyph;
 import org.sbml.jsbml.ext.layout.ReactionGlyph;
 import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;

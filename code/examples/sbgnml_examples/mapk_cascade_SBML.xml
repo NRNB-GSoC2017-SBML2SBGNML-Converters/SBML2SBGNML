@@ -634,8 +634,8 @@
             <layout:curve>
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
-                  <layout:start layout:x="250" layout:y="410"/>
-                  <layout:end layout:x="210" layout:y="410"/>
+                  <layout:start layout:x="210" layout:y="410"/>
+                  <layout:end layout:x="250" layout:y="410"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>
@@ -685,6 +685,14 @@
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="510" layout:y="200"/>
+                      <layout:end layout:x="510" layout:y="360"/>
+                    </layout:curveSegment>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="510" layout:y="360"/>
+                      <layout:end layout:x="230" layout:y="360"/>
+                    </layout:curveSegment>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="230" layout:y="360"/>
                       <layout:end layout:x="230" layout:y="400"/>
                     </layout:curveSegment>
                   </layout:listOfCurveSegments>
@@ -700,8 +708,8 @@
             <layout:curve>
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
-                  <layout:start layout:x="490" layout:y="660"/>
-                  <layout:end layout:x="530" layout:y="660"/>
+                  <layout:start layout:x="530" layout:y="660"/>
+                  <layout:end layout:x="490" layout:y="660"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>
@@ -751,6 +759,14 @@
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="720" layout:y="440"/>
+                      <layout:end layout:x="720" layout:y="610"/>
+                    </layout:curveSegment>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="720" layout:y="610"/>
+                      <layout:end layout:x="510" layout:y="610"/>
+                    </layout:curveSegment>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="510" layout:y="610"/>
                       <layout:end layout:x="510" layout:y="650"/>
                     </layout:curveSegment>
                   </layout:listOfCurveSegments>
@@ -766,7 +782,7 @@
             <layout:curve>
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
-                  <layout:start layout:x="250" layout:y="660"/>
+                  <layout:start layout:x="210" layout:y="660"/>
                   <layout:end layout:x="250" layout:y="660"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
@@ -817,6 +833,14 @@
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="680" layout:y="440"/>
+                      <layout:end layout:x="680" layout:y="590"/>
+                    </layout:curveSegment>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="680" layout:y="590"/>
+                      <layout:end layout:x="230" layout:y="590"/>
+                    </layout:curveSegment>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="230" layout:y="590"/>
                       <layout:end layout:x="230" layout:y="650"/>
                     </layout:curveSegment>
                   </layout:listOfCurveSegments>
@@ -832,8 +856,8 @@
             <layout:curve>
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
-                  <layout:start layout:x="570" layout:y="410"/>
-                  <layout:end layout:x="570" layout:y="410"/>
+                  <layout:start layout:x="530" layout:y="410"/>
+                  <layout:end layout:x="530" layout:y="410"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>
@@ -899,7 +923,7 @@
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
                   <layout:start layout:x="360" layout:y="170"/>
-                  <layout:end layout:x="360" layout:y="170"/>
+                  <layout:end layout:x="400" layout:y="170"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>

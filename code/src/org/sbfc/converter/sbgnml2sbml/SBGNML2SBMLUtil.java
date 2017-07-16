@@ -373,21 +373,54 @@ public class SBGNML2SBMLUtil {
 	public Curve createOneCurve(Arc arc) {
 		Curve curve;
 		CurveSegment curveSegment;
-		Point point;
+		//Point point;
 		
 		Arc.Start start;
-		Arc.End end;		
+		Arc.End end;
+		List<Arc.Next> listOfNext;
+		List<org.sbgn.bindings.Point> points;
+		
+		List<Point> curvePoints = new ArrayList<Point>();
 		
 		start = arc.getStart();
-		//next = arc.getNext();
+		//point = new Point(start.getX(), start.getY());
+		curvePoints.add(new Point(start.getX(), start.getY()));
+		
+		listOfNext = arc.getNext();
+		//System.out.format("=====Arc id=%s \n", arc.getId());
+		for (Arc.Next next: listOfNext){
+			//System.out.format("Next: (x=%s,y=%s) \n", Float.toString(next.getX()), Float.toString(next.getY()));
+			//point = new Point(next.getX(), next.getY());
+			curvePoints.add(new Point(next.getX(), next.getY()));
+			
+			points = next.getPoint();
+			for (org.sbgn.bindings.Point p: points){
+				//System.out.format("    Point: (x=%s,y=%s) \n", Float.toString(p.getX()), Float.toString(p.getY()));
+			}
+		}
+		
 		end = arc.getEnd();
+		//point = new Point(end.getX(), end.getY());
+		curvePoints.add(new Point(end.getX(), end.getY()));
+		
 		curve = new Curve();
-		curveSegment = new LineSegment();
-		point = new Point(start.getX(), start.getY());
-		curveSegment.setStart(point);
-		point = new Point(end.getX(), end.getY());
-		curveSegment.setEnd(point);			
-		curve.addCurveSegment(curveSegment);	
+		Point startPoint;
+		Point endPoint;
+		for (int i = 0; i < curvePoints.size(); i++){
+			
+			// last Point
+			if (i == curvePoints.size() - 1){
+				break;
+			}
+			startPoint = curvePoints.get(i).clone();
+			endPoint = curvePoints.get(i + 1).clone();
+			
+			curveSegment = new LineSegment();
+			
+			curveSegment.setStart(startPoint);
+			curveSegment.setEnd(endPoint);			
+			curve.addCurveSegment(curveSegment);				
+		}
 				
 		return curve;
 	}	
