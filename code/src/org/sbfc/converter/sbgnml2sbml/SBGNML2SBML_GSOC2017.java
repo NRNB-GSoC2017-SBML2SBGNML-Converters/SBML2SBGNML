@@ -250,7 +250,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		for (Glyph glyph : glyphs) {
 			if (sUtil.isEntityPoolNode(glyph.getClazz())){
 				sWrapperSpeciesGlyph = createOneSpecies(glyph);
-				System.out.println("createNestedGlyphs"+sWrapperSpeciesGlyph.speciesGlyph.getId());
+				//System.out.println("createNestedGlyphs"+sWrapperSpeciesGlyph.speciesGlyph.getId());
 //				sOutput.addTextGlyph(sWrapperSpeciesGlyph.textGlyph);
 //				sOutput.addSpeciesGlyph(sWrapperSpeciesGlyph.speciesGlyph);
 				
@@ -337,6 +337,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		Species species;
 		SpeciesReference speciesReference;
 		SpeciesReferenceGlyph speciesReferenceGlyph;
+		SWrapperSpeciesReferenceGlyph sWrapperSpeciesReferenceGlyph;
 		
 		// create a SpeciesReference
 		species = sOutput.findSpecies(speciesId);
@@ -352,9 +353,19 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		
 		// add the SpeciesReferenceGlyph to the ReactionGlyph
 		reactionGlyph = sOutput.findReactionGlyph("ReactionGlyph_"+reactionId);
-		reactionGlyph.addSpeciesReferenceGlyph(speciesReferenceGlyph);		
+		reactionGlyph.addSpeciesReferenceGlyph(speciesReferenceGlyph);	
 		
-		return new SWrapperSpeciesReferenceGlyph(speciesReference, speciesReferenceGlyph, sWrapperArc);
+		sWrapperSpeciesReferenceGlyph = new SWrapperSpeciesReferenceGlyph(speciesReference, speciesReferenceGlyph, sWrapperArc);
+		
+		// if the Arc contains nested Glyphs, create GeneralGlyphs for these, add them to output
+		// example: an Arc might have Units of Information
+		if (sWrapperArc.arc.getGlyph().size() != 0){
+			List<Glyph> nestedGlyphs = sWrapperArc.arc.getGlyph();
+			List<GraphicalObject> listOfGeneralGlyphs = createNestedGlyphs(nestedGlyphs, speciesReferenceGlyph);
+			sWrapperSpeciesReferenceGlyph.listOfGeneralGlyphs = listOfGeneralGlyphs;
+		} 
+		
+		return sWrapperSpeciesReferenceGlyph;
 	}
 
 
@@ -368,6 +379,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		Species species;
 		ModifierSpeciesReference speciesReference;
 		SpeciesReferenceGlyph speciesReferenceGlyph;
+		SWrapperModifierSpeciesReferenceGlyph sWrapperModifierSpeciesReferenceGlyph;
 		
 		// create a SpeciesReference
 		species = sOutput.findSpecies(speciesId);
@@ -385,7 +397,18 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		reactionGlyph = sOutput.findReactionGlyph("ReactionGlyph_"+reactionId);
 		reactionGlyph.addSpeciesReferenceGlyph(speciesReferenceGlyph);		
 		
-		return new SWrapperModifierSpeciesReferenceGlyph(speciesReference, speciesReferenceGlyph, sWrapperArc);
+		sWrapperModifierSpeciesReferenceGlyph = new SWrapperModifierSpeciesReferenceGlyph(speciesReference, 
+													speciesReferenceGlyph, sWrapperArc);
+		
+		// if the Arc contains nested Glyphs, create GeneralGlyphs for these, add them to output
+		// example: an Arc might have Units of Information
+		if (sWrapperArc.arc.getGlyph().size() != 0){
+			List<Glyph> nestedGlyphs = sWrapperArc.arc.getGlyph();
+			List<GraphicalObject> listOfGeneralGlyphs = createNestedGlyphs(nestedGlyphs, speciesReferenceGlyph);
+			sWrapperModifierSpeciesReferenceGlyph.listOfGeneralGlyphs = listOfGeneralGlyphs;
+		} 
+		
+		return sWrapperModifierSpeciesReferenceGlyph;
 	}
 	
 	public SWrapperArc createWrapperArc(Arc arc) {
@@ -735,6 +758,15 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 
 		// create a new SWrapperGeneralGlyph, add it to the SWrapperModel
 		sWrapperGeneralGlyph = new SWrapperGeneralGlyph(generalGlyph, arc, sWrapperModel);
+		
+		// if the Arc contains nested Glyphs, create GeneralGlyphs for these, add them to output
+		// example: an Arc might have Units of Information
+		if (arc.getGlyph().size() != 0){
+			List<Glyph> nestedGlyphs = arc.getGlyph();
+			List<GraphicalObject> listOfGeneralGlyphs = createNestedGlyphs(nestedGlyphs, generalGlyph);
+			sWrapperGeneralGlyph.listOfGeneralGlyphs = listOfGeneralGlyphs;
+		} 
+						
 		return sWrapperGeneralGlyph;		
 	}	
 	
@@ -744,6 +776,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	public SWrapperReferenceGlyph createOneReferenceGlyph(SWrapperArc sWrapperArc, SBase object) {
 		Curve curve;
 		ReferenceGlyph referenceGlyph;
+		SWrapperReferenceGlyph sWrapperReferenceGlyph;
 		
 		// create a SpeciesReferenceGlyph
 		referenceGlyph = sUtil.createOneReferenceGlyph(sWrapperArc.arc.getId(), sWrapperArc.arc, 
@@ -752,8 +785,18 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		// create the center Curve for the ReferenceGlyph
 		curve = sUtil.createOneCurve(sWrapperArc.arc);
 		referenceGlyph.setCurve(curve);
+		
+		sWrapperReferenceGlyph = new SWrapperReferenceGlyph(referenceGlyph, sWrapperArc);
+		
+		// if the Arc contains nested Glyphs, create GeneralGlyphs for these, add them to output
+		// example: an Arc might have Units of Information
+		if (sWrapperArc.arc.getGlyph().size() != 0){
+			List<Glyph> nestedGlyphs = sWrapperArc.arc.getGlyph();
+			List<GraphicalObject> listOfGeneralGlyphs = createNestedGlyphs(nestedGlyphs, referenceGlyph);
+			sWrapperReferenceGlyph.listOfGeneralGlyphs = listOfGeneralGlyphs;
+		} 
 
-		return new SWrapperReferenceGlyph(referenceGlyph, sWrapperArc);
+		return sWrapperReferenceGlyph;
 	}
 	
 	/**

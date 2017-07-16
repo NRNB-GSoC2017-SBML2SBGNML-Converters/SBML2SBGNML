@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.sbgn.bindings.Arc;
 import org.sbml.jsbml.SpeciesReference;
+import org.sbml.jsbml.ext.layout.GraphicalObject;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 
 public class SWrapperSpeciesReferenceGlyph{
@@ -11,6 +12,8 @@ public class SWrapperSpeciesReferenceGlyph{
 	SpeciesReferenceGlyph speciesReferenceGlyph;
 	Arc arc;
 	SWrapperArc sWrapperArc;
+	
+	List<GraphicalObject> listOfGeneralGlyphs;
 	
 	SWrapperSpeciesReferenceGlyph(SpeciesReference speciesReference, SpeciesReferenceGlyph speciesReferenceGlyph, 
 			SWrapperArc sWrapperArc) {

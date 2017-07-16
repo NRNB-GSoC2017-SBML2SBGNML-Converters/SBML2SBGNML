@@ -88,7 +88,7 @@ public class SBGNML2SBMLRender {
 			sWrapperCompartmentGlyph = sWrapperModel.getWrapperCompartmentGlyph(key);
 			createStyle(sWrapperCompartmentGlyph.compartmentGlyph, sWrapperCompartmentGlyph.clazz);
 			
-			System.out.println("renderCompartmentGlyphs id="+sWrapperCompartmentGlyph.glyph.getId());
+			//System.out.println("renderCompartmentGlyphs id="+sWrapperCompartmentGlyph.glyph.getId());
 		}			
 	}
 	
@@ -256,6 +256,8 @@ public class SBGNML2SBMLRender {
 		} else if (clazz.equals("complex")){
 			image.setHref("complex-glyph.png");
 		} else if (clazz.equals("unit of information")){
+			image.setHref("unit-of-information-glyph.png");
+		} else if (clazz.equals("cardinality")){
 			image.setHref("unit-of-information-glyph.png");
 		} else if (clazz.equals("state variable")){
 			image.setHref("state-variable-glyph.png");

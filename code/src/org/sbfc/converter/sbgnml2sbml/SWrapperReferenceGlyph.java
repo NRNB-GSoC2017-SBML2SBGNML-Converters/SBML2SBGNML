@@ -1,12 +1,17 @@
 package org.sbfc.converter.sbgnml2sbml;
 
+import java.util.List;
+
 import org.sbgn.bindings.Arc;
+import org.sbml.jsbml.ext.layout.GraphicalObject;
 import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 
 public class SWrapperReferenceGlyph{
 	Arc arc;
 	ReferenceGlyph referenceGlyph;
 	SWrapperArc sWrapperArc;
+	
+	List<GraphicalObject> listOfGeneralGlyphs;
 	
 	SWrapperReferenceGlyph(ReferenceGlyph referenceGlyph, SWrapperArc sWrapperArc) {
 		this.referenceGlyph = referenceGlyph;

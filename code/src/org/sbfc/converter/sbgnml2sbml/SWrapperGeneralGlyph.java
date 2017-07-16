@@ -1,6 +1,7 @@
 package org.sbfc.converter.sbgnml2sbml;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.sbgn.bindings.Arc;
 import org.sbgn.bindings.Glyph;
@@ -23,6 +24,8 @@ public class SWrapperGeneralGlyph {
 	
 	HashMap<String, Arc> arcs = new HashMap<String, Arc>();
 	HashMap<String, ReferenceGlyph> referenceGlyphs = new HashMap<String, ReferenceGlyph>();
+	
+	List<GraphicalObject> listOfGeneralGlyphs;
 	
 	SWrapperModel sWrapperModel;
 	
