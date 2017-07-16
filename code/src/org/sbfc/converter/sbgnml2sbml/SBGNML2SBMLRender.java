@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 
@@ -81,9 +82,13 @@ public class SBGNML2SBMLRender {
 	
 	public void renderCompartmentGlyphs() {
 		SWrapperCompartmentGlyph sWrapperCompartmentGlyph;
-		for (String key : sWrapperModel.listOfWrapperCompartmentGlyphs.keySet()){
+		
+		sWrapperModel.sortCompartmentOrderList();
+		for (String key : sWrapperModel.compartmentOrderList.keySet()){
 			sWrapperCompartmentGlyph = sWrapperModel.getWrapperCompartmentGlyph(key);
 			createStyle(sWrapperCompartmentGlyph.compartmentGlyph, sWrapperCompartmentGlyph.clazz);
+			
+			System.out.println("renderCompartmentGlyphs id="+sWrapperCompartmentGlyph.glyph.getId());
 		}			
 	}
 	
@@ -118,9 +123,9 @@ public class SBGNML2SBMLRender {
 		for (String arcKey : sWrapperReactionGlyph.speciesReferenceGlyphs.keySet()){
 			speciesReferenceGlyph = sWrapperReactionGlyph.speciesReferenceGlyphs.get(arcKey);
 			arc = sWrapperReactionGlyph.getArc(arcKey);
-			System.out.println("===renderSpeciesReferenceGlyphs "+sWrapperReactionGlyph.consumptionArcs.size());
-			System.out.println("===renderSpeciesReferenceGlyphs "+sWrapperReactionGlyph.productionArcs.size());
-			System.out.println("===renderSpeciesReferenceGlyphs "+sWrapperReactionGlyph.modifierArcs.size());
+			//System.out.println("===renderSpeciesReferenceGlyphs "+sWrapperReactionGlyph.consumptionArcs.size());
+			//System.out.println("===renderSpeciesReferenceGlyphs "+sWrapperReactionGlyph.productionArcs.size());
+			//System.out.println("===renderSpeciesReferenceGlyphs "+sWrapperReactionGlyph.modifierArcs.size());
 
 			createStyle((GraphicalObject) speciesReferenceGlyph, arc);
 		}		
@@ -256,7 +261,11 @@ public class SBGNML2SBMLRender {
 			image.setHref("state-variable-glyph.png");
 		} else if (clazz.equals("biological activity")){
 			image.setHref("biological-activity-glyph.png");
-		}		
+		} else if (clazz.equals("phenotype")){
+			image.setHref("phenotype-glyph.png");
+		} else if (clazz.equals("compartment")){
+			image.setHref("compartment-glyph.png");
+		}
 		
 		else if (clazz.equals("tag_left")){
 			image.setHref("tag_left.png");

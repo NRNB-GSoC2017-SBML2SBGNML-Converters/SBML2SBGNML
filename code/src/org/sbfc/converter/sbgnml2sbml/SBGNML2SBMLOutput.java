@@ -68,11 +68,14 @@ public class SBGNML2SBMLOutput {
 	Double dimensionZ;
 	Dimensions dimensions;
 	
-	SBGNML2SBMLOutput(int level, int version) {
+	SBGNML2SBMLOutput(int level, int version, String language) {
 		this.model = new Model(level, version);
 		createLayout();
 		createRenderInformation();
-		createQual();
+		
+		if (language.equals("activity flow")){
+			createQual();
+		}
 					
 		this.dimensionX = 0.0;
 		this.dimensionY = 0.0;

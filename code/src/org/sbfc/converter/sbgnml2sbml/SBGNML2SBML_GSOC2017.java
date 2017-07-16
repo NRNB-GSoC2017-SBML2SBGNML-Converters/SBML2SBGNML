@@ -57,7 +57,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	public SBGNML2SBMLRender sRender;
 		
 	public SBGNML2SBML_GSOC2017(Map map) {
-		sOutput = new SBGNML2SBMLOutput(3, 1);
+		sOutput = new SBGNML2SBMLOutput(3, 1, map.getLanguage());
 		sUtil = new SBGNML2SBMLUtil(3, 1);
 		sWrapperModel = new SWrapperModel(sOutput.getModel(), map);
 		sRender = new SBGNML2SBMLRender(sWrapperModel, sOutput);
@@ -474,7 +474,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			else {
 				// store the Arc in the Wrapper
 				reactionGlyphTuple.addArc(speciesReferenceId, sWrapperArc, "consumption");
-				System.out.println("===createSpeciesReferenceGlyphs "+reactionGlyphTuple.consumptionArcs.size());
+				//System.out.println("===createSpeciesReferenceGlyphs "+reactionGlyphTuple.consumptionArcs.size());
 			}
 			
 			// create a SpeciesReference and a SpeciesReferenceGlyph, add the SpeciesReferenceGlyph to the ReactionGlyph
@@ -609,6 +609,10 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		//System.out.println("setStartAndEndPointForCurve _nrows="+_nrows);
 		
 	     KMeans KM = new KMeans( sWrapperReactionGlyph.listOfEndPoints, null );
+	     
+	     System.out.println("setStartAndEndPointForCurve id="+sWrapperReactionGlyph.reactionId+" listOfEndPoints "+sWrapperReactionGlyph.listOfEndPoints.size());
+	     if (sWrapperReactionGlyph.listOfEndPoints.size() == 0){return;}
+	     
 	     KM.clustering(2, 10, null); // 2 clusters, maximum 10 iterations
 	     //KM.printResults();
 	     double[][] centroids = KM._centroids;

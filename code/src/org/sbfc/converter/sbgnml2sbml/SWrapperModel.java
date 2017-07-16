@@ -1,7 +1,11 @@
 package org.sbfc.converter.sbgnml2sbml;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.sbfc.converter.sbgnml2sbml.qual.SWrapperQualitativeSpecies;
@@ -42,6 +46,7 @@ public class SWrapperModel {
 	Model model;
 	
 	HashMap<String, String> portGlyphMap = new HashMap<String, String>();
+	HashMap<String, Float> compartmentOrderList = new HashMap<String, Float>();
 	
 	// keep track of how many Arcs are in Sbgn
 	int numberOfArcs;
@@ -218,5 +223,46 @@ public class SWrapperModel {
 		return listOfSWrapperQualitativeSpecies.get(id);
 	}
 		
+	public void sortCompartmentOrderList(){	
+		for (String key : listOfWrapperCompartmentGlyphs.keySet()){
+			SWrapperCompartmentGlyph sWrapperCompartmentGlyph = getWrapperCompartmentGlyph(key);
+			compartmentOrderList.put(key, sWrapperCompartmentGlyph.compartmentOrder);
+		}
+		compartmentOrderList = sortByValue(compartmentOrderList);
+	}
+	
+	// https://www.mkyong.com/java/how-to-sort-a-map-in-java/
+	private static HashMap<String, Float> sortByValue(HashMap<String, Float> unsortMap) {
+
+        // 1. Convert Map to List of Map
+        List<HashMap.Entry<String, Float>> list =
+                new LinkedList<HashMap.Entry<String, Float>>(unsortMap.entrySet());
+
+        // 2. Sort list with Collections.sort(), provide a custom Comparator
+        //    Try switch the o1 o2 position for a different order
+        Collections.sort(list, new Comparator<HashMap.Entry<String, Float>>() {
+            public int compare(HashMap.Entry<String, Float> o1,
+            					HashMap.Entry<String, Float> o2) {
+                return (o1.getValue()).compareTo(o2.getValue());
+            }
+        });
+
+        // 3. Loop the sorted list and put it into a new insertion order Map LinkedHashMap
+        HashMap<String, Float> sortedMap = new LinkedHashMap<String, Float>();
+        for (HashMap.Entry<String, Float> entry : list) {
+            sortedMap.put(entry.getKey(), entry.getValue());
+            System.out.println("sortByValue id="+entry.getKey());
+        }
+
+        /*
+        //classic iterator example
+        for (Iterator<Map.Entry<String, Integer>> it = list.iterator(); it.hasNext(); ) {
+            Map.Entry<String, Integer> entry = it.next();
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }*/
+
+
+        return sortedMap;
+    }
 				
 }

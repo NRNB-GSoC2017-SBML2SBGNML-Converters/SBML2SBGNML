@@ -111,10 +111,11 @@ public class KMeans
 
           // copy the value from _data[c]
           _centroids[i] = new double[_ndims];
-          for (int j=0; j<_ndims; j++)
-            _centroids[i][j] = _data[c][j];
+          for (int j=0; j<_ndims; j++){
+        	  System.out.println("clustering i="+i+" j="+j);
+            _centroids[i][j] = _data[c][j];}
         }
-        System.out.println("selected random centroids");
+        //System.out.println("selected random centroids");
 
       }
 
@@ -139,7 +140,7 @@ public class KMeans
           break;
       }
 
-      System.out.println("Clustering converges at round " + round);
+      //System.out.println("Clustering converges at round " + round);
   }
 
   // find the closest centroid for the record v 

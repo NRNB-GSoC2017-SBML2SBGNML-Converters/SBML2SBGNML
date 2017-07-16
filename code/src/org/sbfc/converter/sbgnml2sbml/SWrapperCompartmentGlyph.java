@@ -13,12 +13,14 @@ public class SWrapperCompartmentGlyph {
 	CompartmentGlyph compartmentGlyph;
 	Glyph glyph;
 	String clazz;
+	Float compartmentOrder;
 	
 	SWrapperCompartmentGlyph(Compartment compartment, CompartmentGlyph compartmentGlyph, Glyph glyph) {
 		this.compartment = compartment;
 		this.compartmentGlyph = compartmentGlyph;		
 		this.glyph = glyph;
 		this.clazz = glyph.getClazz();
+		this.compartmentOrder = glyph.getCompartmentOrder() != null ? glyph.getCompartmentOrder() : 0;
 	}
 	
 }

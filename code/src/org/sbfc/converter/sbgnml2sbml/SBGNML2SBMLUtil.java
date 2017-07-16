@@ -500,8 +500,6 @@ public class SBGNML2SBMLUtil {
 			return true;
 		} else if (clazz.equals("dissociation")) {
 			return true;
-		} else if (clazz.equals("phenotype")) {
-			return true;
 		} else {
 			return false;
 		}
@@ -556,6 +554,8 @@ public class SBGNML2SBMLUtil {
 		} else if (clazz.equals("perturbing agent")) {
 			return true;
 		} else if (clazz.equals("biological activity")) {
+			return true;
+		} else if (clazz.equals("phenotype")) {
 			return true;
 		} else {
 			return false;
