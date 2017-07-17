@@ -48,11 +48,13 @@ import org.sbml.jsbml.ext.render.LineEnding;
 import org.sbml.jsbml.ext.render.ListOfLocalRenderInformation;
 import org.sbml.jsbml.ext.render.LocalRenderInformation;
 import org.sbml.jsbml.ext.render.LocalStyle;
+import org.sbml.jsbml.ext.render.Polygon;
 import org.sbml.jsbml.ext.render.Rectangle;
 import org.sbml.jsbml.ext.render.RenderConstants;
 import org.sbml.jsbml.ext.render.RenderGraphicalObjectPlugin;
 import org.sbml.jsbml.ext.render.RenderGroup;
 import org.sbml.jsbml.ext.render.RenderLayoutPlugin;
+import org.sbml.jsbml.ext.render.RenderPoint;
 import org.sbml.jsbml.ext.render.Text;
 import org.sbml.jsbml.ext.render.VTextAnchor;
 
@@ -75,10 +77,41 @@ public class SBGNML2SBMLRender {
 		
 		for (String key : sWrapperModel.listOfWrapperGeneralGlyphs.keySet()){
 			sWrapperGeneralGlyph = sWrapperModel.getWrapperGeneralGlyph(key);
-			createStyle(sWrapperGeneralGlyph.generalGlyph, sWrapperGeneralGlyph.clazz);
+			LocalStyle localStyle = createStyle(sWrapperGeneralGlyph.generalGlyph, sWrapperGeneralGlyph.clazz);
+			if (sWrapperGeneralGlyph.isAnnotation) {
+				Dimensions dim = sWrapperGeneralGlyph.generalGlyph.getBoundingBox().getDimensions();
+				Point startPoint = sWrapperGeneralGlyph.calloutPoint;
+				Point bbPosition = sWrapperGeneralGlyph.generalGlyph.getBoundingBox().getPosition();
+				Point endPoint1 = new Point(bbPosition.getX()+0.3*dim.getWidth(), bbPosition.getY()+dim.getHeight());
+				Point endPoint2 = new Point(bbPosition.getX()+0.4*dim.getWidth(),bbPosition.getY()+dim.getHeight());
+				createTriangle(localStyle, startPoint, endPoint1, endPoint2);
+			}
+			
 			renderReferenceGlyphs(sWrapperGeneralGlyph);
 		}
 	}	
+	
+	public void createTriangle(LocalStyle localStyle, Point p1, Point p2, Point p3){
+		Polygon polygon = new Polygon();
+		ListOf<RenderPoint> elements = polygon.getListOfElements();
+				
+		elements.add(createRenderPoint(p1.getX(), p1.getY(), true, true));
+		elements.add(createRenderPoint(p2.getX(), p2.getY(), true, true));
+		elements.add(createRenderPoint(p3.getX(), p3.getY(), true, true));
+		
+		RenderGroup renderGroup = localStyle.getGroup();
+		renderGroup.addElement(polygon);
+	}
+	
+	public RenderPoint createRenderPoint(double x, double y, boolean absoluteX, boolean absoluteY){
+		RenderPoint renderPoint = new RenderPoint();
+		renderPoint.setX(x);
+		renderPoint.setY(y);
+		renderPoint.setAbsoluteX(absoluteX);
+		renderPoint.setAbsoluteY(absoluteY);	
+		
+		return renderPoint;
+	}
 	
 	public void renderCompartmentGlyphs() {
 		SWrapperCompartmentGlyph sWrapperCompartmentGlyph;
@@ -96,7 +129,11 @@ public class SBGNML2SBMLRender {
 		SWrapperSpeciesGlyph sWrapperSpeciesGlyph;
 		for (String key : sWrapperModel.listOfWrapperSpeciesGlyphs.keySet()){
 			sWrapperSpeciesGlyph = sWrapperModel.getWrapperSpeciesGlyph(key);
-			createStyle(sWrapperSpeciesGlyph.speciesGlyph, sWrapperSpeciesGlyph.clazz);
+			LocalStyle localStyle = createStyle(sWrapperSpeciesGlyph.speciesGlyph, sWrapperSpeciesGlyph.clazz);
+			
+			if (sWrapperSpeciesGlyph.hasClone){
+				addCloneText(localStyle, sWrapperSpeciesGlyph.speciesGlyph, sWrapperSpeciesGlyph.cloneText);
+			}
 		}		
 		
 		SWrapperQualitativeSpecies sWrapperQualitativeSpecies;
@@ -104,6 +141,20 @@ public class SBGNML2SBMLRender {
 			sWrapperQualitativeSpecies = sWrapperModel.getSWrapperQualitativeSpecies(key);
 			createStyle(sWrapperQualitativeSpecies.speciesGlyph, sWrapperQualitativeSpecies.clazz);
 		}	
+	}
+	
+	public void addCloneText(LocalStyle localStyle, SpeciesGlyph speciesGlyph, String cloneText) {
+		// the 0 and 80 is not used?
+		Text text = createText(0, 80, false, false);
+		text.setFontFamily(FontFamily.MONOSPACE);
+		text.setTextAnchor(HTextAnchor.MIDDLE);
+		text.setVTextAnchor(VTextAnchor.BOTTOM);	
+		text.setName(cloneText);	
+		
+		RenderGroup renderGroup = localStyle.getGroup();
+		renderGroup.setStroke("white");
+		renderGroup.addElement(text);
+		// todo: how to put text value in element?
 	}
 	
 	public void renderReactionGlyphs() {
@@ -118,7 +169,7 @@ public class SBGNML2SBMLRender {
 	public void renderSpeciesReferenceGlyphs(SWrapperReactionGlyph sWrapperReactionGlyph) {
 		Arc arc;
 		SpeciesReferenceGlyph speciesReferenceGlyph;
-		System.out.println("===renderSpeciesReferenceGlyphs "+sWrapperReactionGlyph.speciesReferenceGlyphs.keySet().size());
+		//System.out.println("===renderSpeciesReferenceGlyphs "+sWrapperReactionGlyph.speciesReferenceGlyphs.keySet().size());
 		
 		for (String arcKey : sWrapperReactionGlyph.speciesReferenceGlyphs.keySet()){
 			speciesReferenceGlyph = sWrapperReactionGlyph.speciesReferenceGlyphs.get(arcKey);
@@ -142,7 +193,7 @@ public class SBGNML2SBMLRender {
 		}		
 	}
 	
-	public void createStyle(GraphicalObject graphicalObject, String clazz) {
+	public LocalStyle createStyle(GraphicalObject graphicalObject, String clazz) {
 		RenderGroup renderGroup;
 		LocalStyle localStyle;
 		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin;
@@ -160,8 +211,9 @@ public class SBGNML2SBMLRender {
 		renderGraphicalObjectPlugin.setObjectRole(styleId);		
 				
 		Image image = createImage(graphicalObject, clazz);
+		renderGroup.addElement(image);	
 		
-		renderGroup.addElement(image);		
+		return localStyle;
 	}
 	
 	public void createStyle(GraphicalObject graphicalObject, Arc arc) {
@@ -186,6 +238,8 @@ public class SBGNML2SBMLRender {
 		} else if (arc.getClazz().equals("production")){
 			//LineEnding lineEnding = sOutput.listOfLineEndings.get("productionHead");
 			renderGroup.setEndHead("productionHead");			
+		} else if (arc.getClazz().equals("stimulation")){
+			renderGroup.setEndHead("stimulationHead");			
 		} else if (arc.getClazz().equals("necessary stimulation")){
 			//LineEnding lineEnding = sOutput.listOfLineEndings.get("productionHead");
 			renderGroup.setEndHead("necessaryStimulationHead");			
@@ -241,39 +295,68 @@ public class SBGNML2SBMLRender {
 		// todo: horizontal or vertical?
 		if (clazz.equals("or")){
 			image.setHref("or-glyph.png");	
-		} else if (clazz.equals("process")){
+		} else if (clazz.equals("and")){
+			image.setHref("and-glyph.png");
+		} else if (clazz.equals("not")){
+			image.setHref("not-glyph.png");
+		} 
+		
+		else if (clazz.equals("process")){
 			image.setHref("process-glyph.png");	
+		} else if (clazz.equals("association")){
+			image.setHref("association-glyph.png");	
 		} else if (clazz.equals("macromolecule")){
 			image.setHref("macromolecule-glyph.png");	
 		} else if (clazz.equals("simple chemical")){
 			image.setHref("simple-chemical-glyph.png");	
 		} else if (clazz.equals("source and sink")){
 			image.setHref("source-and-sink-glyph.png");
-		} else if (clazz.equals("and")){
-			image.setHref("and-glyph.png");
 		} else if (clazz.equals("nucleic acid feature")){
 			image.setHref("nucleic-acid-feature-glyph.png");
 		} else if (clazz.equals("complex")){
 			image.setHref("complex-glyph.png");
-		} else if (clazz.equals("unit of information")){
+		} else if (clazz.equals("biological activity")){
+			image.setHref("biological-activity-glyph.png");
+		} else if (clazz.equals("phenotype")){
+			image.setHref("phenotype-glyph.png");
+		} else if (clazz.equals("annotation")){
+			image.setHref("annnotation-glyph.png");
+		} 
+		
+		else if (clazz.equals("simple chemical_clone")){
+			image.setHref("simple-chemical-glyph-clone.png");	
+		} else if (clazz.equals("macromolecule_clone")){
+			image.setHref("macromolecule-glyph-clone.png");	
+		} else if (clazz.equals("nucleic acid feature_clone")){
+			image.setHref("nucleic-acid-feature-glyph-clone.png");
+		} else if (clazz.equals("macromolecule multimer_clone")){
+			image.setHref("macromolecule-multimer-glyph-clone.png");	
+		} 
+		
+		else if (clazz.equals("unit of information")){
 			image.setHref("unit-of-information-glyph.png");
 		} else if (clazz.equals("cardinality")){
 			image.setHref("unit-of-information-glyph.png");
 		} else if (clazz.equals("state variable")){
 			image.setHref("state-variable-glyph.png");
-		} else if (clazz.equals("biological activity")){
-			image.setHref("biological-activity-glyph.png");
-		} else if (clazz.equals("phenotype")){
-			image.setHref("phenotype-glyph.png");
 		} else if (clazz.equals("compartment")){
 			image.setHref("compartment-glyph.png");
-		}
+		} else if (clazz.equals("submap")){
+			image.setHref("unit-of-information-glyph.png");
+		} 
 		
 		else if (clazz.equals("tag_left")){
 			image.setHref("tag_left.png");
 		} else if (clazz.equals("tag_right")){
 			image.setHref("tag_right.png");
 		}
+		
+		else if (clazz.equals("terminal_left")){
+			//System.out.println("terminal_left");
+			image.setHref("tag_left.png");
+		} else if (clazz.equals("terminal_right")){
+			image.setHref("tag_right.png");
+		}		
 		
 		return image;
 	}

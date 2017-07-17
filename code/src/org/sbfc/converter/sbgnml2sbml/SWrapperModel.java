@@ -28,6 +28,7 @@ public class SWrapperModel {
 	HashMap<String, Glyph> entityPoolNodes;
 	HashMap<String, Glyph> compartments;
 	HashMap<String, Glyph> logicOperators;
+	HashMap<String, Glyph> annotations;
 	
 	HashMap<String, SWrapperArc> consumptionArcs;
 	HashMap<String, SWrapperArc> productionArcs;
@@ -58,6 +59,7 @@ public class SWrapperModel {
 		this.entityPoolNodes = new HashMap<String, Glyph>();
 		this.compartments = new HashMap<String, Glyph>();
 		this.logicOperators = new HashMap<String, Glyph>();
+		this.annotations = new HashMap<String, Glyph>();
 		
 		this.consumptionArcs = new HashMap<String, SWrapperArc>();
 		this.productionArcs = new HashMap<String, SWrapperArc>();
@@ -264,5 +266,10 @@ public class SWrapperModel {
 
         return sortedMap;
     }
+
+	public void addAnnotation(String id, Glyph glyph) {
+		id = checkGlyphId(id, annotations);
+		annotations.put(id, glyph);		
+	}
 				
 }

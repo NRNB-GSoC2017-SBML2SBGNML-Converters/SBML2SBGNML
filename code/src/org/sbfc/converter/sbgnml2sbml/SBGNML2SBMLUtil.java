@@ -203,11 +203,30 @@ public class SBGNML2SBMLUtil {
 			}
 			// todo: add more cases
 			else {
-				System.out.println("======getText no state");
+				//System.out.println("======getText no state");
 				return "";
 			}
 		}
 		return "";
+	}
+	
+	public String getClone(Glyph glyph) {
+		String text = new String();
+		try {
+			Glyph.Clone clone = glyph.getClone();
+			Label label = clone.getLabel();
+			try {
+				text = new String(String.copyValueOf(label.getText().toCharArray())) ;
+			}
+			catch (NullPointerException e) {
+				
+			}
+		}
+		catch (NullPointerException e) {
+			return null;
+		}	
+		
+		return text;
 	}
 	
 	public Reaction createJsbmlReaction(String reactionId) {
@@ -452,9 +471,16 @@ public class SBGNML2SBMLUtil {
 	}
 	
 	public void setCompartmentOrder(CompartmentGlyph compartmentGlyph, Glyph glyph) {
-		float order = glyph.getCompartmentOrder();
-		if ((Object) order != null){
-			compartmentGlyph.setOrder(order);
+//		System.out.println(compartmentGlyph.getId());
+//		System.out.println(glyph.getId());
+		
+		try {
+			float order = glyph.getCompartmentOrder();
+			if ((Object) order != null){
+				compartmentGlyph.setOrder(order);
+			}
+		} catch (NullPointerException e) {
+			
 		}
 	}
 	
@@ -527,10 +553,21 @@ public class SBGNML2SBMLUtil {
 	public boolean isTag(String clazz) {
 		if (clazz.equals("tag")) {
 			return true;
-		}
+		} 
+//		else if (clazz.equals("terminal")){
+//			System.out.println("terminal");
+//			return true;
+//		}
 		
 		return false;
 	}	
+	
+	public Boolean isAnnotation(String clazz) {
+		if (clazz.equals("annotation")) {
+			return true;
+		}
+		return false;
+	}
 	
 	public Boolean isEntityPoolNode(String clazz){
 		if (clazz.equals("unspecified entity")) {
@@ -556,6 +593,8 @@ public class SBGNML2SBMLUtil {
 		} else if (clazz.equals("biological activity")) {
 			return true;
 		} else if (clazz.equals("phenotype")) {
+			return true;
+		} else if (clazz.equals("submap")) {
 			return true;
 		} else {
 			return false;
@@ -595,7 +634,7 @@ public class SBGNML2SBMLUtil {
 		String clazz = arc.getClazz();
 		if (clazz.equals("logic arc")) {
 			return true;
-		} if (clazz.equals("unknown influence")) {
+		} else if (clazz.equals("equivalence arc")) {
 			return true;
 		}
 		return false;
@@ -611,6 +650,8 @@ public class SBGNML2SBMLUtil {
 		} if (clazz.equals("necessary stimulation")) {
 			return true;
 		} if (clazz.equals("modulation")) {
+			return true;
+		} else if (clazz.equals("unknown influence")) {
 			return true;
 		} // ...
 		else {

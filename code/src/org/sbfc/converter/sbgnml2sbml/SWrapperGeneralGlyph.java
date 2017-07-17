@@ -7,6 +7,7 @@ import org.sbgn.bindings.Arc;
 import org.sbgn.bindings.Glyph;
 import org.sbml.jsbml.ext.layout.GeneralGlyph;
 import org.sbml.jsbml.ext.layout.GraphicalObject;
+import org.sbml.jsbml.ext.layout.Point;
 import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 import org.sbml.jsbml.ext.layout.TextGlyph;
@@ -28,6 +29,10 @@ public class SWrapperGeneralGlyph {
 	List<GraphicalObject> listOfGeneralGlyphs;
 	
 	SWrapperModel sWrapperModel;
+	
+	boolean isAnnotation = false;
+	Point calloutPoint;
+	String calloutTarget;
 	
 	SWrapperGeneralGlyph(GeneralGlyph generalGlyph, Glyph glyph, GraphicalObject parent, TextGlyph textGlyph,
 			SWrapperModel sWrapperModel) {

@@ -7,6 +7,7 @@ import java.util.List;
 import org.sbgn.bindings.Arc;
 import org.sbgn.bindings.Bbox;
 import org.sbgn.bindings.Glyph;
+import org.sbgn.bindings.Label;
 import org.sbgn.bindings.Map;
 import org.sbgn.bindings.Port;
 import org.sbgn.bindings.Sbgn;
@@ -134,6 +135,8 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 				sWrapperModel.addSbgnLogicOperator(id, glyph);
 			} else if (sUtil.isTag(clazz)) {
 				sWrapperModel.addSbgnLogicOperator(id, glyph);
+			} else if (sUtil.isAnnotation(clazz)){
+				sWrapperModel.addAnnotation(id, glyph);
 			}
 		}		
 	}
@@ -210,7 +213,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		name = sUtil.getText(glyph);
 		clazz = glyph.getClazz();
 		speciesId = glyph.getId();
-		
+				
 		// create a Species, add it to the output
 		species = sUtil.createJsbmlSpecies(speciesId, name, clazz, false, true);
 		sOutput.addSpecies(species);
@@ -235,6 +238,11 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		speciesGlyphTuple =  new SWrapperSpeciesGlyph(species, speciesGlyph, glyph, textGlyph);
 		speciesGlyphTuple.setListOfNestedGlyphs(listOfGeneralGlyphs);
 		
+		String text = sUtil.getClone(glyph);
+		if (text != null){speciesGlyphTuple.setCloneText(text);}
+		System.out.format("createOneSpecies clone=%s text=%s \n", text != null ? "yes" : "no", text);
+		
+		
 		return speciesGlyphTuple;
 	}
 	
@@ -248,7 +256,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		SWrapperSpeciesGlyph sWrapperSpeciesGlyph;
 		
 		for (Glyph glyph : glyphs) {
-			if (sUtil.isEntityPoolNode(glyph.getClazz())){
+			if (sUtil.isEntityPoolNode(glyph.getClazz()) || (glyph.getClazz().equals("terminal"))){
 				sWrapperSpeciesGlyph = createOneSpecies(glyph);
 				//System.out.println("createNestedGlyphs"+sWrapperSpeciesGlyph.speciesGlyph.getId());
 //				sOutput.addTextGlyph(sWrapperSpeciesGlyph.textGlyph);
@@ -614,14 +622,15 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		Point curvePoint = null;
 		Point reactionGlyphPoint = null;
 		if (reactionGlyphPointType.equals("start")) {
-			// for now,  we assume there is only 1 CurveSegment in this Curve, so getCurveSegment(0)
-			curvePoint = speciesReferenceGlyph.getCurve().getCurveSegment(0).getEnd();
+			// we assume the last CurveSegment in this Curve touches the ReactionGlyph
+			int count = speciesReferenceGlyph.getCurve().getCurveSegmentCount();
+			curvePoint = speciesReferenceGlyph.getCurve().getCurveSegment(count - 1).getEnd();
 			// update the Start Point of the ReactionGlyph
-			reactionGlyphPoint = reactionGlyph.getCurve().getCurveSegment(0).getStart();
+			//reactionGlyphPoint = reactionGlyph.getCurve().getCurveSegment(0).getStart();
 		} else if (reactionGlyphPointType.equals("end")) {
 			curvePoint = speciesReferenceGlyph.getCurve().getCurveSegment(0).getStart();
 			// update the End Point of the ReactionGlyph
-			reactionGlyphPoint = reactionGlyph.getCurve().getCurveSegment(0).getEnd();			
+			//reactionGlyphPoint = reactionGlyph.getCurve().getCurveSegment(0).getEnd();			
 		}
 	
 		sWrapperReactionGlyph.addPoint(curvePoint);
@@ -656,6 +665,10 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		//System.out.println("setStartAndEndPointForCurve _nrows="+_nrows);
 		
 	     KMeans KM = new KMeans( listOfEndPoints, null );
+	     
+	     System.out.println("[] setStartAndEndPointForCurve id="+generalGlyph.getId()+" listOfEndPoints "+listOfEndPoints.size());
+	     if (listOfEndPoints.size() == 0){return;}
+	     
 	     KM.clustering(2, 10, null); // 2 clusters, maximum 10 iterations
 	     //KM.printResults();
 	     double[][] centroids = KM._centroids;
@@ -818,6 +831,21 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		SWrapperGeneralGlyph sWrapperGeneralGlyph;
 		SWrapperReferenceGlyph sWrapperReferenceGlyph;
 		SWrapperArc sWrapperArc;
+		
+		for (String key: sWrapperModel.annotations.keySet()) {
+			Glyph glyph = sWrapperModel.annotations.get(key);
+			
+			sWrapperGeneralGlyph = createOneGeneralGlyph(glyph, null, true);
+			sWrapperGeneralGlyph.isAnnotation = true;
+			Glyph calloutGlyph = (Glyph) glyph.getCallout().getTarget();
+			sWrapperGeneralGlyph.calloutTarget = calloutGlyph.getId();
+			org.sbgn.bindings.Point calloutPoint = glyph.getCallout().getPoint();
+			sWrapperGeneralGlyph.calloutPoint = new Point(calloutPoint.getX(), calloutPoint.getY());
+			//System.out.println(sWrapperGeneralGlyph.calloutPoint.getX() + " " + sWrapperGeneralGlyph.calloutPoint.getY());
+			
+			sWrapperModel.addWrapperGeneralGlyph(glyph.getId(), sWrapperGeneralGlyph);
+			sOutput.addGeneralGlyph(sWrapperGeneralGlyph.generalGlyph);
+		}
 		
 		// create a GeneralGlyph for each Logic Arc
 		for (String key: sWrapperModel.logicArcs.keySet()) {

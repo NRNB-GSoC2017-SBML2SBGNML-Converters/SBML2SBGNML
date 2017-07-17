@@ -24,7 +24,10 @@ public class SWrapperSpeciesGlyph {
 	boolean hasAuxillaryUnits = false;
 	List<GraphicalObject> listOfGlyphs;
 	
-	TextGlyph textGlyph;		
+	TextGlyph textGlyph;
+	
+	boolean hasClone = false;
+	String cloneText = "";
 	
 	SWrapperSpeciesGlyph(Species species, SpeciesGlyph speciesGlyph, Glyph glyph, TextGlyph textGlyph) {
 		this.species = species;
@@ -32,12 +35,24 @@ public class SWrapperSpeciesGlyph {
 		this.clazz = glyph.getClazz();
 		
 		if (this.clazz.equals("tag")){this.clazz = glyph.getClazz()+"_"+glyph.getOrientation();}
+		if (this.clazz.equals("terminal")){this.clazz = glyph.getClazz()+"_"+glyph.getOrientation(); }
 		
 		this.textGlyph = textGlyph;
 	}	
 
 	public void setListOfNestedGlyphs(List<GraphicalObject> listOfGeneralGlyphs) {
 		this.listOfGlyphs = listOfGeneralGlyphs;
+	}
+	
+	public void setCloneText(String text) {
+		if (text == null){
+			this.hasClone = false;
+		}
+		else {
+			this.hasClone = true;
+			this.cloneText = text;
+			this.clazz = this.clazz + "_" + "clone";				
+		}	
 	}
 	
 }
