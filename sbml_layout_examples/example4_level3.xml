@@ -1,0 +1,845 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" level="3" version="1" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1">
+  <model areaUnits="area" extentUnits="substance" id="TestModel" lengthUnits="metre" substanceUnits="substance" timeUnits="second" volumeUnits="volume">
+    <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <layout:layout layout:id="Layout_1">
+        <layout:dimensions layout:height="1000" layout:width="2300" />
+        <layout:listOfCompartmentGlyphs>
+          <layout:compartmentGlyph layout:compartment="Hepatocyte" layout:id="CompartmentGlyph_1">
+            <layout:boundingBox layout:id="bb_compartment">
+              <layout:position layout:x="10" layout:y="10" />
+              <layout:dimensions layout:height="980" layout:width="1380" />
+            </layout:boundingBox>
+          </layout:compartmentGlyph>
+          <layout:compartmentGlyph layout:compartment="Mito_1" layout:id="Mito1_Glyph">
+            <layout:boundingBox layout:id="bb_mito1">
+              <layout:position layout:x="100" layout:y="100" />
+              <layout:dimensions layout:height="100" layout:width="300" />
+            </layout:boundingBox>
+          </layout:compartmentGlyph>
+          <layout:compartmentGlyph layout:compartment="Mito_2" layout:id="Mito2_Glyph">
+            <layout:boundingBox layout:id="bb_mito2">
+              <layout:position layout:x="200" layout:y="650" />
+              <layout:dimensions layout:height="100" layout:width="300" />
+            </layout:boundingBox>
+          </layout:compartmentGlyph>
+          <layout:compartmentGlyph layout:compartment="Mito_3" layout:id="Mito3_Glyph">
+            <layout:boundingBox layout:id="bb_mito3">
+              <layout:position layout:x="1000" layout:y="800" />
+              <layout:dimensions layout:height="100" layout:width="300" />
+            </layout:boundingBox>
+          </layout:compartmentGlyph>
+        </layout:listOfCompartmentGlyphs>
+        <layout:listOfSpeciesGlyphs>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_malate_cyt" layout:species="malate_cyt">
+            <layout:boundingBox layout:id="bb_sg_malate_cyt">
+              <layout:position layout:x="580" layout:y="280" />
+              <layout:dimensions layout:height="36" layout:width="240" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_oxaloacetate_cyt" layout:species="oxaloacetate_cyt">
+            <layout:boundingBox layout:id="bb_sg_oxaloacetate_cyt">
+              <layout:position layout:x="580" layout:y="480" />
+              <layout:dimensions layout:height="36" layout:width="240" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_aspartate_cyt" layout:species="aspartate_cyt">
+            <layout:boundingBox layout:id="bb_sg_aspartate_cyt">
+              <layout:position layout:x="580" layout:y="680" />
+              <layout:dimensions layout:height="36" layout:width="240" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glutamate_cyt" layout:species="glutamate_cyt">
+            <layout:boundingBox layout:id="bb_sg_glutamate_cyt">
+              <layout:position layout:x="800" layout:y="610" />
+              <layout:dimensions layout:height="36" layout:width="240" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_aKetoglutarate_cyt" layout:species="aKetoglutarate_cyt">
+            <layout:boundingBox layout:id="bb_sg_aKetoglutarate_cyt">
+              <layout:position layout:x="860" layout:y="500" />
+              <layout:dimensions layout:height="36" layout:width="280" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_nad_cyt" layout:species="nad_cyt">
+            <layout:boundingBox layout:id="bb_sg_nad_cyt">
+              <layout:position layout:x="520" layout:y="350" />
+              <layout:dimensions layout:height="24" layout:width="100" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_nadh_cyt" layout:species="nadh_cyt">
+            <layout:boundingBox layout:id="bb_sg_nadh_cyt">
+              <layout:position layout:x="520" layout:y="430" />
+              <layout:dimensions layout:height="24" layout:width="100" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_h_cyt" layout:species="h_cyt">
+            <layout:boundingBox layout:id="bb_sg_h_cyt">
+              <layout:position layout:x="430" layout:y="430" />
+              <layout:dimensions layout:height="24" layout:width="40" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_malate_mito3" layout:species="malate_mito3">
+            <layout:boundingBox layout:id="bb_sg_malate_mito3">
+              <layout:position layout:x="1850" layout:y="80" />
+              <layout:dimensions layout:height="36" layout:width="240" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_oxaloacetate_mito3" layout:species="oxaloacetate_mito3">
+            <layout:boundingBox layout:id="bb_sg_oxaloacetate_mito3">
+              <layout:position layout:x="1850" layout:y="280" />
+              <layout:dimensions layout:height="36" layout:width="240" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_aspartate_mito3" layout:species="aspartate_mito3">
+            <layout:boundingBox layout:id="bb_sg_aspartate_mito3">
+              <layout:position layout:x="1850" layout:y="480" />
+              <layout:dimensions layout:height="36" layout:width="240" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glutamate_mito3" layout:species="glutamate_mito3">
+            <layout:boundingBox layout:id="bb_sg_glutamate_mito3">
+              <layout:position layout:x="1550" layout:y="430" />
+              <layout:dimensions layout:height="36" layout:width="240" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_aKetoglutarate_mito3" layout:species="aKetoglutarate_mito3">
+            <layout:boundingBox layout:id="bb_sg_aKetoglutarate_mito3">
+              <layout:position layout:x="1530" layout:y="300" />
+              <layout:dimensions layout:height="36" layout:width="280" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_nad_mito3" layout:species="nad_mito3">
+            <layout:boundingBox layout:id="bb_sg_nad_mito3">
+              <layout:position layout:x="2050" layout:y="150" />
+              <layout:dimensions layout:height="24" layout:width="100" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_nadh_mito3" layout:species="nadh_mito3">
+            <layout:boundingBox layout:id="bb_sg_nadh_mito3">
+              <layout:position layout:x="2050" layout:y="230" />
+              <layout:dimensions layout:height="24" layout:width="100" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_h_mito3" layout:species="h_mito3">
+            <layout:boundingBox layout:id="bb_sg_h_mito3">
+              <layout:position layout:x="2200" layout:y="230" />
+              <layout:dimensions layout:height="24" layout:width="40" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+        </layout:listOfSpeciesGlyphs>
+        <layout:listOfReactionGlyphs>
+          <layout:reactionGlyph layout:id="rg_malatedh_cyt" layout:reaction="reaction_malatedh_cyt">
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="700" layout:y="381" />
+                  <layout:end layout:x="700" layout:y="415" />
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="srg_malate_cyt_1" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_malate_cyt" layout:speciesReference="sr_malate_cyt">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="700" layout:y="381" />
+                      <layout:end layout:x="700" layout:y="316" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_nad_cyt" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_nad_cyt" layout:speciesReference="sr_nad_cyt">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="CubicBezier">
+                      <layout:start layout:x="700" layout:y="381" />
+                      <layout:end layout:x="620" layout:y="362" />
+                      <layout:basePoint1 layout:x="700" layout:y="362" />
+                      <layout:basePoint2 layout:x="700" layout:y="362" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_oxaloacetate_cyt_1" layout:role="product" layout:speciesGlyph="SpeciesGlyph_oxaloacetate_cyt"
+              layout:speciesReference="sr_oxaloacetate_cyt_1">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="700" layout:y="415" />
+                      <layout:end layout:x="700" layout:y="480" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_nadh_cyt" layout:role="product" layout:speciesGlyph="SpeciesGlyph_nadh_cyt" layout:speciesReference="sr_nadh_cyt">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="CubicBezier">
+                      <layout:start layout:x="700" layout:y="415" />
+                      <layout:end layout:x="620" layout:y="442" />
+                      <layout:basePoint1 layout:x="700" layout:y="442" />
+                      <layout:basePoint2 layout:x="700" layout:y="442" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_h_cyt" layout:role="product" layout:speciesGlyph="SpeciesGlyph_h_cyt" layout:speciesReference="sr_h_cyt">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="CubicBezier">
+                      <layout:start layout:x="700" layout:y="415" />
+                      <layout:end layout:x="470" layout:y="430" />
+                      <layout:basePoint1 layout:x="570" layout:y="415" />
+                      <layout:basePoint2 layout:x="570" layout:y="415" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="rg_aspartateat_cyt" layout:reaction="reaction_aspartateat_cyt">
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="700" layout:y="581" />
+                  <layout:end layout:x="700" layout:y="615" />
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="srg_oxaloacetate_cyt_2" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_oxaloacetate_cyt"
+              layout:speciesReference="sr_oxaloacetate_cyt_2">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="700" layout:y="581" />
+                      <layout:end layout:x="700" layout:y="516" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_glutamate_cyt_1" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glutamate_cyt" layout:speciesReference="sr_glutamate_cyt_1">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="CubicBezier">
+                      <layout:start layout:x="700" layout:y="581" />
+                      <layout:end layout:x="800" layout:y="628" />
+                      <layout:basePoint1 layout:x="750" layout:y="581" />
+                      <layout:basePoint2 layout:x="750" layout:y="628" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_aspartate_cyt_1" layout:role="product" layout:speciesGlyph="SpeciesGlyph_aspartate_cyt" layout:speciesReference="sr_aspartate_cyt_1">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="700" layout:y="615" />
+                      <layout:end layout:x="700" layout:y="680" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_aKetoglutaratecyt_1" layout:role="product" layout:speciesGlyph="SpeciesGlyph_aKetoglutarate_cyt"
+              layout:speciesReference="sr_aKetoglutarate_cyt_1">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="CubicBezier">
+                      <layout:start layout:x="700" layout:y="615" />
+                      <layout:end layout:x="860" layout:y="515" />
+                      <layout:basePoint1 layout:x="790" layout:y="615" />
+                      <layout:basePoint2 layout:x="790" layout:y="515" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="rg_malatedh_mito3" layout:reaction="reaction_malatedh_mito3">
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="1970" layout:y="181" />
+                  <layout:end layout:x="1970" layout:y="215" />
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="srg_malate_mito3_1" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_malate_mito3" layout:speciesReference="sr_malate_mito3">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="1970" layout:y="181" />
+                      <layout:end layout:x="1970" layout:y="116" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_nad_mito3" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_nad_mito3" layout:speciesReference="sr_nad_mito3">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="CubicBezier">
+                      <layout:start layout:x="1970" layout:y="181" />
+                      <layout:end layout:x="2050" layout:y="162" />
+                      <layout:basePoint1 layout:x="1970" layout:y="162" />
+                      <layout:basePoint2 layout:x="1970" layout:y="162" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_oxaloacetate_mito3_1" layout:role="product" layout:speciesGlyph="SpeciesGlyph_oxaloacetate_mito3"
+              layout:speciesReference="sr_oxaloacetate_mito3_1">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="1970" layout:y="215" />
+                      <layout:end layout:x="1970" layout:y="280" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_nadh_mito3" layout:role="product" layout:speciesGlyph="SpeciesGlyph_nadh_mito3" layout:speciesReference="sr_nadh_mito3">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="CubicBezier">
+                      <layout:start layout:x="1970" layout:y="215" />
+                      <layout:end layout:x="2050" layout:y="242" />
+                      <layout:basePoint1 layout:x="1970" layout:y="242" />
+                      <layout:basePoint2 layout:x="1970" layout:y="242" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_h_mito3" layout:role="product" layout:speciesGlyph="SpeciesGlyph_h_mito3" layout:speciesReference="sr_h_mito3">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="CubicBezier">
+                      <layout:start layout:x="1970" layout:y="215" />
+                      <layout:end layout:x="2200" layout:y="230" />
+                      <layout:basePoint1 layout:x="2100" layout:y="215" />
+                      <layout:basePoint2 layout:x="2100" layout:y="215" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="rg_aspartateat_mito3" layout:reaction="reaction_aspartateat_mito3">
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="1970" layout:y="381" />
+                  <layout:end layout:x="1970" layout:y="415" />
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="srg_oxaloacetate_mito3_2" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_oxaloacetate_mito3"
+              layout:speciesReference="sr_oxaloacetate_mito3_2">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="1970" layout:y="381" />
+                      <layout:end layout:x="1970" layout:y="316" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_glutamate_mito3_1" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glutamate_mito3"
+              layout:speciesReference="sr_glutamate_mito3_1">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="CubicBezier">
+                      <layout:start layout:x="1970" layout:y="381" />
+                      <layout:end layout:x="1790" layout:y="448" />
+                      <layout:basePoint1 layout:x="1880" layout:y="381" />
+                      <layout:basePoint2 layout:x="1880" layout:y="448" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_aspartate_mito3_1" layout:role="product" layout:speciesGlyph="SpeciesGlyph_aspartate_mito3" layout:speciesReference="sr_aspartate_mito3_1">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="1970" layout:y="415" />
+                      <layout:end layout:x="1970" layout:y="480" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_aKetoglutaratemito3_1" layout:role="product" layout:speciesGlyph="SpeciesGlyph_aKetoglutarate_mito3"
+              layout:speciesReference="sr_aKetoglutarate_mito3_1">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="CubicBezier">
+                      <layout:start layout:x="1970" layout:y="415" />
+                      <layout:end layout:x="1810" layout:y="315" />
+                      <layout:basePoint1 layout:x="1880" layout:y="415" />
+                      <layout:basePoint2 layout:x="1880" layout:y="315" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="rg_aspartateCarrier" layout:reaction="aspartateCarrier">
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="1420" layout:y="530" />
+                  <layout:end layout:x="1360" layout:y="550" />
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="srg_aspartate_mito3_2" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_aspartate_mito3"
+              layout:speciesReference="sr_aspartate_mito3_2">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="1420" layout:y="530" />
+                      <layout:end layout:x="1850" layout:y="498" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_aspartate_cyt_2" layout:role="product" layout:speciesGlyph="SpeciesGlyph_aspartate_cyt" layout:speciesReference="sr_aspartate_cyt_2">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="CubicBezier">
+                      <layout:start layout:x="1360" layout:y="550" />
+                      <layout:end layout:x="820" layout:y="698" />
+                      <layout:basePoint1 layout:x="1390" layout:y="698" />
+                      <layout:basePoint2 layout:x="1390" layout:y="698" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_glutamate_cyt_2" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glutamate_cyt" layout:speciesReference="sr_glutamate_cyt_2">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="CubicBezier">
+                      <layout:start layout:x="1420" layout:y="530" />
+                      <layout:end layout:x="1050" layout:y="628" />
+                      <layout:basePoint1 layout:x="1390" layout:y="648" />
+                      <layout:basePoint2 layout:x="1390" layout:y="648" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_glutamate_mito3_2" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glutamate_mito3" layout:speciesReference="sr_glutamate_mito3_2">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="CubicBezier">
+                      <layout:start layout:x="1360" layout:y="550" />
+                      <layout:end layout:x="1550" layout:y="448" />
+                      <layout:basePoint1 layout:x="1390" layout:y="448" />
+                      <layout:basePoint2 layout:x="1390" layout:y="448" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="rg_malateCarrier" layout:reaction="malateCarrier">
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="1420" layout:y="320" />
+                  <layout:end layout:x="1360" layout:y="340" />
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="srg_aKetoglutarate_mito3_2" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_aKetoglutarate_mito3"
+              layout:speciesReference="sr_aKetoglutarate_mito3_2">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="1420" layout:y="320" />
+                      <layout:end layout:x="1530" layout:y="318" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_aKetoglutarate_cyt_2" layout:role="product" layout:speciesGlyph="SpeciesGlyph_aKetoglutarate_cyt"
+              layout:speciesReference="sr_aKetoglutarate_cyt_2">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="1360" layout:y="340" />
+                      <layout:end layout:x="1140" layout:y="518" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_malate_cyt_2" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_malate_cyt" layout:speciesReference="sr_malate_cyt_2">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="CubicBezier">
+                      <layout:start layout:x="1420" layout:y="320" />
+                      <layout:end layout:x="820" layout:y="298" />
+                      <layout:basePoint1 layout:x="1390" layout:y="250" />
+                      <layout:basePoint2 layout:x="1390" layout:y="250" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="srg_malate_mito3_2" layout:role="product" layout:speciesGlyph="SpeciesGlyph_malate_mito3" layout:speciesReference="sr_malate_mito3_2">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="CubicBezier">
+                      <layout:start layout:x="1360" layout:y="340" />
+                      <layout:end layout:x="1850" layout:y="98" />
+                      <layout:basePoint1 layout:x="1390" layout:y="150" />
+                      <layout:basePoint2 layout:x="1390" layout:y="150" />
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+        </layout:listOfReactionGlyphs>
+        <layout:listOfTextGlyphs>
+          <layout:textGlyph layout:graphicalObject="CompartmentGlyph_1" layout:id="TextGlyph_Hepatocyte" layout:originOfText="Hepatocyte">
+            <layout:boundingBox layout:id="bb_tg_compartment">
+              <layout:position layout:x="50" layout:y="870" />
+              <layout:dimensions layout:height="72" layout:width="300" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Mito1_Glyph" layout:id="TextGlyph_mito1" layout:originOfText="Mito_1">
+            <layout:boundingBox layout:id="bb_tg_mito1">
+              <layout:position layout:x="110" layout:y="110" />
+              <layout:dimensions layout:height="72" layout:width="280" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Mito2_Glyph" layout:id="TextGlyph_mito2" layout:originOfText="Mito_2">
+            <layout:boundingBox layout:id="bb_tg_mito2">
+              <layout:position layout:x="210" layout:y="660" />
+              <layout:dimensions layout:height="72" layout:width="280" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="Mito3_Glyph" layout:id="TextGlyph_mito3" layout:originOfText="Mito_3">
+            <layout:boundingBox layout:id="bb_tg_mito3">
+              <layout:position layout:x="1010" layout:y="810" />
+              <layout:dimensions layout:height="72" layout:width="280" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_malate_cyt" layout:id="TextGlyph_malate_cyt" layout:originOfText="malate_cyt">
+            <layout:boundingBox layout:id="bb_tg_malatate_cyt">
+              <layout:position layout:x="590" layout:y="280" />
+              <layout:dimensions layout:height="36" layout:width="220" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_oxaloacetate_cyt" layout:id="TextGlyph_oxaloacetate_cyt" layout:originOfText="oxaloacetate_cyt">
+            <layout:boundingBox layout:id="bb_tg_oxaloacetate_cyt">
+              <layout:position layout:x="590" layout:y="480" />
+              <layout:dimensions layout:height="36" layout:width="220" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_aspartate_cyt" layout:id="TextGlyph_aspartate_cyt" layout:originOfText="aspartate_cyt">
+            <layout:boundingBox layout:id="bb_tg_aspartate_cyt">
+              <layout:position layout:x="590" layout:y="680" />
+              <layout:dimensions layout:height="36" layout:width="220" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glutamate_cyt" layout:id="TextGlyph_glutamate_cyt" layout:originOfText="glutamate_cyt">
+            <layout:boundingBox layout:id="bb_tg_glutamate_cyt">
+              <layout:position layout:x="810" layout:y="610" />
+              <layout:dimensions layout:height="36" layout:width="220" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_aKetoglutarate_cyt" layout:id="TextGlyph_aKetoglutarate_cyt" layout:originOfText="aKetoglutarate_cyt">
+            <layout:boundingBox layout:id="bb_tg_aKetoglutarate_cyt">
+              <layout:position layout:x="870" layout:y="500" />
+              <layout:dimensions layout:height="36" layout:width="260" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_nad_cyt" layout:id="TextGlyph_nad_cyt" layout:originOfText="nad_cyt">
+            <layout:boundingBox layout:id="bb_tg_nad_cyt">
+              <layout:position layout:x="525" layout:y="350" />
+              <layout:dimensions layout:height="24" layout:width="80" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_nadh_cyt" layout:id="TextGlyph_nadh_cyt" layout:originOfText="nadh_cyt">
+            <layout:boundingBox layout:id="bb_tg_nadh_cyt">
+              <layout:position layout:x="525" layout:y="430" />
+              <layout:dimensions layout:height="24" layout:width="80" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_h_cyt" layout:id="TextGlyph_h_cyt" layout:originOfText="h_cyt">
+            <layout:boundingBox layout:id="bb_tg_h_cyt">
+              <layout:position layout:x="435" layout:y="430" />
+              <layout:dimensions layout:height="24" layout:width="30" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="rg_malatedh_cyt" layout:id="tg_rg_malaltedh_cyt" layout:originOfText="reaction_malatedh_cyt">
+            <layout:boundingBox layout:id="bb_tg_rg_malaltedh_cyt">
+              <layout:position layout:x="700" layout:y="385" />
+              <layout:dimensions layout:height="24" layout:width="210" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="rg_aspartateat_cyt" layout:id="tg_rg_aspartateat_cyt" layout:originOfText="reaction_aspartateat_cyt">
+            <layout:boundingBox layout:id="bb_tg_rg_aspartateat_cyt">
+              <layout:position layout:x="440" layout:y="585" />
+              <layout:dimensions layout:height="24" layout:width="260" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_malate_mito3" layout:id="TextGlyph_malate_mito3" layout:originOfText="malate_mito3">
+            <layout:boundingBox layout:id="bb_tg_malatate_mito3">
+              <layout:position layout:x="1860" layout:y="80" />
+              <layout:dimensions layout:height="36" layout:width="220" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_oxaloacetate_mito3" layout:id="TextGlyph_oxaloacetate_mito3" layout:originOfText="oxaloacetate_mito3">
+            <layout:boundingBox layout:id="bb_tg_oxaloacetate_mito3">
+              <layout:position layout:x="1860" layout:y="280" />
+              <layout:dimensions layout:height="36" layout:width="220" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_aspartate_mito3" layout:id="TextGlyph_aspartate_mito3" layout:originOfText="aspartate_mito3">
+            <layout:boundingBox layout:id="bb_tg_aspartate_mito3">
+              <layout:position layout:x="1860" layout:y="480" />
+              <layout:dimensions layout:height="36" layout:width="220" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glutamate_mito3" layout:id="TextGlyph_glutamate_mito3" layout:originOfText="glutamate_mito3">
+            <layout:boundingBox layout:id="bb_tg_glutamate_mito3">
+              <layout:position layout:x="1560" layout:y="430" />
+              <layout:dimensions layout:height="36" layout:width="220" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_aKetoglutarate_mito3" layout:id="TextGlyph_aKetoglutarate_mito3" layout:originOfText="aKetoglutarate_mito3">
+            <layout:boundingBox layout:id="bb_tg_aKetoglutarate_mito3">
+              <layout:position layout:x="1540" layout:y="300" />
+              <layout:dimensions layout:height="36" layout:width="260" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_nad_mito3" layout:id="TextGlyph_nad_mito3" layout:originOfText="nad_mito3">
+            <layout:boundingBox layout:id="bb_tg_nad_mito3">
+              <layout:position layout:x="2055" layout:y="150" />
+              <layout:dimensions layout:height="24" layout:width="80" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_nadh_mito3" layout:id="TextGlyph_nadh_mito3" layout:originOfText="nadh_mito3">
+            <layout:boundingBox layout:id="bb_tg_nadh_mito3">
+              <layout:position layout:x="2055" layout:y="230" />
+              <layout:dimensions layout:height="24" layout:width="80" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_h_mito3" layout:id="TextGlyph_h_mito3" layout:originOfText="h_mito3">
+            <layout:boundingBox layout:id="bb_tg_h_mito3">
+              <layout:position layout:x="2205" layout:y="230" />
+              <layout:dimensions layout:height="24" layout:width="30" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="rg_malatedh_mito3" layout:id="tg_rg_malatedh_mito3" layout:originOfText="reaction_malatedh_mito3">
+            <layout:boundingBox layout:id="bb_tg_rg_malatedh_mito3">
+              <layout:position layout:x="1740" layout:y="185" />
+              <layout:dimensions layout:height="24" layout:width="220" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="rg_aspartateat_mito3" layout:id="tg_rg_aspartateat_mito3" layout:originOfText="reaction_aspartateat_mito3">
+            <layout:boundingBox layout:id="bb_tg_rg_aspartateat_mito3">
+              <layout:position layout:x="1970" layout:y="385" />
+              <layout:dimensions layout:height="24" layout:width="260" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="rg_aspartateCarrier" layout:id="tg_rg_aspartateCarrier" layout:originOfText="aspartateCarrier">
+            <layout:boundingBox layout:id="bb_tg_rg_aspartateCarrier">
+              <layout:position layout:x="1380" layout:y="500" />
+              <layout:dimensions layout:height="24" layout:width="160" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="rg_malateCarrier" layout:id="tg_rg_malateCarrier" layout:originOfText="malateCarrier">
+            <layout:boundingBox layout:id="bb_tg_rg_malateCarrier">
+              <layout:position layout:x="1360" layout:y="330" />
+              <layout:dimensions layout:height="24" layout:width="140" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+        </layout:listOfTextGlyphs>
+      </layout:layout>
+    </layout:listOfLayouts>
+    <listOfUnitDefinitions>
+      <unitDefinition id="volume">
+        <listOfUnits>
+          <unit exponent="1" kind="litre" multiplier="1" scale="0" />
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="substance">
+        <listOfUnits>
+          <unit exponent="1" kind="mole" multiplier="1" scale="0" />
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="area">
+        <listOfUnits>
+          <unit exponent="2" kind="metre" multiplier="1" scale="0" />
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment constant="true" id="Hepatocyte" name="Hepatocyte" size="1" spatialDimensions="3" units="volume" />
+      <compartment constant="true" id="Mito_1" name="Mito 1" size="1" spatialDimensions="3" units="volume" />
+      <compartment constant="true" id="Mito_2" name="Mito 2" size="1" spatialDimensions="3" units="volume" />
+      <compartment constant="true" id="Mito_3" name="Mito 3" size="1" spatialDimensions="3" units="volume" />
+    </listOfCompartments>
+    <listOfSpecies>
+      <species boundaryCondition="false" compartment="Hepatocyte" constant="false" hasOnlySubstanceUnits="false" id="malate_cyt" initialConcentration="0" name="Malate" substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_1" constant="false" hasOnlySubstanceUnits="false" id="malate_mito1" initialConcentration="0" name="Malate" substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_2" constant="false" hasOnlySubstanceUnits="false" id="malate_mito2" initialConcentration="0" name="Malate" substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_3" constant="false" hasOnlySubstanceUnits="false" id="malate_mito3" initialConcentration="0" name="Malate" substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Hepatocyte" constant="false" hasOnlySubstanceUnits="false" id="oxaloacetate_cyt" initialConcentration="0" name="Oxaloacetate"
+      substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_1" constant="false" hasOnlySubstanceUnits="false" id="oxaloacetate_mito1" initialConcentration="0" name="Oxaloacetate"
+      substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_2" constant="false" hasOnlySubstanceUnits="false" id="oxaloacetate_mito2" initialConcentration="0" name="Oxaloacetate"
+      substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_3" constant="false" hasOnlySubstanceUnits="false" id="oxaloacetate_mito3" initialConcentration="0" name="Oxaloacetate"
+      substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Hepatocyte" constant="false" hasOnlySubstanceUnits="false" id="aspartate_cyt" initialConcentration="0" name="Aspartate"
+      substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_1" constant="false" hasOnlySubstanceUnits="false" id="aspartate_mito1" initialConcentration="0" name="Aspartate"
+      substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_2" constant="false" hasOnlySubstanceUnits="false" id="aspartate_mito2" initialConcentration="0" name="Aspartate"
+      substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_3" constant="false" hasOnlySubstanceUnits="false" id="aspartate_mito3" initialConcentration="0" name="Aspartate"
+      substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Hepatocyte" constant="false" hasOnlySubstanceUnits="false" id="glutamate_cyt" initialConcentration="0" name="Glutamate"
+      substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_1" constant="false" hasOnlySubstanceUnits="false" id="glutamate_mito1" initialConcentration="0" name="Glutamate"
+      substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_2" constant="false" hasOnlySubstanceUnits="false" id="glutamate_mito2" initialConcentration="0" name="Glutamate"
+      substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_3" constant="false" hasOnlySubstanceUnits="false" id="glutamate_mito3" initialConcentration="0" name="Glutamate"
+      substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Hepatocyte" constant="false" hasOnlySubstanceUnits="false" id="aKetoglutarate_cyt" initialConcentration="0" name="alpha-Ketoglutarate"
+      substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_1" constant="false" hasOnlySubstanceUnits="false" id="aKetoglutarate_mito1" initialConcentration="0" name="alpha-Ketoglutarate"
+      substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_2" constant="false" hasOnlySubstanceUnits="false" id="aKetoglutarate_mito2" initialConcentration="0" name="alpha-Ketoglutarate"
+      substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_3" constant="false" hasOnlySubstanceUnits="false" id="aKetoglutarate_mito3" initialConcentration="0" name="alpha-Ketoglutarate"
+      substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Hepatocyte" constant="false" hasOnlySubstanceUnits="false" id="h_cyt" initialConcentration="0" name="H+" substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_1" constant="false" hasOnlySubstanceUnits="false" id="h_mito1" initialConcentration="0" name="H+" substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_2" constant="false" hasOnlySubstanceUnits="false" id="h_mito2" initialConcentration="0" name="H+" substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_3" constant="false" hasOnlySubstanceUnits="false" id="h_mito3" initialConcentration="0" name="H+" substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Hepatocyte" constant="false" hasOnlySubstanceUnits="false" id="nad_cyt" initialConcentration="0" name="NAD+" substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_1" constant="false" hasOnlySubstanceUnits="false" id="nad_mito1" initialConcentration="0" name="NAD+" substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_2" constant="false" hasOnlySubstanceUnits="false" id="nad_mito2" initialConcentration="0" name="NAD+" substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_3" constant="false" hasOnlySubstanceUnits="false" id="nad_mito3" initialConcentration="0" name="NAD+" substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Hepatocyte" constant="false" hasOnlySubstanceUnits="false" id="nadh_cyt" initialConcentration="0" name="NADH" substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_1" constant="false" hasOnlySubstanceUnits="false" id="nadh_mito1" initialConcentration="0" name="NADH" substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_2" constant="false" hasOnlySubstanceUnits="false" id="nadh_mito2" initialConcentration="0" name="NADH" substanceUnits="substance" />
+      <species boundaryCondition="false" compartment="Mito_3" constant="false" hasOnlySubstanceUnits="false" id="nadh_mito3" initialConcentration="0" name="NADH" substanceUnits="substance" />
+    </listOfSpecies>
+    <listOfReactions>
+      <reaction fast="false" id="reaction_malatedh_cyt" name="malate dehydrogenase" reversible="false">
+        <listOfReactants>
+          <speciesReference constant="true" id="sr_malate_cyt" species="malate_cyt" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_nad_cyt" species="nad_cyt" stoichiometry="1" />
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" id="sr_nadh_cyt" species="nadh_cyt" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_h_cyt" species="h_cyt" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_oxaloacetate_cyt_1" species="oxaloacetate_cyt" stoichiometry="1" />
+        </listOfProducts>
+      </reaction>
+      <reaction fast="false" id="reaction_aspartateat_cyt" name="aspartate aminotransferase" reversible="false">
+        <listOfReactants>
+          <speciesReference constant="true" id="sr_oxaloacetate_cyt_2" species="oxaloacetate_cyt" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_glutamate_cyt_1" species="glutamate_cyt" stoichiometry="1" />
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" id="sr_aspartate_cyt_1" species="aspartate_cyt" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_aKetoglutarate_cyt_1" species="aKetoglutarate_cyt" stoichiometry="1" />
+        </listOfProducts>
+      </reaction>
+      <reaction fast="false" id="reaction_malatedh_mito1" name="malate dehydrogenase" reversible="false">
+        <listOfReactants>
+          <speciesReference constant="true" id="sr_malate_mito1" species="malate_mito1" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_nad_mito1" species="nad_mito1" stoichiometry="1" />
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" id="sr_nadh_mito1" species="nadh_mito1" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_h_mito1" species="h_mito1" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_oxaloacetate_mito1_1" species="oxaloacetate_mito1" stoichiometry="1" />
+        </listOfProducts>
+      </reaction>
+      <reaction fast="false" id="reaction_aspartateat_mito1" name="aspartate aminotransferase" reversible="false">
+        <listOfReactants>
+          <speciesReference constant="true" id="sr_oxaloacetate_mito1_2" species="oxaloacetate_mito1" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_glutamate_mito1" species="glutamate_mito1" stoichiometry="1" />
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" id="sr_aspartate_mito1" species="aspartate_mito1" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_aKetoglutarate_mito1" species="aKetoglutarate_mito1" stoichiometry="1" />
+        </listOfProducts>
+      </reaction>
+      <reaction fast="false" id="reaction_malatedh_mito2" name="malate dehydrogenase" reversible="false">
+        <listOfReactants>
+          <speciesReference constant="true" id="sr_malate_mito2" species="malate_mito2" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_nad_mito2" species="nad_mito2" stoichiometry="1" />
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" id="sr_nadh_mito2" species="nadh_mito2" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_h_mito2" species="h_mito2" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_oxaloacetate_mito2_1" species="oxaloacetate_mito2" stoichiometry="1" />
+        </listOfProducts>
+      </reaction>
+      <reaction fast="false" id="reaction_aspartateat_mito2" name="aspartate aminotransferase" reversible="false">
+        <listOfReactants>
+          <speciesReference constant="true" id="sr_oxaloacetate_mito2_2" species="oxaloacetate_mito2" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_glutamate_mito2" species="glutamate_mito2" stoichiometry="1" />
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" id="sr_aspartate_mito2" species="aspartate_mito2" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_aKetoglutarate_mito2" species="aKetoglutarate_mito2" stoichiometry="1" />
+        </listOfProducts>
+      </reaction>
+      <reaction fast="false" id="reaction_malatedh_mito3" name="malate dehydrogenase" reversible="false">
+        <listOfReactants>
+          <speciesReference constant="true" id="sr_malate_mito3" species="malate_mito3" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_nad_mito3" species="nad_mito3" stoichiometry="1" />
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" id="sr_nadh_mito3" species="nadh_mito3" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_h_mito3" species="h_mito3" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_oxaloacetate_mito3_1" species="oxaloacetate_mito3" stoichiometry="1" />
+        </listOfProducts>
+      </reaction>
+      <reaction fast="false" id="reaction_aspartateat_mito3" name="aspartate aminotransferase" reversible="false">
+        <listOfReactants>
+          <speciesReference constant="true" id="sr_oxaloacetate_mito3_2" species="oxaloacetate_mito3" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_glutamate_mito3_1" species="glutamate_mito3" stoichiometry="1" />
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" id="sr_aspartate_mito3_1" species="aspartate_mito3" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_aKetoglutarate_mito3_1" species="aKetoglutarate_mito3" stoichiometry="1" />
+        </listOfProducts>
+      </reaction>
+      <reaction fast="false" id="aspartateCarrier" name="aspartate carrier" reversible="true">
+        <listOfReactants>
+          <speciesReference constant="true" id="sr_glutamate_mito3_2" species="glutamate_mito3" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_aspartate_cyt_2" species="aspartate_cyt" stoichiometry="1" />
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" id="sr_glutamate_cyt_2" species="glutamate_cyt" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_aspartate_mito3_2" species="aspartate_mito3" stoichiometry="1" />
+        </listOfProducts>
+      </reaction>
+      <reaction fast="false" id="malateCarrier" name="malate carrier" reversible="true">
+        <listOfReactants>
+          <speciesReference constant="true" id="sr_aKetoglutarate_mito3_2" species="aKetoglutarate_mito3" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_malate_cyt_2" species="malate_cyt" stoichiometry="1" />
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" id="sr_aKetoglutarate_cyt_2" species="aKetoglutarate_cyt" stoichiometry="1" />
+          <speciesReference constant="true" id="sr_malate_mito3_2" species="malate_mito3" stoichiometry="1" />
+        </listOfProducts>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

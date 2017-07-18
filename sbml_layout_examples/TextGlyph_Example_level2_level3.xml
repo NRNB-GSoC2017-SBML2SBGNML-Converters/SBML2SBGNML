@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" level="3" version="1" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1">
+  <model areaUnits="area" extentUnits="substance" id="TestModel_with_modifiers" lengthUnits="metre" substanceUnits="substance" timeUnits="second" volumeUnits="litre">
+    <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <layout:layout layout:id="Layout_1">
+        <layout:dimensions layout:height="230" layout:width="400" />
+        <layout:listOfSpeciesGlyphs>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_Glucose" layout:species="Glucose">
+            <layout:boundingBox layout:id="bb2">
+              <layout:position layout:x="105" layout:y="20" />
+              <layout:dimensions layout:height="20" layout:width="130" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+        </layout:listOfSpeciesGlyphs>
+        <layout:listOfTextGlyphs>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_Glucose" layout:id="TextGlyph_Glucose" layout:originOfText="Glucose">
+            <layout:boundingBox layout:id="bbA">
+              <layout:position layout:x="115" layout:y="20" />
+              <layout:dimensions layout:height="20" layout:width="110" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+        </layout:listOfTextGlyphs>
+      </layout:layout>
+    </layout:listOfLayouts>
+    <listOfUnitDefinitions>
+      <unitDefinition id="substance">
+        <listOfUnits>
+          <unit exponent="1" kind="mole" multiplier="1" scale="0" />
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="area">
+        <listOfUnits>
+          <unit exponent="2" kind="metre" multiplier="1" scale="0" />
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfSpecies>
+      <species boundaryCondition="false" compartment="Yeast" constant="false" hasOnlySubstanceUnits="false" id="Glucose" name="Glucose" substanceUnits="substance" />
+    </listOfSpecies>
+  </model>
+</sbml>

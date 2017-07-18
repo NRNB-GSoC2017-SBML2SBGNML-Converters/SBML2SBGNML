@@ -1,6 +1,8 @@
 package org.sbfc.converter.sbmlsbml;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.sbfc.converter.GeneralConverter;
@@ -64,6 +66,9 @@ public class SBMLLayoutL2ToL3 extends GeneralConverter {
 
     }
   }
+  
+  String inputFile;
+  String outputFile;
 
   @Override
   public GeneralModel convert(GeneralModel model) throws ConversionException, ReadModelException {
@@ -90,7 +95,7 @@ public class SBMLLayoutL2ToL3 extends GeneralConverter {
       // Code using libSBML directly
       SBMLReader libSBMLReader = new SBMLReader();
       //org.sbml.libsbml.SBMLDocument ldoc = libSBMLReader.readSBMLFromString(currentSBML);
-      org.sbml.libsbml.SBMLDocument ldoc = libSBMLReader.readSBMLFromFile("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/Complete_Example_level2.xml");
+      org.sbml.libsbml.SBMLDocument ldoc = libSBMLReader.readSBMLFromFile(inputFile);
 
       
       System.out.println("libsbml version = " + org.sbml.libsbml.libsbml.getLibSBMLDottedVersion());
@@ -147,7 +152,7 @@ public class SBMLLayoutL2ToL3 extends GeneralConverter {
    * @param doc the SBML document that will be converted
    * @throws ConversionException if there is a problem during conversion
    */
-  private static void convertToL3(org.sbml.libsbml.SBMLDocument doc) throws ConversionException
+  private void convertToL3(org.sbml.libsbml.SBMLDocument doc) throws ConversionException
   {
     // code taken from libSBML:  examples/java/layout/SimpleLayoutConverter.java
     
@@ -203,32 +208,74 @@ public class SBMLLayoutL2ToL3 extends GeneralConverter {
   
 	public static void main(String[] args) throws ReadModelException, ConversionException, WriteModelException {
 		
-		GeneralConverter converter = new SBMLLayoutL2ToL3();
-		GeneralModel inputModel = new SBMLModel();
-		Map<String, String> options = new HashMap<String, String>();
-		
-		//inputModel.setModelFromFile("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/Complete_Example_level2.xml");
-		SBMLReader libSBMLReader = new SBMLReader();
-		SBMLDocument SBMLDocument = libSBMLReader.readSBMLFromFile("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/Complete_Example_level2.xml");
-		String string = SBMLDocument.toSBML();
-		//System.out.println("modelToString=\n"+string);
-		
-		inputModel.setModelFromString(string) ;
-		
-		options.put("sbml.target.level", "3");
-		options.put("sbml.target.version", "1");
-		converter.setOptions(options);
+		SBMLLayoutL2ToL3 converter = new SBMLLayoutL2ToL3();
+//		GeneralModel inputModel = new SBMLModel();
+//		Map<String, String> options = new HashMap<String, String>();
+//		
+//		//inputModel.setModelFromFile("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/Complete_Example_level2.xml");
+//		SBMLReader libSBMLReader = new SBMLReader();
+//		SBMLDocument SBMLDocument = libSBMLReader.readSBMLFromFile("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/Complete_Example_level2.xml");
+//		String string = SBMLDocument.toSBML();
+//		//System.out.println("modelToString=\n"+string);
+//		
+//		inputModel.setModelFromString(string) ;
+//		
+//		options.put("sbml.target.level", "3");
+//		options.put("sbml.target.version", "1");
+//		converter.setOptions(options);
 		
 		//System.out.println("modelToString=\n"+inputModel.modelToString());
 		
-		GeneralModel covertedModel = converter.convert(inputModel);
-
-		//System.out.println("modelToString=\n"+covertedModel.modelToString());
+		List<String> inputFiles = new ArrayList<String>();
+		List<String> onputFiles = new ArrayList<String>();
 		
-		if (covertedModel == null){
-			throw new WriteModelException();
+		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/CompartmentGlyph_Example_level2.xml");
+		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/CompartmentGlyph_Example_level2_level3.xml");
+		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/Complete_Example_level2.xml");
+		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/Complete_Example_level2_level3.xml");
+		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/ReactionGlyph_Example_level2.xml");
+		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/ReactionGlyph_Example_level2_level3.xml");
+		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/ReactionGlyph_Example_level2+id.xml");
+		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/ReactionGlyph_Example_level2+id_level3.xml");
+		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/SpeciesGlyph_Example_level2.xml");
+		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/SpeciesGlyph_Example_level2_level3.xml");
+		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/TextGlyph_Example_level2.xml");
+		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/TextGlyph_Example_level2_level3.xml");
+		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example1.xml");
+		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example1_level3.xml");
+		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example2.xml");
+		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example2_level3.xml");
+		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example3.xml");
+		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example3_level3.xml");
+		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example4.xml");
+		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example4_level3.xml");
+		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example5.xml");
+		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example5_level3.xml");
+		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example6.xml");
+		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example6_level3.xml");
+		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/SBML_layout_level2.xml");
+		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/SBML_layout_level2_level3.xml");
+		
+		for (int i = 0; i < inputFiles.size(); i++){
+			converter.inputFile = inputFiles.get(i);
+			
+			// don't need
+			GeneralModel inputModel = new SBMLModel();
+			SBMLReader libSBMLReader = new SBMLReader();
+			SBMLDocument SBMLDocument = libSBMLReader.readSBMLFromFile(converter.inputFile);
+			String string = SBMLDocument.toSBML();
+			inputModel.setModelFromString(string) ;
+			
+			GeneralModel covertedModel = converter.convert(inputModel);
+
+			//System.out.println("modelToString=\n"+covertedModel.modelToString());
+			
+			if (covertedModel == null){
+				throw new WriteModelException();
+			}
+			covertedModel.modelToFile(onputFiles.get(i));			
 		}
-		covertedModel.modelToFile("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/Complete_Example_level2_level3.xml");
+
 	
 	} 
 
