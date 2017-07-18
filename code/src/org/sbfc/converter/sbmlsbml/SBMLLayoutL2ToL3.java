@@ -69,6 +69,7 @@ public class SBMLLayoutL2ToL3 extends GeneralConverter {
   
   String inputFile;
   String outputFile;
+  int targetLevel;
 
   @Override
   public GeneralModel convert(GeneralModel model) throws ConversionException, ReadModelException {
@@ -158,8 +159,17 @@ public class SBMLLayoutL2ToL3 extends GeneralConverter {
     
     if (doc == null || doc.getModel() == null) return;
 
-    String layoutNsUri = "http://www.sbml.org/sbml/level3/version1/layout/version1";
-    String renderNsUri = "http://www.sbml.org/sbml/level3/version1/render/version1";
+    String layoutNsUri = null; 
+    String renderNsUri = null; 
+    
+    if (targetLevel == 3){
+        layoutNsUri = "http://www.sbml.org/sbml/level3/version1/layout/version1";
+        renderNsUri = "http://www.sbml.org/sbml/level3/version1/render/version1";    	
+    } else if (targetLevel == 2){
+        layoutNsUri = "http://projects.eml.org/bcb/sbml/level2";
+        renderNsUri = "http://projects.eml.org/bcb/sbml/render/level2";    	
+    } 
+
 
     LayoutModelPlugin plugin = (LayoutModelPlugin) doc.getModel().getPlugin("layout");
 
@@ -167,7 +177,12 @@ public class SBMLLayoutL2ToL3 extends GeneralConverter {
     if (plugin == null) return;
 
     // convert document
-    ConversionProperties prop = new ConversionProperties(new SBMLNamespaces(3, 1));
+    ConversionProperties prop = null;
+    if (targetLevel == 3){
+    	prop = new ConversionProperties(new SBMLNamespaces(3, 1));
+    } else if (targetLevel == 2){
+    	prop = new ConversionProperties(new SBMLNamespaces(2, 1));
+    }
     prop.addOption("strict", false);
     prop.addOption("setLevelAndVersion", true);
     prop.addOption("ignorePackages", true);
@@ -226,35 +241,42 @@ public class SBMLLayoutL2ToL3 extends GeneralConverter {
 		
 		//System.out.println("modelToString=\n"+inputModel.modelToString());
 		
+		converter.targetLevel = 2;
 		List<String> inputFiles = new ArrayList<String>();
 		List<String> onputFiles = new ArrayList<String>();
 		
-		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/CompartmentGlyph_Example_level2.xml");
-		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/CompartmentGlyph_Example_level2_level3.xml");
-		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/Complete_Example_level2.xml");
-		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/Complete_Example_level2_level3.xml");
-		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/ReactionGlyph_Example_level2.xml");
-		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/ReactionGlyph_Example_level2_level3.xml");
-		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/ReactionGlyph_Example_level2+id.xml");
-		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/ReactionGlyph_Example_level2+id_level3.xml");
-		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/SpeciesGlyph_Example_level2.xml");
-		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/SpeciesGlyph_Example_level2_level3.xml");
-		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/TextGlyph_Example_level2.xml");
-		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/TextGlyph_Example_level2_level3.xml");
-		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example1.xml");
-		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example1_level3.xml");
-		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example2.xml");
-		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example2_level3.xml");
-		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example3.xml");
-		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example3_level3.xml");
-		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example4.xml");
-		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example4_level3.xml");
-		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example5.xml");
-		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example5_level3.xml");
-		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example6.xml");
-		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example6_level3.xml");
-		inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/SBML_layout_level2.xml");
-		onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/SBML_layout_level2_level3.xml");
+	    if (converter.targetLevel == 3){
+			inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/CompartmentGlyph_Example_level2.xml");
+			onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/CompartmentGlyph_Example_level2_level3.xml");
+			inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/Complete_Example_level2.xml");
+			onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/Complete_Example_level2_level3.xml");
+			inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/ReactionGlyph_Example_level2.xml");
+			onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/ReactionGlyph_Example_level2_level3.xml");
+			inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/ReactionGlyph_Example_level2+id.xml");
+			onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/ReactionGlyph_Example_level2+id_level3.xml");
+			inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/SpeciesGlyph_Example_level2.xml");
+			onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/SpeciesGlyph_Example_level2_level3.xml");
+			inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/TextGlyph_Example_level2.xml");
+			onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/TextGlyph_Example_level2_level3.xml");
+			inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example1.xml");
+			onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example1_level3.xml");
+			inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example2.xml");
+			onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example2_level3.xml");
+			inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example3.xml");
+			onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example3_level3.xml");
+			inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example4.xml");
+			onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example4_level3.xml");
+			inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example5.xml");
+			onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example5_level3.xml");
+			inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example6.xml");
+			onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/example6_level3.xml");
+			inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/SBML_layout_level2.xml");
+			onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/SBML_layout_level2_level3.xml");
+	    } else if (converter.targetLevel == 2){
+			inputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/CompartmentGlyph_example.xml");
+			onputFiles.add("C:/Users/HY/Documents/SBML2SBGN/sbfc_new/examples/CompartmentGlyph_example_level2.xml");
+	    }
+
 		
 		for (int i = 0; i < inputFiles.size(); i++){
 			converter.inputFile = inputFiles.get(i);
@@ -273,6 +295,8 @@ public class SBMLLayoutL2ToL3 extends GeneralConverter {
 			if (covertedModel == null){
 				throw new WriteModelException();
 			}
+			
+			// todo: doesn't work for level 3 to level 2
 			covertedModel.modelToFile(onputFiles.get(i));			
 		}
 

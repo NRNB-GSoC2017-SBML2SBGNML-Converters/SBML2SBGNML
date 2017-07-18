@@ -150,19 +150,19 @@
               <render:style id="LocalStyle_SpeciesGlyph_glyph1" render:roleList="LocalStyle_SpeciesGlyph_glyph1">
                 <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="white" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
                   <render:image render:height="100%" render:href="macromolecule-glyph-clone.png" render:width="100%" render:x="0%" render:z="0"/>
-                  <render:text name="marker" render:font-family="monospace" render:text-anchor="middle" render:vtext-anchor="bottom" render:x="0%" render:y="80%"/>
+                  <render:text name="marker" render:font-family="monospace" render:text-anchor="middle" render:vtext-anchor="bottom" render:x="0%" render:y="80%">marker</render:text>
                 </render:g>
               </render:style>
               <render:style id="LocalStyle_SpeciesGlyph_glyph3" render:roleList="LocalStyle_SpeciesGlyph_glyph3">
                 <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="white" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
                   <render:image render:height="100%" render:href="macromolecule-multimer-glyph-clone.png" render:width="100%" render:x="0%" render:z="0"/>
-                  <render:text name="marker" render:font-family="monospace" render:text-anchor="middle" render:vtext-anchor="bottom" render:x="0%" render:y="80%"/>
+                  <render:text name="marker" render:font-family="monospace" render:text-anchor="middle" render:vtext-anchor="bottom" render:x="0%" render:y="80%">marker</render:text>
                 </render:g>
               </render:style>
               <render:style id="LocalStyle_SpeciesGlyph_glyph2" render:roleList="LocalStyle_SpeciesGlyph_glyph2">
                 <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="white" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
                   <render:image render:height="100%" render:href="nucleic-acid-feature-glyph-clone.png" render:width="100%" render:x="0%" render:z="0"/>
-                  <render:text name="marker" render:font-family="monospace" render:text-anchor="middle" render:vtext-anchor="bottom" render:x="0%" render:y="80%"/>
+                  <render:text name="marker" render:font-family="monospace" render:text-anchor="middle" render:vtext-anchor="bottom" render:x="0%" render:y="80%">marker</render:text>
                 </render:g>
               </render:style>
               <render:style id="LocalStyle_GeneralGlyph_glyph10" render:roleList="LocalStyle_GeneralGlyph_glyph10">
