@@ -12,5 +12,6 @@ public class SWrapperModifierSpeciesReferenceGlyph extends SWrapperSpeciesRefere
 	SWrapperModifierSpeciesReferenceGlyph(ModifierSpeciesReference speciesReference, 
 			SpeciesReferenceGlyph speciesReferenceGlyph, SWrapperArc sWrapperArc) {
 		super(new SpeciesReference(), speciesReferenceGlyph, sWrapperArc);
+		this.speciesReference = speciesReference;
 	}
 }

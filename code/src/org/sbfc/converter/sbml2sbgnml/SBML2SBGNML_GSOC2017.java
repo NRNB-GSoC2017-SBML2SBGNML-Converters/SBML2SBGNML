@@ -518,11 +518,11 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			
 		sbml2sbgnml = new SBML2SBGNML_GSOC2017(sbmlDocument);
 		// visualize JTree
-		try {		
-			sbml2sbgnml.sUtil.visualizeJTree(sbmlDocument);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}		
+//		try {		
+//			sbml2sbgnml.sUtil.visualizeJTree(sbmlDocument);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}		
 		
 		sbgnObject = sbml2sbgnml.convertToSBGNML(sbmlDocument);	
 		

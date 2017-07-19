@@ -217,6 +217,8 @@ public class SBML2SBGNMLUtil {
 		ag.getArc().add(a);
 		ag.getGlyph().add(processNode);
 		
+		// todo: add another Glyph at the Start
+		
 		return ag;
 	}
 
