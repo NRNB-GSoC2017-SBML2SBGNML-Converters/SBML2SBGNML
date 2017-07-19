@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map>
+        <glyph class="compartment" id="CompartmentGlyph_1">
+            <bbox w="390.0" h="220.0" x="5.0" y="5.0"/>
+        </glyph>
+        <glyph class="macromolecule" id="SpeciesGlyph_Glucose">
+            <label text="Glucose"/>
+            <bbox w="130.0" h="20.0" x="105.0" y="20.0"/>
+        </glyph>
+        <glyph class="macromolecule" id="SpeciesGlyph_G6P">
+            <label text="G6P"/>
+            <bbox w="270.0" h="20.0" x="50.0" y="190.0"/>
+        </glyph>
+        <glyph class="macromolecule" id="SpeciesGlyph_ATP">
+            <label text="ATP"/>
+            <bbox w="80.0" h="20.0" x="270.0" y="70.0"/>
+        </glyph>
+        <glyph class="macromolecule" id="glyph_ADP">
+            <label text="ADP"/>
+            <bbox w="80.0" h="20.0" x="270.0" y="140.0"/>
+        </glyph>
+        <glyph class="macromolecule" id="SpeciesGlyph_Pi">
+            <label text="Pi"/>
+            <bbox w="60.0" h="20.0" x="50.0" y="100.0"/>
+        </glyph>
+        <arc class="consumption" source="SpeciesGlyph_Glucose" target="Port_Glucose_Hexokinase">
+            <start x="170.0" y="100.0"/>
+            <end x="170.0" y="50.0"/>
+        </arc>
+        <arc class="consumption" source="SpeciesGlyph_ATP" target="Port_ATP_Hexokinase">
+            <start x="170.0" y="100.0"/>
+            <end x="260.0" y="80.0"/>
+        </arc>
+        <arc class="production" source="Port_Hexokinase_G6P" target="SpeciesGlyph_G6P">
+            <start x="170.0" y="130.0"/>
+            <end x="170.0" y="180.0"/>
+        </arc>
+        <arc class="production" source="Port_Hexokinase_ADP" target="glyph_ADP">
+            <start x="170.0" y="130.0"/>
+            <end x="260.0" y="150.0"/>
+        </arc>
+        <arc class="inhibition" source="SpeciesGlyph_G6P" target="Port_G6P_Hexokinase">
+            <start x="45.0" y="200.0"/>
+            <end x="165.0" y="120.0"/>
+        </arc>
+        <arc class="catalysis" source="SpeciesGlyph_Pi" target="Port_Pi_Hexokinase">
+            <start x="115.0" y="110.0"/>
+            <end x="165.0" y="110.0"/>
+        </arc>
+        <arcgroup>
+            <glyph class="process" id="Hexokinase">
+                <bbox w="7.5" h="7.5" x="166.25" y="122.5"/>
+                <port id="Port_Glucose_Hexokinase" x="170.0" y="50.0"/>
+                <port id="Port_ATP_Hexokinase" x="260.0" y="80.0"/>
+                <port id="Port_Hexokinase_G6P" x="170.0" y="130.0"/>
+                <port id="Port_Hexokinase_ADP" x="170.0" y="130.0"/>
+                <port id="Port_G6P_Hexokinase" x="165.0" y="120.0"/>
+                <port id="Port_Pi_Hexokinase" x="165.0" y="110.0"/>
+            </glyph>
+            <arc class="unknown influence" id="Hexokinase_Curve">
+                <start x="170.0" y="100.0"/>
+                <end x="170.0" y="130.0"/>
+            </arc>
+        </arcgroup>
+    </map>
+</sbgn>

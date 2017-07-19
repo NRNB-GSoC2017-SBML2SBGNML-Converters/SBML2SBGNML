@@ -31,4 +31,12 @@ public class SWrapperArcGroup {
 	
 	HashMap<String, SWrapperArc> arcs;
 	HashMap<String, Glyph> glyphs;
+	
+	String reactionId;
+	
+	// Process Node
+	SWrapperArcGroup(String reactionId, Arcgroup arcGroup){
+		this.reactionId = reactionId;
+		this.arcGroup = arcGroup;
+	}
 }

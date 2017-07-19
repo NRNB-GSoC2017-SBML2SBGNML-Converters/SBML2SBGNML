@@ -3,6 +3,7 @@ package org.sbfc.converter.sbml2sbgnml;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -91,7 +92,7 @@ public class SBML2SBGNMLUtil {
 	 * @param <code>ListOf<CurveSegment><Glyph></code> listOfCurveSegments
 	 * @return the created Process Node <code>Glyph</code>
 	 */			
-	public Glyph createOneProcessNode(ReactionGlyph reactionGlyph, Curve sbmlCurve) {
+	public Arcgroup createOneProcessNode(String reactionId, Curve sbmlCurve) {
 		Glyph processNode;
 		Arc arc;
 		Arc.Start start;
@@ -154,15 +155,71 @@ public class SBML2SBGNMLUtil {
 				Double.toString(maxCurveXCoord),
 				Double.toString(maxCurveYCoord)));
 		
-		processNode = createGlyph(reactionGlyph.getId(), "process", false, null, false, null);
+		processNode = createGlyph(reactionId, "process", false, null, false, null);
 		createVoidBBox(processNode);
-		setBBoxDimensions(processNode, 
-				(float) minCurveXCoord, 
-				(float) maxCurveXCoord, 
-				(float) minCurveYCoord, 
-				(float) maxCurveYCoord);
-		return processNode;
+		
+		double yLastStart = listOfCurveSegments.get(listOfCurveSegments.size()-1).getStart().getY();
+		double yLastEnd = listOfCurveSegments.get(listOfCurveSegments.size()-1).getEnd().getY();
+		double xLastStart = listOfCurveSegments.get(listOfCurveSegments.size()-1).getStart().getX();
+		double xLastEnd = listOfCurveSegments.get(listOfCurveSegments.size()-1).getEnd().getX();		
+		
+		if (maxCurveYCoord - minCurveYCoord > maxCurveXCoord - minCurveXCoord){
+			// get 1/4 length of Y axis
+			double yLength = (maxCurveYCoord - minCurveYCoord)/4;
+						
+			if (yLastEnd > yLastStart){
+				setBBoxDimensions(processNode, 
+						(float) (xLastEnd - yLength/2), 
+						(float) (xLastEnd + yLength/2), 
+						(float) (yLastEnd - yLength), 
+						(float) yLastEnd);				
+			} else {
+				setBBoxDimensions(processNode, 
+						(float) (xLastEnd - yLength/2), 
+						(float) (xLastEnd + yLength/2), 
+						(float) (yLastStart - yLength), 
+						(float) yLastStart);				
+			}
+			
+		} else {
+			// get 1/4 length of X axis
+			double xLength = (maxCurveXCoord - minCurveXCoord)/4;
+			
+			if (xLastEnd > xLastStart){
+				setBBoxDimensions(processNode, 
+						(float) (xLastEnd - xLength), 
+						(float) xLastEnd, 
+						(float) (yLastEnd - xLength/2), 
+						(float) (yLastEnd + xLength/2));				
+			} else {
+				setBBoxDimensions(processNode, 
+						(float) (xLastStart - xLength), 
+						(float) xLastStart, 
+						(float) (yLastEnd - xLength/2), 
+						(float) (yLastEnd + xLength/2));			
+			}			
+		}
+		
+		// this is a cheating way to create something in SBGN that resembles an SBML ReactionGlyph
+		Arc a = new Arc();
+		a.setId(reactionId + "_Curve");
+		a.setClazz("unknown influence");
+		start = new Arc.Start();
+		end = new Arc.End();
+		start.setX((float) listOfCurveSegments.get(0).getStart().getX());
+		start.setY((float) listOfCurveSegments.get(0).getStart().getY());
+		end.setX((float) listOfCurveSegments.get(listOfCurveSegments.size()-1).getEnd().getX());
+		end.setY((float) listOfCurveSegments.get(listOfCurveSegments.size()-1).getEnd().getY());
+		a.setEnd(end);
+		a.setStart(start);
+		
+		Arcgroup ag = new Arcgroup();
+		ag.getArc().add(a);
+		ag.getGlyph().add(processNode);
+		
+		return ag;
 	}
+
 	
 	/**
 	 * Create an SBGN <code>Arc</code> that corresponds to an SBML <code>CurveSegment</code>.
@@ -209,22 +266,50 @@ public class SBML2SBGNMLUtil {
 		end = new Arc.End();
 		next = new ArrayList<Arc.Next>();
 		
-		// todo
+		// create a HashMap as well as a ArrayList. 
+		// The HashMap is used to check for duplicate Points, the ArrayList used to store Points
+		HashMap<String, Point> pointStringMap = new HashMap<String, Point>();
+		List<Point> pointList = new ArrayList<Point>();
+		String pointString;
 		for (CurveSegment curveSegment: curve.getListOfCurveSegments()){
-			
+			pointString = Double.toString(curveSegment.getStart().getX()) + " " + 
+							Double.toString(curveSegment.getStart().getY());
+			if (!pointStringMap.containsKey(pointString)){
+				pointStringMap.put(pointString, curveSegment.getStart());
+				pointList.add(curveSegment.getStart());
+			}
+			pointString = Double.toString(curveSegment.getEnd().getX()) + " " + 
+							Double.toString(curveSegment.getEnd().getY());
+			if (!pointStringMap.containsKey(pointString)){
+				pointStringMap.put(pointString, curveSegment.getEnd());
+				pointList.add(curveSegment.getEnd());
+			}	
 		}
 		
 		// temporary trick, just get the first CurveSegment of the Curve
-		CurveSegment curveSegment;
-		curveSegment = curve.getCurveSegment(0);
+//		CurveSegment curveSegment;
+//		curveSegment = curve.getCurveSegment(0);
 		
-		start.setX((float) curveSegment.getStart().getX());
-		start.setY((float) curveSegment.getStart().getY());
-		end.setX((float) curveSegment.getEnd().getX());
-		end.setY((float) curveSegment.getEnd().getY());
+		start.setX((float) pointList.get(0).getX());
+		start.setY((float) pointList.get(0).getY());
+		end.setX((float) pointList.get(pointList.size() - 1).getX());
+		end.setY((float) pointList.get(pointList.size() - 1).getY());
 		
 		arc.setStart(start);
 		arc.setEnd(end);
+		
+		Arc.Next e;
+		Point p;
+		// go over the list of Points we created, except for the first and last Point
+		for (int i = 1; i < pointList.size() - 1; i++){
+			p = pointList.get(i);
+			e = new Arc.Next();
+			e.setX((float) p.getX());
+			e.setY((float) p.getY());
+			next.add(e);
+		}
+		
+		arc.getNext().addAll(next);
 		
 		return arc;
 	}
@@ -346,11 +431,11 @@ public class SBML2SBGNMLUtil {
 		} 
 		// sidesubstrate
 		if (sbo == 603) {
-			sbgnClazz = "consumption";
+			sbgnClazz = "production";
 		} 
 		// sideproduct
 		if (sbo == 604) {
-			sbgnClazz = "production";
+			sbgnClazz = "consumption";
 		} 
 		// activator
 		if (sbo == 459) {

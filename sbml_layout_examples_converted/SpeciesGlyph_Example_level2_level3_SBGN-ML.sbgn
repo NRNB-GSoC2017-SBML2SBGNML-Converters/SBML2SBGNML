@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <sbgn xmlns="http://sbgn.org/libsbgn/0.2">
     <map>
-        <glyph id="CompartmentGlyph_1" class="compartment">
-            <bbox y="5.0" x="5.0" h="220.0" w="390.0"/>
+        <glyph class="macromolecule" id="SpeciesGlyph_Glucose">
+            <bbox w="130.0" h="20.0" x="105.0" y="20.0"/>
         </glyph>
     </map>
 </sbgn>

@@ -2,6 +2,7 @@ package org.sbfc.converter.sbml2sbgnml;
 
 import java.util.HashMap;
 
+import org.sbgn.bindings.Glyph;
 import org.sbml.jsbml.ModifierSpeciesReference;
 import org.sbml.jsbml.Reaction;
 import org.sbml.jsbml.SpeciesReference;
@@ -15,6 +16,10 @@ public class SWrapperGlyphProcess {
 	Reaction reaction;
 	TextGlyph textGlyph;
 	
+	SWrapperArcGroup processNode;
+	Glyph processNodeGlyph;
+	String id;
+	
 	HashMap<String, SpeciesReferenceGlyph> speciesReferenceGlyphs;
 	HashMap<String, ReferenceGlyph> referenceGlyphs;
 	HashMap<String, SpeciesReference> speciesReferences;
@@ -22,4 +27,12 @@ public class SWrapperGlyphProcess {
 	
 	HashMap<String, SWrapperArc> arcs;
 
+	SWrapperGlyphProcess(SWrapperArcGroup processNode, ReactionGlyph reactionGlyph, Reaction reaction, TextGlyph textGlyph, Glyph processNodeGlyph) {
+		this.processNode = processNode;
+		this.reactionGlyph = reactionGlyph;
+		this.reaction = reaction;
+		this.textGlyph = textGlyph;
+		this.id = processNode.reactionId;
+		this.processNodeGlyph = processNodeGlyph;
+	}
 }

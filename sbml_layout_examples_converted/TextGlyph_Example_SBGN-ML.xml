@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
-    <map>
-        <glyph id="SpeciesGlyph_Glucose" class="macromolecule">
-            <label text="Glucose"/>
-            <bbox y="20.0" x="105.0" h="20.0" w="130.0"/>
-        </glyph>
-    </map>
-</sbgn>

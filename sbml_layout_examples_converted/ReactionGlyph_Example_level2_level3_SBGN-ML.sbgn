@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map>
+        <arcgroup>
+            <glyph class="process" id="glyph_Hexokinase">
+                <bbox w="7.5" h="7.5" x="166.25" y="122.5"/>
+            </glyph>
+            <arc class="consumption" id="glyph_arc_Hexokinase">
+                <start x="170.0" y="100.0"/>
+                <end x="170.0" y="130.0"/>
+            </arc>
+        </arcgroup>
+    </map>
+</sbgn>

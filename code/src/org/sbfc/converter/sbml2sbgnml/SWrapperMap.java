@@ -30,4 +30,22 @@ public class SWrapperMap {
 	HashMap<String, SWrapperGlyphEntityPool> listOfSWrapperGlyphEntityPools;
 	HashMap<String, SWrapperGlyphProcess> listOfSWrapperGlyphProcesses;
 	
+	SWrapperMap(Map map, Model model){
+		this.map = map;
+		this.model = model;
+		
+		listOfWrapperSpeciesGlyphs = new HashMap<String, SpeciesGlyph>();
+		listOfWrapperCompartmentGlyphs = new HashMap<String, CompartmentGlyph>();
+		listOfWrapperReactionGlyphs = new HashMap<String, ReactionGlyph>();
+		listOfWrapperSpeciesReferenceGlyphs = new HashMap<String, SpeciesReferenceGlyph>();
+		listOfWrapperGeneralGlyphs = new HashMap<String, GeneralGlyph>();
+		listOfWrapperReferenceGlyphs = new HashMap<String, ReferenceGlyph>();
+		listOfTextGlyphs = new HashMap<String, TextGlyph>();
+		
+		listOfSWrapperArcs = new HashMap<String, SWrapperArc>();
+		listOfSWrapperArcGroups = new HashMap<String, SWrapperArcGroup>();
+		listOfSWrapperGlyphEncapsulations = new HashMap<String, SWrapperGlyphEncapsulation>();
+		listOfSWrapperGlyphEntityPools = new HashMap<String, SWrapperGlyphEntityPool>();
+		listOfSWrapperGlyphProcesses = new HashMap<String, SWrapperGlyphProcess>();
+	}
 }
