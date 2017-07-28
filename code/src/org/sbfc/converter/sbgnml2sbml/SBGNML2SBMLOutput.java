@@ -282,6 +282,12 @@ public class SBGNML2SBMLOutput {
 		
 	}
 	
+	public void addGraphicalObject(GraphicalObject generalGlyph) {
+		ListOf<GraphicalObject> listOfGeneralGlyphs = layout.getListOfAdditionalGraphicalObjects();
+		listOfGeneralGlyphs.add(generalGlyph);
+		
+	}
+	
 	public static SBMLDocument getSBMLDocument(String sbmlFileName) {
 
 		SBMLDocument document = null;

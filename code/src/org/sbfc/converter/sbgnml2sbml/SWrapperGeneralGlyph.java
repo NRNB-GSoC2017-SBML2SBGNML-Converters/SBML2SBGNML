@@ -13,6 +13,7 @@ import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 import org.sbml.jsbml.ext.layout.TextGlyph;
 
 public class SWrapperGeneralGlyph {
+	public String id;
 	String clazz;
 	GeneralGlyph generalGlyph;
 	TextGlyph textGlyph;
@@ -23,7 +24,7 @@ public class SWrapperGeneralGlyph {
 	boolean glyphIsMissing;
 	Arc arc;
 	
-	HashMap<String, Arc> arcs = new HashMap<String, Arc>();
+	HashMap<String, SWrapperArc> arcs = new HashMap<String, SWrapperArc>();
 	HashMap<String, ReferenceGlyph> referenceGlyphs = new HashMap<String, ReferenceGlyph>();
 	
 	List<GraphicalObject> listOfGeneralGlyphs;
@@ -33,9 +34,10 @@ public class SWrapperGeneralGlyph {
 	boolean isAnnotation = false;
 	Point calloutPoint;
 	String calloutTarget;
-	
+		
 	SWrapperGeneralGlyph(GeneralGlyph generalGlyph, Glyph glyph, GraphicalObject parent, TextGlyph textGlyph,
 			SWrapperModel sWrapperModel) {
+		this.id = glyph.getId();
 		this.generalGlyph = generalGlyph;
 		this.clazz = glyph.getClazz();
 		this.hasParent = true;
@@ -48,6 +50,7 @@ public class SWrapperGeneralGlyph {
 	}
 	
 	SWrapperGeneralGlyph(GeneralGlyph generalGlyph, Glyph glyph, TextGlyph textGlyph, SWrapperModel sWrapperModel){
+		this.id = glyph.getId();
 		this.generalGlyph = generalGlyph;
 		this.clazz = glyph.getClazz();
 		this.hasParent = false;
@@ -59,6 +62,7 @@ public class SWrapperGeneralGlyph {
 	}
 	
 	SWrapperGeneralGlyph(GeneralGlyph generalGlyph, Arc arc, SWrapperModel sWrapperModel) {
+		this.id = arc.getId();
 		this.generalGlyph = generalGlyph;
 		this.clazz = arc.getClazz();
 		this.hasParent = false;
@@ -67,7 +71,7 @@ public class SWrapperGeneralGlyph {
 		this.sWrapperModel = sWrapperModel;
 	}
 			
-	void addSpeciesReferenceGlyph(String arcId, SWrapperReferenceGlyph sWrapperReferenceGlyph, Arc arc){
+	void addSpeciesReferenceGlyph(String arcId, SWrapperReferenceGlyph sWrapperReferenceGlyph, SWrapperArc arc){
 		referenceGlyphs.put(arcId, sWrapperReferenceGlyph.referenceGlyph);
 		arcs.put(arcId, arc);
 		this.sWrapperModel.addSWrapperReferenceGlyph(arcId, sWrapperReferenceGlyph);

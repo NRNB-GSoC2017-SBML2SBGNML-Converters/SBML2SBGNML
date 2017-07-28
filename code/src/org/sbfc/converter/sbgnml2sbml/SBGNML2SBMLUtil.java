@@ -19,6 +19,7 @@ import org.sbgn.bindings.Label;
 import org.sbgn.bindings.Map;
 import org.sbgn.bindings.Port;
 import org.sbgn.bindings.Sbgn;
+import org.sbml.jsbml.ASTNode;
 import org.sbml.jsbml.Annotation;
 import org.sbml.jsbml.CVTerm;
 import org.sbml.jsbml.Compartment;
@@ -352,14 +353,91 @@ public class SBGNML2SBMLUtil {
 		
 		// todo: only create one if both input and output is known
 		functionTerm = new FunctionTerm();
-		functionTerm.setDefaultTerm(true);
+		functionTerm.setDefaultTerm(false);
 		functionTerm.setResultLevel(1);
 		transition.addFunctionTerm(functionTerm);
 		
 		return transition;
 	}
 	
-	public void addToTransition(){}
+	public Transition createTransition(String id){
+		Transition transition = new Transition(id);
+		
+		return transition;
+	}
+	
+	public Input addInputToTransition(Transition transition, QualitativeSpecies inputQualitativeSpecies){
+		Input input;
+		String inputId;		
+
+		inputId = "Input_" + inputQualitativeSpecies.getId() + "_in_" + transition.getId();
+		input = new Input(inputId, inputQualitativeSpecies, InputTransitionEffect.none);
+		transition.addInput(input);
+		
+		return input;
+	}
+	
+	public Output addOutputToTransition(Transition transition, QualitativeSpecies outputQualitativeSpecies){
+		Output output;
+		String outputId;
+		
+		outputId = "Output_" + outputQualitativeSpecies.getId() + "_in_" + transition.getId(); 
+		output = new Output(outputId, outputQualitativeSpecies, OutputTransitionEffect.assignmentLevel);
+		transition.addOutput(output);	
+		
+		return output;
+	}
+	
+	public FunctionTerm addFunctionTermToTransition(Transition transition, boolean setDefaultTerm, int resultLevel){
+		FunctionTerm functionTerm;
+		
+		functionTerm = new FunctionTerm();
+		functionTerm.setDefaultTerm(setDefaultTerm);
+		functionTerm.setResultLevel(resultLevel);
+		transition.addFunctionTerm(functionTerm);
+		
+		return functionTerm;
+	}
+	
+	public ASTNode createMath(ASTNode parentMath, String type){
+		//ASTNode math = functionTerm.getMath();
+		ASTNode math = null;
+//		Type		
+//		LOGICAL_AND
+//		LOGICAL_OR
+//		LOGICAL_NOT
+		if (type.equals("and")){
+			math = new ASTNode(ASTNode.Type.LOGICAL_AND);
+		} if (type.equals("or")){
+			math = new ASTNode(ASTNode.Type.LOGICAL_OR);
+		} if (type.equals("not")){
+			math = new ASTNode(ASTNode.Type.LOGICAL_NOT);
+		} 
+		
+		parentMath.insertChild(0, math);
+				
+		return math;
+	}
+	
+	public ASTNode createMath(String type, FunctionTerm mathContainer){
+		//ASTNode math = functionTerm.getMath();
+		ASTNode math = null;
+//		Type		
+//		LOGICAL_AND
+//		LOGICAL_OR
+//		LOGICAL_NOT
+		if (type.equals("and")){
+			math = new ASTNode(ASTNode.Type.LOGICAL_AND);
+		} if (type.equals("or")){
+			math = new ASTNode(ASTNode.Type.LOGICAL_OR);
+		} if (type.equals("not")){
+			math = new ASTNode(ASTNode.Type.LOGICAL_NOT);
+		} 
+		
+		math.setParentSBMLObject(mathContainer);
+		
+		return math;
+	}
 	
 	/**
 	 * Create a <code>SpeciesReferenceGlyph</code> using values from an SBGN <code>Arc</code>. 

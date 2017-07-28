@@ -12,11 +12,13 @@ public class SWrapperSpeciesReferenceGlyph{
 	SpeciesReferenceGlyph speciesReferenceGlyph;
 	Arc arc;
 	SWrapperArc sWrapperArc;
+	public String id;
 	
 	List<GraphicalObject> listOfGeneralGlyphs;
 	
 	SWrapperSpeciesReferenceGlyph(SpeciesReference speciesReference, SpeciesReferenceGlyph speciesReferenceGlyph, 
 			SWrapperArc sWrapperArc) {
+		this.id = sWrapperArc.arcId;
 		this.speciesReference = speciesReference;
 		this.speciesReferenceGlyph = speciesReferenceGlyph;
 		this.arc = sWrapperArc.arc;

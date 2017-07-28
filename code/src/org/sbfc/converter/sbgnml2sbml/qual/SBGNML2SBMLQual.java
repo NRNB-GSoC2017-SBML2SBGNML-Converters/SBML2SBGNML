@@ -58,8 +58,8 @@ public class SBGNML2SBMLQual {
 	
 		converter.addArcsToSWrapperModel(listOfArcs);
 		
-		//createReactions();
-		converter.createTransitions();
+		int numOfObjects = converter.createTransitions();
+		converter.createCompleteTransitions();
 		//converter.createGeneralGlyphs();
 		
 		converter.sOutput.createCanvasDimensions();

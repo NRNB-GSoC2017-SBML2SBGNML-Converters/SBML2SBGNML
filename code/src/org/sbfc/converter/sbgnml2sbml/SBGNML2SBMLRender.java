@@ -187,7 +187,7 @@ public class SBGNML2SBMLRender {
 		ReferenceGlyph referenceGlyph;
 		for (String arcKey : sWrapperGeneralGlyph.referenceGlyphs.keySet()){
 			referenceGlyph = sWrapperGeneralGlyph.referenceGlyphs.get(arcKey);
-			arc = sWrapperGeneralGlyph.arcs.get(arcKey);
+			arc = sWrapperGeneralGlyph.arcs.get(arcKey).arc;
 			
 			createStyle((GraphicalObject) referenceGlyph, arc);
 		}		

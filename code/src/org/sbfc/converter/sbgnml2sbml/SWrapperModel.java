@@ -39,15 +39,17 @@ public class SWrapperModel {
 	HashMap<String, SWrapperCompartmentGlyph> listOfWrapperCompartmentGlyphs;
 	HashMap<String, SWrapperReactionGlyph> listOfWrapperReactionGlyphs;
 	HashMap<String, SWrapperSpeciesReferenceGlyph> listOfWrapperSpeciesReferenceGlyphs;
-	HashMap<String, SWrapperGeneralGlyph> listOfWrapperGeneralGlyphs;
+	public HashMap<String, SWrapperGeneralGlyph> listOfWrapperGeneralGlyphs;
 	HashMap<String, SWrapperReferenceGlyph> listOfWrapperReferenceGlyphs;
-	HashMap<String, SWrapperQualitativeSpecies> listOfSWrapperQualitativeSpecies;
+	public HashMap<String, SWrapperQualitativeSpecies> listOfSWrapperQualitativeSpecies;
 	HashMap<String, SWrapperTransition> listOfSWrapperTransitions;
 	
 	Model model;
 	
 	HashMap<String, String> portGlyphMap = new HashMap<String, String>();
 	HashMap<String, Float> compartmentOrderList = new HashMap<String, Float>();
+	// Maps a SWrapperGeneralGlyph id to a SWrapperTransition id
+	HashMap<String, String> generalGlyphTransitionMap = new HashMap<String, String>();
 	
 	// keep track of how many Arcs are in Sbgn
 	int numberOfArcs;
@@ -270,6 +272,14 @@ public class SWrapperModel {
 	public void addAnnotation(String id, Glyph glyph) {
 		id = checkGlyphId(id, annotations);
 		annotations.put(id, glyph);		
+	}
+	
+	public void addToGeneralGlyphTransitionMap(String generalGlyphId, String transitionId){
+		generalGlyphTransitionMap.put(generalGlyphId, transitionId);
+	}
+	
+	public String getFromGeneralGlyphTransitionMap(String generalGlyphId){
+		return generalGlyphTransitionMap.get(generalGlyphId);
 	}
 				
 }

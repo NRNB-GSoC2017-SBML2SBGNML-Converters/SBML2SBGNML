@@ -9,11 +9,13 @@ import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 public class SWrapperReferenceGlyph{
 	Arc arc;
 	ReferenceGlyph referenceGlyph;
-	SWrapperArc sWrapperArc;
+	public SWrapperArc sWrapperArc;
+	public String id;
 	
 	List<GraphicalObject> listOfGeneralGlyphs;
 	
 	SWrapperReferenceGlyph(ReferenceGlyph referenceGlyph, SWrapperArc sWrapperArc) {
+		this.id = sWrapperArc.arcId;
 		this.referenceGlyph = referenceGlyph;
 		this.arc = sWrapperArc.arc;
 		this.sWrapperArc = sWrapperArc;

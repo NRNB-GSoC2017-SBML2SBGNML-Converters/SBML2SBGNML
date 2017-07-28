@@ -2,6 +2,7 @@ package org.sbfc.converter.sbgnml2sbml;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.sbgn.bindings.Arc;
@@ -11,6 +12,7 @@ import org.sbgn.bindings.Label;
 import org.sbgn.bindings.Map;
 import org.sbgn.bindings.Port;
 import org.sbgn.bindings.Sbgn;
+import org.sbml.jsbml.ASTNode;
 import org.sbml.jsbml.Compartment;
 import org.sbml.jsbml.ModifierSpeciesReference;
 import org.sbml.jsbml.Reaction;
@@ -29,6 +31,8 @@ import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 import org.sbml.jsbml.ext.layout.TextGlyph;
+import org.sbml.jsbml.ext.qual.FunctionTerm;
+import org.sbml.jsbml.ext.qual.Input;
 import org.sbml.jsbml.ext.qual.QualitativeSpecies;
 import org.sbml.jsbml.ext.qual.Transition;
 import org.sbfc.converter.GeneralConverter;
@@ -37,6 +41,7 @@ import org.sbfc.converter.exceptions.ReadModelException;
 import org.sbfc.converter.models.GeneralModel;
 import org.sbfc.converter.sbgnml2sbml.qual.SWrapperQualitativeSpecies;
 import org.sbfc.converter.sbgnml2sbml.qual.SWrapperTransition;
+import org.sbfc.converter.sbgnml2sbml.qual.FunctionTermMath;
 
 /**
  * The SBGNML2SBML_GSOC2017 class is the primary converter. 
@@ -750,6 +755,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 
 		// create a new SWrapperGeneralGlyph, add it to the SWrapperModel
 		sWrapperGeneralGlyph = new SWrapperGeneralGlyph(generalGlyph, glyph, parent, textGlyph, sWrapperModel);
+		//System.out.println(sWrapperGeneralGlyph.glyph);
 		return sWrapperGeneralGlyph;		
 	}
 		
@@ -863,7 +869,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			// Add the ReferenceGlyph to the generalGlyph
 			sWrapperGeneralGlyph.generalGlyph.addReferenceGlyph(sWrapperReferenceGlyph.referenceGlyph);
 			// Add the ReferenceGlyph to the wrapper. This step is optional
-			sWrapperGeneralGlyph.addSpeciesReferenceGlyph(arc.getId(), sWrapperReferenceGlyph, arc);
+			sWrapperGeneralGlyph.addSpeciesReferenceGlyph(arc.getId(), sWrapperReferenceGlyph, sWrapperArc);
 			
 			// Add the GeneralGlyph created to the output
 			sOutput.addGeneralGlyph(sWrapperGeneralGlyph.generalGlyph);
@@ -1084,15 +1090,11 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			sWrapperModel.addSWrapperQualitativeSpecies(key, sWrapperQualitativeSpecies);
 
 		}
-		
-//		for (String key : sWrapperModel.logicOperators.keySet()) {
-//			glyph = sWrapperModel.getGlyph(key);
-//			sWrapperQualitativeSpecies = createOneSpecies(glyph);
-//			sWrapperModel.addSWrapperSpeciesGlyph(key, sWrapperQualitativeSpecies);
-//		}		
+		//System.out.println(sWrapperModel.listOfSWrapperQualitativeSpecies);
+			
 	}
 		
-
+	// special case
 	public SWrapperTransition createOneTransition(SWrapperArc sWrapperArc) {
 		String text;
 		String clazz;
@@ -1110,6 +1112,13 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		clazz = sWrapperArc.arcClazz;
 		sourceId = sWrapperArc.sourceId;
 		targetId = sWrapperArc.targetId;
+		
+		// check that the conditions for this special case holds
+		if (!(sWrapperModel.getSWrapperQualitativeSpecies(sourceId) != null && 
+				sWrapperModel.getSWrapperQualitativeSpecies(targetId) != null)){
+			return null;
+		}
+		
 		// No BoundingBox
 		transition = sUtil.createTransition(sWrapperArc.arcId, 
 				sWrapperModel.getSWrapperQualitativeSpecies(sourceId).qualitativeSpecies,
@@ -1124,7 +1133,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		// Add the ReferenceGlyph to the generalGlyph
 		sWrapperGeneralGlyph.generalGlyph.addReferenceGlyph(sWrapperReferenceGlyph.referenceGlyph);
 		// Add the ReferenceGlyph to the wrapper. This step is optional
-		sWrapperGeneralGlyph.addSpeciesReferenceGlyph(sWrapperArc.arc.getId(), sWrapperReferenceGlyph, sWrapperArc.arc);
+		sWrapperGeneralGlyph.addSpeciesReferenceGlyph(sWrapperArc.arc.getId(), sWrapperReferenceGlyph, sWrapperArc);
 		
 		// Add the GeneralGlyph created to the output
 		sOutput.addGeneralGlyph(sWrapperGeneralGlyph.generalGlyph);
@@ -1132,12 +1141,28 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		
 		
 		// create a new SWrapperGeneralGlyph, add it to the SWrapperModel
-		sWrapperTransition = new SWrapperTransition(transition, sWrapperGeneralGlyph, sWrapperArc.arc, sWrapperModel);
+		//System.out.println(sWrapperGeneralGlyph.id);
+		sWrapperTransition = new SWrapperTransition(transition, sWrapperGeneralGlyph, sWrapperArc, sWrapperModel);
 		
 		return sWrapperTransition;	
 	} 	
 	
-	public void createTransitions() {
+	public SWrapperTransition createOneTransition(Glyph logicOperator, SWrapperGeneralGlyph sWrapperGeneralGlyph){
+		String clazz;
+		String id;
+		Transition transition;
+		SWrapperTransition sWrapperTransition;	
+		
+		clazz = logicOperator.getClazz();
+		id = logicOperator.getId();
+		transition = sUtil.createTransition(id);
+		sOutput.addTransition(transition);		
+		sWrapperTransition = new SWrapperTransition(id, transition, sWrapperGeneralGlyph, logicOperator, sWrapperModel);
+		
+		return sWrapperTransition;
+	}
+	
+	public int createTransitions() {
 		Arc arc;
 
 		String objectId;
@@ -1148,22 +1173,234 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		SWrapperReferenceGlyph sWrapperReferenceGlyph;
 		SWrapperArc sWrapperArc;
 		
+		Glyph glyph;
+		SWrapperGeneralGlyph sWrapperGeneralGlyph;
+		SWrapperQualitativeSpecies sWrapperQualitativeSpecies;
+		
+		for (String key : sWrapperModel.logicOperators.keySet()) {
+			glyph = sWrapperModel.getGlyph(key);
+			sWrapperGeneralGlyph = createOneGeneralGlyph(glyph, null, true);
+			sWrapperModel.listOfWrapperGeneralGlyphs.put(key, sWrapperGeneralGlyph);
+			sOutput.addGeneralGlyph(sWrapperGeneralGlyph.generalGlyph);
+		}			
+		
+		for (String key: sWrapperModel.modifierArcs.keySet()) {
+			sWrapperArc = sWrapperModel.modifierArcs.get(key);
+			arc = sWrapperArc.arc;
+			
+			// Check if the Arc is not connected to a Logic Operator, proceed if not connected
+			sWrapperTransition = createOneTransition(sWrapperArc);
+			if (sWrapperTransition != null){
+				sWrapperModel.addSWrapperTransition(arc.getId(), sWrapperTransition);
+			} else{
+				
+				objectId = sWrapperArc.targetId;
+				sWrapperQualitativeSpecies = sWrapperModel.listOfSWrapperQualitativeSpecies.get(objectId);
+				sWrapperReferenceGlyph = createOneReferenceGlyph(sWrapperArc, sWrapperQualitativeSpecies.speciesGlyph);
+				sWrapperModel.listOfWrapperReferenceGlyphs.put(key, sWrapperReferenceGlyph);
+				sOutput.addGraphicalObject(sWrapperReferenceGlyph.referenceGlyph);
+			}			
+		}
+		
 		// create a GeneralGlyph for each Logic Arc
 		for (String key: sWrapperModel.logicArcs.keySet()) {
 			sWrapperArc = sWrapperModel.logicArcs.get(key);
 			arc = sWrapperArc.arc;
 			// assume Arc.Source corresponds to Arc.Start
 			objectId = sWrapperArc.sourceId;
-			objectId = sWrapperArc.targetId;
+			//objectId = sWrapperArc.targetId;
 			
-			// Check if the Arc is not connected to a Logic Operator, proceed is not connected
-			// If connected to a Logic Operator, should not create a new Transition or new GeneralGlyph, add to existing
-			// Create a Transition, a GeneralGlyph
-			sWrapperTransition = createOneTransition(sWrapperArc);
-			sWrapperModel.addSWrapperTransition(arc.getId(), sWrapperTransition);
-
-		}	
-		
+			sWrapperGeneralGlyph = sWrapperModel.listOfWrapperGeneralGlyphs.get(objectId);
+			if (sWrapperGeneralGlyph != null){
+				sWrapperReferenceGlyph = createOneReferenceGlyph(sWrapperArc, sWrapperGeneralGlyph.generalGlyph);
+				
+			} else {
+				sWrapperQualitativeSpecies = sWrapperModel.listOfSWrapperQualitativeSpecies.get(objectId);
+				sWrapperReferenceGlyph = createOneReferenceGlyph(sWrapperArc, sWrapperQualitativeSpecies.speciesGlyph);
+								
+			}
+			
+			sWrapperModel.listOfWrapperReferenceGlyphs.put(key, sWrapperReferenceGlyph);
+			sOutput.addGraphicalObject(sWrapperReferenceGlyph.referenceGlyph);
+		}
+		// Create a Transition for a GeneralGlyph
+		// If connected to a Logic Operator, should not create a new Transition or new GeneralGlyph, add to existing
+		//sWrapperTransition.addReferenceGlyph
+		//System.out.println(sWrapperModel.listOfWrapperGeneralGlyphs);
+		//System.out.println(sWrapperModel.listOfWrapperReferenceGlyphs);
+				
+		return sWrapperModel.listOfWrapperGeneralGlyphs.size() + sWrapperModel.listOfWrapperReferenceGlyphs.size();
 	}
 	
+	public void createCompleteTransitions(){
+		SWrapperGeneralGlyph sWrapperGeneralGlyph;
+		HashMap<String, SWrapperGeneralGlyph> listOfWGeneralGlyphs = 
+				new HashMap<String, SWrapperGeneralGlyph>();
+		HashMap<String, SWrapperReferenceGlyph> listOfWReferenceGlyphs = 
+				new HashMap<String, SWrapperReferenceGlyph>();
+		SWrapperTransition sWrapperTransition;
+		
+		for (String key: sWrapperModel.listOfWrapperGeneralGlyphs.keySet()) {
+			sWrapperGeneralGlyph = listOfWGeneralGlyphs.get(key);
+			if (sWrapperGeneralGlyph != null){
+				continue;
+			}
+			sWrapperGeneralGlyph = sWrapperModel.listOfWrapperGeneralGlyphs.get(key);
+			createOneCompleteTransition(sWrapperGeneralGlyph, listOfWGeneralGlyphs, listOfWReferenceGlyphs);
+		}
+		
+		for (String key: sWrapperModel.listOfSWrapperTransitions.keySet()) {
+			sWrapperTransition = sWrapperModel.listOfSWrapperTransitions.get(key);
+			
+			System.out.println(sWrapperTransition.id);
+			System.out.println(sWrapperTransition.inputs);
+			System.out.println(sWrapperTransition.outputs+ "\n");
+			
+			HashMap<String, ASTNode> leaves = new HashMap<String, ASTNode>();
+			
+			for (String inputId : sWrapperTransition.inputs.keySet()){
+				SWrapperQualitativeSpecies input = sWrapperTransition.inputs.get(inputId);
+				Input tInput = sUtil.addInputToTransition(sWrapperTransition.transition, input.qualitativeSpecies);
+				
+				// create a child node wrapper
+				ASTNode functionTermMath = new ASTNode(tInput.getId());
+				leaves.put(inputId, functionTermMath);
+			}
+			
+			for (String outputId : sWrapperTransition.outputs.keySet()){
+				SWrapperQualitativeSpecies output = sWrapperTransition.outputs.get(outputId);
+				sUtil.addOutputToTransition(sWrapperTransition.transition, output.qualitativeSpecies);
+			}
+			
+			int resultLevel = 0;
+			if (sWrapperTransition.outputClazz.equals("necessary stimulation")){
+				resultLevel = 1;
+			} // ...
+			
+			sUtil.addFunctionTermToTransition(sWrapperTransition.transition, true, resultLevel == 1 ? 0 : 1);	
+			FunctionTerm functionTerm;
+			functionTerm = sUtil.addFunctionTermToTransition(sWrapperTransition.transition, false, resultLevel == 1 ? 1 : 0);
+			
+			// get the logicOperator that immediately precedes the output Arc
+			String rootId = sWrapperTransition.outputModifierArc.sWrapperArc.sourceId;
+			String rootClazz = sWrapperTransition.listOfWrapperGeneralGlyphs.get(rootId).clazz;
+			// create the root node, set its container
+			ASTNode rootNode = sUtil.createMath(rootClazz, functionTerm);
+			sWrapperTransition.rootFunctionTerm = rootNode;
+			
+//			for (String generalGlyphId: sWrapperTransition.listOfWrapperGeneralGlyphs.keySet()) {
+//				sWrapperGeneralGlyph = sWrapperTransition.listOfWrapperGeneralGlyphs.get(key);
+//				System.out.println("sWrapperGeneralGlyph.referenceGlyphs");
+//				System.out.println(sWrapperGeneralGlyph.referenceGlyphs);
+//			
+//			}
+			
+			// get the root's children. first, find all the Arcs connected to the root
+			sWrapperGeneralGlyph = sWrapperTransition.listOfWrapperGeneralGlyphs.get(rootId);
+			buildTree(sWrapperGeneralGlyph, rootId, rootNode, leaves);
+			//System.out.println(rootNode.toMathML());
+			functionTerm.setMath(rootNode);
+		}
+	}
+	
+	public void buildTree(SWrapperGeneralGlyph sWrapperGeneralGlyph, String parentId, ASTNode parent, 
+			HashMap<String, ASTNode> leaves){
+
+		for (String referenceId: sWrapperGeneralGlyph.arcs.keySet()) {
+			String childId = sWrapperGeneralGlyph.arcs.get(referenceId).sourceId;
+			
+			// if logicArc that points into the parent logicOperator
+			if (childId != parentId){
+				System.out.println("childId");
+				System.out.println(childId);
+				
+				SWrapperQualitativeSpecies child = sWrapperModel.listOfSWrapperQualitativeSpecies.get(childId);
+				if (child != null){
+					System.out.println("buildTree" + leaves.get(childId));
+					parent.addChild(leaves.get(childId));
+				} else {
+					// create a new ASTNode, and add to parent
+					ASTNode childNode = sUtil.createMath(parent, sWrapperModel.listOfWrapperGeneralGlyphs.get(childId).clazz);
+					buildTree(sWrapperGeneralGlyph, childId, childNode, leaves);
+				}
+			}
+		}		
+	}
+	
+	public void createOneCompleteTransition(SWrapperGeneralGlyph sWrapperGeneralGlyph,
+			HashMap<String, SWrapperGeneralGlyph> listOfWGeneralGlyphs,
+			HashMap<String, SWrapperReferenceGlyph> listOfWReferenceGlyphs){
+		
+		//System.out.println(sWrapperGeneralGlyph.glyph);
+		SWrapperTransition sWrapperTransition = createOneTransition(sWrapperGeneralGlyph.glyph, sWrapperGeneralGlyph);
+		sWrapperModel.addSWrapperTransition(sWrapperGeneralGlyph.id, sWrapperTransition);
+		
+		createOneCompleteTransition(sWrapperTransition, sWrapperGeneralGlyph, listOfWGeneralGlyphs, listOfWReferenceGlyphs);
+		
+//		System.out.println(sWrapperTransition.id);
+//		System.out.println(sWrapperTransition.listOfWrapperGeneralGlyphs);
+//		System.out.println(sWrapperTransition.listOfWrapperReferenceGlyphs+ "\n");
+	}
+	
+	public void createOneCompleteTransition(SWrapperTransition sWrapperTransition,
+			SWrapperGeneralGlyph sWrapperGeneralGlyph,
+			HashMap<String, SWrapperGeneralGlyph> listOfWGeneralGlyphs,
+			HashMap<String, SWrapperReferenceGlyph> listOfWReferenceGlyphs){
+		
+		if (listOfWReferenceGlyphs.size() == sWrapperModel.listOfWrapperReferenceGlyphs.size()){return;}
+		
+		SWrapperReferenceGlyph sWrapperReferenceGlyph;
+		for (String key: sWrapperModel.listOfWrapperReferenceGlyphs.keySet()) {
+			sWrapperReferenceGlyph = listOfWReferenceGlyphs.get(key);
+			if (sWrapperReferenceGlyph != null){
+				continue;
+			}
+			sWrapperReferenceGlyph = sWrapperModel.listOfWrapperReferenceGlyphs.get(key);
+			String generalGlyphId = sWrapperGeneralGlyph.id;
+			String sourceId = sWrapperReferenceGlyph.sWrapperArc.sourceId;
+			String targetId = sWrapperReferenceGlyph.sWrapperArc.targetId;
+			
+			if (generalGlyphId.equals(sourceId) || generalGlyphId.equals(targetId)){
+				sWrapperTransition.addReference(sWrapperReferenceGlyph, sWrapperReferenceGlyph.sWrapperArc);
+				listOfWReferenceGlyphs.put(key, null);
+				createOneCompleteTransition(sWrapperTransition, sWrapperReferenceGlyph, listOfWGeneralGlyphs, listOfWReferenceGlyphs);
+				// store any Arc connected to GeneralGlyph
+				sWrapperGeneralGlyph.addSpeciesReferenceGlyph(key, sWrapperReferenceGlyph, sWrapperReferenceGlyph.sWrapperArc);
+				
+			} else {
+				continue;
+			}
+		}
+	}
+	
+	public void createOneCompleteTransition(SWrapperTransition sWrapperTransition,
+			SWrapperReferenceGlyph sWrapperReferenceGlyph,
+			HashMap<String, SWrapperGeneralGlyph> listOfWGeneralGlyphs,
+			HashMap<String, SWrapperReferenceGlyph> listOfWReferenceGlyphs){
+		
+		if (listOfWGeneralGlyphs.size() == sWrapperModel.listOfWrapperGeneralGlyphs.size()){return;}
+		
+		SWrapperGeneralGlyph sWrapperGeneralGlyph;
+		for (String key: sWrapperModel.listOfWrapperGeneralGlyphs.keySet()) {
+			sWrapperGeneralGlyph = listOfWGeneralGlyphs.get(key);
+			if (sWrapperGeneralGlyph != null){
+				continue;
+			}	
+			sWrapperGeneralGlyph = sWrapperModel.listOfWrapperGeneralGlyphs.get(key);
+			
+			String sourceId = sWrapperReferenceGlyph.sWrapperArc.sourceId;
+			String targetId = sWrapperReferenceGlyph.sWrapperArc.targetId;
+			
+			String generalGlyphId = sWrapperGeneralGlyph.id;
+			
+			if (generalGlyphId.equals(sourceId) || generalGlyphId.equals(targetId)){
+				sWrapperTransition.addGeneralGlyph(generalGlyphId, sWrapperGeneralGlyph, sWrapperGeneralGlyph.glyph);
+				listOfWGeneralGlyphs.put(key, null);
+				createOneCompleteTransition(sWrapperTransition, sWrapperGeneralGlyph, listOfWGeneralGlyphs, listOfWReferenceGlyphs);
+				
+			} else {
+				continue;
+			}
+		}		
+	}	
 }

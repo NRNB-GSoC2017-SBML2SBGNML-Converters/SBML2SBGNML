@@ -116,7 +116,7 @@ public class SBML2SBGNMLQual {
 		ListOf<Input> listOfInputs = null;
 		ListOf<Output> listOfOutputs = null;
 		ListOf<FunctionTerm> listOfFunctionTerms = null;
-		ASTNode math;
+		ASTNode math = null;
 		String mathString;
 		
 		Sign sign;
@@ -181,12 +181,19 @@ public class SBML2SBGNMLQual {
 					math = functionTerm.getMath();
 					//functionTerm.getMathMLString();
 					mathString = math.toMathML();
+					
+					System.out.println("====getParent====" + math.getParent().toString());
+					System.out.println("====getChildren====" + math.getChildren().toString());
+					System.out.println("====getType====" + math.getType().toString());
+					//System.out.println("====getVariable====" + math.getVariable().toString());
 				}
 				
 				System.out.format("    FunctionTerm resultLevel=%s isDefaultTerm=%s mathString=%s \n",
 						resultLevel, 
 						functionTerm.isDefaultTerm() ? "DefaultTerm" : "FunctionTerm", 
 						mathString);
+//				System.out.format("    ======= \n math=%s \n ======= \n",
+//						math);
 			}
 			System.out.println();
 			System.out.println("-----");

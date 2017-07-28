@@ -3,12 +3,12 @@ package org.sbfc.converter.sbgnml2sbml;
 import org.sbgn.bindings.Arc;
 
 public class SWrapperArc {
-	Arc arc;
-	String arcId;
+	public Arc arc;
+	public String arcId;
 	String sourceTargetType;
 	String arcClazz;
-	String sourceId;
-	String targetId;
+	public String sourceId;
+	public String targetId;
 	Object source;
 	Object target;
 	
