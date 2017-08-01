@@ -28,67 +28,13 @@ import org.sbml.jsbml.ASTNode;
 import org.sbml.jsbml.AbstractMathContainer;
 
 public class SBML2SBGNMLQual {
-	public static void main(String[] args) throws FileNotFoundException, SAXException, IOException {
-				
-		String sbmlFileNameInput;
-		String sbgnFileNameOutput;
-		SBMLDocument sbmlDocument;
-		SBML2SBGNML_GSOC2017 sbml2sbgnml;
-		Sbgn sbgnObject;
-		File file;
-		
-		if (args.length < 1 || args.length > 3) {
-			// todo: change
-			System.out.println("usage: java org.sbfc.converter.sbml2sbgnml.qual.SBMLQualApplication <SBML filename>. ");
-		}
+	
+	public static void toStringDebug(SBML2SBGNML_GSOC2017 sbml2sbgnml){
 
-		String workingDirectory = System.getProperty("user.dir");
-
-		sbmlFileNameInput = args[0];
-		sbmlFileNameInput = workingDirectory + sbmlFileNameInput;	
-		sbgnFileNameOutput = sbmlFileNameInput.replaceAll(".xml", "_SBGN-ML.sbgn");
+		ListOf<QualitativeSpecies> listOfQualitativeSpecies = sbml2sbgnml.sOutput.listOfQualitativeSpecies;
+		ListOf<Compartment> listOfCompartments = sbml2sbgnml.sOutput.listOfCompartments;
+		ListOf<Transition> listOfTransitions = sbml2sbgnml.sOutput.listOfTransitions;
 		
-		
-		sbmlDocument = SBML2SBGNMLUtil.getSBMLDocument(sbmlFileNameInput);
-		if (sbmlDocument == null) {
-			throw new FileNotFoundException("The SBMLDocument is null");
-		}
-			
-		sbml2sbgnml = new SBML2SBGNML_GSOC2017(sbmlDocument);
-		// visualize JTree
-		try {		
-			sbml2sbgnml.sUtil.visualizeJTree(sbmlDocument);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}		
-//		
-//		sbgnObject = sbml2sbgnml.convertToSBGNML(sbmlDocument);	
-//		
-//		file = new File(sbgnFileNameOutput);
-//		try {
-//			SbgnUtil.writeToFile(sbgnObject, file);
-//		} catch (JAXBException e) {
-//			e.printStackTrace();
-//		}
-//		
-		Model model;
-		QualModelPlugin qualModelPlugin;
-		ListOf<QualitativeSpecies> listOfQualitativeSpecies = null;
-		ListOf<Compartment> listOfCompartments = null;
-		ListOf<Transition> listOfTransitions = null;
-		
-		model = sbml2sbgnml.sOutput.getModel();
-		if (model.isSetPlugin("qual")){
-			//System.out.println("isSetPlugin(qual) true");
-			qualModelPlugin = (QualModelPlugin) model.getPlugin("qual");
-			//System.out.println("getNumQualitativeSpecies " + qualModelPlugin.getNumQualitativeSpecies());
-			//System.out.println("getNumTransitions " + qualModelPlugin.getNumTransitions());
-			//System.out.println("getNumCompartments " + model.getNumCompartments());
-			
-			listOfQualitativeSpecies = qualModelPlugin.getListOfQualitativeSpecies();
-			listOfTransitions = qualModelPlugin.getListOfTransitions();
-			listOfCompartments = model.getListOfCompartments();
-		}
 		
 		String id; 
 		String name;
@@ -206,7 +152,53 @@ public class SBML2SBGNMLQual {
 			
 			System.out.format("Compartment id=%s name=%s \n\n", id, name);
 					
+		}		
+	}
+	
+	public static void main(String[] args) throws FileNotFoundException, SAXException, IOException {
+				
+		String sbmlFileNameInput;
+		String sbgnFileNameOutput;
+		SBMLDocument sbmlDocument;
+		SBML2SBGNML_GSOC2017 sbml2sbgnml;
+		Sbgn sbgnObject;
+		File file;
+		
+		if (args.length < 1 || args.length > 3) {
+			// todo: change
+			System.out.println("usage: java org.sbfc.converter.sbml2sbgnml.qual.SBMLQualApplication <SBML filename>. ");
 		}
+
+		String workingDirectory = System.getProperty("user.dir");
+
+		sbmlFileNameInput = args[0];
+		sbmlFileNameInput = workingDirectory + sbmlFileNameInput;	
+		sbgnFileNameOutput = sbmlFileNameInput.replaceAll(".xml", "_SBGN-ML.sbgn");
+		
+		
+		sbmlDocument = SBML2SBGNMLUtil.getSBMLDocument(sbmlFileNameInput);
+		if (sbmlDocument == null) {
+			throw new FileNotFoundException("The SBMLDocument is null");
+		}
+			
+		sbml2sbgnml = new SBML2SBGNML_GSOC2017(sbmlDocument);
+		// visualize JTree
+		try {		
+			sbml2sbgnml.sUtil.visualizeJTree(sbmlDocument);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+
+		toStringDebug(sbml2sbgnml);
+		
+//		sbgnObject = sbml2sbgnml.convertToSBGNML(sbmlDocument);	
+//		
+//		file = new File(sbgnFileNameOutput);
+//		try {
+//			SbgnUtil.writeToFile(sbgnObject, file);
+//		} catch (JAXBException e) {
+//			e.printStackTrace();
+//		}
 
 	}	
 }

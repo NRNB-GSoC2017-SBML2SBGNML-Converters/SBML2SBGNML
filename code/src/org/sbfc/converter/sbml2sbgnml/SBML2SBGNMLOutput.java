@@ -9,6 +9,7 @@ import org.sbgn.bindings.Arcgroup;
 import org.sbgn.bindings.Glyph;
 import org.sbgn.bindings.Map;
 import org.sbgn.bindings.Sbgn;
+import org.sbml.jsbml.Compartment;
 import org.sbml.jsbml.ListOf;
 import org.sbml.jsbml.Model;
 import org.sbml.jsbml.SBMLDocument;
@@ -21,6 +22,9 @@ import org.sbml.jsbml.ext.layout.LayoutModelPlugin;
 import org.sbml.jsbml.ext.layout.ReactionGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.TextGlyph;
+import org.sbml.jsbml.ext.qual.QualModelPlugin;
+import org.sbml.jsbml.ext.qual.QualitativeSpecies;
+import org.sbml.jsbml.ext.qual.Transition;
 
 public class SBML2SBGNMLOutput {
 	
@@ -39,6 +43,12 @@ public class SBML2SBGNMLOutput {
 	ListOf<SpeciesGlyph> listOfSpeciesGlyphs;
 	ListOf<TextGlyph> listOfTextGlyphs;		
 	
+	
+	QualModelPlugin qualModelPlugin = null;
+	public ListOf<QualitativeSpecies> listOfQualitativeSpecies = null;
+	public ListOf<Compartment> listOfCompartments = null;
+	public ListOf<Transition> listOfTransitions = null;
+	
 	public SBML2SBGNMLOutput(SBMLDocument sbmlDocument) {
 		BasicConfigurator.configure();
 		
@@ -54,6 +64,18 @@ public class SBML2SBGNMLOutput {
 
 		if (sbmlModel.isSetPlugin("layout")){
 			listOfLayouts = sbmlLayoutModel.getListOfLayouts();
+		}
+		
+		if (sbmlModel.isSetPlugin("qual")){
+			//System.out.println("isSetPlugin(qual) true");
+			qualModelPlugin = (QualModelPlugin) sbmlModel.getPlugin("qual");
+			//System.out.println("getNumQualitativeSpecies " + qualModelPlugin.getNumQualitativeSpecies());
+			//System.out.println("getNumTransitions " + qualModelPlugin.getNumTransitions());
+			//System.out.println("getNumCompartments " + model.getNumCompartments());
+			
+			listOfQualitativeSpecies = qualModelPlugin.getListOfQualitativeSpecies();
+			listOfTransitions = qualModelPlugin.getListOfTransitions();
+			listOfCompartments = sbmlModel.getListOfCompartments();
 		}
 		
 		int numOfLayouts = 0;
@@ -91,7 +113,7 @@ public class SBML2SBGNMLOutput {
 				listOfReactionGlyphs = layout.getListOfReactionGlyphs();
 			}			
 		}
-		
+				
 	}
 	
 	public void addGlyphToMap(Glyph glyph) {
