@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1"
-xmlns:qual="http://www.sbml.org/sbml/level3/version1/qual/version1" qual:required="true">
+xmlns:qual="http://www.sbml.org/sbml/level3/version1/qual/version1" qual:required="true" 
+xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" layout:required="false">
 <model id="example">
 <listOfCompartments>
 <compartment id="cytosol" name="cytosol" constant="true"/>
@@ -136,5 +137,207 @@ qual:transitionEffect="assignmentLevel"/>
 </qual:listOfFunctionTerms>
 </qual:transition>
 </qual:listOfTransitions>
+
+    <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <layout:layout layout:id="examplelayout">
+        <layout:dimensions layout:height="300" layout:width="400" />
+
+        <layout:listOfSpeciesGlyphs>
+          <layout:speciesGlyph layout:id="sGlyph_A" layout:species="A">
+            <layout:boundingBox>
+              <layout:position layout:x="300" layout:y="100" />
+              <layout:dimensions layout:height="50" layout:width="50" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="sGlyph_B" layout:species="B">
+            <layout:boundingBox>
+              <layout:position layout:x="300" layout:y="200" />
+              <layout:dimensions layout:height="50" layout:width="50" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="sGlyph_C" layout:species="C">
+            <layout:boundingBox>
+              <layout:position layout:x="100" layout:y="200" />
+              <layout:dimensions layout:height="50" layout:width="50" />
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+        </layout:listOfSpeciesGlyphs>
+
+        <layout:listOfTextGlyphs>
+          <layout:textGlyph layout:graphicalObject="sGlyph_A" layout:id="tGlyph_A" layout:text="A">
+            <layout:boundingBox>
+              <layout:position layout:x="300" layout:y="100" />
+              <layout:dimensions layout:height="50" layout:width="50" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="sGlyph_B" layout:id="tGlyph_B" layout:text="B">
+            <layout:boundingBox>
+              <layout:position layout:x="300" layout:y="200" />
+              <layout:dimensions layout:height="50" layout:width="50" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="sGlyph_C" layout:id="tGlyph_C" layout:text="C">
+            <layout:boundingBox>
+              <layout:position layout:x="100" layout:y="200" />
+              <layout:dimensions layout:height="50" layout:width="50" />
+            </layout:boundingBox>
+          </layout:textGlyph>
+        </layout:listOfTextGlyphs>
+		
+<layout:listOfAdditionalGraphicalObjects>
+<layout:generalGlyph layout:id="rGlyph_AA1" layout:reference="sGlyph_A">
+<!-- unused bounding box -->
+<layout:boundingBox>
+<layout:position layout:x="0" layout:y="0"/>
+<layout:dimensions layout:width="0" layout:height="0"/>
+</layout:boundingBox>
+<layout:listOfReferenceGlyphs>
+<!-- reference glyph representing the target species -->
+<layout:referenceGlyph
+layout:id="SpeciesReference_AA1"
+layout:reference="A"
+layout:glyph="sGlyph_A"
+layout:role="activator">
+<layout:curve>
+<layout:listOfCurveSegments>
+<layout:curveSegment
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="LineSegment">
+<layout:start layout:x="315" layout:y="105"/>
+<layout:end layout:x="325" layout:y="55"/>
+</layout:curveSegment>
+<layout:curveSegment
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="LineSegment">
+<layout:start layout:x="325" layout:y="55"/>
+<layout:end layout:x="335" layout:y="95"/>
+</layout:curveSegment>
+</layout:listOfCurveSegments>
+</layout:curve>
+</layout:referenceGlyph>
+</layout:listOfReferenceGlyphs>
+</layout:generalGlyph>
+</layout:listOfAdditionalGraphicalObjects>		
+		
+<layout:listOfAdditionalGraphicalObjects>
+<layout:generalGlyph layout:id="rGlyph_AA0" layout:reference="sGlyph_A">
+<!-- unused bounding box -->
+<layout:boundingBox>
+<layout:position layout:x="0" layout:y="0"/>
+<layout:dimensions layout:width="0" layout:height="0"/>
+</layout:boundingBox>
+<layout:listOfReferenceGlyphs>
+<!-- reference glyph representing the target species -->
+<layout:referenceGlyph
+layout:id="SpeciesReference_AA2"
+layout:reference="A"
+layout:glyph="sGlyph_A"
+layout:role="inhibitor">
+<layout:curve>
+<layout:listOfCurveSegments>
+<layout:curveSegment
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="LineSegment">
+<layout:start layout:x="345" layout:y="115"/>
+<layout:end layout:x="395" layout:y="125"/>
+</layout:curveSegment>
+<layout:curveSegment
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="LineSegment">
+<layout:start layout:x="395" layout:y="125"/>
+<layout:end layout:x="355" layout:y="135"/>
+</layout:curveSegment>
+</layout:listOfCurveSegments>
+</layout:curve>
+</layout:referenceGlyph>
+</layout:listOfReferenceGlyphs>
+</layout:generalGlyph>
+
+<!-- from A to B -->
+<layout:generalGlyph layout:id="rGlyph_AB" layout:reference="sGlyph_A">
+<!-- unused bounding box -->
+<layout:boundingBox>
+<layout:position layout:x="0" layout:y="0"/>
+<layout:dimensions layout:width="0" layout:height="0"/>
+</layout:boundingBox>
+<layout:listOfReferenceGlyphs>
+<!-- reference glyph representing the target species -->
+<layout:referenceGlyph
+layout:id="SpeciesReference_AB"
+layout:reference="B"
+layout:glyph="sGlyph_B"
+layout:role="activator">
+<layout:curve>
+<layout:listOfCurveSegments>
+<layout:curveSegment
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="LineSegment">
+<layout:start layout:x="325" layout:y="150"/>
+<layout:end layout:x="325" layout:y="200"/>
+</layout:curveSegment>
+</layout:listOfCurveSegments>
+</layout:curve>
+</layout:referenceGlyph>
+</layout:listOfReferenceGlyphs>
+</layout:generalGlyph>
+
+<layout:generalGlyph layout:id="rGlyph_BC" layout:reference="sGlyph_B">
+<!-- unused bounding box -->
+<layout:boundingBox>
+<layout:position layout:x="0" layout:y="0"/>
+<layout:dimensions layout:width="0" layout:height="0"/>
+</layout:boundingBox>
+<layout:listOfReferenceGlyphs>
+<!-- reference glyph representing the target species -->
+<layout:referenceGlyph
+layout:id="SpeciesReference_BC"
+layout:reference="C"
+layout:glyph="sGlyph_C"
+layout:role="activator">
+<layout:curve>
+<layout:listOfCurveSegments>
+<layout:curveSegment
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="LineSegment">
+<layout:start layout:x="300" layout:y="225"/>
+<layout:end layout:x="150" layout:y="225"/>
+</layout:curveSegment>
+</layout:listOfCurveSegments>
+</layout:curve>
+</layout:referenceGlyph>
+</layout:listOfReferenceGlyphs>
+</layout:generalGlyph>
+
+<layout:generalGlyph layout:id="rGlyph_CA" layout:reference="sGlyph_C">
+<!-- unused bounding box -->
+<layout:boundingBox>
+<layout:position layout:x="0" layout:y="0"/>
+<layout:dimensions layout:width="0" layout:height="0"/>
+</layout:boundingBox>
+<layout:listOfReferenceGlyphs>
+<!-- reference glyph representing the target species -->
+<layout:referenceGlyph
+layout:id="SpeciesReference_CA"
+layout:reference="A"
+layout:glyph="sGlyph_A"
+layout:role="activator">
+<layout:curve>
+<layout:listOfCurveSegments>
+<layout:curveSegment
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="LineSegment">
+<layout:start layout:x="125" layout:y="200"/>
+<layout:end layout:x="300" layout:y="125"/>
+</layout:curveSegment>
+</layout:listOfCurveSegments>
+</layout:curve>
+</layout:referenceGlyph>
+</layout:listOfReferenceGlyphs>
+</layout:generalGlyph>
+
+</layout:listOfAdditionalGraphicalObjects>		
+		
+      </layout:layout>
+    </layout:listOfLayouts>
 </model>
 </sbml>

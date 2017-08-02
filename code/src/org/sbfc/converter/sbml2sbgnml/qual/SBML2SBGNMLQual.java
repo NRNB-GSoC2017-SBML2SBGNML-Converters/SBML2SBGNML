@@ -154,7 +154,7 @@ public class SBML2SBGNMLQual {
 					
 		}		
 	}
-	
+		
 	public static void main(String[] args) throws FileNotFoundException, SAXException, IOException {
 				
 		String sbmlFileNameInput;

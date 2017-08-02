@@ -24,10 +24,14 @@ import org.sbgn.bindings.Glyph;
 import org.sbgn.bindings.Label;
 import org.sbgn.bindings.SBGNBase;
 import org.sbgn.bindings.SBGNBase.Extension;
+import org.sbml.jsbml.Annotation;
+import org.sbml.jsbml.CVTerm;
 import org.sbml.jsbml.ListOf;
 import org.sbml.jsbml.SBMLDocument;
 import org.sbml.jsbml.SBMLReader;
 import org.sbml.jsbml.SBase;
+import org.sbml.jsbml.Unit;
+import org.sbml.jsbml.UnitDefinition;
 import org.sbml.jsbml.ext.layout.BoundingBox;
 import org.sbml.jsbml.ext.layout.Curve;
 import org.sbml.jsbml.ext.layout.CurveSegment;
@@ -45,7 +49,23 @@ import org.xml.sax.SAXException;
 public class SBML2SBGNMLUtil {
 
 	int debugMode = 0;
-	private static SBGNUtils sbu = new SBGNUtils("sbgnml");
+	public static SBGNUtils sbu = new SBGNUtils("sbgnml");
+	
+	private static final String SBFCANNO_PREFIX = "sbfcanno";
+	public static final String SBFC_ANNO_NAMESPACE = "http://www.sbfc.org/sbfcanno";
+	Document document = null;
+
+	SBML2SBGNMLUtil() {
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder constructeur;
+		try {
+			constructeur = factory.newDocumentBuilder();
+			document = constructeur.newDocument();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	/**
 	 * Create a new <code>Glyph</code> of class <code>clazz</code>.
@@ -92,7 +112,7 @@ public class SBML2SBGNMLUtil {
 	 * @param <code>ListOf<CurveSegment><Glyph></code> listOfCurveSegments
 	 * @return the created Process Node <code>Glyph</code>
 	 */			
-	public Arcgroup createOneProcessNode(String reactionId, Curve sbmlCurve) {
+	public Arcgroup createOneProcessNode(String reactionId, Curve sbmlCurve, String clazz) {
 		Glyph processNode;
 		Arc arc;
 		Arc.Start start;
@@ -155,7 +175,8 @@ public class SBML2SBGNMLUtil {
 				Double.toString(maxCurveXCoord),
 				Double.toString(maxCurveYCoord)));
 		
-		processNode = createGlyph(reactionId, "process", false, null, false, null);
+		// "clazz = process"
+		processNode = createGlyph(reactionId, clazz, false, null, false, null);
 		createVoidBBox(processNode);
 		
 		double yLastStart = listOfCurveSegments.get(listOfCurveSegments.size()-1).getStart().getY();
@@ -573,6 +594,99 @@ public class SBML2SBGNMLUtil {
 		
 	}
 	
-	private static void addAnnotationInExtension() {}
+	void addSbaseInExtension(SBGNBase base, UnitDefinition ud) {
+		Element extension = document.createElement(SBFCANNO_PREFIX + ":unitDefinition");
+		extension.setAttribute("xmlns:" + SBFCANNO_PREFIX, SBFC_ANNO_NAMESPACE);
 		
+		extension.setAttribute(SBFCANNO_PREFIX + ":name", ud.getName());
+
+		ListOf<Unit> listOfUnits = ud.getListOfUnits();
+		System.out.println("got heree");
+		for (Unit u : listOfUnits){
+			Element attribute = document.createElement(SBFCANNO_PREFIX + ":kind" + u.getKind().toString());
+			attribute.setAttribute(SBFCANNO_PREFIX + ":kind", u.getKind().toString());
+			attribute.setAttribute(SBFCANNO_PREFIX + ":exponent", Double.toString(u.getExponent()));
+			attribute.setAttribute(SBFCANNO_PREFIX + ":scale", Integer.toString(u.getScale()));
+			attribute.setAttribute(SBFCANNO_PREFIX + ":multiplier", Double.toString(u.getMultiplier()));
+			extension.appendChild(attribute);
+		}
+		
+		// ... and add it as extension for the SBGN-ML glyph
+		Extension ex = new Extension();
+
+		// if the Extension exists already
+		if ( base.getExtension() != null ) {
+			ex = base.getExtension();
+		}
+		System.out.println("got hereee");
+		// fill the list<Element> of Extension with our dom element
+		ex.getAny().add(extension);
+
+		// set the Extension for the SBGNBase
+		base.setExtension(ex);
+		
+	}
+	
+	/**
+	 * Create a mere XML schema for an annotation.
+	 * 
+	 * @param base
+	 * @param anno
+	 * @throws ParserConfigurationException 
+	 */
+	static void addAnnotationInExtension(SBGNBase base, Annotation anno) throws ParserConfigurationException {
+		
+		// new dom creation
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder constructeur = factory.newDocumentBuilder();
+		Document document = constructeur.newDocument();
+
+		// root annotation
+		Element annotation = document.createElement(SBFCANNO_PREFIX + ":annotation");
+		annotation.setAttribute("xmlns:" + SBFCANNO_PREFIX, SBFC_ANNO_NAMESPACE);
+		
+		// creating a child for each qualifier
+		for (CVTerm cvt : anno.getListOfCVTerms()) {
+
+			// get the name of the qualifier
+			String cvtermName = cvt.isBiologicalQualifier() ? cvt.getBiologicalQualifierType().getElementNameEquivalent() :
+				cvt.getModelQualifierType().getElementNameEquivalent();
+			
+			// add the CVTerm as a child
+			Element cvterm = document.createElement(SBFCANNO_PREFIX + ":" + cvtermName);
+			
+			// append this element to the root
+			annotation.appendChild(cvterm);
+			
+			// for each cvterm, add a resource tag corresponding to in which will be uri and url
+			for (String urn : cvt.getResources()) {
+				
+				// create and add an element called resource
+				Element resource = document.createElement(SBFCANNO_PREFIX + ":resource");
+				resource.setAttribute(SBFCANNO_PREFIX + ":urn", urn);
+				// TODO get the url of the corresponding urn if possible
+				// resource.setAttribute(SBFCANNO_PREFIX + ":url", );
+				cvterm.appendChild(resource);
+				
+			}
+		}
+		
+		try {annotation.getFirstChild().toString(); }
+		catch (NullPointerException e) { return; }
+		
+		// ... and add it as extension for the SBGN-ML glyph
+		Extension ex = new Extension();
+
+		// if the Extension exists alredy
+		if ( base.getExtension() != null ) {
+			ex = base.getExtension();
+		}
+		
+		// fill the list<Element> of Extension with our dom element
+		ex.getAny().add(annotation);
+
+		// set the Extension for the SBGNBase
+		base.setExtension(ex);
+		
+	}		
 }

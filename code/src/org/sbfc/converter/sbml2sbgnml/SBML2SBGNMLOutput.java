@@ -10,10 +10,19 @@ import org.sbgn.bindings.Glyph;
 import org.sbgn.bindings.Map;
 import org.sbgn.bindings.Sbgn;
 import org.sbml.jsbml.Compartment;
+import org.sbml.jsbml.Constraint;
+import org.sbml.jsbml.Event;
+import org.sbml.jsbml.FunctionDefinition;
+import org.sbml.jsbml.InitialAssignment;
 import org.sbml.jsbml.ListOf;
 import org.sbml.jsbml.Model;
+import org.sbml.jsbml.Parameter;
+import org.sbml.jsbml.Reaction;
+import org.sbml.jsbml.Rule;
 import org.sbml.jsbml.SBMLDocument;
 import org.sbml.jsbml.SBMLException;
+import org.sbml.jsbml.Species;
+import org.sbml.jsbml.UnitDefinition;
 import org.sbml.jsbml.ext.layout.CompartmentGlyph;
 import org.sbml.jsbml.ext.layout.Dimensions;
 import org.sbml.jsbml.ext.layout.GraphicalObject;
@@ -29,24 +38,33 @@ import org.sbml.jsbml.ext.qual.Transition;
 public class SBML2SBGNMLOutput {
 	
 	Model sbmlModel;
-	LayoutModelPlugin sbmlLayoutModel = null;
-	ListOf<Layout> listOfLayouts = null;
-	
+
 	HashMap<String, Sbgn> listOfSbgnObjects = new HashMap<String, Sbgn>();	
 	Sbgn sbgnObject = null;
 	Map map = null;
-		
+			
+	public ListOf<Compartment> listOfCompartments = null;
+	ListOf<FunctionDefinition> listOfFunctionDefinitions = null;
+	ListOf<UnitDefinition> listOfUnitDefinitions = null;
+	ListOf<Species> listOfSpecies = null;
+	ListOf<Parameter> listOfParameters = null;
+	ListOf<InitialAssignment> listOfInitialAssignments = null;
+	ListOf<Rule> listOfRules = null;
+	ListOf<Constraint> listOfConstraints = null;
+	ListOf<Reaction> listOfReactions = null;
+	ListOf<Event> listOfEvents = null;
+			
+	LayoutModelPlugin sbmlLayoutModel = null;
 	Dimensions layoutDimensions = null;
-	ListOf<GraphicalObject> listOfAdditionalGraphicalObjects;
-	ListOf<CompartmentGlyph> listOfCompartmentGlyphs;
-	ListOf<ReactionGlyph> listOfReactionGlyphs;
-	ListOf<SpeciesGlyph> listOfSpeciesGlyphs;
-	ListOf<TextGlyph> listOfTextGlyphs;		
-	
-	
+	ListOf<Layout> listOfLayouts = null;
+	ListOf<GraphicalObject> listOfAdditionalGraphicalObjects = null;
+	ListOf<CompartmentGlyph> listOfCompartmentGlyphs = null;
+	ListOf<ReactionGlyph> listOfReactionGlyphs = null;
+	ListOf<SpeciesGlyph> listOfSpeciesGlyphs = null;
+	ListOf<TextGlyph> listOfTextGlyphs = null;		
+		
 	QualModelPlugin qualModelPlugin = null;
 	public ListOf<QualitativeSpecies> listOfQualitativeSpecies = null;
-	public ListOf<Compartment> listOfCompartments = null;
 	public ListOf<Transition> listOfTransitions = null;
 	
 	public SBML2SBGNMLOutput(SBMLDocument sbmlDocument) {
@@ -58,13 +76,17 @@ public class SBML2SBGNMLOutput {
 			throw new SBMLException("SBML2SBGN: Input file is not a regular SBML file.");
 		}
 		
-		if (sbmlModel.isSetPlugin("layout")){
-			sbmlLayoutModel = (LayoutModelPlugin) sbmlModel.getExtension("layout");
-		}
-
-		if (sbmlModel.isSetPlugin("layout")){
-			listOfLayouts = sbmlLayoutModel.getListOfLayouts();
-		}
+		listOfCompartments = sbmlModel.getListOfCompartments();
+		listOfSpecies = sbmlModel.getListOfSpecies();
+		listOfReactions = sbmlModel.getListOfReactions();
+		listOfFunctionDefinitions = sbmlModel.getListOfFunctionDefinitions();
+		listOfUnitDefinitions = sbmlModel.getListOfUnitDefinitions();
+		listOfParameters = sbmlModel.getListOfParameters();
+		listOfInitialAssignments = sbmlModel.getListOfInitialAssignments();
+		listOfRules = sbmlModel.getListOfRules();
+		listOfConstraints = sbmlModel.getListOfConstraints();
+		// this is lost
+		listOfEvents = sbmlModel.getListOfEvents();
 		
 		if (sbmlModel.isSetPlugin("qual")){
 			//System.out.println("isSetPlugin(qual) true");
@@ -75,7 +97,11 @@ public class SBML2SBGNMLOutput {
 			
 			listOfQualitativeSpecies = qualModelPlugin.getListOfQualitativeSpecies();
 			listOfTransitions = qualModelPlugin.getListOfTransitions();
-			listOfCompartments = sbmlModel.getListOfCompartments();
+		}
+		
+		if (sbmlModel.isSetPlugin("layout")){
+			sbmlLayoutModel = (LayoutModelPlugin) sbmlModel.getExtension("layout");
+			listOfLayouts = sbmlLayoutModel.getListOfLayouts();
 		}
 		
 		int numOfLayouts = 0;

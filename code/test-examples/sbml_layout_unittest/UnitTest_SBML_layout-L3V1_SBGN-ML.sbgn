@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <extension>
+        <sbfcanno:unitDefinition xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:name="">
+            <sbfcanno:kindSECOND sbfcanno:exponent="-1.0" sbfcanno:kind="SECOND" sbfcanno:multiplier="1.0" sbfcanno:scale="0"/>
+        </sbfcanno:unitDefinition>
+        <sbfcanno:unitDefinition xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:name="">
+            <sbfcanno:kindMOLE sbfcanno:exponent="-1.0" sbfcanno:kind="MOLE" sbfcanno:multiplier="1.0" sbfcanno:scale="0"/>
+            <sbfcanno:kindLITRE sbfcanno:exponent="1.0" sbfcanno:kind="LITRE" sbfcanno:multiplier="1.0" sbfcanno:scale="0"/>
+            <sbfcanno:kindSECOND sbfcanno:exponent="-1.0" sbfcanno:kind="SECOND" sbfcanno:multiplier="1.0" sbfcanno:scale="0"/>
+        </sbfcanno:unitDefinition>
+    </extension>
+    <map>
+        <glyph class="compartment" id="CompartmentGlyph_cytosol">
+            <bbox w="590.0" h="120.0" x="5.0" y="5.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="sGlyph_0">
+            <label text="E"/>
+            <bbox w="62.0" h="40.0" x="16.0" y="18.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="sGlyph_1">
+            <label text="S"/>
+            <bbox w="62.0" h="40.0" x="16.0" y="68.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="sGlyph_2">
+            <label text="ES"/>
+            <bbox w="62.0" h="40.0" x="161.0" y="18.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="sGlyph_3">
+            <label text="E"/>
+            <bbox w="62.0" h="40.0" x="300.0" y="18.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="sGlyph_4">
+            <label text="P"/>
+            <bbox w="62.0" h="40.0" x="300.0" y="68.0"/>
+        </glyph>
+        <arc class="consumption" source="sGlyph_3" target="Port_E_veq">
+            <start x="80.0" y="38.0"/>
+            <end x="118.0" y="60.0"/>
+        </arc>
+        <arc class="consumption" source="sGlyph_1" target="Port_S_veq">
+            <start x="80.0" y="88.0"/>
+            <end x="118.0" y="60.0"/>
+        </arc>
+        <arc class="production" source="Port_veq_ES" target="sGlyph_2">
+            <start x="128.0" y="60.0"/>
+            <end x="161.0" y="38.0"/>
+        </arc>
+        <arc class="consumption" source="sGlyph_3" target="Port_E_vcat">
+            <start x="223.0" y="38.0"/>
+            <end x="240.0" y="60.0"/>
+        </arc>
+        <arc class="production" source="Port_vcat_P" target="sGlyph_4">
+            <start x="250.0" y="60.0"/>
+            <end x="300.0" y="38.0"/>
+        </arc>
+        <arc class="production" source="Port_vcat_null">
+            <start x="250.0" y="60.0"/>
+            <end x="300.0" y="88.0"/>
+        </arc>
+        <arcgroup>
+            <extension>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <apply>
+    <times/>
+    <ci> cytosol </ci>
+    <apply>
+      <minus/>
+      <apply>
+        <times/>
+        <ci> kon </ci>
+        <ci> E </ci>
+        <ci> S </ci>
+      </apply>
+      <apply>
+        <times/>
+        <ci> koff </ci>
+        <ci> ES </ci>
+      </apply>
+    </apply>
+  </apply>
+</math>
+            </extension>
+            <glyph class="process" id="veq">
+                <bbox w="2.5" h="2.5" x="125.5" y="58.75"/>
+                <port id="Port_E_veq" x="118.0" y="60.0"/>
+                <port id="Port_S_veq" x="118.0" y="60.0"/>
+                <port id="Port_veq_ES" x="128.0" y="60.0"/>
+            </glyph>
+            <arc class="unknown influence" id="veq_Curve">
+                <start x="118.0" y="60.0"/>
+                <end x="128.0" y="60.0"/>
+            </arc>
+        </arcgroup>
+        <arcgroup>
+            <extension>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <apply>
+    <times/>
+    <ci> cytosol </ci>
+    <ci> kcat </ci>
+    <ci> ES </ci>
+  </apply>
+</math>
+            </extension>
+            <glyph class="process" id="vcat">
+                <bbox w="2.5" h="2.5" x="247.5" y="58.75"/>
+                <port id="Port_E_vcat" x="240.0" y="60.0"/>
+                <port id="Port_vcat_P" x="250.0" y="60.0"/>
+                <port id="Port_vcat_null" x="250.0" y="60.0"/>
+            </glyph>
+            <arc class="unknown influence" id="vcat_Curve">
+                <start x="240.0" y="60.0"/>
+                <end x="250.0" y="60.0"/>
+            </arc>
+        </arcgroup>
+    </map>
+</sbgn>
