@@ -24,6 +24,7 @@ import org.sbgn.bindings.Glyph;
 import org.sbgn.bindings.Label;
 import org.sbgn.bindings.SBGNBase;
 import org.sbgn.bindings.SBGNBase.Extension;
+import org.sbgn.bindings.Sbgn;
 import org.sbml.jsbml.Annotation;
 import org.sbml.jsbml.CVTerm;
 import org.sbml.jsbml.ListOf;
@@ -41,6 +42,8 @@ import org.sbml.jsbml.ext.layout.Point;
 import org.sbml.jsbml.ext.layout.ReactionGlyph;
 import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceRole;
+import org.sbml.jsbml.ext.qual.FunctionTerm;
+import org.sbml.jsbml.ext.qual.Transition;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.InputSource;
@@ -54,6 +57,7 @@ public class SBML2SBGNMLUtil {
 	private static final String SBFCANNO_PREFIX = "sbfcanno";
 	public static final String SBFC_ANNO_NAMESPACE = "http://www.sbfc.org/sbfcanno";
 	Document document = null;
+	DocumentBuilder builder = null;
 
 	SBML2SBGNMLUtil() {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -64,6 +68,17 @@ public class SBML2SBGNMLUtil {
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		
+	    DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+	    builderFactory.setNamespaceAware(false);       // Set namespace aware
+	    builderFactory.setValidating(false);           // and validating parser features
+	    builderFactory.setIgnoringElementContentWhitespace(false);   
+
+		try {
+			builder = builderFactory.newDocumentBuilder();  // Create the parser
+		} catch(ParserConfigurationException exception) {
+			exception.printStackTrace();
 		}
 	}
 	
@@ -627,6 +642,51 @@ public class SBML2SBGNMLUtil {
 		
 	}
 	
+	public void addMathMLInExtension(Sbgn base, Transition tr, FunctionTerm ft) {
+		String elementString = ft.getMathMLString();
+		System.out.println(elementString);
+		// we want to get rid of the "<?xml version='1.0' encoding='UTF-8'?>" before MathML
+		String segments[] = elementString.split("math");
+		try{ elementString = "<math" + segments[1] + "math>";}
+		catch(Exception e){return;}
+		System.out.println("after "+elementString);
+		
+		
+		// ... and add it as extension for the SBGN-ML glyph
+		Extension ex = new Extension();
+
+		// if the Extension exists already
+		if ( base.getExtension() != null ) {
+			ex = base.getExtension();
+		}
+		
+		Document xmlDoc = null;
+		
+		try {
+			xmlDoc = builder.parse(new InputSource(new StringReader(elementString)));
+
+		} catch(SAXException exception) {
+			exception.printStackTrace();
+
+		} catch(IOException exception) {
+			exception.printStackTrace();
+		}
+		
+		// finally we have our dom element
+		Element e = xmlDoc.getDocumentElement();
+		
+		e.setAttribute(SBFCANNO_PREFIX + ":transition", tr.getId());
+		e.setAttribute(SBFCANNO_PREFIX + ":functionTerm", Integer.toString(ft.getResultLevel()));
+		e.setAttribute("xmlns:" + SBFCANNO_PREFIX, SBFC_ANNO_NAMESPACE);
+
+		
+		// fill the list<Element> of Extension with our dom element
+		ex.getAny().add(e);
+
+		// set the Extension for the SBGNBase
+		base.setExtension(ex);		
+	}	
+	
 	/**
 	 * Create a mere XML schema for an annotation.
 	 * 
@@ -688,5 +748,7 @@ public class SBML2SBGNMLUtil {
 		// set the Extension for the SBGNBase
 		base.setExtension(ex);
 		
-	}		
+	}
+
+	
 }

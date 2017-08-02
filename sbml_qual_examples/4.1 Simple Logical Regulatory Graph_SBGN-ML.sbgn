@@ -1,5 +1,67 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <extension>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:functionTerm="1" sbfcanno:transition="tr_B">
+  <apply>
+    <geq/>
+    <ci> A </ci>
+    <ci> theta_B_A </ci>
+  </apply>
+</math>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:functionTerm="2" sbfcanno:transition="tr_A">
+  <apply>
+    <or/>
+    <apply>
+      <and/>
+      <apply>
+        <geq/>
+        <ci> A </ci>
+        <ci> theta_A_A1 </ci>
+      </apply>
+      <apply>
+        <lt/>
+        <ci> A </ci>
+        <ci> theta_A_A2 </ci>
+      </apply>
+    </apply>
+    <apply>
+      <and/>
+      <apply>
+        <geq/>
+        <ci> C </ci>
+        <ci> theta_A_C </ci>
+      </apply>
+      <apply>
+        <geq/>
+        <ci> A </ci>
+        <ci> theta_A_A1 </ci>
+      </apply>
+    </apply>
+  </apply>
+</math>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:functionTerm="1" sbfcanno:transition="tr_A">
+  <apply>
+    <and/>
+    <apply>
+      <lt/>
+      <ci> A </ci>
+      <ci> theta_A_A1 </ci>
+    </apply>
+    <apply>
+      <geq/>
+      <ci> C </ci>
+      <ci> theta_A_C </ci>
+    </apply>
+  </apply>
+</math>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:functionTerm="1" sbfcanno:transition="tr_C">
+  <apply>
+    <geq/>
+    <ci> B </ci>
+    <ci> theta_C_B </ci>
+  </apply>
+</math>
+    </extension>
     <map>
         <glyph class="unspecified entity" id="sGlyph_A">
             <label text="A"/>

@@ -59,7 +59,9 @@ import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceRole;
 import org.sbml.jsbml.ext.layout.TextGlyph;
+import org.sbml.jsbml.ext.qual.FunctionTerm;
 import org.sbml.jsbml.ext.qual.QualitativeSpecies;
+import org.sbml.jsbml.ext.qual.Transition;
 import org.xml.sax.SAXException;
 
 public class SBML2SBGNML_GSOC2017 extends GeneralConverter { 
@@ -102,6 +104,10 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		
 		createExtensionsForMathML();
 		
+		if (sOutput.listOfQualitativeSpecies != null){
+			createExtensionsForQualMathML();
+		}
+		
 		// return one sbgnObject
 		return sOutput.sbgnObject;		
 	}
@@ -124,11 +130,22 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		
 		for (UnitDefinition ud: listOfUnitDefinitions){
 			sUtil.addSbaseInExtension(sOutput.sbgnObject, ud);
-			System.out.println("got here");
 		}
 		
 		// todo add the rest
+			
+	}
+	
+	public void createExtensionsForQualMathML(){
+		ListOf<QualitativeSpecies> listOfQualitativeSpecies = null;
+		ListOf<Transition> listOfTransitions = null;
+		listOfTransitions = sOutput.listOfTransitions;
 		
+		for (Transition tr: listOfTransitions){
+			for (FunctionTerm ft: tr.getListOfFunctionTerms()){
+				sUtil.addMathMLInExtension(sOutput.sbgnObject, tr, ft);
+			}
+		}		
 	}
 		
 	/**
@@ -646,6 +663,8 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 					+ "An example of relative path: /examples/sbml_layout_examples/GeneralGlyph_Example.xml");
 		}
 
+		// "/test-examples/sbml_layout_unittest/UnitTest_SBML_layout-L3V1.xml"
+		
 		String workingDirectory = System.getProperty("user.dir");
 
 		sbmlFileNameInput = args[0];
