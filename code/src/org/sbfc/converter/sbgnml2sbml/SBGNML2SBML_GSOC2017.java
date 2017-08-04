@@ -41,7 +41,6 @@ import org.sbfc.converter.exceptions.ReadModelException;
 import org.sbfc.converter.models.GeneralModel;
 import org.sbfc.converter.sbgnml2sbml.qual.SWrapperQualitativeSpecies;
 import org.sbfc.converter.sbgnml2sbml.qual.SWrapperTransition;
-import org.sbfc.converter.sbgnml2sbml.qual.FunctionTermMath;
 
 /**
  * The SBGNML2SBML_GSOC2017 class is the primary converter. 
