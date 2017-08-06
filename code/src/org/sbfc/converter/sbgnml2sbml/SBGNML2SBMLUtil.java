@@ -294,13 +294,13 @@ public class SBGNML2SBMLUtil {
 		Bbox bbox;
 		
 		curve = new Curve();
-		curveSegment = new LineSegment();
+		//curveSegment = new LineSegment();
 		bbox = glyph.getBbox();
 		point = new Point(bbox.getX(), bbox.getY());
-		curveSegment.setStart(point);
+		//curveSegment.setStart(point);
 		point = new Point(bbox.getX()+bbox.getW(), bbox.getY()+bbox.getH());
-		curveSegment.setEnd(point);
-		curve.addCurveSegment(curveSegment);
+		//curveSegment.setEnd(point);
+		//curve.addCurveSegment(curveSegment);
 		reactionGlyph.setCurve(curve);		
 	}
 		

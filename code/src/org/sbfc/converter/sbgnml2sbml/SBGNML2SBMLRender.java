@@ -143,6 +143,16 @@ public class SBGNML2SBMLRender {
 		}	
 	}
 	
+	public void renderTextGlyphs() {
+		
+		for (TextGlyph tg : sOutput.layout.getListOfTextGlyphs()){
+
+			LocalStyle localStyle = createStyle(tg, "text");
+
+		}		
+		
+	}
+	
 	public void addCloneText(LocalStyle localStyle, SpeciesGlyph speciesGlyph, String cloneText) {
 		// the 0 and 80 is not used?
 		Text text = createText(0, 80, false, false);
@@ -286,11 +296,14 @@ public class SBGNML2SBMLRender {
 		
 		// todo: horizontal or vertical?
 		if (clazz.equals("or")){
-			//image.setHref("or-glyph.png");	
+			//image.setHref("or-glyph.png");
+			return "or";
 		} else if (clazz.equals("and")){
 			//image.setHref("and-glyph.png");
+			return "and";
 		} else if (clazz.equals("not")){
 			//image.setHref("not-glyph.png");
+			return "not";
 		} 
 		
 		else if (clazz.equals("process")){
@@ -358,15 +371,18 @@ public class SBGNML2SBMLRender {
 		} else if (clazz.equals("nucleic acid feature multimer")){
 			return "SBO0000354multimer";
 		} else if (clazz.equals("complex multimer")){
-			return "";
+			return "SBO0000253multimer";
 		}
 		
 		else if (clazz.equals("unit of information")){
 			//image.setHref("unit-of-information-glyph.png");
+			return "unitofinfo";
 		} else if (clazz.equals("cardinality")){
 			//image.setHref("unit-of-information-glyph.png");
+			return "unitofinfo";
 		} else if (clazz.equals("state variable")){
 			//image.setHref("state-variable-glyph.png");
+			return "statevar";
 		} 
 		
 		else if (clazz.equals("compartment")){
@@ -417,6 +433,11 @@ public class SBGNML2SBMLRender {
 			//LineEnding lineEnding = sOutput.listOfLineEndings.get("productionHead");
 			//renderGroup.setEndHead("productionHead");		
 			return "SBO0000169";
+		}
+		
+		
+		else if (clazz.equals("text")){
+			return "defaultText";
 		}
 		
 //		return image;
@@ -480,5 +501,7 @@ public class SBGNML2SBMLRender {
 			System.out.println("[renderGeneralGlyphs] lineEnding "+lineEnding.getId());
 		}		
 	}
+
+
 
 }

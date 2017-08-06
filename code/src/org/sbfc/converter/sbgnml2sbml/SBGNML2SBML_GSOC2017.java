@@ -114,6 +114,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		sRender.renderSpeciesGlyphs();
 		sRender.renderReactionGlyphs();
 		sRender.renderGeneralGlyphs();
+		sRender.renderTextGlyphs();
 		
 		sOutput.completeModel();
 	}
@@ -629,65 +630,118 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			// we assume the last CurveSegment in this Curve touches the ReactionGlyph
 			int count = speciesReferenceGlyph.getCurve().getCurveSegmentCount();
 			curvePoint = speciesReferenceGlyph.getCurve().getCurveSegment(count - 1).getEnd();
+			sWrapperReactionGlyph.addStartPoint(curvePoint);
 			// update the Start Point of the ReactionGlyph
 			//reactionGlyphPoint = reactionGlyph.getCurve().getCurveSegment(0).getStart();
 		} else if (reactionGlyphPointType.equals("end")) {
 			curvePoint = speciesReferenceGlyph.getCurve().getCurveSegment(0).getStart();
+			sWrapperReactionGlyph.addEndPoint(curvePoint);
 			// update the End Point of the ReactionGlyph
 			//reactionGlyphPoint = reactionGlyph.getCurve().getCurveSegment(0).getEnd();			
 		}
 	
-		sWrapperReactionGlyph.addPoint(curvePoint);
 	}
 	
 	void setStartAndEndPointForCurve(SWrapperReactionGlyph sWrapperReactionGlyph){
 		int _nrows = sWrapperReactionGlyph.listOfEndPoints.size();
 		//System.out.println("setStartAndEndPointForCurve _nrows="+_nrows);
 		
-	     KMeans KM = new KMeans( sWrapperReactionGlyph.listOfEndPoints, null );
+//	     KMeans KM = new KMeans( sWrapperReactionGlyph.listOfEndPoints, null );
 	     
 	     System.out.println("setStartAndEndPointForCurve id="+sWrapperReactionGlyph.reactionId+" listOfEndPoints "+sWrapperReactionGlyph.listOfEndPoints.size());
 	     if (sWrapperReactionGlyph.listOfEndPoints.size() == 0){return;}
 	     
-	     KM.clustering(2, 10, null); // 2 clusters, maximum 10 iterations
-	     //KM.printResults();
-	     double[][] centroids = KM._centroids;
+//	     KM.clustering(2, 10, null); // 2 clusters, maximum 10 iterations
+//	     //KM.printResults();
+//	     double[][] centroids = KM._centroids;
+//	     
+//	     // assume only 1 CurveSegment for the Curve
+//	     Point start = sWrapperReactionGlyph.reactionGlyph.getCurve().getCurveSegment(0).getStart();
+//	     Point end = sWrapperReactionGlyph.reactionGlyph.getCurve().getCurveSegment(0).getEnd();
+//	     
+//	     // arbitrary assignment of values
+//	     start.setX(centroids[0][0]);
+//	     start.setY(centroids[0][1]);
+//	     end.setX(centroids[1][0]);
+//	     end.setY(centroids[1][1]);
 	     
-	     // assume only 1 CurveSegment for the Curve
-	     Point start = sWrapperReactionGlyph.reactionGlyph.getCurve().getCurveSegment(0).getStart();
-	     Point end = sWrapperReactionGlyph.reactionGlyph.getCurve().getCurveSegment(0).getEnd();
+	     ReactionGlyph reactionGlyph = sWrapperReactionGlyph.reactionGlyph;
 	     
-	     // arbitrary assignment of values
-	     start.setX(centroids[0][0]);
-	     start.setY(centroids[0][1]);
-	     end.setX(centroids[1][0]);
-	     end.setY(centroids[1][1]);
+	     Point topLeftPoint = reactionGlyph.getBoundingBox().getPosition();
+	     Point centerPoint = new Point();
+	     centerPoint.setX(topLeftPoint.getX() + reactionGlyph.getBoundingBox().getDimensions().getWidth()/2);
+	     centerPoint.setY(topLeftPoint.getY() + reactionGlyph.getBoundingBox().getDimensions().getHeight()/2);
+	    		 
+	     for (Point p : sWrapperReactionGlyph.listOfEndPoints){
+	    	 CurveSegment cs = new LineSegment();
+	    	 Point start = new Point();
+	    	 Point end = new Point(); 
+	    	 start.setX(centerPoint.getX());
+	    	 start.setY(centerPoint.getY());
+	    	 end.setX(p.getX());
+	    	 end.setY(p.getY());
+	    	 cs.setStart(start);
+	    	 cs.setEnd(end);
+	    	 reactionGlyph.getCurve().addCurveSegment(cs);
+	     }
+	     
+	     for (Point p : sWrapperReactionGlyph.listOfStartPoints){
+	    	 CurveSegment cs = new LineSegment();
+	    	 Point start = new Point();
+	    	 Point end = new Point(); 
+	    	 end.setX(centerPoint.getX());
+	    	 end.setY(centerPoint.getY());
+	    	 start.setX(p.getX());
+	    	 start.setY(p.getY());
+	    	 cs.setStart(start);
+	    	 cs.setEnd(end);
+	    	 reactionGlyph.getCurve().addCurveSegment(cs);
+	     }
 	}
 	
 	void setStartAndEndPointForCurve(List<Point> listOfEndPoints, GeneralGlyph generalGlyph){
 		int _nrows = listOfEndPoints.size();
 		//System.out.println("setStartAndEndPointForCurve _nrows="+_nrows);
 		
-	     KMeans KM = new KMeans( listOfEndPoints, null );
+//	     KMeans KM = new KMeans( listOfEndPoints, null );
 	     
 	     System.out.println("[] setStartAndEndPointForCurve id="+generalGlyph.getId()+" listOfEndPoints "+listOfEndPoints.size());
 	     if (listOfEndPoints.size() == 0){return;}
 	     
-	     KM.clustering(2, 10, null); // 2 clusters, maximum 10 iterations
-	     //KM.printResults();
-	     double[][] centroids = KM._centroids;
+//	     KM.clustering(2, 10, null); // 2 clusters, maximum 10 iterations
+//	     //KM.printResults();
+//	     double[][] centroids = KM._centroids;
 	     
 	     // assume only 1 CurveSegment for the Curve
-	     Point start = new Point();
-	     generalGlyph.getCurve().getCurveSegment(0).setStart(start);
-	     Point end = new Point(); 
-	     generalGlyph.getCurve().getCurveSegment(0).setEnd(end);
-	     
+//	     Point start = new Point();
+//	     generalGlyph.getCurve().getCurveSegment(0).setStart(start);
+//	     Point end = new Point(); 
+//	     generalGlyph.getCurve().getCurveSegment(0).setEnd(end);
+//	     
 	     // arbitrary assignment of values
-	     start.setX(centroids[0][0]);
-	     start.setY(centroids[0][1]);
-	     end.setX(centroids[1][0]);
-	     end.setY(centroids[1][1]);
+//	     start.setX(centroids[0][0]);
+//	     start.setY(centroids[0][1]);
+//	     end.setX(centroids[1][0]);
+//	     end.setY(centroids[1][1]);
+	     
+	     
+	     Point topLeftPoint = generalGlyph.getBoundingBox().getPosition();
+	     Point centerPoint = new Point();
+	     centerPoint.setX(topLeftPoint.getX() + generalGlyph.getBoundingBox().getDimensions().getWidth()/2);
+	     centerPoint.setY(topLeftPoint.getY() + generalGlyph.getBoundingBox().getDimensions().getHeight()/2);
+	    		 
+	     for (Point p : listOfEndPoints){
+	    	 CurveSegment cs = new LineSegment();
+	    	 Point start = new Point();
+	    	 Point end = new Point(); 
+	    	 start.setX(centerPoint.getX());
+	    	 start.setY(centerPoint.getY());
+	    	 end.setX(p.getX());
+	    	 end.setY(p.getY());
+	    	 cs.setStart(start);
+	    	 cs.setEnd(end);
+	    	 generalGlyph.getCurve().addCurveSegment(cs);
+	     }
 	}	
 	
 	

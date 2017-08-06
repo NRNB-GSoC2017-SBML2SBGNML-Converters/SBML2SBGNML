@@ -52,24 +52,20 @@
       </layout:boundingBox>
       <render:g stroke="black" stroke-width="0.001" fill="white">
         <render:polygon fill="ffffff" stroke="black" stroke-width="0.001" >
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="50%" y="0%" />
-              <layout:end x="100%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="50%" />
-              <layout:end x="50%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="50%" y="100%" />
-              <layout:end x="0%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="50%" />
-              <layout:end x="50%" y="0%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="50%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="50%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="50%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="50%" y="0%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:lineEnding>
@@ -82,24 +78,20 @@
       </layout:boundingBox>
       <render:g stroke="black" stroke-width="0.001" fill="black">
         <render:polygon fill="black">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="50%" y="0%" />
-              <layout:end x="100%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="50%" />
-              <layout:end x="50%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="50%" y="100%" />
-              <layout:end x="0%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="50%" />
-              <layout:end x="50%" y="0%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="50%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="50%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="50%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="50%" y="0%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:lineEnding>
@@ -111,32 +103,27 @@
       </layout:boundingBox>
       <render:g stroke="black" stroke-width="0.001" fill="white">
         <render:polygon fill="white">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="0%" />
-              <layout:end x="0%" y="100%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+            
+          </render:listOfElements>
         </render:polygon>           
        <render:polygon fill="white">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="30%" y="20%" />
-              <layout:end x="100%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="50%" />
-              <layout:end x="30%" y="90%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="30%" y="90%" />
-              <layout:end x="33%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="33%" y="50%" />
-              <layout:end x="30%" y="20%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="30%" y="20%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="30%" y="90%" />
+            
+            <render:element xsi:type="RenderPoint" x="30%" y="90%" />
+              <render:element xsi:type="RenderPoint" x="33%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="33%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="30%" y="20%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:lineEnding>
@@ -148,24 +135,20 @@
       </layout:boundingBox>
       <render:g stroke="black" stroke-width="0.001" fill="white">
         <render:polygon fill="white">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="0%" />
-              <layout:end x="100%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="50%" />
-              <layout:end x="0%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="100%" />
-              <layout:end x="33%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="33%" y="50%" />
-              <layout:end x="0%" y="0%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="33%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="33%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:lineEnding>
@@ -177,24 +160,20 @@
       </layout:boundingBox>
       <render:g stroke="black" stroke-width="0.001" fill="white">
         <render:polygon fill="white">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="0%" />
-              <layout:end x="100%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="50%" />
-              <layout:end x="0%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="100%" />
-              <layout:end x="0%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="50%" />
-              <layout:end x="0%" y="0%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:lineEnding>
@@ -206,24 +185,20 @@
       </layout:boundingBox>
       <render:g stroke="black" stroke-width="0.001" fill="black">
         <render:polygon fill="black">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="0%" />
-              <layout:end x="100%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="50%" />
-              <layout:end x="0%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="100%" />
-              <layout:end x="33%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="33%" y="50%" />
-              <layout:end x="0%" y="0%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="33%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="33%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:lineEnding>
@@ -280,24 +255,20 @@
       </layout:boundingBox>
       <render:g stroke="black" stroke-width="1" fill="white">
         <render:polygon>
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0" y="2.5" />
-              <layout:end x="2.5" y="5" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="2.5" y="5" />
-              <layout:end x="5" y="2.5" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="5" y="2.5" />
-              <layout:end x="2.5" y="0" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="2.5" y="0" />
-              <layout:end x="0" y="2.5" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0" y="2.5" />
+              <render:element xsi:type="RenderPoint" x="2.5" y="5" />
+            
+            <render:element xsi:type="RenderPoint" x="2.5" y="5" />
+              <render:element xsi:type="RenderPoint" x="5" y="2.5" />
+            
+            <render:element xsi:type="RenderPoint" x="5" y="2.5" />
+              <render:element xsi:type="RenderPoint" x="2.5" y="0" />
+            
+            <render:element xsi:type="RenderPoint" x="2.5" y="0" />
+              <render:element xsi:type="RenderPoint" x="0" y="2.5" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:lineEnding>
@@ -345,7 +316,7 @@
   
   <render:listOfStyles>
     <render:style roleList="defaultText" id="defaultText">
-      <render:g stroke="black" stroke-width="1" font-family="Verdana" font-size="10" font-weight="normal" font-style="normal" text-anchor="middle"></render:g>
+      <render:g stroke="black" stroke-width="1" font-family="Verdana" font-size="10" font-weight="normal" font-style="normal" text-anchor="middle" render:vtext-anchor="middle"></render:g>
     </render:style>
     <render:style roleList="substrate" id="substrate">
       <render:g stroke="black" stroke-width="2.0" />
@@ -385,36 +356,24 @@
       <!--Nucleic Acid Feature-->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="80%" />
-              <layout:end x="0%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="0%" />
-              <layout:end x="100%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="0%" />
-              <layout:end x="100%" y="80%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="80%" />
-              <layout:end x="80%" y="100%" />
-              <layout:basePoint1 x="100%" y="100%" />
-              <layout:basePoint2 x="100%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="80%" y="100%" />
-              <layout:end x="20%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="20%" y="100%" />
-              <layout:end x="0%" y="80%" />
-              <layout:basePoint1 x="0%" y="100%" />
-              <layout:basePoint2 x="0%" y="100%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="80%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="80%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="80%" y="100%"  render:basepoint1_x="100%" render:basepoint1_y="100%"  render:basepoint2_x="100%" render:basepoint2_y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="100%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="0%" y="80%"  render:basepoint1_x="0%" render:basepoint1_y="100%"  render:basepoint2_x="0%" render:basepoint2_y="100%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:style>
@@ -422,69 +381,45 @@
       <!--Nucleic Acid Feature Multimer-->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="5%" y="80%" />
-              <layout:end x="5%" y="5%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="5%" y="5%" />
-              <layout:end x="100%" y="5%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="5%" />
-              <layout:end x="100%" y="80%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="80%" />
-              <layout:end x="80%" y="100%" />
-              <layout:basePoint1 x="100%" y="100%" />
-              <layout:basePoint2 x="100%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="80%" y="100%" />
-              <layout:end x="20%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="20%" y="100%" />
-              <layout:end x="5%" y="80%" />
-              <layout:basePoint1 x="5%" y="100%" />
-              <layout:basePoint2 x="5%" y="100%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="5%" y="80%" />
+              <render:element xsi:type="RenderPoint" x="5%" y="5%" />
+            
+            <render:element xsi:type="RenderPoint" x="5%" y="5%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="5%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="5%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="80%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="80%" y="100%"  render:basepoint1_x="100%" render:basepoint1_y="100%"  render:basepoint2_x="100%" render:basepoint2_y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="100%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="5%" y="80%"  render:basepoint1_x="5%" render:basepoint1_y="100%"  render:basepoint2_x="5%" render:basepoint2_y="100%" />
+            
+          </render:listOfElements>
         </render:polygon>
 
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="80%" />
-              <layout:end x="0%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="0%" />
-              <layout:end x="95%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="95%" y="0%" />
-              <layout:end x="95%" y="80%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="95%" y="80%" />
-              <layout:end x="80%" y="95%" />
-              <layout:basePoint1 x="95%" y="95%" />
-              <layout:basePoint2 x="95%" y="95%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="80%" y="95%" />
-              <layout:end x="20%" y="95%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="20%" y="95%" />
-              <layout:end x="0%" y="80%" />
-              <layout:basePoint1 x="0%" y="95%" />
-              <layout:basePoint2 x="0%" y="95%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="80%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="95%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="95%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="95%" y="80%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="80%" y="95%"  render:basepoint1_x="95%" render:basepoint1_y="95%"  render:basepoint2_x="95%" render:basepoint2_y="95%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="95%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="95%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="0%" y="80%"  render:basepoint1_x="0%" render:basepoint1_y="95%"  render:basepoint2_x="0%" render:basepoint2_y="95%" />
+            
+          </render:listOfElements>
         </render:polygon>
 
         
@@ -494,68 +429,44 @@
       <!--Cloned Nucleic Acid Feature-->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="80%" />
-              <layout:end x="0%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="0%" />
-              <layout:end x="100%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="0%" />
-              <layout:end x="100%" y="80%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="80%" />
-              <layout:end x="80%" y="100%" />
-              <layout:basePoint1 x="100%" y="100%" />
-              <layout:basePoint2 x="100%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="80%" y="100%" />
-              <layout:end x="20%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="20%" y="100%" />
-              <layout:end x="0%" y="80%" />
-              <layout:basePoint1 x="0%" y="100%" />
-              <layout:basePoint2 x="0%" y="100%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="80%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="80%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="80%" y="100%"  render:basepoint1_x="100%" render:basepoint1_y="100%"  render:basepoint2_x="100%" render:basepoint2_y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="100%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="0%" y="80%"  render:basepoint1_x="0%" render:basepoint1_y="100%"  render:basepoint2_x="0%" render:basepoint2_y="100%" />
+            
+          </render:listOfElements>
         </render:polygon>
         <render:polygon fill="cloneMarker">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="80%" />
-              <layout:end x="0%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="0%" />
-              <layout:end x="100%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="0%" />
-              <layout:end x="100%" y="80%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="80%" />
-              <layout:end x="80%" y="100%" />
-              <layout:basePoint1 x="100%" y="100%" />
-              <layout:basePoint2 x="100%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="80%" y="100%" />
-              <layout:end x="20%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="20%" y="100%" />
-              <layout:end x="0%" y="80%" />
-              <layout:basePoint1 x="0%" y="100%" />
-              <layout:basePoint2 x="0%" y="100%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="80%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="80%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="80%" y="100%"  render:basepoint1_x="100%" render:basepoint1_y="100%"  render:basepoint2_x="100%" render:basepoint2_y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="100%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="0%" y="80%"  render:basepoint1_x="0%" render:basepoint1_y="100%"  render:basepoint2_x="0%" render:basepoint2_y="100%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:style>
@@ -563,132 +474,84 @@
       <!--Nucleic Acid Feature Multimer-->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="5%" y="80%" />
-              <layout:end x="5%" y="5%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="5%" y="5%" />
-              <layout:end x="100%" y="5%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="5%" />
-              <layout:end x="100%" y="80%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="80%" />
-              <layout:end x="80%" y="100%" />
-              <layout:basePoint1 x="100%" y="100%" />
-              <layout:basePoint2 x="100%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="80%" y="100%" />
-              <layout:end x="20%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="20%" y="100%" />
-              <layout:end x="5%" y="80%" />
-              <layout:basePoint1 x="5%" y="100%" />
-              <layout:basePoint2 x="5%" y="100%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="5%" y="80%" />
+              <render:element xsi:type="RenderPoint" x="5%" y="5%" />
+            
+            <render:element xsi:type="RenderPoint" x="5%" y="5%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="5%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="5%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="80%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="80%" y="100%"  render:basepoint1_x="100%" render:basepoint1_y="100%"  render:basepoint2_x="100%" render:basepoint2_y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="100%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="5%" y="80%"  render:basepoint1_x="5%" render:basepoint1_y="100%"  render:basepoint2_x="5%" render:basepoint2_y="100%" />
+            
+          </render:listOfElements>
         </render:polygon>
         <render:polygon fill="cloneMarker">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="5%" y="80%" />
-              <layout:end x="5%" y="5%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="5%" y="5%" />
-              <layout:end x="100%" y="5%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="5%" />
-              <layout:end x="100%" y="80%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="80%" />
-              <layout:end x="80%" y="100%" />
-              <layout:basePoint1 x="100%" y="100%" />
-              <layout:basePoint2 x="100%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="80%" y="100%" />
-              <layout:end x="20%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="20%" y="100%" />
-              <layout:end x="5%" y="80%" />
-              <layout:basePoint1 x="5%" y="100%" />
-              <layout:basePoint2 x="5%" y="100%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="5%" y="80%" />
+              <render:element xsi:type="RenderPoint" x="5%" y="5%" />
+            
+            <render:element xsi:type="RenderPoint" x="5%" y="5%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="5%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="5%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="80%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="80%" y="100%"  render:basepoint1_x="100%" render:basepoint1_y="100%"  render:basepoint2_x="100%" render:basepoint2_y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="100%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="5%" y="80%"  render:basepoint1_x="5%" render:basepoint1_y="100%"  render:basepoint2_x="5%" render:basepoint2_y="100%" />
+            
+          </render:listOfElements>
         </render:polygon>
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="80%" />
-              <layout:end x="0%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="0%" />
-              <layout:end x="95%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="95%" y="0%" />
-              <layout:end x="95%" y="80%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="95%" y="80%" />
-              <layout:end x="80%" y="95%" />
-              <layout:basePoint1 x="95%" y="95%" />
-              <layout:basePoint2 x="95%" y="95%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="80%" y="95%" />
-              <layout:end x="20%" y="95%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="20%" y="95%" />
-              <layout:end x="0%" y="80%" />
-              <layout:basePoint1 x="0%" y="95%" />
-              <layout:basePoint2 x="0%" y="95%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="80%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="95%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="95%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="95%" y="80%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="80%" y="95%"  render:basepoint1_x="95%" render:basepoint1_y="95%"  render:basepoint2_x="95%" render:basepoint2_y="95%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="95%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="95%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="0%" y="80%"  render:basepoint1_x="0%" render:basepoint1_y="95%"  render:basepoint2_x="0%" render:basepoint2_y="95%" />
+            
+          </render:listOfElements>
         </render:polygon>
         <render:polygon fill="cloneMarker">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="80%" />
-              <layout:end x="0%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="0%" />
-              <layout:end x="95%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="95%" y="0%" />
-              <layout:end x="95%" y="80%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="95%" y="80%" />
-              <layout:end x="80%" y="95%" />
-              <layout:basePoint1 x="95%" y="95%" />
-              <layout:basePoint2 x="95%" y="95%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="80%" y="95%" />
-              <layout:end x="20%" y="95%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="20%" y="95%" />
-              <layout:end x="0%" y="80%" />
-              <layout:basePoint1 x="0%" y="95%" />
-              <layout:basePoint2 x="0%" y="95%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="80%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="95%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="95%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="95%" y="80%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="80%" y="95%"  render:basepoint1_x="95%" render:basepoint1_y="95%"  render:basepoint2_x="95%" render:basepoint2_y="95%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="95%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="95%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="0%" y="80%"  render:basepoint1_x="0%" render:basepoint1_y="95%"  render:basepoint2_x="0%" render:basepoint2_y="95%" />
+            
+          </render:listOfElements>
         </render:polygon>
 
 
@@ -790,16 +653,16 @@
       <!-- Source / Sink  -->
       <render:g stroke="EmptySetOutline" stroke-width="1.25" fill="EmptySetGradient">
         <render:ellipse cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
-        <render:g>
-          <layout:curve>
-            <layout:listOfCurveSegments>
-              <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <layout:start x="0%" y="100%" />
-                <layout:end x="100%" y="0%" />
-              </layout:curveSegment>
-            </layout:listOfCurveSegments>
-          </layout:curve>
-        </render:g>
+        
+        <render:polygon stroke="black" stroke-width="2">
+            <render:listOfElements>
+
+                <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+                <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+              
+            </render:listOfElements>
+        </render:polygon>
+        
       </render:g>
     </render:style>
     
@@ -810,74 +673,58 @@
       <!-- Complex  -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="10" />
-              <layout:end x="10" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="10" y="0%" />
-              <layout:end x="-10+100%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="-10+100%" y="0%" />
-              <layout:end x="100%" y="10" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="10" />
-              <layout:end x="100%" y="-10+100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="-10+100%" />
-              <layout:end x="-10+100%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="-10+100%" y="100%" />
-              <layout:end x="10" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="10" y="100%" />
-              <layout:end x="0%" y="-10+100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="-10+100%" />
-              <layout:end x="0%" y="10" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
-          <!--<layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="10%" />
-              <layout:end x="10%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="10%" y="0%" />
-              <layout:end x="90%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="90%" y="0%" />
-              <layout:end x="100%" y="10%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="10%" />
-              <layout:end x="100%" y="90%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="90%" />
-              <layout:end x="90%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="90%" y="100%" />
-              <layout:end x="10%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="10%" y="100%" />
-              <layout:end x="0%" y="90%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="90%" />
-              <layout:end x="0%" y="10%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>-->
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="10" />
+              <render:element xsi:type="RenderPoint" x="10" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="10" y="0%" />
+              <render:element xsi:type="RenderPoint" x="-10+100%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="-10+100%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="10" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="10" />
+              <render:element xsi:type="RenderPoint" x="100%" y="-10+100%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="-10+100%" />
+              <render:element xsi:type="RenderPoint" x="-10+100%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="-10+100%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="10" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="10" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="-10+100%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="-10+100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="10" />
+            
+          </render:listOfElements>
+          <!--<render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="10%" />
+              <render:element xsi:type="RenderPoint" x="10%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="10%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="90%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="90%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="10%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="10%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="90%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="90%" />
+              <render:element xsi:type="RenderPoint" x="90%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="90%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="10%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="10%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="90%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="90%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="10%" />
+            
+          </render:listOfElements>-->
         </render:polygon>
       </render:g>
     </render:style>
@@ -885,76 +732,60 @@
       <!-- Complex Multimer -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="5%" y="15%" />
-              <layout:end x="15%" y="5%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="15%" y="5%" />
-              <layout:end x="90%" y="5%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="90%" y="5%" />
-              <layout:end x="100%" y="15%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="15%" />
-              <layout:end x="100%" y="90%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="90%" />
-              <layout:end x="90%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="90%" y="100%" />
-              <layout:end x="15%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="15%" y="100%" />
-              <layout:end x="5%" y="90%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="5%" y="90%" />
-              <layout:end x="5%" y="15%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="5%" y="15%" />
+              <render:element xsi:type="RenderPoint" x="15%" y="5%" />
+            
+            <render:element xsi:type="RenderPoint" x="15%" y="5%" />
+              <render:element xsi:type="RenderPoint" x="90%" y="5%" />
+            
+            <render:element xsi:type="RenderPoint" x="90%" y="5%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="15%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="15%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="90%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="90%" />
+              <render:element xsi:type="RenderPoint" x="90%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="90%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="15%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="15%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="5%" y="90%" />
+            
+            <render:element xsi:type="RenderPoint" x="5%" y="90%" />
+              <render:element xsi:type="RenderPoint" x="5%" y="15%" />
+            
+          </render:listOfElements>
         </render:polygon>
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="10%" />
-              <layout:end x="10%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="10%" y="0%" />
-              <layout:end x="85%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="85%" y="0%" />
-              <layout:end x="95%" y="10%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="95%" y="10%" />
-              <layout:end x="95%" y="85%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="95%" y="85%" />
-              <layout:end x="85%" y="95%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="85%" y="95%" />
-              <layout:end x="10%" y="95%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="10%" y="95%" />
-              <layout:end x="0%" y="85%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="85%" />
-              <layout:end x="0%" y="10%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="10%" />
+              <render:element xsi:type="RenderPoint" x="10%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="10%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="85%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="85%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="95%" y="10%" />
+            
+            <render:element xsi:type="RenderPoint" x="95%" y="10%" />
+              <render:element xsi:type="RenderPoint" x="95%" y="85%" />
+            
+            <render:element xsi:type="RenderPoint" x="95%" y="85%" />
+              <render:element xsi:type="RenderPoint" x="85%" y="95%" />
+            
+            <render:element xsi:type="RenderPoint" x="85%" y="95%" />
+              <render:element xsi:type="RenderPoint" x="10%" y="95%" />
+            
+            <render:element xsi:type="RenderPoint" x="10%" y="95%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="85%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="85%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="10%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:style>
@@ -962,76 +793,60 @@
       <!-- Cloned Complex  -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="10%" />
-              <layout:end x="10%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="10%" y="0%" />
-              <layout:end x="90%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="90%" y="0%" />
-              <layout:end x="100%" y="10%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="10%" />
-              <layout:end x="100%" y="90%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="90%" />
-              <layout:end x="90%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="90%" y="100%" />
-              <layout:end x="10%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="10%" y="100%" />
-              <layout:end x="0%" y="90%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="90%" />
-              <layout:end x="0%" y="10%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="10%" />
+              <render:element xsi:type="RenderPoint" x="10%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="10%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="90%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="90%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="10%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="10%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="90%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="90%" />
+              <render:element xsi:type="RenderPoint" x="90%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="90%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="10%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="10%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="90%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="90%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="10%" />
+            
+          </render:listOfElements>
         </render:polygon>
         <render:polygon fill="cloneMarker">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="10%" />
-              <layout:end x="10%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="10%" y="0%" />
-              <layout:end x="90%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="90%" y="0%" />
-              <layout:end x="100%" y="10%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="10%" />
-              <layout:end x="100%" y="90%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="90%" />
-              <layout:end x="90%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="90%" y="100%" />
-              <layout:end x="10%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="10%" y="100%" />
-              <layout:end x="0%" y="90%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="90%" />
-              <layout:end x="0%" y="10%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="10%" />
+              <render:element xsi:type="RenderPoint" x="10%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="10%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="90%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="90%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="10%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="10%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="90%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="90%" />
+              <render:element xsi:type="RenderPoint" x="90%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="90%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="10%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="10%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="90%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="90%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="10%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:style>
@@ -1039,148 +854,116 @@
       <!-- Cloned Complex Multimer -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="5%" y="15%" />
-              <layout:end x="15%" y="5%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="15%" y="5%" />
-              <layout:end x="90%" y="5%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="90%" y="5%" />
-              <layout:end x="100%" y="15%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="15%" />
-              <layout:end x="100%" y="90%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="90%" />
-              <layout:end x="90%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="90%" y="100%" />
-              <layout:end x="15%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="15%" y="100%" />
-              <layout:end x="5%" y="90%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="5%" y="90%" />
-              <layout:end x="5%" y="15%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="5%" y="15%" />
+              <render:element xsi:type="RenderPoint" x="15%" y="5%" />
+            
+            <render:element xsi:type="RenderPoint" x="15%" y="5%" />
+              <render:element xsi:type="RenderPoint" x="90%" y="5%" />
+            
+            <render:element xsi:type="RenderPoint" x="90%" y="5%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="15%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="15%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="90%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="90%" />
+              <render:element xsi:type="RenderPoint" x="90%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="90%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="15%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="15%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="5%" y="90%" />
+            
+            <render:element xsi:type="RenderPoint" x="5%" y="90%" />
+              <render:element xsi:type="RenderPoint" x="5%" y="15%" />
+            
+          </render:listOfElements>
         </render:polygon>
         <render:polygon fill="cloneMarker">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="5%" y="15%" />
-              <layout:end x="15%" y="5%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="15%" y="5%" />
-              <layout:end x="90%" y="5%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="90%" y="5%" />
-              <layout:end x="100%" y="15%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="15%" />
-              <layout:end x="100%" y="90%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="90%" />
-              <layout:end x="90%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="90%" y="100%" />
-              <layout:end x="15%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="15%" y="100%" />
-              <layout:end x="5%" y="90%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="5%" y="90%" />
-              <layout:end x="5%" y="15%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="5%" y="15%" />
+              <render:element xsi:type="RenderPoint" x="15%" y="5%" />
+            
+            <render:element xsi:type="RenderPoint" x="15%" y="5%" />
+              <render:element xsi:type="RenderPoint" x="90%" y="5%" />
+            
+            <render:element xsi:type="RenderPoint" x="90%" y="5%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="15%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="15%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="90%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="90%" />
+              <render:element xsi:type="RenderPoint" x="90%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="90%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="15%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="15%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="5%" y="90%" />
+            
+            <render:element xsi:type="RenderPoint" x="5%" y="90%" />
+              <render:element xsi:type="RenderPoint" x="5%" y="15%" />
+            
+          </render:listOfElements>
         </render:polygon>
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="10%" />
-              <layout:end x="10%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="10%" y="0%" />
-              <layout:end x="85%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="85%" y="0%" />
-              <layout:end x="95%" y="10%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="95%" y="10%" />
-              <layout:end x="95%" y="85%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="95%" y="85%" />
-              <layout:end x="85%" y="95%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="85%" y="95%" />
-              <layout:end x="10%" y="95%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="10%" y="95%" />
-              <layout:end x="0%" y="85%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="85%" />
-              <layout:end x="0%" y="10%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="10%" />
+              <render:element xsi:type="RenderPoint" x="10%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="10%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="85%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="85%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="95%" y="10%" />
+            
+            <render:element xsi:type="RenderPoint" x="95%" y="10%" />
+              <render:element xsi:type="RenderPoint" x="95%" y="85%" />
+            
+            <render:element xsi:type="RenderPoint" x="95%" y="85%" />
+              <render:element xsi:type="RenderPoint" x="85%" y="95%" />
+            
+            <render:element xsi:type="RenderPoint" x="85%" y="95%" />
+              <render:element xsi:type="RenderPoint" x="10%" y="95%" />
+            
+            <render:element xsi:type="RenderPoint" x="10%" y="95%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="85%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="85%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="10%" />
+            
+          </render:listOfElements>
         </render:polygon>
         <render:polygon fill="cloneMarker">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="10%" />
-              <layout:end x="10%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="10%" y="0%" />
-              <layout:end x="85%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="85%" y="0%" />
-              <layout:end x="95%" y="10%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="95%" y="10%" />
-              <layout:end x="95%" y="85%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="95%" y="85%" />
-              <layout:end x="85%" y="95%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="85%" y="95%" />
-              <layout:end x="10%" y="95%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="10%" y="95%" />
-              <layout:end x="0%" y="85%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="85%" />
-              <layout:end x="0%" y="10%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="10%" />
+              <render:element xsi:type="RenderPoint" x="10%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="10%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="85%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="85%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="95%" y="10%" />
+            
+            <render:element xsi:type="RenderPoint" x="95%" y="10%" />
+              <render:element xsi:type="RenderPoint" x="95%" y="85%" />
+            
+            <render:element xsi:type="RenderPoint" x="95%" y="85%" />
+              <render:element xsi:type="RenderPoint" x="85%" y="95%" />
+            
+            <render:element xsi:type="RenderPoint" x="85%" y="95%" />
+              <render:element xsi:type="RenderPoint" x="10%" y="95%" />
+            
+            <render:element xsi:type="RenderPoint" x="10%" y="95%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="85%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="85%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="10%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:style>
@@ -1190,32 +973,26 @@
       <!-- Perturbing Agent  -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="0%" />
-              <layout:end x="100%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="0%" />
-              <layout:end x="80%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="80%" y="50%" />
-              <layout:end x="100%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="100%" />
-              <layout:end x="0%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="100%" />
-              <layout:end x="20%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="20%" y="50%" />
-              <layout:end x="0%" y="0%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="80%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="20%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:style>
@@ -1223,60 +1000,48 @@
       <!-- Cloned Perturbing Agent  -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="0%" />
-              <layout:end x="100%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="0%" />
-              <layout:end x="80%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="80%" y="50%" />
-              <layout:end x="100%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="100%" />
-              <layout:end x="0%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="100%" />
-              <layout:end x="20%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="20%" y="50%" />
-              <layout:end x="0%" y="0%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="80%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="20%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+          </render:listOfElements>
         </render:polygon>
         <render:polygon fill="cloneMarker">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="0%" />
-              <layout:end x="100%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="0%" />
-              <layout:end x="80%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="80%" y="50%" />
-              <layout:end x="100%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="100%" />
-              <layout:end x="0%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="100%" />
-              <layout:end x="20%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="20%" y="50%" />
-              <layout:end x="0%" y="0%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="80%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="20%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:style>
@@ -1284,28 +1049,23 @@
       <!-- Tag  -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="0%" />
-              <layout:end x="75%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="75%" y="0%" />
-              <layout:end x="100%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="50%" />
-              <layout:end x="75%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="75%" y="100%" />
-              <layout:end x="0%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="100%" />
-              <layout:end x="0%" y="0%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="75%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="75%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="75%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="75%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:style>
@@ -1313,28 +1073,23 @@
       <!-- Tag  -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="0%" />
-              <layout:end x="75%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="75%" y="0%" />
-              <layout:end x="100%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="50%" />
-              <layout:end x="75%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="75%" y="100%" />
-              <layout:end x="0%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="100%" />
-              <layout:end x="0%" y="0%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="75%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="75%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="75%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="75%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:style>
@@ -1342,28 +1097,23 @@
       <!-- Tag  -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="25%" />
-              <layout:end x="50%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="50%" y="0%" />
-              <layout:end x="100%" y="25%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="25%" />
-              <layout:end x="100%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="100%" />
-              <layout:end x="0%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="100%" />
-              <layout:end x="0%" y="25%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="25%" />
+              <render:element xsi:type="RenderPoint" x="50%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="50%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="25%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="25%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="25%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:style>
@@ -1371,28 +1121,23 @@
       <!-- Tag  -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="0%" />
-              <layout:end x="100%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="0%" />
-              <layout:end x="100%" y="75%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="75%" />
-              <layout:end x="50%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="50%" y="100%" />
-              <layout:end x="0%" y="75%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="75%" />
-              <layout:end x="0%" y="0%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="75%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="75%" />
+              <render:element xsi:type="RenderPoint" x="50%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="50%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="75%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="75%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:style>
@@ -1400,28 +1145,23 @@
       <!-- Tag  -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="25%" y="0%" />
-              <layout:end x="100%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="0%" />
-              <layout:end x="100%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="100%" />
-              <layout:end x="25%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="25%" y="100%" />
-              <layout:end x="0%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="50%" />
-              <layout:end x="25%" y="0%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="25%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="25%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="25%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="25%" y="0%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:style>
@@ -1429,32 +1169,26 @@
       <!-- Observable  -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient" >
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="20%" y="0%" />
-              <layout:end x="80%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="80%" y="0%" />
-              <layout:end x="100%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="50%" />
-              <layout:end x="80%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="80%" y="100%" />
-              <layout:end x="20%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="20%" y="100%" />
-              <layout:end x="0%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="50%" />
-              <layout:end x="20%" y="0%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="20%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="80%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="80%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="20%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="0%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:style>
@@ -1462,60 +1196,48 @@
       <!-- Cloned Observable  -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="20%" y="0%" />
-              <layout:end x="80%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="80%" y="0%" />
-              <layout:end x="100%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="50%" />
-              <layout:end x="80%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="80%" y="100%" />
-              <layout:end x="20%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="20%" y="100%" />
-              <layout:end x="0%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="50%" />
-              <layout:end x="20%" y="0%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="20%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="80%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="80%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="20%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="0%" />
+            
+          </render:listOfElements>
         </render:polygon>
         <render:polygon fill="cloneMarker">
-          <layout:listOfCurveSegments>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="20%" y="0%" />
-              <layout:end x="80%" y="0%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="80%" y="0%" />
-              <layout:end x="100%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="100%" y="50%" />
-              <layout:end x="80%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="80%" y="100%" />
-              <layout:end x="20%" y="100%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="20%" y="100%" />
-              <layout:end x="0%" y="50%" />
-            </layout:curveSegment>
-            <layout:curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <layout:start x="0%" y="50%" />
-              <layout:end x="20%" y="0%" />
-            </layout:curveSegment>
-          </layout:listOfCurveSegments>
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="20%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="80%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="80%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="20%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="0%" />
+            
+          </render:listOfElements>
         </render:polygon>
       </render:g>
     </render:style>    
@@ -1531,6 +1253,53 @@
         <render:rectangle x="0" y="0" width="100%" height="100%" rx="10%" ry="10%" />
       </render:g>
     </render:style>
+    
+    <render:style roleList="statevar" id="statevar">
+      <!-- State Variable  -->
+      <render:g stroke="black" stroke-width="2" >
+        <render:ellipse cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+      </render:g>
+    </render:style>
+    
+    <render:style roleList="unitofinfo" id="unitofinfo">
+      <!--Unit of Information-->
+      <render:g stroke="black" stroke-width="2" >
+        <render:polygon stroke="black" stroke-width="2" >
+          <render:listOfElements>
+
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+
+              <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+
+              <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+            
+          </render:listOfElements>
+        </render:polygon>
+      </render:g>
+    </render:style>    
+    
+    <render:style roleList="and" id="and">
+      <!-- And  -->
+      <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <render:ellipse cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+      </render:g>
+    </render:style>
+    <render:style roleList="not" id="not">
+      <!-- Not  -->
+      <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <render:ellipse cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+      </render:g>
+    </render:style>
+    <render:style roleList="or" id="or">
+      <!-- 	Or  -->
+      <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <render:ellipse cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+      </render:g>
+    </render:style>            
+    
   </render:listOfStyles>
 </render:renderInformation>
 

@@ -21,6 +21,7 @@ import org.sbml.jsbml.SBase;
 import org.sbml.jsbml.Species;
 import org.sbml.jsbml.ext.layout.BoundingBox;
 import org.sbml.jsbml.ext.layout.CompartmentGlyph;
+import org.sbml.jsbml.ext.layout.CurveSegment;
 import org.sbml.jsbml.ext.layout.Dimensions;
 import org.sbml.jsbml.ext.layout.GeneralGlyph;
 import org.sbml.jsbml.ext.layout.GraphicalObject;
@@ -40,6 +41,8 @@ import org.sbml.jsbml.ext.render.LineEnding;
 import org.sbml.jsbml.ext.render.ListOfLocalRenderInformation;
 import org.sbml.jsbml.ext.render.LocalRenderInformation;
 import org.sbml.jsbml.ext.render.LocalStyle;
+import org.sbml.jsbml.ext.render.Polygon;
+import org.sbml.jsbml.ext.render.Rectangle;
 import org.sbml.jsbml.ext.render.RenderConstants;
 import org.sbml.jsbml.ext.render.RenderGroup;
 import org.sbml.jsbml.ext.render.RenderLayoutPlugin;
@@ -358,9 +361,20 @@ public class SBGNML2SBMLOutput {
 				//System.out.println("storeTemplateLocalRenderInformation "+t2d.getClass().toString());
 				if (t2d instanceof Ellipse){
 					rgClone.addElement((Ellipse) t2d.clone());
+				} else if (t2d instanceof Rectangle) {
+					rgClone.addElement(t2d.clone());
+				} else if (t2d instanceof Polygon) {
+					Polygon polygon = (Polygon) t2d.clone();
+					ListOf<CurveSegment> curve_segs = polygon.getListOfCurveSegments();
+					if (curve_segs.size() > 0){
+						Point s = curve_segs.get(0).getStart();
+						Point e = curve_segs.get(0).getEnd();
+						System.out.println("Polygon " + le.getId() + ": " + s.getX() + s.getY() + e.getX() + e.getY());
+					}
+					rgClone.addElement(polygon);
 				} else {
 					rgClone.addElement(t2d.clone());
-				}	
+				}
 			}
 			
 			leClone.setGroup(rgClone);
@@ -374,7 +388,7 @@ public class SBGNML2SBMLOutput {
 			LocalStyle ls_clone = ls.clone();
 			ls_clone.setId(ls_clone.getId());
 			this.listOfStyles.add(ls_clone);
-			System.out.println("LocalStyle"+ls_clone.getRoleList().get(0));
+			//System.out.println("LocalStyle"+ls_clone.getRoleList().get(0));
 		}
 				
 //		System.out.println("storeTemplateLocalRenderInformation listOfColorDefinitions "+this.listOfColorDefinitions.size());

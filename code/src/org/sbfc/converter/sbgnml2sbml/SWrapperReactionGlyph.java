@@ -26,6 +26,7 @@ public class SWrapperReactionGlyph {
 	HashMap<String, SpeciesReferenceGlyph> speciesReferenceGlyphs = new HashMap<String, SpeciesReferenceGlyph>();
 	
 	List<Point> listOfEndPoints = new ArrayList<Point>();
+	List<Point> listOfStartPoints = new ArrayList<Point>();
 	
 	SWrapperModel sWrapperModel;
 	
@@ -63,7 +64,11 @@ public class SWrapperReactionGlyph {
 		return null;
 	}
 	
-	void addPoint(Point point) {
+	void addEndPoint(Point point) {
 		listOfEndPoints.add(point);
+	}
+	
+	void addStartPoint(Point point) {
+		listOfStartPoints.add(point);
 	}
 }
