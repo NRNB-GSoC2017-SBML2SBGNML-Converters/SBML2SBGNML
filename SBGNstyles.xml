@@ -1,0 +1,1534 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<renderInformation id="SBGN_default" programName="SBGN Default style" programVersion="1.0" xmlns="http://projects.eml.org/bcb/sbml/render/level2">
+  <listOfColorDefinitions>
+    <colorDefinition id="black" value="#000000" />
+    <colorDefinition id="white" value="#ffffff" />
+    <colorDefinition id="transparent" value="#ffffff00" />
+    <colorDefinition id="EmptySetOutline" value="#808080" />
+    <colorDefinition id="EmptySetGradientStart" value="#ffffff" />
+    <colorDefinition id="EmptySetGradientEnd" value="#d3d3d3" />
+    <colorDefinition id="CompartmentBorder" value="#666666" />
+    <colorDefinition id="CompartmentGradientStart" value="#CCCCCC" />
+    <colorDefinition id="CompartmentGradientEnd" value="#CCCCFF" />
+    <colorDefinition id="CloneMarkerColor" value="#ffa500" />
+    <colorDefinition id="EPNGradientStart" value="#ffffff" />
+    <colorDefinition id="EPNGradientEnd" value="#c0c0c0" />
+  </listOfColorDefinitions>
+  <listOfGradientDefinitions>
+    <linearGradient x1="0%" y1="0%" z1="0%" x2="100%" y2="100%" z2="100%" id="EPNBackgroundGradient" spreadMethod="pad">
+      <stop offset="0%" stop-color="EPNGradientStart" />
+      <stop offset="100%" stop-color="EPNGradientEnd" />
+    </linearGradient>
+    <linearGradient x1="50%" y1="0%" z1="0%" x2="50%" y2="100%" z2="100%" id="cloneMarker" spreadMethod="pad">
+      <stop offset="0.0" stop-color="transparent" />
+      <stop offset="0.75" stop-color="transparent" />
+      <stop offset="0.76" stop-color="CloneMarkerColor" />
+      <stop offset="1.0" stop-color="CloneMarkerColor" />
+    </linearGradient>
+    <linearGradient x1="0%" y1="0%" z1="0%" x2="100%" y2="100%" z2="100%" id="EmptySetGradient" spreadMethod="pad">
+      <stop offset="0%" stop-color="EmptySetGradientStart" />
+      <stop offset="100%" stop-color="EmptySetGradientEnd" />
+    </linearGradient>
+    <linearGradient x1="0%" y1="0%" z1="0%" x2="100%" y2="100%" z2="100%" id="CompartmentGradient" spreadMethod="pad">
+      <!--<stop offset="0%" stop-color="#ffdead" />
+      <stop offset="100%" stop-color="#ffebcd" />-->
+      <stop offset="0%" stop-color="CompartmentGradientStart" />
+      <stop offset="100%" stop-color="CompartmentGradientEnd" />
+    </linearGradient>
+  </listOfGradientDefinitions>
+  <listOfLineEndings>
+
+    <lineEnding id="modulation" enableRotationalMapping="true">
+      <boundingBox>
+        <position x="-12" y="-6" />
+        <dimensions width="12" height="12" />
+      </boundingBox>
+      <g stroke="black" stroke-width="0.001" fill="white">
+        <polygon fill="ffffff" stroke="black" stroke-width="0.001" >
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="50%" y="0%" />
+              <end x="100%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="50%" />
+              <end x="50%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="50%" y="100%" />
+              <end x="0%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="50%" />
+              <end x="50%" y="0%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </lineEnding>
+
+
+    <lineEnding id="modulation_black" enableRotationalMapping="true">
+      <boundingBox>
+        <position x="-12" y="-6" />
+        <dimensions width="12" height="12" />
+      </boundingBox>
+      <g stroke="black" stroke-width="0.001" fill="black">
+        <polygon fill="black">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="50%" y="0%" />
+              <end x="100%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="50%" />
+              <end x="50%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="50%" y="100%" />
+              <end x="0%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="50%" />
+              <end x="50%" y="0%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </lineEnding>
+
+    <lineEnding id="necessary_stimulation" enableRotationalMapping="true">
+      <boundingBox>
+        <position x="-12" y="-6" />
+        <dimensions width="12" height="12" />
+      </boundingBox>
+      <g stroke="black" stroke-width="0.001" fill="white">
+        <polygon fill="white">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="0%" />
+              <end x="0%" y="100%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>           
+       <polygon fill="white">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="30%" y="20%" />
+              <end x="100%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="50%" />
+              <end x="30%" y="90%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="30%" y="90%" />
+              <end x="33%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="33%" y="50%" />
+              <end x="30%" y="20%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </lineEnding>
+
+    <lineEnding id="old_stimulation" enableRotationalMapping="true">
+      <boundingBox>
+        <position x="-12" y="-6" />
+        <dimensions width="12" height="12" />
+      </boundingBox>
+      <g stroke="black" stroke-width="0.001" fill="white">
+        <polygon fill="white">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="0%" />
+              <end x="100%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="50%" />
+              <end x="0%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="100%" />
+              <end x="33%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="33%" y="50%" />
+              <end x="0%" y="0%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </lineEnding>
+    
+    <lineEnding id="stimulation" enableRotationalMapping="true">
+      <boundingBox>
+        <position x="-12" y="-6" />
+        <dimensions width="12" height="12" />
+      </boundingBox>
+      <g stroke="black" stroke-width="0.001" fill="white">
+        <polygon fill="white">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="0%" />
+              <end x="100%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="50%" />
+              <end x="0%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="100%" />
+              <end x="0%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="50%" />
+              <end x="0%" y="0%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </lineEnding>
+
+    <lineEnding id="product" enableRotationalMapping="true">
+      <boundingBox>
+        <position x="-12" y="-6" />
+        <dimensions width="12" height="12" />
+      </boundingBox>
+      <g stroke="black" stroke-width="0.001" fill="black">
+        <polygon fill="black">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="0%" />
+              <end x="100%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="50%" />
+              <end x="0%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="100%" />
+              <end x="33%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="33%" y="50%" />
+              <end x="0%" y="0%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </lineEnding>
+    <!--<lineEnding id="activator" enableRotationalMapping="true">
+      <boundingBox>
+        <position x="-1" y="-2.5" />
+        <dimensions width="5" height="5" />
+      </boundingBox>
+      <g stroke="black" stroke-width="1">
+        <ellipse stroke="black" stroke-width="1.0" cx="2.5" cy="2.5" cz="0.0" rx="2" ry="2" />
+      </g>
+    </lineEnding>-->
+    <lineEnding id="activator" enableRotationalMapping="true">
+      <boundingBox>
+        <position x="-12" y="-6" />
+        <dimensions width="12" height="12" />
+      </boundingBox>
+      <g stroke="black" stroke-width="1" fill="white">
+        <ellipse stroke="black" stroke-width="1.0" cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+      </g>
+    </lineEnding>
+    <lineEnding id="association" enableRotationalMapping="true">
+      <boundingBox>
+        <position x="-1" y="-2.5" />
+        <dimensions width="5" height="5" />
+      </boundingBox>
+      <g stroke="black" stroke-width="1" fill="black">
+        <ellipse stroke="black" stroke-width="1.0" cx="2.5" cy="2.5" cz="0.0" rx="2" ry="2" />
+      </g>
+    </lineEnding>
+    <lineEnding id="disassociation" enableRotationalMapping="true">
+      <boundingBox>
+        <position x="-1" y="-2.5" />
+        <dimensions width="5" height="5" />
+      </boundingBox>
+      <g stroke="black" stroke-width="1" fill="white">
+        <ellipse stroke="black" stroke-width="1.0" cx="2.5" cy="2.5" cz="0.0" rx="2" ry="2" />
+        <ellipse stroke="black" stroke-width="1.0" cx="2.5" cy="2.5" cz="0.0" rx="1" ry="1" />
+      </g>
+    </lineEnding>
+    <lineEnding id="process" enableRotationalMapping="true">
+      <boundingBox>
+        <position x="-4" y="-4" />
+        <dimensions width="8" height="8" />
+      </boundingBox>
+      <g stroke="black" stroke-width="1" fill="white">
+        <rectangle stroke="black" x="0%" y="0%" width="8" height="8" />
+      </g>
+    </lineEnding>
+    <lineEnding id="modifier" enableRotationalMapping="true">
+      <boundingBox>
+        <position x="0" y="-2.50" />
+        <dimensions width="5" height="5" />
+      </boundingBox>
+      <g stroke="black" stroke-width="1" fill="white">
+        <polygon>
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0" y="2.5" />
+              <end x="2.5" y="5" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="2.5" y="5" />
+              <end x="5" y="2.5" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="5" y="2.5" />
+              <end x="2.5" y="0" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="2.5" y="0" />
+              <end x="0" y="2.5" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </lineEnding>
+    <lineEnding id="inhibitor" enableRotationalMapping="true">
+      <boundingBox>
+        <position x="-0.5" y="-4" />
+        <dimensions width="0.6" height="8" />
+      </boundingBox>
+      <g stroke="black" stroke-width="0.1" fill="black">
+        <polygon>
+          <listOfElements>
+            <element xsi:type="RenderPoint"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" x="0.0" y="0.0"/>
+            <element xsi:type="RenderPoint"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" x="0.3" y="0.0"/>
+            <element xsi:type="RenderPoint" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  x="0.3" y="8.0"/>
+            <element xsi:type="RenderPoint"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" x="0.0" y="8.0"/>
+          </listOfElements>
+        </polygon>
+      </g>
+    </lineEnding>
+    <lineEnding id="absolute_inhibitor" enableRotationalMapping="true">
+      <boundingBox>
+        <position x="-2.5" y="-5" />
+        <dimensions width="5" height="10" />
+      </boundingBox>
+      <g stroke="black" stroke-width="0.1" fill="black">
+        <polygon stroke="black" stroke-width="0.1" >
+          <listOfElements>
+            <element xsi:type="RenderPoint"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" x="0.0" y="0.0"/>
+            <element xsi:type="RenderPoint"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" x="0.3" y="0.0"/>
+            <element xsi:type="RenderPoint" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  x="0.3" y="10.0"/>
+            <element xsi:type="RenderPoint"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" x="0.0" y="10.0"/>
+          </listOfElements>
+        </polygon>
+        <polygon stroke="black" stroke-width="0.1" >
+          <listOfElements>
+            <element xsi:type="RenderPoint"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" x="4.0" y="2.0"/>
+            <element xsi:type="RenderPoint"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" x="4.2" y="2.0"/>
+            <element xsi:type="RenderPoint" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  x="4.2" y="8.0"/>
+            <element xsi:type="RenderPoint"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" x="4.0" y="8.0"/>
+          </listOfElements>
+        </polygon>        
+      </g>
+    </lineEnding>
+  </listOfLineEndings>
+  <listOfStyles>
+    <style roleList="defaultText">
+      <g stroke="black" stroke-width="1" font-family="Verdana" font-size="10" font-weight="normal" font-style="normal" text-anchor="middle"></g>
+    </style>
+    <style roleList="substrate sidesubstrate">
+      <g stroke="black" stroke-width="2.0" />
+    </style>
+    <style roleList="SBO-0000167">
+      <g stroke="black" stroke-width="2.0" fill="white" endHead="process" />
+    </style>
+    <style roleList="SBO-0000177">
+      <g stroke="black" stroke-width="2.0" endHead="association" />
+    </style>
+    <style roleList="inhibitor inhibition SBO-0000169">
+      <g stroke="black" stroke-width="2.0" endHead="inhibitor" />
+    </style>
+    <style roleList="absolute_inhibitor absolute_inhibition SBO-0000169">
+      <g stroke="black" stroke-width="2.0" endHead="absolute_inhibitor" />
+    </style>
+    <style roleList="necessary_stimulation SBO-0000171">
+      <g stroke="black" stroke-width="2.0" endHead="necessary_stimulation" />
+    </style>
+    <style roleList="modifier SBO-0000168">
+      <g stroke="black" stroke-width="2.0" fill="white" endHead="modifier" />
+    </style>
+    <style roleList="catalysis activator SBO-0000172">
+      <g stroke="black" stroke-width="2.0" fill="white" endHead="activator" />
+    </style>
+    <style roleList="modulation SBO-0000168">
+      <g stroke="black" stroke-width="2.0" fill="white" endHead="modulation" />
+    </style>
+    <style roleList="stimulation SBO-0000170">
+      <g stroke="black" stroke-width="2.0" fill="white" endHead="stimulation" />
+    </style>
+    <style roleList="SBO-0000180">
+      <g stroke="black" stroke-width="2.0" endHead="disassociation" />
+    </style>
+    <style roleList="product sideproduct" typeList="product sideproduct">
+      <g stroke="black" stroke-width="2.0" endHead="product" />
+    </style>
+    <style roleList="interaction" >
+      <g stroke="black" stroke-width="2.0" endHead="product" startHead="product" />
+    </style>
+
+    <style roleList="SBO-0000354">
+      <!--Nucleic Acid Feature-->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="80%" />
+              <end x="0%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="0%" />
+              <end x="100%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="0%" />
+              <end x="100%" y="80%" />
+            </curveSegment>
+            <curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="80%" />
+              <end x="80%" y="100%" />
+              <basePoint1 x="100%" y="100%" />
+              <basePoint2 x="100%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="80%" y="100%" />
+              <end x="20%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="20%" y="100%" />
+              <end x="0%" y="80%" />
+              <basePoint1 x="0%" y="100%" />
+              <basePoint2 x="0%" y="100%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </style>
+    <style roleList="SBO-0000354-multimer">
+      <!--Nucleic Acid Feature Multimer-->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="5%" y="80%" />
+              <end x="5%" y="5%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="5%" y="5%" />
+              <end x="100%" y="5%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="5%" />
+              <end x="100%" y="80%" />
+            </curveSegment>
+            <curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="80%" />
+              <end x="80%" y="100%" />
+              <basePoint1 x="100%" y="100%" />
+              <basePoint2 x="100%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="80%" y="100%" />
+              <end x="20%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="20%" y="100%" />
+              <end x="5%" y="80%" />
+              <basePoint1 x="5%" y="100%" />
+              <basePoint2 x="5%" y="100%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="80%" />
+              <end x="0%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="0%" />
+              <end x="95%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="95%" y="0%" />
+              <end x="95%" y="80%" />
+            </curveSegment>
+            <curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="95%" y="80%" />
+              <end x="80%" y="95%" />
+              <basePoint1 x="95%" y="95%" />
+              <basePoint2 x="95%" y="95%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="80%" y="95%" />
+              <end x="20%" y="95%" />
+            </curveSegment>
+            <curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="20%" y="95%" />
+              <end x="0%" y="80%" />
+              <basePoint1 x="0%" y="95%" />
+              <basePoint2 x="0%" y="95%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+
+        
+      </g>
+    </style>
+    <style roleList="SBO-0000354-clone">
+      <!--Cloned Nucleic Acid Feature-->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="80%" />
+              <end x="0%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="0%" />
+              <end x="100%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="0%" />
+              <end x="100%" y="80%" />
+            </curveSegment>
+            <curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="80%" />
+              <end x="80%" y="100%" />
+              <basePoint1 x="100%" y="100%" />
+              <basePoint2 x="100%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="80%" y="100%" />
+              <end x="20%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="20%" y="100%" />
+              <end x="0%" y="80%" />
+              <basePoint1 x="0%" y="100%" />
+              <basePoint2 x="0%" y="100%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+        <polygon fill="cloneMarker">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="80%" />
+              <end x="0%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="0%" />
+              <end x="100%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="0%" />
+              <end x="100%" y="80%" />
+            </curveSegment>
+            <curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="80%" />
+              <end x="80%" y="100%" />
+              <basePoint1 x="100%" y="100%" />
+              <basePoint2 x="100%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="80%" y="100%" />
+              <end x="20%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="20%" y="100%" />
+              <end x="0%" y="80%" />
+              <basePoint1 x="0%" y="100%" />
+              <basePoint2 x="0%" y="100%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </style>
+    <style roleList="SBO-0000354-multimer-clone">
+      <!--Nucleic Acid Feature Multimer-->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="5%" y="80%" />
+              <end x="5%" y="5%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="5%" y="5%" />
+              <end x="100%" y="5%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="5%" />
+              <end x="100%" y="80%" />
+            </curveSegment>
+            <curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="80%" />
+              <end x="80%" y="100%" />
+              <basePoint1 x="100%" y="100%" />
+              <basePoint2 x="100%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="80%" y="100%" />
+              <end x="20%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="20%" y="100%" />
+              <end x="5%" y="80%" />
+              <basePoint1 x="5%" y="100%" />
+              <basePoint2 x="5%" y="100%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+        <polygon fill="cloneMarker">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="5%" y="80%" />
+              <end x="5%" y="5%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="5%" y="5%" />
+              <end x="100%" y="5%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="5%" />
+              <end x="100%" y="80%" />
+            </curveSegment>
+            <curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="80%" />
+              <end x="80%" y="100%" />
+              <basePoint1 x="100%" y="100%" />
+              <basePoint2 x="100%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="80%" y="100%" />
+              <end x="20%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="20%" y="100%" />
+              <end x="5%" y="80%" />
+              <basePoint1 x="5%" y="100%" />
+              <basePoint2 x="5%" y="100%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="80%" />
+              <end x="0%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="0%" />
+              <end x="95%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="95%" y="0%" />
+              <end x="95%" y="80%" />
+            </curveSegment>
+            <curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="95%" y="80%" />
+              <end x="80%" y="95%" />
+              <basePoint1 x="95%" y="95%" />
+              <basePoint2 x="95%" y="95%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="80%" y="95%" />
+              <end x="20%" y="95%" />
+            </curveSegment>
+            <curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="20%" y="95%" />
+              <end x="0%" y="80%" />
+              <basePoint1 x="0%" y="95%" />
+              <basePoint2 x="0%" y="95%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+        <polygon fill="cloneMarker">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="80%" />
+              <end x="0%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="0%" />
+              <end x="95%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="95%" y="0%" />
+              <end x="95%" y="80%" />
+            </curveSegment>
+            <curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="95%" y="80%" />
+              <end x="80%" y="95%" />
+              <basePoint1 x="95%" y="95%" />
+              <basePoint2 x="95%" y="95%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="80%" y="95%" />
+              <end x="20%" y="95%" />
+            </curveSegment>
+            <curveSegment xsi:type="CubicBezier" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="20%" y="95%" />
+              <end x="0%" y="80%" />
+              <basePoint1 x="0%" y="95%" />
+              <basePoint2 x="0%" y="95%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+
+
+      </g>
+    </style>
+
+
+    <style roleList="SBO-0000245">
+      <!-- Macromolecule -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <rectangle x="0%" y="0%" width="100%" height="100%" rx="10%" />
+      </g>
+    </style>
+    <style roleList="SBO-0000245-multimer">
+      <!-- Macromolecule Multimer-->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <rectangle x="5%" y="5%" width="95%" height="95%" rx="10%" />
+        <rectangle x="0%" y="0%" width="95%" height="95%" rx="10%" />
+      </g>      
+    </style>
+    <style roleList="SBO-0000245-clone">
+      <!-- Cloned Macromolecule -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <rectangle x="0%" y="0%" width="100%" height="100%" rx="10%" />
+        <rectangle fill="cloneMarker" x="0%" y="0%" width="100%" height="100%" rx="10%" />
+      </g>
+    </style>
+    <style roleList="SBO-0000245-multimer-clone">
+      <!-- Cloned Macromolecule Multimer-->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <rectangle x="5%" y="5%" width="95%" height="95%" rx="10%" />
+        <rectangle fill="cloneMarker" x="5%" y="5%" width="95%" height="95%" rx="10%" />
+        <rectangle x="0%" y="0%" width="95%" height="95%" rx="10%" />
+        <rectangle fill="cloneMarker" x="0%" y="0%" width="95%" height="95%" rx="10%" />
+      </g>
+    </style>
+    
+    <style roleList="SBO-0000285 NO-SBO">
+      <!-- Unspecified Entity  -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <ellipse cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+      </g>
+    </style>
+    <style roleList="SBO-0000285-multimer NO-SBO-multimer">
+      <!-- Unspecified Entity Multimer -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <ellipse cx="45%" cy="45%" cz="0.0" rx="45%" ry="45%" />
+        <ellipse cx="55%" cy="55%" cz="0.0" rx="45%" ry="45%" />
+      </g>
+    </style>    
+    <style roleList="SBO-0000285-clone NO-SBO-clone">
+      <!-- Cloned Unspecified Entity  -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <ellipse cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+        <ellipse fill="cloneMarker" cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+      </g>
+    </style>
+    <style roleList="SBO-0000285-multimer-clone NO-SBO-multimer-clone">
+      <!-- Cloned Unspecified Entity Multimer  -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <ellipse cx="45%" cy="45%" cz="0.0" rx="45%" ry="45%" />
+        <ellipse fill="cloneMarker" cx="45%" cy="45%" cz="0.0" rx="45%" ry="45%" />
+        <ellipse cx="55%" cy="55%" cz="0.0" rx="45%" ry="45%" />
+        <ellipse fill="cloneMarker" cx="55%" cy="55%" cz="0.0" rx="45%" ry="45%" />
+      </g>
+    </style>
+    
+    <style roleList="SBO-0000247">
+      <!-- Simple Chemical  -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <ellipse cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+      </g>
+    </style>
+    <style roleList="SBO-0000247-multimer">
+      <!-- Simple Chemical Multimer -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <ellipse cx="55%" cy="55%" cz="0.0" rx="45%" ry="45%" />
+        <ellipse cx="45%" cy="45%" cz="0.0" rx="45%" ry="45%" />
+      </g>
+    </style>
+    <style roleList="SBO-0000247-clone">
+      <!-- Cloned Simple Chemical  -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <ellipse cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+        <ellipse fill="cloneMarker" cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+      </g>
+    </style>
+    <style roleList="SBO-0000247-multimer-clone">
+      <!-- Cloned Simple Chemical Multimer -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <ellipse cx="55%" cy="55%" cz="0.0" rx="45%" ry="45%" />
+        <ellipse fill="cloneMarker" cx="55%" cy="55%" cz="0.0" rx="45%" ry="45%" />
+        <ellipse cx="45%" cy="45%" cz="0.0" rx="45%" ry="45%" />
+        <ellipse fill="cloneMarker" cx="45%" cy="45%" cz="0.0" rx="45%" ry="45%" />
+      </g>
+    </style>
+    
+    <style roleList="SBO-0000291-clone SBO-0000291">
+      <!-- Source / Sink  -->
+      <g stroke="EmptySetOutline" stroke-width="1.25" fill="EmptySetGradient">
+        <ellipse cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+        <g>
+          <curve>
+            <listOfCurveSegments>
+              <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <start x="0%" y="100%" />
+                <end x="100%" y="0%" />
+              </curveSegment>
+            </listOfCurveSegments>
+          </curve>
+        </g>
+      </g>
+    </style>
+    
+    <style roleList="SBO-0000253">
+      <annotation>
+        <sbmllayout xmlns="http://sysbioapps.dyndns.org/renderAnnotation" type="complex" />
+      </annotation>
+      <!-- Complex  -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="10" />
+              <end x="10" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="10" y="0%" />
+              <end x="-10+100%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="-10+100%" y="0%" />
+              <end x="100%" y="10" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="10" />
+              <end x="100%" y="-10+100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="-10+100%" />
+              <end x="-10+100%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="-10+100%" y="100%" />
+              <end x="10" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="10" y="100%" />
+              <end x="0%" y="-10+100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="-10+100%" />
+              <end x="0%" y="10" />
+            </curveSegment>
+          </listOfCurveSegments>
+          <!--<listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="10%" />
+              <end x="10%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="10%" y="0%" />
+              <end x="90%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="90%" y="0%" />
+              <end x="100%" y="10%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="10%" />
+              <end x="100%" y="90%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="90%" />
+              <end x="90%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="90%" y="100%" />
+              <end x="10%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="10%" y="100%" />
+              <end x="0%" y="90%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="90%" />
+              <end x="0%" y="10%" />
+            </curveSegment>
+          </listOfCurveSegments>-->
+        </polygon>
+      </g>
+    </style>
+    <style roleList="SBO-0000253-multimer">
+      <!-- Complex Multimer -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="5%" y="15%" />
+              <end x="15%" y="5%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="15%" y="5%" />
+              <end x="90%" y="5%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="90%" y="5%" />
+              <end x="100%" y="15%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="15%" />
+              <end x="100%" y="90%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="90%" />
+              <end x="90%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="90%" y="100%" />
+              <end x="15%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="15%" y="100%" />
+              <end x="5%" y="90%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="5%" y="90%" />
+              <end x="5%" y="15%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="10%" />
+              <end x="10%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="10%" y="0%" />
+              <end x="85%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="85%" y="0%" />
+              <end x="95%" y="10%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="95%" y="10%" />
+              <end x="95%" y="85%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="95%" y="85%" />
+              <end x="85%" y="95%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="85%" y="95%" />
+              <end x="10%" y="95%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="10%" y="95%" />
+              <end x="0%" y="85%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="85%" />
+              <end x="0%" y="10%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </style>
+    <style roleList="SBO-0000253-clone">
+      <!-- Cloned Complex  -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="10%" />
+              <end x="10%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="10%" y="0%" />
+              <end x="90%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="90%" y="0%" />
+              <end x="100%" y="10%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="10%" />
+              <end x="100%" y="90%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="90%" />
+              <end x="90%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="90%" y="100%" />
+              <end x="10%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="10%" y="100%" />
+              <end x="0%" y="90%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="90%" />
+              <end x="0%" y="10%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+        <polygon fill="cloneMarker">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="10%" />
+              <end x="10%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="10%" y="0%" />
+              <end x="90%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="90%" y="0%" />
+              <end x="100%" y="10%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="10%" />
+              <end x="100%" y="90%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="90%" />
+              <end x="90%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="90%" y="100%" />
+              <end x="10%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="10%" y="100%" />
+              <end x="0%" y="90%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="90%" />
+              <end x="0%" y="10%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </style>
+    <style roleList="SBO-0000253-multimer-clone">
+      <!-- Cloned Complex Multimer -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="5%" y="15%" />
+              <end x="15%" y="5%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="15%" y="5%" />
+              <end x="90%" y="5%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="90%" y="5%" />
+              <end x="100%" y="15%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="15%" />
+              <end x="100%" y="90%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="90%" />
+              <end x="90%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="90%" y="100%" />
+              <end x="15%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="15%" y="100%" />
+              <end x="5%" y="90%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="5%" y="90%" />
+              <end x="5%" y="15%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+        <polygon fill="cloneMarker">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="5%" y="15%" />
+              <end x="15%" y="5%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="15%" y="5%" />
+              <end x="90%" y="5%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="90%" y="5%" />
+              <end x="100%" y="15%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="15%" />
+              <end x="100%" y="90%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="90%" />
+              <end x="90%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="90%" y="100%" />
+              <end x="15%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="15%" y="100%" />
+              <end x="5%" y="90%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="5%" y="90%" />
+              <end x="5%" y="15%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="10%" />
+              <end x="10%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="10%" y="0%" />
+              <end x="85%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="85%" y="0%" />
+              <end x="95%" y="10%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="95%" y="10%" />
+              <end x="95%" y="85%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="95%" y="85%" />
+              <end x="85%" y="95%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="85%" y="95%" />
+              <end x="10%" y="95%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="10%" y="95%" />
+              <end x="0%" y="85%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="85%" />
+              <end x="0%" y="10%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+        <polygon fill="cloneMarker">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="10%" />
+              <end x="10%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="10%" y="0%" />
+              <end x="85%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="85%" y="0%" />
+              <end x="95%" y="10%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="95%" y="10%" />
+              <end x="95%" y="85%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="95%" y="85%" />
+              <end x="85%" y="95%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="85%" y="95%" />
+              <end x="10%" y="95%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="10%" y="95%" />
+              <end x="0%" y="85%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="85%" />
+              <end x="0%" y="10%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </style>
+    
+    
+    <style roleList="SBO-0000405">
+      <!-- Perturbing Agent  -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="0%" />
+              <end x="100%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="0%" />
+              <end x="80%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="80%" y="50%" />
+              <end x="100%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="100%" />
+              <end x="0%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="100%" />
+              <end x="20%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="20%" y="50%" />
+              <end x="0%" y="0%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </style>
+    <style roleList="SBO-0000405-clone">
+      <!-- Cloned Perturbing Agent  -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="0%" />
+              <end x="100%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="0%" />
+              <end x="80%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="80%" y="50%" />
+              <end x="100%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="100%" />
+              <end x="0%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="100%" />
+              <end x="20%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="20%" y="50%" />
+              <end x="0%" y="0%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+        <polygon fill="cloneMarker">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="0%" />
+              <end x="100%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="0%" />
+              <end x="80%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="80%" y="50%" />
+              <end x="100%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="100%" />
+              <end x="0%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="100%" />
+              <end x="20%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="20%" y="50%" />
+              <end x="0%" y="0%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </style>
+    <style roleList="Tag">
+      <!-- Tag  -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="0%" />
+              <end x="75%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="75%" y="0%" />
+              <end x="100%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="50%" />
+              <end x="75%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="75%" y="100%" />
+              <end x="0%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="100%" />
+              <end x="0%" y="0%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </style>
+    <style roleList="Tag-right">
+      <!-- Tag  -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="0%" />
+              <end x="75%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="75%" y="0%" />
+              <end x="100%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="50%" />
+              <end x="75%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="75%" y="100%" />
+              <end x="0%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="100%" />
+              <end x="0%" y="0%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </style>
+    <style roleList="Tag-up">
+      <!-- Tag  -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="25%" />
+              <end x="50%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="50%" y="0%" />
+              <end x="100%" y="25%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="25%" />
+              <end x="100%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="100%" />
+              <end x="0%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="100%" />
+              <end x="0%" y="25%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </style>
+    <style roleList="Tag-down">
+      <!-- Tag  -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="0%" />
+              <end x="100%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="0%" />
+              <end x="100%" y="75%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="75%" />
+              <end x="50%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="50%" y="100%" />
+              <end x="0%" y="75%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="75%" />
+              <end x="0%" y="0%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </style>
+    <style roleList="Tag-left">
+      <!-- Tag  -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="25%" y="0%" />
+              <end x="100%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="0%" />
+              <end x="100%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="100%" />
+              <end x="25%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="25%" y="100%" />
+              <end x="0%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="50%" />
+              <end x="25%" y="0%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </style>
+    <style roleList="SBO-0000358">
+      <!-- Observable  -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient" >
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="20%" y="0%" />
+              <end x="80%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="80%" y="0%" />
+              <end x="100%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="50%" />
+              <end x="80%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="80%" y="100%" />
+              <end x="20%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="20%" y="100%" />
+              <end x="0%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="50%" />
+              <end x="20%" y="0%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </style>
+    <style roleList="SBO-0000358-clone">
+      <!-- Cloned Observable  -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="20%" y="0%" />
+              <end x="80%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="80%" y="0%" />
+              <end x="100%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="50%" />
+              <end x="80%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="80%" y="100%" />
+              <end x="20%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="20%" y="100%" />
+              <end x="0%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="50%" />
+              <end x="20%" y="0%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+        <polygon fill="cloneMarker">
+          <listOfCurveSegments>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="20%" y="0%" />
+              <end x="80%" y="0%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="80%" y="0%" />
+              <end x="100%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="100%" y="50%" />
+              <end x="80%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="80%" y="100%" />
+              <end x="20%" y="100%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="20%" y="100%" />
+              <end x="0%" y="50%" />
+            </curveSegment>
+            <curveSegment xsi:type="LineSegment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <start x="0%" y="50%" />
+              <end x="20%" y="0%" />
+            </curveSegment>
+          </listOfCurveSegments>
+        </polygon>
+      </g>
+    </style>    
+    <style roleList="SBO-0000395">
+      <!-- Submap -->
+      <g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <rectangle x="0" y="0" width="100%" height="100%" rx="0%" ry="0%" />
+      </g>
+    </style>
+    <style roleList="SBO-0000289">
+      <!-- Compartment -->
+      <g stroke="CompartmentBorder" stroke-width="7" fill="CompartmentGradient">
+        <rectangle x="0" y="0" width="100%" height="100%" rx="10%" ry="10%" />
+      </g>
+    </style>
+  </listOfStyles>
+</renderInformation>

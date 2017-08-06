@@ -92,6 +92,7 @@ public class SBGNML2SBMLUtil {
 		Species species;
 		species = new Species(speciesId, name, level, version);
 		
+		// todo: do this for other objects in sbml (e.g. reaction, speciesreference)
 		if (addAnnotation){
 			addAnnotation(species, clazz);
 		}

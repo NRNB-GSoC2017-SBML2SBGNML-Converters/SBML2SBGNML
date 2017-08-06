@@ -6,176 +6,1557 @@
         <render:listOfRenderInformation xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
           <render:renderInformation render:id="LocalRenderInformation_01">
             <render:listOfColorDefinitions>
-              <render:colorDefinition render:id="white" render:value="#FFFFFFFF"/>
               <render:colorDefinition render:id="black" render:value="#000000FF"/>
+              <render:colorDefinition render:id="white" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="transparent" render:value="#FFFFFF00"/>
+              <render:colorDefinition render:id="EmptySetOutline" render:value="#808080FF"/>
+              <render:colorDefinition render:id="EmptySetGradientStart" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="EmptySetGradientEnd" render:value="#D3D3D3FF"/>
+              <render:colorDefinition render:id="CompartmentBorder" render:value="#666666FF"/>
+              <render:colorDefinition render:id="CompartmentGradientStart" render:value="#CCCCCCFF"/>
+              <render:colorDefinition render:id="CompartmentGradientEnd" render:value="#CCCCFFFF"/>
+              <render:colorDefinition render:id="CloneMarkerColor" render:value="#FFA500FF"/>
+              <render:colorDefinition render:id="EPNGradientStart" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="EPNGradientEnd" render:value="#C0C0C0FF"/>
             </render:listOfColorDefinitions>
+            <render:listOfGradientDefinitions>
+              <render:linearGradient render:id="EPNBackgroundGradient" render:spreadMethod="pad" render:x1="0%" render:x2="100%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="EPNGradientStart"/>
+                <render:stop render:offset="100%" render:stop-color="EPNGradientEnd"/>
+              </render:linearGradient>
+              <render:linearGradient render:id="cloneMarker" render:spreadMethod="pad" render:x1="50%" render:x2="50%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="transparent"/>
+                <render:stop render:offset="0.75%" render:stop-color="transparent"/>
+                <render:stop render:offset="0.76%" render:stop-color="CloneMarkerColor"/>
+                <render:stop render:offset="1%" render:stop-color="CloneMarkerColor"/>
+              </render:linearGradient>
+              <render:linearGradient render:id="EmptySetGradient" render:spreadMethod="pad" render:x1="0%" render:x2="100%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="EmptySetGradientStart"/>
+                <render:stop render:offset="100%" render:stop-color="EmptySetGradientEnd"/>
+              </render:linearGradient>
+              <render:linearGradient render:id="CompartmentGradient" render:spreadMethod="pad" render:x1="0%" render:x2="100%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="CompartmentGradientStart"/>
+                <render:stop render:offset="100%" render:stop-color="CompartmentGradientEnd"/>
+              </render:linearGradient>
+            </render:listOfGradientDefinitions>
             <render:listOfLineEndings>
-              <render:lineEnding render:id="productionHead">
+              <render:lineEnding render:id="modulation">
                 <layout:boundingBox>
-                  <layout:position layout:x="-10" layout:y="-6"/>
-                  <layout:dimensions layout:height="10" layout:width="14"/>
+                  <layout:position layout:x="-12" layout:y="-6"/>
+                  <layout:dimensions layout:height="12" layout:width="12"/>
+                </layout:boundingBox>
+                <render:g render:fill="white" render:stroke="black" render:stroke-width="0.001">
+                  <render:polygon render:fill="ffffff" render:stroke="black" render:stroke-width="0.001">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="ffffff" render:stroke="black" render:stroke-width="0.001">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:lineEnding>
+              <render:lineEnding render:id="modulation_black">
+                <layout:boundingBox>
+                  <layout:position layout:x="-12" layout:y="-6"/>
+                  <layout:dimensions layout:height="12" layout:width="12"/>
+                </layout:boundingBox>
+                <render:g render:fill="black" render:stroke="black" render:stroke-width="0.001">
+                  <render:polygon render:fill="black">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="black">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:lineEnding>
+              <render:lineEnding render:id="necessary_stimulation">
+                <layout:boundingBox>
+                  <layout:position layout:x="-12" layout:y="-6"/>
+                  <layout:dimensions layout:height="12" layout:width="12"/>
+                </layout:boundingBox>
+                <render:g render:fill="white" render:stroke="black" render:stroke-width="0.001">
+                  <render:polygon render:fill="white">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="white">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="white">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="white">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:lineEnding>
+              <render:lineEnding render:id="old_stimulation">
+                <layout:boundingBox>
+                  <layout:position layout:x="-12" layout:y="-6"/>
+                  <layout:dimensions layout:height="12" layout:width="12"/>
+                </layout:boundingBox>
+                <render:g render:fill="white" render:stroke="black" render:stroke-width="0.001">
+                  <render:polygon render:fill="white">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="white">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:lineEnding>
+              <render:lineEnding render:id="stimulation">
+                <layout:boundingBox>
+                  <layout:position layout:x="-12" layout:y="-6"/>
+                  <layout:dimensions layout:height="12" layout:width="12"/>
+                </layout:boundingBox>
+                <render:g render:fill="white" render:stroke="black" render:stroke-width="0.001">
+                  <render:polygon render:fill="white">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="white">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:lineEnding>
+              <render:lineEnding render:id="product">
+                <layout:boundingBox>
+                  <layout:position layout:x="-12" layout:y="-6"/>
+                  <layout:dimensions layout:height="12" layout:width="12"/>
+                </layout:boundingBox>
+                <render:g render:fill="black" render:stroke="black" render:stroke-width="0.001">
+                  <render:polygon render:fill="black">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="black">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:lineEnding>
+              <render:lineEnding render:id="activator">
+                <layout:boundingBox>
+                  <layout:position layout:x="-12" layout:y="-6"/>
+                  <layout:dimensions layout:height="12" layout:width="12"/>
+                </layout:boundingBox>
+                <render:g render:fill="white" render:stroke="black" render:stroke-width="1.0">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%" render:stroke="black" render:stroke-width="1.0"/>
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%" render:stroke="black" render:stroke-width="1.0"/>
+                </render:g>
+              </render:lineEnding>
+              <render:lineEnding render:id="association">
+                <layout:boundingBox>
+                  <layout:position layout:x="-1" layout:y="-2.5"/>
+                  <layout:dimensions layout:height="5" layout:width="5"/>
                 </layout:boundingBox>
                 <render:g render:fill="black" render:stroke="black" render:stroke-width="1.0">
-                  <render:polygon>
-                    <render:listOfElements>
-                      <render:element render:x="0" render:y="0" xsi:type="RenderPoint"/>
-                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="0" render:y="10" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon>
-                    <render:listOfElements>
-                      <render:element render:x="0" render:y="0" xsi:type="RenderPoint"/>
-                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="0" render:y="10" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
+                  <render:ellipse render:cx="2.5" render:cy="2.5" render:cz="0" render:rx="2" render:ry="2" render:stroke="black" render:stroke-width="1.0"/>
+                  <render:ellipse render:cx="2.5" render:cy="2.5" render:cz="0" render:rx="2" render:ry="2" render:stroke="black" render:stroke-width="1.0"/>
                 </render:g>
               </render:lineEnding>
-              <render:lineEnding render:id="stimulationHead">
+              <render:lineEnding render:id="disassociation">
                 <layout:boundingBox>
-                  <layout:position layout:x="-10" layout:y="-6"/>
-                  <layout:dimensions layout:height="10" layout:width="14"/>
+                  <layout:position layout:x="-1" layout:y="-2.5"/>
+                  <layout:dimensions layout:height="5" layout:width="5"/>
+                </layout:boundingBox>
+                <render:g render:fill="white" render:stroke="black" render:stroke-width="1.0">
+                  <render:ellipse render:cx="2.5" render:cy="2.5" render:cz="0" render:rx="2" render:ry="2" render:stroke="black" render:stroke-width="1.0"/>
+                  <render:ellipse render:cx="2.5" render:cy="2.5" render:cz="0" render:rx="1" render:ry="1" render:stroke="black" render:stroke-width="1.0"/>
+                  <render:ellipse render:cx="2.5" render:cy="2.5" render:cz="0" render:rx="2" render:ry="2" render:stroke="black" render:stroke-width="1.0"/>
+                  <render:ellipse render:cx="2.5" render:cy="2.5" render:cz="0" render:rx="1" render:ry="1" render:stroke="black" render:stroke-width="1.0"/>
+                </render:g>
+              </render:lineEnding>
+              <render:lineEnding render:id="process">
+                <layout:boundingBox>
+                  <layout:position layout:x="-4" layout:y="-4"/>
+                  <layout:dimensions layout:height="8" layout:width="8"/>
+                </layout:boundingBox>
+                <render:g render:fill="white" render:stroke="black" render:stroke-width="1.0">
+                  <render:rectangle render:height="8" render:stroke="black" render:width="8" render:x="0%" render:y="0%"/>
+                  <render:rectangle render:height="8" render:stroke="black" render:width="8" render:x="0%" render:y="0%"/>
+                </render:g>
+              </render:lineEnding>
+              <render:lineEnding render:id="modifier">
+                <layout:boundingBox>
+                  <layout:position layout:x="0" layout:y="-2.5"/>
+                  <layout:dimensions layout:height="5" layout:width="5"/>
                 </layout:boundingBox>
                 <render:g render:fill="white" render:stroke="black" render:stroke-width="1.0">
                   <render:polygon>
-                    <render:listOfElements>
-                      <render:element render:x="0" render:y="0" xsi:type="RenderPoint"/>
-                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="0" render:y="10" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start layout:x="0" layout:y="2.5"/>
+                        <layout:end layout:x="2.5" layout:y="5"/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start layout:x="2.5" layout:y="5"/>
+                        <layout:end layout:x="5" layout:y="2.5"/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start layout:x="5" layout:y="2.5"/>
+                        <layout:end layout:x="2.5" layout:y="0"/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start layout:x="2.5" layout:y="0"/>
+                        <layout:end layout:x="0" layout:y="2.5"/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
                   <render:polygon>
-                    <render:listOfElements>
-                      <render:element render:x="0" render:y="0" xsi:type="RenderPoint"/>
-                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="0" render:y="10" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start layout:x="0" layout:y="2.5"/>
+                        <layout:end layout:x="2.5" layout:y="5"/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start layout:x="2.5" layout:y="5"/>
+                        <layout:end layout:x="5" layout:y="2.5"/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start layout:x="5" layout:y="2.5"/>
+                        <layout:end layout:x="2.5" layout:y="0"/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start layout:x="2.5" layout:y="0"/>
+                        <layout:end layout:x="0" layout:y="2.5"/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
                 </render:g>
               </render:lineEnding>
-              <render:lineEnding render:id="necessaryStimulationHead">
+              <render:lineEnding render:id="inhibitor">
                 <layout:boundingBox>
-                  <layout:position layout:x="-10" layout:y="-6"/>
-                  <layout:dimensions layout:height="10" layout:width="14"/>
+                  <layout:position layout:x="-0.5" layout:y="-4"/>
+                  <layout:dimensions layout:height="8" layout:width="0.6"/>
                 </layout:boundingBox>
-                <render:g render:fill="white" render:stroke="black" render:stroke-width="1.0">
+                <render:g render:fill="black" render:stroke="black" render:stroke-width="0.1">
                   <render:polygon>
-                    <render:listOfElements>
-                      <render:element render:x="3" render:y="3" xsi:type="RenderPoint"/>
-                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="3" render:y="10" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
+                                                          </render:polygon>
                   <render:polygon>
-                    <render:listOfElements>
-                      <render:element render:x="0" render:y="0" xsi:type="RenderPoint"/>
-                      <render:element render:x="0" render:y="10" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon>
-                    <render:listOfElements>
-                      <render:element render:x="3" render:y="3" xsi:type="RenderPoint"/>
-                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="3" render:y="10" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon>
-                    <render:listOfElements>
-                      <render:element render:x="0" render:y="0" xsi:type="RenderPoint"/>
-                      <render:element render:x="0" render:y="10" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
+                                                          </render:polygon>
                 </render:g>
               </render:lineEnding>
-              <render:lineEnding render:id="catalysisHead">
+              <render:lineEnding render:id="absolute_inhibitor">
                 <layout:boundingBox>
-                  <layout:position layout:x="-14" layout:y="-7"/>
-                  <layout:dimensions layout:height="14" layout:width="14"/>
+                  <layout:position layout:x="-2.5" layout:y="-5"/>
+                  <layout:dimensions layout:height="10" layout:width="5"/>
                 </layout:boundingBox>
-                <render:g render:fill="white" render:stroke="black" render:stroke-width="2.0">
-                  <render:ellipse render:cx="50%" render:cy="50%" render:rx="50%"/>
-                  <render:ellipse render:cx="50%" render:cy="50%" render:rx="50%"/>
-                </render:g>
-              </render:lineEnding>
-              <render:lineEnding render:id="unknownModulationHead">
-                <layout:boundingBox>
-                  <layout:position layout:x="-14" layout:y="-7"/>
-                  <layout:dimensions layout:height="14" layout:width="14"/>
-                </layout:boundingBox>
-                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
-                  <render:polygon>
-                    <render:listOfElements>
-                      <render:element render:x="7" render:y="0" xsi:type="RenderPoint"/>
-                      <render:element render:x="14" render:y="7" xsi:type="RenderPoint"/>
-                      <render:element render:x="7" render:y="14" xsi:type="RenderPoint"/>
-                      <render:element render:x="0" render:y="7" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon>
-                    <render:listOfElements>
-                      <render:element render:x="7" render:y="0" xsi:type="RenderPoint"/>
-                      <render:element render:x="14" render:y="7" xsi:type="RenderPoint"/>
-                      <render:element render:x="7" render:y="14" xsi:type="RenderPoint"/>
-                      <render:element render:x="0" render:y="7" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
+                <render:g render:fill="black" render:stroke="black" render:stroke-width="0.1">
+                  <render:polygon render:stroke="black" render:stroke-width="0.1">
+                                                          </render:polygon>
+                  <render:polygon render:stroke="black" render:stroke-width="0.1">
+                                                          </render:polygon>
+                  <render:polygon render:stroke="black" render:stroke-width="0.1">
+                                                          </render:polygon>
+                  <render:polygon render:stroke="black" render:stroke-width="0.1">
+                                                          </render:polygon>
                 </render:g>
               </render:lineEnding>
             </render:listOfLineEndings>
             <render:listOfStyles>
-              <render:style id="LocalStyle_state_variable_glyph">
-                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
-                  <render:ellipse render:cx="50%" render:cy="50%" render:rx="50%"/>
+              <render:style id="defaultText" render:roleList="defaultText">
+                <render:g font-style="normal" font-weight="normal" render:font-size="10" render:stroke="black" render:stroke-width="1.0" render:text-anchor="middle"/>
+              </render:style>
+              <render:style id="substrate" render:roleList="substrate">
+                <render:g render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000167" render:roleList="SBO0000167">
+                <render:g render:endHead="process" render:fill="white" render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000177" render:roleList="SBO0000177">
+                <render:g render:endHead="association" render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000169" render:roleList="SBO0000169">
+                <render:g render:endHead="inhibitor" render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000171" render:roleList="SBO0000171">
+                <render:g render:endHead="necessary_stimulation" render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000172" render:roleList="SBO0000172">
+                <render:g render:endHead="activator" render:fill="white" render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000168" render:roleList="SBO0000168">
+                <render:g render:endHead="modulation" render:fill="white" render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000170" render:roleList="SBO0000170">
+                <render:g render:endHead="stimulation" render:fill="white" render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000180" render:roleList="SBO0000180">
+                <render:g render:endHead="disassociation" render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="product" render:roleList="product">
+                <render:g render:endHead="product" render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="interaction" render:roleList="interaction">
+                <render:g render:endHead="product" render:startHead="product" render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000354" render:roleList="SBO0000354">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="CubicBezier">
+                        <layout:start/>
+                        <layout:end/>
+                        <layout:basePoint1/>
+                        <layout:basePoint2/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="CubicBezier">
+                        <layout:start/>
+                        <layout:end/>
+                        <layout:basePoint1/>
+                        <layout:basePoint2/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
                 </render:g>
               </render:style>
-              <render:style id="LocalStyle_unit_of_information_glyph">
-                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
-                  <render:polygon>
-                    <render:listOfElements>
-                      <render:element render:x="0" render:y="0" xsi:type="RenderPoint"/>
-                      <render:element render:x="10" render:y="0" xsi:type="RenderPoint"/>
-                      <render:element render:x="10" render:y="10" xsi:type="RenderPoint"/>
-                      <render:element render:x="0" render:y="10" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
+              <render:style id="SBO0000354multimer" render:roleList="SBO0000354multimer">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="CubicBezier">
+                        <layout:start/>
+                        <layout:end/>
+                        <layout:basePoint1/>
+                        <layout:basePoint2/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="CubicBezier">
+                        <layout:start/>
+                        <layout:end/>
+                        <layout:basePoint1/>
+                        <layout:basePoint2/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="CubicBezier">
+                        <layout:start/>
+                        <layout:end/>
+                        <layout:basePoint1/>
+                        <layout:basePoint2/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="CubicBezier">
+                        <layout:start/>
+                        <layout:end/>
+                        <layout:basePoint1/>
+                        <layout:basePoint2/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
                 </render:g>
               </render:style>
-              <render:style id="LocalStyle_SpeciesGlyph_glyph1" render:roleList="LocalStyle_SpeciesGlyph_glyph1">
-                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
-                  <render:image render:height="100%" render:href="simple-chemical-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+              <render:style id="SBO0000354clone" render:roleList="SBO0000354clone">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="CubicBezier">
+                        <layout:start/>
+                        <layout:end/>
+                        <layout:basePoint1/>
+                        <layout:basePoint2/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="CubicBezier">
+                        <layout:start/>
+                        <layout:end/>
+                        <layout:basePoint1/>
+                        <layout:basePoint2/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="cloneMarker">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="CubicBezier">
+                        <layout:start/>
+                        <layout:end/>
+                        <layout:basePoint1/>
+                        <layout:basePoint2/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="CubicBezier">
+                        <layout:start/>
+                        <layout:end/>
+                        <layout:basePoint1/>
+                        <layout:basePoint2/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
                 </render:g>
               </render:style>
-              <render:style id="LocalStyle_SpeciesGlyph_glyph2" render:roleList="LocalStyle_SpeciesGlyph_glyph2">
-                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
-                  <render:image render:height="100%" render:href="simple-chemical-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+              <render:style id="SBO0000354multimerclone" render:roleList="SBO0000354multimerclone">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="CubicBezier">
+                        <layout:start/>
+                        <layout:end/>
+                        <layout:basePoint1/>
+                        <layout:basePoint2/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="CubicBezier">
+                        <layout:start/>
+                        <layout:end/>
+                        <layout:basePoint1/>
+                        <layout:basePoint2/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="cloneMarker">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="CubicBezier">
+                        <layout:start/>
+                        <layout:end/>
+                        <layout:basePoint1/>
+                        <layout:basePoint2/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="CubicBezier">
+                        <layout:start/>
+                        <layout:end/>
+                        <layout:basePoint1/>
+                        <layout:basePoint2/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="CubicBezier">
+                        <layout:start/>
+                        <layout:end/>
+                        <layout:basePoint1/>
+                        <layout:basePoint2/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="CubicBezier">
+                        <layout:start/>
+                        <layout:end/>
+                        <layout:basePoint1/>
+                        <layout:basePoint2/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="cloneMarker">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="CubicBezier">
+                        <layout:start/>
+                        <layout:end/>
+                        <layout:basePoint1/>
+                        <layout:basePoint2/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="CubicBezier">
+                        <layout:start/>
+                        <layout:end/>
+                        <layout:basePoint1/>
+                        <layout:basePoint2/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
                 </render:g>
               </render:style>
-              <render:style id="LocalStyle_ReactionGlyph_pn1" render:roleList="LocalStyle_ReactionGlyph_pn1">
-                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
-                  <render:image render:height="100%" render:href="process-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+              <render:style id="SBO0000245" render:roleList="SBO0000245">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:rectangle render:height="100%" render:rx="10%" render:width="100%" render:x="0%" render:y="0%"/>
                 </render:g>
               </render:style>
-              <render:style id="LocalStyle_SpeciesReferenceGlyph_a1" render:roleList="LocalStyle_SpeciesReferenceGlyph_a1">
-                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle"/>
-              </render:style>
-              <render:style id="LocalStyle_SpeciesReferenceGlyph_a2" render:roleList="LocalStyle_SpeciesReferenceGlyph_a2">
-                <render:g font-style="normal" font-weight="normal" render:endHead="productionHead" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle"/>
-              </render:style>
-              <render:style id="LocalStyle_GeneralGlyph_glyph10" render:roleList="LocalStyle_GeneralGlyph_glyph10">
-                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
-                  <render:image render:height="100%" render:href="unit-of-information-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+              <render:style id="SBO0000245multimer" render:roleList="SBO0000245multimer">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:rectangle render:height="95%" render:rx="10%" render:width="95%" render:x="5%" render:y="5%"/>
+                  <render:rectangle render:height="95%" render:rx="10%" render:width="95%" render:x="0%" render:y="0%"/>
                 </render:g>
               </render:style>
-              <render:style id="LocalStyle_GeneralGlyph_glyph11" render:roleList="LocalStyle_GeneralGlyph_glyph11">
-                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
-                  <render:image render:height="100%" render:href="unit-of-information-glyph.png" render:width="100%" render:x="0%" render:z="0"/>
+              <render:style id="SBO0000245clone" render:roleList="SBO0000245clone">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:rectangle render:height="100%" render:rx="10%" render:width="100%" render:x="0%" render:y="0%"/>
+                  <render:rectangle render:fill="cloneMarker" render:height="100%" render:rx="10%" render:width="100%" render:x="0%" render:y="0%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000245multimerclone" render:roleList="SBO0000245multimerclone">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:rectangle render:height="95%" render:rx="10%" render:width="95%" render:x="5%" render:y="5%"/>
+                  <render:rectangle render:fill="cloneMarker" render:height="95%" render:rx="10%" render:width="95%" render:x="5%" render:y="5%"/>
+                  <render:rectangle render:height="95%" render:rx="10%" render:width="95%" render:x="0%" render:y="0%"/>
+                  <render:rectangle render:fill="cloneMarker" render:height="95%" render:rx="10%" render:width="95%" render:x="0%" render:y="0%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000285" render:roleList="SBO0000285">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000285multimer" render:roleList="SBO0000285multimer">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="45%" render:cy="45%" render:cz="0" render:rx="45%" render:ry="45%"/>
+                  <render:ellipse render:cx="55%" render:cy="55%" render:cz="0" render:rx="45%" render:ry="45%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000285clone" render:roleList="SBO0000285clone">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:fill="cloneMarker" render:rx="50%" render:ry="50%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000285multimerclone" render:roleList="SBO0000285multimerclone">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="45%" render:cy="45%" render:cz="0" render:rx="45%" render:ry="45%"/>
+                  <render:ellipse render:cx="45%" render:cy="45%" render:cz="0" render:fill="cloneMarker" render:rx="45%" render:ry="45%"/>
+                  <render:ellipse render:cx="55%" render:cy="55%" render:cz="0" render:rx="45%" render:ry="45%"/>
+                  <render:ellipse render:cx="55%" render:cy="55%" render:cz="0" render:fill="cloneMarker" render:rx="45%" render:ry="45%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000247" render:roleList="SBO0000247">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000247multimer" render:roleList="SBO0000247multimer">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="55%" render:cy="55%" render:cz="0" render:rx="45%" render:ry="45%"/>
+                  <render:ellipse render:cx="45%" render:cy="45%" render:cz="0" render:rx="45%" render:ry="45%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000247clone" render:roleList="SBO0000247clone">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:fill="cloneMarker" render:rx="50%" render:ry="50%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000247multimerclone" render:roleList="SBO0000247multimerclone">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="55%" render:cy="55%" render:cz="0" render:rx="45%" render:ry="45%"/>
+                  <render:ellipse render:cx="55%" render:cy="55%" render:cz="0" render:fill="cloneMarker" render:rx="45%" render:ry="45%"/>
+                  <render:ellipse render:cx="45%" render:cy="45%" render:cz="0" render:rx="45%" render:ry="45%"/>
+                  <render:ellipse render:cx="45%" render:cy="45%" render:cz="0" render:fill="cloneMarker" render:rx="45%" render:ry="45%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000291" render:roleList="SBO0000291">
+                <render:g render:fill="EmptySetGradient" render:stroke="EmptySetOutline" render:stroke-width="1.25">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
+                  <render:g/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000253" render:roleList="SBO0000253">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start layout:y="10"/>
+                        <layout:end layout:x="10"/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start layout:x="10"/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end layout:y="10"/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start layout:y="10"/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end layout:x="10"/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start layout:x="10"/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end layout:y="10"/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000253multimer" render:roleList="SBO0000253multimer">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000253clone" render:roleList="SBO0000253clone">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="cloneMarker">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000253multimerclone" render:roleList="SBO0000253multimerclone">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="cloneMarker">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="cloneMarker">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000405" render:roleList="SBO0000405">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000405clone" render:roleList="SBO0000405clone">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="cloneMarker">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="Tag" render:roleList="Tag">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="Tagright" render:roleList="Tagright">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="Tagup" render:roleList="Tagup">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="Tagdown" render:roleList="Tagdown">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="Tagleft" render:roleList="Tagleft">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000358" render:roleList="SBO0000358">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000358clone" render:roleList="SBO0000358clone">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                  <render:polygon render:fill="cloneMarker">
+                                        <layout:listOfCurveSegments>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                      <layout:curveSegment xsi:type="LineSegment">
+                        <layout:start/>
+                        <layout:end/>
+                      </layout:curveSegment>
+                    </layout:listOfCurveSegments>
+                  </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000395" render:roleList="SBO0000395">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:rectangle render:height="100%" render:rx="0%" render:ry="0%" render:width="100%" render:x="0" render:y="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000289" render:roleList="SBO0000289">
+                <render:g render:fill="CompartmentGradient" render:stroke="CompartmentBorder" render:stroke-width="7.0">
+                  <render:rectangle render:height="100%" render:rx="10%" render:ry="10%" render:width="100%" render:x="0" render:y="0"/>
                 </render:g>
               </render:style>
             </render:listOfStyles>
@@ -183,13 +1564,13 @@
         </render:listOfRenderInformation>
         <layout:dimensions layout:depth="0" layout:height="0" layout:width="0"/>
         <layout:listOfAdditionalGraphicalObjects>
-          <layout:generalGlyph layout:id="GeneralGlyph_glyph10" render:objectRole="LocalStyle_GeneralGlyph_glyph10">
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph10">
             <layout:boundingBox>
               <layout:position layout:x="140" layout:y="60" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="16" layout:width="20"/>
             </layout:boundingBox>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_glyph11" render:objectRole="LocalStyle_GeneralGlyph_glyph11">
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph11">
             <layout:boundingBox>
               <layout:position layout:x="200" layout:y="60" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="16" layout:width="20"/>
@@ -197,13 +1578,13 @@
           </layout:generalGlyph>
         </layout:listOfAdditionalGraphicalObjects>
         <layout:listOfSpeciesGlyphs>
-          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph1" layout:species="glyph1" render:objectRole="LocalStyle_SpeciesGlyph_glyph1">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph1" layout:species="glyph1" render:objectRole="SBO0000247">
             <layout:boundingBox>
               <layout:position layout:x="50" layout:y="50" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph2" layout:species="glyph2" render:objectRole="LocalStyle_SpeciesGlyph_glyph2">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph2" layout:species="glyph2" render:objectRole="SBO0000247">
             <layout:boundingBox>
               <layout:position layout:x="250" layout:y="50" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
@@ -211,7 +1592,7 @@
           </layout:speciesGlyph>
         </layout:listOfSpeciesGlyphs>
         <layout:listOfReactionGlyphs>
-          <layout:reactionGlyph layout:id="ReactionGlyph_pn1" layout:reaction="pn1" render:objectRole="LocalStyle_ReactionGlyph_pn1">
+          <layout:reactionGlyph layout:id="ReactionGlyph_pn1" layout:reaction="pn1" render:objectRole="SBO0000167">
             <layout:boundingBox>
               <layout:position layout:x="170" layout:y="70" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="20" layout:width="20"/>
@@ -219,13 +1600,13 @@
             <layout:curve>
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
-                  <layout:start layout:x="160" layout:y="80"/>
-                  <layout:end layout:x="200" layout:y="80"/>
+                  <layout:start layout:x="200" layout:y="80"/>
+                  <layout:end layout:x="160" layout:y="80"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a1" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph1" layout:speciesReference="a1" render:objectRole="LocalStyle_SpeciesReferenceGlyph_a1">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a1" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph1" layout:speciesReference="a1" render:objectRole="substrate">
                 <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
@@ -235,7 +1616,7 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a2" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph2" layout:speciesReference="a2" render:objectRole="LocalStyle_SpeciesReferenceGlyph_a2">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a2" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph2" layout:speciesReference="a2" render:objectRole="product">
                 <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">

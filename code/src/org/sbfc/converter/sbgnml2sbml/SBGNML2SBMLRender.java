@@ -200,20 +200,23 @@ public class SBGNML2SBMLRender {
 		LocalRenderInformation localRenderInformation = sOutput.localRenderInformation;
 		Layout layout = sOutput.layout;
 		
-		String styleId = "LocalStyle_" + graphicalObject.getId();
-		renderGroup = new RenderGroup(layout.getLevel(), layout.getVersion());
-		initializeDefaultRenderGroup(renderGroup);
-		localStyle = new LocalStyle(styleId, layout.getLevel(), layout.getVersion(), renderGroup);
-		localRenderInformation.addLocalStyle(localStyle);
-		localStyle.getRoleList().add(styleId);
+		String styleId = findObjectRole(clazz);
+		
+//		String styleId = "LocalStyle_" + graphicalObject.getId();
+//		renderGroup = new RenderGroup(layout.getLevel(), layout.getVersion());
+//		initializeDefaultRenderGroup(renderGroup);
+//		localStyle = new LocalStyle(styleId, layout.getLevel(), layout.getVersion(), renderGroup);
+//		localRenderInformation.addLocalStyle(localStyle);
+//		localStyle.getRoleList().add(styleId);
 		
 		renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) graphicalObject.getPlugin(RenderConstants.shortLabel);
 		renderGraphicalObjectPlugin.setObjectRole(styleId);		
 				
-		Image image = createImage(graphicalObject, clazz);
-		renderGroup.addElement(image);	
+//		Image image = createImage(graphicalObject, clazz);
+//		renderGroup.addElement(image);	
 		
-		return localStyle;
+		// todo: return a Style
+		return null;
 	}
 	
 	public void createStyle(GraphicalObject graphicalObject, Arc arc) {
@@ -223,142 +226,201 @@ public class SBGNML2SBMLRender {
 		LocalRenderInformation localRenderInformation = sOutput.localRenderInformation;
 		Layout layout = sOutput.layout;
 		
-		String styleId = "LocalStyle_" + graphicalObject.getId();
-		renderGroup = new RenderGroup(layout.getLevel(), layout.getVersion());
-		initializeDefaultRenderGroup(renderGroup);
-		localStyle = new LocalStyle(styleId, layout.getLevel(), layout.getVersion(), renderGroup);
-		localRenderInformation.addLocalStyle(localStyle);
-		localStyle.getRoleList().add(styleId);
+		String styleId = findObjectRole(arc.getClazz());
+		
+//		String styleId = "LocalStyle_" + graphicalObject.getId();
+//		renderGroup = new RenderGroup(layout.getLevel(), layout.getVersion());
+//		initializeDefaultRenderGroup(renderGroup);
+//		localStyle = new LocalStyle(styleId, layout.getLevel(), layout.getVersion(), renderGroup);
+//		localRenderInformation.addLocalStyle(localStyle);
+//		localStyle.getRoleList().add(styleId);
 		
 		renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) graphicalObject.getPlugin(RenderConstants.shortLabel);
 		renderGraphicalObjectPlugin.setObjectRole(styleId);		
 		
-		if (arc.getClazz().equals("catalysis")){
-			renderGroup.setEndHead("catalysisHead");			
-		} else if (arc.getClazz().equals("production")){
-			//LineEnding lineEnding = sOutput.listOfLineEndings.get("productionHead");
-			renderGroup.setEndHead("productionHead");			
-		} else if (arc.getClazz().equals("stimulation")){
-			renderGroup.setEndHead("stimulationHead");			
-		} else if (arc.getClazz().equals("necessary stimulation")){
-			//LineEnding lineEnding = sOutput.listOfLineEndings.get("productionHead");
-			renderGroup.setEndHead("necessaryStimulationHead");			
-		} else if (arc.getClazz().equals("unknown influence")){
-			renderGroup.setEndHead("unknownModulationHead");	
-		}
 
 	}	
 	
-	public void createColourDefinitions() {
-		LocalRenderInformation localRenderInformation = sOutput.localRenderInformation;
-		Layout layout = sOutput.layout;
-		
-		ColorDefinition colorDefinition;
-		colorDefinition = new ColorDefinition(layout.getLevel(), layout.getVersion());
-		colorDefinition.setId("white");
-		colorDefinition.setValue(Color.decode("#FFFFFF"));		
-		localRenderInformation.addColorDefinition(colorDefinition);		
-		
-		colorDefinition = new ColorDefinition(layout.getLevel(), layout.getVersion());
-		colorDefinition.setId("black");
-		colorDefinition.setValue(Color.decode("#000000"));		
-		localRenderInformation.addColorDefinition(colorDefinition);		
-	}
+//	public void createColourDefinitions() {
+//		LocalRenderInformation localRenderInformation = sOutput.localRenderInformation;
+//		Layout layout = sOutput.layout;
+//		
+//		ColorDefinition colorDefinition;
+//		colorDefinition = new ColorDefinition(layout.getLevel(), layout.getVersion());
+//		colorDefinition.setId("white");
+//		colorDefinition.setValue(Color.decode("#FFFFFF"));		
+//		localRenderInformation.addColorDefinition(colorDefinition);		
+//		
+//		colorDefinition = new ColorDefinition(layout.getLevel(), layout.getVersion());
+//		colorDefinition.setId("black");
+//		colorDefinition.setValue(Color.decode("#000000"));		
+//		localRenderInformation.addColorDefinition(colorDefinition);		
+//	}
 	
-	public void createLineEndings(ListOf<LineEnding>  listOfLineEndings) {
-		sOutput.addListOfLineEndings(listOfLineEndings);
-	}
+//	public void createLineEndings(ListOf<LineEnding>  listOfLineEndings) {
+//		sOutput.addListOfLineEndings(listOfLineEndings);
+//	}
 	
-	public void initializeDefaultRenderGroup(RenderGroup renderGroup) {
-		renderGroup.setStroke("black");
-		renderGroup.setStrokeWidth(3);
-		renderGroup.setFillRule(FillRule.NONZERO);
-		renderGroup.setFontSize((short) 12);
-		renderGroup.setFontFamily(FontFamily.SANS_SERIF);
-		renderGroup.setFontStyleItalic(false);
-		renderGroup.setFontWeightBold(false);
-		renderGroup.setTextAnchor(HTextAnchor.MIDDLE);
-		renderGroup.setVTextAnchor(VTextAnchor.MIDDLE);
-	}
+//	public void initializeDefaultRenderGroup(RenderGroup renderGroup) {
+//		renderGroup.setStroke("black");
+//		renderGroup.setStrokeWidth(3);
+//		renderGroup.setFillRule(FillRule.NONZERO);
+//		renderGroup.setFontSize((short) 12);
+//		renderGroup.setFontFamily(FontFamily.SANS_SERIF);
+//		renderGroup.setFontStyleItalic(false);
+//		renderGroup.setFontWeightBold(false);
+//		renderGroup.setTextAnchor(HTextAnchor.MIDDLE);
+//		renderGroup.setVTextAnchor(VTextAnchor.MIDDLE);
+//	}
 	
-	public Image createImage(GraphicalObject generalGlyph, String clazz){
-		Image image = new Image("Image_" + generalGlyph.getId());
-		image.setX(0);
-		image.setX(0);
-		image.setWidth(100);
-		image.setHeight(100);
-		image.setAbsoluteX(false);
-		image.setAbsoluteY(false);		
-		image.setAbsoluteWidth(false);
-		image.setAbsoluteHeight(false);	
+	public String findObjectRole(String clazz){
+//		Image image = new Image("Image_" + generalGlyph.getId());
+//		image.setX(0);
+//		image.setX(0);
+//		image.setWidth(100);
+//		image.setHeight(100);
+//		image.setAbsoluteX(false);
+//		image.setAbsoluteY(false);		
+//		image.setAbsoluteWidth(false);
+//		image.setAbsoluteHeight(false);	
 		
 		// todo: horizontal or vertical?
 		if (clazz.equals("or")){
-			image.setHref("or-glyph.png");	
+			//image.setHref("or-glyph.png");	
 		} else if (clazz.equals("and")){
-			image.setHref("and-glyph.png");
+			//image.setHref("and-glyph.png");
 		} else if (clazz.equals("not")){
-			image.setHref("not-glyph.png");
+			//image.setHref("not-glyph.png");
 		} 
 		
 		else if (clazz.equals("process")){
-			image.setHref("process-glyph.png");	
+			//image.setHref("process-glyph.png");
+			return "SBO0000167";
 		} else if (clazz.equals("association")){
-			image.setHref("association-glyph.png");	
-		} else if (clazz.equals("macromolecule")){
-			image.setHref("macromolecule-glyph.png");	
+			//image.setHref("association-glyph.png");	
+			return "SBO0000177";
+		} else if (clazz.equals("dissociation")){
+			//image.setHref("association-glyph.png");	
+			return "SBO0000180";
+		}
+		
+		else if (clazz.equals("macromolecule")){
+			//image.setHref("macromolecule-glyph.png");
+			return "SBO0000245";
 		} else if (clazz.equals("simple chemical")){
-			image.setHref("simple-chemical-glyph.png");	
+			//image.setHref("simple-chemical-glyph.png");
+			return "SBO0000247";
 		} else if (clazz.equals("source and sink")){
-			image.setHref("source-and-sink-glyph.png");
+			//image.setHref("source-and-sink-glyph.png");
+			return "SBO0000291";
 		} else if (clazz.equals("nucleic acid feature")){
-			image.setHref("nucleic-acid-feature-glyph.png");
+			//image.setHref("nucleic-acid-feature-glyph.png");
+			return "SBO0000354";
 		} else if (clazz.equals("complex")){
-			image.setHref("complex-glyph.png");
-		} else if (clazz.equals("biological activity")){
-			image.setHref("biological-activity-glyph.png");
+			//image.setHref("complex-glyph.png");
+			return "SBO0000253";
+		} 
+		
+		else if (clazz.equals("biological activity")){
+			//image.setHref("biological-activity-glyph.png");
 		} else if (clazz.equals("phenotype")){
-			image.setHref("phenotype-glyph.png");
+			//image.setHref("phenotype-glyph.png");
 		} else if (clazz.equals("annotation")){
-			image.setHref("annnotation-glyph.png");
+			//image.setHref("annnotation-glyph.png");
 		} 
 		
 		else if (clazz.equals("simple chemical_clone")){
-			image.setHref("simple-chemical-glyph-clone.png");	
+			//image.setHref("simple-chemical-glyph-clone.png");	
+			return "SBO0000247clone";
 		} else if (clazz.equals("macromolecule_clone")){
-			image.setHref("macromolecule-glyph-clone.png");	
+			//image.setHref("macromolecule-glyph-clone.png");	
+			return "SBO0000245clone";
 		} else if (clazz.equals("nucleic acid feature_clone")){
-			image.setHref("nucleic-acid-feature-glyph-clone.png");
-		} else if (clazz.equals("macromolecule multimer_clone")){
-			image.setHref("macromolecule-multimer-glyph-clone.png");	
+			//image.setHref("nucleic-acid-feature-glyph-clone.png");
+			return "SBO0000354clone";
 		} 
 		
+		else if (clazz.equals("macromolecule multimer_clone")){
+			//image.setHref("macromolecule-multimer-glyph-clone.png");	
+			return "SBO0000245multimerclone";
+		} else if (clazz.equals("simple chemical multimer_clone")){
+			//image.setHref("macromolecule-multimer-glyph-clone.png");	
+			return "SBO0000247multimerclone";
+		} else if (clazz.equals("nucleic acid feature multimer_clone")){
+			//image.setHref("macromolecule-multimer-glyph-clone.png");	
+			return "SBO0000354multimerclone";
+		} 
+		
+		else if (clazz.equals("simple chemical multimer")){
+			return "SBO0000247multimer";
+		} else if (clazz.equals("macromolecule multimer")){
+			return "SBO0000245multimer";
+		} else if (clazz.equals("nucleic acid feature multimer")){
+			return "SBO0000354multimer";
+		} else if (clazz.equals("complex multimer")){
+			return "";
+		}
+		
 		else if (clazz.equals("unit of information")){
-			image.setHref("unit-of-information-glyph.png");
+			//image.setHref("unit-of-information-glyph.png");
 		} else if (clazz.equals("cardinality")){
-			image.setHref("unit-of-information-glyph.png");
+			//image.setHref("unit-of-information-glyph.png");
 		} else if (clazz.equals("state variable")){
-			image.setHref("state-variable-glyph.png");
-		} else if (clazz.equals("compartment")){
-			image.setHref("compartment-glyph.png");
+			//image.setHref("state-variable-glyph.png");
+		} 
+		
+		else if (clazz.equals("compartment")){
+			//image.setHref("compartment-glyph.png");
+			return "SBO0000289";
 		} else if (clazz.equals("submap")){
-			image.setHref("unit-of-information-glyph.png");
+			//image.setHref("unit-of-information-glyph.png");
+			return "SBO0000395";
 		} 
 		
 		else if (clazz.equals("tag_left")){
-			image.setHref("tag_left.png");
+			//image.setHref("tag_left.png");
+			return "Tagleft";
 		} else if (clazz.equals("tag_right")){
-			image.setHref("tag_right.png");
+			//image.setHref("tag_right.png");
+			return "Tagright";
 		}
 		
 		else if (clazz.equals("terminal_left")){
 			//System.out.println("terminal_left");
-			image.setHref("tag_left.png");
+			//image.setHref("tag_left.png");
+			return "Tagleft";
 		} else if (clazz.equals("terminal_right")){
-			image.setHref("tag_right.png");
+			//image.setHref("tag_right.png");
+			return "Tagright";
 		}		
 		
-		return image;
+		if (clazz.equals("catalysis")){
+			//renderGroup.setEndHead("catalysisHead");	
+			return "SBO0000172";
+		} else if (clazz.equals("production")){
+			//LineEnding lineEnding = sOutput.listOfLineEndings.get("productionHead");
+			//renderGroup.setEndHead("productionHead");		
+			return "product";
+		} else if (clazz.equals("consumption")){	
+			return "substrate";
+		} else if (clazz.equals("stimulation")){
+			//renderGroup.setEndHead("stimulationHead");
+			return "SBO0000170";
+		} else if (clazz.equals("necessary stimulation")){
+			//LineEnding lineEnding = sOutput.listOfLineEndings.get("productionHead");
+			//renderGroup.setEndHead("necessaryStimulationHead");
+			return "SBO0000171";
+		} else if (clazz.equals("unknown influence")){
+			//renderGroup.setEndHead("unknownModulationHead");	
+			return "SBO0000168";
+		} else if (clazz.equals("inhibition")){
+			//LineEnding lineEnding = sOutput.listOfLineEndings.get("productionHead");
+			//renderGroup.setEndHead("productionHead");		
+			return "SBO0000169";
+		}
+		
+//		return image;
+		return null;
 	}
 	
 	public Rectangle createRectangle(double x, double y, 

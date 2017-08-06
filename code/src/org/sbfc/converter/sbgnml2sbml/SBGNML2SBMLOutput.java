@@ -35,6 +35,7 @@ import org.sbml.jsbml.ext.qual.QualitativeSpecies;
 import org.sbml.jsbml.ext.qual.Transition;
 import org.sbml.jsbml.ext.render.ColorDefinition;
 import org.sbml.jsbml.ext.render.Ellipse;
+import org.sbml.jsbml.ext.render.GradientBase;
 import org.sbml.jsbml.ext.render.LineEnding;
 import org.sbml.jsbml.ext.render.ListOfLocalRenderInformation;
 import org.sbml.jsbml.ext.render.LocalRenderInformation;
@@ -58,6 +59,7 @@ public class SBGNML2SBMLOutput {
 	ListOf<ColorDefinition> listOfColorDefinitions;
 	ListOf<LineEnding> listOfLineEndings;	
 	ListOf<LocalStyle> listOfStyles;
+	ListOf<GradientBase> listOfGradientDefinitions;
 	
 	QualModelPlugin qualModelPlugin;
 	
@@ -101,6 +103,7 @@ public class SBGNML2SBMLOutput {
 		this.listOfColorDefinitions = renderLayoutPlugin.getLocalRenderInformation(0).getListOfColorDefinitions();
 		this.listOfLineEndings = renderLayoutPlugin.getLocalRenderInformation(0).getListOfLineEndings();
 		this.listOfStyles = renderLayoutPlugin.getLocalRenderInformation(0).getListOfLocalStyles();
+		this.listOfGradientDefinitions = renderLayoutPlugin.getLocalRenderInformation(0).getListOfGradientDefinitions();
 	}
 	
 	private void createQual() {
@@ -108,15 +111,15 @@ public class SBGNML2SBMLOutput {
 		
 	}
 	
-	public void addListOfColorDefinitions(ListOf<ColorDefinition> listOfColorDefinitions) {
-		this.listOfColorDefinitions.addAll(listOfColorDefinitions.clone());
-	}
-	public void addListOfLineEndings(ListOf<LineEnding> listOfLineEndings) {
-		this.listOfLineEndings.addAll(listOfLineEndings.clone());
-	}
-	public void addListOfStyles(ListOf<LocalStyle> listOfStyles) {
-		this.listOfStyles.addAll(listOfStyles.clone());
-	}
+//	public void addListOfColorDefinitions(ListOf<ColorDefinition> listOfColorDefinitions) {
+//		this.listOfColorDefinitions.addAll(listOfColorDefinitions.clone());
+//	}
+//	public void addListOfLineEndings(ListOf<LineEnding> listOfLineEndings) {
+//		this.listOfLineEndings.addAll(listOfLineEndings.clone());
+//	}
+//	public void addListOfStyles(ListOf<LocalStyle> listOfStyles) {
+//		this.listOfStyles.addAll(listOfStyles.clone());
+//	}
 	
 	/**
 	 * Set the dimensionX, dimensionY, dimensionZ from the <code>BoundingBox</code> values.
@@ -328,7 +331,7 @@ public class SBGNML2SBMLOutput {
 		RenderLayoutPlugin renderLayoutPlugin = (RenderLayoutPlugin) templateLayout.getPlugin(RenderConstants.shortLabel);
 		LocalRenderInformation localRenderInformation = renderLayoutPlugin.getLocalRenderInformation(0);
 		
-		//System.out.println("loadTemplateFromFile "+localRenderInformation.getId());
+		System.out.println("loadTemplateFromFile "+localRenderInformation.getId());
 		
 		return localRenderInformation;
 	}
@@ -341,12 +344,11 @@ public class SBGNML2SBMLOutput {
 			this.listOfColorDefinitions.add(cd.clone());
 		}
 		
-		// deep clone does not work
-		// I should be able to create a deep copy using 
-//		for (LineEnding le : listOfLineEndings){
-//			this.listOfLineEndings.add(le.clone());
-//		}
-		// but I get a shallow copy of the LineEnding instead
+		ListOf<GradientBase> listOfGradientDefinitions = localRenderInformation.getListOfGradientDefinitions();
+		for (GradientBase gb : listOfGradientDefinitions){
+			this.listOfGradientDefinitions.add(gb.clone());
+		}
+				
 		ListOf<LineEnding> listOfLineEndings = localRenderInformation.getListOfLineEndings();
 		for (LineEnding le : listOfLineEndings){
 			LineEnding leClone = le.clone();
@@ -355,7 +357,6 @@ public class SBGNML2SBMLOutput {
 			for (Transformation2D t2d : listOfTransformation2D){
 				//System.out.println("storeTemplateLocalRenderInformation "+t2d.getClass().toString());
 				if (t2d instanceof Ellipse){
-					// note: this still does not work, I cannot clone a Ellipse at all
 					rgClone.addElement((Ellipse) t2d.clone());
 				} else {
 					rgClone.addElement(t2d.clone());
@@ -363,20 +364,25 @@ public class SBGNML2SBMLOutput {
 			}
 			
 			leClone.setGroup(rgClone);
-			this.listOfLineEndings.add(leClone);
-			//this.listOfLineEndings.add(new LineEnding(le));
+			this.listOfLineEndings.add(leClone);;
 		}
 		
 		ListOf<LocalStyle> listOfStyles = localRenderInformation.getListOfLocalStyles();
 		for (LocalStyle ls : listOfStyles){
 			//System.out.println("storeTemplateLocalRenderInformation "+ls.getId());
-			this.listOfStyles.add(new LocalStyle(ls.getId(), 3, 1, ls.getGroup()));
+			//this.listOfStyles.add(new LocalStyle(ls.getId(), 3, 1, ls.getGroup()));
+			LocalStyle ls_clone = ls.clone();
+			ls_clone.setId(ls_clone.getId());
+			this.listOfStyles.add(ls_clone);
+			System.out.println("LocalStyle"+ls_clone.getRoleList().get(0));
 		}
 				
-		//System.out.println("storeTemplateLocalRenderInformation "+this.listOfColorDefinitions.size());
-		//System.out.println("storeTemplateLocalRenderInformation "+this.listOfLineEndings.size());
-		//System.out.println("storeTemplateLocalRenderInformation "+this.listOfStyles.size());
-		
+//		System.out.println("storeTemplateLocalRenderInformation listOfColorDefinitions "+this.listOfColorDefinitions.size());
+//		System.out.println("storeTemplateLocalRenderInformation listOfLineEndings "+this.listOfLineEndings.size());
+//		System.out.println(this.listOfLineEndings.get(0).getGroup().getStroke());
+//		System.out.println("storeTemplateLocalRenderInformation listOfStyles "+this.listOfStyles.size());
+//		System.out.println("storeTemplateLocalRenderInformation listOfGradientDefinitions "+this.listOfGradientDefinitions.size());
+//		
 	}
 	
 	public void completeModel() {
