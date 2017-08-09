@@ -62,6 +62,8 @@ import org.sbml.jsbml.ext.layout.TextGlyph;
 import org.sbml.jsbml.ext.qual.FunctionTerm;
 import org.sbml.jsbml.ext.qual.QualitativeSpecies;
 import org.sbml.jsbml.ext.qual.Transition;
+import org.sbml.jsbml.ext.render.RenderConstants;
+import org.sbml.jsbml.ext.render.RenderGraphicalObjectPlugin;
 import org.xml.sax.SAXException;
 
 public class SBML2SBGNML_GSOC2017 extends GeneralConverter { 
@@ -221,9 +223,15 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		Glyph sbgnSpeciesGlyph;
 		SWrapperGlyphEntityPool sWrapperGlyphEntityPool = null;
 		
+		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) speciesGlyph.getPlugin(RenderConstants.shortLabel);
+		String objectRole = renderGraphicalObjectPlugin.getObjectRole();
+		String clazz = mapObjectRoleToClazz(objectRole);
+		
 		// create a new Glyph, set its Bbox, set a Label
 		// todo: or clazz could be simple chemical etc.
-		String clazz = sUtil.sbu.getOutputFromClass(speciesGlyph.getSpeciesInstance(), "unspecified entity");
+		if (clazz.equals("unspecified entity")){
+			clazz = sUtil.sbu.getOutputFromClass(speciesGlyph.getSpeciesInstance(), "unspecified entity");
+		}
 		if (clazz.equals("unspecified entity")){
 			clazz = sUtil.sbu.getOutputFromClass(speciesGlyph, "unspecified entity");
 		}
@@ -232,7 +240,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 				true, speciesGlyph, 
 				false, speciesGlyph.getSpecies());	
 		
-		System.out.println("speciesGlyph.getSpecies() "+speciesGlyph.getSpecies());
+		System.out.println("speciesGlyph.getSpecies() "+speciesGlyph.getSpecies() + " clazz= " + clazz);
 		
 		// todo: create Auxiliary items?
 		
@@ -255,6 +263,142 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		return sWrapperGlyphEntityPool;
 	}	
 	
+	private String mapObjectRoleToClazz(String objectRole) {
+		String clazz = null;
+		
+		// todo: horizontal or vertical?
+		if (objectRole.equals("or")){
+			clazz = "or";
+		} else if (objectRole.equals("and")){
+			clazz = "and";
+		} else if (objectRole.equals("not")){
+			clazz = "not";
+		} 
+		
+		else if (objectRole.equals("SBO0000167")){
+			clazz = "process";
+		} else if (objectRole.equals("SBO0000177")){
+			clazz = "association";
+		} else if (objectRole.equals("SBO0000180")){
+			clazz = "dissociation";
+		} else if (objectRole.equals("SBO0000397")){
+			clazz = "omitted process";
+		} else if (objectRole.equals("SBO0000396")){
+			clazz = "uncertain process";
+		}
+		
+		else if (objectRole.equals("SBO0000245")){
+			clazz = "macromolecule";
+		} else if (objectRole.equals("SBO0000247")){
+			clazz = "simple chemical";
+		} else if (objectRole.equals("SBO0000291")){
+			clazz = "source and sink";
+		} else if (objectRole.equals("SBO0000354")){
+			clazz = "nucleic acid feature";
+		} else if (objectRole.equals("SBO0000253")){
+			clazz = "complex";
+		} else if (objectRole.equals("SBO0000405")){
+			clazz = "perturbing agent";
+		 }else if (objectRole.equals("SBO0000285")){
+			clazz = "unspecified entity";
+		}
+		
+		else if (objectRole.equals("SBO0000358")){
+			//biological activity
+		} else if (objectRole.equals("SBO0000358")){
+			clazz = "phenotype";
+		} else if (objectRole.equals("")){
+			//annotation
+		} 
+		
+		else if (objectRole.equals("SBO0000247clone")){
+			clazz = "simple chemical";
+		} else if (objectRole.equals("SBO0000245clone")){
+			clazz = "macromolecule";
+		} else if (objectRole.equals("SBO0000354clone")){
+			clazz = "nucleic acid feature";
+		} 
+		
+		else if (objectRole.equals("SBO0000245multimerclone")){
+			clazz = "macromolecule multimer";
+		} else if (objectRole.equals("SBO0000247multimerclone")){
+			clazz = "simple chemical multimer";
+		} else if (objectRole.equals("SBO0000354multimerclone")){
+			clazz = "nucleic acid feature multimer";
+		} 
+		
+		else if (objectRole.equals("SBO0000247multimer")){
+			clazz = "simple chemical multimer";
+		} else if (objectRole.equals("SBO0000245multimer")){
+			clazz = "macromolecule multimer";
+		} else if (objectRole.equals("SBO0000354multimer")){
+			clazz = "nucleic acid feature multimer";
+		} else if (objectRole.equals("SBO0000253multimer")){
+			clazz = "complex multimer";
+		}
+		
+		else if (objectRole.equals("unitofinfo")){
+			clazz = "unit of information";
+		} else if (objectRole.equals("unitofinfo")){
+			clazz = "cardinality";
+		} else if (objectRole.equals("statevar")){
+			clazz = "state variable";
+		} 
+		
+		else if (objectRole.equals("SBO0000289")){
+			clazz = "compartment";
+		} else if (objectRole.equals("SBO0000395")){
+			clazz = "submap";
+		} 
+		
+		else if (objectRole.equals("Tagleft")){
+			clazz = "tag_left";
+		} else if (objectRole.equals("Tagright")){
+			clazz = "tag_right";
+		} else if (objectRole.equals("Tagup")){
+			clazz = "tag_up";
+		} else if (objectRole.equals("Tagdown")){
+			clazz = "tag_down";
+		}
+		
+		else if (objectRole.equals("Tagleft")){
+			clazz = "terminal_left";
+		} else if (objectRole.equals("Tagright")){
+			clazz = "terminal_right";
+		} else if (objectRole.equals("Tagup")){
+			clazz = "terminal_up";
+		} else if (objectRole.equals("Tagdown")){
+			clazz = "terminal_down";
+		}		
+		
+		
+		if (objectRole.equals("SBO0000172")){
+			clazz = "catalysis";
+		} else if (objectRole.equals("product")){
+			clazz = "production";
+		} else if (objectRole.equals("substrate")){	
+			clazz = "consumption";
+		} else if (objectRole.equals("SBO0000170")){
+			clazz = "stimulation";
+		} else if (objectRole.equals("SBO0000171")){
+			clazz = "necessary stimulation";
+		} else if (objectRole.equals("SBO0000168")){
+			clazz = "unknown influence";
+		} else if (objectRole.equals("SBO0000169")){
+			clazz = "inhibition";
+		} else if (objectRole.equals("SBO0000168")){
+			clazz = "modulation";
+		}
+		
+		else if (objectRole.equals("equivalence")){
+			clazz = "equivalence arc";
+		} else if (objectRole.equals("SBO0000398")){
+			clazz = "logic arc";
+		}
+		
+		return "unspecified entity";
+	}
+
 	/**
 	 * Create multiple SBGN <code>Glyph</code>, each corresponding to an SBML <code>ReactionGlyph</code>. 
 	 * 
@@ -300,7 +444,13 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			// todo: change to more robust method
 			// todo: create Auxiliary items?	
 			if (reactionGlyph.isSetCurve()) {
-				String clazz = sUtil.sbu.getOutputFromClass(reactionGlyph.getReactionInstance(), "process");
+				RenderGraphicalObjectPlugin renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) reactionGlyph.getPlugin(RenderConstants.shortLabel);
+				String objectRole = renderGraphicalObjectPlugin.getObjectRole();
+				String clazz = mapObjectRoleToClazz(objectRole);
+				
+				if (clazz.equals("unspecified entity")){
+					sUtil.sbu.getOutputFromClass(reactionGlyph.getReactionInstance(), "process");
+				}
 				if (clazz.equals("process")){
 					clazz = sUtil.sbu.getOutputFromClass(reactionGlyph, "process");
 				}
@@ -370,9 +520,18 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		// need port
 		arc = sUtil.createOneArc(sbmlCurve);
 		
+		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) speciesReferenceGlyph.getPlugin(RenderConstants.shortLabel);
+		String objectRole = renderGraphicalObjectPlugin.getObjectRole();
+		String clazz = mapObjectRoleToClazz(objectRole);
+		
 		// set Clazz of the Arc
 		// todo: need to determine from getOutputFromClass between production/consumption etc			
-		String clazz = sUtil.searchForReactionRole(speciesReferenceGlyph.getSpeciesReferenceRole());
+		if (clazz.equals("unspecified entity")){
+			if (speciesReferenceGlyph.getSpeciesReferenceRole() != null){
+				clazz = sUtil.searchForReactionRole(speciesReferenceGlyph.getSpeciesReferenceRole());
+			}
+			
+		}
 		if (clazz == null){
 			clazz = sUtil.sbu.getOutputFromClass(speciesReferenceGlyph, "unknown influence");
 		}
@@ -475,9 +634,11 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			
 			// find the Glyph that should contain this text
 			indexOfSpeciesGlyph = sUtil.searchForIndex(listOfGlyphs, id);
-			sbgnGlyph = listOfGlyphs.get(indexOfSpeciesGlyph);
-			
-			sUtil.setLabel(sbgnGlyph, text);
+			if (indexOfSpeciesGlyph != -1){
+				sbgnGlyph = listOfGlyphs.get(indexOfSpeciesGlyph);
+				sUtil.setLabel(sbgnGlyph, text);
+			}
+
 			
 		} else {
 			// clazz is unknown
@@ -531,8 +692,17 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		Arcgroup arcgroup;
 		Arcgroup processNode;
 		Curve sbmlCurve;
+		String clazz = "unspecified entity";
 		
-		String clazz = sUtil.sbu.getOutputFromClass(generalGlyph.getReferenceInstance(), "unspecified entity");
+//		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) generalGlyph.getPlugin(RenderConstants.shortLabel);
+//		String objectRole = renderGraphicalObjectPlugin.getObjectRole();
+//		clazz = mapObjectRoleToClazz(objectRole);
+//		
+//		if (clazz.equals("unspecified entity")){
+			if (generalGlyph.getReferenceInstance() != null){
+				clazz = sUtil.sbu.getOutputFromClass(generalGlyph.getReferenceInstance(), "unspecified entity");				
+			}
+//		}
 		if (clazz.equals("unspecified entity")){
 			clazz = sUtil.sbu.getOutputFromClass(generalGlyph, "unspecified entity");
 		}
@@ -563,7 +733,9 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		
 		try {
 			sUtil.addAnnotationInExtension(arcgroup, generalGlyph.getAnnotation());
-			sUtil.addAnnotationInExtension(arcgroup, generalGlyph.getReferenceInstance().getAnnotation());
+			if (generalGlyph.getReferenceInstance() != null){
+				sUtil.addAnnotationInExtension(arcgroup, generalGlyph.getReferenceInstance().getAnnotation());
+			}
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -597,8 +769,16 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		// need port
 		arc = sUtil.createOneArc(sbmlCurve);
 		
+		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) referenceGlyph.getPlugin(RenderConstants.shortLabel);
+		String objectRole = renderGraphicalObjectPlugin.getObjectRole();
+		String clazz = mapObjectRoleToClazz(objectRole);
+		
 		// todo: need to determine from getOutputFromClass between production/consumption etc
-		String clazz = sUtil.searchForReactionRole(role);
+		if (clazz.equals("unspecified entity")){
+			if (role != null){
+				clazz = sUtil.searchForReactionRole(role);
+			}
+		}
 		if (clazz == null){
 			clazz = sUtil.sbu.getOutputFromClass(referenceGlyph, "unknown influence");
 		} 

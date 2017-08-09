@@ -1,0 +1,1439 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" level="3" render:required="false" version="1" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
+  <model>
+    <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <layout:layout>
+        <render:listOfRenderInformation xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
+          <render:renderInformation render:id="LocalRenderInformation_01">
+            <render:listOfColorDefinitions>
+              <render:colorDefinition render:id="black" render:value="#000000FF"/>
+              <render:colorDefinition render:id="white" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="transparent" render:value="#FFFFFF00"/>
+              <render:colorDefinition render:id="EmptySetOutline" render:value="#808080FF"/>
+              <render:colorDefinition render:id="EmptySetGradientStart" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="EmptySetGradientEnd" render:value="#D3D3D3FF"/>
+              <render:colorDefinition render:id="CompartmentBorder" render:value="#666666FF"/>
+              <render:colorDefinition render:id="CompartmentGradientStart" render:value="#CCCCCCFF"/>
+              <render:colorDefinition render:id="CompartmentGradientEnd" render:value="#CCCCFFFF"/>
+              <render:colorDefinition render:id="CloneMarkerColor" render:value="#FFA500FF"/>
+              <render:colorDefinition render:id="EPNGradientStart" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="EPNGradientEnd" render:value="#C0C0C0FF"/>
+            </render:listOfColorDefinitions>
+            <render:listOfGradientDefinitions>
+              <render:linearGradient render:id="EPNBackgroundGradient" render:spreadMethod="pad" render:x1="0%" render:x2="100%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="EPNGradientStart"/>
+                <render:stop render:offset="100%" render:stop-color="EPNGradientEnd"/>
+              </render:linearGradient>
+              <render:linearGradient render:id="cloneMarker" render:spreadMethod="pad" render:x1="50%" render:x2="50%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="transparent"/>
+                <render:stop render:offset="0.75%" render:stop-color="transparent"/>
+                <render:stop render:offset="0.76%" render:stop-color="CloneMarkerColor"/>
+                <render:stop render:offset="1%" render:stop-color="CloneMarkerColor"/>
+              </render:linearGradient>
+              <render:linearGradient render:id="EmptySetGradient" render:spreadMethod="pad" render:x1="0%" render:x2="100%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="EmptySetGradientStart"/>
+                <render:stop render:offset="100%" render:stop-color="EmptySetGradientEnd"/>
+              </render:linearGradient>
+              <render:linearGradient render:id="CompartmentGradient" render:spreadMethod="pad" render:x1="0%" render:x2="100%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="CompartmentGradientStart"/>
+                <render:stop render:offset="100%" render:stop-color="CompartmentGradientEnd"/>
+              </render:linearGradient>
+            </render:listOfGradientDefinitions>
+            <render:listOfLineEndings>
+              <render:lineEnding render:id="modulation">
+                <layout:boundingBox>
+                  <layout:position layout:x="-12" layout:y="-6"/>
+                  <layout:dimensions layout:height="12" layout:width="12"/>
+                </layout:boundingBox>
+                <render:g render:fill="white" render:stroke="black" render:stroke-width="0.001">
+                  <render:polygon render:fill="ffffff" render:stroke="black" render:stroke-width="0.001">
+                    <render:listOfElements>
+                      <render:element render:x="50%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="50%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="50%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="50%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                  <render:polygon render:fill="ffffff" render:stroke="black" render:stroke-width="0.001">
+                    <render:listOfElements>
+                      <render:element render:x="50%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="50%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="50%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="50%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:lineEnding>
+              <render:lineEnding render:id="necessary_stimulation">
+                <layout:boundingBox>
+                  <layout:position layout:x="-12" layout:y="-6"/>
+                  <layout:dimensions layout:height="12" layout:width="12"/>
+                </layout:boundingBox>
+                <render:g render:fill="white" render:stroke="black" render:stroke-width="0.001">
+                  <render:polygon render:fill="white">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                  <render:polygon render:fill="white">
+                    <render:listOfElements>
+                      <render:element render:x="30%" render:y="20%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="30%" render:y="90%" xsi:type="RenderPoint"/>
+                      <render:element render:x="30%" render:y="90%" xsi:type="RenderPoint"/>
+                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="30%" render:y="20%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                  <render:polygon render:fill="white">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                  <render:polygon render:fill="white">
+                    <render:listOfElements>
+                      <render:element render:x="30%" render:y="20%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="30%" render:y="90%" xsi:type="RenderPoint"/>
+                      <render:element render:x="30%" render:y="90%" xsi:type="RenderPoint"/>
+                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="30%" render:y="20%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:lineEnding>
+              <render:lineEnding render:id="stimulation">
+                <layout:boundingBox>
+                  <layout:position layout:x="-12" layout:y="-6"/>
+                  <layout:dimensions layout:height="12" layout:width="12"/>
+                </layout:boundingBox>
+                <render:g render:fill="white" render:stroke="black" render:stroke-width="0.001">
+                  <render:polygon render:fill="white">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                  <render:polygon render:fill="white">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:lineEnding>
+              <render:lineEnding render:id="product">
+                <layout:boundingBox>
+                  <layout:position layout:x="-12" layout:y="-6"/>
+                  <layout:dimensions layout:height="12" layout:width="12"/>
+                </layout:boundingBox>
+                <render:g render:fill="black" render:stroke="black" render:stroke-width="0.001">
+                  <render:polygon render:fill="black">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                  <render:polygon render:fill="black">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:lineEnding>
+              <render:lineEnding render:id="inhibitor">
+                <layout:boundingBox>
+                  <layout:position layout:x="-0.7" layout:y="-4"/>
+                  <layout:dimensions layout:height="8" layout:width="0.7"/>
+                </layout:boundingBox>
+                <render:g render:fill="black" render:stroke="black" render:stroke-width="0.1">
+                  <render:polygon>
+                                                          </render:polygon>
+                  <render:polygon>
+                                                          </render:polygon>
+                </render:g>
+              </render:lineEnding>
+            </render:listOfLineEndings>
+            <render:listOfStyles>
+              <render:style id="defaultText" render:roleList="defaultText">
+                <render:g font-style="normal" font-weight="normal" render:font-size="10" render:stroke="black" render:stroke-width="1.0" render:text-anchor="middle" render:vtext-anchor="middle"/>
+              </render:style>
+              <render:style id="topText" render:roleList="topText">
+                <render:g font-style="normal" font-weight="normal" render:font-size="10" render:stroke="black" render:stroke-width="1.0" render:text-anchor="middle" render:vtext-anchor="top"/>
+              </render:style>
+              <render:style id="substrate" render:roleList="substrate">
+                <render:g render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000398" render:roleList="SBO0000398">
+                <render:g render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="equivalence" render:roleList="equivalence">
+                <render:g render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000177" render:roleList="SBO0000177">
+                <render:g render:fill="black" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%" render:stroke="black" render:stroke-width="1.0"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000169" render:roleList="SBO0000169">
+                <render:g render:endHead="inhibitor" render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000171" render:roleList="SBO0000171">
+                <render:g render:endHead="necessary_stimulation" render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000168" render:roleList="SBO0000168">
+                <render:g render:endHead="modulation" render:fill="white" render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000170" render:roleList="SBO0000170">
+                <render:g render:endHead="stimulation" render:fill="white" render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000180" render:roleList="SBO0000180">
+                <render:g render:fill="white" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%" render:stroke="black" render:stroke-width="1.0"/>
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="25%" render:ry="25%" render:stroke="black" render:stroke-width="1.0"/>
+                </render:g>
+              </render:style>
+              <render:style id="product" render:roleList="product">
+                <render:g render:endHead="product" render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000354" render:roleList="SBO0000354">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="80%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="80%" xsi:type="RenderPoint"/>
+                      <render:element render:basepoint1_x="100%" render:basepoint1_y="100%" render:basepoint2_x="100%" render:basepoint2_y="100%" render:x="80%" render:y="100%" xsi:type="RenderCubicBezier"/>
+                      <render:element render:x="80%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="20%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:basepoint1_x="0%" render:basepoint1_y="100%" render:basepoint2_x="0%" render:basepoint2_y="100%" render:x="0%" render:y="80%" xsi:type="RenderCubicBezier"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000354multimer" render:roleList="SBO0000354multimer">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="5%" render:y="80%" xsi:type="RenderPoint"/>
+                      <render:element render:x="5%" render:y="5%" xsi:type="RenderPoint"/>
+                      <render:element render:x="5%" render:y="5%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="5%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="5%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="80%" xsi:type="RenderPoint"/>
+                      <render:element render:basepoint1_x="100%" render:basepoint1_y="100%" render:basepoint2_x="100%" render:basepoint2_y="100%" render:x="80%" render:y="100%" xsi:type="RenderCubicBezier"/>
+                      <render:element render:x="80%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="20%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:basepoint1_x="5%" render:basepoint1_y="100%" render:basepoint2_x="5%" render:basepoint2_y="100%" render:x="5%" render:y="80%" xsi:type="RenderCubicBezier"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="80%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="95%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="95%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="95%" render:y="80%" xsi:type="RenderPoint"/>
+                      <render:element render:basepoint1_x="95%" render:basepoint1_y="95%" render:basepoint2_x="95%" render:basepoint2_y="95%" render:x="80%" render:y="95%" xsi:type="RenderCubicBezier"/>
+                      <render:element render:x="80%" render:y="95%" xsi:type="RenderPoint"/>
+                      <render:element render:x="20%" render:y="95%" xsi:type="RenderPoint"/>
+                      <render:element render:basepoint1_x="0%" render:basepoint1_y="95%" render:basepoint2_x="0%" render:basepoint2_y="95%" render:x="0%" render:y="80%" xsi:type="RenderCubicBezier"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000245" render:roleList="SBO0000245">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:rectangle render:height="100%" render:rx="10%" render:width="100%" render:x="0%" render:y="0%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000245multimer" render:roleList="SBO0000245multimer">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:rectangle render:height="95%" render:rx="10%" render:width="95%" render:x="5%" render:y="5%"/>
+                  <render:rectangle render:height="95%" render:rx="10%" render:width="95%" render:x="0%" render:y="0%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000285" render:roleList="SBO0000285">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000247multimer" render:roleList="SBO0000247multimer">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="55%" render:cy="55%" render:cz="0" render:rx="45%" render:ry="45%"/>
+                  <render:ellipse render:cx="45%" render:cy="45%" render:cz="0" render:rx="45%" render:ry="45%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000247clone" render:roleList="SBO0000247clone">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:fill="cloneMarker" render:rx="50%" render:ry="50%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000291" render:roleList="SBO0000291">
+                <render:g render:fill="EmptySetGradient" render:stroke="EmptySetOutline" render:stroke-width="1.25">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
+                  <render:polygon render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000253" render:roleList="SBO0000253">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="10%" xsi:type="RenderPoint"/>
+                      <render:element render:x="10%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="10%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="90%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="90%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="10%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="10%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="90%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="90%" xsi:type="RenderPoint"/>
+                      <render:element render:x="90%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="90%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="10%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="10%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="90%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="90%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="10%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000253multimer" render:roleList="SBO0000253multimer">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="5%" render:y="15%" xsi:type="RenderPoint"/>
+                      <render:element render:x="15%" render:y="5%" xsi:type="RenderPoint"/>
+                      <render:element render:x="15%" render:y="5%" xsi:type="RenderPoint"/>
+                      <render:element render:x="90%" render:y="5%" xsi:type="RenderPoint"/>
+                      <render:element render:x="90%" render:y="5%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="15%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="15%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="90%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="90%" xsi:type="RenderPoint"/>
+                      <render:element render:x="90%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="90%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="15%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="15%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="5%" render:y="90%" xsi:type="RenderPoint"/>
+                      <render:element render:x="5%" render:y="90%" xsi:type="RenderPoint"/>
+                      <render:element render:x="5%" render:y="15%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="10%" xsi:type="RenderPoint"/>
+                      <render:element render:x="10%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="10%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="85%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="85%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="95%" render:y="10%" xsi:type="RenderPoint"/>
+                      <render:element render:x="95%" render:y="10%" xsi:type="RenderPoint"/>
+                      <render:element render:x="95%" render:y="85%" xsi:type="RenderPoint"/>
+                      <render:element render:x="95%" render:y="85%" xsi:type="RenderPoint"/>
+                      <render:element render:x="85%" render:y="95%" xsi:type="RenderPoint"/>
+                      <render:element render:x="85%" render:y="95%" xsi:type="RenderPoint"/>
+                      <render:element render:x="10%" render:y="95%" xsi:type="RenderPoint"/>
+                      <render:element render:x="10%" render:y="95%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="85%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="85%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="10%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000405" render:roleList="SBO0000405">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="80%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="80%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="20%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="20%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="Tagright" render:roleList="Tagright">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="75%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="75%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="75%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="75%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="Tagup" render:roleList="Tagup">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="25%" xsi:type="RenderPoint"/>
+                      <render:element render:x="50%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="50%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="25%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="25%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="25%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="Tagdown" render:roleList="Tagdown">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="75%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="75%" xsi:type="RenderPoint"/>
+                      <render:element render:x="50%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="50%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="75%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="75%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="Tagleft" render:roleList="Tagleft">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="25%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="25%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="25%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="25%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000358" render:roleList="SBO0000358">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="20%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="80%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="80%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="80%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="80%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="20%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="20%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="20%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000395" render:roleList="SBO0000395">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:rectangle render:height="100%" render:rx="0%" render:ry="0%" render:width="100%" render:x="0" render:y="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000289" render:roleList="SBO0000289">
+                <render:g render:fill="CompartmentGradient" render:stroke="CompartmentBorder" render:stroke-width="7.0">
+                  <render:rectangle render:height="100%" render:rx="10%" render:ry="10%" render:width="100%" render:x="0" render:y="0"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000397" render:roleList="SBO0000397">
+                <render:g render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="white" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                  <render:polygon render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="20%" render:y="20%" xsi:type="RenderPoint"/>
+                      <render:element render:x="30%" render:y="80%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                  <render:polygon render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="40%" render:y="20%" xsi:type="RenderPoint"/>
+                      <render:element render:x="50%" render:y="80%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000396" render:roleList="SBO0000396">
+                <render:g render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="white" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                  <render:polygon render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="10%" render:y="10%" xsi:type="RenderPoint"/>
+                      <render:element render:basepoint1_x="70%" render:basepoint1_y="30%" render:basepoint2_x="70%" render:basepoint2_y="30%" render:x="100%" render:y="100%" xsi:type="RenderCubicBezier"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="statevar" render:roleList="statevar">
+                <render:g render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
+                </render:g>
+              </render:style>
+              <render:style id="unitofinfo" render:roleList="unitofinfo">
+                <render:g render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="and" render:roleList="and">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
+                </render:g>
+              </render:style>
+              <render:style id="not" render:roleList="not">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
+                </render:g>
+              </render:style>
+              <render:style id="or" render:roleList="or">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
+                </render:g>
+              </render:style>
+            </render:listOfStyles>
+          </render:renderInformation>
+        </render:listOfRenderInformation>
+        <layout:dimensions layout:depth="0" layout:height="0" layout:width="0"/>
+        <layout:listOfAdditionalGraphicalObjects>
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph4a" render:objectRole="unitofinfo">
+            <layout:boundingBox>
+              <layout:position layout:x="1124.1666259765625" layout:y="591.3333129882812" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="16" layout:width="99"/>
+            </layout:boundingBox>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph11a" render:objectRole="statevar">
+            <layout:boundingBox>
+              <layout:position layout:x="760.5" layout:y="676.5" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="41" layout:width="122"/>
+            </layout:boundingBox>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph44" render:objectRole="unitofinfo">
+            <layout:boundingBox>
+              <layout:position layout:x="609" layout:y="224" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="18.5" layout:width="22.5"/>
+            </layout:boundingBox>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_arc18" render:objectRole="SBO0000398">
+            <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph13" layout:id="ReferenceGlyph_arc18" render:objectRole="SBO0000398">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="643.2756958007812" layout:y="326.85980224609375"/>
+                      <layout:end layout:x="541.5" layout:y="423"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_arc7" render:objectRole="SBO0000398">
+            <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph9" layout:id="ReferenceGlyph_arc7" render:objectRole="SBO0000398">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="1333.3333740234375" layout:y="1020.3333129882812"/>
+                      <layout:end layout:x="1333.3333740234375" layout:y="1092"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_arc8" render:objectRole="SBO0000169">
+            <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph21" layout:id="ReferenceGlyph_arc8" render:objectRole="SBO0000169">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="1333.3333740234375" layout:y="1176"/>
+                      <layout:end layout:x="1333.3333740234375" layout:y="1247"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_arc3" render:objectRole="SBO0000398">
+            <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph7" layout:id="ReferenceGlyph_arc3" render:objectRole="SBO0000398">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="423.49566650390625" layout:y="340"/>
+                      <layout:end layout:x="541.5" layout:y="423"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_arc20" render:objectRole="equivalence">
+            <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph5" layout:id="ReferenceGlyph_arc20" render:objectRole="equivalence">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="200" layout:y="812"/>
+                      <layout:end layout:x="200" layout:y="914.5"/>
+                    </layout:curveSegment>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="200" layout:y="914.5"/>
+                      <layout:end layout:x="345.5" layout:y="913.48486328125"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_arc21" render:objectRole="equivalence">
+            <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph16" layout:id="ReferenceGlyph_arc21" render:objectRole="equivalence">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="628" layout:y="872.5"/>
+                      <layout:end layout:x="628" layout:y="829"/>
+                    </layout:curveSegment>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="628" layout:y="829"/>
+                      <layout:end layout:x="862" layout:y="829"/>
+                    </layout:curveSegment>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="862" layout:y="829"/>
+                      <layout:end layout:x="862.210205078125" layout:y="793.3333129882812"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_arc5" render:objectRole="SBO0000398">
+            <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph4" layout:id="ReferenceGlyph_arc5" render:objectRole="SBO0000398">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="1119.6666259765625" layout:y="708.4522705078125"/>
+                      <layout:end layout:x="1052.5" layout:y="739"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_arc22" render:objectRole="equivalence">
+            <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph17" layout:id="ReferenceGlyph_arc22" render:objectRole="equivalence">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="1279.3333740234375" layout:y="1277"/>
+                      <layout:end layout:x="776" layout:y="1277"/>
+                    </layout:curveSegment>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="776" layout:y="1277"/>
+                      <layout:end layout:x="776" layout:y="1039"/>
+                    </layout:curveSegment>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="776" layout:y="1039"/>
+                      <layout:end layout:x="725.5" layout:y="1039"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_arc4" render:objectRole="SBO0000398">
+            <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph3" layout:id="ReferenceGlyph_arc4" render:objectRole="SBO0000398">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="980" layout:y="708.5206909179688"/>
+                      <layout:end layout:x="1052.5" layout:y="739"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_arc23" render:objectRole="equivalence">
+            <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph19" layout:id="ReferenceGlyph_arc23" render:objectRole="equivalence">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="465" layout:y="1127.3333740234375"/>
+                      <layout:end layout:x="465" layout:y="1077"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph21">
+            <layout:boundingBox>
+              <layout:position layout:x="1312.3333740234375" layout:y="1113" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="42" layout:width="42"/>
+            </layout:boundingBox>
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start/>
+                  <layout:end/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="1333.3333740234375" layout:y="1134"/>
+                  <layout:end layout:x="1333.3333740234375" layout:y="1092"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="1333.3333740234375" layout:y="1134"/>
+                  <layout:end layout:x="1333.3333740234375" layout:y="1176"/>
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph22">
+            <layout:boundingBox>
+              <layout:position layout:x="1031.5" layout:y="760" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="42" layout:width="42"/>
+            </layout:boundingBox>
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start/>
+                  <layout:end/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="1052.5" layout:y="781"/>
+                  <layout:end layout:x="1052.5" layout:y="739"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="1052.5" layout:y="781"/>
+                  <layout:end layout:x="1052.5" layout:y="739"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="1052.5" layout:y="781"/>
+                  <layout:end layout:x="1052.5" layout:y="823"/>
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph23">
+            <layout:boundingBox>
+              <layout:position layout:x="520.5" layout:y="444" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="42" layout:width="42"/>
+            </layout:boundingBox>
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start/>
+                  <layout:end/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="541.5" layout:y="465"/>
+                  <layout:end layout:x="541.5" layout:y="423"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="541.5" layout:y="465"/>
+                  <layout:end layout:x="541.5" layout:y="507"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="541.5" layout:y="465"/>
+                  <layout:end layout:x="541.5" layout:y="423"/>
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+          </layout:generalGlyph>
+        </layout:listOfAdditionalGraphicalObjects>
+        <layout:listOfCompartmentGlyphs>
+          <layout:compartmentGlyph layout:compartment="glyph1" layout:id="CompartmentGlyph_glyph1" layout:order="-27" render:objectRole="SBO0000289">
+            <layout:boundingBox>
+              <layout:position layout:x="17" layout:y="18" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="1350" layout:width="1538"/>
+            </layout:boundingBox>
+          </layout:compartmentGlyph>
+        </layout:listOfCompartmentGlyphs>
+        <layout:listOfSpeciesGlyphs>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph20" layout:species="glyph20" render:objectRole="SBO0000291">
+            <layout:boundingBox>
+              <layout:position layout:x="810" layout:y="954.3333129882812" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph9" layout:species="glyph9" render:objectRole="SBO0000285">
+            <layout:boundingBox>
+              <layout:position layout:x="1229.3333740234375" layout:y="948.3333129882812" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="72" layout:width="208"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph8" layout:species="glyph8" render:objectRole="SBO0000405">
+            <layout:boundingBox>
+              <layout:position layout:x="1096.6666259765625" layout:y="145" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="88" layout:width="214"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph13" layout:species="glyph13" render:objectRole="SBO0000247clone">
+            <layout:boundingBox>
+              <layout:position layout:x="629" layout:y="274" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="68" layout:width="170"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph5" layout:species="glyph5" render:objectRole="SBO0000354multimer">
+            <layout:boundingBox>
+              <layout:position layout:x="61" layout:y="732" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="80" layout:width="278"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph4" layout:species="glyph4" render:objectRole="SBO0000253multimer">
+            <layout:boundingBox>
+              <layout:position layout:x="1119.6666259765625" layout:y="599.3333129882812" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="120" layout:width="216"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph7" layout:species="glyph7" render:objectRole="SBO0000247multimer">
+            <layout:boundingBox>
+              <layout:position layout:x="244" layout:y="276" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="64" layout:width="268"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph6" layout:species="glyph6" render:objectRole="SBO0000245multimer">
+            <layout:boundingBox>
+              <layout:position layout:x="77" layout:y="508" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="84" layout:width="244"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph12" layout:species="glyph12" render:objectRole="SBO0000247clone">
+            <layout:boundingBox>
+              <layout:position layout:x="629" layout:y="63" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="68" layout:width="170"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph3" layout:species="glyph3" render:objectRole="SBO0000253">
+            <layout:boundingBox>
+              <layout:position layout:x="746" layout:y="525.3333129882812" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="268" layout:width="234"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph11" layout:species="glyph11" render:objectRole="SBO0000245">
+            <layout:boundingBox>
+              <layout:position layout:x="778" layout:y="697" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="72" layout:width="174"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph10" layout:species="glyph10" render:objectRole="SBO0000354">
+            <layout:boundingBox>
+              <layout:position layout:x="774" layout:y="579" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="78" layout:width="186"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph2" layout:species="glyph2" render:objectRole="SBO0000395">
+            <layout:boundingBox>
+              <layout:position layout:x="346" layout:y="873" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="204" layout:width="380"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph14" layout:species="glyph14" render:objectRole="Tagright">
+            <layout:boundingBox>
+              <layout:position layout:x="345.5" layout:y="883" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="139"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph15" layout:species="glyph15" render:objectRole="Tagleft">
+            <layout:boundingBox>
+              <layout:position layout:x="617.5" layout:y="1009" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph16" layout:species="glyph16" render:objectRole="Tagdown">
+            <layout:boundingBox>
+              <layout:position layout:x="598" layout:y="872.5" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="108" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph18" layout:species="glyph18" render:objectRole="Tagup">
+            <layout:boundingBox>
+              <layout:position layout:x="435" layout:y="969" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="108" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph17" layout:species="glyph17" render:objectRole="SBO0000358">
+            <layout:boundingBox>
+              <layout:position layout:x="1279.3333740234375" layout:y="1247" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph19" layout:species="glyph19" render:objectRole="SBO0000291">
+            <layout:boundingBox>
+              <layout:position layout:x="435" layout:y="1127.3333740234375" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph21" layout:species="glyph21" render:objectRole="not">
+            <layout:boundingBox>
+              <layout:position layout:x="1312.3333740234375" layout:y="1113" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="42" layout:width="42"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph22" layout:species="glyph22" render:objectRole="or">
+            <layout:boundingBox>
+              <layout:position layout:x="1031.5" layout:y="760" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="42" layout:width="42"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph23" layout:species="glyph23" render:objectRole="and">
+            <layout:boundingBox>
+              <layout:position layout:x="520.5" layout:y="444" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="42" layout:width="42"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+        </layout:listOfSpeciesGlyphs>
+        <layout:listOfReactionGlyphs>
+          <layout:reactionGlyph layout:id="ReactionGlyph_glyph24" layout:reaction="glyph24" render:objectRole="SBO0000397">
+            <layout:boundingBox>
+              <layout:position layout:x="1040.5" layout:y="972.3333129882812" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="24" layout:width="24"/>
+            </layout:boundingBox>
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="1052.5" layout:y="984.3333129882812"/>
+                  <layout:end layout:x="1076.5" layout:y="984.3333129882812"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="1028.5" layout:y="984.3333129882812"/>
+                  <layout:end layout:x="1052.5" layout:y="984.3333129882812"/>
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc1" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph20" layout:speciesReference="arc1" render:objectRole="substrate">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="870" layout:y="984.3333129882812"/>
+                      <layout:end layout:x="1028.5" layout:y="984.3333129882812"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc2" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph9" layout:speciesReference="arc2" render:objectRole="product">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="1076.5" layout:y="984.3333129882812"/>
+                      <layout:end layout:x="1229.3333740234375" layout:y="984.3333129882812"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc6" layout:speciesGlyph="SpeciesGlyph_glyph22" layout:speciesReference="arc6" render:objectRole="SBO0000170">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="1052.5" layout:y="823"/>
+                      <layout:end layout:x="1052.5" layout:y="972.3333129882812"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="ReactionGlyph_glyph25" layout:reaction="glyph25" render:objectRole="SBO0000396">
+            <layout:boundingBox>
+              <layout:position layout:x="1191.6666259765625" layout:y="297" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="24" layout:width="24"/>
+            </layout:boundingBox>
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="1203.6666259765625" layout:y="309"/>
+                  <layout:end layout:x="1227.6666259765625" layout:y="309"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="1179.6666259765625" layout:y="309"/>
+                  <layout:end layout:x="1203.6666259765625" layout:y="309"/>
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc16" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph13" layout:speciesReference="arc16" render:objectRole="substrate">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="798.9998168945312" layout:y="308.0730285644531"/>
+                      <layout:end layout:x="1179.6666259765625" layout:y="309"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc14" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph4" layout:speciesReference="arc14" render:objectRole="product">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="1227.6666259765625" layout:y="309"/>
+                      <layout:end layout:x="1223.5562744140625" layout:y="599.3333129882812"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc13" layout:role="modifier" layout:speciesGlyph="SpeciesGlyph_glyph8" layout:speciesReference="arc13" render:objectRole="SBO0000168">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="1203.6666259765625" layout:y="233"/>
+                      <layout:end layout:x="1203.6666259765625" layout:y="297"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="ReactionGlyph_glyph26" layout:reaction="glyph26" render:objectRole="SBO0000177">
+            <layout:boundingBox>
+              <layout:position layout:x="529.5" layout:y="647.3333129882812" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="24" layout:width="24"/>
+            </layout:boundingBox>
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="541.5" layout:y="659.3333129882812"/>
+                  <layout:end layout:x="565.5" layout:y="659.3333129882812"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="517.5" layout:y="659.3333129882812"/>
+                  <layout:end layout:x="541.5" layout:y="659.3333129882812"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="517.5" layout:y="659.3333129882812"/>
+                  <layout:end layout:x="541.5" layout:y="659.3333129882812"/>
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc9" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph6" layout:speciesReference="arc9" render:objectRole="substrate">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="321" layout:y="591.879638671875"/>
+                      <layout:end layout:x="517.5" layout:y="659.3333129882812"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc10" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph5" layout:speciesReference="arc10" render:objectRole="substrate">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="312.7218933105469" layout:y="732"/>
+                      <layout:end layout:x="517.5" layout:y="659.3333129882812"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc11" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph3" layout:speciesReference="arc11" render:objectRole="product">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="565.5" layout:y="659.3333129882812"/>
+                      <layout:end layout:x="746" layout:y="659.3333129882812"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc12" layout:speciesGlyph="SpeciesGlyph_glyph23" layout:speciesReference="arc12" render:objectRole="SBO0000171">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="541.5" layout:y="507"/>
+                      <layout:end layout:x="541.5" layout:y="647.3333129882812"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+          <layout:reactionGlyph layout:id="ReactionGlyph_glyph27" layout:reaction="glyph27" render:objectRole="SBO0000180">
+            <layout:boundingBox>
+              <layout:position layout:x="533" layout:y="192" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="24" layout:width="24"/>
+            </layout:boundingBox>
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="545" layout:y="204"/>
+                  <layout:end layout:x="569" layout:y="204"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="545" layout:y="204"/>
+                  <layout:end layout:x="569" layout:y="204"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="521" layout:y="204"/>
+                  <layout:end layout:x="545" layout:y="204"/>
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+            <layout:listOfSpeciesReferenceGlyphs>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc15" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph7" layout:speciesReference="arc15" render:objectRole="substrate">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="422" layout:y="276"/>
+                      <layout:end layout:x="521" layout:y="204"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc17" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph13" layout:speciesReference="arc17" render:objectRole="product">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="569" layout:y="204"/>
+                      <layout:end layout:x="641.6090698242188" layout:y="290.1806945800781"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc19" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph12" layout:speciesReference="arc19" render:objectRole="product">
+                <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="569" layout:y="204"/>
+                      <layout:end layout:x="642.1839599609375" layout:y="115.18772888183594"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+            </layout:listOfSpeciesReferenceGlyphs>
+          </layout:reactionGlyph>
+        </layout:listOfReactionGlyphs>
+        <layout:listOfTextGlyphs>
+          <layout:textGlyph layout:graphicalObject="CompartmentGlyph_glyph1" layout:id="TextGlyph_CompartmentGlyph_glyph1" layout:text="Compartement" render:objectRole="topText">
+            <layout:boundingBox>
+              <layout:position layout:x="17" layout:y="18" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="1350" layout:width="1538"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph9" layout:id="TextGlyph_glyph9" layout:originOfText="glyph9" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="1229.3333740234375" layout:y="948.3333129882812" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="72" layout:width="208"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph8" layout:id="TextGlyph_glyph8" layout:originOfText="glyph8" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="1096.6666259765625" layout:y="145" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="88" layout:width="214"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph13" layout:id="TextGlyph_glyph13" layout:originOfText="glyph13" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="629" layout:y="274" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="68" layout:width="170"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph5" layout:id="TextGlyph_glyph5" layout:originOfText="glyph5" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="61" layout:y="732" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="80" layout:width="278"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="GeneralGlyph_glyph4a" layout:id="TextGlyph_GeneralGlyph_glyph4a" layout:text="unitof:information" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="1124.1666259765625" layout:y="591.3333129882812" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="16" layout:width="99"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph4" layout:id="TextGlyph_glyph4" layout:originOfText="glyph4" render:objectRole="topText">
+            <layout:boundingBox>
+              <layout:position layout:x="1119.6666259765625" layout:y="599.3333129882812" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="120" layout:width="216"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph7" layout:id="TextGlyph_glyph7" layout:originOfText="glyph7" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="244" layout:y="276" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="64" layout:width="268"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph6" layout:id="TextGlyph_glyph6" layout:originOfText="glyph6" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="77" layout:y="508" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="84" layout:width="244"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph12" layout:id="TextGlyph_glyph12" layout:originOfText="glyph12" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="629" layout:y="63" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="68" layout:width="170"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="GeneralGlyph_glyph11a" layout:id="TextGlyph_GeneralGlyph_glyph11a" layout:text="state@variable" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="760.5" layout:y="676.5" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="41" layout:width="122"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph11" layout:id="TextGlyph_glyph11" layout:originOfText="glyph11" render:objectRole="topText">
+            <layout:boundingBox>
+              <layout:position layout:x="778" layout:y="697" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="72" layout:width="174"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph10" layout:id="TextGlyph_glyph10" layout:originOfText="glyph10" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="774" layout:y="579" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="78" layout:width="186"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph3" layout:id="TextGlyph_glyph3" layout:originOfText="glyph3" render:objectRole="topText">
+            <layout:boundingBox>
+              <layout:position layout:x="746" layout:y="525.3333129882812" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="268" layout:width="234"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph14" layout:id="TextGlyph_glyph14" layout:originOfText="glyph14" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="345.5" layout:y="883" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="139"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph15" layout:id="TextGlyph_glyph15" layout:originOfText="glyph15" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="617.5" layout:y="1009" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph16" layout:id="TextGlyph_glyph16" layout:originOfText="glyph16" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="598" layout:y="872.5" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="108" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph18" layout:id="TextGlyph_glyph18" layout:originOfText="glyph18" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="435" layout:y="969" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="108" layout:width="60"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph2" layout:id="TextGlyph_glyph2" layout:originOfText="glyph2" render:objectRole="topText">
+            <layout:boundingBox>
+              <layout:position layout:x="346" layout:y="873" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="204" layout:width="380"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph17" layout:id="TextGlyph_glyph17" layout:originOfText="glyph17" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="1279.3333740234375" layout:y="1247" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph21" layout:id="TextGlyph_SpeciesGlyph_glyph21" layout:text="NOT" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="1312.3333740234375" layout:y="1113" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="42" layout:width="42"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph22" layout:id="TextGlyph_SpeciesGlyph_glyph22" layout:text="OR" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="1031.5" layout:y="760" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="42" layout:width="42"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph23" layout:id="TextGlyph_SpeciesGlyph_glyph23" layout:text="AND" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="520.5" layout:y="444" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="42" layout:width="42"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="GeneralGlyph_glyph44" layout:id="TextGlyph_GeneralGlyph_glyph44" layout:text="3" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="609" layout:y="224" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="18.5" layout:width="22.5"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="ReactionGlyph_glyph25" layout:id="TextGlyph_ReactionGlyph_glyph25" layout:text="?" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="1191.6666259765625" layout:y="297" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="24" layout:width="24"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+        </layout:listOfTextGlyphs>
+      </layout:layout>
+    </layout:listOfLayouts>
+    <listOfCompartments>
+      <compartment constant="true" id="glyph1" name="Compartement"/>
+      <compartment constant="true" id="DefaultCompartment_01"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph20" sboTerm="SBO:0000291"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph9" name="unspecified entity" sboTerm="SBO:0000285"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph8" name="perturbation" sboTerm="SBO:0000405"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph13" name="simple chemical" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph5" name="multimer nucleic acid feature" sboTerm="SBO:0000419"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph4" name="multimer complex" sboTerm="SBO:0000418"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph7" name="multimer simple chemical" sboTerm="SBO:0000421"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph6" name="multimer macromolecule" sboTerm="SBO:0000420"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph12" name="simple chemical" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph3" name="complex" sboTerm="SBO:0000253"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph11" name="macromolecule" sboTerm="SBO:0000245"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph10" name="nucleic acid feature" sboTerm="SBO:0000354"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph2" name="submap"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph14" name="multimer nucleic &#xa;acid feature"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph15" name="phenotype"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph16" name="complex"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph18" name=" source &#xa; and &#xa; sink"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph17" name="phenotype"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph19" sboTerm="SBO:0000291"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph21"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph22"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph23"/>
+    </listOfSpecies>
+    <listOfReactions>
+      <reaction fast="false" id="glyph24" reversible="false">
+        <listOfReactants>
+          <speciesReference constant="true" id="arc1" species="glyph20" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" id="arc2" species="glyph9" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference id="arc6" species="glyph22"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction fast="false" id="glyph25" reversible="false">
+        <listOfReactants>
+          <speciesReference constant="true" id="arc16" species="glyph13" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" id="arc14" species="glyph4" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference id="arc13" species="glyph8"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction fast="false" id="glyph26" reversible="false">
+        <listOfReactants>
+          <speciesReference constant="true" id="arc9" species="glyph6" stoichiometry="1"/>
+          <speciesReference constant="true" id="arc10" species="glyph5" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" id="arc11" species="glyph3" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference id="arc12" species="glyph23"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction fast="false" id="glyph27" reversible="false">
+        <listOfReactants>
+          <speciesReference constant="true" id="arc15" species="glyph7" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference constant="true" id="arc17" species="glyph13" stoichiometry="1"/>
+          <speciesReference constant="true" id="arc19" species="glyph12" stoichiometry="1"/>
+        </listOfProducts>
+              </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

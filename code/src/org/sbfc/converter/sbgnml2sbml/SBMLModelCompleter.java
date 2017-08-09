@@ -182,13 +182,13 @@ public class SBMLModelCompleter {
         s.setCompartment(model.getCompartment(0));
       }
       if (!s.isSetHasOnlySubstanceUnits()) {
-        s.setHasOnlySubstanceUnits(true);
+        s.setHasOnlySubstanceUnits(false);
       }
       if (!s.isSetBoundaryCondition()) {
-        s.setBoundaryCondition(true);
+        s.setBoundaryCondition(false);
       }
       if (!s.isSetConstant()) {
-        s.setConstant(true);
+        s.setConstant(false);
       }
     }
     return species;
@@ -232,10 +232,10 @@ public class SBMLModelCompleter {
         r.setId(r.getClass().getSimpleName() + i++);
       }
       if (!r.isSetFast()) {
-        r.setFast(true);
+        r.setFast(false);
       }
       if (!r.isSetReversible()) {
-        r.setReversible(true);
+        r.setReversible(false);
       }
       completeSpeciesReference(r.getListOfReactants());
       completeSpeciesReference(r.getListOfProducts());

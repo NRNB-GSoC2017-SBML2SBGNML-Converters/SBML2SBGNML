@@ -271,6 +271,16 @@
     <render:style roleList="substrate" id="substrate">
       <render:g stroke="black" stroke-width="2.0" />
     </render:style>
+    
+    <render:style roleList="SBO0000398" id="SBO0000398"> <!-- logic arc -->
+      <render:g stroke="black" stroke-width="2.0" />
+    </render:style>
+    
+    <render:style roleList="equivalence" id="equivalence">
+      <render:g stroke="black" stroke-width="2.0" />
+    </render:style>
+    
+    
     <render:style roleList="SBO0000167" id="SBO0000167">
 		<!-- process -->
       <render:g stroke="black" stroke-width="1" fill="white">
