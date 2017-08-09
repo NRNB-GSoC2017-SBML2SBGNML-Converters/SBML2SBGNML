@@ -13,6 +13,7 @@ public class SWrapperSpeciesGlyph {
 	Species species;
 	SpeciesGlyph speciesGlyph;
 	String clazz;
+	String id;
 	
 	Glyph sbgnGlyph;
 	
@@ -31,8 +32,10 @@ public class SWrapperSpeciesGlyph {
 	
 	SWrapperSpeciesGlyph(Species species, SpeciesGlyph speciesGlyph, Glyph glyph, TextGlyph textGlyph) {
 		this.species = species;
+		this.id = glyph.getId();
 		this.speciesGlyph = speciesGlyph;	
 		this.clazz = glyph.getClazz();
+		this.sbgnGlyph = glyph;
 		
 		if (this.clazz.equals("tag")){this.clazz = glyph.getClazz()+"_"+glyph.getOrientation();}
 		if (this.clazz.equals("terminal")){this.clazz = glyph.getClazz()+"_"+glyph.getOrientation(); }

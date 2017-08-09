@@ -71,31 +71,6 @@
     </render:lineEnding>
 
 
-    <render:lineEnding id="modulation_black" enableRotationalMapping="true">
-      <layout:boundingBox>
-        <layout:position x="-12" y="-6" />
-        <layout:dimensions width="12" height="12" />
-      </layout:boundingBox>
-      <render:g stroke="black" stroke-width="0.001" fill="black">
-        <render:polygon fill="black">
-          <render:listOfElements>
-            <render:element xsi:type="RenderPoint" x="50%" y="0%" />
-              <render:element xsi:type="RenderPoint" x="100%" y="50%" />
-            
-            <render:element xsi:type="RenderPoint" x="100%" y="50%" />
-              <render:element xsi:type="RenderPoint" x="50%" y="100%" />
-            
-            <render:element xsi:type="RenderPoint" x="50%" y="100%" />
-              <render:element xsi:type="RenderPoint" x="0%" y="50%" />
-            
-            <render:element xsi:type="RenderPoint" x="0%" y="50%" />
-              <render:element xsi:type="RenderPoint" x="50%" y="0%" />
-            
-          </render:listOfElements>
-        </render:polygon>
-      </render:g>
-    </render:lineEnding>
-
     <render:lineEnding id="necessary_stimulation" enableRotationalMapping="true">
       <layout:boundingBox>
         <layout:position x="-12" y="-6" />
@@ -220,34 +195,7 @@
         <render:ellipse stroke="black" stroke-width="1.0" cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
       </render:g>
     </render:lineEnding>
-    <render:lineEnding id="association" enableRotationalMapping="true">
-      <layout:boundingBox>
-        <layout:position x="-1" y="-2.5" />
-        <layout:dimensions width="5" height="5" />
-      </layout:boundingBox>
-      <render:g stroke="black" stroke-width="1" fill="black">
-        <render:ellipse stroke="black" stroke-width="1.0" cx="2.5" cy="2.5" cz="0.0" rx="2" ry="2" />
-      </render:g>
-    </render:lineEnding>
-    <render:lineEnding id="disassociation" enableRotationalMapping="true">
-      <layout:boundingBox>
-        <layout:position x="-1" y="-2.5" />
-        <layout:dimensions width="5" height="5" />
-      </layout:boundingBox>
-      <render:g stroke="black" stroke-width="1" fill="white">
-        <render:ellipse stroke="black" stroke-width="1.0" cx="2.5" cy="2.5" cz="0.0" rx="2" ry="2" />
-        <render:ellipse stroke="black" stroke-width="1.0" cx="2.5" cy="2.5" cz="0.0" rx="1" ry="1" />
-      </render:g>
-    </render:lineEnding>
-    <render:lineEnding id="process" enableRotationalMapping="true">
-      <layout:boundingBox>
-        <layout:position x="-4" y="-4" />
-        <layout:dimensions width="8" height="8" />
-      </layout:boundingBox>
-      <render:g stroke="black" stroke-width="1" fill="white">
-        <render:rectangle stroke="black" x="0%" y="0%" width="8" height="8" />
-      </render:g>
-    </render:lineEnding>
+ 
     <render:lineEnding id="modifier" enableRotationalMapping="true">
       <layout:boundingBox>
         <layout:position x="0" y="-2.50" />
@@ -274,16 +222,14 @@
     </render:lineEnding>
     <render:lineEnding id="inhibitor" enableRotationalMapping="true">
       <layout:boundingBox>
-        <layout:position x="-0.5" y="-4" />
-        <layout:dimensions width="0.6" height="8" />
+        <layout:position x="-0.7" y="-4" />
+        <layout:dimensions width="0.7" height="8" />
       </layout:boundingBox>
       <render:g stroke="black" stroke-width="0.1" fill="black">
         <render:polygon>
           <listOfElements>
-            <render:element xsi:type="RenderPoint"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" x="0.0" y="0.0"/>
             <render:element xsi:type="RenderPoint"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" x="0.3" y="0.0"/>
             <render:element xsi:type="RenderPoint" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  x="0.3" y="8.0"/>
-            <render:element xsi:type="RenderPoint"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" x="0.0" y="8.0"/>
           </listOfElements>
         </render:polygon>
       </render:g>
@@ -318,14 +264,28 @@
     <render:style roleList="defaultText" id="defaultText">
       <render:g stroke="black" stroke-width="1" font-family="Verdana" font-size="10" font-weight="normal" font-style="normal" text-anchor="middle" render:vtext-anchor="middle"></render:g>
     </render:style>
+        <render:style roleList="topText" id="topText">
+      <render:g stroke="black" stroke-width="1" font-family="Verdana" font-size="10" font-weight="normal" font-style="normal" text-anchor="middle" render:vtext-anchor="top"></render:g>
+    </render:style>
+    
     <render:style roleList="substrate" id="substrate">
       <render:g stroke="black" stroke-width="2.0" />
     </render:style>
     <render:style roleList="SBO0000167" id="SBO0000167">
-      <render:g stroke="black" stroke-width="2.0" fill="white" endHead="process" />
+		<!-- process -->
+      <render:g stroke="black" stroke-width="1" fill="white">
+        <render:rectangle stroke="black" x="0%" y="0%" width="8" height="8" />
+      </render:g>
     </render:style>
+    
+    
+     
+    
     <render:style roleList="SBO0000177" id="SBO0000177">
-      <render:g stroke="black" stroke-width="2.0" endHead="association" />
+		<!-- association -->
+      <render:g stroke="black" stroke-width="2" fill="black">
+        <render:ellipse stroke="black" stroke-width="1.0" cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+      </render:g>
     </render:style>
     <render:style roleList="SBO0000169" id="SBO0000169">
       <render:g stroke="black" stroke-width="2.0" endHead="inhibitor" />
@@ -343,7 +303,11 @@
       <render:g stroke="black" stroke-width="2.0" fill="white" endHead="stimulation" />
     </render:style>
     <render:style roleList="SBO0000180" id="SBO0000180">
-      <render:g stroke="black" stroke-width="2.0" endHead="disassociation" />
+		<!-- dissociation -->
+      <render:g stroke="black" stroke-width="2" fill="white">
+        <render:ellipse stroke="black" stroke-width="1.0" cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+        <render:ellipse stroke="black" stroke-width="1.0" cx="50%" cy="50%" cz="0.0" rx="25%" ry="25%" />
+      </render:g>
     </render:style>
     <render:style roleList="product" id="product">
       <render:g stroke="black" stroke-width="2.0" endHead="product" />
@@ -674,29 +638,29 @@
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
           <render:listOfElements>
-            <render:element xsi:type="RenderPoint" x="0%" y="10" />
-              <render:element xsi:type="RenderPoint" x="10" y="0%" />
+            <render:element xsi:type="RenderPoint" x="0%" y="10%" />
+              <render:element xsi:type="RenderPoint" x="10%" y="0%" />
             
-            <render:element xsi:type="RenderPoint" x="10" y="0%" />
-              <render:element xsi:type="RenderPoint" x="-10+100%" y="0%" />
+            <render:element xsi:type="RenderPoint" x="10%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="90%" y="0%" />
             
-            <render:element xsi:type="RenderPoint" x="-10+100%" y="0%" />
-              <render:element xsi:type="RenderPoint" x="100%" y="10" />
+            <render:element xsi:type="RenderPoint" x="90%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="10%" />
             
-            <render:element xsi:type="RenderPoint" x="100%" y="10" />
-              <render:element xsi:type="RenderPoint" x="100%" y="-10+100%" />
+            <render:element xsi:type="RenderPoint" x="100%" y="10%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="90%" />
             
-            <render:element xsi:type="RenderPoint" x="100%" y="-10+100%" />
-              <render:element xsi:type="RenderPoint" x="-10+100%" y="100%" />
+            <render:element xsi:type="RenderPoint" x="100%" y="90%" />
+              <render:element xsi:type="RenderPoint" x="90%" y="100%" />
             
-            <render:element xsi:type="RenderPoint" x="-10+100%" y="100%" />
-              <render:element xsi:type="RenderPoint" x="10" y="100%" />
+            <render:element xsi:type="RenderPoint" x="90%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="10%" y="100%" />
             
-            <render:element xsi:type="RenderPoint" x="10" y="100%" />
-              <render:element xsi:type="RenderPoint" x="0%" y="-10+100%" />
+            <render:element xsi:type="RenderPoint" x="10%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="90%" />
             
-            <render:element xsi:type="RenderPoint" x="0%" y="-10+100%" />
-              <render:element xsi:type="RenderPoint" x="0%" y="10" />
+            <render:element xsi:type="RenderPoint" x="0%" y="90%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="10%" />
             
           </render:listOfElements>
           <!--<render:listOfElements>
@@ -1254,6 +1218,87 @@
       </render:g>
     </render:style>
     
+    <!--       Phenotype 
+    <render:style roleList="SBO0000358" id="SBO0000358">
+ 
+      <render:g stroke="black" stroke-width="2" >
+        <render:polygon stroke="black" stroke-width="2" >
+          <render:listOfElements>
+
+              <render:element xsi:type="RenderPoint" x="20%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="80%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="80%" y="0%" />
+            
+          </render:listOfElements>
+        </render:polygon>
+      </render:g>
+    </render:style>  
+    -->
+    
+    <render:style roleList="SBO0000397" id="SBO0000397">
+      <!--Omitted Process-->
+      <render:g stroke="black" stroke-width="2" >
+        <render:polygon stroke="black" stroke-width="2" fill="white" >
+          <render:listOfElements>
+
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+            
+          </render:listOfElements>
+        </render:polygon>
+        
+        <render:polygon stroke="black" stroke-width="2" >
+          <render:listOfElements>
+
+              <render:element xsi:type="RenderPoint" x="20%" y="20%" />
+              <render:element xsi:type="RenderPoint" x="30%" y="80%" />
+            
+          </render:listOfElements>
+        </render:polygon>
+        
+        <render:polygon stroke="black" stroke-width="2" >
+          <render:listOfElements>
+
+              <render:element xsi:type="RenderPoint" x="40%" y="20%" />
+              <render:element xsi:type="RenderPoint" x="50%" y="80%" />
+            
+          </render:listOfElements>
+        </render:polygon>
+        
+        
+      </render:g>
+    </render:style> 
+    
+    <render:style roleList="SBO0000396" id="SBO0000396">
+      <!--Uncertain Process-->
+      <render:g stroke="black" stroke-width="2" >
+        <render:polygon stroke="black" stroke-width="2" fill="white" >
+          <render:listOfElements>
+
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+            
+          </render:listOfElements>
+        </render:polygon>
+        
+        <render:polygon stroke="black" stroke-width="2" >
+          <render:listOfElements>        
+            <render:element xsi:type="RenderPoint" x="10%" y="10%" />
+            <render:element xsi:type="RenderCubicBezier" x="100%" y="100%"  render:basepoint1_x="70%" render:basepoint1_y="30%"  render:basepoint2_x="70%" render:basepoint2_y="30%" />
+          </render:listOfElements>
+        </render:polygon>
+                 
+         
+      </render:g>
+    </render:style> 
+    
     <render:style roleList="statevar" id="statevar">
       <!-- State Variable  -->
       <render:g stroke="black" stroke-width="2" >
@@ -1264,7 +1309,7 @@
     <render:style roleList="unitofinfo" id="unitofinfo">
       <!--Unit of Information-->
       <render:g stroke="black" stroke-width="2" >
-        <render:polygon stroke="black" stroke-width="2" >
+        <render:polygon stroke="black" stroke-width="2"  >
           <render:listOfElements>
 
               <render:element xsi:type="RenderPoint" x="0%" y="0%" />

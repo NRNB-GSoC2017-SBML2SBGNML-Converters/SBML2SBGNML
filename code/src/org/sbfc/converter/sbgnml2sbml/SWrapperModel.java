@@ -51,6 +51,8 @@ public class SWrapperModel {
 	// Maps a SWrapperGeneralGlyph id to a SWrapperTransition id
 	HashMap<String, String> generalGlyphTransitionMap = new HashMap<String, String>();
 	
+	HashMap<String, String> textSourceMap = new HashMap<String, String>();
+	
 	// keep track of how many Arcs are in Sbgn
 	int numberOfArcs;
 	// keep track of how many Glyphs are in Sbgn
@@ -81,7 +83,8 @@ public class SWrapperModel {
 		this.map = map;
 		
 		this.numberOfArcs = 0;
-		this.numberOfGlyphs = 0;	
+		this.numberOfGlyphs = 0;
+				
 	}
 	
 	public Model getModel() {
@@ -92,6 +95,8 @@ public class SWrapperModel {
 		Glyph glyph = entityPoolNodes.get(key);
 		if (glyph == null){
 			glyph = logicOperators.get(key);
+		} if (glyph == null){
+			glyph = processNodes.get(key);
 		}
 		
 		return glyph;

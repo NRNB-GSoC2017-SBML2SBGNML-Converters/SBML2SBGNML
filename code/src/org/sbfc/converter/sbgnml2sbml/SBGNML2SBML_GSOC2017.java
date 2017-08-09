@@ -2,6 +2,7 @@ package org.sbfc.converter.sbgnml2sbml;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -65,7 +66,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		sOutput = new SBGNML2SBMLOutput(3, 1, map.getLanguage());
 		sUtil = new SBGNML2SBMLUtil(3, 1);
 		sWrapperModel = new SWrapperModel(sOutput.getModel(), map);
-		sRender = new SBGNML2SBMLRender(sWrapperModel, sOutput);
+		sRender = new SBGNML2SBMLRender(sWrapperModel, sOutput, sUtil);
 	}
 
 	/**
@@ -117,6 +118,9 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		sRender.renderTextGlyphs();
 		
 		sOutput.completeModel();
+		sOutput.removeExtraStyles();
+		
+		System.out.println("getListOfLocalStyles ==>"+sOutput.renderLayoutPlugin.getLocalRenderInformation(0).getListOfLocalStyles().size());
 	}
 
 	/**
@@ -143,7 +147,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			} else if (sUtil.isAnnotation(clazz)){
 				sWrapperModel.addAnnotation(id, glyph);
 			}
-		}		
+		}
 	}
 
 	/**
@@ -191,10 +195,44 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 //			sOutput.addSpeciesGlyph(speciesGlyphTuple.speciesGlyph);
 		}
 		
+		List<Arc> allArcs = sWrapperModel.map.getArc();
+		System.out.println(Arrays.toString(sWrapperModel.portGlyphMap.keySet().toArray()));
 		for (String key : sWrapperModel.logicOperators.keySet()) {
 			glyph = sWrapperModel.getGlyph(key);
-			speciesGlyphTuple = createOneSpecies(glyph);
-			sWrapperModel.addSWrapperSpeciesGlyph(key, speciesGlyphTuple);
+			
+			boolean createReactionGlyph = true;
+						
+			for (Arc candidate: allArcs){
+
+				Object source = candidate.getSource();
+				Object target = candidate.getTarget();
+				
+				// todo: move tag to separate function
+				Glyph connectingGlyph1 = getGlyph(source);
+				Glyph connectingGlyph2 = getGlyph(target);
+
+				if (!(connectingGlyph1.getId().equals(key)) && !(connectingGlyph2.getId().equals(key))){continue;}
+				else if (connectingGlyph1.getId().equals(key)){
+					if (sUtil.isLogicOperator(connectingGlyph2.getClazz())){createReactionGlyph = false; break;}
+				}
+				else if (connectingGlyph2.getId().equals(key)){
+					if (sUtil.isLogicOperator(connectingGlyph1.getClazz())){createReactionGlyph = false; break;}
+				}
+			}
+			
+//			if (createReactionGlyph){
+//				SWrapperReactionGlyph sWrapperReactionGlyph;
+//
+//				//glyph = sWrapperModel.processNodes.get(key);
+//				sWrapperReactionGlyph =  createOneReactionGlyph(glyph);
+//				sWrapperModel.addSWrapperReactionGlyph(key, sWrapperReactionGlyph);				
+//			} else {
+				speciesGlyphTuple = createOneSpecies(glyph);
+				
+				Bbox bb = glyph.getBbox();
+				sWrapperModel.addSWrapperSpeciesGlyph(key, speciesGlyphTuple);				
+//			}
+
 		}
 	}
 	
@@ -236,8 +274,19 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		} 
 		
 		// create TextGlyph for the SpeciesGlyph
-		textGlyph = sUtil.createJsbmlTextGlyph(species, speciesGlyph);
+		textGlyph = null;
+		if (sUtil.isLogicOperator(clazz)){
+			textGlyph = sUtil.createJsbmlTextGlyph(speciesGlyph, clazz.toUpperCase());
+		} else if (clazz.equals("source and sink")) {
+			textGlyph = null;
+		} else {
+			textGlyph = sUtil.createJsbmlTextGlyph(species, speciesGlyph);
+		}
 		sOutput.addTextGlyph(textGlyph);
+		
+		if (glyph.getGlyph().size() != 0){
+			sWrapperModel.textSourceMap.put(textGlyph.getId(), glyph.getId());
+		}
 		
 		// create a new SWrapperSpeciesGlyph class, store a list of GeneralGlyphs if present
 		speciesGlyphTuple =  new SWrapperSpeciesGlyph(species, speciesGlyph, glyph, textGlyph);
@@ -724,7 +773,6 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 //	     end.setX(centroids[1][0]);
 //	     end.setY(centroids[1][1]);
 	     
-	     
 	     Point topLeftPoint = generalGlyph.getBoundingBox().getPosition();
 	     Point centerPoint = new Point();
 	     centerPoint.setX(topLeftPoint.getX() + generalGlyph.getBoundingBox().getDimensions().getWidth()/2);
@@ -781,6 +829,11 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		
 		// Set the Compartment order
 		sUtil.setCompartmentOrder(compartmentGlyph, glyph);
+		
+		TextGlyph textGlyph = sUtil.createJsbmlTextGlyph(compartmentGlyph, glyph.getLabel().getText());
+		sWrapperModel.textSourceMap.put(textGlyph.getId(), key);
+
+		sOutput.addTextGlyph(textGlyph);
 		
 		return new SWrapperCompartmentGlyph(compartment, compartmentGlyph, glyph);
 	}	
@@ -917,7 +970,10 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			sWrapperModel.addWrapperGeneralGlyph(arc.getId(), sWrapperGeneralGlyph);
 			
 			// Create a ReferenceGlyph
+			speciesGlyph = null;
+			try{
 			speciesGlyph = sWrapperModel.getWrapperSpeciesGlyph(objectId).speciesGlyph;
+			} catch (Exception e){System.out.println("speciesGlyph objectId "+objectId); }
 			sWrapperReferenceGlyph = createOneReferenceGlyph(sWrapperArc, speciesGlyph);
 			// Add the ReferenceGlyph to the generalGlyph
 			sWrapperGeneralGlyph.generalGlyph.addReferenceGlyph(sWrapperReferenceGlyph.referenceGlyph);
@@ -932,6 +988,8 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		// todo: explanations to be added later
 		for (String key: sWrapperModel.logicOperators.keySet()) {
 			sWrapperSpeciesGlyph = sWrapperModel.getWrapperSpeciesGlyph(key);
+			
+			if (sWrapperSpeciesGlyph == null){continue;}
 
 			ArrayList<Point> connectedPoints = new ArrayList<Point>();
 			List<Arc> allArcs = sWrapperModel.map.getArc();
@@ -953,7 +1011,10 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			//sOutput.addTextGlyph(sWrapperSpeciesGlyph.textGlyph);
 			// todo: SpeciesGlyph already added, need to remove it
 			//sOutput.addSpeciesGlyph(sWrapperSpeciesGlyph.speciesGlyph);
-			GeneralGlyph generalGlyph = sUtil.createJsbmlGeneralGlyph(key, false, null);
+			//Glyph g = sWrapperSpeciesGlyph.sbgnGlyph;
+			System.out.println("sWrapperSpeciesGlyph = "+ sWrapperSpeciesGlyph.id);
+			System.out.println("sWrapperSpeciesGlyph = "+ sWrapperSpeciesGlyph.sbgnGlyph.getId());
+			GeneralGlyph generalGlyph = sUtil.createJsbmlGeneralGlyph(key, true, sWrapperSpeciesGlyph.sbgnGlyph.getBbox());
 			
 			curve = new Curve();
 			LineSegment curveSegment = new LineSegment();
@@ -983,7 +1044,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	}
 	
 	public Glyph getGlyph(Object source) {
-		Port connectingPort;
+		Port connectingPort = null;
 		Glyph glyph = null;
 		
 		if (source instanceof Glyph){
@@ -993,10 +1054,16 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			glyph = sWrapperModel.getGlyph(sWrapperModel.findGlyphFromPort(connectingPort));
 		}	
 		
+		if(glyph == null){System.out.println("getGlyph null " + connectingPort.getId() + sWrapperModel.findGlyphFromPort(connectingPort));} 
+		
 		return glyph;
 	}
 	
 	public Arc checkLogicOperatorId(ArrayList<Point> connectedPoints, Object source, String key, Arc candidate, String direction) {
+		
+		if (connectedPoints == null){
+			connectedPoints = new ArrayList<Point>();
+		}
 		
 		Glyph connectingGlyph = null;
 		String arcId = candidate.getId();
@@ -1007,16 +1074,26 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			
 			if (sWrapperModel.getSWrapperSpeciesReferenceGlyph(arcId) != null){
 				//System.out.println("sWrapperModel.logicOperators");
-				if (direction.equals("source")){connectedPoints.add(sWrapperModel.getSWrapperSpeciesReferenceGlyph(arcId).speciesReferenceGlyph.getCurve().getCurveSegment(0).getStart());}
-				else if (direction.equals("target")){connectedPoints.add(sWrapperModel.getSWrapperSpeciesReferenceGlyph(arcId).speciesReferenceGlyph.getCurve().getCurveSegment(0).getEnd());}
+				if (direction.equals("source")){
+					connectedPoints.add(sWrapperModel.getSWrapperSpeciesReferenceGlyph(arcId).speciesReferenceGlyph.getCurve().getCurveSegment(0).getStart());
+					
+				}
+				else if (direction.equals("target")){
+					connectedPoints.add(sWrapperModel.getSWrapperSpeciesReferenceGlyph(arcId).speciesReferenceGlyph.getCurve().getCurveSegment(0).getEnd());
+					
+				}
 			} else if (sWrapperModel.getSWrapperReferenceGlyph(arcId) != null){
 				//System.out.println("sWrapperModel.logicOperators");
-				if (direction.equals("source")){connectedPoints.add(sWrapperModel.getSWrapperReferenceGlyph(arcId).referenceGlyph.getCurve().getCurveSegment(0).getStart());}
-				else if (direction.equals("target")){connectedPoints.add(sWrapperModel.getSWrapperReferenceGlyph(arcId).referenceGlyph.getCurve().getCurveSegment(0).getEnd());}				
+				if (direction.equals("source")){
+					connectedPoints.add(sWrapperModel.getSWrapperReferenceGlyph(arcId).referenceGlyph.getCurve().getCurveSegment(0).getStart());
+				}
+				else if (direction.equals("target")){
+					connectedPoints.add(sWrapperModel.getSWrapperReferenceGlyph(arcId).referenceGlyph.getCurve().getCurveSegment(0).getEnd());
+				}				
 			}
 		}	
 		
-		return candidate;
+		return null;
 	}
 			
 	public void storeTemplateRenderInformation() {

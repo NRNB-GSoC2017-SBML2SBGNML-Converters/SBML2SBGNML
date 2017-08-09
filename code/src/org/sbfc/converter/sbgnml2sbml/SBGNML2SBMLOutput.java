@@ -64,14 +64,19 @@ public class SBGNML2SBMLOutput {
 	ListOf<LocalStyle> listOfStyles;
 	ListOf<GradientBase> listOfGradientDefinitions;
 	
-	QualModelPlugin qualModelPlugin;
+	ListOf<LineEnding> listOfLineEndings_temp;	
+	ListOf<LocalStyle> listOfStyles_temp;
 	
+	QualModelPlugin qualModelPlugin;
 	
 	// keep track of the maximum value for each dimension. Finally, set these 3 values as the dimensions of the layout
 	Double dimensionX;
 	Double dimensionY;
 	Double dimensionZ;
 	Dimensions dimensions;
+	
+	HashMap<String, String> stylesInModel = new HashMap<String, String>();
+	HashMap<String, String> lineEndingsInModel = new HashMap<String, String>();
 	
 	SBGNML2SBMLOutput(int level, int version, String language) {
 		this.model = new Model(level, version);
@@ -107,6 +112,9 @@ public class SBGNML2SBMLOutput {
 		this.listOfLineEndings = renderLayoutPlugin.getLocalRenderInformation(0).getListOfLineEndings();
 		this.listOfStyles = renderLayoutPlugin.getLocalRenderInformation(0).getListOfLocalStyles();
 		this.listOfGradientDefinitions = renderLayoutPlugin.getLocalRenderInformation(0).getListOfGradientDefinitions();
+	
+		this.listOfLineEndings_temp = new ListOf<LineEnding>(3, 1);
+		//this.listOfStyles_temp = new ListOf<LocalStyle>(3, 1);
 	}
 	
 	private void createQual() {
@@ -378,18 +386,20 @@ public class SBGNML2SBMLOutput {
 			}
 			
 			leClone.setGroup(rgClone);
-			this.listOfLineEndings.add(leClone);;
+			this.listOfLineEndings_temp.add(leClone);;
 		}
 		
 		ListOf<LocalStyle> listOfStyles = localRenderInformation.getListOfLocalStyles();
-		for (LocalStyle ls : listOfStyles){
-			//System.out.println("storeTemplateLocalRenderInformation "+ls.getId());
-			//this.listOfStyles.add(new LocalStyle(ls.getId(), 3, 1, ls.getGroup()));
-			LocalStyle ls_clone = ls.clone();
-			ls_clone.setId(ls_clone.getId());
-			this.listOfStyles.add(ls_clone);
-			//System.out.println("LocalStyle"+ls_clone.getRoleList().get(0));
-		}
+//		for (LocalStyle ls : listOfStyles){
+//			//System.out.println("storeTemplateLocalRenderInformation "+ls.getId());
+//			//this.listOfStyles.add(new LocalStyle(ls.getId(), 3, 1, ls.getGroup()));
+//			LocalStyle ls_clone = ls.clone();
+//			ls_clone.setId(ls.getId());
+//			this.listOfStyles.add(ls_clone);
+//			//System.out.println("LocalStyle"+ls_clone.getRoleList().get(0));
+//		}
+		
+		this.listOfStyles_temp = localRenderInformation.getListOfLocalStyles();
 				
 //		System.out.println("storeTemplateLocalRenderInformation listOfColorDefinitions "+this.listOfColorDefinitions.size());
 //		System.out.println("storeTemplateLocalRenderInformation listOfLineEndings "+this.listOfLineEndings.size());
@@ -398,6 +408,38 @@ public class SBGNML2SBMLOutput {
 //		System.out.println("storeTemplateLocalRenderInformation listOfGradientDefinitions "+this.listOfGradientDefinitions.size());
 //		
 	}
+	
+	public void removeExtraStyles() {
+		for (String id : stylesInModel.keySet()){
+			System.out.println("LocalStyle ==" + id);
+		}
+		for (String id : lineEndingsInModel.keySet()){
+			System.out.println("LineEnding ==" + id);
+		}
+		
+		this.listOfStyles = renderLayoutPlugin.getLocalRenderInformation(0).getListOfLocalStyles(); 
+		
+		for (LocalStyle ls : listOfStyles_temp){
+			//System.out.println("LocalStyle:: " + ls.getId());
+			if (stylesInModel.containsKey(ls.getId())){
+				System.out.println("LocalStyle "+ls.getId());
+				LocalStyle ls_clone = ls.clone();
+				ls_clone.setId(ls.getId());
+				this.listOfStyles.add(ls_clone);
+			}
+		}
+		
+		System.out.println("listOfStyles ==>" + listOfStyles.size());
+		
+		for (LineEnding le : listOfLineEndings_temp){
+			//System.out.println("LineEnding:: " + le.getId());
+			if (lineEndingsInModel.containsKey(le.getId())){
+				System.out.println("LineEnding "+le.getId());
+				listOfLineEndings.add(le.clone());
+			}			
+		}
+	}
+
 	
 	public void completeModel() {
 		// Auto-fill missing values for required fields in the SBML Model

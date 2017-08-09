@@ -61,10 +61,12 @@ import org.sbml.jsbml.ext.render.VTextAnchor;
 public class SBGNML2SBMLRender {
 	SWrapperModel sWrapperModel;
 	SBGNML2SBMLOutput sOutput;
+	SBGNML2SBMLUtil sUtil;
 	
-	public SBGNML2SBMLRender(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput) {
+	public SBGNML2SBMLRender(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput, SBGNML2SBMLUtil sUtil) {
 		this.sWrapperModel = sWrapperModel;
 		this.sOutput = sOutput;
+		this.sUtil = sUtil;
 		//createColourDefinitions();
 		
 		//createLineEndings();
@@ -132,7 +134,7 @@ public class SBGNML2SBMLRender {
 			LocalStyle localStyle = createStyle(sWrapperSpeciesGlyph.speciesGlyph, sWrapperSpeciesGlyph.clazz);
 			
 			if (sWrapperSpeciesGlyph.hasClone){
-				addCloneText(localStyle, sWrapperSpeciesGlyph.speciesGlyph, sWrapperSpeciesGlyph.cloneText);
+				//addCloneText(localStyle, sWrapperSpeciesGlyph.speciesGlyph, sWrapperSpeciesGlyph.cloneText);
 			}
 		}		
 		
@@ -147,7 +149,12 @@ public class SBGNML2SBMLRender {
 		
 		for (TextGlyph tg : sOutput.layout.getListOfTextGlyphs()){
 
-			LocalStyle localStyle = createStyle(tg, "text");
+			if (sWrapperModel.textSourceMap.containsKey(tg.getId())){
+				LocalStyle localStyle = createStyle(tg, "top_text");
+			} else {
+				LocalStyle localStyle = createStyle(tg, "text");
+			}
+			
 
 		}		
 		
@@ -173,6 +180,11 @@ public class SBGNML2SBMLRender {
 			sWrapperReactionGlyph = sWrapperModel.getWrapperReactionGlyph(key);
 			createStyle(sWrapperReactionGlyph.reactionGlyph, sWrapperReactionGlyph.clazz);
 			renderSpeciesReferenceGlyphs(sWrapperReactionGlyph);
+			
+			if (sWrapperReactionGlyph.clazz.equals("uncertain process")){
+				TextGlyph tg = sUtil.createJsbmlTextGlyph(sWrapperReactionGlyph.reactionGlyph, "?");
+				sOutput.addTextGlyph(tg);
+			}
 		}		
 	}
 	
@@ -205,7 +217,7 @@ public class SBGNML2SBMLRender {
 	
 	public LocalStyle createStyle(GraphicalObject graphicalObject, String clazz) {
 		RenderGroup renderGroup;
-		LocalStyle localStyle;
+		;
 		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin;
 		LocalRenderInformation localRenderInformation = sOutput.localRenderInformation;
 		Layout layout = sOutput.layout;
@@ -226,6 +238,15 @@ public class SBGNML2SBMLRender {
 //		renderGroup.addElement(image);	
 		
 		// todo: return a Style
+		
+		for (LocalStyle localStyle: sOutput.listOfStyles_temp){
+			if (localStyle.getId().equals(styleId)){
+				return localStyle;
+			}
+		}
+		
+
+		
 		return null;
 	}
 	
@@ -247,6 +268,8 @@ public class SBGNML2SBMLRender {
 		
 		renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) graphicalObject.getPlugin(RenderConstants.shortLabel);
 		renderGraphicalObjectPlugin.setObjectRole(styleId);		
+		
+		
 		
 
 	}	
@@ -294,154 +317,192 @@ public class SBGNML2SBMLRender {
 //		image.setAbsoluteWidth(false);
 //		image.setAbsoluteHeight(false);	
 		
+		String styleId = null;
+		
 		// todo: horizontal or vertical?
 		if (clazz.equals("or")){
 			//image.setHref("or-glyph.png");
-			return "or";
+			styleId = "or";
 		} else if (clazz.equals("and")){
 			//image.setHref("and-glyph.png");
-			return "and";
+			styleId = "and";
 		} else if (clazz.equals("not")){
 			//image.setHref("not-glyph.png");
-			return "not";
+			styleId = "not";
 		} 
 		
 		else if (clazz.equals("process")){
 			//image.setHref("process-glyph.png");
-			return "SBO0000167";
+			styleId = "SBO0000167";
 		} else if (clazz.equals("association")){
 			//image.setHref("association-glyph.png");	
-			return "SBO0000177";
+			styleId = "SBO0000177";
 		} else if (clazz.equals("dissociation")){
 			//image.setHref("association-glyph.png");	
-			return "SBO0000180";
+			styleId = "SBO0000180";
+		} else if (clazz.equals("omitted process")){
+			styleId = "SBO0000397";
+		} else if (clazz.equals("uncertain process")){
+			styleId = "SBO0000396";
 		}
 		
 		else if (clazz.equals("macromolecule")){
 			//image.setHref("macromolecule-glyph.png");
-			return "SBO0000245";
+			styleId = "SBO0000245";
 		} else if (clazz.equals("simple chemical")){
 			//image.setHref("simple-chemical-glyph.png");
-			return "SBO0000247";
+			styleId = "SBO0000247";
 		} else if (clazz.equals("source and sink")){
 			//image.setHref("source-and-sink-glyph.png");
-			return "SBO0000291";
+			styleId = "SBO0000291";
 		} else if (clazz.equals("nucleic acid feature")){
 			//image.setHref("nucleic-acid-feature-glyph.png");
-			return "SBO0000354";
+			styleId = "SBO0000354";
 		} else if (clazz.equals("complex")){
 			//image.setHref("complex-glyph.png");
-			return "SBO0000253";
-		} 
+			styleId = "SBO0000253";
+		} else if (clazz.equals("perturbing agent")){
+			
+			styleId = "SBO0000405";
+		 }else if (clazz.equals("unspecified entity")){
+			styleId = "SBO0000285";
+		}
 		
 		else if (clazz.equals("biological activity")){
 			//image.setHref("biological-activity-glyph.png");
 		} else if (clazz.equals("phenotype")){
 			//image.setHref("phenotype-glyph.png");
+			styleId = "SBO0000358";
 		} else if (clazz.equals("annotation")){
 			//image.setHref("annnotation-glyph.png");
 		} 
 		
 		else if (clazz.equals("simple chemical_clone")){
 			//image.setHref("simple-chemical-glyph-clone.png");	
-			return "SBO0000247clone";
+			styleId = "SBO0000247clone";
 		} else if (clazz.equals("macromolecule_clone")){
 			//image.setHref("macromolecule-glyph-clone.png");	
-			return "SBO0000245clone";
+			styleId = "SBO0000245clone";
 		} else if (clazz.equals("nucleic acid feature_clone")){
 			//image.setHref("nucleic-acid-feature-glyph-clone.png");
-			return "SBO0000354clone";
+			styleId = "SBO0000354clone";
 		} 
 		
 		else if (clazz.equals("macromolecule multimer_clone")){
 			//image.setHref("macromolecule-multimer-glyph-clone.png");	
-			return "SBO0000245multimerclone";
+			styleId = "SBO0000245multimerclone";
 		} else if (clazz.equals("simple chemical multimer_clone")){
 			//image.setHref("macromolecule-multimer-glyph-clone.png");	
-			return "SBO0000247multimerclone";
+			styleId = "SBO0000247multimerclone";
 		} else if (clazz.equals("nucleic acid feature multimer_clone")){
 			//image.setHref("macromolecule-multimer-glyph-clone.png");	
-			return "SBO0000354multimerclone";
+			styleId = "SBO0000354multimerclone";
 		} 
 		
 		else if (clazz.equals("simple chemical multimer")){
-			return "SBO0000247multimer";
+			styleId = "SBO0000247multimer";
 		} else if (clazz.equals("macromolecule multimer")){
-			return "SBO0000245multimer";
+			styleId = "SBO0000245multimer";
 		} else if (clazz.equals("nucleic acid feature multimer")){
-			return "SBO0000354multimer";
+			styleId = "SBO0000354multimer";
 		} else if (clazz.equals("complex multimer")){
-			return "SBO0000253multimer";
+			styleId = "SBO0000253multimer";
 		}
 		
 		else if (clazz.equals("unit of information")){
 			//image.setHref("unit-of-information-glyph.png");
-			return "unitofinfo";
+			styleId = "unitofinfo";
 		} else if (clazz.equals("cardinality")){
 			//image.setHref("unit-of-information-glyph.png");
-			return "unitofinfo";
+			styleId = "unitofinfo";
 		} else if (clazz.equals("state variable")){
 			//image.setHref("state-variable-glyph.png");
-			return "statevar";
+			styleId = "statevar";
 		} 
 		
 		else if (clazz.equals("compartment")){
 			//image.setHref("compartment-glyph.png");
-			return "SBO0000289";
+			styleId = "SBO0000289";
 		} else if (clazz.equals("submap")){
 			//image.setHref("unit-of-information-glyph.png");
-			return "SBO0000395";
+			styleId = "SBO0000395";
 		} 
 		
 		else if (clazz.equals("tag_left")){
 			//image.setHref("tag_left.png");
-			return "Tagleft";
+			styleId = "Tagleft";
 		} else if (clazz.equals("tag_right")){
 			//image.setHref("tag_right.png");
-			return "Tagright";
+			styleId = "Tagright";
+		} else if (clazz.equals("tag_up")){
+			styleId = "Tagup";
+		} else if (clazz.equals("tag_down")){
+			styleId = "Tagdown";
 		}
 		
 		else if (clazz.equals("terminal_left")){
 			//System.out.println("terminal_left");
 			//image.setHref("tag_left.png");
-			return "Tagleft";
+			styleId = "Tagleft";
 		} else if (clazz.equals("terminal_right")){
 			//image.setHref("tag_right.png");
-			return "Tagright";
+			styleId = "Tagright";
+		} else if (clazz.equals("terminal_up")){
+			styleId = "Tagup";
+		} else if (clazz.equals("terminal_down")){
+			styleId = "Tagdown";
 		}		
 		
 		if (clazz.equals("catalysis")){
-			//renderGroup.setEndHead("catalysisHead");	
-			return "SBO0000172";
+			//renderGroup.setEndHead("catalysisHead");
+			sOutput.lineEndingsInModel.put("activator", null);
+			styleId = "SBO0000172";
 		} else if (clazz.equals("production")){
 			//LineEnding lineEnding = sOutput.listOfLineEndings.get("productionHead");
 			//renderGroup.setEndHead("productionHead");		
-			return "product";
+			sOutput.lineEndingsInModel.put("product", null);
+			styleId = "product";
 		} else if (clazz.equals("consumption")){	
-			return "substrate";
+			styleId = "substrate";
 		} else if (clazz.equals("stimulation")){
 			//renderGroup.setEndHead("stimulationHead");
-			return "SBO0000170";
+			sOutput.lineEndingsInModel.put("stimulation", null);
+			styleId = "SBO0000170";
 		} else if (clazz.equals("necessary stimulation")){
 			//LineEnding lineEnding = sOutput.listOfLineEndings.get("productionHead");
 			//renderGroup.setEndHead("necessaryStimulationHead");
-			return "SBO0000171";
+			sOutput.lineEndingsInModel.put("necessary_stimulation", null);
+			styleId = "SBO0000171";
 		} else if (clazz.equals("unknown influence")){
 			//renderGroup.setEndHead("unknownModulationHead");	
-			return "SBO0000168";
+			sOutput.lineEndingsInModel.put("modulation", null);
+			styleId = "SBO0000168";
 		} else if (clazz.equals("inhibition")){
 			//LineEnding lineEnding = sOutput.listOfLineEndings.get("productionHead");
-			//renderGroup.setEndHead("productionHead");		
-			return "SBO0000169";
+			//renderGroup.setEndHead("productionHead");	
+			sOutput.lineEndingsInModel.put("inhibitor", null);
+			styleId = "SBO0000169";
+		} else if (clazz.equals("modulation")){
+			//LineEnding lineEnding = sOutput.listOfLineEndings.get("productionHead");
+			//renderGroup.setEndHead("productionHead");	
+			sOutput.lineEndingsInModel.put("modulation", null);
+			styleId = "SBO0000168";
 		}
 		
 		
 		else if (clazz.equals("text")){
-			return "defaultText";
+			styleId = "defaultText";
+		} 		else if (clazz.equals("top_text")){
+			styleId = "topText";
 		}
 		
+		
+		sOutput.stylesInModel.put(styleId, null);
+		System.out.println("stylesInModel ===+" + styleId);
+		
+		
 //		return image;
-		return null;
+		return styleId;
 	}
 	
 	public Rectangle createRectangle(double x, double y, 
@@ -501,6 +562,7 @@ public class SBGNML2SBMLRender {
 			System.out.println("[renderGeneralGlyphs] lineEnding "+lineEnding.getId());
 		}		
 	}
+
 
 
 

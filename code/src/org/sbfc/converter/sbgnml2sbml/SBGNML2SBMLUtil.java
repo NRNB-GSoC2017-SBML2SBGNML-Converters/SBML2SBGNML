@@ -172,7 +172,7 @@ public class SBGNML2SBMLUtil {
 	}	
 	
 	
-	public TextGlyph createJsbmlTextGlyph(GeneralGlyph generalGlyph, String text) {
+	public TextGlyph createJsbmlTextGlyph(GraphicalObject generalGlyph, String text) {
 		TextGlyph textGlyph;
 		String id;
 		BoundingBox boundingBoxText;
@@ -665,11 +665,15 @@ public class SBGNML2SBMLUtil {
 			return true;
 		} else if (clazz.equals("nucleic acid feature multimer")) {
 			return true;
+		} else if (clazz.equals("simple chemical multimer")) {
+			return true;
 		} else if (clazz.equals("source and sink")) {
 			return true;
 		} else if (clazz.equals("perturbing agent")) {
 			return true;
-		} else if (clazz.equals("biological activity")) {
+		} 
+		
+		else if (clazz.equals("biological activity")) {
 			return true;
 		} else if (clazz.equals("phenotype")) {
 			return true;
@@ -785,6 +789,7 @@ public class SBGNML2SBMLUtil {
 		CVTerm cvTerm;
 		
 		annotation = species.getAnnotation();
+		// todo: use different namespace
 		cvTerm = new CVTerm(Type.BIOLOGICAL_QUALIFIER, Qualifier.BQB_IS_VERSION_OF);
 		// should be urn
 		// add hasPart
@@ -805,7 +810,7 @@ public class SBGNML2SBMLUtil {
 			sboTerm = 354;
 			species.setSBOTerm(sboTerm);
 		} else if (clazz.equals("complex multimer")) {
-			sboTerm = 420;
+			sboTerm = 418;
 			species.setSBOTerm(sboTerm);
 		} else if (clazz.equals("complex")) {
 			sboTerm = 253;
@@ -814,7 +819,7 @@ public class SBGNML2SBMLUtil {
 			sboTerm = 420;
 			species.setSBOTerm(sboTerm);
 		} else if (clazz.equals("nucleic acid feature multimer")) {
-			sboTerm = 420;
+			sboTerm = 419;
 			species.setSBOTerm(sboTerm);
 		} else if (clazz.equals("source and sink")) {
 			sboTerm = 291;
@@ -825,6 +830,9 @@ public class SBGNML2SBMLUtil {
 		} else if (clazz.equals("unspecified entity")) {
 			sboTerm = 285;
 			species.setSBOTerm(sboTerm);			
+		} else if (clazz.equals("simple chemical multimer")) {
+			sboTerm = 421;
+			species.setSBOTerm(sboTerm);
 		}// ...
 		
 	}
