@@ -97,7 +97,8 @@ public class SBGNML2SBMLUtil {
 		
 		// todo: do this for other objects in sbml (e.g. reaction, speciesreference)
 		if (addAnnotation){
-			addAnnotation(species, clazz);
+			// todo change to something else
+			addAnnotation(species, clazz, Qualifier.BQB_IS_VERSION_OF);
 		}
 		if (addSBO){
 			addSBO(species, clazz);	
@@ -787,13 +788,13 @@ public class SBGNML2SBMLUtil {
 		return role;		
 	}
 		
-	public void addAnnotation(Species species, String clazz) {
+	public void addAnnotation(SBase species, String clazz, Qualifier qualifier) {
 		Annotation annotation;
 		CVTerm cvTerm;
 		
 		annotation = species.getAnnotation();
 		// todo: use different namespace
-		cvTerm = new CVTerm(Type.BIOLOGICAL_QUALIFIER, Qualifier.BQB_IS_VERSION_OF);
+		cvTerm = new CVTerm(Type.BIOLOGICAL_QUALIFIER, qualifier);
 		// should be urn
 		// add hasPart
 		cvTerm.addResource(clazz);

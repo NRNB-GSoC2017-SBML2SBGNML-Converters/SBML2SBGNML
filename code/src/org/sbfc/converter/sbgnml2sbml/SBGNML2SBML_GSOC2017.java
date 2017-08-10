@@ -14,6 +14,7 @@ import org.sbgn.bindings.Map;
 import org.sbgn.bindings.Port;
 import org.sbgn.bindings.Sbgn;
 import org.sbml.jsbml.ASTNode;
+import org.sbml.jsbml.CVTerm.Qualifier;
 import org.sbml.jsbml.Compartment;
 import org.sbml.jsbml.ModifierSpeciesReference;
 import org.sbml.jsbml.Reaction;
@@ -317,6 +318,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 //				sOutput.addSpeciesGlyph(sWrapperSpeciesGlyph.speciesGlyph);
 				
 				sWrapperModel.addSWrapperSpeciesGlyph(glyph.getId(), sWrapperSpeciesGlyph);
+				sUtil.addAnnotation(sWrapperSpeciesGlyph.species, parent.getId(), Qualifier.BQB_IS_PART_OF);
 				
 			} else {
 				// create a new SWrapperGeneralGlyph, add it to the SWrapperModel
@@ -861,6 +863,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 
 		// create a new SWrapperGeneralGlyph, add it to the SWrapperModel
 		sWrapperGeneralGlyph = new SWrapperGeneralGlyph(generalGlyph, glyph, parent, textGlyph, sWrapperModel);
+		sUtil.addAnnotation(generalGlyph, parent.getId(), Qualifier.BQB_IS_PART_OF);
 		//System.out.println(sWrapperGeneralGlyph.glyph);
 		return sWrapperGeneralGlyph;		
 	}

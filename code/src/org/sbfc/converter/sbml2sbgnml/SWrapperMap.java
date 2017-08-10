@@ -2,6 +2,7 @@ package org.sbfc.converter.sbml2sbgnml;
 
 import java.util.HashMap;
 
+import org.sbgn.bindings.Glyph;
 import org.sbgn.bindings.Map;
 import org.sbml.jsbml.Model;
 import org.sbml.jsbml.ext.layout.CompartmentGlyph;
@@ -30,6 +31,8 @@ public class SWrapperMap {
 	HashMap<String, SWrapperGlyphEntityPool> listOfSWrapperGlyphEntityPools;
 	HashMap<String, SWrapperGlyphProcess> listOfSWrapperGlyphProcesses;
 	
+	HashMap<String, String> notAdded = new HashMap<String, String>();
+	
 	SWrapperMap(Map map, Model model){
 		this.map = map;
 		this.model = model;
@@ -47,5 +50,15 @@ public class SWrapperMap {
 		listOfSWrapperGlyphEncapsulations = new HashMap<String, SWrapperGlyphEncapsulation>();
 		listOfSWrapperGlyphEntityPools = new HashMap<String, SWrapperGlyphEntityPool>();
 		listOfSWrapperGlyphProcesses = new HashMap<String, SWrapperGlyphProcess>();
+	}
+
+	
+	Glyph getGlyph(String id){
+		for (String key : listOfSWrapperGlyphEntityPools.keySet()){
+			if (key.equals(id)){
+				return listOfSWrapperGlyphEntityPools.get(key).glyph;
+			}
+		}
+		return null;
 	}
 }

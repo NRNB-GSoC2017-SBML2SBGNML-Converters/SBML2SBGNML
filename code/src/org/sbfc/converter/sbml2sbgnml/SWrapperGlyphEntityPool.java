@@ -16,6 +16,7 @@ public class SWrapperGlyphEntityPool {
 	TextGlyph textGlyph;
 	String clazz;
 	String id;
+	String parentId;
 	HashMap<String, GraphicalObject> graphicalObjects;
 	
 	Glyph glyph;
@@ -33,5 +34,9 @@ public class SWrapperGlyphEntityPool {
 		this.qualitativeSpecies = species;
 		this.speciesGlyph = speciesGlyph;
 		this.id = species.getId();
+	}
+	
+	void setParentId(String id){
+		this.parentId = id;
 	}
 }
