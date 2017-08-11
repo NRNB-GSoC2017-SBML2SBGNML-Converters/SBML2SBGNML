@@ -27,6 +27,7 @@ public class SWrapperGlyphEntityPool {
 		this.species = species;
 		this.speciesGlyph = speciesGlyph;
 		this.id = species.getId();
+		this.clazz = glyph.getClazz();
 	}
 	
 	SWrapperGlyphEntityPool(Glyph glyph, QualitativeSpecies species, SpeciesGlyph speciesGlyph){
@@ -34,6 +35,7 @@ public class SWrapperGlyphEntityPool {
 		this.qualitativeSpecies = species;
 		this.speciesGlyph = speciesGlyph;
 		this.id = species.getId();
+		this.clazz = glyph.getClazz();
 	}
 	
 	void setParentId(String id){

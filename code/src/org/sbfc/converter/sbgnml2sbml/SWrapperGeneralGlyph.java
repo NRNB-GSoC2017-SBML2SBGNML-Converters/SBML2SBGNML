@@ -23,6 +23,8 @@ public class SWrapperGeneralGlyph {
 		
 	boolean glyphIsMissing;
 	Arc arc;
+	String sourceId;
+	String targetId;
 	
 	HashMap<String, SWrapperArc> arcs = new HashMap<String, SWrapperArc>();
 	HashMap<String, ReferenceGlyph> referenceGlyphs = new HashMap<String, ReferenceGlyph>();

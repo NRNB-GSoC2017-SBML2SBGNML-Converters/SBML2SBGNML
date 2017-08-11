@@ -15,6 +15,9 @@ import org.sbgn.bindings.Port;
 import org.sbgn.bindings.Sbgn;
 import org.sbml.jsbml.ASTNode;
 import org.sbml.jsbml.CVTerm.Qualifier;
+import org.sbml.jsbml.CVTerm.Type;
+import org.sbml.jsbml.Annotation;
+import org.sbml.jsbml.CVTerm;
 import org.sbml.jsbml.Compartment;
 import org.sbml.jsbml.ModifierSpeciesReference;
 import org.sbml.jsbml.Reaction;
@@ -429,6 +432,8 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			sWrapperSpeciesReferenceGlyph.listOfGeneralGlyphs = listOfGeneralGlyphs;
 		} 
 		
+		addSourceTargetToAnnotation(speciesReferenceGlyph, sWrapperArc.sourceId, sWrapperArc.targetId);
+		
 		return sWrapperSpeciesReferenceGlyph;
 	}
 
@@ -471,6 +476,8 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			List<GraphicalObject> listOfGeneralGlyphs = createNestedGlyphs(nestedGlyphs, speciesReferenceGlyph);
 			sWrapperModifierSpeciesReferenceGlyph.listOfGeneralGlyphs = listOfGeneralGlyphs;
 		} 
+		
+		addSourceTargetToAnnotation(speciesReferenceGlyph, sWrapperArc.sourceId, sWrapperArc.targetId);
 		
 		return sWrapperModifierSpeciesReferenceGlyph;
 	}
@@ -868,11 +875,22 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		return sWrapperGeneralGlyph;		
 	}
 		
+	public void addSourceTargetToAnnotation(GraphicalObject graphicObject, String sourceId, String targetId){
+		Annotation annotation =graphicObject.getAnnotation();
+		CVTerm cvTerm = new CVTerm(Type.BIOLOGICAL_QUALIFIER, Qualifier.BQB_HAS_PROPERTY);
+		// source
+		cvTerm.addResource(sourceId);
+		// target
+		cvTerm.addResource(targetId);
+		annotation.addCVTerm(cvTerm);		
+	}
+	
+	
 	/**
 	 * Create a <code>GeneralGlyph</code> without a <code>BoundingBox</code>.
 	 * Construct a <code>SWrapperCompartmentGlyph</code>.
 	 */		
-	public SWrapperGeneralGlyph createOneGeneralGlyph(Arc arc) {
+	public SWrapperGeneralGlyph createOneGeneralGlyph(SWrapperArc sWrapperArc) {
 		String text;
 		String clazz;
 		String id;
@@ -880,10 +898,15 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		GeneralGlyph generalGlyph;
 		SWrapperGeneralGlyph sWrapperGeneralGlyph;
 		
+		Arc arc = sWrapperArc.arc;
 		clazz = arc.getClazz();
 		// No BoundingBox
 		generalGlyph = sUtil.createJsbmlGeneralGlyph(arc.getId(), false, null);
+		
+		
+		addSourceTargetToAnnotation(generalGlyph, sWrapperArc.sourceId, sWrapperArc.targetId);
 
+		
 		// create a new SWrapperGeneralGlyph, add it to the SWrapperModel
 		sWrapperGeneralGlyph = new SWrapperGeneralGlyph(generalGlyph, arc, sWrapperModel);
 		
@@ -923,6 +946,8 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			List<GraphicalObject> listOfGeneralGlyphs = createNestedGlyphs(nestedGlyphs, referenceGlyph);
 			sWrapperReferenceGlyph.listOfGeneralGlyphs = listOfGeneralGlyphs;
 		} 
+		
+		addSourceTargetToAnnotation(referenceGlyph, sWrapperArc.sourceId, sWrapperArc.targetId);
 
 		return sWrapperReferenceGlyph;
 	}
@@ -969,7 +994,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			objectId = sWrapperArc.sourceId;
 			
 			// Create a GeneralGlyph without a BoundingBox, add it to sWrapperModel
-			sWrapperGeneralGlyph = createOneGeneralGlyph(arc);
+			sWrapperGeneralGlyph = createOneGeneralGlyph(sWrapperArc);
 			sWrapperModel.addWrapperGeneralGlyph(arc.getId(), sWrapperGeneralGlyph);
 			
 			// Create a ReferenceGlyph
@@ -1259,7 +1284,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		sOutput.addTransition(transition);
 
 		
-		sWrapperGeneralGlyph = createOneGeneralGlyph(sWrapperArc.arc);
+		sWrapperGeneralGlyph = createOneGeneralGlyph(sWrapperArc);
 		
 		// Create a ReferenceGlyph
 		sWrapperReferenceGlyph = createOneReferenceGlyph(sWrapperArc, sWrapperModel.getSWrapperQualitativeSpecies(sourceId).qualitativeSpecies);

@@ -106,6 +106,12 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			createFromReactionGlyphs(sOutput.sbgnObject, sOutput.listOfReactionGlyphs);	
 			
 			addedChildGlyphs();
+			
+			for (String key: sWrapperMap.listOfSWrapperArcs.keySet()) {
+				SWrapperArc sWrapperArc = sWrapperMap.listOfSWrapperArcs.get(key);
+				addPortForArc(sWrapperArc.speciesReferenceGlyph, sWrapperArc.arc);
+			}
+			
 		}
 		
 		createExtensionsForMathML();
@@ -475,8 +481,13 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 										(Reaction) reactionGlyph.getReactionInstance(), null, 
 										// the first Glyph is the Process Node
 										sbgnReactionGlyph.arcGroup.getGlyph().get(0));
+			
+			System.out.println("====>>>>>createFromReactionGlyphs "+sbgnReactionGlyph.arcGroup.getGlyph().get(0).getId());
+			
+			
 			sWrapperMap.listOfSWrapperGlyphProcesses.put(sbgnReactionGlyph.reactionId, sWrapperGlyphProcess);
-			System.out.println("sbgnReactionGlyph.reactionId "+sbgnReactionGlyph.reactionId);
+			//System.out.println("sbgnReactionGlyph.reactionId "+sbgnReactionGlyph.reactionId);
+			
 		}		
 	}
 	
@@ -513,6 +524,12 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 				
 				sbmlCurve = reactionGlyph.getCurve();
 				processNode = sUtil.createOneProcessNode(reactionGlyph.getReaction(), sbmlCurve, clazz);
+				
+				// for now, set style to just a Bbox
+				sUtil.createBBox(reactionGlyph, processNode.getGlyph().get(0));
+				processNode.getArc().set(0, null);
+				
+				
 				sOutput.addArcgroupToMap(processNode);
 				sWrapperArcGroup = new SWrapperArcGroup(reactionGlyph.getReaction(), processNode);
 				//System.out.println("reactionGlyph.getReaction() "+reactionGlyph.getReaction());
@@ -650,6 +667,8 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			e.printStackTrace();
 		}
 		
+		
+		
 		return sWrapperArc;
 	}
 	
@@ -770,6 +789,10 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			sbmlCurve = generalGlyph.getCurve();
 			processNode = sUtil.createOneProcessNode(generalGlyph.getId(), sbmlCurve, clazz);
 			//sOutput.addArcgroupToMap(processNode);	
+			
+			
+			// reset the style to just a simple BBox
+			sUtil.createBBox(generalGlyph, processNode.getGlyph().get(0));
 		}
 		if (generalGlyph.isSetBoundingBox()){
 			glyph = createFromOneGraphicalObject(sbgnObject, generalGlyph);
@@ -865,7 +888,90 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			e.printStackTrace();
 		}
 		
+		addPortForArc(referenceGlyph, arc);
+			
 		return arc;
+	}
+	
+	public void addPortForArc(GraphicalObject referenceGlyph, Arc arc){
+		String sourceId = null;
+		String targetId = null;
+		List<CVTerm> cvTerms = referenceGlyph.getAnnotation().getListOfCVTerms();
+		boolean hasPort = false;
+		for (CVTerm cvt : cvTerms){
+			if (cvt.getBiologicalQualifierType().getElementNameEquivalent().equals(Qualifier.BQB_HAS_PROPERTY.getElementNameEquivalent())){
+				sourceId = cvt.getResources().get(0);
+				targetId = cvt.getResources().get(1);
+				hasPort = true;
+			}
+		}
+		
+		if (hasPort){
+			SWrapperGlyphEntityPool sWrapperGlyph = sWrapperMap.listOfSWrapperGlyphEntityPools.get(sourceId);
+			if (sWrapperGlyph == null){return;}
+			System.out.println("]]]]]]]]]createFromOneReferenceGlyph " + sWrapperGlyph.id);
+			
+			Boolean addPort = false;
+			if (sWrapperGlyph.clazz.equals("and")) {
+				addPort =  true;
+			} else if (sWrapperGlyph.clazz.equals("or")) {
+				addPort =  true;
+			} else if (sWrapperGlyph.clazz.equals("not")) {
+				addPort =  true;
+			}
+			
+			if (addPort){
+				Bbox bbox = sWrapperGlyph.glyph.getBbox();
+				Port port = new Port();
+				port.setId("Port" + "__" + sourceId + "_" + targetId);
+				port.setX(arc.getStart().getX());
+				port.setY(arc.getStart().getY());
+				sWrapperGlyph.glyph.getPort().add(port);
+				arc.setSource(port);
+				
+				System.out.println("===]]createFromOneReferenceGlyph " + sWrapperGlyph.id);
+				arc.setTarget(null);
+				
+			}
+			
+			sWrapperGlyph = sWrapperMap.listOfSWrapperGlyphEntityPools.get(targetId);
+			Glyph targetGlyph;
+			SWrapperGlyphProcess sWrapperReaction;
+			if (sWrapperGlyph == null){
+				sWrapperReaction = sWrapperMap.listOfSWrapperGlyphProcesses.get(targetId);
+				targetGlyph = sWrapperReaction.processNodeGlyph;
+			} else {
+				targetGlyph = sWrapperGlyph.glyph;
+			}
+			
+			
+			if (targetGlyph == null){return;}
+			System.out.println("[[[[[[[[createFromOneReferenceGlyph " + targetGlyph.getId());
+			
+			String targetClazz = targetGlyph.getClazz();
+			
+			addPort = false;
+			if (targetClazz.equals("and")) {
+				addPort =  true;
+			} else if (targetClazz.equals("or")) {
+				addPort =  true;
+			} else if (targetClazz.equals("not")) {
+				addPort =  true;
+			}
+			
+			if (addPort){
+				Bbox bbox = sWrapperGlyph.glyph.getBbox();
+				Port port = new Port();
+				port.setId("Port" + "__" + sourceId + "_" + targetId);
+				port.setX(arc.getEnd().getX());
+				port.setY(arc.getEnd().getY());
+				targetGlyph.getPort().add(port);
+				arc.setTarget(port);
+			
+				System.out.println("===]]createFromOneReferenceGlyph " + sWrapperGlyph.id);
+				arc.setSource(null);
+			}
+		}		
 	}
 	
 	public Glyph createFromOneGraphicalObject(Sbgn sbgnObject, GraphicalObject graphicalObject){

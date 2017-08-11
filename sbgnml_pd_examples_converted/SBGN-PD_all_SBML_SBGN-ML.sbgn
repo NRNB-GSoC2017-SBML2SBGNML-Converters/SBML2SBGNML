@@ -118,64 +118,176 @@
         <glyph class="not" id="SpeciesGlyph_glyph21">
             <label text="NOT"/>
             <bbox w="42.0" h="42.0" x="1312.3334" y="1113.0"/>
+            <port id="Port__glyph9_glyph21" x="1333.3334" y="1092.0"/>
+            <port id="Port__glyph21_glyph17" x="1333.3334" y="1176.0"/>
         </glyph>
         <glyph class="or" id="SpeciesGlyph_glyph22">
             <label text="OR"/>
             <bbox w="42.0" h="42.0" x="1031.5" y="760.0"/>
+            <port id="Port__glyph4_glyph22" x="1052.5" y="739.0"/>
+            <port id="Port__glyph3_glyph22" x="1052.5" y="739.0"/>
+            <port id="Port__glyph22_glyph24" x="1052.5" y="823.0"/>
         </glyph>
         <glyph class="and" id="SpeciesGlyph_glyph23">
             <label text="AND"/>
             <bbox w="42.0" h="42.0" x="520.5" y="444.0"/>
+            <port id="Port__glyph13_glyph23" x="541.5" y="423.0"/>
+            <port id="Port__glyph7_glyph23" x="541.5" y="423.0"/>
+            <port id="Port__glyph23_glyph26" x="541.5" y="507.0"/>
         </glyph>
         <arc class="consumption" source="SpeciesGlyph_glyph20" target="Port_glyph20_glyph24">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph20"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph24"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
             <start x="870.0" y="984.3333"/>
             <end x="1028.5" y="984.3333"/>
         </arc>
         <arc class="production" source="Port_glyph24_glyph9" target="SpeciesGlyph_glyph9">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph24"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph9"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
             <start x="1076.5" y="984.3333"/>
             <end x="1229.3334" y="984.3333"/>
         </arc>
-        <arc class="stimulation" source="SpeciesGlyph_glyph22" target="Port_glyph22_glyph24">
+        <arc class="stimulation" source="Port__glyph22_glyph24">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph22"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph24"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
             <start x="1052.5" y="823.0"/>
             <end x="1052.5" y="972.3333"/>
         </arc>
         <arc class="consumption" source="SpeciesGlyph_glyph13" target="Port_glyph13_glyph25">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph13"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph25"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
             <start x="798.9998" y="308.07303"/>
             <end x="1179.6666" y="309.0"/>
         </arc>
         <arc class="production" source="Port_glyph25_glyph4" target="SpeciesGlyph_glyph4">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph25"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph4"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
             <start x="1227.6666" y="309.0"/>
             <end x="1223.5563" y="599.3333"/>
         </arc>
         <arc class="unknown influence" source="SpeciesGlyph_glyph8" target="Port_glyph8_glyph25">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph8"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph25"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
             <start x="1203.6666" y="233.0"/>
             <end x="1203.6666" y="297.0"/>
         </arc>
         <arc class="consumption" source="SpeciesGlyph_glyph6" target="Port_glyph6_glyph26">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph6"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph26"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
             <start x="321.0" y="591.87964"/>
             <end x="517.5" y="659.3333"/>
         </arc>
         <arc class="consumption" source="SpeciesGlyph_glyph5" target="Port_glyph5_glyph26">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph5"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph26"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
             <start x="312.7219" y="732.0"/>
             <end x="517.5" y="659.3333"/>
         </arc>
         <arc class="production" source="Port_glyph26_glyph3" target="SpeciesGlyph_glyph3">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph26"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph3"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
             <start x="565.5" y="659.3333"/>
             <end x="746.0" y="659.3333"/>
         </arc>
-        <arc class="necessary stimulation" source="SpeciesGlyph_glyph23" target="Port_glyph23_glyph26">
+        <arc class="necessary stimulation" source="Port__glyph23_glyph26">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph23"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph26"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
             <start x="541.5" y="507.0"/>
             <end x="541.5" y="647.3333"/>
         </arc>
         <arc class="consumption" source="SpeciesGlyph_glyph7" target="Port_glyph7_glyph27">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph7"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph27"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
             <start x="422.0" y="276.0"/>
             <end x="521.0" y="204.0"/>
         </arc>
         <arc class="production" source="Port_glyph27_glyph13" target="SpeciesGlyph_glyph13">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph27"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph13"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
             <start x="569.0" y="204.0"/>
             <end x="641.6091" y="290.1807"/>
         </arc>
         <arc class="production" source="Port_glyph27_glyph12" target="SpeciesGlyph_glyph12">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph27"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph12"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
             <start x="569.0" y="204.0"/>
             <end x="642.18396" y="115.18773"/>
         </arc>
@@ -297,65 +409,209 @@
             </glyph>
         </arcgroup>
         <arcgroup class="GeneralGlyph_arc18">
-            <arc class="logic arc">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph13"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph23"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
+            <arc class="logic arc" target="Port__glyph13_glyph23">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph13"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph23"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="643.2757" y="326.8598"/>
                 <end x="541.5" y="423.0"/>
             </arc>
-            <arc class="logic arc">
+            <arc class="logic arc" target="Port__glyph13_glyph23">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph13"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph23"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="643.2757" y="326.8598"/>
                 <end x="541.5" y="423.0"/>
             </arc>
         </arcgroup>
         <arcgroup class="GeneralGlyph_arc7">
-            <arc class="logic arc">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph9"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph21"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
+            <arc class="logic arc" target="Port__glyph9_glyph21">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph9"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph21"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="1333.3334" y="1020.3333"/>
                 <end x="1333.3334" y="1092.0"/>
             </arc>
-            <arc class="logic arc">
+            <arc class="logic arc" target="Port__glyph9_glyph21">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph9"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph21"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="1333.3334" y="1020.3333"/>
                 <end x="1333.3334" y="1092.0"/>
             </arc>
         </arcgroup>
         <arcgroup class="GeneralGlyph_arc8">
-            <arc class="inhibition">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph21"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph17"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
+            <arc class="inhibition" source="Port__glyph21_glyph17">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph21"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph17"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="1333.3334" y="1176.0"/>
                 <end x="1333.3334" y="1247.0"/>
             </arc>
-            <arc class="inhibition">
+            <arc class="inhibition" source="Port__glyph21_glyph17">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph21"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph17"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="1333.3334" y="1176.0"/>
                 <end x="1333.3334" y="1247.0"/>
             </arc>
         </arcgroup>
         <arcgroup class="GeneralGlyph_arc3">
-            <arc class="logic arc">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph7"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph23"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
+            <arc class="logic arc" target="Port__glyph7_glyph23">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph7"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph23"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="423.49567" y="340.0"/>
                 <end x="541.5" y="423.0"/>
             </arc>
-            <arc class="logic arc">
+            <arc class="logic arc" target="Port__glyph7_glyph23">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph7"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph23"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="423.49567" y="340.0"/>
                 <end x="541.5" y="423.0"/>
             </arc>
         </arcgroup>
         <arcgroup class="GeneralGlyph_arc20">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph5"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph14"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
             <arc class="equivalence arc">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph5"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph14"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="200.0" y="812.0"/>
                 <next x="200.0" y="914.5"/>
                 <end x="345.5" y="913.48486"/>
             </arc>
             <arc class="equivalence arc">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph5"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph14"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="200.0" y="812.0"/>
                 <next x="200.0" y="914.5"/>
                 <end x="345.5" y="913.48486"/>
             </arc>
         </arcgroup>
         <arcgroup class="GeneralGlyph_arc21">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph16"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph3"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
             <arc class="equivalence arc">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph16"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph3"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="628.0" y="872.5"/>
                 <next x="628.0" y="829.0"/>
                 <next x="862.0" y="829.0"/>
                 <end x="862.2102" y="793.3333"/>
             </arc>
             <arc class="equivalence arc">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph16"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph3"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="628.0" y="872.5"/>
                 <next x="628.0" y="829.0"/>
                 <next x="862.0" y="829.0"/>
@@ -363,23 +619,71 @@
             </arc>
         </arcgroup>
         <arcgroup class="GeneralGlyph_arc5">
-            <arc class="logic arc">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph4"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph22"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
+            <arc class="logic arc" target="Port__glyph4_glyph22">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph4"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph22"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="1119.6666" y="708.4523"/>
                 <end x="1052.5" y="739.0"/>
             </arc>
-            <arc class="logic arc">
+            <arc class="logic arc" target="Port__glyph4_glyph22">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph4"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph22"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="1119.6666" y="708.4523"/>
                 <end x="1052.5" y="739.0"/>
             </arc>
         </arcgroup>
         <arcgroup class="GeneralGlyph_arc22">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph17"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph15"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
             <arc class="equivalence arc">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph17"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph15"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="1279.3334" y="1277.0"/>
                 <next x="776.0" y="1277.0"/>
                 <next x="776.0" y="1039.0"/>
                 <end x="725.5" y="1039.0"/>
             </arc>
             <arc class="equivalence arc">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph17"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph15"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="1279.3334" y="1277.0"/>
                 <next x="776.0" y="1277.0"/>
                 <next x="776.0" y="1039.0"/>
@@ -387,21 +691,69 @@
             </arc>
         </arcgroup>
         <arcgroup class="GeneralGlyph_arc4">
-            <arc class="logic arc">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph3"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph22"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
+            <arc class="logic arc" target="Port__glyph3_glyph22">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph3"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph22"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="980.0" y="708.5207"/>
                 <end x="1052.5" y="739.0"/>
             </arc>
-            <arc class="logic arc">
+            <arc class="logic arc" target="Port__glyph3_glyph22">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph3"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph22"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="980.0" y="708.5207"/>
                 <end x="1052.5" y="739.0"/>
             </arc>
         </arcgroup>
         <arcgroup class="GeneralGlyph_arc23">
+            <extension>
+                <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                    <sbfcanno:hasProperty>
+                        <sbfcanno:resource sbfcanno:urn="glyph19"/>
+                        <sbfcanno:resource sbfcanno:urn="glyph18"/>
+                    </sbfcanno:hasProperty>
+                </sbfcanno:annotation>
+            </extension>
             <arc class="equivalence arc">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph19"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph18"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="465.0" y="1127.3334"/>
                 <end x="465.0" y="1077.0"/>
             </arc>
             <arc class="equivalence arc">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:hasProperty>
+                            <sbfcanno:resource sbfcanno:urn="glyph19"/>
+                            <sbfcanno:resource sbfcanno:urn="glyph18"/>
+                        </sbfcanno:hasProperty>
+                    </sbfcanno:annotation>
+                </extension>
                 <start x="465.0" y="1127.3334"/>
                 <end x="465.0" y="1077.0"/>
             </arc>
@@ -411,7 +763,7 @@
                 <bbox w="42.0" h="42.0" x="1312.3334" y="1113.0"/>
             </glyph>
             <glyph class="unspecified entity" id="GeneralGlyph_glyph21">
-                <bbox w="NaN" h="NaN" x="NaN" y="NaN"/>
+                <bbox w="42.0" h="42.0" x="1312.3334" y="1113.0"/>
             </glyph>
             <glyph class="unspecified entity" id="GeneralGlyph_glyph21">
                 <bbox w="42.0" h="42.0" x="1312.3334" y="1113.0"/>
@@ -426,7 +778,7 @@
                 <bbox w="42.0" h="42.0" x="1031.5" y="760.0"/>
             </glyph>
             <glyph class="unspecified entity" id="GeneralGlyph_glyph22">
-                <bbox w="NaN" h="NaN" x="NaN" y="NaN"/>
+                <bbox w="42.0" h="42.0" x="1031.5" y="760.0"/>
             </glyph>
             <glyph class="unspecified entity" id="GeneralGlyph_glyph22">
                 <bbox w="42.0" h="42.0" x="1031.5" y="760.0"/>
@@ -441,7 +793,7 @@
                 <bbox w="42.0" h="42.0" x="520.5" y="444.0"/>
             </glyph>
             <glyph class="unspecified entity" id="GeneralGlyph_glyph23">
-                <bbox w="NaN" h="NaN" x="NaN" y="NaN"/>
+                <bbox w="42.0" h="42.0" x="520.5" y="444.0"/>
             </glyph>
             <glyph class="unspecified entity" id="GeneralGlyph_glyph23">
                 <bbox w="42.0" h="42.0" x="520.5" y="444.0"/>
@@ -453,52 +805,40 @@
         </arcgroup>
         <arcgroup>
             <glyph class="omitted process" id="glyph24">
-                <bbox w="12.0" h="12.0" x="1040.5" y="978.3333"/>
+                <bbox w="24.0" h="24.0" x="1040.5" y="972.3333"/>
                 <port id="Port_glyph20_glyph24" x="1028.5" y="984.3333"/>
                 <port id="Port_glyph24_glyph9" x="1076.5" y="984.3333"/>
                 <port id="Port_glyph22_glyph24" x="1052.5" y="972.3333"/>
             </glyph>
-            <arc class="unknown influence" id="glyph24_Curve">
-                <start x="1052.5" y="984.3333"/>
-                <end x="1052.5" y="984.3333"/>
-            </arc>
+            <arc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         </arcgroup>
         <arcgroup>
             <glyph class="uncertain process" id="glyph25">
-                <bbox w="12.0" h="12.0" x="1191.6666" y="303.0"/>
+                <bbox w="24.0" h="24.0" x="1191.6666" y="297.0"/>
                 <port id="Port_glyph13_glyph25" x="1179.6666" y="309.0"/>
                 <port id="Port_glyph25_glyph4" x="1227.6666" y="309.0"/>
                 <port id="Port_glyph8_glyph25" x="1203.6666" y="297.0"/>
             </glyph>
-            <arc class="unknown influence" id="glyph25_Curve">
-                <start x="1203.6666" y="309.0"/>
-                <end x="1203.6666" y="309.0"/>
-            </arc>
+            <arc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         </arcgroup>
         <arcgroup>
             <glyph class="association" id="glyph26">
-                <bbox w="12.0" h="12.0" x="529.5" y="653.3333"/>
+                <bbox w="24.0" h="24.0" x="529.5" y="647.3333"/>
                 <port id="Port_glyph6_glyph26" x="517.5" y="659.3333"/>
                 <port id="Port_glyph5_glyph26" x="517.5" y="659.3333"/>
                 <port id="Port_glyph26_glyph3" x="565.5" y="659.3333"/>
                 <port id="Port_glyph23_glyph26" x="541.5" y="647.3333"/>
             </glyph>
-            <arc class="unknown influence" id="glyph26_Curve">
-                <start x="541.5" y="659.3333"/>
-                <end x="541.5" y="659.3333"/>
-            </arc>
+            <arc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         </arcgroup>
         <arcgroup>
             <glyph class="dissociation" id="glyph27">
-                <bbox w="12.0" h="12.0" x="533.0" y="198.0"/>
+                <bbox w="24.0" h="24.0" x="533.0" y="192.0"/>
                 <port id="Port_glyph7_glyph27" x="521.0" y="204.0"/>
                 <port id="Port_glyph27_glyph13" x="569.0" y="204.0"/>
                 <port id="Port_glyph27_glyph12" x="569.0" y="204.0"/>
             </glyph>
-            <arc class="unknown influence" id="glyph27_Curve">
-                <start x="545.0" y="204.0"/>
-                <end x="545.0" y="204.0"/>
-            </arc>
+            <arc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
         </arcgroup>
     </map>
 </sbgn>
