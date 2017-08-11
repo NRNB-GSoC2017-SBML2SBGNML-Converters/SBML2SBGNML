@@ -217,7 +217,7 @@ public class SBGNML2SBMLRender {
 	
 	public LocalStyle createStyle(GraphicalObject graphicalObject, String clazz) {
 		RenderGroup renderGroup;
-		;
+		
 		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin;
 		LocalRenderInformation localRenderInformation = sOutput.localRenderInformation;
 		Layout layout = sOutput.layout;

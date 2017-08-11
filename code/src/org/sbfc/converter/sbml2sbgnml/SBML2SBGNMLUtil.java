@@ -446,6 +446,11 @@ public class SBML2SBGNMLUtil {
 			glyph = listOfGlyphs.get(i);
 			glyphId = glyph.getId();
 			
+//			if (glyph.getGlyph().size() > 0){
+//				glyphId = Integer.toString(searchForIndex(glyph.getGlyph(), id));
+//				System.out.println("searchForIndex glyphId" + glyphId);
+//			}
+			
 			if (id.equals(glyphId)) {
 				return i;
 			}

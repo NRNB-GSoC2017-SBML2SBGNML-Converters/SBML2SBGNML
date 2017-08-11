@@ -102,7 +102,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			createFromCompartmentGlyphs(sOutput.sbgnObject, sOutput.listOfCompartmentGlyphs);
 			createFromSpeciesGlyphs(sOutput.sbgnObject, sOutput.listOfSpeciesGlyphs);
 			createFromGeneralGlyphs(sOutput.sbgnObject, sOutput.listOfAdditionalGraphicalObjects);
-			createLabelsFromTextGlyphs(sOutput.sbgnObject, sOutput.listOfTextGlyphs);
+			
 			createFromReactionGlyphs(sOutput.sbgnObject, sOutput.listOfReactionGlyphs);	
 			
 			addedChildGlyphs();
@@ -112,6 +112,8 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 				addPortForArc(sWrapperArc.speciesReferenceGlyph, sWrapperArc.arc);
 			}
 			
+			createLabelsFromTextGlyphs(sOutput.sbgnObject, sOutput.listOfTextGlyphs);
+			addCloneMarkers();
 		}
 		
 		createExtensionsForMathML();
@@ -124,15 +126,48 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		return sOutput.sbgnObject;		
 	}
 	
+	private void addCloneMarkers() {
+		
+		List<Glyph> listOfGlyphs = sOutput.sbgnObject.getMap().getGlyph();
+		
+	}
+
 	private void addedChildGlyphs() {
 		for (String key : sWrapperMap.notAdded.keySet()){
+			Glyph glyph;
 			
 			String parentKey = sWrapperMap.notAdded.get(key);
 			Glyph parentGlyph = sWrapperMap.getGlyph(parentKey);
-			Glyph glyph = sWrapperMap.getGlyph(key);
+			glyph = sWrapperMap.getGlyph(key);
 			
-			parentGlyph.getGlyph().add(glyph);
-			System.out.println("addedChildGlyphs "+glyph.getId() +" in "+parentGlyph.getId());
+			Arc parentArc = null;
+			
+			if (parentGlyph == null){
+				parentArc = sWrapperMap.getArc(parentKey);
+				parentArc.getGlyph().add(glyph);
+				
+				if (glyph.getClazz().equals("unit of information")){
+					glyph.setClazz("cardinality");
+					
+				}
+				
+				System.out.println("addedChildGlyphs "+key +" in "+parentKey);
+				
+				System.out.println("addedChildGlyphs "+glyph.getId() +" in "+parentArc.getId());
+				
+			} else {
+				parentGlyph.getGlyph().add(glyph);
+			}
+						
+			
+			try{
+				System.out.println("addedChildGlyphs "+glyph.getId() +" in "+parentGlyph.getId());
+			}catch(Exception e){
+				System.out.println("!!!!!!!!!!!!!!!!addedChildGlyphs "+parentKey+" contains "+key);
+				
+			}
+			
+			
 		}
 		
 	}
@@ -239,29 +274,38 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			
 			sWrapperMap.listOfSWrapperGlyphEntityPools.put(sbgnSpeciesGlyph.id, sbgnSpeciesGlyph);
 			
-			
-			// todo: same for general glyphs
 			boolean hasParent = false;
-			List<CVTerm> cvTerms = sbgnSpeciesGlyph.species.getAnnotation().getListOfCVTerms();
-			System.out.println("-==? size" + cvTerms.size());
+			checkParentChildGlyph(sbgnSpeciesGlyph.species, speciesGlyph.getSpecies());
 			
-			for (CVTerm cvt : cvTerms){
-				System.out.println("-==?");
-				System.out.println(cvt.getBiologicalQualifierType().getElementNameEquivalent());
-				System.out.println(Qualifier.BQB_IS_PART_OF.getElementNameEquivalent());
-				if (cvt.getBiologicalQualifierType().getElementNameEquivalent().equals(Qualifier.BQB_IS_PART_OF.getElementNameEquivalent())){
-					String parent = cvt.getResources().get(0);
-					hasParent = true;
-					sWrapperMap.notAdded.put(speciesGlyph.getSpecies(), parent.split("_")[1]);
-					System.out.println("-==? hasParent "+ parent);
-				}
-				
-			}
 			if (!hasParent){
 				sOutput.addGlyphToMap(sbgnSpeciesGlyph.glyph);				
-			}
+			}	
 		}
 	}
+	
+	public boolean  checkParentChildGlyph(SBase sbmlGlyph, String parentId){
+		// todo: same for general glyphs
+		boolean hasParent = false;
+		List<CVTerm> cvTerms = sbmlGlyph.getAnnotation().getListOfCVTerms();
+		System.out.println("-==? size" + cvTerms.size());
+		
+		for (CVTerm cvt : cvTerms){
+			System.out.println("-==?");
+			System.out.println(cvt.getBiologicalQualifierType().getElementNameEquivalent());
+			System.out.println(Qualifier.BQB_IS_PART_OF.getElementNameEquivalent());
+			if (cvt.getBiologicalQualifierType().getElementNameEquivalent().equals(Qualifier.BQB_IS_PART_OF.getElementNameEquivalent())){
+				String parent = cvt.getResources().get(0);
+				hasParent = true;
+				sWrapperMap.notAdded.put(parentId, parent.split("_")[1]);
+				System.out.println("-==? hasParent "+ parent + " " + parent.split("_")[1]);
+			}
+			
+		}
+		
+		return hasParent;
+	
+	}
+	
 	
 	public SWrapperGlyphEntityPool createFromOneSpeciesGlyph(Sbgn sbgnObject, SpeciesGlyph speciesGlyph){
 		Glyph sbgnSpeciesGlyph;
@@ -286,6 +330,12 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			clazz = array[0];
 			orientation = array[1];
 		}
+		org.sbgn.bindings.Glyph.Clone clone = null;
+		if (clazz.contains("clone")){
+			String[] array = clazz.split("_");
+			clazz = array[0];
+			clone = new Glyph.Clone();
+		}
 		
 		sbgnSpeciesGlyph = sUtil.createGlyph(speciesGlyph.getId(), clazz, 
 				true, speciesGlyph, 
@@ -293,6 +343,10 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		
 		if (orientation != null){
 			sbgnSpeciesGlyph.setOrientation(orientation);
+		}
+		
+		if (clone != null){
+			sbgnSpeciesGlyph.setClone(clone);
 		}
 		
 		
@@ -368,19 +422,19 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		} 
 		
 		else if (objectRole.equals("SBO0000247clone")){
-			clazz = "simple chemical";
+			clazz = "simple chemical_clone";
 		} else if (objectRole.equals("SBO0000245clone")){
-			clazz = "macromolecule";
+			clazz = "macromolecule_clone";
 		} else if (objectRole.equals("SBO0000354clone")){
-			clazz = "nucleic acid feature";
+			clazz = "nucleic acid feature_clone";
 		} 
 		
 		else if (objectRole.equals("SBO0000245multimerclone")){
-			clazz = "macromolecule multimer";
+			clazz = "macromolecule multimer_clone";
 		} else if (objectRole.equals("SBO0000247multimerclone")){
-			clazz = "simple chemical multimer";
+			clazz = "simple chemical multimer_clone";
 		} else if (objectRole.equals("SBO0000354multimerclone")){
-			clazz = "nucleic acid feature multimer";
+			clazz = "nucleic acid feature multimer_clone";
 		} 
 		
 		else if (objectRole.equals("SBO0000247multimer")){
@@ -592,6 +646,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		// can't do need bezier, libSBGN doesn't have it
 		// need port
 		arc = sUtil.createOneArc(sbmlCurve);
+		arc.setId(speciesReferenceGlyph.getSpeciesReference());
 		
 		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) speciesReferenceGlyph.getPlugin(RenderConstants.shortLabel);
 		String objectRole = renderGraphicalObjectPlugin.getObjectRole();
@@ -698,7 +753,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			text = textGlyph.getText();
 		} else if (textGlyph.isSetOriginOfText()) {
 			// todo: don't get the reference, get the text instead
-			text = textGlyph.getOriginOfText();
+			text = textGlyph.getOriginOfTextInstance().getName();
 		} else {
 			text = "";
 		}
@@ -708,10 +763,24 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			listOfGlyphs = sOutput.sbgnObject.getMap().getGlyph();
 			
 			// find the Glyph that should contain this text
-			indexOfSpeciesGlyph = sUtil.searchForIndex(listOfGlyphs, id);
-			if (indexOfSpeciesGlyph != -1){
-				sbgnGlyph = listOfGlyphs.get(indexOfSpeciesGlyph);
+//			indexOfSpeciesGlyph = sUtil.searchForIndex(listOfGlyphs, id);
+//			if (indexOfSpeciesGlyph != -1){
+//				sbgnGlyph = listOfGlyphs.get(indexOfSpeciesGlyph);
+//				sUtil.setLabel(sbgnGlyph, text);
+//			} else {
+//				
+//			}
+			sbgnGlyph = searchForGlyph(listOfGlyphs, id);
+			if (sbgnGlyph != null){
 				sUtil.setLabel(sbgnGlyph, text);
+			} else {
+				for (Arc a:  sOutput.sbgnObject.getMap().getArc()) {
+					listOfGlyphs = a.getGlyph();
+					sbgnGlyph = searchForGlyph(listOfGlyphs, id);
+					if (sbgnGlyph != null){
+						sUtil.setLabel(sbgnGlyph, text);
+					}
+				}
 			}
 
 			
@@ -723,6 +792,39 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			sOutput.addGlyphToMap(sbgnGlyph);		
 					
 		}		
+	}
+	
+	
+	public Glyph searchForGlyph(List<Glyph> listOfGlyphs, String id) {
+		Glyph glyph;
+		String glyphId;
+		
+		for (int i = 0; i < listOfGlyphs.size(); i++) {
+			glyph = listOfGlyphs.get(i);
+			glyphId = glyph.getId();
+			
+			if (id.equals(glyphId)) {
+				return glyph;
+			}
+			
+			if (glyph.getGlyph().size() > 0){
+				glyph = searchForGlyph(glyph.getGlyph(), id);
+				if (glyph==null){continue;}
+				
+				glyphId = glyph.getId();
+				if (id.equals(glyphId)) {
+					System.out.println("searchForIndex glyphId" + glyphId);
+					return glyph;
+				}
+
+			}
+			
+
+			
+
+		}
+		
+		return null;
 	}
 	
 	/**
@@ -745,7 +847,16 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			generalGlyph = (GeneralGlyph) graphicalObject;
 
 			arcgroup = createFromOneGeneralGlyph(sbgnObject, generalGlyph);
-			sOutput.addArcgroupToMap(arcgroup);
+			if (arcgroup == null){continue;}
+			
+			boolean hasParent = false;
+			checkParentChildGlyph(graphicalObject, graphicalObject.getId());
+			
+			if (!hasParent){
+				sOutput.addArcgroupToMap(arcgroup);			
+			}	
+			
+			
 		}
 	}
 	
@@ -765,9 +876,16 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		Glyph glyph;
 		Arc arc;
 		Arcgroup arcgroup;
-		Arcgroup processNode = new Arcgroup();
+		//Arcgroup processNode = new Arcgroup();
 		Curve sbmlCurve;
 		String clazz = "unspecified entity";
+		
+		try{
+		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) generalGlyph.getPlugin(RenderConstants.shortLabel);
+		String objectRole = renderGraphicalObjectPlugin.getObjectRole();	
+		} catch (Exception e) {
+			return null;
+		}
 		
 //		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) generalGlyph.getPlugin(RenderConstants.shortLabel);
 //		String objectRole = renderGraphicalObjectPlugin.getObjectRole();
@@ -787,17 +905,25 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 
 		if (generalGlyph.isSetCurve()){
 			sbmlCurve = generalGlyph.getCurve();
-			processNode = sUtil.createOneProcessNode(generalGlyph.getId(), sbmlCurve, clazz);
+			//processNode = sUtil.createOneProcessNode(generalGlyph.getId(), sbmlCurve, clazz);
 			//sOutput.addArcgroupToMap(processNode);	
 			
 			
 			// reset the style to just a simple BBox
-			sUtil.createBBox(generalGlyph, processNode.getGlyph().get(0));
+			//sUtil.createBBox(generalGlyph, processNode.getGlyph().get(0));
 		}
 		if (generalGlyph.isSetBoundingBox()){
 			glyph = createFromOneGraphicalObject(sbgnObject, generalGlyph);
 			listOfGlyphs.add(glyph);
-			processNode.getGlyph().add(glyph);
+
+			boolean hasParent = checkParentChildGlyph(generalGlyph, generalGlyph.getId());
+			if (hasParent){
+				System.out.println("++++++createFromOneGeneralGlyph" + generalGlyph.getId());
+				String id = generalGlyph.getId().split("_")[1];
+				sWrapperMap.listOfSWrapperAuxiliary.put(generalGlyph.getId(), new SWrapperAuxiliary(glyph, generalGlyph, id));
+			return null;}
+			
+			//processNode.getGlyph().add(glyph);
 		}
 		if (generalGlyph.isSetListOfReferenceGlyphs()){
 			listOfReferenceGlyphs = generalGlyph.getListOfReferenceGlyphs();
@@ -805,7 +931,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			for (ReferenceGlyph referenceGlyph : listOfReferenceGlyphs) {
 				arc = createFromOneReferenceGlyph(referenceGlyph);
 				listOfArcs.add(arc);
-				processNode.getArc().add(arc);
+				//processNode.getArc().add(arc);
 			}
 		}
 		if (generalGlyph.isSetListOfSubGlyphs()){
@@ -814,14 +940,14 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			for (GraphicalObject graphicalObject : listOfSubGlyphs) {
 				glyph = createFromOneGraphicalObject(sbgnObject, graphicalObject);
 				listOfGlyphs.add(glyph);
-				processNode.getGlyph().add(glyph);
+				//processNode.getGlyph().add(glyph);
 			}
 		}	
 
 		
 		arcgroup = sUtil.createOneArcgroup(listOfGlyphs, listOfArcs, generalGlyph.getId());
-		arcgroup.getGlyph().addAll(processNode.getGlyph());
-		arcgroup.getArc().addAll(processNode.getArc());
+		//arcgroup.getGlyph().addAll(processNode.getGlyph());
+		//arcgroup.getArc().addAll(processNode.getArc());
 		
 		try {
 			sUtil.addAnnotationInExtension(arcgroup, generalGlyph.getAnnotation());
@@ -976,7 +1102,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	
 	public Glyph createFromOneGraphicalObject(Sbgn sbgnObject, GraphicalObject graphicalObject){
 		Glyph sbgnGlyph;
-		
+				
 		SBase sbase = sOutput.sbmlModel.getSBaseById(graphicalObject.getMetaidRef());
 		if (sbase == null){
 			sbase = graphicalObject;
@@ -990,6 +1116,15 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			clazz = sUtil.sbu.getOutputFromClass(graphicalObject, "unspecified entity");
 			} catch(Exception e){}
 		}
+		
+		
+		if (clazz.equals("unspecified entity")){
+		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) graphicalObject.getPlugin(RenderConstants.shortLabel);
+		String objectRole = renderGraphicalObjectPlugin.getObjectRole();
+		clazz = mapObjectRoleToClazz(objectRole);
+		System.out.println("####createFromOneGraphicalObject"+ clazz);
+		}
+		
 		
 		// create a new Glyph, set its Bbox, don't set a Label
 		// todo: or clazz could be simple chemical etc.

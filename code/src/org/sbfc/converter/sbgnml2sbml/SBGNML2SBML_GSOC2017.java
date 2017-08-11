@@ -450,6 +450,9 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		SpeciesReferenceGlyph speciesReferenceGlyph;
 		SWrapperModifierSpeciesReferenceGlyph sWrapperModifierSpeciesReferenceGlyph;
 		
+		// todo: <!-- assumption: start=source, end=target-->
+		
+		
 		// create a SpeciesReference
 		species = sOutput.findSpecies(speciesId);
 		speciesReference = sUtil.createModifierSpeciesReference(reaction, species, speciesReferenceId);
@@ -928,6 +931,8 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		Curve curve;
 		ReferenceGlyph referenceGlyph;
 		SWrapperReferenceGlyph sWrapperReferenceGlyph;
+		
+		// todo: assume: ReferenceGlyph.glyph is species, ReferenceGlyph.reference is the "reaction" (not the speciesReference)
 		
 		// create a SpeciesReferenceGlyph
 		referenceGlyph = sUtil.createOneReferenceGlyph(sWrapperArc.arc.getId(), sWrapperArc.arc, 

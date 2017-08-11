@@ -2,6 +2,7 @@ package org.sbfc.converter.sbml2sbgnml;
 
 import java.util.HashMap;
 
+import org.sbgn.bindings.Arc;
 import org.sbgn.bindings.Glyph;
 import org.sbgn.bindings.Map;
 import org.sbml.jsbml.Model;
@@ -30,6 +31,7 @@ public class SWrapperMap {
 	HashMap<String, SWrapperGlyphEncapsulation> listOfSWrapperGlyphEncapsulations;
 	HashMap<String, SWrapperGlyphEntityPool> listOfSWrapperGlyphEntityPools;
 	HashMap<String, SWrapperGlyphProcess> listOfSWrapperGlyphProcesses;
+	HashMap<String, SWrapperAuxiliary> listOfSWrapperAuxiliary;
 	
 	HashMap<String, String> notAdded = new HashMap<String, String>();
 	
@@ -50,6 +52,7 @@ public class SWrapperMap {
 		listOfSWrapperGlyphEncapsulations = new HashMap<String, SWrapperGlyphEncapsulation>();
 		listOfSWrapperGlyphEntityPools = new HashMap<String, SWrapperGlyphEntityPool>();
 		listOfSWrapperGlyphProcesses = new HashMap<String, SWrapperGlyphProcess>();
+		listOfSWrapperAuxiliary = new HashMap<String, SWrapperAuxiliary>();
 	}
 
 	
@@ -59,6 +62,43 @@ public class SWrapperMap {
 				return listOfSWrapperGlyphEntityPools.get(key).glyph;
 			}
 		}
+		
+		for (String key : listOfSWrapperArcGroups.keySet()){
+			for (Glyph g : listOfSWrapperArcGroups.get(key).arcGroup.getGlyph()) {
+				if (g.getId().equals(id)){
+					return g;
+				}
+			}
+			
+		}
+		
+		for (String key : listOfSWrapperAuxiliary.keySet()){
+			if (key.equals(id)){
+				System.out.println("listOfSWrapperAuxiliary.get(key)"+listOfSWrapperAuxiliary.get(key).glyph.getId());
+				return listOfSWrapperAuxiliary.get(key).glyph;
+			}
+		}
+		
+		return null;
+	}
+
+
+	public Arc getArc(String id) {
+		for (String key : listOfSWrapperArcs.keySet()){
+			if (key.equals(id)){
+				System.out.println("listOfSWrapperArcs.get(key)"+listOfSWrapperArcs.get(key).sourceTargetType+" "+listOfSWrapperArcs.get(key).arc.getId());
+				return listOfSWrapperArcs.get(key).arc;
+			}
+		}
+		
+		for (String key : listOfSWrapperArcGroups.keySet()){
+			for (Arc a : listOfSWrapperArcGroups.get(key).arcGroup.getArc()) {
+				if (a.getId().equals(id)){
+					return a;
+				}
+			}
+			
+		}		
 		return null;
 	}
 }

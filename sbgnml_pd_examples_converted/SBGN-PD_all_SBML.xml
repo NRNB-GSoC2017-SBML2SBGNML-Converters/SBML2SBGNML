@@ -182,14 +182,34 @@
               </render:lineEnding>
               <render:lineEnding render:id="inhibitor">
                 <layout:boundingBox>
-                  <layout:position layout:x="-0.7" layout:y="-4"/>
-                  <layout:dimensions layout:height="8" layout:width="0.7"/>
+                  <layout:position layout:x="-2" layout:y="-4"/>
+                  <layout:dimensions layout:height="8" layout:width="2"/>
                 </layout:boundingBox>
                 <render:g render:fill="black" render:stroke="black" render:stroke-width="0.1">
                   <render:polygon>
-                                                          </render:polygon>
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
                   <render:polygon>
-                                                          </render:polygon>
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
                 </render:g>
               </render:lineEnding>
             </render:listOfLineEndings>
@@ -310,7 +330,7 @@
               <render:style id="SBO0000247clone" render:roleList="SBO0000247clone">
                 <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
                   <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
-                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:fill="cloneMarker" render:rx="50%" render:ry="50%"/>
+                  <render:ellipse render:cx="50%" render:cy="75%" render:cz="0" render:fill="cloneMarker" render:rx="25%" render:ry="25%"/>
                 </render:g>
               </render:style>
               <render:style id="SBO0000291" render:roleList="SBO0000291">
@@ -593,10 +613,10 @@
         </render:listOfRenderInformation>
         <layout:dimensions layout:depth="0" layout:height="0" layout:width="0"/>
         <layout:listOfAdditionalGraphicalObjects>
-          <layout:generalGlyph layout:id="GeneralGlyph_glyph4a" metaid="ca551951-fa78-4395-8819-6868e0e57a2d" render:objectRole="unitofinfo">
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph4a" metaid="_895362f7-c0fc-48f7-9d4e-f4c3453f724d" render:objectRole="unitofinfo">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#ca551951-fa78-4395-8819-6868e0e57a2d">
+	<rdf:Description rdf:about="#_895362f7-c0fc-48f7-9d4e-f4c3453f724d">
 	<bqbiol:isPartOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="SpeciesGlyph_glyph4"/>
@@ -610,10 +630,10 @@
               <layout:dimensions layout:depth="0" layout:height="16" layout:width="99"/>
             </layout:boundingBox>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_glyph11a" metaid="fddd95c3-a409-4f55-a4a8-913284cb53ab" render:objectRole="statevar">
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph11a" metaid="_330b0b24-d43f-431f-8bdf-a35bf769a911" render:objectRole="statevar">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#fddd95c3-a409-4f55-a4a8-913284cb53ab">
+	<rdf:Description rdf:about="#_330b0b24-d43f-431f-8bdf-a35bf769a911">
 	<bqbiol:isPartOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="SpeciesGlyph_glyph11"/>
@@ -627,10 +647,10 @@
               <layout:dimensions layout:depth="0" layout:height="41" layout:width="122"/>
             </layout:boundingBox>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_glyph44" metaid="_4f25eb94-a2c3-4f10-a350-3f4cb0e4c4dd" render:objectRole="unitofinfo">
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph44" metaid="f814a484-a723-498a-8c85-4e50dce6a6c2" render:objectRole="unitofinfo">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_4f25eb94-a2c3-4f10-a350-3f4cb0e4c4dd">
+	<rdf:Description rdf:about="#f814a484-a723-498a-8c85-4e50dce6a6c2">
 	<bqbiol:isPartOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="SpeciesReferenceGlyph_arc17"/>
@@ -644,10 +664,10 @@
               <layout:dimensions layout:depth="0" layout:height="18.5" layout:width="22.5"/>
             </layout:boundingBox>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_arc18" metaid="_3a1d9827-3def-4c12-a24c-b41f29f6fc8a" render:objectRole="SBO0000398">
+          <layout:generalGlyph layout:id="GeneralGlyph_arc18" metaid="_4d6e16df-ef43-46e4-8824-dae4f5b6a216" render:objectRole="SBO0000398">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_3a1d9827-3def-4c12-a24c-b41f29f6fc8a">
+	<rdf:Description rdf:about="#_4d6e16df-ef43-46e4-8824-dae4f5b6a216">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph13"/>
@@ -658,10 +678,10 @@
 	</rdf:RDF>
 	</annotation>
                       <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph13" layout:id="ReferenceGlyph_arc18" metaid="_2592a450-7ff4-43ab-9e01-30c25764b848" render:objectRole="SBO0000398">
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph13" layout:id="ReferenceGlyph_arc18" metaid="_416a2ce5-7288-46e1-a43f-d800d8281c33" render:objectRole="SBO0000398">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_2592a450-7ff4-43ab-9e01-30c25764b848">
+	<rdf:Description rdf:about="#_416a2ce5-7288-46e1-a43f-d800d8281c33">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph13"/>
@@ -682,10 +702,10 @@
               </layout:referenceGlyph>
             </layout:listOfReferenceGlyphs>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_arc7" metaid="_7573ad13-6c92-4f78-b8a7-a558600c7872" render:objectRole="SBO0000398">
+          <layout:generalGlyph layout:id="GeneralGlyph_arc7" metaid="_47366ddc-bde5-4dc4-ae18-d417d33ad891" render:objectRole="SBO0000398">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_7573ad13-6c92-4f78-b8a7-a558600c7872">
+	<rdf:Description rdf:about="#_47366ddc-bde5-4dc4-ae18-d417d33ad891">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph9"/>
@@ -696,10 +716,10 @@
 	</rdf:RDF>
 	</annotation>
                       <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph9" layout:id="ReferenceGlyph_arc7" metaid="_992e025d-c734-46d3-aea5-fae9936d2c59" render:objectRole="SBO0000398">
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph9" layout:id="ReferenceGlyph_arc7" metaid="c703280c-2111-4d73-b728-f20fb4d41332" render:objectRole="SBO0000398">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_992e025d-c734-46d3-aea5-fae9936d2c59">
+	<rdf:Description rdf:about="#c703280c-2111-4d73-b728-f20fb4d41332">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph9"/>
@@ -720,10 +740,10 @@
               </layout:referenceGlyph>
             </layout:listOfReferenceGlyphs>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_arc8" metaid="b5a65a6a-aaf2-4cde-874a-36e1e104fcbc" render:objectRole="SBO0000169">
+          <layout:generalGlyph layout:id="GeneralGlyph_arc8" metaid="_8e60ba9f-3a9b-44e9-9cad-bfaaed44c0ef" render:objectRole="SBO0000169">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#b5a65a6a-aaf2-4cde-874a-36e1e104fcbc">
+	<rdf:Description rdf:about="#_8e60ba9f-3a9b-44e9-9cad-bfaaed44c0ef">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph21"/>
@@ -734,10 +754,10 @@
 	</rdf:RDF>
 	</annotation>
                       <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph21" layout:id="ReferenceGlyph_arc8" metaid="d151ebe8-3b18-4c35-87f4-9e266196bb02" render:objectRole="SBO0000169">
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph21" layout:id="ReferenceGlyph_arc8" metaid="b117552d-b9ab-4637-9fb3-a78a2659db9c" render:objectRole="SBO0000169">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#d151ebe8-3b18-4c35-87f4-9e266196bb02">
+	<rdf:Description rdf:about="#b117552d-b9ab-4637-9fb3-a78a2659db9c">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph21"/>
@@ -758,10 +778,10 @@
               </layout:referenceGlyph>
             </layout:listOfReferenceGlyphs>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_arc3" metaid="_2ec33f13-e7d9-42d3-a359-d58d389629b5" render:objectRole="SBO0000398">
+          <layout:generalGlyph layout:id="GeneralGlyph_arc3" metaid="_4ab6976a-8060-4027-a53b-79517723aa60" render:objectRole="SBO0000398">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_2ec33f13-e7d9-42d3-a359-d58d389629b5">
+	<rdf:Description rdf:about="#_4ab6976a-8060-4027-a53b-79517723aa60">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph7"/>
@@ -772,10 +792,10 @@
 	</rdf:RDF>
 	</annotation>
                       <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph7" layout:id="ReferenceGlyph_arc3" metaid="dde88eda-ffa7-43aa-a7bc-bd84bffe1867" render:objectRole="SBO0000398">
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph7" layout:id="ReferenceGlyph_arc3" metaid="e2b3a056-4eb3-4775-b07c-83635f11b747" render:objectRole="SBO0000398">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#dde88eda-ffa7-43aa-a7bc-bd84bffe1867">
+	<rdf:Description rdf:about="#e2b3a056-4eb3-4775-b07c-83635f11b747">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph7"/>
@@ -796,10 +816,10 @@
               </layout:referenceGlyph>
             </layout:listOfReferenceGlyphs>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_arc20" metaid="_726f4f39-e795-4ff3-ac09-b2cbe6c86986" render:objectRole="equivalence">
+          <layout:generalGlyph layout:id="GeneralGlyph_arc20" metaid="_1b0b14cd-5c41-4132-8d08-89c2d6ccbfbb" render:objectRole="equivalence">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_726f4f39-e795-4ff3-ac09-b2cbe6c86986">
+	<rdf:Description rdf:about="#_1b0b14cd-5c41-4132-8d08-89c2d6ccbfbb">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph5"/>
@@ -810,10 +830,10 @@
 	</rdf:RDF>
 	</annotation>
                       <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph5" layout:id="ReferenceGlyph_arc20" metaid="be08e194-aca2-481a-a9d3-202a6f35f32d" render:objectRole="equivalence">
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph5" layout:id="ReferenceGlyph_arc20" metaid="_53f3ad8b-a991-4ffa-abd2-b5c7627c6f5b" render:objectRole="equivalence">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#be08e194-aca2-481a-a9d3-202a6f35f32d">
+	<rdf:Description rdf:about="#_53f3ad8b-a991-4ffa-abd2-b5c7627c6f5b">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph5"/>
@@ -838,10 +858,10 @@
               </layout:referenceGlyph>
             </layout:listOfReferenceGlyphs>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_arc21" metaid="_81c86979-c15d-4103-b387-3cb42e4769c1" render:objectRole="equivalence">
+          <layout:generalGlyph layout:id="GeneralGlyph_arc21" metaid="_66d8e6ce-b4ac-4be9-9622-74d7de17bfde" render:objectRole="equivalence">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_81c86979-c15d-4103-b387-3cb42e4769c1">
+	<rdf:Description rdf:about="#_66d8e6ce-b4ac-4be9-9622-74d7de17bfde">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph16"/>
@@ -852,10 +872,10 @@
 	</rdf:RDF>
 	</annotation>
                       <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph16" layout:id="ReferenceGlyph_arc21" metaid="_6dfea87b-6665-4229-8fe1-55a2cc883033" render:objectRole="equivalence">
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph16" layout:id="ReferenceGlyph_arc21" metaid="_48879e71-d233-402d-ab71-671114913709" render:objectRole="equivalence">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_6dfea87b-6665-4229-8fe1-55a2cc883033">
+	<rdf:Description rdf:about="#_48879e71-d233-402d-ab71-671114913709">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph16"/>
@@ -884,10 +904,10 @@
               </layout:referenceGlyph>
             </layout:listOfReferenceGlyphs>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_arc5" metaid="_3f87740a-49c7-499c-b92f-e5c5e89bf9aa" render:objectRole="SBO0000398">
+          <layout:generalGlyph layout:id="GeneralGlyph_arc5" metaid="_11f95801-1141-4734-8180-c7c791220112" render:objectRole="SBO0000398">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_3f87740a-49c7-499c-b92f-e5c5e89bf9aa">
+	<rdf:Description rdf:about="#_11f95801-1141-4734-8180-c7c791220112">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph4"/>
@@ -898,10 +918,10 @@
 	</rdf:RDF>
 	</annotation>
                       <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph4" layout:id="ReferenceGlyph_arc5" metaid="e00a9d69-4576-4c52-856e-fefbb8d0b732" render:objectRole="SBO0000398">
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph4" layout:id="ReferenceGlyph_arc5" metaid="b6f7eeb7-fc46-4a15-a714-96969d830a81" render:objectRole="SBO0000398">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#e00a9d69-4576-4c52-856e-fefbb8d0b732">
+	<rdf:Description rdf:about="#b6f7eeb7-fc46-4a15-a714-96969d830a81">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph4"/>
@@ -922,10 +942,10 @@
               </layout:referenceGlyph>
             </layout:listOfReferenceGlyphs>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_arc22" metaid="_0e1bcc35-cd14-4551-8f8d-867d7b3cf762" render:objectRole="equivalence">
+          <layout:generalGlyph layout:id="GeneralGlyph_arc22" metaid="_839c4788-2832-4e8d-a86e-5e9f3e04874c" render:objectRole="equivalence">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_0e1bcc35-cd14-4551-8f8d-867d7b3cf762">
+	<rdf:Description rdf:about="#_839c4788-2832-4e8d-a86e-5e9f3e04874c">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph17"/>
@@ -936,10 +956,10 @@
 	</rdf:RDF>
 	</annotation>
                       <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph17" layout:id="ReferenceGlyph_arc22" metaid="_9cacc093-821f-411f-8d18-26aa4a8b7fdb" render:objectRole="equivalence">
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph17" layout:id="ReferenceGlyph_arc22" metaid="_14acdcb6-6a69-4bb3-b874-b8b6c4f35e0a" render:objectRole="equivalence">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_9cacc093-821f-411f-8d18-26aa4a8b7fdb">
+	<rdf:Description rdf:about="#_14acdcb6-6a69-4bb3-b874-b8b6c4f35e0a">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph17"/>
@@ -968,10 +988,10 @@
               </layout:referenceGlyph>
             </layout:listOfReferenceGlyphs>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_arc4" metaid="f77fb241-af44-497d-94d9-2c6d40d7f7ae" render:objectRole="SBO0000398">
+          <layout:generalGlyph layout:id="GeneralGlyph_arc4" metaid="_1c6f2984-eaab-44dd-9443-1ce12f10617e" render:objectRole="SBO0000398">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#f77fb241-af44-497d-94d9-2c6d40d7f7ae">
+	<rdf:Description rdf:about="#_1c6f2984-eaab-44dd-9443-1ce12f10617e">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph3"/>
@@ -982,10 +1002,10 @@
 	</rdf:RDF>
 	</annotation>
                       <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph3" layout:id="ReferenceGlyph_arc4" metaid="dd12a5b9-681b-42d1-9a1c-b652a443eb9e" render:objectRole="SBO0000398">
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph3" layout:id="ReferenceGlyph_arc4" metaid="f1c48039-bc65-46bf-bb9c-c6de3e8e46c4" render:objectRole="SBO0000398">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#dd12a5b9-681b-42d1-9a1c-b652a443eb9e">
+	<rdf:Description rdf:about="#f1c48039-bc65-46bf-bb9c-c6de3e8e46c4">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph3"/>
@@ -1006,10 +1026,10 @@
               </layout:referenceGlyph>
             </layout:listOfReferenceGlyphs>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_arc23" metaid="_73998439-6c5b-4379-a56d-de77937930aa" render:objectRole="equivalence">
+          <layout:generalGlyph layout:id="GeneralGlyph_arc23" metaid="_243c997d-5eef-4918-92a6-91d05d28b897" render:objectRole="equivalence">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_73998439-6c5b-4379-a56d-de77937930aa">
+	<rdf:Description rdf:about="#_243c997d-5eef-4918-92a6-91d05d28b897">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph19"/>
@@ -1020,10 +1040,10 @@
 	</rdf:RDF>
 	</annotation>
                       <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph19" layout:id="ReferenceGlyph_arc23" metaid="aa765cda-4470-4bb3-8e79-bae7feb9d990" render:objectRole="equivalence">
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_glyph19" layout:id="ReferenceGlyph_arc23" metaid="_5f366459-1afe-48f9-9f5c-8c80646756a2" render:objectRole="equivalence">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#aa765cda-4470-4bb3-8e79-bae7feb9d990">
+	<rdf:Description rdf:about="#_5f366459-1afe-48f9-9f5c-8c80646756a2">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph19"/>
@@ -1280,10 +1300,10 @@
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc1" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph20" layout:speciesReference="arc1" metaid="f34a8f95-38d2-4c77-8103-182380dba026" render:objectRole="substrate">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc1" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph20" layout:speciesReference="arc1" metaid="e0e98ce3-21a9-4ee7-bb9e-85cbc729892e" render:objectRole="substrate">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#f34a8f95-38d2-4c77-8103-182380dba026">
+	<rdf:Description rdf:about="#e0e98ce3-21a9-4ee7-bb9e-85cbc729892e">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph20"/>
@@ -1302,10 +1322,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc2" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph9" layout:speciesReference="arc2" metaid="d8b0eab2-a21c-4e52-8574-a490440e3e4e" render:objectRole="product">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc2" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph9" layout:speciesReference="arc2" metaid="_69ccbe94-85e0-465d-b36e-586130f91edf" render:objectRole="product">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#d8b0eab2-a21c-4e52-8574-a490440e3e4e">
+	<rdf:Description rdf:about="#_69ccbe94-85e0-465d-b36e-586130f91edf">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph24"/>
@@ -1324,10 +1344,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc6" layout:speciesGlyph="SpeciesGlyph_glyph22" layout:speciesReference="arc6" metaid="_240f12ce-d417-45fc-a1b6-1812b1edbab2" render:objectRole="SBO0000170">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc6" layout:speciesGlyph="SpeciesGlyph_glyph22" layout:speciesReference="arc6" metaid="_807d23b7-d97c-478d-ab54-845385e7c401" render:objectRole="SBO0000170">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_240f12ce-d417-45fc-a1b6-1812b1edbab2">
+	<rdf:Description rdf:about="#_807d23b7-d97c-478d-ab54-845385e7c401">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph22"/>
@@ -1366,10 +1386,10 @@
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc16" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph13" layout:speciesReference="arc16" metaid="_32472b10-37f8-475f-8d78-c44e9bb29cc5" render:objectRole="substrate">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc16" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph13" layout:speciesReference="arc16" metaid="_63a92a50-7b74-403f-be05-ce215e0845d1" render:objectRole="substrate">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_32472b10-37f8-475f-8d78-c44e9bb29cc5">
+	<rdf:Description rdf:about="#_63a92a50-7b74-403f-be05-ce215e0845d1">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph13"/>
@@ -1388,10 +1408,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc14" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph4" layout:speciesReference="arc14" metaid="e5936c3a-7b93-4924-8915-4234dba92520" render:objectRole="product">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc14" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph4" layout:speciesReference="arc14" metaid="e12576a9-a1a6-467e-9c48-7b6361568a8a" render:objectRole="product">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#e5936c3a-7b93-4924-8915-4234dba92520">
+	<rdf:Description rdf:about="#e12576a9-a1a6-467e-9c48-7b6361568a8a">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph25"/>
@@ -1410,10 +1430,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc13" layout:role="modifier" layout:speciesGlyph="SpeciesGlyph_glyph8" layout:speciesReference="arc13" metaid="_2daf84b9-6dc9-44c7-975c-224ebeecef1d" render:objectRole="SBO0000168">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc13" layout:role="modifier" layout:speciesGlyph="SpeciesGlyph_glyph8" layout:speciesReference="arc13" metaid="e37f1922-c189-4bf1-aacf-a82f43b4b1c9" render:objectRole="SBO0000168">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_2daf84b9-6dc9-44c7-975c-224ebeecef1d">
+	<rdf:Description rdf:about="#e37f1922-c189-4bf1-aacf-a82f43b4b1c9">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph8"/>
@@ -1456,10 +1476,10 @@
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc9" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph6" layout:speciesReference="arc9" metaid="_0a0e2edc-2d8e-418b-b501-21a281d4d640" render:objectRole="substrate">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc9" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph6" layout:speciesReference="arc9" metaid="_1f582eaa-c214-4e22-a088-ac776faa8ae7" render:objectRole="substrate">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_0a0e2edc-2d8e-418b-b501-21a281d4d640">
+	<rdf:Description rdf:about="#_1f582eaa-c214-4e22-a088-ac776faa8ae7">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph6"/>
@@ -1478,10 +1498,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc10" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph5" layout:speciesReference="arc10" metaid="_85cf25b4-7093-478c-83fa-8d40c117d087" render:objectRole="substrate">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc10" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph5" layout:speciesReference="arc10" metaid="_799ef5d6-a73d-45d5-b3af-78faf0473e5e" render:objectRole="substrate">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_85cf25b4-7093-478c-83fa-8d40c117d087">
+	<rdf:Description rdf:about="#_799ef5d6-a73d-45d5-b3af-78faf0473e5e">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph5"/>
@@ -1500,10 +1520,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc11" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph3" layout:speciesReference="arc11" metaid="_01e793d8-caca-40f5-a7f5-8e49d4c53907" render:objectRole="product">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc11" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph3" layout:speciesReference="arc11" metaid="_2e8a4932-346a-4131-83e6-dcbd9671b065" render:objectRole="product">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_01e793d8-caca-40f5-a7f5-8e49d4c53907">
+	<rdf:Description rdf:about="#_2e8a4932-346a-4131-83e6-dcbd9671b065">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph26"/>
@@ -1522,10 +1542,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc12" layout:speciesGlyph="SpeciesGlyph_glyph23" layout:speciesReference="arc12" metaid="_596ba750-3201-4493-b154-0f8e00bf13a0" render:objectRole="SBO0000171">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc12" layout:speciesGlyph="SpeciesGlyph_glyph23" layout:speciesReference="arc12" metaid="_2709f6c1-f8cc-4822-8239-3477a49e2f74" render:objectRole="SBO0000171">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_596ba750-3201-4493-b154-0f8e00bf13a0">
+	<rdf:Description rdf:about="#_2709f6c1-f8cc-4822-8239-3477a49e2f74">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph23"/>
@@ -1568,10 +1588,10 @@
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc15" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph7" layout:speciesReference="arc15" metaid="a30cf877-c86d-407b-b5aa-4936d9ee228d" render:objectRole="substrate">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc15" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph7" layout:speciesReference="arc15" metaid="a1a29bcf-94a8-4013-aff9-fe4c643e8342" render:objectRole="substrate">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#a30cf877-c86d-407b-b5aa-4936d9ee228d">
+	<rdf:Description rdf:about="#a1a29bcf-94a8-4013-aff9-fe4c643e8342">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph7"/>
@@ -1590,10 +1610,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc17" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph13" layout:speciesReference="arc17" metaid="bab69219-e5cb-43f4-9e7c-a278d7b3471c" render:objectRole="product">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc17" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph13" layout:speciesReference="arc17" metaid="_3aaa516a-195b-4b16-b4af-61f9fbb3c7e0" render:objectRole="product">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#bab69219-e5cb-43f4-9e7c-a278d7b3471c">
+	<rdf:Description rdf:about="#_3aaa516a-195b-4b16-b4af-61f9fbb3c7e0">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph27"/>
@@ -1612,10 +1632,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc19" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph12" layout:speciesReference="arc19" metaid="_6b44b6d4-8dda-4100-a2fb-7a32c4adf1dc" render:objectRole="product">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_arc19" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph12" layout:speciesReference="arc19" metaid="_2923928a-ab4a-478e-85ef-32e50a76e58b" render:objectRole="product">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_6b44b6d4-8dda-4100-a2fb-7a32c4adf1dc">
+	<rdf:Description rdf:about="#_2923928a-ab4a-478e-85ef-32e50a76e58b">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph27"/>
@@ -1806,10 +1826,10 @@
       <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph6" initialConcentration="1" name="multimer macromolecule" sboTerm="SBO:0000420"/>
       <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph12" initialConcentration="1" name="simple chemical" sboTerm="SBO:0000247"/>
       <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph3" initialConcentration="1" name="complex" sboTerm="SBO:0000253"/>
-      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph11" initialConcentration="1" metaid="_8d033d51-a023-423c-8e3f-1d5b60e567c8" name="macromolecule" sboTerm="SBO:0000245">
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph11" initialConcentration="1" metaid="_25a8bb9f-fd36-40fa-beb1-83959e05725c" name="macromolecule" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_8d033d51-a023-423c-8e3f-1d5b60e567c8">
+	<rdf:Description rdf:about="#_25a8bb9f-fd36-40fa-beb1-83959e05725c">
 	<bqbiol:isPartOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="SpeciesGlyph_glyph3"/>
@@ -1819,10 +1839,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph10" initialConcentration="1" metaid="df444f04-9519-4d23-b6a8-2c2a95046bc8" name="nucleic acid feature" sboTerm="SBO:0000354">
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph10" initialConcentration="1" metaid="_6aed0269-e269-4e89-96ec-53d4291d3f71" name="nucleic acid feature" sboTerm="SBO:0000354">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#df444f04-9519-4d23-b6a8-2c2a95046bc8">
+	<rdf:Description rdf:about="#_6aed0269-e269-4e89-96ec-53d4291d3f71">
 	<bqbiol:isPartOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="SpeciesGlyph_glyph3"/>
@@ -1833,10 +1853,10 @@
 	</annotation>
             </species>
       <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph2" initialConcentration="1" name="submap"/>
-      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph14" initialConcentration="1" metaid="_58f38318-2eb9-4f52-8c8f-5e798f41d912" name="multimer nucleic &#xa;acid feature">
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph14" initialConcentration="1" metaid="_409c66e3-a2fb-4a4f-a966-f679af541f21" name="multimer nucleic &#xa;acid feature">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_58f38318-2eb9-4f52-8c8f-5e798f41d912">
+	<rdf:Description rdf:about="#_409c66e3-a2fb-4a4f-a966-f679af541f21">
 	<bqbiol:isPartOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="SpeciesGlyph_glyph2"/>
@@ -1846,10 +1866,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph15" initialConcentration="1" metaid="_9bc7643b-b99b-4bac-82e3-45139a999708" name="phenotype">
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph15" initialConcentration="1" metaid="aac82e6b-0884-44fd-9bb5-6c5349233eae" name="phenotype">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_9bc7643b-b99b-4bac-82e3-45139a999708">
+	<rdf:Description rdf:about="#aac82e6b-0884-44fd-9bb5-6c5349233eae">
 	<bqbiol:isPartOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="SpeciesGlyph_glyph2"/>
@@ -1859,10 +1879,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph16" initialConcentration="1" metaid="_5dd940a2-cb48-4b64-94af-a6f35d02bda3" name="complex">
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph16" initialConcentration="1" metaid="_95278375-c817-400e-844b-fea385bf5621" name="complex">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_5dd940a2-cb48-4b64-94af-a6f35d02bda3">
+	<rdf:Description rdf:about="#_95278375-c817-400e-844b-fea385bf5621">
 	<bqbiol:isPartOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="SpeciesGlyph_glyph2"/>
@@ -1872,10 +1892,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph18" initialConcentration="1" metaid="_0eb60bb0-b2fa-41e5-9def-9b3d322b3b10" name=" source &#xa; and &#xa; sink">
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph18" initialConcentration="1" metaid="a4135ef3-d15f-4076-b515-040f8f715b5f" name=" source &#xa; and &#xa; sink">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_0eb60bb0-b2fa-41e5-9def-9b3d322b3b10">
+	<rdf:Description rdf:about="#a4135ef3-d15f-4076-b515-040f8f715b5f">
 	<bqbiol:isPartOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="SpeciesGlyph_glyph2"/>

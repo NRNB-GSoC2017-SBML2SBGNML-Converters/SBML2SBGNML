@@ -222,15 +222,34 @@
     </render:lineEnding>
     <render:lineEnding id="inhibitor" enableRotationalMapping="true">
       <layout:boundingBox>
-        <layout:position x="-0.7" y="-4" />
-        <layout:dimensions width="0.7" height="8" />
+		  <!-- x is the direction along the line-->
+        <layout:position x="-2" y="-4" />
+        <layout:dimensions width="2" height="8" />
       </layout:boundingBox>
       <render:g stroke="black" stroke-width="0.1" fill="black">
         <render:polygon>
-          <listOfElements>
-            <render:element xsi:type="RenderPoint"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" x="0.3" y="0.0"/>
-            <render:element xsi:type="RenderPoint" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  x="0.3" y="8.0"/>
-          </listOfElements>
+          <!--<listOfElements>
+            <render:element xsi:type="RenderPoint"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" x="0%" y="0%"/>
+            <render:element xsi:type="RenderPoint"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" x="100%" y="0%"/>
+            <render:element xsi:type="RenderPoint" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  x="100%" y="100%"/>
+            <render:element xsi:type="RenderPoint" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  x="0%" y="100%"/>
+            <render:element xsi:type="RenderPoint"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" x="0%" y="0%"/>
+          </listOfElements>  -->
+                     <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+          </render:listOfElements>
+          
         </render:polygon>
       </render:g>
     </render:lineEnding>
@@ -425,12 +444,12 @@
         <render:polygon fill="cloneMarker">
           <render:listOfElements>
             <render:element xsi:type="RenderPoint" x="0%" y="80%" />
-              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="75%" />
             
-            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
-              <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+            <render:element xsi:type="RenderPoint" x="0%" y="75%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="75%" />
             
-            <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+            <render:element xsi:type="RenderPoint" x="100%" y="75%" />
               <render:element xsi:type="RenderPoint" x="100%" y="80%" />
             
             <render:element xsi:type="RenderCubicBezier" x="80%" y="100%"  render:basepoint1_x="100%" render:basepoint1_y="100%"  render:basepoint2_x="100%" render:basepoint2_y="100%" />
@@ -470,12 +489,12 @@
         <render:polygon fill="cloneMarker">
           <render:listOfElements>
             <render:element xsi:type="RenderPoint" x="5%" y="80%" />
-              <render:element xsi:type="RenderPoint" x="5%" y="5%" />
+              <render:element xsi:type="RenderPoint" x="5%" y="75%" />
             
-            <render:element xsi:type="RenderPoint" x="5%" y="5%" />
-              <render:element xsi:type="RenderPoint" x="100%" y="5%" />
+            <render:element xsi:type="RenderPoint" x="5%" y="75%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="75%" />
             
-            <render:element xsi:type="RenderPoint" x="100%" y="5%" />
+            <render:element xsi:type="RenderPoint" x="100%" y="75%" />
               <render:element xsi:type="RenderPoint" x="100%" y="80%" />
             
             <render:element xsi:type="RenderCubicBezier" x="80%" y="100%"  render:basepoint1_x="100%" render:basepoint1_y="100%"  render:basepoint2_x="100%" render:basepoint2_y="100%" />
@@ -510,12 +529,12 @@
         <render:polygon fill="cloneMarker">
           <render:listOfElements>
             <render:element xsi:type="RenderPoint" x="0%" y="80%" />
-              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="75%" />
             
-            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
-              <render:element xsi:type="RenderPoint" x="95%" y="0%" />
+            <render:element xsi:type="RenderPoint" x="0%" y="75%" />
+              <render:element xsi:type="RenderPoint" x="95%" y="75%" />
             
-            <render:element xsi:type="RenderPoint" x="95%" y="0%" />
+            <render:element xsi:type="RenderPoint" x="95%" y="75%" />
               <render:element xsi:type="RenderPoint" x="95%" y="80%" />
             
             <render:element xsi:type="RenderCubicBezier" x="80%" y="95%"  render:basepoint1_x="95%" render:basepoint1_y="95%"  render:basepoint2_x="95%" render:basepoint2_y="95%" />
@@ -550,16 +569,16 @@
       <!-- Cloned Macromolecule -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:rectangle x="0%" y="0%" width="100%" height="100%" rx="10%" />
-        <render:rectangle fill="cloneMarker" x="0%" y="0%" width="100%" height="100%" rx="10%" />
+        <render:rectangle fill="cloneMarker" x="0%" y="75%" width="100%" height="25%" rx="10%" />
       </render:g>
     </render:style>
     <render:style roleList="SBO0000245multimerclone" id="SBO0000245multimerclone">
       <!-- Cloned Macromolecule Multimer-->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:rectangle x="5%" y="5%" width="95%" height="95%" rx="10%" />
-        <render:rectangle fill="cloneMarker" x="5%" y="5%" width="95%" height="95%" rx="10%" />
+        <render:rectangle fill="cloneMarker" x="5%" y="75%" width="95%" height="25%" rx="10%" />
         <render:rectangle x="0%" y="0%" width="95%" height="95%" rx="10%" />
-        <render:rectangle fill="cloneMarker" x="0%" y="0%" width="95%" height="95%" rx="10%" />
+        <render:rectangle fill="cloneMarker" x="0%" y="75%" width="95%" height="25%" rx="10%" />
       </render:g>
     </render:style>
     
@@ -580,16 +599,16 @@
       <!-- Cloned Unspecified Entity  -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:ellipse cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
-        <render:ellipse fill="cloneMarker" cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+        <render:ellipse fill="cloneMarker" cx="50%" cy="75%" cz="0.0" rx="25%" ry="25%" />
       </render:g>
     </render:style>
     <render:style roleList="SBO0000285multimerclone" id="SBO0000285multimerclone">
       <!-- Cloned Unspecified Entity Multimer  -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:ellipse cx="45%" cy="45%" cz="0.0" rx="45%" ry="45%" />
-        <render:ellipse fill="cloneMarker" cx="45%" cy="45%" cz="0.0" rx="45%" ry="45%" />
+        <render:ellipse fill="cloneMarker" cx="45%" cy="75%" cz="0.0" rx="25%" ry="25%" />
         <render:ellipse cx="55%" cy="55%" cz="0.0" rx="45%" ry="45%" />
-        <render:ellipse fill="cloneMarker" cx="55%" cy="55%" cz="0.0" rx="45%" ry="45%" />
+        <render:ellipse fill="cloneMarker" cx="55%" cy="75%" cz="0.0" rx="25%" ry="25%" />
       </render:g>
     </render:style>
     
@@ -610,16 +629,16 @@
       <!-- Cloned Simple Chemical  -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:ellipse cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
-        <render:ellipse fill="cloneMarker" cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+        <render:ellipse fill="cloneMarker" cx="50%" cy="75%" cz="0.0" rx="25%" ry="25%" />
       </render:g>
     </render:style>
     <render:style roleList="SBO0000247multimerclone" id="SBO0000247multimerclone">
       <!-- Cloned Simple Chemical Multimer -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
         <render:ellipse cx="55%" cy="55%" cz="0.0" rx="45%" ry="45%" />
-        <render:ellipse fill="cloneMarker" cx="55%" cy="55%" cz="0.0" rx="45%" ry="45%" />
+        <render:ellipse fill="cloneMarker" cx="55%" cy="75%" cz="0.0" rx="25%" ry="25%" />
         <render:ellipse cx="45%" cy="45%" cz="0.0" rx="45%" ry="45%" />
-        <render:ellipse fill="cloneMarker" cx="45%" cy="45%" cz="0.0" rx="45%" ry="45%" />
+        <render:ellipse fill="cloneMarker" cx="45%" cy="75%" cz="0.0" rx="25%" ry="25%" />
       </render:g>
     </render:style>
     
@@ -796,16 +815,16 @@
         </render:polygon>
         <render:polygon fill="cloneMarker">
           <render:listOfElements>
-            <render:element xsi:type="RenderPoint" x="0%" y="10%" />
-              <render:element xsi:type="RenderPoint" x="10%" y="0%" />
+            <render:element xsi:type="RenderPoint" x="0%" y="85%" />
+              <render:element xsi:type="RenderPoint" x="10%" y="75%" />
             
-            <render:element xsi:type="RenderPoint" x="10%" y="0%" />
-              <render:element xsi:type="RenderPoint" x="90%" y="0%" />
+            <render:element xsi:type="RenderPoint" x="10%" y="85%" />
+              <render:element xsi:type="RenderPoint" x="90%" y="75%" />
             
-            <render:element xsi:type="RenderPoint" x="90%" y="0%" />
-              <render:element xsi:type="RenderPoint" x="100%" y="10%" />
+            <render:element xsi:type="RenderPoint" x="90%" y="75%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="85%" />
             
-            <render:element xsi:type="RenderPoint" x="100%" y="10%" />
+            <render:element xsi:type="RenderPoint" x="100%" y="85%" />
               <render:element xsi:type="RenderPoint" x="100%" y="90%" />
             
             <render:element xsi:type="RenderPoint" x="100%" y="90%" />
@@ -818,7 +837,7 @@
               <render:element xsi:type="RenderPoint" x="0%" y="90%" />
             
             <render:element xsi:type="RenderPoint" x="0%" y="90%" />
-              <render:element xsi:type="RenderPoint" x="0%" y="10%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="85%" />
             
           </render:listOfElements>
         </render:polygon>
@@ -857,16 +876,16 @@
         </render:polygon>
         <render:polygon fill="cloneMarker">
           <render:listOfElements>
-            <render:element xsi:type="RenderPoint" x="5%" y="15%" />
-              <render:element xsi:type="RenderPoint" x="15%" y="5%" />
+            <render:element xsi:type="RenderPoint" x="5%" y="85%" />
+              <render:element xsi:type="RenderPoint" x="15%" y="75%" />
             
-            <render:element xsi:type="RenderPoint" x="15%" y="5%" />
-              <render:element xsi:type="RenderPoint" x="90%" y="5%" />
+            <render:element xsi:type="RenderPoint" x="15%" y="75%" />
+              <render:element xsi:type="RenderPoint" x="90%" y="75%" />
             
-            <render:element xsi:type="RenderPoint" x="90%" y="5%" />
-              <render:element xsi:type="RenderPoint" x="100%" y="15%" />
+            <render:element xsi:type="RenderPoint" x="90%" y="75%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="85%" />
             
-            <render:element xsi:type="RenderPoint" x="100%" y="15%" />
+            <render:element xsi:type="RenderPoint" x="100%" y="85%" />
               <render:element xsi:type="RenderPoint" x="100%" y="90%" />
             
             <render:element xsi:type="RenderPoint" x="100%" y="90%" />
@@ -879,7 +898,7 @@
               <render:element xsi:type="RenderPoint" x="5%" y="90%" />
             
             <render:element xsi:type="RenderPoint" x="5%" y="90%" />
-              <render:element xsi:type="RenderPoint" x="5%" y="15%" />
+              <render:element xsi:type="RenderPoint" x="5%" y="85%" />
             
           </render:listOfElements>
         </render:polygon>
@@ -913,16 +932,16 @@
         </render:polygon>
         <render:polygon fill="cloneMarker">
           <render:listOfElements>
-            <render:element xsi:type="RenderPoint" x="0%" y="10%" />
-              <render:element xsi:type="RenderPoint" x="10%" y="0%" />
+            <render:element xsi:type="RenderPoint" x="0%" y="80%" />
+              <render:element xsi:type="RenderPoint" x="10%" y="70%" />
             
-            <render:element xsi:type="RenderPoint" x="10%" y="0%" />
-              <render:element xsi:type="RenderPoint" x="85%" y="0%" />
+            <render:element xsi:type="RenderPoint" x="10%" y="70%" />
+              <render:element xsi:type="RenderPoint" x="85%" y="70%" />
             
-            <render:element xsi:type="RenderPoint" x="85%" y="0%" />
-              <render:element xsi:type="RenderPoint" x="95%" y="10%" />
+            <render:element xsi:type="RenderPoint" x="85%" y="70%" />
+              <render:element xsi:type="RenderPoint" x="95%" y="80%" />
             
-            <render:element xsi:type="RenderPoint" x="95%" y="10%" />
+            <render:element xsi:type="RenderPoint" x="95%" y="80%" />
               <render:element xsi:type="RenderPoint" x="95%" y="85%" />
             
             <render:element xsi:type="RenderPoint" x="95%" y="85%" />
@@ -935,7 +954,7 @@
               <render:element xsi:type="RenderPoint" x="0%" y="85%" />
             
             <render:element xsi:type="RenderPoint" x="0%" y="85%" />
-              <render:element xsi:type="RenderPoint" x="0%" y="10%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="80%" />
             
           </render:listOfElements>
         </render:polygon>
@@ -997,10 +1016,10 @@
         </render:polygon>
         <render:polygon fill="cloneMarker">
           <render:listOfElements>
-            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
-              <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+            <render:element xsi:type="RenderPoint" x="0%" y="40%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="40%" />
             
-            <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+            <render:element xsi:type="RenderPoint" x="100%" y="40%" />
               <render:element xsi:type="RenderPoint" x="80%" y="50%" />
             
             <render:element xsi:type="RenderPoint" x="80%" y="50%" />
@@ -1013,7 +1032,7 @@
               <render:element xsi:type="RenderPoint" x="20%" y="50%" />
             
             <render:element xsi:type="RenderPoint" x="20%" y="50%" />
-              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="40%" />
             
           </render:listOfElements>
         </render:polygon>
@@ -1193,10 +1212,10 @@
         </render:polygon>
         <render:polygon fill="cloneMarker">
           <render:listOfElements>
-            <render:element xsi:type="RenderPoint" x="20%" y="0%" />
-              <render:element xsi:type="RenderPoint" x="80%" y="0%" />
+            <render:element xsi:type="RenderPoint" x="20%" y="40%" />
+              <render:element xsi:type="RenderPoint" x="80%" y="40%" />
             
-            <render:element xsi:type="RenderPoint" x="80%" y="0%" />
+            <render:element xsi:type="RenderPoint" x="80%" y="40%" />
               <render:element xsi:type="RenderPoint" x="100%" y="50%" />
             
             <render:element xsi:type="RenderPoint" x="100%" y="50%" />
@@ -1209,7 +1228,7 @@
               <render:element xsi:type="RenderPoint" x="0%" y="50%" />
             
             <render:element xsi:type="RenderPoint" x="0%" y="50%" />
-              <render:element xsi:type="RenderPoint" x="20%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="40%" />
             
           </render:listOfElements>
         </render:polygon>
