@@ -16,6 +16,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.XMLStreamException;
 
+import org.sbfc.converter.sbgnml2sbml.SBGNWrapperPoint;
 import org.sbfc.converter.utils.sbgn.SBGNUtils;
 import org.sbgn.bindings.Arc;
 import org.sbgn.bindings.Arcgroup;
@@ -34,8 +35,10 @@ import org.sbml.jsbml.SBase;
 import org.sbml.jsbml.Unit;
 import org.sbml.jsbml.UnitDefinition;
 import org.sbml.jsbml.ext.layout.BoundingBox;
+import org.sbml.jsbml.ext.layout.CubicBezier;
 import org.sbml.jsbml.ext.layout.Curve;
 import org.sbml.jsbml.ext.layout.CurveSegment;
+import org.sbml.jsbml.ext.layout.CurveSegment.Type;
 import org.sbml.jsbml.ext.layout.Dimensions;
 import org.sbml.jsbml.ext.layout.GraphicalObject;
 import org.sbml.jsbml.ext.layout.Point;
@@ -194,6 +197,8 @@ public class SBML2SBGNMLUtil {
 		processNode = createGlyph(reactionId, clazz, false, null, false, null);
 		createVoidBBox(processNode);
 		
+		if (listOfCurveSegments.size() <= 0){return null;}
+		
 		double yLastStart = listOfCurveSegments.get(listOfCurveSegments.size()-1).getStart().getY();
 		double yLastEnd = listOfCurveSegments.get(listOfCurveSegments.size()-1).getEnd().getY();
 		double xLastStart = listOfCurveSegments.get(listOfCurveSegments.size()-1).getStart().getX();
@@ -316,12 +321,25 @@ public class SBML2SBGNMLUtil {
 				pointStringMap.put(pointString, curveSegment.getStart());
 				pointList.add(curveSegment.getStart());
 			}
+			
+			
 			pointString = Double.toString(curveSegment.getEnd().getX()) + " " + 
-							Double.toString(curveSegment.getEnd().getY());
-			if (!pointStringMap.containsKey(pointString)){
-				pointStringMap.put(pointString, curveSegment.getEnd());
-				pointList.add(curveSegment.getEnd());
-			}	
+					Double.toString(curveSegment.getEnd().getY());
+			if (curveSegment.getType() == Type.CUBIC_BEZIER) {
+				if (!pointStringMap.containsKey(pointString)){
+
+					Point bezier = new SBMLWrapperPoint(curveSegment.getEnd(), ((CubicBezier) curveSegment).getBasePoint1(), ((CubicBezier) curveSegment).getBasePoint2() );
+					pointList.add(bezier);
+					
+				}
+			} else {
+				if (!pointStringMap.containsKey(pointString)){
+					pointStringMap.put(pointString, curveSegment.getEnd());
+					pointList.add(curveSegment.getEnd());
+				}					
+			}
+			
+
 		}
 		
 		// temporary trick, just get the first CurveSegment of the Curve
@@ -330,9 +348,22 @@ public class SBML2SBGNMLUtil {
 		
 		start.setX((float) pointList.get(0).getX());
 		start.setY((float) pointList.get(0).getY());
-		end.setX((float) pointList.get(pointList.size() - 1).getX());
-		end.setY((float) pointList.get(pointList.size() - 1).getY());
 		
+		
+		Point endSbmlPoint = pointList.get(pointList.size() - 1);
+		if (endSbmlPoint instanceof SBMLWrapperPoint){
+			Point endSbmlPointNew = ((SBMLWrapperPoint) endSbmlPoint).targetPoint;
+			end.setX((float) endSbmlPointNew.getX());
+			end.setY((float) endSbmlPointNew.getY());	
+			
+			end.getPoint().add(((SBMLWrapperPoint) endSbmlPoint).basePoint1);
+			end.getPoint().add(((SBMLWrapperPoint) endSbmlPoint).basePoint2);
+		} else {
+			end.setX((float) endSbmlPoint.getX());
+			end.setY((float) endSbmlPoint.getY());			
+		}
+
+				
 		arc.setStart(start);
 		arc.setEnd(end);
 		
@@ -340,10 +371,23 @@ public class SBML2SBGNMLUtil {
 		Point p;
 		// go over the list of Points we created, except for the first and last Point
 		for (int i = 1; i < pointList.size() - 1; i++){
-			p = pointList.get(i);
+			p = pointList.get(i);			
 			e = new Arc.Next();
-			e.setX((float) p.getX());
-			e.setY((float) p.getY());
+			
+			if (p instanceof SBMLWrapperPoint){
+				Point pNew = ((SBMLWrapperPoint) endSbmlPoint).targetPoint;
+				e.setX((float) pNew.getX());
+				e.setY((float) pNew.getY());
+				
+				e.getPoint().add(((SBMLWrapperPoint) p).basePoint1);
+				e.getPoint().add(((SBMLWrapperPoint) p).basePoint2);
+			} else {
+				e.setX((float) p.getX());
+				e.setY((float) p.getY());
+			}
+
+			
+			
 			next.add(e);
 		}
 		

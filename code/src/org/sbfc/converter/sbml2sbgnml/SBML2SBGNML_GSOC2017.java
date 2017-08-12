@@ -144,6 +144,10 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			
 			if (parentGlyph == null){
 				parentArc = sWrapperMap.getArc(parentKey);
+				System.out.println("addedChildGlyphs "+key +" in "+parentKey);
+				
+				if (parentArc == null){continue;}
+				
 				parentArc.getGlyph().add(glyph);
 				
 				if (glyph.getClazz().equals("unit of information")){
@@ -151,7 +155,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 					
 				}
 				
-				System.out.println("addedChildGlyphs "+key +" in "+parentKey);
+				
 				
 				System.out.println("addedChildGlyphs "+glyph.getId() +" in "+parentArc.getId());
 				
@@ -531,6 +535,12 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			// todo: return an ArcGroup instead
 			sbgnReactionGlyph = createFromOneReactionGlyph(sbgnObject, reactionGlyph);
 			
+			
+			
+			if (sbgnReactionGlyph == null){continue;}
+			
+			
+			
 			sWrapperGlyphProcess = new SWrapperGlyphProcess(sbgnReactionGlyph, reactionGlyph, 
 										(Reaction) reactionGlyph.getReactionInstance(), null, 
 										// the first Glyph is the Process Node
@@ -579,9 +589,16 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 				sbmlCurve = reactionGlyph.getCurve();
 				processNode = sUtil.createOneProcessNode(reactionGlyph.getReaction(), sbmlCurve, clazz);
 				
+				
+				
+				if (processNode == null){	return null;			}
+				
 				// for now, set style to just a Bbox
 				sUtil.createBBox(reactionGlyph, processNode.getGlyph().get(0));
 				processNode.getArc().set(0, null);
+				
+
+				
 				
 				
 				sOutput.addArcgroupToMap(processNode);

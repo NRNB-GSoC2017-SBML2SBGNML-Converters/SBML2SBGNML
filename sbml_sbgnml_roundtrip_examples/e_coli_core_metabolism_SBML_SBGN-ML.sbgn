@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576499">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3492.1428" y="755.9189"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576497">
+            <label text="Nicotinamide adenine dinucleotide - reduced"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="3397.1428" y="790.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577102">
+            <label text="H2O"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3170.26" y="3651.7756"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576498">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3492.1428" y="325.63107"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577103">
+            <label text="Cis-Aconitate"/>
+            <bbox w="30.0" h="30.0" x="3174.6072" y="3723.9155"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576811">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1252.143" y="4115.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576812">
+            <label text="Nicotinamide adenine dinucleotide - reduced"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1872.143" y="3535.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576810">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2492.1428" y="685.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576815">
+            <label text="Acetaldehyde"/>
+            <bbox w="30.0" h="30.0" x="2187.1428" y="4508.2837"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576816">
+            <label text="L-Malate"/>
+            <bbox w="30.0" h="30.0" x="2587.1428" y="320.63107"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576813">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2374.1428" y="3655.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576814">
+            <label text="Ubiquinone-8"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3192.1428" y="2405.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576819">
+            <label text="Phosphoenolpyruvate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="547.74756" y="1124.0443"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576817">
+            <label text="Acetaldehyde"/>
+            <bbox w="30.0" h="30.0" x="2187.1428" y="3615.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576491">
+            <label text="CO2"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1989.143" y="840.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576492">
+            <label text="Nicotinamide adenine dinucleotide phosphate - reduced"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2039.1428" y="840.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576490">
+            <label text="6-Phospho-D-gluconate"/>
+            <bbox w="30.0" h="30.0" x="1804.143" y="935.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576495">
+            <label text="O2"/>
+            <bbox w="30.0" h="30.0" x="4307.143" y="1330.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576496">
+            <label text="Nicotinamide adenine dinucleotide phosphate"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="3307.1428" y="940.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576493">
+            <label text="D-Ribulose 5-phosphate"/>
+            <bbox w="30.0" h="30.0" x="2132.1428" y="935.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576494">
+            <label text="O2"/>
+            <bbox w="30.0" h="30.0" x="4827.143" y="1330.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576488">
+            <label text="ADP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1127.143" y="2310.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576489">
+            <label text="Nicotinamide adenine dinucleotide phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1889.143" y="840.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576486">
+            <label text="3-Phospho-D-glycerate"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="1032.143" y="2545.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576487">
+            <label text="3-Phospho-D-glyceroyl phosphate"/>
+            <bbox w="30.0" h="30.0" x="1032.143" y="2235.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576808">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4832.143" y="2245.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576809">
+            <label text="Nicotinamide adenine dinucleotide"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="4426.1504" y="2317.408"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576485">
+            <label text="ATP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1127.143" y="2480.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576830">
+            <label text="Ubiquinol-8"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3002.1428" y="2415.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576833">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1252.143" y="4445.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576831">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2492.1428" y="375.63107"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576832">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1932.143" y="3535.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576822">
+            <label text="Nicotinamide adenine dinucleotide"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2464.1428" y="3740.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576820">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4292.143" y="2245.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576821">
+            <label text="Pyruvate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="696.9032" y="913.41644"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576826">
+            <label text="D-Fructose"/>
+            <bbox w="30.0" h="30.0" x="277.14294" y="1030.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576827">
+            <label text="Nicotinamide adenine dinucleotide - reduced"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="4394.97" y="2149.5447"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576824">
+            <label text="Nicotinamide adenine dinucleotide - reduced"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2315.1428" y="3610.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576825">
+            <label text="Coenzyme A"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2112.1428" y="3535.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576828">
+            <label text="Nicotinamide adenine dinucleotide"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2052.1428" y="3535.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576829">
+            <label text="Ethanol"/>
+            <bbox w="30.0" h="30.0" x="2478.1428" y="3898.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576613">
+            <label text="Acetyl phosphate"/>
+            <bbox w="30.0" h="30.0" x="1692.143" y="3845.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576614">
+            <label text="Coenzyme A"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1797.143" y="3810.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576612">
+            <label text="Phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1797.143" y="3710.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576617">
+            <label text="Phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4267.143" y="3933.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576618">
+            <label text="ADP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4367.143" y="3933.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576615">
+            <label text="ATP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4517.143" y="3933.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576616">
+            <label text="H2O"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4467.143" y="3933.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576619">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4317.143" y="3933.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576602">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4283.841" y="1570.7965"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576603">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4842.143" y="1575.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576600">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4454.143" y="3003.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576601">
+            <label text="Dihydroxyacetone phosphate"/>
+            <bbox w="30.0" h="30.0" x="832.14294" y="1865.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576606">
+            <label text="Acetyl-CoA"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3087.1428" y="3077.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576607">
+            <label text="H2O"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3152.1428" y="3155.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576604">
+            <label text="H2O"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4421.237" y="1436.5807"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576605">
+            <label text="Alpha-D-Ribose 5-phosphate"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="2396.1428" y="1225.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576608">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2853.1428" y="2895.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576609">
+            <label text="Coenzyme A"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2762.1428" y="2843.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576510">
+            <label text="Nicotinamide adenine dinucleotide"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1347.143" y="3530.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576631">
+            <label text="Phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4267.143" y="1125.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576511">
+            <label text="Pyruvate"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="1032.143" y="3615.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576632">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4267.143" y="1055.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576630">
+            <label text="H2O"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4257.143" y="815.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576514">
+            <label text="Acetyl-CoA"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="1692.143" y="3615.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576635">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="937.14294" y="3770.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576515">
+            <label text="Nicotinamide adenine dinucleotide - reduced"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1637.143" y="3560.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576636">
+            <label text="Nicotinamide adenine dinucleotide"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2652.1428" y="2985.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576512">
+            <label text="Coenzyme A"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1297.143" y="3580.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576633">
+            <label text="Nicotinamide adenine dinucleotide"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="937.14294" y="3930.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576513">
+            <label text="CO2"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1587.143" y="3530.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576634">
+            <label text="Nicotinamide adenine dinucleotide - reduced"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="937.14294" y="3720.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576518">
+            <label text="CO2"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1187.143" y="3020.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576639">
+            <label text="H2O"/>
+            <bbox w="30.0" h="30.0" x="3234.1428" y="4424.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576519">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1597.143" y="3150.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576516">
+            <label text="H2O"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1277.143" y="3050.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576637">
+            <label text="Nicotinamide adenine dinucleotide - reduced"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2662.1428" y="3260.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576517">
+            <label text="Phosphoenolpyruvate"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="1032.143" y="3045.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576638">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2642.1428" y="3185.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576620">
+            <label text="Nicotinamide adenine dinucleotide"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2342.1428" y="2895.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576500">
+            <label text="Nicotinamide adenine dinucleotide phosphate - reduced"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="3717.1428" y="940.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576621">
+            <label text="CO2"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2042.1428" y="3095.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576503">
+            <label text="Fumarate"/>
+            <bbox w="30.0" h="30.0" x="2820.1428" y="2590.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576624">
+            <label text="Nicotinamide adenine dinucleotide phosphate - reduced"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1389.143" y="835.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576504">
+            <label text="L-Malate"/>
+            <bbox w="30.0" h="30.0" x="2598.1428" y="2862.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576625">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1339.143" y="835.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576501">
+            <label text="Nicotinamide adenine dinucleotide"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="3602.927" y="818.0269"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576622">
+            <label text="Nicotinamide adenine dinucleotide - reduced"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2062.1428" y="3045.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576502">
+            <label text="H2O"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2697.1428" y="2596.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576623">
+            <label text="Nicotinamide adenine dinucleotide phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1239.143" y="835.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576507">
+            <label text="Nicotinamide adenine dinucleotide phosphate - reduced"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3641.1428" y="3335.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576628">
+            <label text="H2O"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4183.143" y="3615.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576508">
+            <label text="CO2"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3602.1428" y="3385.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576629">
+            <label text="Ammonium"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4175.143" y="3437.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576505">
+            <label text="Isocitrate"/>
+            <bbox w="30.0" h="30.0" x="3390.1428" y="3646.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576626">
+            <label text="6-phospho-D-glucono-1,5-lactone"/>
+            <bbox w="30.0" h="30.0" x="1484.143" y="935.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576506">
+            <label text="Nicotinamide adenine dinucleotide phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3477.1428" y="3740.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576627">
+            <label text="Acetate"/>
+            <bbox w="30.0" h="30.0" x="1692.143" y="4515.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576509">
+            <label text="2-Oxoglutarate"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="3723.1428" y="3297.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576532">
+            <label text="Glyoxylate"/>
+            <bbox w="30.0" h="30.0" x="3157.1428" y="3240.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576653">
+            <label text="ADP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1797.143" y="3900.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576533">
+            <label text="Succinate"/>
+            <bbox w="30.0" h="30.0" x="3397.1428" y="2537.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576654">
+            <label text="Nicotinamide adenine dinucleotide phosphate - reduced"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4011.1428" y="3607.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576530">
+            <label text="Phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="737.14294" y="1240.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576651">
+            <label text="ATP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1797.143" y="4010.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576531">
+            <label text="Succinate"/>
+            <bbox w="30.0" h="30.0" x="4909.143" y="2550.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576652">
+            <label text="Acetate"/>
+            <bbox w="30.0" h="30.0" x="1692.143" y="4055.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576536">
+            <label text="ADP"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="4192.143" y="1180.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576657">
+            <label text="Fumarate"/>
+            <bbox w="30.0" h="30.0" x="2817.1428" y="320.63107"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576537">
+            <label text="L-Glutamine"/>
+            <bbox w="30.0" h="30.0" x="4859.143" y="3828.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576658">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2922.1428" y="375.63107"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576534">
+            <label text="ATP"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="4192.143" y="710.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576655">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4011.1428" y="3657.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576535">
+            <label text="AMP"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="4042.1428" y="740.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576656">
+            <label text="Nicotinamide adenine dinucleotide phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4025.1428" y="3434.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576659">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2922.1428" y="685.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576539">
+            <label text="Ubiquinone-8"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="4735.8193" y="1885.6672"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576650">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2582.1428" y="4075.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576521">
+            <label text="Oxaloacetate"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="2636.1428" y="3394.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576642">
+            <label text="ATP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="717.14294" y="3530.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576522">
+            <label text="D-Glycerate 2-phosphate"/>
+            <bbox w="30.0" h="30.0" x="1032.143" y="2795.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576643">
+            <label text="H2O"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="717.14294" y="3480.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576640">
+            <label text="H2O"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="3234.1428" y="4104.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576520">
+            <label text="Phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1647.143" y="3190.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576641">
+            <label text="CO2"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="3598.1428" y="4104.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576525">
+            <label text="D-Fructose 6-phosphate"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="1032.143" y="1215.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576646">
+            <label text="Phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="717.14294" y="3100.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576526">
+            <label text="Ammonium"/>
+            <bbox w="30.0" h="30.0" x="3966.1428" y="4427.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576647">
+            <label text="D-Glucose"/>
+            <bbox w="30.0" h="30.0" x="1032.2091" y="375.63107"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576523">
+            <label text="H2O"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="947.14294" y="3000.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576644">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="717.14294" y="3150.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576524">
+            <label text="D-Glucose 6-phosphate"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="1032.143" y="935.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576645">
+            <label text="AMP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="717.14294" y="3200.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576529">
+            <label text="D-Fructose 1,6-bisphosphate"/>
+            <bbox w="30.0" h="30.0" x="1032.143" y="1595.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576527">
+            <label text="Ammonium"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="3966.1428" y="4111.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576648">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2582.1428" y="4435.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576528">
+            <label text="H2O"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="747.14294" y="1530.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576649">
+            <label text="Ethanol"/>
+            <bbox w="30.0" h="30.0" x="2477.1428" y="4500.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576554">
+            <label text="L-Glutamate"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="4225.143" y="3302.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576675">
+            <label text="H2O"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4174.143" y="3233.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576555">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4460.143" y="3363.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576676">
+            <label text="Nicotinamide adenine dinucleotide phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4124.143" y="3233.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576552">
+            <label text="L-Glutamate"/>
+            <bbox w="30.0" h="30.0" x="4860.143" y="3304.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576673">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4818.143" y="2762.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576553">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4807.143" y="3378.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576674">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4438.143" y="2762.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576558">
+            <label text="D-Xylulose 5-phosphate"/>
+            <bbox w="30.0" h="30.0" x="1922.143" y="1225.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576679">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4024.1428" y="3233.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576559">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="4827.143" y="1899.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576556">
+            <label text="D-Lactate"/>
+            <bbox w="30.0" h="30.0" x="1032.143" y="4505.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576677">
+            <label text="Nicotinamide adenine dinucleotide phosphate - reduced"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3974.1428" y="3233.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576557">
+            <label text="Pyruvate"/>
+            <bbox w="30.0" h="30.0" x="252.14294" y="3615.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576678">
+            <label text="Ammonium"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3924.1428" y="3233.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577081">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="5245.0967" y="4669.9854"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577082">
+            <label text="Alpha-D-Ribose 5-phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="5385.1616" y="4094.3467"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577080">
+            <label text="D-Erythrose 4-phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="5419.69" y="4141.9663"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577085">
+            <label text="Pyruvate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4970.2017" y="4184.812"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577086">
+            <label text="Nicotinamide adenine dinucleotide"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4875.414" y="4204.8813"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577083">
+            <label text="ATP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="5166.1147" y="4163.687"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577084">
+            <label text="D-Fructose 6-phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="5069.2144" y="4174.2495"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576550">
+            <label text="ADP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="947.14294" y="3230.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576671">
+            <label text="Nicotinamide adenine dinucleotide - reduced"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1127.143" y="2190.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577089">
+            <label text="D-Glucose 6-phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4682.6704" y="4235.512"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576551">
+            <label text="ATP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="947.14294" y="3490.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576672">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1127.143" y="2140.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577087">
+            <label text="Coenzyme A"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="5190.995" y="4607.578"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576670">
+            <label text="Phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1127.143" y="1990.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577088">
+            <label text="Oxaloacetate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4765.839" y="4219.6685"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576664">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4773.863" y="2597.5732"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576544">
+            <label text="CO2"/>
+            <bbox w="30.0" h="30.0" x="3598.1428" y="4424.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576665">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4443.524" y="2439.185"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576662">
+            <label text="Phosphoenolpyruvate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="939.83704" y="650.0371"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576542">
+            <label text="Ubiquinol-8"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="4485.618" y="1880.9622"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576663">
+            <label text="Pyruvate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1143.49" y="648.45026"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576547">
+            <label text="D-Erythrose 4-phosphate"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="1922.143" y="1860.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576668">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1669.143" y="835.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576548">
+            <label text="D-Fructose 6-phosphate"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="2339.7798" y="1857.4575"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576669">
+            <label text="Nicotinamide adenine dinucleotide"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1127.143" y="1940.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576545">
+            <label text="Glyceraldehyde 3-phosphate"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="2336.127" y="1535.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576666">
+            <label text="Formate"/>
+            <bbox w="30.0" h="30.0" x="1437.143" y="4513.953"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576546">
+            <label text="Sedoheptulose 7-phosphate"/>
+            <bbox w="30.0" h="30.0" x="1960.2252" y="1535.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576667">
+            <label text="H2O"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1569.143" y="835.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576549">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="947.14294" y="3300.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577071">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1077.143" y="4426.613"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577072">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1075.5562" y="4092.3662"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577073">
+            <label text="H2O"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="5509.601" y="4249.656"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576660">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1797.143" y="4450.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577078">
+            <label text="L-Glutamate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="5516.6646" y="4327.553"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576661">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1801.9032" y="4128.0854"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577079">
+            <label text="Glyceraldehyde 3-phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="5494.408" y="4193.2153"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577077">
+            <label text="ADP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="5485.4785" y="4600.1377"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576576">
+            <label text="ATP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4422.143" y="3430.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576577">
+            <label text="Ammonium"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4422.143" y="3480.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576574">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1127.143" y="1530.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576575">
+            <label text="Glyceraldehyde 3-phosphate"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="1032.143" y="1865.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576578">
+            <label text="L-Glutamine"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="4223.143" y="3764.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576579">
+            <label text="ADP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4416.143" y="3629.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576690">
+            <label text="Nicotinamide adenine dinucleotide phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2412.1428" y="3045.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576572">
+            <label text="ATP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1127.143" y="1320.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576573">
+            <label text="ADP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1127.143" y="1480.6311"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576570">
+            <label text="Succinyl-CoA"/>
+            <bbox w="30.0" h="30.0" x="3716.1428" y="2863.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576691">
+            <label text="CO2"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2242.1428" y="3185.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576571">
+            <label text="ADP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3750.1428" y="2791.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576692">
+            <label text="Nicotinamide adenine dinucleotide phosphate - reduced"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2182.1428" y="3215.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576686">
+            <label text="Coenzyme A"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2788.1428" y="3766.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576687">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2879.1428" y="3792.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576684">
+            <label text="H2O"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2592.1428" y="3535.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576685">
+            <label text="Citrate"/>
+            <bbox w="30.0" h="30.0" x="2948.1428" y="3656.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576569">
+            <label text="Phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3776.1428" y="2726.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576567">
+            <label text="Coenzyme A"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3442.1428" y="2635.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576688">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="327.14294" y="3720.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576568">
+            <label text="ATP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3482.1428" y="2705.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576689">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="657.14294" y="3720.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577092">
+            <label text="Acetyl-CoA"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4583.657" y="4252.4126"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577093">
+            <label text="3-Phospho-D-glycerate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4490.9824" y="4277.7627"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577090">
+            <label text="Nicotinamide adenine dinucleotide - reduced"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="5116.195" y="4572.757"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577091">
+            <label text="2-Oxoglutarate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="5463.19" y="4655.141"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577096">
+            <label text="Nicotinamide adenine dinucleotide phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="5010.8574" y="4540.449"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577097">
+            <label text="Nicotinamide adenine dinucleotide phosphate - reduced"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4249.926" y="4358.038"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577094">
+            <label text="Phosphoenolpyruvate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4396.195" y="4305.225"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577095">
+            <label text="L-Glutamine"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4315.138" y="4326.3506"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576682">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4397.143" y="825.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576683">
+            <label text="H2O"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4464.8696" y="705.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576680">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4847.143" y="825.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1577098">
+            <label text="Phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4915.578" y="4507.0063"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576681">
+            <label text="Phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4477.143" y="1005.63104"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576598">
+            <label text="2-Oxoglutarate"/>
+            <bbox w="30.0" h="30.0" x="4899.143" y="2898.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576599">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4816.143" y="2996.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576596">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2775.1428" y="4127.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576597">
+            <label text="Phosphate"/>
+            <clone/>
+            <bbox w="30.0" h="30.0" x="2857.1428" y="4100.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576590">
+            <label text="Formate"/>
+            <bbox w="30.0" h="30.0" x="1437.143" y="3765.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576591">
+            <label text="ATP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1487.143" y="3300.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576594">
+            <label text="Phosphate"/>
+            <bbox w="30.0" h="30.0" x="2857.1428" y="4509.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576595">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="2775.1428" y="4453.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576592">
+            <label text="ADP"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1267.143" y="3220.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576593">
+            <label text="CO2"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1197.143" y="3190.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576587">
+            <label text="CO2"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3854.1428" y="2960.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576588">
+            <label text="Nicotinamide adenine dinucleotide - reduced"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3802.1428" y="2908.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576585">
+            <label text="Coenzyme A"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3666.1428" y="3181.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576586">
+            <label text="Nicotinamide adenine dinucleotide"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="3666.1428" y="3233.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576589">
+            <label text="Coenzyme A"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="1147.143" y="3720.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576580">
+            <label text="H+"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4416.143" y="3679.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576584">
+            <label text="D-Lactate"/>
+            <bbox w="30.0" h="30.0" x="1032.143" y="4015.631"/>
+        </glyph>
+        <glyph class="simple chemical" id="SpeciesGlyph__1576581">
+            <label text="Phosphate"/>
+            <clone/>
+            <bbox w="20.0" h="20.0" x="4416.143" y="3729.631"/>
+        </glyph>
+    </map>
+</sbgn>

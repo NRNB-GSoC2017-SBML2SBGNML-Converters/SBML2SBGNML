@@ -40,6 +40,7 @@ import org.sbml.jsbml.CVTerm.Qualifier;
 import org.sbml.jsbml.CVTerm.Type;
 import org.sbml.jsbml.ext.layout.BoundingBox;
 import org.sbml.jsbml.ext.layout.CompartmentGlyph;
+import org.sbml.jsbml.ext.layout.CubicBezier;
 import org.sbml.jsbml.ext.layout.Curve;
 import org.sbml.jsbml.ext.layout.CurveSegment;
 import org.sbml.jsbml.ext.layout.Dimensions;
@@ -493,17 +494,34 @@ public class SBGNML2SBMLUtil {
 		for (Arc.Next next: listOfNext){
 			//System.out.format("Next: (x=%s,y=%s) \n", Float.toString(next.getX()), Float.toString(next.getY()));
 			//point = new Point(next.getX(), next.getY());
-			curvePoints.add(new Point(next.getX(), next.getY()));
 			
 			points = next.getPoint();
-			for (org.sbgn.bindings.Point p: points){
-				//System.out.format("    Point: (x=%s,y=%s) \n", Float.toString(p.getX()), Float.toString(p.getY()));
+			
+			if (points.size() > 0){
+//				for (org.sbgn.bindings.Point p: points){
+//					//System.out.format("    Point: (x=%s,y=%s) \n", Float.toString(p.getX()), Float.toString(p.getY()));
+//				}		
+				SBGNWrapperPoint sWrapperPoint = new SBGNWrapperPoint(next.getX(), next.getY());
+				sWrapperPoint.addbasePoint(points);
+				curvePoints.add(sWrapperPoint);
+				
+			} else {
+				curvePoints.add(new Point(next.getX(), next.getY()));
 			}
+
+			
+
 		}
 		
 		end = arc.getEnd();
 		//point = new Point(end.getX(), end.getY());
-		curvePoints.add(new Point(end.getX(), end.getY()));
+		points = end.getPoint();
+		if (points.size() > 0){
+			SBGNWrapperPoint sWrapperPoint = new SBGNWrapperPoint(end.getX(), end.getY());
+			sWrapperPoint.addbasePoint(points);
+		} else {
+			curvePoints.add(new Point(end.getX(), end.getY()));
+		}
 		
 		curve = new Curve();
 		Point startPoint;
@@ -514,13 +532,35 @@ public class SBGNML2SBMLUtil {
 			if (i == curvePoints.size() - 1){
 				break;
 			}
-			startPoint = curvePoints.get(i).clone();
-			endPoint = curvePoints.get(i + 1).clone();
 			
-			curveSegment = new LineSegment();
+			curveSegment = null;
 			
-			curveSegment.setStart(startPoint);
-			curveSegment.setEnd(endPoint);			
+			startPoint = curvePoints.get(i);
+			if (startPoint instanceof SBGNWrapperPoint){
+				startPoint = ((SBGNWrapperPoint) startPoint).targetPoint.clone();
+			}
+			
+			endPoint = curvePoints.get(i + 1);
+			if (endPoint instanceof SBGNWrapperPoint){
+				Point endPointNew = ((SBGNWrapperPoint) endPoint).targetPoint.clone();
+				Point basePoint1 = ((SBGNWrapperPoint) endPoint).basePoint1.clone();
+				Point basePoint2 = ((SBGNWrapperPoint) endPoint).basePoint2.clone();
+				
+				curveSegment = new CubicBezier();
+				curveSegment.setStart(startPoint);
+				curveSegment.setEnd(endPointNew);	
+				
+				((CubicBezier) curveSegment).setBasePoint1(basePoint1);
+				((CubicBezier) curveSegment).setBasePoint1(basePoint2);
+				
+			} else {
+				endPoint = curvePoints.get(i + 1).clone();
+				curveSegment = new LineSegment();
+				
+				curveSegment.setStart(startPoint);
+				curveSegment.setEnd(endPoint);	
+			}	
+			
 			curve.addCurveSegment(curveSegment);				
 		}
 				

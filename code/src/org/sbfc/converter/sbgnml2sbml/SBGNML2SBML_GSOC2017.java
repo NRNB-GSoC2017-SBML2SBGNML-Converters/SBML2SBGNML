@@ -690,13 +690,20 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		if (reactionGlyphPointType.equals("start")) {
 			// we assume the last CurveSegment in this Curve touches the ReactionGlyph
 			int count = speciesReferenceGlyph.getCurve().getCurveSegmentCount();
+			
+			try{
 			curvePoint = speciesReferenceGlyph.getCurve().getCurveSegment(count - 1).getEnd();
-			sWrapperReactionGlyph.addStartPoint(curvePoint);
+			sWrapperReactionGlyph.addStartPoint(curvePoint);} catch(Exception e){
+				System.out.println("!!!!!!!!!!!!!!!!!!!");
+			}
 			// update the Start Point of the ReactionGlyph
 			//reactionGlyphPoint = reactionGlyph.getCurve().getCurveSegment(0).getStart();
 		} else if (reactionGlyphPointType.equals("end")) {
+			try{
 			curvePoint = speciesReferenceGlyph.getCurve().getCurveSegment(0).getStart();
-			sWrapperReactionGlyph.addEndPoint(curvePoint);
+			sWrapperReactionGlyph.addEndPoint(curvePoint);} catch(Exception e){
+				System.out.println("!!!!!!!!!!!!!!!!!!!");
+			}
 			// update the End Point of the ReactionGlyph
 			//reactionGlyphPoint = reactionGlyph.getCurve().getCurveSegment(0).getEnd();			
 		}
