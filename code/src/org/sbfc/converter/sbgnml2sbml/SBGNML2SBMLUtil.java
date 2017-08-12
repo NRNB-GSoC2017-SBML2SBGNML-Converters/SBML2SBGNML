@@ -68,6 +68,8 @@ public class SBGNML2SBMLUtil {
 	int level;
 	int version;
 	
+	int createOneCurveError = 0;
+	
 	SBGNML2SBMLUtil(int level, int version) {
 		this.level = level;
 		this.version = version;
@@ -155,7 +157,7 @@ public class SBGNML2SBMLUtil {
 	 * @param <code>Species</code> species
 	 * @param <code>SpeciesGlyph</code> speciesGlyph
 	 */		
-	public TextGlyph createJsbmlTextGlyph(NamedSBase species, SpeciesGlyph speciesGlyph) {
+	public TextGlyph createJsbmlTextGlyph(NamedSBase species, SpeciesGlyph speciesGlyph, Bbox labelBbox) {
 		TextGlyph textGlyph;
 		String id;
 		BoundingBox boundingBoxText;
@@ -168,16 +170,23 @@ public class SBGNML2SBMLUtil {
 		textGlyph.setGraphicalObject(speciesGlyph);
 		
 		boundingBoxText = new BoundingBox();
+		
+		if (labelBbox == null){
 		boundingBoxSpecies = speciesGlyph.getBoundingBox();
 		boundingBoxText.setDimensions(boundingBoxSpecies.getDimensions());
 		boundingBoxText.setPosition(boundingBoxSpecies.getPosition());
 		textGlyph.setBoundingBox(boundingBoxText);
+		} else {
+			boundingBoxText.createDimensions(labelBbox.getW(), labelBbox.getH(), 0);
+			boundingBoxText.createPosition(labelBbox.getX(), labelBbox.getY(), 0);
+			textGlyph.setBoundingBox(boundingBoxText);	
+		}
 				
 		return textGlyph;
 	}	
 	
 	
-	public TextGlyph createJsbmlTextGlyph(GraphicalObject generalGlyph, String text) {
+	public TextGlyph createJsbmlTextGlyph(GraphicalObject generalGlyph, String text, Bbox labelBbox) {
 		TextGlyph textGlyph;
 		String id;
 		BoundingBox boundingBoxText;
@@ -190,10 +199,18 @@ public class SBGNML2SBMLUtil {
 		textGlyph.setText(text);
 		
 		boundingBoxText = new BoundingBox();
-		boundingBoxGeneralGlyph = generalGlyph.getBoundingBox();
-		boundingBoxText.setDimensions(boundingBoxGeneralGlyph.getDimensions());
-		boundingBoxText.setPosition(boundingBoxGeneralGlyph.getPosition());
-		textGlyph.setBoundingBox(boundingBoxText);
+		
+		if (labelBbox == null){
+			boundingBoxGeneralGlyph = generalGlyph.getBoundingBox();
+			boundingBoxText.setDimensions(boundingBoxGeneralGlyph.getDimensions());
+			boundingBoxText.setPosition(boundingBoxGeneralGlyph.getPosition());
+			textGlyph.setBoundingBox(boundingBoxText);			
+		} else {
+			// todo: horizontal or vertical orientation?
+			boundingBoxText.createDimensions(labelBbox.getW(), labelBbox.getH(), 0);
+			boundingBoxText.createPosition(labelBbox.getX(), labelBbox.getY(), 0);
+			textGlyph.setBoundingBox(boundingBoxText);	
+		}
 				
 		return textGlyph;
 	}		
@@ -457,7 +474,7 @@ public class SBGNML2SBMLUtil {
 	 * @return <code>SpeciesReferenceGlyph</code> speciesReferenceGlyph
 	 */		
 	public SpeciesReferenceGlyph createOneSpeciesReferenceGlyph(String id, Arc arc, 
-			SimpleSpeciesReference speciesReference, Glyph speciesGlyph) {
+			SimpleSpeciesReference speciesReference, Glyph speciesGlyph, SBGNML2SBMLOutput sOutput) {
 		SpeciesReferenceGlyph speciesReferenceGlyph;
 		
 		speciesReferenceGlyph = new SpeciesReferenceGlyph();
@@ -465,7 +482,8 @@ public class SBGNML2SBMLUtil {
 		speciesReferenceGlyph.setRole(findReactionRole(arc.getClazz()));
 		speciesReferenceGlyph.setSpeciesGlyph("SpeciesGlyph_"+speciesGlyph.getId());
 		speciesReferenceGlyph.setSpeciesReference(speciesReference);	
-					
+		sOutput.numOfSpeciesReferences++;			
+		
 		return speciesReferenceGlyph;
 	}
 	
@@ -519,6 +537,7 @@ public class SBGNML2SBMLUtil {
 		if (points.size() > 0){
 			SBGNWrapperPoint sWrapperPoint = new SBGNWrapperPoint(end.getX(), end.getY());
 			sWrapperPoint.addbasePoint(points);
+			curvePoints.add(sWrapperPoint);
 		} else {
 			curvePoints.add(new Point(end.getX(), end.getY()));
 		}
@@ -551,7 +570,7 @@ public class SBGNML2SBMLUtil {
 				curveSegment.setEnd(endPointNew);	
 				
 				((CubicBezier) curveSegment).setBasePoint1(basePoint1);
-				((CubicBezier) curveSegment).setBasePoint1(basePoint2);
+				((CubicBezier) curveSegment).setBasePoint2(basePoint2);
 				
 			} else {
 				endPoint = curvePoints.get(i + 1).clone();
@@ -563,7 +582,19 @@ public class SBGNML2SBMLUtil {
 			
 			curve.addCurveSegment(curveSegment);				
 		}
+		
+		if (curve.getCurveSegmentCount() == 0){
+			createOneCurveError ++;
+			System.out.format("! createOneCurve sbml="+curvePoints.size());
+			for (Arc.Next next: listOfNext){
+				points = next.getPoint();
 				
+				System.out.format(" sbgn.next="+next.getPoint().size());
+			}
+			System.out.format(" sbgn.end="+end.getPoint().size()+" \n");
+
+		}
+		
 		return curve;
 	}	
 	

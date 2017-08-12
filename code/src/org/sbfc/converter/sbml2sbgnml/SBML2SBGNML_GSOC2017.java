@@ -789,13 +789,13 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 //			}
 			sbgnGlyph = searchForGlyph(listOfGlyphs, id);
 			if (sbgnGlyph != null){
-				sUtil.setLabel(sbgnGlyph, text);
+				sUtil.setLabel(sbgnGlyph, text, textGlyph.getBoundingBox());
 			} else {
 				for (Arc a:  sOutput.sbgnObject.getMap().getArc()) {
 					listOfGlyphs = a.getGlyph();
 					sbgnGlyph = searchForGlyph(listOfGlyphs, id);
 					if (sbgnGlyph != null){
-						sUtil.setLabel(sbgnGlyph, text);
+						sUtil.setLabel(sbgnGlyph, text, textGlyph.getBoundingBox());
 					}
 				}
 			}

@@ -16,6 +16,7 @@ import javax.xml.stream.XMLStreamException;
 import org.sbfc.converter.sbgnml2sbml.qual.SWrapperQualitativeSpecies;
 import org.sbgn.SbgnUtil;
 import org.sbgn.bindings.Arc;
+import org.sbgn.bindings.Bbox;
 import org.sbgn.bindings.Glyph;
 import org.sbgn.bindings.Map;
 import org.sbgn.bindings.Sbgn;
@@ -150,7 +151,8 @@ public class SBGNML2SBMLRender {
 		for (TextGlyph tg : sOutput.layout.getListOfTextGlyphs()){
 
 			if (sWrapperModel.textSourceMap.containsKey(tg.getId())){
-				LocalStyle localStyle = createStyle(tg, "top_text");
+				//LocalStyle localStyle = createStyle(tg, "top_text");
+				LocalStyle localStyle = createStyle(tg, "text");
 			} else {
 				LocalStyle localStyle = createStyle(tg, "text");
 			}
@@ -160,6 +162,7 @@ public class SBGNML2SBMLRender {
 		
 	}
 	
+	// todo: fix broken
 	public void addCloneText(LocalStyle localStyle, SpeciesGlyph speciesGlyph, String cloneText) {
 		// the 0 and 80 is not used?
 		Text text = createText(0, 80, false, false);
@@ -182,7 +185,12 @@ public class SBGNML2SBMLRender {
 			renderSpeciesReferenceGlyphs(sWrapperReactionGlyph);
 			
 			if (sWrapperReactionGlyph.clazz.equals("uncertain process")){
-				TextGlyph tg = sUtil.createJsbmlTextGlyph(sWrapperReactionGlyph.reactionGlyph, "?");
+				Bbox labelBbox = null;
+//				if (sWrapperReactionGlyph.glyph.getLabel() != null){
+//					labelBbox = sWrapperReactionGlyph.glyph.getLabel().getBbox();
+//				}
+				
+				TextGlyph tg = sUtil.createJsbmlTextGlyph(sWrapperReactionGlyph.reactionGlyph, "?", labelBbox);
 				sOutput.addTextGlyph(tg);
 			}
 		}		

@@ -260,7 +260,7 @@ public class SWrapperModel {
         HashMap<String, Float> sortedMap = new LinkedHashMap<String, Float>();
         for (HashMap.Entry<String, Float> entry : list) {
             sortedMap.put(entry.getKey(), entry.getValue());
-            System.out.println("sortByValue id="+entry.getKey());
+            //////System.out.println("sortByValue id="+entry.getKey());
         }
 
         /*

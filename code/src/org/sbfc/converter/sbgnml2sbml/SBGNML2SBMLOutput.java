@@ -29,7 +29,9 @@ import org.sbml.jsbml.ext.layout.Layout;
 import org.sbml.jsbml.ext.layout.LayoutModelPlugin;
 import org.sbml.jsbml.ext.layout.Point;
 import org.sbml.jsbml.ext.layout.ReactionGlyph;
+import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
+import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 import org.sbml.jsbml.ext.layout.TextGlyph;
 import org.sbml.jsbml.ext.qual.QualModelPlugin;
 import org.sbml.jsbml.ext.qual.QualitativeSpecies;
@@ -77,6 +79,22 @@ public class SBGNML2SBMLOutput {
 	
 	HashMap<String, String> stylesInModel = new HashMap<String, String>();
 	HashMap<String, String> lineEndingsInModel = new HashMap<String, String>();
+	
+	int numOfSpecies = 0;
+	int numOfSpeciesGlyphs = 0;
+	int numOfReactions = 0;
+	int numOfReactionGlyphs = 0;
+	int numOfSpeciesReferences = 0;
+	int numOfModifierSpeciesReferences = 0;
+	int numOfSpeciesReferenceGlyphs = 0;
+	int numOfCompartments = 0;
+	int numOfCompartmentGlyphs = 0;
+	int numOfTextGlyphs = 0;
+	int numOfGeneralGlyphs = 0;
+	int numOfAdditionalGraphicalObjects = 0;
+	int numOfReferenceGlyphs = 0;
+
+	int numOfSpeciesReferenceGlyphErrors = 0;
 	
 	SBGNML2SBMLOutput(int level, int version, String language) {
 		this.model = new Model(level, version);
@@ -180,6 +198,7 @@ public class SBGNML2SBMLOutput {
 	public void addSpecies(Species species) {
 		ListOf<Species> listOfSpecies = model.getListOfSpecies();		
 		listOfSpecies.add(species);
+		numOfSpecies++;
 	}
 	
 	public void addQualitativeSpecies(QualitativeSpecies species) {
@@ -190,21 +209,25 @@ public class SBGNML2SBMLOutput {
 	public void addSpeciesGlyph(SpeciesGlyph speciesGlyph) {
 		ListOf<SpeciesGlyph> listOfSpeciesGlyphs = layout.getListOfSpeciesGlyphs();	
 		listOfSpeciesGlyphs.add(speciesGlyph);
+		numOfSpeciesGlyphs++;
 	}	
 	
 	public void addTextGlyph(TextGlyph textGlyph){
 		ListOf<TextGlyph> listOfTextGlyphs = layout.getListOfTextGlyphs();	
 		listOfTextGlyphs.add(textGlyph);
+		numOfTextGlyphs++;
 	}
 	
 	public void addReaction(Reaction reaction){
 		ListOf<Reaction> listOfReactions = model.getListOfReactions();
 		listOfReactions.add(reaction);
+		numOfReactions++;
 	}
 	
 	public void addReactionGlyph(ReactionGlyph reactionGlyph){
 		ListOf<ReactionGlyph> listOfReactionGlyphs = layout.getListOfReactionGlyphs();
 		listOfReactionGlyphs.add(reactionGlyph);
+		numOfReactionGlyphs++;
 	}
 
 	/**
@@ -276,30 +299,47 @@ public class SBGNML2SBMLOutput {
 		
 	}
 	
-	public void addSpeciesReferenceGlyph() {
+	public void addModifierSpeciesReference() {
 		
+	}
+	
+	public void addSpeciesReferenceGlyph(ReactionGlyph reactionGlyph, SpeciesReferenceGlyph speciesReferenceGlyph) {
+		reactionGlyph.addSpeciesReferenceGlyph(speciesReferenceGlyph);
+		numOfSpeciesReferenceGlyphs++;
+		if (speciesReferenceGlyph.getCurve().getCurveSegmentCount() == 0){
+			numOfSpeciesReferenceGlyphErrors ++;
+		}
 	}
 	
 	public void addCompartment(Compartment compartment) {
 		ListOf<Compartment> listOfCompartment = model.getListOfCompartments();
 		listOfCompartment.add(compartment);
+		numOfCompartments++;
 	}
 	
 	public void addCompartmentGlyph(CompartmentGlyph compartmentGlyph) {
 		ListOf<CompartmentGlyph> listOfCompartmentGlyphs = layout.getListOfCompartmentGlyphs();	
 		listOfCompartmentGlyphs.add(compartmentGlyph);
+		numOfCompartmentGlyphs++;
 	}
 	
 	public void addGeneralGlyph(GeneralGlyph generalGlyph) {
 		ListOf<GraphicalObject> listOfGeneralGlyphs = layout.getListOfAdditionalGraphicalObjects();
 		listOfGeneralGlyphs.add(generalGlyph);
+		numOfGeneralGlyphs++;
 		
 	}
 	
 	public void addGraphicalObject(GraphicalObject generalGlyph) {
 		ListOf<GraphicalObject> listOfGeneralGlyphs = layout.getListOfAdditionalGraphicalObjects();
 		listOfGeneralGlyphs.add(generalGlyph);
+		numOfAdditionalGraphicalObjects++;
 		
+	}
+	
+	public void addReferenceGlyph(GeneralGlyph generalGlyph, ReferenceGlyph referenceGlyph){
+		generalGlyph.addReferenceGlyph(referenceGlyph);
+		numOfReferenceGlyphs++;
 	}
 	
 	public static SBMLDocument getSBMLDocument(String sbmlFileName) {
@@ -342,7 +382,7 @@ public class SBGNML2SBMLOutput {
 		RenderLayoutPlugin renderLayoutPlugin = (RenderLayoutPlugin) templateLayout.getPlugin(RenderConstants.shortLabel);
 		LocalRenderInformation localRenderInformation = renderLayoutPlugin.getLocalRenderInformation(0);
 		
-		System.out.println("loadTemplateFromFile "+localRenderInformation.getId());
+		//System.out.println("loadTemplateFromFile "+localRenderInformation.getId());
 		
 		return localRenderInformation;
 	}
@@ -377,7 +417,7 @@ public class SBGNML2SBMLOutput {
 					if (curve_segs.size() > 0){
 						Point s = curve_segs.get(0).getStart();
 						Point e = curve_segs.get(0).getEnd();
-						System.out.println("Polygon " + le.getId() + ": " + s.getX() + s.getY() + e.getX() + e.getY());
+						//System.out.println("Polygon " + le.getId() + ": " + s.getX() + s.getY() + e.getX() + e.getY());
 					}
 					rgClone.addElement(polygon);
 				} else {
@@ -411,10 +451,10 @@ public class SBGNML2SBMLOutput {
 	
 	public void removeExtraStyles() {
 		for (String id : stylesInModel.keySet()){
-			System.out.println("LocalStyle ==" + id);
+			//System.out.println("LocalStyle ==" + id);
 		}
 		for (String id : lineEndingsInModel.keySet()){
-			System.out.println("LineEnding ==" + id);
+			//System.out.println("LineEnding ==" + id);
 		}
 		
 		this.listOfStyles = renderLayoutPlugin.getLocalRenderInformation(0).getListOfLocalStyles(); 
@@ -422,19 +462,19 @@ public class SBGNML2SBMLOutput {
 		for (LocalStyle ls : listOfStyles_temp){
 			//System.out.println("LocalStyle:: " + ls.getId());
 			if (stylesInModel.containsKey(ls.getId())){
-				System.out.println("LocalStyle "+ls.getId());
+				//System.out.println("LocalStyle "+ls.getId());
 				LocalStyle ls_clone = ls.clone();
 				ls_clone.setId(ls.getId());
 				this.listOfStyles.add(ls_clone);
 			}
 		}
 		
-		System.out.println("listOfStyles ==>" + listOfStyles.size());
+		//System.out.println("listOfStyles ==>" + listOfStyles.size());
 		
 		for (LineEnding le : listOfLineEndings_temp){
 			//System.out.println("LineEnding:: " + le.getId());
 			if (lineEndingsInModel.containsKey(le.getId())){
-				System.out.println("LineEnding "+le.getId());
+				//System.out.println("LineEnding "+le.getId());
 				listOfLineEndings.add(le.clone());
 			}			
 		}

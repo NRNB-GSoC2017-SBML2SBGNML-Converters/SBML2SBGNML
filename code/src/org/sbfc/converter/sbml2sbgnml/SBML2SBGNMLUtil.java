@@ -121,6 +121,40 @@ public class SBML2SBGNMLUtil {
 		return label;
 	}
 	
+	public Label setLabel(Glyph glyph, String text, BoundingBox boundingBox ) {
+		Label label;
+		
+		label = new Label();
+		label.setText(text);	
+		glyph.setLabel(label);	
+		
+		if (boundingBox != null){
+			Bbox bbox = new Bbox();
+			Dimensions dimensions = boundingBox.getDimensions();
+			Point position = boundingBox.getPosition();
+
+			// note: can't set depth
+			double depth = dimensions.getDepth();
+			double height = dimensions.getHeight();
+			double width = dimensions.getWidth();	
+			
+			// one of the values will be lost
+			double x = position.getX();
+			double y = position.getY();
+			double z = position.getZ();
+			
+			bbox.setX((float) x);
+			bbox.setY((float) y);
+			bbox.setH((float) height);
+			bbox.setW((float) width);
+			
+			label.setBbox(bbox);			
+		}
+
+		
+		return label;
+	}
+	
 	/**
 	 * Create a Process Node <code>Glyph</code> using information from an SBML <code>ReactionGlyph</code>.
 	 * The dimensions of the Process Node is determined from <code>ListOf<CurveSegment</code> of the <code>ReactionGlyph</code>.
@@ -437,6 +471,7 @@ public class SBML2SBGNMLUtil {
 		
 		sbgnGlyph.setBbox(bbox);
 	}
+		
 	
 	public void createVoidBBox(Glyph g) {
 
