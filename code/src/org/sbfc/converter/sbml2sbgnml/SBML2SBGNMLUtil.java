@@ -230,8 +230,9 @@ public class SBML2SBGNMLUtil {
 		// "clazz = process"
 		processNode = createGlyph(reactionId, clazz, false, null, false, null);
 		createVoidBBox(processNode);
+		Arcgroup ag = new Arcgroup();
 		
-		if (listOfCurveSegments.size() <= 0){return null;}
+		if (listOfCurveSegments.size() > 0){
 		
 		double yLastStart = listOfCurveSegments.get(listOfCurveSegments.size()-1).getStart().getY();
 		double yLastEnd = listOfCurveSegments.get(listOfCurveSegments.size()-1).getEnd().getY();
@@ -288,16 +289,20 @@ public class SBML2SBGNMLUtil {
 		a.setEnd(end);
 		a.setStart(start);
 		
-		Arcgroup ag = new Arcgroup();
 		ag.getArc().add(a);
+		}
+		
+		
+		
 		ag.getGlyph().add(processNode);
 		
 		// todo: add another Glyph at the Start
 		
 		return ag;
+
 	}
 
-	
+	// remove
 	/**
 	 * Create an SBGN <code>Arc</code> that corresponds to an SBML <code>CurveSegment</code>.
 	 * TODO: create one Arc from multiple CurveSegment.
@@ -354,6 +359,8 @@ public class SBML2SBGNMLUtil {
 			if (!pointStringMap.containsKey(pointString)){
 				pointStringMap.put(pointString, curveSegment.getStart());
 				pointList.add(curveSegment.getStart());
+			} else {
+				pointList.add(curveSegment.getStart());
 			}
 			
 			
@@ -362,13 +369,15 @@ public class SBML2SBGNMLUtil {
 			if (curveSegment.getType() == Type.CUBIC_BEZIER) {
 				if (!pointStringMap.containsKey(pointString)){
 
-					Point bezier = new SBMLWrapperPoint(curveSegment.getEnd(), ((CubicBezier) curveSegment).getBasePoint1(), ((CubicBezier) curveSegment).getBasePoint2() );
+					SBMLWrapperPoint bezier = new SBMLWrapperPoint(curveSegment.getEnd(), ((CubicBezier) curveSegment).getBasePoint1(), ((CubicBezier) curveSegment).getBasePoint2() );
 					pointList.add(bezier);
 					
 				}
 			} else {
 				if (!pointStringMap.containsKey(pointString)){
 					pointStringMap.put(pointString, curveSegment.getEnd());
+					pointList.add(curveSegment.getEnd());
+				} else {
 					pointList.add(curveSegment.getEnd());
 				}					
 			}
@@ -383,33 +392,17 @@ public class SBML2SBGNMLUtil {
 		start.setX((float) pointList.get(0).getX());
 		start.setY((float) pointList.get(0).getY());
 		
-		
-		Point endSbmlPoint = pointList.get(pointList.size() - 1);
-		if (endSbmlPoint instanceof SBMLWrapperPoint){
-			Point endSbmlPointNew = ((SBMLWrapperPoint) endSbmlPoint).targetPoint;
-			end.setX((float) endSbmlPointNew.getX());
-			end.setY((float) endSbmlPointNew.getY());	
-			
-			end.getPoint().add(((SBMLWrapperPoint) endSbmlPoint).basePoint1);
-			end.getPoint().add(((SBMLWrapperPoint) endSbmlPoint).basePoint2);
-		} else {
-			end.setX((float) endSbmlPoint.getX());
-			end.setY((float) endSbmlPoint.getY());			
-		}
-
-				
 		arc.setStart(start);
-		arc.setEnd(end);
 		
-		Arc.Next e;
-		Point p;
+
+
 		// go over the list of Points we created, except for the first and last Point
 		for (int i = 1; i < pointList.size() - 1; i++){
-			p = pointList.get(i);			
-			e = new Arc.Next();
+			Point p = pointList.get(i);			
+			Arc.Next  e = new Arc.Next();
 			
 			if (p instanceof SBMLWrapperPoint){
-				Point pNew = ((SBMLWrapperPoint) endSbmlPoint).targetPoint;
+				Point pNew = ((SBMLWrapperPoint) p).targetPoint;
 				e.setX((float) pNew.getX());
 				e.setY((float) pNew.getY());
 				
@@ -426,6 +419,23 @@ public class SBML2SBGNMLUtil {
 		}
 		
 		arc.getNext().addAll(next);
+		
+		
+		
+		Point endSbmlPoint = pointList.get(pointList.size() - 1);
+		if (endSbmlPoint instanceof SBMLWrapperPoint){
+			Point endSbmlPointNew = ((SBMLWrapperPoint) endSbmlPoint).targetPoint;
+			end.setX((float) endSbmlPointNew.getX());
+			end.setY((float) endSbmlPointNew.getY());	
+			
+			end.getPoint().add(((SBMLWrapperPoint) endSbmlPoint).basePoint1);
+			end.getPoint().add(((SBMLWrapperPoint) endSbmlPoint).basePoint2);
+		} else {
+			end.setX((float) endSbmlPoint.getX());
+			end.setY((float) endSbmlPoint.getY());			
+		}
+		
+		arc.setEnd(end);
 		
 		return arc;
 	}

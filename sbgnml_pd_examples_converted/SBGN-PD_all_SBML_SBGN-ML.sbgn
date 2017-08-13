@@ -2,31 +2,43 @@
 <sbgn xmlns="http://sbgn.org/libsbgn/0.2">
     <map>
         <glyph class="compartment" id="CompartmentGlyph_glyph1">
-            <label text="Compartement"/>
+            <label text="Compartement">
+                <bbox w="139.0" h="25.0" x="716.5" y="26.0"/>
+            </label>
             <bbox w="1538.0" h="1350.0" x="17.0" y="18.0"/>
         </glyph>
         <glyph class="source and sink" id="SpeciesGlyph_glyph20">
             <bbox w="60.0" h="60.0" x="810.0" y="954.3333"/>
         </glyph>
         <glyph class="unspecified entity" id="SpeciesGlyph_glyph9">
-            <label text="unspecified entity"/>
+            <label text="unspecified entity">
+                <bbox w="208.0" h="72.0" x="1229.3334" y="948.3333"/>
+            </label>
             <bbox w="208.0" h="72.0" x="1229.3334" y="948.3333"/>
         </glyph>
         <glyph class="perturbing agent" id="SpeciesGlyph_glyph8">
-            <label text="perturbation"/>
+            <label text="perturbation">
+                <bbox w="214.0" h="88.0" x="1096.6666" y="145.0"/>
+            </label>
             <bbox w="214.0" h="88.0" x="1096.6666" y="145.0"/>
         </glyph>
         <glyph class="simple chemical" id="SpeciesGlyph_glyph13">
-            <label text="simple chemical"/>
+            <label text="simple chemical">
+                <bbox w="170.0" h="68.0" x="629.0" y="274.0"/>
+            </label>
             <clone/>
             <bbox w="170.0" h="68.0" x="629.0" y="274.0"/>
         </glyph>
         <glyph class="nucleic acid feature multimer" id="SpeciesGlyph_glyph5">
-            <label text="multimer nucleic acid feature"/>
+            <label text="multimer nucleic acid feature">
+                <bbox w="278.0" h="80.0" x="61.0" y="732.0"/>
+            </label>
             <bbox w="278.0" h="80.0" x="61.0" y="732.0"/>
         </glyph>
         <glyph class="complex multimer" id="SpeciesGlyph_glyph4">
-            <label text="multimer complex"/>
+            <label text="multimer complex">
+                <bbox w="161.0" h="25.0" x="1147.1666" y="646.8333"/>
+            </label>
             <bbox w="216.0" h="120.0" x="1119.6666" y="599.3333"/>
             <glyph class="unit of information" id="GeneralGlyph_glyph4a">
                 <extension>
@@ -41,25 +53,35 @@
                         </sbfcanno:isPartOf>
                     </sbfcanno:annotation>
                 </extension>
-                <label text="unitof:information"/>
+                <label text="unitof:information">
+                    <bbox w="99.0" h="16.0" x="1124.1666" y="591.3333"/>
+                </label>
                 <bbox w="99.0" h="16.0" x="1124.1666" y="591.3333"/>
             </glyph>
         </glyph>
         <glyph class="simple chemical multimer" id="SpeciesGlyph_glyph7">
-            <label text="multimer simple chemical"/>
+            <label text="multimer simple chemical">
+                <bbox w="268.0" h="64.0" x="244.0" y="276.0"/>
+            </label>
             <bbox w="268.0" h="64.0" x="244.0" y="276.0"/>
         </glyph>
         <glyph class="macromolecule multimer" id="SpeciesGlyph_glyph6">
-            <label text="multimer macromolecule"/>
+            <label text="multimer macromolecule">
+                <bbox w="244.0" h="84.0" x="77.0" y="508.0"/>
+            </label>
             <bbox w="244.0" h="84.0" x="77.0" y="508.0"/>
         </glyph>
         <glyph class="simple chemical" id="SpeciesGlyph_glyph12">
-            <label text="simple chemical"/>
+            <label text="simple chemical">
+                <bbox w="170.0" h="68.0" x="629.0" y="63.0"/>
+            </label>
             <clone/>
             <bbox w="170.0" h="68.0" x="629.0" y="63.0"/>
         </glyph>
         <glyph class="complex" id="SpeciesGlyph_glyph3">
-            <label text="complex"/>
+            <label text="complex">
+                <bbox w="81.0" h="25.0" x="822.5" y="527.3333"/>
+            </label>
             <bbox w="234.0" h="268.0" x="746.0" y="525.3333"/>
             <glyph class="nucleic acid feature" id="SpeciesGlyph_glyph10">
                 <extension>
@@ -69,7 +91,9 @@
                         </sbfcanno:isPartOf>
                     </sbfcanno:annotation>
                 </extension>
-                <label text="nucleic acid feature"/>
+                <label text="nucleic acid feature">
+                    <bbox w="186.0" h="78.0" x="774.0" y="579.0"/>
+                </label>
                 <bbox w="186.0" h="78.0" x="774.0" y="579.0"/>
             </glyph>
             <glyph class="macromolecule" id="SpeciesGlyph_glyph11">
@@ -80,7 +104,9 @@
                         </sbfcanno:isPartOf>
                     </sbfcanno:annotation>
                 </extension>
-                <label text="macromolecule"/>
+                <label text="macromolecule">
+                    <bbox w="174.0" h="72.0" x="778.0" y="697.0"/>
+                </label>
                 <bbox w="174.0" h="72.0" x="778.0" y="697.0"/>
                 <glyph class="state variable" id="GeneralGlyph_glyph11a">
                     <extension>
@@ -95,7 +121,9 @@
                             </sbfcanno:isPartOf>
                         </sbfcanno:annotation>
                     </extension>
-                    <label text="state@variable"/>
+                    <label text="state@variable">
+                        <bbox w="122.0" h="41.0" x="760.5" y="676.5"/>
+                    </label>
                     <bbox w="122.0" h="41.0" x="760.5" y="676.5"/>
                 </glyph>
             </glyph>
@@ -108,7 +136,9 @@
                     </sbfcanno:isPartOf>
                 </sbfcanno:annotation>
             </extension>
-            <label text="macromolecule"/>
+            <label text="macromolecule">
+                <bbox w="174.0" h="72.0" x="778.0" y="697.0"/>
+            </label>
             <bbox w="174.0" h="72.0" x="778.0" y="697.0"/>
             <glyph class="state variable" id="GeneralGlyph_glyph11a">
                 <extension>
@@ -123,7 +153,9 @@
                         </sbfcanno:isPartOf>
                     </sbfcanno:annotation>
                 </extension>
-                <label text="state@variable"/>
+                <label text="state@variable">
+                    <bbox w="122.0" h="41.0" x="760.5" y="676.5"/>
+                </label>
                 <bbox w="122.0" h="41.0" x="760.5" y="676.5"/>
             </glyph>
         </glyph>
@@ -135,11 +167,15 @@
                     </sbfcanno:isPartOf>
                 </sbfcanno:annotation>
             </extension>
-            <label text="nucleic acid feature"/>
+            <label text="nucleic acid feature">
+                <bbox w="186.0" h="78.0" x="774.0" y="579.0"/>
+            </label>
             <bbox w="186.0" h="78.0" x="774.0" y="579.0"/>
         </glyph>
         <glyph class="submap" id="SpeciesGlyph_glyph2">
-            <label text="submap"/>
+            <label text="submap">
+                <bbox w="380.0" h="204.0" x="346.0" y="873.0"/>
+            </label>
             <bbox w="380.0" h="204.0" x="346.0" y="873.0"/>
             <glyph class="tag" orientation="right" id="SpeciesGlyph_glyph14">
                 <extension>
@@ -149,7 +185,9 @@
                         </sbfcanno:isPartOf>
                     </sbfcanno:annotation>
                 </extension>
-                <label text="multimer nucleic &#xA;acid feature"/>
+                <label text="multimer nucleic &#xA;acid feature">
+                    <bbox w="139.0" h="60.0" x="345.5" y="883.0"/>
+                </label>
                 <bbox w="139.0" h="60.0" x="345.5" y="883.0"/>
             </glyph>
             <glyph class="tag" orientation="up" id="SpeciesGlyph_glyph18">
@@ -160,7 +198,9 @@
                         </sbfcanno:isPartOf>
                     </sbfcanno:annotation>
                 </extension>
-                <label text=" source &#xA; and &#xA; sink"/>
+                <label text=" source &#xA; and &#xA; sink">
+                    <bbox w="60.0" h="108.0" x="435.0" y="969.0"/>
+                </label>
                 <bbox w="60.0" h="108.0" x="435.0" y="969.0"/>
             </glyph>
             <glyph class="tag" orientation="left" id="SpeciesGlyph_glyph15">
@@ -171,7 +211,9 @@
                         </sbfcanno:isPartOf>
                     </sbfcanno:annotation>
                 </extension>
-                <label text="phenotype"/>
+                <label text="phenotype">
+                    <bbox w="108.0" h="60.0" x="617.5" y="1009.0"/>
+                </label>
                 <bbox w="108.0" h="60.0" x="617.5" y="1009.0"/>
             </glyph>
             <glyph class="tag" orientation="down" id="SpeciesGlyph_glyph16">
@@ -182,7 +224,9 @@
                         </sbfcanno:isPartOf>
                     </sbfcanno:annotation>
                 </extension>
-                <label text="complex"/>
+                <label text="complex">
+                    <bbox w="60.0" h="108.0" x="598.0" y="872.5"/>
+                </label>
                 <bbox w="60.0" h="108.0" x="598.0" y="872.5"/>
             </glyph>
         </glyph>
@@ -194,7 +238,9 @@
                     </sbfcanno:isPartOf>
                 </sbfcanno:annotation>
             </extension>
-            <label text="multimer nucleic &#xA;acid feature"/>
+            <label text="multimer nucleic &#xA;acid feature">
+                <bbox w="139.0" h="60.0" x="345.5" y="883.0"/>
+            </label>
             <bbox w="139.0" h="60.0" x="345.5" y="883.0"/>
         </glyph>
         <glyph class="tag" orientation="left" id="SpeciesGlyph_glyph15">
@@ -205,7 +251,9 @@
                     </sbfcanno:isPartOf>
                 </sbfcanno:annotation>
             </extension>
-            <label text="phenotype"/>
+            <label text="phenotype">
+                <bbox w="108.0" h="60.0" x="617.5" y="1009.0"/>
+            </label>
             <bbox w="108.0" h="60.0" x="617.5" y="1009.0"/>
         </glyph>
         <glyph class="tag" orientation="down" id="SpeciesGlyph_glyph16">
@@ -216,7 +264,9 @@
                     </sbfcanno:isPartOf>
                 </sbfcanno:annotation>
             </extension>
-            <label text="complex"/>
+            <label text="complex">
+                <bbox w="60.0" h="108.0" x="598.0" y="872.5"/>
+            </label>
             <bbox w="60.0" h="108.0" x="598.0" y="872.5"/>
         </glyph>
         <glyph class="tag" orientation="up" id="SpeciesGlyph_glyph18">
@@ -227,35 +277,45 @@
                     </sbfcanno:isPartOf>
                 </sbfcanno:annotation>
             </extension>
-            <label text=" source &#xA; and &#xA; sink"/>
+            <label text=" source &#xA; and &#xA; sink">
+                <bbox w="60.0" h="108.0" x="435.0" y="969.0"/>
+            </label>
             <bbox w="60.0" h="108.0" x="435.0" y="969.0"/>
         </glyph>
         <glyph class="phenotype" id="SpeciesGlyph_glyph17">
-            <label text="phenotype"/>
+            <label text="phenotype">
+                <bbox w="108.0" h="60.0" x="1279.3334" y="1247.0"/>
+            </label>
             <bbox w="108.0" h="60.0" x="1279.3334" y="1247.0"/>
         </glyph>
         <glyph class="source and sink" id="SpeciesGlyph_glyph19">
             <bbox w="60.0" h="60.0" x="435.0" y="1127.3334"/>
         </glyph>
         <glyph class="not" id="SpeciesGlyph_glyph21">
-            <label text="NOT"/>
+            <label text="NOT">
+                <bbox w="42.0" h="42.0" x="1312.3334" y="1113.0"/>
+            </label>
             <bbox w="42.0" h="42.0" x="1312.3334" y="1113.0"/>
-            <port id="Port__glyph9_glyph21" x="1333.3334" y="1092.0"/>
-            <port id="Port__glyph21_glyph17" x="1333.3334" y="1176.0"/>
+            <port id="Port_glyph9_glyph21" x="1333.3334" y="1092.0"/>
+            <port id="Port_glyph21_glyph17" x="1333.3334" y="1176.0"/>
         </glyph>
         <glyph class="or" id="SpeciesGlyph_glyph22">
-            <label text="OR"/>
+            <label text="OR">
+                <bbox w="42.0" h="42.0" x="1031.5" y="760.0"/>
+            </label>
             <bbox w="42.0" h="42.0" x="1031.5" y="760.0"/>
-            <port id="Port__glyph4_glyph22" x="1052.5" y="739.0"/>
-            <port id="Port__glyph3_glyph22" x="1052.5" y="739.0"/>
-            <port id="Port__glyph22_glyph24" x="1052.5" y="823.0"/>
+            <port id="Port_glyph4_glyph22" x="1052.5" y="739.0"/>
+            <port id="Port_glyph3_glyph22" x="1052.5" y="739.0"/>
+            <port id="Port_glyph22_glyph24" x="1052.5" y="823.0"/>
         </glyph>
         <glyph class="and" id="SpeciesGlyph_glyph23">
-            <label text="AND"/>
+            <label text="AND">
+                <bbox w="42.0" h="42.0" x="520.5" y="444.0"/>
+            </label>
             <bbox w="42.0" h="42.0" x="520.5" y="444.0"/>
-            <port id="Port__glyph13_glyph23" x="541.5" y="423.0"/>
-            <port id="Port__glyph7_glyph23" x="541.5" y="423.0"/>
-            <port id="Port__glyph23_glyph26" x="541.5" y="507.0"/>
+            <port id="Port_glyph13_glyph23" x="541.5" y="423.0"/>
+            <port id="Port_glyph7_glyph23" x="541.5" y="423.0"/>
+            <port id="Port_glyph23_glyph26" x="541.5" y="507.0"/>
         </glyph>
         <arc class="consumption" id="arc1" source="SpeciesGlyph_glyph20" target="Port_glyph20_glyph24">
             <extension>
@@ -281,7 +341,7 @@
             <start x="1076.5" y="984.3333"/>
             <end x="1229.3334" y="984.3333"/>
         </arc>
-        <arc class="stimulation" id="arc6" source="Port__glyph22_glyph24">
+        <arc class="stimulation" id="arc6" source="Port_glyph22_glyph24" target="glyph24">
             <extension>
                 <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                     <sbfcanno:hasProperty>
@@ -365,7 +425,7 @@
             <start x="565.5" y="659.3333"/>
             <end x="746.0" y="659.3333"/>
         </arc>
-        <arc class="necessary stimulation" id="arc12" source="Port__glyph23_glyph26">
+        <arc class="necessary stimulation" id="arc12" source="Port_glyph23_glyph26" target="glyph26">
             <extension>
                 <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                     <sbfcanno:hasProperty>
@@ -411,7 +471,9 @@
                         </sbfcanno:isPartOf>
                     </sbfcanno:annotation>
                 </extension>
-                <label text="3"/>
+                <label text="3">
+                    <bbox w="22.5" h="18.5" x="609.0" y="224.0"/>
+                </label>
                 <bbox w="22.5" h="18.5" x="609.0" y="224.0"/>
             </glyph>
             <start x="569.0" y="204.0"/>
@@ -438,7 +500,7 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
-            <arc class="logic arc" target="Port__glyph13_glyph23">
+            <arc class="logic arc" target="Port_glyph13_glyph23">
                 <extension>
                     <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                         <sbfcanno:hasProperty>
@@ -460,7 +522,7 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
-            <arc class="logic arc" target="Port__glyph9_glyph21">
+            <arc class="logic arc" target="Port_glyph9_glyph21">
                 <extension>
                     <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                         <sbfcanno:hasProperty>
@@ -482,7 +544,7 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
-            <arc class="inhibition" source="Port__glyph21_glyph17">
+            <arc class="inhibition" source="Port_glyph21_glyph17" target="SpeciesGlyph_glyph17">
                 <extension>
                     <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                         <sbfcanno:hasProperty>
@@ -504,7 +566,7 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
-            <arc class="logic arc" target="Port__glyph7_glyph23">
+            <arc class="logic arc" target="Port_glyph7_glyph23">
                 <extension>
                     <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                         <sbfcanno:hasProperty>
@@ -573,7 +635,7 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
-            <arc class="logic arc" target="Port__glyph4_glyph22">
+            <arc class="logic arc" target="Port_glyph4_glyph22">
                 <extension>
                     <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                         <sbfcanno:hasProperty>
@@ -619,7 +681,7 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
-            <arc class="logic arc" target="Port__glyph3_glyph22">
+            <arc class="logic arc" target="Port_glyph3_glyph22">
                 <extension>
                     <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                         <sbfcanno:hasProperty>

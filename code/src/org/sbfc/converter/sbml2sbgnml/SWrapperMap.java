@@ -74,7 +74,7 @@ public class SWrapperMap {
 		
 		for (String key : listOfSWrapperAuxiliary.keySet()){
 			if (key.equals(id)){
-				System.out.println("listOfSWrapperAuxiliary.get(key)"+listOfSWrapperAuxiliary.get(key).glyph.getId());
+				//System.out.println("listOfSWrapperAuxiliary.get(key)"+listOfSWrapperAuxiliary.get(key).glyph.getId());
 				return listOfSWrapperAuxiliary.get(key).glyph;
 			}
 		}

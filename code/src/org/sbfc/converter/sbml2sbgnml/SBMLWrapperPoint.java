@@ -9,7 +9,7 @@ public class SBMLWrapperPoint extends org.sbml.jsbml.ext.layout.Point {
 	org.sbgn.bindings.Point basePoint2;
 	org.sbml.jsbml.ext.layout.Point targetPoint;
 	
-	SBMLWrapperPoint(org.sbml.jsbml.ext.layout.Point basePoint1, org.sbml.jsbml.ext.layout.Point basePoint2, org.sbml.jsbml.ext.layout.Point targetPoint){
+	SBMLWrapperPoint(org.sbml.jsbml.ext.layout.Point targetPoint, org.sbml.jsbml.ext.layout.Point basePoint1, org.sbml.jsbml.ext.layout.Point basePoint2){
 		this.basePoint1 = new org.sbgn.bindings.Point();
 		// todo: losing precision
 		this.basePoint1.setX((float) basePoint1.getX()); 
