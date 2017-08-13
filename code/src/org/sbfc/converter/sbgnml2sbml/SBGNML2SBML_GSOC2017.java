@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.sbgn.bindings.Arc;
+import org.sbgn.bindings.Arcgroup;
 import org.sbgn.bindings.Bbox;
 import org.sbgn.bindings.Glyph;
 import org.sbgn.bindings.Label;
@@ -84,10 +85,11 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	public void convertToSBML() {
 		List<Glyph> listOfGlyphs = sWrapperModel.map.getGlyph();
 		List<Arc> listOfArcs = sWrapperModel.map.getArc();
+		List<Arcgroup> listOfArcgroups = sWrapperModel.map.getArcgroup();
 		
 		// Go over every Glyph in the libSBGN Map, classify them, and 
 		// store the Glyph in the appropriate container in SWrapperModel 		
-		addGlyphsToSWrapperModel(listOfGlyphs);
+		addGlyphsToSWrapperModel(listOfGlyphs, listOfArcgroups);
 
 		// Create Compartments and CompartmentGlyphs for the classified SBGN Glyphs
 		createCompartments();
@@ -100,7 +102,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	
 		// Go over every Arc in the libSBGN Map, classify them, and 
 		// store the Arc in the appropriate container in SWrapperModel 
-		addArcsToSWrapperModel(listOfArcs);
+		addArcsToSWrapperModel(listOfArcs, listOfArcgroups);
 		
 		// Create Reactions and ReactionGlyphs using the classified Glyphs.
 		// Then create SpeciesReference and SpeciesReferenceGlyphs using the classified SBGN Arcs
@@ -168,7 +170,13 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	 * Classify every <code>Glyph</code> in the libSBGN <code>Map</code>, store the <code>Glyph</code> 
 	 * in the appropriate container in SWrapperModel.
 	 */		
-	public void addGlyphsToSWrapperModel(List<Glyph> listOfGlyphs) {
+	public void addGlyphsToSWrapperModel(List<Glyph> listOfGlyphs, List<Arcgroup> listOfArcgroups) {
+		for (Arcgroup ag: listOfArcgroups){
+			List<Glyph> glyphs= ag.getGlyph();
+			listOfGlyphs.addAll(glyphs);
+		}
+		
+		
 		String id;
 		String clazz; 	
 		for (Glyph glyph: listOfGlyphs) {
@@ -189,13 +197,20 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 				sWrapperModel.addAnnotation(id, glyph);
 			}
 		}
+		
 	}
 
 	/**
 	 * Classify every <code>Arc</code> in the libSBGN <code>Map</code>, store the <code>Arc</code>
 	 * in the appropriate container in SWrapperModel.
 	 */
-	public void addArcsToSWrapperModel(List<Arc> listOfArcs) {
+	public void addArcsToSWrapperModel(List<Arc> listOfArcs ,List<Arcgroup> listOfArcgroups) {
+		for (Arcgroup ag: listOfArcgroups){
+			List<Arc> arcs= ag.getArc();
+			listOfArcs.addAll(arcs);
+		}
+		
+		
 		String id;
 		SWrapperArc sWrapperArc;
 		

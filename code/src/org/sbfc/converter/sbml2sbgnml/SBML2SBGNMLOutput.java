@@ -88,15 +88,24 @@ public class SBML2SBGNMLOutput {
 		// this is lost
 		listOfEvents = sbmlModel.getListOfEvents();
 		
+		System.out.println("SBML2SBGNMLOutput");
+		System.out.println("　getNumCompartments　"+sbmlModel.getNumCompartments());
+		System.out.println("　getNumSpecies　"+sbmlModel.getNumSpecies());
+		System.out.println("　getNumReactions　"+sbmlModel.getNumReactions());
+		System.out.println("　getNumModifierSpeciesReferences　"+sbmlModel.getNumModifierSpeciesReferences());
+		System.out.println("　getNumSpeciesReferences　"+sbmlModel.getNumSpeciesReferences());
+		System.out.println("-----");
+		
 		if (sbmlModel.isSetPlugin("qual")){
 			//System.out.println("isSetPlugin(qual) true");
 			qualModelPlugin = (QualModelPlugin) sbmlModel.getPlugin("qual");
-			//System.out.println("getNumQualitativeSpecies " + qualModelPlugin.getNumQualitativeSpecies());
-			//System.out.println("getNumTransitions " + qualModelPlugin.getNumTransitions());
-			//System.out.println("getNumCompartments " + model.getNumCompartments());
+			
+			System.out.println(" getNumQualitativeSpecies " + qualModelPlugin.getNumQualitativeSpecies());
+			System.out.println(" getNumTransitions " + qualModelPlugin.getNumTransitions());
 			
 			listOfQualitativeSpecies = qualModelPlugin.getListOfQualitativeSpecies();
 			listOfTransitions = qualModelPlugin.getListOfTransitions();
+			
 		}
 		
 		if (sbmlModel.isSetPlugin("layout")){
@@ -125,19 +134,25 @@ public class SBML2SBGNMLOutput {
 			
 			if (layout.isSetListOfCompartmentGlyphs()){
 				listOfCompartmentGlyphs = layout.getListOfCompartmentGlyphs();
+				System.out.println(" getNumCompartmentGlyphs " + layout.getNumCompartmentGlyphs());
 							}			
 			if (layout.isSetListOfSpeciesGlyphs()){
 				listOfSpeciesGlyphs = layout.getListOfSpeciesGlyphs();
+				System.out.println(" getNumSpeciesGlyphs " + layout.getNumSpeciesGlyphs());
 							}
+			if (layout.isSetListOfReactionGlyphs()){
+				listOfReactionGlyphs = layout.getListOfReactionGlyphs();
+				System.out.println(" getNumReactionGlyphs " + layout.getNumReactionGlyphs());
+			}		
 			if (layout.isSetListOfAdditionalGraphicalObjects()){
 				listOfAdditionalGraphicalObjects = layout.getListOfAdditionalGraphicalObjects();
+				System.out.println(" getListOfAdditionalGraphicalObjects " + layout.getListOfAdditionalGraphicalObjects().size());
 							}			
 			if (layout.isSetListOfTextGlyphs()){
 				listOfTextGlyphs = layout.getListOfTextGlyphs();
+				System.out.println(" getNumTextGlyphs " + layout.getNumTextGlyphs());
 							}			
-			if (layout.isSetListOfReactionGlyphs()){
-				listOfReactionGlyphs = layout.getListOfReactionGlyphs();
-			}			
+	
 		}
 				
 	}

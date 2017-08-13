@@ -32,6 +32,7 @@ import org.sbml.jsbml.ListOf;
 import org.sbml.jsbml.SBMLDocument;
 import org.sbml.jsbml.SBMLReader;
 import org.sbml.jsbml.SBase;
+import org.sbml.jsbml.Species;
 import org.sbml.jsbml.Unit;
 import org.sbml.jsbml.UnitDefinition;
 import org.sbml.jsbml.ext.layout.BoundingBox;
@@ -57,8 +58,8 @@ public class SBML2SBGNMLUtil {
 	int debugMode = 0;
 	public static SBGNUtils sbu = new SBGNUtils("sbgnml");
 	
-	private static final String SBFCANNO_PREFIX = "sbfcanno";
-	public static final String SBFC_ANNO_NAMESPACE = "http://www.sbfc.org/sbfcanno";
+	static final String SBFCANNO_PREFIX = "sbfcanno";
+	static final String SBFC_ANNO_NAMESPACE = "http://www.sbfc.org/sbfcanno";
 	Document document = null;
 	DocumentBuilder builder = null;
 
@@ -169,7 +170,18 @@ public class SBML2SBGNMLUtil {
 		Arc arc;
 		Arc.Start start;
 		Arc.End end;
+		ListOf<CurveSegment> listOfCurveSegments = null;
 		
+		// "clazz = process"
+		processNode = createGlyph(reactionId, clazz, false, null, false, null);
+		createVoidBBox(processNode);
+		Arcgroup ag = new Arcgroup();
+		
+		if (sbmlCurve != null){
+			listOfCurveSegments = sbmlCurve.getListOfCurveSegments();
+		}
+		if (sbmlCurve != null && listOfCurveSegments.size() > 0){
+
 		double minCurveXCoord = 0;
 		double maxCurveXCoord = 0;
 		double minCurveYCoord = 0;
@@ -186,9 +198,8 @@ public class SBML2SBGNMLUtil {
 		double endY;
 		
 		int index = 0;
-		ListOf<CurveSegment> listOfCurveSegments;
 		
-		listOfCurveSegments = sbmlCurve.getListOfCurveSegments();
+		
 		
 		// this is a temporary trick to find the start and end points, to be replaced later.
 		for (CurveSegment curveSegment : listOfCurveSegments) {
@@ -226,13 +237,10 @@ public class SBML2SBGNMLUtil {
 				Double.toString(minCurveYCoord),
 				Double.toString(maxCurveXCoord),
 				Double.toString(maxCurveYCoord)));
+
 		
-		// "clazz = process"
-		processNode = createGlyph(reactionId, clazz, false, null, false, null);
-		createVoidBBox(processNode);
-		Arcgroup ag = new Arcgroup();
-		
-		if (listOfCurveSegments.size() > 0){
+
+
 		
 		double yLastStart = listOfCurveSegments.get(listOfCurveSegments.size()-1).getStart().getY();
 		double yLastEnd = listOfCurveSegments.get(listOfCurveSegments.size()-1).getEnd().getY();
@@ -727,12 +735,56 @@ public class SBML2SBGNMLUtil {
 		if ( base.getExtension() != null ) {
 			ex = base.getExtension();
 		}
-		System.out.println("got hereee");
+		//System.out.println("got hereee");
 		// fill the list<Element> of Extension with our dom element
 		ex.getAny().add(extension);
 
 		// set the Extension for the SBGNBase
 		base.setExtension(ex);
+		
+	}
+	
+	void addSpeciesIdInExtension(SBGNBase base, Species species) {
+		Element extension = document.createElement(SBFCANNO_PREFIX + ":species");
+		extension.setAttribute("xmlns:" + SBFCANNO_PREFIX, SBFC_ANNO_NAMESPACE);
+		
+		
+		extension.setAttribute(SBFCANNO_PREFIX + ":id", species.getId());
+		if (species.getName() != null){
+			extension.setAttribute(SBFCANNO_PREFIX + ":name", species.getName());
+		}
+		extension.setAttribute(SBFCANNO_PREFIX + ":compartment", species.getCompartment());
+		
+		if (species.getInitialAmount() != Double.NaN){
+			extension.setAttribute(SBFCANNO_PREFIX + ":initialAmount",  Double.toString(species.getInitialAmount()));}
+		if (species.getInitialConcentration() != Double.NaN){
+			extension.setAttribute(SBFCANNO_PREFIX + ":initialConcentration",  Double.toString(species.getInitialConcentration()));}
+		if (species.getSubstanceUnits() != null){
+			extension.setAttribute(SBFCANNO_PREFIX + ":substanceUnits",  species.getSubstanceUnits());
+		}
+			extension.setAttribute(SBFCANNO_PREFIX + ":hasOnlySubstanceUnits",  Boolean.toString(species.getHasOnlySubstanceUnits()));
+			extension.setAttribute(SBFCANNO_PREFIX + ":boundaryCondition",  Boolean.toString(species.getBoundaryCondition()));
+			extension.setAttribute(SBFCANNO_PREFIX + ":constant",  Boolean.toString(species.getConstant()));
+		if (species.getConversionFactor() != null){
+			extension.setAttribute(SBFCANNO_PREFIX + ":conversionFactor",  species.getConversionFactor());}
+		
+		
+		// ... and add it as extension for the SBGN-ML glyph
+		Extension ex = new Extension();
+
+		// if the Extension exists already
+		if ( base.getExtension() != null ) {
+			ex = base.getExtension();
+		}
+		//System.out.println("got hereee");
+		// fill the list<Element> of Extension with our dom element
+		ex.getAny().add(extension);
+
+		// set the Extension for the SBGNBase
+		base.setExtension(ex);		
+	}
+	
+	void addSboInExtension(SBGNBase base, String SBO){
 		
 	}
 	

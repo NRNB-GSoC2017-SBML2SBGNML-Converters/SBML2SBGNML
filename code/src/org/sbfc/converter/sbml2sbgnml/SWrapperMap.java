@@ -35,6 +35,8 @@ public class SWrapperMap {
 	
 	HashMap<String, String> notAdded = new HashMap<String, String>();
 	
+	HashMap<String, Glyph> listOfGlyphs = new HashMap<String, Glyph>();
+	
 	SWrapperMap(Map map, Model model){
 		this.map = map;
 		this.model = model;

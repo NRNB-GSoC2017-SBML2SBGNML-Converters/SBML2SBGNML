@@ -67,11 +67,14 @@ import org.sbml.jsbml.ext.qual.QualitativeSpecies;
 import org.sbml.jsbml.ext.qual.Transition;
 import org.sbml.jsbml.ext.render.RenderConstants;
 import org.sbml.jsbml.ext.render.RenderGraphicalObjectPlugin;
+import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
 public class SBML2SBGNML_GSOC2017 extends GeneralConverter { 
-	
 	private static Logger logger;
+	// either "process description" or "activity flow"
+	public String toLanguage = "process description"; 
+
 	public SBML2SBGNMLUtil sUtil;
 	public SBML2SBGNMLOutput sOutput;
 	public SWrapperMap sWrapperMap;
@@ -116,7 +119,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			}
 			
 			createLabelsFromTextGlyphs(sOutput.sbgnObject, sOutput.listOfTextGlyphs);
-			addCloneMarkers();
+			addCloneMarkers(sOutput.listOfSpeciesGlyphs, sWrapperMap.listOfSWrapperGlyphEntityPools);
 		}
 		
 		createExtensionsForMathML();
@@ -126,28 +129,85 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		}
 		
 		
+		
+		
+		System.out.println("-----");
 		System.out.println("sbgnObject.getMap().getGlyph() ="+sOutput.sbgnObject.getMap().getGlyph().size());
 		System.out.println("sbgnObject.getMap().getArc() ="+sOutput.sbgnObject.getMap().getArc().size());
 		System.out.println("sbgnObject.getMap().getArcgroup() ="+sOutput.sbgnObject.getMap().getArcgroup().size());
-		System.out.println("generalGlyphErrors ="+generalGlyphErrors);
-		
 
 		System.out.println(Arrays.toString(sWrapperMap.listOfSWrapperGlyphEntityPools.keySet().toArray()));
 		System.out.println(Arrays.toString(sWrapperMap.listOfSWrapperArcs.keySet().toArray()));
+		System.out.println(" listOfSWrapperAuxiliary size="+sWrapperMap.listOfSWrapperAuxiliary.size());
+		System.out.println(" generalGlyphErrors ="+generalGlyphErrors);
 		
+		
+		
+		sOutput.sbgnObject.getMap().setLanguage(toLanguage);
 		
 		// return one sbgnObject
 		return sOutput.sbgnObject;		
 	}
 	
-	private void addCloneMarkers() {
+	private void addCloneMarkers(ListOf<SpeciesGlyph> listOfSpeciesGlyphs, HashMap<String, SWrapperGlyphEntityPool> listOfSWrapperGlyphEntityPools) {
 		
+		//List<Glyph> listOfGlyphs = sOutput.sbgnObject.getMap().getGlyph();
+		
+		// note: listOfSWrapperGlyphEntityPools does not work if there are clones! 
+		// e.g. 244 glyphs for 72 species, only 72 of the 244 are stored
+		// this means we can't convert back and forth between sbgn and sbml (sbgn->sbml->sbgn->sbml->etc)
+		// todo: change listOfSWrapperGlyphEntityPools
+		if (listOfSpeciesGlyphs == null){return;}
+		
+		HashMap<String, List<String>> speciesMap = new HashMap<String, List<String>>();
+		HashMap<String, Glyph> glyphMap = new HashMap<String, Glyph>();
+		
+		// note: does not consider Species that do not have a SpeciesGlyph in layout
+		for (SpeciesGlyph speciesGlyph : listOfSpeciesGlyphs){
+			String speciesId = speciesGlyph.getSpecies();
+			String speciesGlyphId = speciesGlyph.getId();
+			
+			if (speciesMap.get(speciesId) == null){
+				speciesMap.put(speciesId, new ArrayList<String>());
+				speciesMap.get(speciesId).add(speciesGlyphId);
+			} else {
+				speciesMap.get(speciesId).add(speciesGlyphId);
+			}
+
+		}
+
 		List<Glyph> listOfGlyphs = sOutput.sbgnObject.getMap().getGlyph();
-		
+		for (Glyph glyph: listOfGlyphs){
+			List<Element> elements = glyph.getExtension().getAny();
+			for (Element e : elements){
+				String tagName = e.getTagName();
+				
+				if (tagName.equals(sUtil.SBFCANNO_PREFIX + ":species")){
+					String speciesId = e.getAttribute(sUtil.SBFCANNO_PREFIX + ":id");
+					
+					if (speciesMap.get(speciesId).size() > 1){
+
+						setClone(glyph);
+						System.out.println("addCloneMarkers species="+ speciesId + " glyph="+glyph.getId());
+					}
+				}
+				
+
+			}
+		}
+
 	}
 
+	void setClone(Glyph sbgnGlyph){
+		org.sbgn.bindings.Glyph.Clone clone = null;
+
+		clone = new Glyph.Clone();
+		sbgnGlyph.setClone(clone);
+		// todo: cloneText
+		
+	}
+	
 	private void addedChildGlyphs() {
-		System.out.println(" listOfSWrapperAuxiliary size="+sWrapperMap.listOfSWrapperAuxiliary.size());
 		
 		for (String key : sWrapperMap.notAdded.keySet()){
 			Glyph glyph;
@@ -347,9 +407,17 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		Glyph sbgnSpeciesGlyph;
 		SWrapperGlyphEntityPool sWrapperGlyphEntityPool = null;
 		
+		String clazz = "unspecified entity";
+		// not all SBML models has renderInformation
+		try{
 		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) speciesGlyph.getPlugin(RenderConstants.shortLabel);
 		String objectRole = renderGraphicalObjectPlugin.getObjectRole();
-		String clazz = mapObjectRoleToClazz(objectRole);
+		clazz = mapObjectRoleToClazz(objectRole);
+		} catch (Exception e) {
+			if (sOutput.sbmlModel.isSetPlugin("render")){
+				System.out.println("createFromOneSpeciesGlyph " + "cannot get objectRole for "+speciesGlyph.getId());
+			}
+		}
 		
 		// create a new Glyph, set its Bbox, set a Label
 		// todo: or clazz could be simple chemical etc.
@@ -360,6 +428,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			clazz = sUtil.sbu.getOutputFromClass(speciesGlyph, "unspecified entity");
 		}
 		
+		// render extension
 		String orientation = null;
 		if (clazz.contains("tag")){
 			String[] array = clazz.split("_");
@@ -388,8 +457,6 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		
 		//System.out.println("speciesGlyph.getSpecies() "+speciesGlyph.getSpecies() + " clazz= " + clazz);
 		
-		// todo: create Auxiliary items?
-		
 		if (speciesGlyph.getSpeciesInstance() instanceof Species){
 			sWrapperGlyphEntityPool = new SWrapperGlyphEntityPool(sbgnSpeciesGlyph, 
 					(Species) speciesGlyph.getSpeciesInstance(), speciesGlyph);
@@ -405,6 +472,8 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		sUtil.addSpeciesIdInExtension(sbgnSpeciesGlyph, (Species) speciesGlyph.getSpeciesInstance());
 		
 		return sWrapperGlyphEntityPool;
 	}	
@@ -561,10 +630,12 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		SWrapperArcGroup sbgnReactionGlyph;
 		SWrapperGlyphProcess sWrapperGlyphProcess;
 
-		if (listOfReactionGlyphs == null){return;}
+		if (listOfReactionGlyphs == null){
+			System.out.println("createFromReactionGlyphs "+"listOfReactionGlyphs is null");
+			return;}
 		
 		for (ReactionGlyph reactionGlyph : listOfReactionGlyphs){
-			// todo: return an ArcGroup instead
+
 			sbgnReactionGlyph = createFromOneReactionGlyph(sbgnObject, reactionGlyph);
 			
 			
@@ -603,49 +674,61 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		Reaction reaction;
 		SWrapperArcGroup sWrapperArcGroup = null;
 		
-		if (reactionGlyph.isSetReaction()) {
-			//System.out.println("here");
-			// create a process node from dimensions of the curve
-			// todo: change to more robust method
-			// todo: create Auxiliary items?	
-			if (reactionGlyph.isSetCurve()) {
-				RenderGraphicalObjectPlugin renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) reactionGlyph.getPlugin(RenderConstants.shortLabel);
-				String objectRole = renderGraphicalObjectPlugin.getObjectRole();
-				String clazz = mapObjectRoleToClazz(objectRole);
-				
-				if (clazz.equals("unspecified entity")){
-					sUtil.sbu.getOutputFromClass(reactionGlyph.getReactionInstance(), "process");
-				}
-				if (clazz.equals("process")){
-					clazz = sUtil.sbu.getOutputFromClass(reactionGlyph, "process");
-				}
-				
-				sbmlCurve = reactionGlyph.getCurve();
-				processNode = sUtil.createOneProcessNode(reactionGlyph.getReaction(), sbmlCurve, clazz);
-				
-				
-				
-				if (processNode == null){	
-					System.out.println("!! createFromOneReactionGlyph "+reactionGlyph.getReaction());
-					return null;			}
-				
-				// for now, set style to just a Bbox
-				sUtil.createBBox(reactionGlyph, processNode.getGlyph().get(0));
-				
-				// todo: should remove all the extra stuff done in createOneProcessNode
-				if (processNode.getArc().size() > 0){
-					processNode.getArc().set(0, null);
-				}
-				
-				
-
-				
-				
-				
-				sOutput.addArcgroupToMap(processNode);
-				sWrapperArcGroup = new SWrapperArcGroup(reactionGlyph.getReaction(), processNode);
-				
+		if (!reactionGlyph.isSetReaction()) {
+			System.out.println("createFromOneReactionGlyph reactionGlyph " +reactionGlyph.getId()+ " does not have a reaction");
+		}
+		
+		// create a process node from dimensions of the curve
+		// todo: change to more robust method
+		if (reactionGlyph.isSetCurve()) {
+			// does not matter is reaction has a curve or not
+		}
+		
+		String clazz = "unspecified entity";
+		try{
+			RenderGraphicalObjectPlugin renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) reactionGlyph.getPlugin(RenderConstants.shortLabel);
+			String objectRole = renderGraphicalObjectPlugin.getObjectRole();
+			clazz = mapObjectRoleToClazz(objectRole);
+		} catch (Exception e) {
+			if (sOutput.sbmlModel.isSetPlugin("render")){
+				System.out.println("createFromOneSpeciesGlyph " + "cannot get objectRole for "+reactionGlyph.getId());
 			}
+		}	
+				
+				
+			if (clazz.equals("unspecified entity")){
+				clazz = sUtil.sbu.getOutputFromClass(reactionGlyph.getReactionInstance(), "process");
+			}
+			if (clazz.equals("process")){
+				clazz = sUtil.sbu.getOutputFromClass(reactionGlyph, "process");
+			}
+			
+			sbmlCurve = reactionGlyph.getCurve();
+			processNode = sUtil.createOneProcessNode(reactionGlyph.getReaction(), sbmlCurve, clazz);
+			
+			
+			
+			if (processNode == null){	
+				System.out.println("!! createFromOneReactionGlyph "+reactionGlyph.getReaction());
+				return null;			}
+			
+			// for now, set style to just a Bbox
+			sUtil.createBBox(reactionGlyph, processNode.getGlyph().get(0));
+			
+			// todo: should remove all the extra stuff done in createOneProcessNode
+			if (processNode.getArc().size() > 0){
+				processNode.getArc().set(0, null);
+			}
+			
+			
+
+			
+			
+			
+			sOutput.addArcgroupToMap(processNode);
+			sWrapperArcGroup = new SWrapperArcGroup(reactionGlyph.getReaction(), processNode);
+			
+
 			
 			listOfSpeciesReferenceGlyphs = reactionGlyph.getListOfSpeciesReferenceGlyphs();
 			if (listOfSpeciesReferenceGlyphs.size() > 0) {
@@ -660,7 +743,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 				String math = reaction.getKineticLaw().getMathMLString();
 				sUtil.addExtensionElement(processNode, math);
 			}
-		}
+
 		
 		try {
 			sUtil.addAnnotationInExtension(processNode, reactionGlyph.getAnnotation());
@@ -706,10 +789,17 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		arc = sUtil.createOneArc(sbmlCurve);
 		arc.setId(speciesReferenceGlyph.getSpeciesReference());
 		
-		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) speciesReferenceGlyph.getPlugin(RenderConstants.shortLabel);
+		String clazz = "unspecified entity";
+		try{
+			RenderGraphicalObjectPlugin renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) speciesReferenceGlyph.getPlugin(RenderConstants.shortLabel);
 		String objectRole = renderGraphicalObjectPlugin.getObjectRole();
-		String clazz = mapObjectRoleToClazz(objectRole);
-		
+		clazz = mapObjectRoleToClazz(objectRole);
+	} catch (Exception e) {
+		if (sOutput.sbmlModel.isSetPlugin("render")){
+			System.out.println("createFromOneSpeciesGlyph " + "cannot get objectRole for "+speciesReferenceGlyph.getId());
+		}
+	}
+	
 		// set Clazz of the Arc
 		// todo: need to determine from getOutputFromClass between production/consumption etc			
 		if (clazz.equals("unspecified entity")){
@@ -920,7 +1010,6 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	
 	/**
 	 * Create multiple SBGN <code>Glyph</code> from an SBML <code>GeneralGlyph</code>. 
-	 * TODO: handle isSetCurve and isSetListOfSubGlyphs. Iterate the listOfSubGlyphs.
 	 * 
 	 * @param <code>Sbgn</code> sbgnObject
 	 * @param <code>ListOf<GraphicalObject></code> listOfAdditionalGraphicalObjects
@@ -942,7 +1031,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) generalGlyph.getPlugin(RenderConstants.shortLabel);
 		String objectRole = renderGraphicalObjectPlugin.getObjectRole();	
 		} catch (Exception e) {
-			return null;
+			System.out.println("createFromOneGeneralGlyph " + "cannot get object role for "+generalGlyph.getId());
 		}
 		
 //		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) generalGlyph.getPlugin(RenderConstants.shortLabel);
