@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.lang.Math;
@@ -130,6 +131,10 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		System.out.println("sbgnObject.getMap().getArcgroup() ="+sOutput.sbgnObject.getMap().getArcgroup().size());
 		System.out.println("generalGlyphErrors ="+generalGlyphErrors);
 		
+
+		System.out.println(Arrays.toString(sWrapperMap.listOfSWrapperGlyphEntityPools.keySet().toArray()));
+		System.out.println(Arrays.toString(sWrapperMap.listOfSWrapperArcs.keySet().toArray()));
+		
 		
 		// return one sbgnObject
 		return sOutput.sbgnObject;		
@@ -142,12 +147,16 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	}
 
 	private void addedChildGlyphs() {
+		System.out.println(" listOfSWrapperAuxiliary size="+sWrapperMap.listOfSWrapperAuxiliary.size());
+		
 		for (String key : sWrapperMap.notAdded.keySet()){
 			Glyph glyph;
 			
 			String parentKey = sWrapperMap.notAdded.get(key);
 			Glyph parentGlyph = sWrapperMap.getGlyph(parentKey);
 			glyph = sWrapperMap.getGlyph(key);
+			System.out.println(" listOfSWrapperAuxiliary size="+sWrapperMap.listOfSWrapperAuxiliary.size());
+			
 			
 			Arc parentArc = null;
 			
@@ -156,10 +165,10 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 				
 				
 				if (parentArc == null){
-					System.out.println("! addedChildGlyphs "+parentKey+" contains "+key);
+					System.out.println("! addedChildGlyphs "+parentKey+" contains "+key );
 					generalGlyphErrors++;
 					continue;}
-				
+								
 				parentArc.getGlyph().add(glyph);
 				
 				if (glyph.getClazz().equals("unit of information")){
@@ -315,7 +324,15 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			if (cvt.getBiologicalQualifierType().getElementNameEquivalent().equals(Qualifier.BQB_IS_PART_OF.getElementNameEquivalent())){
 				String parent = cvt.getResources().get(0);
 				hasParent = true;
-				sWrapperMap.notAdded.put(parentId, parent.split("_")[1]);
+				
+				// todo: need a better splitting pattern
+				String[] array = parent.split("_");
+				if (array.length == 3){
+					sWrapperMap.notAdded.put(parentId, array[1]+"_"+array[2]);
+				}
+				if (array.length == 2){
+					sWrapperMap.notAdded.put(parentId, array[1]);
+				}
 				//System.out.println("-==? hasParent "+ parent + " " + parent.split("_")[1]);
 			}
 			
@@ -959,8 +976,11 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 
 			boolean hasParent = checkParentChildGlyph(generalGlyph, generalGlyph.getId());
 			if (hasParent){
-				//System.out.println("++++++createFromOneGeneralGlyph" + generalGlyph.getId());
+				//System.out.println("createFromOneGeneralGlyph " + generalGlyph.getId());
+				
+				// todo: need a better splitting pattern
 				String id = generalGlyph.getId().split("_")[1];
+				
 				sWrapperMap.listOfSWrapperAuxiliary.put(generalGlyph.getId(), new SWrapperAuxiliary(glyph, generalGlyph, id));
 			return null;}
 			

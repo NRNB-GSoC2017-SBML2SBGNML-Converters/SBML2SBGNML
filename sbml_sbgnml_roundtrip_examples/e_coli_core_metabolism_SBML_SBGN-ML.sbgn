@@ -1771,6 +1771,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1576644">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576754_n1576644"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576754_n1576644"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="2">
+                    <bbox w="15.0" h="15.0" x="707.14294" y="3140.631"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="707.14294" y="3140.631"/>
+            </glyph>
             <start x="827.14294" y="3210.631"/>
             <end x="727.14294" y="3160.631">
                 <point x="827.14294" y="3193.8606"/>
@@ -2862,6 +2880,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1576820">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577540_n1576820"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577540_n1576820"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="4">
+                    <bbox w="15.0" h="15.0" x="4282.143" y="2235.631"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4282.143" y="2235.631"/>
+            </glyph>
             <start x="4302.143" y="2255.631"/>
             <next x="4662.143" y="2255.631">
                 <point x="4462.143" y="2255.631"/>
@@ -2879,6 +2915,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1576808">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577540_n1576808"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577540_n1576808"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="3">
+                    <bbox w="15.0" h="15.0" x="4822.143" y="2235.631"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4822.143" y="2235.631"/>
+            </glyph>
             <start x="4702.143" y="2255.631"/>
             <end x="4842.143" y="2255.631">
                 <point x="4758.5967" y="2254.0195"/>
@@ -3366,6 +3420,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1576498">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576696_n1576498"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576696_n1576498"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="2">
+                    <bbox w="15.0" h="15.0" x="3482.1428" y="315.63107"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="3482.1428" y="315.63107"/>
+            </glyph>
             <start x="3502.1428" y="335.63107"/>
             <next x="3502.1428" y="505.63107">
                 <point x="3502.1428" y="410.63107"/>
@@ -3430,6 +3502,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1576499">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576696_n1576499"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576696_n1576499"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="2">
+                    <bbox w="15.0" h="15.0" x="3482.1428" y="745.9189"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="3482.1428" y="745.9189"/>
+            </glyph>
             <start x="3502.1428" y="555.63104"/>
             <end x="3502.1428" y="765.9189">
                 <point x="3502.1428" y="606.9152"/>
@@ -3904,6 +3994,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1576680">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576773_n1576680"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576773_n1576680"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="4">
+                    <bbox w="15.0" h="15.0" x="4837.143" y="815.63104"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4837.143" y="815.63104"/>
+            </glyph>
             <start x="4857.143" y="835.63104"/>
             <next x="4657.143" y="835.63104">
                 <point x="4777.143" y="835.63104"/>
@@ -3970,6 +4078,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1576682">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576773_n1576682"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576773_n1576682"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="3">
+                    <bbox w="15.0" h="15.0" x="4387.143" y="815.63104"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4387.143" y="815.63104"/>
+            </glyph>
             <start x="4617.143" y="835.63104"/>
             <end x="4407.143" y="835.63104">
                 <point x="4550.19" y="834.0196"/>
@@ -4280,6 +4406,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1576495">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576735_n1576495"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576735_n1576495"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="0.5">
+                    <bbox w="15.0" h="15.0" x="4292.143" y="1315.6311"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4292.143" y="1315.6311"/>
+            </glyph>
             <start x="4322.143" y="1345.6311"/>
             <next x="4652.143" y="1585.6311">
                 <point x="4430.0493" y="1585.6311"/>
@@ -4297,6 +4441,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1576602">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576735_n1576602"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576735_n1576602"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="2">
+                    <bbox w="15.0" h="15.0" x="4273.841" y="1560.7965"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4273.841" y="1560.7965"/>
+            </glyph>
             <start x="4293.841" y="1580.7965"/>
             <next x="4652.143" y="1585.6311">
                 <point x="4408.841" y="1580.7965"/>
@@ -4344,6 +4506,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1576603">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576735_n1576603"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576735_n1576603"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="2">
+                    <bbox w="15.0" h="15.0" x="4832.143" y="1565.6311"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4832.143" y="1565.6311"/>
+            </glyph>
             <start x="4682.143" y="1585.6311"/>
             <end x="4852.143" y="1585.6311">
                 <point x="4707.643" y="1585.6311"/>
@@ -4455,6 +4635,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1576831">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577532_n1576831"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577532_n1576831"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="2">
+                    <bbox w="15.0" h="15.0" x="2482.1428" y="365.63107"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="2482.1428" y="365.63107"/>
+            </glyph>
             <start x="2502.1428" y="385.63107"/>
             <next x="2602.1428" y="441.63107">
                 <point x="2602.1428" y="368.48975"/>
@@ -4472,6 +4670,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1576810">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577532_n1576810"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577532_n1576810"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="2">
+                    <bbox w="15.0" h="15.0" x="2482.1428" y="675.63104"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="2482.1428" y="675.63104"/>
+            </glyph>
             <start x="2602.1428" y="665.63104"/>
             <end x="2502.1428" y="695.63104">
                 <point x="2602.1428" y="681.2915"/>
@@ -4534,6 +4750,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1576673">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576771_n1576673"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576771_n1576673"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="2">
+                    <bbox w="15.0" h="15.0" x="4808.143" y="2752.631"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4808.143" y="2752.631"/>
+            </glyph>
             <start x="4828.143" y="2772.631"/>
             <next x="4658.143" y="2712.631">
                 <point x="4824.198" y="2712.631"/>
@@ -4566,6 +4800,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1576674">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576771_n1576674"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576771_n1576674"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="2">
+                    <bbox w="15.0" h="15.0" x="4428.143" y="2752.631"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4428.143" y="2752.631"/>
+            </glyph>
             <start x="4528.143" y="2712.631"/>
             <end x="4448.143" y="2772.631">
                 <point x="4513.143" y="2712.631"/>
@@ -4946,6 +5198,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1576658">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576763_n1576658"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576763_n1576658"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="2">
+                    <bbox w="15.0" h="15.0" x="2912.1428" y="365.63107"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="2912.1428" y="365.63107"/>
+            </glyph>
             <start x="2932.1428" y="385.63107"/>
             <next x="2832.1428" y="525.63104">
                 <point x="2832.1428" y="363.42953"/>
@@ -4995,6 +5265,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1576659">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576763_n1576659"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576763_n1576659"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="2">
+                    <bbox w="15.0" h="15.0" x="2912.1428" y="675.63104"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="2912.1428" y="675.63104"/>
+            </glyph>
             <start x="2832.1428" y="665.63104"/>
             <end x="2932.1428" y="695.63104">
                 <point x="2832.1428" y="681.2915"/>
@@ -6284,6 +6572,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1576536">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576707_n1576536"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576707_n1576536"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="2">
+                    <bbox w="15.0" h="15.0" x="4177.143" y="1165.6311"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4177.143" y="1165.6311"/>
+            </glyph>
             <start x="4137.143" y="945.63104"/>
             <end x="4207.143" y="1195.6311">
                 <point x="4137.9736" y="1037.9225"/>
@@ -6493,6 +6799,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1576554">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576761_n1576554"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1576761_n1576554"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="2">
+                    <bbox w="15.0" h="15.0" x="4210.143" y="3287.631"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4210.143" y="3287.631"/>
+            </glyph>
             <start x="4108.143" y="3533.631"/>
             <end x="4240.143" y="3317.631">
                 <point x="4108.143" y="3495.66"/>
@@ -6850,6 +7174,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577073">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577073"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577073"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="59.81">
+                    <bbox w="15.0" h="15.0" x="5499.601" y="4239.656"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="5499.601" y="4239.656"/>
+            </glyph>
             <start x="5519.601" y="4259.656"/>
             <next x="5326.195" y="4423.113">
                 <point x="5447.471" y="4258.934"/>
@@ -6867,6 +7209,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577078">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577078"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577078"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="4.9414">
+                    <bbox w="15.0" h="15.0" x="5506.6646" y="4317.553"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="5506.6646" y="4317.553"/>
+            </glyph>
             <start x="5526.6646" y="4337.553"/>
             <next x="5326.195" y="4423.113">
                 <point x="5419.428" y="4315.83"/>
@@ -6884,6 +7244,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577079">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577079"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577079"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="0.129">
+                    <bbox w="15.0" h="15.0" x="5484.408" y="4183.2153"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="5484.408" y="4183.2153"/>
+            </glyph>
             <start x="5504.408" y="4203.2153"/>
             <next x="5326.195" y="4423.113">
                 <point x="5415.564" y="4201.8003"/>
@@ -6901,6 +7279,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577083">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577083"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577083"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="59.81">
+                    <bbox w="15.0" h="15.0" x="5156.1147" y="4153.687"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="5156.1147" y="4153.687"/>
+            </glyph>
             <start x="5176.1147" y="4173.687"/>
             <next x="5326.195" y="4423.113">
                 <point x="5309.1147" y="4208.687"/>
@@ -6918,6 +7314,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577084">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577084"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577084"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="0.0709">
+                    <bbox w="15.0" h="15.0" x="5059.2144" y="4164.2495"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="5059.2144" y="4164.2495"/>
+            </glyph>
             <start x="5079.2144" y="4184.2495"/>
             <next x="5326.195" y="4423.113">
                 <point x="5250.2144" y="4219.2495"/>
@@ -6935,6 +7349,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577082">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577082"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577082"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="0.8977">
+                    <bbox w="15.0" h="15.0" x="5375.1616" y="4084.3467"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="5375.1616" y="4084.3467"/>
+            </glyph>
             <start x="5395.1616" y="4104.3467"/>
             <next x="5326.195" y="4423.113">
                 <point x="5299.684" y="4098.73"/>
@@ -6952,6 +7384,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577080">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577080"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577080"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="0.361">
+                    <bbox w="15.0" h="15.0" x="5409.69" y="4131.9663"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="5409.69" y="4131.9663"/>
+            </glyph>
             <start x="5429.69" y="4151.9663"/>
             <next x="5326.195" y="4423.113">
                 <point x="5343.1313" y="4138.647"/>
@@ -6969,6 +7419,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577089">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577089"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577089"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="0.205">
+                    <bbox w="15.0" h="15.0" x="4672.6704" y="4225.512"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4672.6704" y="4225.512"/>
+            </glyph>
             <start x="4692.6704" y="4245.512"/>
             <next x="5326.195" y="4423.113">
                 <point x="5015.6704" y="4280.512"/>
@@ -6986,6 +7454,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577088">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577088"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577088"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="1.7867">
+                    <bbox w="15.0" h="15.0" x="4755.839" y="4209.6685"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4755.839" y="4209.6685"/>
+            </glyph>
             <start x="4775.839" y="4229.6685"/>
             <next x="5326.195" y="4423.113">
                 <point x="5060.839" y="4264.6685"/>
@@ -7003,6 +7489,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577085">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577085"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577085"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="2.8328">
+                    <bbox w="15.0" h="15.0" x="4960.2017" y="4174.812"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4960.2017" y="4174.812"/>
+            </glyph>
             <start x="4980.2017" y="4194.812"/>
             <next x="5326.195" y="4423.113">
                 <point x="5189.2017" y="4229.812"/>
@@ -7020,6 +7524,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577086">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577086"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577086"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="3.547">
+                    <bbox w="15.0" h="15.0" x="4865.414" y="4194.8813"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4865.414" y="4194.8813"/>
+            </glyph>
             <start x="4885.414" y="4214.8813"/>
             <next x="5326.195" y="4423.113">
                 <point x="5132.414" y="4249.8813"/>
@@ -7037,6 +7559,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577094">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577094"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577094"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="0.5191">
+                    <bbox w="15.0" h="15.0" x="4386.195" y="4295.225"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4386.195" y="4295.225"/>
+            </glyph>
             <start x="4406.195" y="4315.225"/>
             <next x="5326.195" y="4423.113">
                 <point x="4843.195" y="4350.225"/>
@@ -7054,6 +7594,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577095">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577095"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577095"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="0.2557">
+                    <bbox w="15.0" h="15.0" x="4305.138" y="4316.3506"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4305.138" y="4316.3506"/>
+            </glyph>
             <start x="4325.138" y="4336.3506"/>
             <next x="5326.195" y="4423.113">
                 <point x="4800.138" y="4371.3506"/>
@@ -7071,6 +7629,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577092">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577092"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577092"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="3.7478">
+                    <bbox w="15.0" h="15.0" x="4573.657" y="4242.4126"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4573.657" y="4242.4126"/>
+            </glyph>
             <start x="4593.657" y="4262.4126"/>
             <next x="5326.195" y="4423.113">
                 <point x="4954.657" y="4297.4126"/>
@@ -7088,6 +7664,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577093">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577093"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577093"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="1.496">
+                    <bbox w="15.0" h="15.0" x="4480.9824" y="4267.7627"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4480.9824" y="4267.7627"/>
+            </glyph>
             <start x="4500.9824" y="4287.7627"/>
             <next x="5326.195" y="4423.113">
                 <point x="4899.9824" y="4322.7627"/>
@@ -7105,6 +7699,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577097">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577097"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577097"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="13.0279">
+                    <bbox w="15.0" h="15.0" x="4239.926" y="4348.038"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4239.926" y="4348.038"/>
+            </glyph>
             <start x="4259.926" y="4368.038"/>
             <next x="5326.195" y="4423.113">
                 <point x="4772.926" y="4403.038"/>
@@ -7122,6 +7734,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577077">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577077"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577077"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="59.81">
+                    <bbox w="15.0" h="15.0" x="5475.4785" y="4590.1377"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="5475.4785" y="4590.1377"/>
+            </glyph>
             <start x="5326.195" y="4443.113"/>
             <end x="5495.4785" y="4610.1377">
                 <point x="5326.195" y="4479.113"/>
@@ -7137,6 +7767,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577081">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577081"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577081"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="59.81">
+                    <bbox w="15.0" h="15.0" x="5235.0967" y="4659.9854"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="5235.0967" y="4659.9854"/>
+            </glyph>
             <start x="5326.195" y="4443.113"/>
             <end x="5255.0967" y="4679.9854">
                 <point x="5326.195" y="4479.113"/>
@@ -7152,6 +7800,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577087">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577087"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577087"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="3.7478">
+                    <bbox w="15.0" h="15.0" x="5180.995" y="4597.578"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="5180.995" y="4597.578"/>
+            </glyph>
             <start x="5326.195" y="4443.113"/>
             <end x="5200.995" y="4617.578">
                 <point x="5326.195" y="4479.113"/>
@@ -7167,6 +7833,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577090">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577090"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577090"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="3.547">
+                    <bbox w="15.0" h="15.0" x="5106.195" y="4562.757"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="5106.195" y="4562.757"/>
+            </glyph>
             <start x="5326.195" y="4443.113"/>
             <end x="5126.195" y="4582.757">
                 <point x="5326.195" y="4479.113"/>
@@ -7182,6 +7866,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577091">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577091"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577091"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="4.1182">
+                    <bbox w="15.0" h="15.0" x="5453.19" y="4645.141"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="5453.19" y="4645.141"/>
+            </glyph>
             <start x="5326.195" y="4443.113"/>
             <end x="5473.19" y="4665.141">
                 <point x="5326.195" y="4475.113"/>
@@ -7197,6 +7899,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577098">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577098"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577098"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="59.81">
+                    <bbox w="15.0" h="15.0" x="4905.578" y="4497.0063"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="4905.578" y="4497.0063"/>
+            </glyph>
             <start x="5326.195" y="4443.113"/>
             <end x="4925.578" y="4517.0063">
                 <point x="5326.195" y="4479.113"/>
@@ -7212,6 +7932,24 @@
                     </sbfcanno:hasProperty>
                 </sbfcanno:annotation>
             </extension>
+            <glyph class="cardinality" id="GeneralGlyph_cardinality_1577096">
+                <extension>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577096"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                    <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
+                        <sbfcanno:isPartOf>
+                            <sbfcanno:resource sbfcanno:urn="SpeciesReferenceGlyph_r1577547_n1577096"/>
+                        </sbfcanno:isPartOf>
+                    </sbfcanno:annotation>
+                </extension>
+                <label text="13.0279">
+                    <bbox w="15.0" h="15.0" x="5000.8574" y="4530.449"/>
+                </label>
+                <bbox w="15.0" h="15.0" x="5000.8574" y="4530.449"/>
+            </glyph>
             <start x="5326.195" y="4443.113"/>
             <end x="5020.8574" y="4550.449">
                 <point x="5326.195" y="4479.113"/>
