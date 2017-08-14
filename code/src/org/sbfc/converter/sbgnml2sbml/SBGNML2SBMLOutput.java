@@ -137,7 +137,7 @@ public class SBGNML2SBMLOutput {
 	
 	private void createQual() {
 		this.qualModelPlugin = (QualModelPlugin) model.getPlugin("qual");
-		
+
 	}
 	
 //	public void addListOfColorDefinitions(ListOf<ColorDefinition> listOfColorDefinitions) {

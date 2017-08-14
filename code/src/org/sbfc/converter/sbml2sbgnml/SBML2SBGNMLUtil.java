@@ -177,6 +177,9 @@ public class SBML2SBGNMLUtil {
 		createVoidBBox(processNode);
 		Arcgroup ag = new Arcgroup();
 		
+		
+		// if we want to create the special kind of style where the "process node" is the endHead of the centre Curve
+		// but most likely we won't need it
 		if (sbmlCurve != null){
 			listOfCurveSegments = sbmlCurve.getListOfCurveSegments();
 		}

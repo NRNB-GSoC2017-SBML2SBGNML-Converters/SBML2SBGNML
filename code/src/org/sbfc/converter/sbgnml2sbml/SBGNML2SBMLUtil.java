@@ -658,6 +658,8 @@ public class SBGNML2SBMLUtil {
 		
 		referenceGlyph = new ReferenceGlyph();
 		referenceGlyph.setId("ReferenceGlyph_" + id);
+		
+		System.out.println("! createOneReferenceGlyph id="+id+" arc="+arc.getId());
 		referenceGlyph.setGlyph(object.getId());
 		
 		// does not work because we can't create a ModifierSpeciesReference. 
@@ -746,11 +748,15 @@ public class SBGNML2SBMLUtil {
 			return true;
 		} else if (clazz.equals("perturbing agent")) {
 			return true;
+		} else if (clazz.equals("perturbation")) {
+			return true;
 		} 
 		
 		else if (clazz.equals("biological activity")) {
 			return true;
 		} else if (clazz.equals("phenotype")) {
+			return true;
+		} else if (clazz.equals("delay")) {
 			return true;
 		} else if (clazz.equals("submap")) {
 			return true;

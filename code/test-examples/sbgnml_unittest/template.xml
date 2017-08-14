@@ -288,10 +288,12 @@
     </render:style>
     
     <render:style roleList="substrate" id="substrate">
+		<!--consumption-->
       <render:g stroke="black" stroke-width="2.0" />
     </render:style>
     
-    <render:style roleList="SBO0000398" id="SBO0000398"> <!-- logic arc -->
+    <render:style roleList="SBO0000398" id="SBO0000398"> 
+		<!--logic arc -->
       <render:g stroke="black" stroke-width="2.0" />
     </render:style>
     
@@ -317,18 +319,23 @@
       </render:g>
     </render:style>
     <render:style roleList="SBO0000169" id="SBO0000169">
+		<!--inhibition-->
       <render:g stroke="black" stroke-width="2.0" endHead="inhibitor" />
     </render:style>
     <render:style roleList="SBO0000171" id="SBO0000171">
+		<!--necessary stimulation-->
       <render:g stroke="black" stroke-width="2.0" endHead="necessary_stimulation" />
     </render:style>
     <render:style roleList="SBO0000172" id="SBO0000172">
+		<!--catalysis-->
       <render:g stroke="black" stroke-width="2.0" fill="white" endHead="activator" />
     </render:style>
     <render:style roleList="SBO0000168" id="SBO0000168">
+		<!--unknown influence-->
       <render:g stroke="black" stroke-width="2.0" fill="white" endHead="modulation" />
     </render:style>
     <render:style roleList="SBO0000170" id="SBO0000170">
+		<!-- stimulation -->
       <render:g stroke="black" stroke-width="2.0" fill="white" endHead="stimulation" />
     </render:style>
     <render:style roleList="SBO0000180" id="SBO0000180">
@@ -339,6 +346,7 @@
       </render:g>
     </render:style>
     <render:style roleList="product" id="product">
+		<!--production-->
       <render:g stroke="black" stroke-width="2.0" endHead="product" />
     </render:style>
     <render:style roleList="interaction" id="interaction">
@@ -1038,6 +1046,55 @@
         </render:polygon>
       </render:g>
     </render:style>
+    
+        <render:style roleList="perturbation" id="perturbation">
+      <!-- Perturbation  -->
+      <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="80%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="20%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+          </render:listOfElements>
+        </render:polygon>
+      </render:g>
+    </render:style>
+    
+        <render:style roleList="SBO0000412" id="SBO0000412">
+      <!-- biological activity -->
+      <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
+        <render:polygon stroke="black" stroke-width="2" fill="EPNBackgroundGradient" >
+          <render:listOfElements>
+
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+
+              <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+
+              <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+            
+          </render:listOfElements>
+        </render:polygon>
+      </render:g>
+    </render:style>    
+    
     <render:style roleList="Tag" id="Tag">
       <!-- Tag  -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
@@ -1354,7 +1411,123 @@
         </render:polygon>
       </render:g>
     </render:style>    
+     
+     <render:style roleList="unitofinfoSBO0000245" id="unitofinfoSBO0000245">
+      <!-- Unit of information for Biological activity Macromolecule -->
+      <render:g stroke="black" stroke-width="2" >
+        <render:rectangle x="0%" y="0%" width="100%" height="100%" rx="10%" />
+      </render:g>
+    </render:style>
+
     
+    <render:style roleList="unitofinfoSBO0000354" id="unitofinfoSBO0000354">
+      <!--Unit of information for Biological activity Nucleic Acid Feature-->
+      <render:g stroke="black" stroke-width="2" >
+        <render:polygon stroke="black" stroke-width="2" >
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="80%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="80%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="80%" y="100%"  render:basepoint1_x="100%" render:basepoint1_y="100%"  render:basepoint2_x="100%" render:basepoint2_y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="100%" />
+            
+            <render:element xsi:type="RenderCubicBezier" x="0%" y="80%"  render:basepoint1_x="0%" render:basepoint1_y="100%"  render:basepoint2_x="0%" render:basepoint2_y="100%" />
+            
+          </render:listOfElements>
+        </render:polygon>
+      </render:g>
+    </render:style>
+    
+    <render:style roleList="unitofinfoSBO0000247" id="unitofinfoSBO0000247">
+      <!-- Unit of information for Biological activity Simple Chemical  -->
+      <render:g stroke="black" stroke-width="2" >
+        <render:ellipse cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+      </render:g>
+    </render:style>
+    
+        <render:style roleList="unitofinfoSBO0000253" id="unitofinfoSBO0000253">
+      <annotation>
+        <sbmllayout xmlns="http://sysbioapps.dyndns.org/renderAnnotation" type="complex" />
+      </annotation>
+      <!-- Unit of information for Biological activity Complex  -->
+      <render:g stroke="black" stroke-width="2" >
+        <render:polygon stroke="black" stroke-width="2" >
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="10%" />
+              <render:element xsi:type="RenderPoint" x="10%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="10%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="90%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="90%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="10%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="10%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="90%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="90%" />
+              <render:element xsi:type="RenderPoint" x="90%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="90%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="10%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="10%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="90%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="90%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="10%" />
+            
+          </render:listOfElements>
+
+        </render:polygon>
+      </render:g>
+    </render:style>
+    
+        <render:style roleList="unitofinfoSBO0000285" id="unitofinfoSBO0000285">
+      <!-- Unit of information for Biological activity Unspecified Entity  -->
+      <render:g stroke="black" stroke-width="2" >
+        <render:ellipse cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+      </render:g>
+    </render:style>
+    
+    
+        <render:style roleList="unitofinfoSBO0000405" id="unitofinfoSBO0000405">
+      <!-- Unit of information for Biological activity Perturbing Agent  -->
+      <render:g stroke="black" stroke-width="2" >
+        <render:polygon stroke="black" stroke-width="2" >
+          <render:listOfElements>
+            <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="0%" />
+              <render:element xsi:type="RenderPoint" x="80%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="80%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="100%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+            
+            <render:element xsi:type="RenderPoint" x="0%" y="100%" />
+              <render:element xsi:type="RenderPoint" x="20%" y="50%" />
+            
+            <render:element xsi:type="RenderPoint" x="20%" y="50%" />
+              <render:element xsi:type="RenderPoint" x="0%" y="0%" />
+            
+          </render:listOfElements>
+        </render:polygon>
+      </render:g>
+    </render:style>
+      
+        
     <render:style roleList="and" id="and">
       <!-- And  -->
       <render:g stroke="black" stroke-width="2" fill="EPNBackgroundGradient">
@@ -1373,6 +1546,13 @@
         <render:ellipse cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
       </render:g>
     </render:style>            
+    
+        <render:style roleList="SBO0000225" id="SBO0000225">
+      <!-- delay  -->
+      <render:g stroke="black" stroke-width="2" >
+        <render:ellipse cx="50%" cy="50%" cz="0.0" rx="50%" ry="50%" />
+      </render:g>
+    </render:style>
     
   </render:listOfStyles>
 </render:renderInformation>

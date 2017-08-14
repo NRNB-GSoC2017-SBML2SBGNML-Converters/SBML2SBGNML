@@ -80,7 +80,16 @@ public class SBGNML2SBMLRender {
 		
 		for (String key : sWrapperModel.listOfWrapperGeneralGlyphs.keySet()){
 			sWrapperGeneralGlyph = sWrapperModel.getWrapperGeneralGlyph(key);
-			LocalStyle localStyle = createStyle(sWrapperGeneralGlyph.generalGlyph, sWrapperGeneralGlyph.clazz);
+			
+			String auxiliaryClazz = "";
+			if (sWrapperGeneralGlyph.glyph != null && sWrapperGeneralGlyph.glyph.getEntity() != null){
+				Glyph.Entity entity = sWrapperGeneralGlyph.glyph.getEntity();
+				auxiliaryClazz = entity.getName();
+			}
+			
+			LocalStyle localStyle = createStyle(sWrapperGeneralGlyph.generalGlyph, sWrapperGeneralGlyph.clazz+auxiliaryClazz);
+			
+			
 			if (sWrapperGeneralGlyph.isAnnotation) {
 				Dimensions dim = sWrapperGeneralGlyph.generalGlyph.getBoundingBox().getDimensions();
 				Point startPoint = sWrapperGeneralGlyph.calloutPoint;
@@ -360,16 +369,21 @@ public class SBGNML2SBMLRender {
 			styleId = "SBO0000253";
 		} else if (clazz.equals("perturbing agent")){
 			styleId = "SBO0000405";
-		 }else if (clazz.equals("unspecified entity")){
+		 } else if (clazz.equals("perturbation")){
+				styleId = "perturbation";
+		 } else if (clazz.equals("unspecified entity")){
 			styleId = "SBO0000285";
 		}
 		
 		else if (clazz.equals("biological activity")){
-			
+			styleId = "SBO0000412";
 		} else if (clazz.equals("phenotype")){
 			styleId = "SBO0000358";
 		} else if (clazz.equals("annotation")){
-		} 
+			styleId = "unitofinfo";
+		} else if (clazz.equals("delay")){
+			styleId = "SBO0000225";
+		}
 		
 		else if (clazz.equals("simple chemical_clone")){
 			styleId = "SBO0000247clone";
@@ -403,7 +417,19 @@ public class SBGNML2SBMLRender {
 			styleId = "unitofinfo";
 		} else if (clazz.equals("state variable")){
 			styleId = "statevar";
-		} 
+		} else if (clazz.equals("unit of informationmacromolecule")){
+			styleId = "unitofinfoSBO0000245";
+		} else if (clazz.equals("unit of informationnucleic acid feature")){
+			styleId = "unitofinfoSBO0000354";
+		} else if (clazz.equals("unit of informationsimple chemical")){
+			styleId = "unitofinfoSBO0000247";
+		} else if (clazz.equals("unit of informationunspecified entity")){
+			styleId = "unitofinfoSBO0000285";
+		} else if (clazz.equals("unit of informationcomplex")){
+			styleId = "unitofinfoSBO0000253";
+		} else if (clazz.equals("unit of informationperturbation")){
+			styleId = "unitofinfoSBO0000405";
+		}
 		
 		else if (clazz.equals("compartment")){
 			styleId = "SBO0000289";
@@ -442,6 +468,9 @@ public class SBGNML2SBMLRender {
 		} else if (clazz.equals("stimulation")){
 			sOutput.lineEndingsInModel.put("stimulation", null);
 			styleId = "SBO0000170";
+		} else if (clazz.equals("positive influence")){
+			sOutput.lineEndingsInModel.put("stimulation", null);
+			styleId = "SBO0000170";
 		} else if (clazz.equals("necessary stimulation")){
 			sOutput.lineEndingsInModel.put("necessary_stimulation", null);
 			styleId = "SBO0000171";
@@ -451,7 +480,10 @@ public class SBGNML2SBMLRender {
 		} else if (clazz.equals("inhibition")){
 			sOutput.lineEndingsInModel.put("inhibitor", null);
 			styleId = "SBO0000169";
-		} else if (clazz.equals("modulation")){
+		} else if (clazz.equals("negative influence")){
+			sOutput.lineEndingsInModel.put("inhibitor", null);
+			styleId = "SBO0000169";
+		}else if (clazz.equals("modulation")){
 			sOutput.lineEndingsInModel.put("modulation", null);
 			styleId = "SBO0000168";
 		}

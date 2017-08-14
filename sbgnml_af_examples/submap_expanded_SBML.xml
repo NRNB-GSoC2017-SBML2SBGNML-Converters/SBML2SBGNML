@@ -1,0 +1,749 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" level="3" qual:required="false" render:required="false" version="1" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:qual="http://www.sbml.org/sbml/level3/version1/qual/version1" xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
+  <model>
+    <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <layout:layout>
+        <render:listOfRenderInformation xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
+          <render:renderInformation render:id="LocalRenderInformation_01">
+            <render:listOfColorDefinitions>
+              <render:colorDefinition render:id="black" render:value="#000000FF"/>
+              <render:colorDefinition render:id="white" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="transparent" render:value="#FFFFFF00"/>
+              <render:colorDefinition render:id="EmptySetOutline" render:value="#808080FF"/>
+              <render:colorDefinition render:id="EmptySetGradientStart" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="EmptySetGradientEnd" render:value="#D3D3D3FF"/>
+              <render:colorDefinition render:id="CompartmentBorder" render:value="#666666FF"/>
+              <render:colorDefinition render:id="CompartmentGradientStart" render:value="#CCCCCCFF"/>
+              <render:colorDefinition render:id="CompartmentGradientEnd" render:value="#CCCCFFFF"/>
+              <render:colorDefinition render:id="CloneMarkerColor" render:value="#FFA500FF"/>
+              <render:colorDefinition render:id="EPNGradientStart" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="EPNGradientEnd" render:value="#C0C0C0FF"/>
+            </render:listOfColorDefinitions>
+            <render:listOfGradientDefinitions>
+              <render:linearGradient render:id="EPNBackgroundGradient" render:spreadMethod="pad" render:x1="0%" render:x2="100%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="EPNGradientStart"/>
+                <render:stop render:offset="100%" render:stop-color="EPNGradientEnd"/>
+              </render:linearGradient>
+              <render:linearGradient render:id="cloneMarker" render:spreadMethod="pad" render:x1="50%" render:x2="50%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="transparent"/>
+                <render:stop render:offset="0.75%" render:stop-color="transparent"/>
+                <render:stop render:offset="0.76%" render:stop-color="CloneMarkerColor"/>
+                <render:stop render:offset="1%" render:stop-color="CloneMarkerColor"/>
+              </render:linearGradient>
+              <render:linearGradient render:id="EmptySetGradient" render:spreadMethod="pad" render:x1="0%" render:x2="100%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="EmptySetGradientStart"/>
+                <render:stop render:offset="100%" render:stop-color="EmptySetGradientEnd"/>
+              </render:linearGradient>
+              <render:linearGradient render:id="CompartmentGradient" render:spreadMethod="pad" render:x1="0%" render:x2="100%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="CompartmentGradientStart"/>
+                <render:stop render:offset="100%" render:stop-color="CompartmentGradientEnd"/>
+              </render:linearGradient>
+            </render:listOfGradientDefinitions>
+            <render:listOfLineEndings>
+              <render:lineEnding render:id="stimulation">
+                <layout:boundingBox>
+                  <layout:position layout:x="-12" layout:y="-6"/>
+                  <layout:dimensions layout:height="12" layout:width="12"/>
+                </layout:boundingBox>
+                <render:g render:fill="white" render:stroke="black" render:stroke-width="0.001">
+                  <render:polygon render:fill="white">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                  <render:polygon render:fill="white">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:lineEnding>
+            </render:listOfLineEndings>
+            <render:listOfStyles>
+              <render:style id="defaultText" render:roleList="defaultText">
+                <render:g font-style="normal" font-weight="normal" render:font-size="10" render:stroke="black" render:stroke-width="1.0" render:text-anchor="middle" render:vtext-anchor="middle"/>
+              </render:style>
+              <render:style id="equivalence" render:roleList="equivalence">
+                <render:g render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000170" render:roleList="SBO0000170">
+                <render:g render:endHead="stimulation" render:fill="white" render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000412" render:roleList="SBO0000412">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="Tagup" render:roleList="Tagup">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="25%" xsi:type="RenderPoint"/>
+                      <render:element render:x="50%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="50%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="25%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="25%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="25%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="Tagdown" render:roleList="Tagdown">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="75%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="75%" xsi:type="RenderPoint"/>
+                      <render:element render:x="50%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="50%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="75%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="75%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="Tagleft" render:roleList="Tagleft">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="25%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="25%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="25%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="25%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000289" render:roleList="SBO0000289">
+                <render:g render:fill="CompartmentGradient" render:stroke="CompartmentBorder" render:stroke-width="7.0">
+                  <render:rectangle render:height="100%" render:rx="10%" render:ry="10%" render:width="100%" render:x="0" render:y="0"/>
+                </render:g>
+              </render:style>
+            </render:listOfStyles>
+          </render:renderInformation>
+        </render:listOfRenderInformation>
+        <layout:dimensions layout:depth="0" layout:height="0" layout:width="0"/>
+        <layout:listOfAdditionalGraphicalObjects>
+          <layout:generalGlyph layout:id="GeneralGlyph_a1" metaid="c635af3f-28bc-4e38-828d-a065c0eee527" render:objectRole="SBO0000170">
+            <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#c635af3f-28bc-4e38-828d-a065c0eee527">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="g3"/>
+	<rdf:li rdf:resource="g4"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                      <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_g3" layout:id="ReferenceGlyph_a1" metaid="c775b2c1-3cc0-43f5-9258-0c3db2fb2f6d" render:objectRole="SBO0000170">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#c775b2c1-3cc0-43f5-9258-0c3db2fb2f6d">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="g3"/>
+	<rdf:li rdf:resource="g4"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="244" layout:y="190"/>
+                      <layout:end layout:x="204" layout:y="270"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_a2" metaid="cffd984d-a91e-4449-93ae-8c49434ceec0" render:objectRole="SBO0000170">
+            <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#cffd984d-a91e-4449-93ae-8c49434ceec0">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="g3"/>
+	<rdf:li rdf:resource="g5"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                      <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_g3" layout:id="ReferenceGlyph_a2" metaid="_40222aee-5dde-4508-a77b-17f50627f6de" render:objectRole="SBO0000170">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_40222aee-5dde-4508-a77b-17f50627f6de">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="g3"/>
+	<rdf:li rdf:resource="g5"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="280" layout:y="190"/>
+                      <layout:end layout:x="332" layout:y="270"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_a3" metaid="f8b8836e-c6ef-413b-a8cd-070e75ab1a5e" render:objectRole="SBO0000170">
+            <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#f8b8836e-c6ef-413b-a8cd-070e75ab1a5e">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="g5"/>
+	<rdf:li rdf:resource="g6"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                      <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_g5" layout:id="ReferenceGlyph_a3" metaid="_3be3fe9c-e3d5-4636-8420-77b8998fb622" render:objectRole="SBO0000170">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_3be3fe9c-e3d5-4636-8420-77b8998fb622">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="g5"/>
+	<rdf:li rdf:resource="g6"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="350" layout:y="330"/>
+                      <layout:end layout:x="350" layout:y="360"/>
+                    </layout:curveSegment>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="350" layout:y="360"/>
+                      <layout:end layout:x="436" layout:y="360"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_a4" metaid="f18bd539-22af-4fe7-92cf-6046073e5ee5">
+            <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#f18bd539-22af-4fe7-92cf-6046073e5ee5">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="g4"/>
+	<rdf:li rdf:resource="g7"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                      <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_g4" layout:id="ReferenceGlyph_a4" metaid="_0476f000-c9b0-4239-8b4e-d594654b205d">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_0476f000-c9b0-4239-8b4e-d594654b205d">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="g4"/>
+	<rdf:li rdf:resource="g7"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="190" layout:y="330"/>
+                      <layout:end layout:x="190" layout:y="405"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_a5" metaid="fb0ad4ef-6dc1-4232-b6f2-0829cd6a21c3" render:objectRole="equivalence">
+            <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#fb0ad4ef-6dc1-4232-b6f2-0829cd6a21c3">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="g3"/>
+	<rdf:li rdf:resource="g8"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                      <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_g3" layout:id="ReferenceGlyph_a5" metaid="e1229fc9-dd45-423e-86d1-3640dc31bb33" render:objectRole="equivalence">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#e1229fc9-dd45-423e-86d1-3640dc31bb33">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="g3"/>
+	<rdf:li rdf:resource="g8"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="260" layout:y="130"/>
+                      <layout:end layout:x="260" layout:y="70"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_a6" metaid="_62d54007-984e-4c59-bbf5-e56cfc6b03cc" render:objectRole="equivalence">
+            <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_62d54007-984e-4c59-bbf5-e56cfc6b03cc">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="g7"/>
+	<rdf:li rdf:resource="g9"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                      <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_g7" layout:id="ReferenceGlyph_a6" metaid="a8c664f9-699f-4e49-b732-a9e3f36696e8" render:objectRole="equivalence">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#a8c664f9-699f-4e49-b732-a9e3f36696e8">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="g7"/>
+	<rdf:li rdf:resource="g9"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="190" layout:y="470"/>
+                      <layout:end layout:x="190" layout:y="540"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_a7" metaid="_820cce0b-ae0f-4f76-9aa3-ac70a6cd436f" render:objectRole="equivalence">
+            <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_820cce0b-ae0f-4f76-9aa3-ac70a6cd436f">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="g6"/>
+	<rdf:li rdf:resource="g10"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                      <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_g6" layout:id="ReferenceGlyph_a7" metaid="_18f527ce-1113-4a79-a3eb-69a4bae95b84" render:objectRole="equivalence">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_18f527ce-1113-4a79-a3eb-69a4bae95b84">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="g6"/>
+	<rdf:li rdf:resource="g10"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="544" layout:y="360"/>
+                      <layout:end layout:x="600" layout:y="360"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_a8" metaid="_2281ca20-6a0a-44f5-a6ba-d9561eff139e" render:objectRole="equivalence">
+            <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_2281ca20-6a0a-44f5-a6ba-d9561eff139e">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="g2"/>
+	<rdf:li rdf:resource="g11"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                      <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="CompartmentGlyph_g2" layout:id="ReferenceGlyph_a8" metaid="_54b610a3-2d16-4254-b443-4368a385d18c" render:objectRole="equivalence">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_54b610a3-2d16-4254-b443-4368a385d18c">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="g2"/>
+	<rdf:li rdf:resource="g11"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="515" layout:y="270"/>
+                      <layout:end layout:x="600" layout:y="270"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_a9" metaid="d2e71150-1414-4d21-8ee7-aa24fd033814" render:objectRole="equivalence">
+            <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#d2e71150-1414-4d21-8ee7-aa24fd033814">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="g1"/>
+	<rdf:li rdf:resource="g12"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                      <layout:listOfReferenceGlyphs>
+              <layout:referenceGlyph layout:glyph="CompartmentGlyph_g1" layout:id="ReferenceGlyph_a9" metaid="e6780fd5-28d4-44ff-92d7-cd9eb07ac6d6" render:objectRole="equivalence">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#e6780fd5-28d4-44ff-92d7-cd9eb07ac6d6">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="g1"/>
+	<rdf:li rdf:resource="g12"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="525" layout:y="300"/>
+                      <layout:end layout:x="600" layout:y="300"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:referenceGlyph>
+            </layout:listOfReferenceGlyphs>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_g8">
+            <layout:boundingBox>
+              <layout:position layout:x="250" layout:y="30" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="40" layout:width="20"/>
+            </layout:boundingBox>
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="260" layout:y="130"/>
+                  <layout:end layout:x="260" layout:y="70"/>
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_g9">
+            <layout:boundingBox>
+              <layout:position layout:x="180" layout:y="540" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="40" layout:width="20"/>
+            </layout:boundingBox>
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="190" layout:y="470"/>
+                  <layout:end layout:x="190" layout:y="540"/>
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_g11">
+            <layout:boundingBox>
+              <layout:position layout:x="600" layout:y="260" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="40"/>
+            </layout:boundingBox>
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="515" layout:y="270"/>
+                  <layout:end layout:x="600" layout:y="270"/>
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_g10">
+            <layout:boundingBox>
+              <layout:position layout:x="600" layout:y="350" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="40"/>
+            </layout:boundingBox>
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="544" layout:y="360"/>
+                  <layout:end layout:x="600" layout:y="360"/>
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+          </layout:generalGlyph>
+          <layout:generalGlyph layout:id="GeneralGlyph_g12">
+            <layout:boundingBox>
+              <layout:position layout:x="600" layout:y="290" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="40"/>
+            </layout:boundingBox>
+            <layout:curve>
+              <layout:listOfCurveSegments>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="525" layout:y="300"/>
+                  <layout:end layout:x="600" layout:y="300"/>
+                </layout:curveSegment>
+              </layout:listOfCurveSegments>
+            </layout:curve>
+          </layout:generalGlyph>
+        </layout:listOfAdditionalGraphicalObjects>
+        <layout:listOfCompartmentGlyphs>
+          <layout:compartmentGlyph layout:compartment="g1" layout:id="CompartmentGlyph_g1" layout:order="1" render:objectRole="SBO0000289">
+            <layout:boundingBox>
+              <layout:position layout:x="35" layout:y="140" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="380" layout:width="490"/>
+            </layout:boundingBox>
+          </layout:compartmentGlyph>
+          <layout:compartmentGlyph layout:compartment="g2" layout:id="CompartmentGlyph_g2" layout:order="2" render:objectRole="SBO0000289">
+            <layout:boundingBox>
+              <layout:position layout:x="45" layout:y="160" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="320" layout:width="470"/>
+            </layout:boundingBox>
+          </layout:compartmentGlyph>
+        </layout:listOfCompartmentGlyphs>
+        <layout:listOfSpeciesGlyphs>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_g7" layout:species="g7" render:objectRole="SBO0000412">
+            <layout:boundingBox>
+              <layout:position layout:x="136" layout:y="410" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_g3" layout:species="g3" render:objectRole="SBO0000412">
+            <layout:boundingBox>
+              <layout:position layout:x="206" layout:y="130" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_g4" layout:species="g4" render:objectRole="SBO0000412">
+            <layout:boundingBox>
+              <layout:position layout:x="136" layout:y="270" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_g5" layout:species="g5" render:objectRole="SBO0000412">
+            <layout:boundingBox>
+              <layout:position layout:x="296" layout:y="270" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_g6" layout:species="g6" render:objectRole="SBO0000412">
+            <layout:boundingBox>
+              <layout:position layout:x="436" layout:y="330" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_g8" layout:species="g8" render:objectRole="Tagdown">
+            <layout:boundingBox>
+              <layout:position layout:x="250" layout:y="30" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="40" layout:width="20"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_g9" layout:species="g9" render:objectRole="Tagup">
+            <layout:boundingBox>
+              <layout:position layout:x="180" layout:y="540" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="40" layout:width="20"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_g11" layout:species="g11" render:objectRole="Tagleft">
+            <layout:boundingBox>
+              <layout:position layout:x="600" layout:y="260" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="40"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_g10" layout:species="g10" render:objectRole="Tagleft">
+            <layout:boundingBox>
+              <layout:position layout:x="600" layout:y="350" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="40"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+          <layout:speciesGlyph layout:id="SpeciesGlyph_g12" layout:species="g12" render:objectRole="Tagleft">
+            <layout:boundingBox>
+              <layout:position layout:x="600" layout:y="290" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="40"/>
+            </layout:boundingBox>
+          </layout:speciesGlyph>
+        </layout:listOfSpeciesGlyphs>
+        <layout:listOfTextGlyphs>
+          <layout:textGlyph layout:graphicalObject="CompartmentGlyph_g1" layout:id="TextGlyph_CompartmentGlyph_g1" layout:text="membrane" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="244" layout:y="493" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="18" layout:width="72"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="CompartmentGlyph_g2" layout:id="TextGlyph_CompartmentGlyph_g2" layout:text="cytosol" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="254" layout:y="452" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="18" layout:width="50"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_g7" layout:id="TextGlyph_g7" layout:originOfText="g7" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="136" layout:y="410" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_g3" layout:id="TextGlyph_g3" layout:originOfText="g3" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="206" layout:y="130" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_g4" layout:id="TextGlyph_g4" layout:originOfText="g4" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="136" layout:y="270" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_g5" layout:id="TextGlyph_g5" layout:originOfText="g5" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="296" layout:y="270" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_g6" layout:id="TextGlyph_g6" layout:originOfText="g6" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="436" layout:y="330" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_g8" layout:id="TextGlyph_g8" layout:originOfText="g8" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="250" layout:y="30" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="40" layout:width="20"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_g9" layout:id="TextGlyph_g9" layout:originOfText="g9" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="180" layout:y="540" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="40" layout:width="20"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_g11" layout:id="TextGlyph_g11" layout:originOfText="g11" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="600" layout:y="260" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="40"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_g10" layout:id="TextGlyph_g10" layout:originOfText="g10" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="600" layout:y="350" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="40"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_g12" layout:id="TextGlyph_g12" layout:originOfText="g12" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="600" layout:y="290" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="40"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+        </layout:listOfTextGlyphs>
+      </layout:layout>
+    </layout:listOfLayouts>
+    <listOfCompartments>
+      <compartment constant="true" id="g1" name="membrane"/>
+      <compartment constant="true" id="g2" name="cytosol"/>
+      <compartment constant="true" id="DefaultCompartment_01"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g7" initialConcentration="1" name="adenylate&#xa;cyclase"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g3" initialConcentration="1" name="GiPCR"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g4" initialConcentration="1" name="Giα"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g5" initialConcentration="1" name="Gβγ"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g6" initialConcentration="1" name="GIRK"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g8" initialConcentration="1" name="1"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g9" initialConcentration="1" name="2"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g11" initialConcentration="1" name="4"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g10" initialConcentration="1" name="3"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g12" initialConcentration="1" name="5"/>
+    </listOfSpecies>
+  </model>
+</sbml>

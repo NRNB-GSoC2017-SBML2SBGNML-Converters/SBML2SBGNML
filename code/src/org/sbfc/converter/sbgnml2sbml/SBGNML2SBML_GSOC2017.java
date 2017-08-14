@@ -163,6 +163,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		System.out.println("productionArcErrors "+productionArcErrors );
 		System.out.println("numOfSpeciesReferenceGlyphErrors "+sOutput.numOfSpeciesReferenceGlyphErrors );
 		System.out.println("createOneCurveError "+sUtil.createOneCurveError );
+		System.out.println("listOfWrapperReferenceGlyphs "+sWrapperModel.listOfWrapperReferenceGlyphs.size() );
 	
 	}
 
@@ -220,7 +221,9 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			
 			if (sUtil.isLogicArc(arc)){
 				sWrapperModel.addLogicArc(id, sWrapperArc);
-			} else if (sWrapperModel.getWrapperSpeciesGlyph(sWrapperArc.sourceId) != null &&
+			} 
+			// the arc needs to be able to find 2 existing glyphs (SWrapperSpeciesGlyph) connecting to it
+			else if (sWrapperModel.getWrapperSpeciesGlyph(sWrapperArc.sourceId) != null &&
 					sWrapperModel.getWrapperSpeciesGlyph(sWrapperArc.targetId) != null){
 				sWrapperModel.addLogicArc(id, sWrapperArc);
 				// todo: check in QualitativeSpecies too
@@ -1055,7 +1058,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		SWrapperSpeciesGlyph sWrapperSpeciesGlyph;
 		
 		SWrapperGeneralGlyph sWrapperGeneralGlyph;
-		SWrapperReferenceGlyph sWrapperReferenceGlyph;
+		SWrapperReferenceGlyph sWrapperReferenceGlyph = null;
 		SWrapperArc sWrapperArc;
 		
 		for (String key: sWrapperModel.annotations.keySet()) {
@@ -1086,9 +1089,23 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			// Create a ReferenceGlyph
 			speciesGlyph = null;
 			try{
+		
+			
+			if (sWrapperModel.getWrapperSpeciesGlyph(objectId)!=null){
 			speciesGlyph = sWrapperModel.getWrapperSpeciesGlyph(objectId).speciesGlyph;
-			} catch (Exception e){System.out.println("speciesGlyph objectId "+objectId); }
 			sWrapperReferenceGlyph = createOneReferenceGlyph(sWrapperArc, speciesGlyph);
+			System.out.println("! sWrapperModel.logicArcs id="+key+" arc="+arc.getId());
+			}
+			
+			
+			
+			if (speciesGlyph==null){
+				CompartmentGlyph compartmentGlyph = sWrapperModel.getWrapperCompartmentGlyph(objectId).compartmentGlyph;
+				sWrapperReferenceGlyph = createOneReferenceGlyph(sWrapperArc, compartmentGlyph);
+			}
+			
+			} catch (Exception e){System.out.println("speciesGlyph objectId "+objectId); }
+			
 			// Add the ReferenceGlyph to the generalGlyph
 			sOutput.addReferenceGlyph(sWrapperGeneralGlyph.generalGlyph, sWrapperReferenceGlyph.referenceGlyph);
 			// Add the ReferenceGlyph to the wrapper. This step is optional
@@ -1108,7 +1125,8 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			ArrayList<Point> connectedPoints = new ArrayList<Point>();
 			List<Arc> allArcs = sWrapperModel.map.getArc();
 			
-			Arc tagArc = null;
+
+			Arc chosenArc = null;
 			
 			for (Arc candidate: allArcs){
 
@@ -1116,8 +1134,11 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 				target = candidate.getTarget();
 				
 				// todo: move tag to separate function
-				tagArc = checkLogicOperatorId(connectedPoints, source, key, candidate, "source");
+				Arc tagArc = checkLogicOperatorId(connectedPoints, source, key, candidate, "source");
+				if (tagArc != null){chosenArc = tagArc;}
+				
 				tagArc = checkLogicOperatorId(connectedPoints, target, key, candidate, "target");
+				if (tagArc != null){chosenArc = tagArc;}
 			}
 				
 			//System.out.println("sWrapperModel.logicOperators" + connectedPoints.size());
@@ -1142,7 +1163,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			//System.out.println("added?"+added);
 			
 			if (sWrapperSpeciesGlyph.clazz.contains("tag")){			
-				curve = sUtil.createOneCurve(tagArc);
+				curve = sUtil.createOneCurve(chosenArc);
 				generalGlyph.setCurve(curve);
 			}
 			else {setStartAndEndPointForCurve(connectedPoints, generalGlyph);}
@@ -1175,6 +1196,8 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	
 	public Arc checkLogicOperatorId(ArrayList<Point> connectedPoints, Object source, String key, Arc candidate, String direction) {
 		
+		Arc returnArc = null;
+		
 		if (connectedPoints == null){
 			connectedPoints = new ArrayList<Point>();
 		}
@@ -1190,24 +1213,26 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 				//System.out.println("sWrapperModel.logicOperators");
 				if (direction.equals("source")){
 					connectedPoints.add(sWrapperModel.getSWrapperSpeciesReferenceGlyph(arcId).speciesReferenceGlyph.getCurve().getCurveSegment(0).getStart());
-					
+					returnArc = candidate;
 				}
 				else if (direction.equals("target")){
 					connectedPoints.add(sWrapperModel.getSWrapperSpeciesReferenceGlyph(arcId).speciesReferenceGlyph.getCurve().getCurveSegment(0).getEnd());
-					
+					returnArc = candidate;
 				}
 			} else if (sWrapperModel.getSWrapperReferenceGlyph(arcId) != null){
 				//System.out.println("sWrapperModel.logicOperators");
 				if (direction.equals("source")){
 					connectedPoints.add(sWrapperModel.getSWrapperReferenceGlyph(arcId).referenceGlyph.getCurve().getCurveSegment(0).getStart());
+					returnArc = candidate;
 				}
 				else if (direction.equals("target")){
 					connectedPoints.add(sWrapperModel.getSWrapperReferenceGlyph(arcId).referenceGlyph.getCurve().getCurveSegment(0).getEnd());
+					returnArc = candidate;
 				}				
 			}
 		}	
 		
-		return null;
+		return returnArc;
 	}
 			
 	public void storeTemplateRenderInformation() {
