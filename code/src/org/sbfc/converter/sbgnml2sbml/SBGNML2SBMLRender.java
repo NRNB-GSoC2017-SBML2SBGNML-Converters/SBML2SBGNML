@@ -101,6 +101,13 @@ public class SBGNML2SBMLRender {
 			
 			renderReferenceGlyphs(sWrapperGeneralGlyph);
 		}
+		
+		for (String key : sWrapperModel.listOfWrapperReferenceGlyphs.keySet()){
+			SWrapperReferenceGlyph sWrapperReferenceGlyph = sWrapperModel.listOfWrapperReferenceGlyphs.get(key);
+			
+			LocalStyle localStyle = createStyle(sWrapperReferenceGlyph.referenceGlyph, sWrapperReferenceGlyph.arc.getClazz());
+			
+		}
 	}	
 	
 	public void createTriangle(LocalStyle localStyle, Point p1, Point p2, Point p3){

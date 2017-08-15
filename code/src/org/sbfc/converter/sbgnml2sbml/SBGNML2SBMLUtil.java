@@ -659,7 +659,7 @@ public class SBGNML2SBMLUtil {
 		referenceGlyph = new ReferenceGlyph();
 		referenceGlyph.setId("ReferenceGlyph_" + id);
 		
-		System.out.println("! createOneReferenceGlyph id="+id+" arc="+arc.getId());
+		//System.out.println("createOneReferenceGlyph id="+id+" arc="+arc.getId());
 		referenceGlyph.setGlyph(object.getId());
 		
 		// does not work because we can't create a ModifierSpeciesReference. 

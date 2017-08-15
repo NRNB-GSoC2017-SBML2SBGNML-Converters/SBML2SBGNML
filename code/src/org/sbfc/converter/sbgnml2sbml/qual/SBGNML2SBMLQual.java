@@ -6,6 +6,7 @@ import java.util.List;
 import org.sbfc.converter.sbgnml2sbml.SBGNML2SBMLUtil;
 import org.sbfc.converter.sbgnml2sbml.SBGNML2SBML_GSOC2017;
 import org.sbgn.bindings.Arc;
+import org.sbgn.bindings.Arcgroup;
 import org.sbgn.bindings.Glyph;
 import org.sbgn.bindings.Map;
 import org.sbgn.bindings.Sbgn;
@@ -47,8 +48,9 @@ public class SBGNML2SBMLQual {
 		
 		List<Glyph> listOfGlyphs = converter.sWrapperModel.map.getGlyph();
 		List<Arc> listOfArcs = converter.sWrapperModel.map.getArc();
+		List<Arcgroup> listOfArcgroups = converter.sWrapperModel.map.getArcgroup();
 	
-		converter.addGlyphsToSWrapperModel(listOfGlyphs);
+		converter.addGlyphsToSWrapperModel(listOfGlyphs, listOfArcgroups);
 
 		converter.createCompartments();
 		//createSpecies();	
@@ -56,11 +58,13 @@ public class SBGNML2SBMLQual {
 		
 		converter.sUtil.createDefaultCompartment(converter.sOutput.model);
 	
-		converter.addArcsToSWrapperModel(listOfArcs);
+		converter.addArcsToSWrapperModel(listOfArcs, listOfArcgroups);
+		
 		
 		int numOfObjects = converter.createTransitions();
 		converter.createCompleteTransitions();
 		//converter.createGeneralGlyphs();
+
 		
 		converter.sOutput.createCanvasDimensions();
 		
@@ -68,8 +72,10 @@ public class SBGNML2SBMLQual {
 		converter.sRender.renderSpeciesGlyphs();
 		converter.sRender.renderReactionGlyphs();
 		converter.sRender.renderGeneralGlyphs();
+		converter.sRender.renderTextGlyphs();
 		
 		converter.sOutput.completeModel();
+		converter.sOutput.removeExtraStyles();
 		
 		
 		// Write converted SBML file

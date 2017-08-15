@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+	<map language="activity flow">
+	
+		<glyph class="compartment" id="g1">
+			<label text="nucleus">
+				<bbox x="185" y="385" w="50" h="15"/>
+			</label>
+			<bbox x="25" y="30" w="470" h="380"/>
+		</glyph>
+
+		<glyph class="biological activity" id="g2">
+			<label text="co-repressor"/>
+			<bbox x="66" y="60" w="108" h="40"/>
+		</glyph>
+		
+		<glyph class="biological activity" id="g3">
+			<label text="co-activator"/>
+			<bbox x="246" y="60" w="108" h="40"/>
+		</glyph>
+		
+		<glyph class="and" orientation="vertical" id="g4">
+			<bbox x="189" y="119" w="42" h="42"/>
+			<port id="g4.1" x="210" y="98"/>
+			<port id="g4.2" x="210" y="182"/>
+		</glyph>
+				
+		<glyph class="phenotype" id="g5">
+			<label text="Gene&#xA;transcription"/>
+			<bbox x="210" y="300" w="108" h="60"/>
+		</glyph>
+		
+		<glyph class="biological activity" id="g6">
+			<label text="RNA polymerase"/>
+			<bbox x="300" y="119" w="108" h="40"/>
+		</glyph>
+		
+		<glyph class="or" orientation="vertical" id="g7">
+			<bbox x="245" y="210" w="42" h="42"/>
+			<port id="g7.1" x="266" y="200"/>
+			<port id="g7.2" x="266" y="252"/>
+		</glyph>
+		
+		<arc class="logic arc" source="g2" target="g4.1" id="a1">
+			<start x="174" y="90" />
+			<end x="210" y="98" />
+		</arc>
+
+		<arc class="logic arc" source="g3" target="g4.1" id="a2">
+			<start x="246" y="90" />
+			<end x="210" y="98" />
+		</arc>
+
+		<arc class="necessary stimulation" source="g7.2" target="g5" id="a3">
+			<start x="266" y="252" />
+			<end x="264" y="300" />
+		</arc>
+		
+		<arc class="logic arc" source="g4.2" target="g7.1" id="a4">
+			<start x="210" y="182" />
+			<end x="266" y="200" />
+		</arc>
+
+		<arc class="logic arc" source="g6" target="g7.1" id="a5">
+			<start x="354" y="159" />
+			<end x="266" y="200" />
+		</arc>
+
+	</map>
+</sbgn>
