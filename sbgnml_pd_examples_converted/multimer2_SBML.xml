@@ -1,23 +1,110 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" level="3" version="1" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1">
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" level="3" render:required="false" version="1" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
   <model>
     <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <layout:layout>
+        <render:listOfRenderInformation xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
+          <render:renderInformation render:id="LocalRenderInformation_01">
+            <render:listOfColorDefinitions>
+              <render:colorDefinition render:id="black" render:value="#000000FF"/>
+              <render:colorDefinition render:id="white" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="transparent" render:value="#FFFFFF00"/>
+              <render:colorDefinition render:id="EmptySetOutline" render:value="#808080FF"/>
+              <render:colorDefinition render:id="EmptySetGradientStart" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="EmptySetGradientEnd" render:value="#D3D3D3FF"/>
+              <render:colorDefinition render:id="CompartmentBorder" render:value="#666666FF"/>
+              <render:colorDefinition render:id="CompartmentGradientStart" render:value="#CCCCCCFF"/>
+              <render:colorDefinition render:id="CompartmentGradientEnd" render:value="#CCCCFFFF"/>
+              <render:colorDefinition render:id="CloneMarkerColor" render:value="#FFA500FF"/>
+              <render:colorDefinition render:id="EPNGradientStart" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="EPNGradientEnd" render:value="#C0C0C0FF"/>
+            </render:listOfColorDefinitions>
+            <render:listOfGradientDefinitions>
+              <render:linearGradient render:id="EPNBackgroundGradient" render:spreadMethod="pad" render:x1="0%" render:x2="100%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="EPNGradientStart"/>
+                <render:stop render:offset="100%" render:stop-color="EPNGradientEnd"/>
+              </render:linearGradient>
+              <render:linearGradient render:id="cloneMarker" render:spreadMethod="pad" render:x1="50%" render:x2="50%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="transparent"/>
+                <render:stop render:offset="0.75%" render:stop-color="transparent"/>
+                <render:stop render:offset="0.76%" render:stop-color="CloneMarkerColor"/>
+                <render:stop render:offset="1%" render:stop-color="CloneMarkerColor"/>
+              </render:linearGradient>
+              <render:linearGradient render:id="EmptySetGradient" render:spreadMethod="pad" render:x1="0%" render:x2="100%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="EmptySetGradientStart"/>
+                <render:stop render:offset="100%" render:stop-color="EmptySetGradientEnd"/>
+              </render:linearGradient>
+              <render:linearGradient render:id="CompartmentGradient" render:spreadMethod="pad" render:x1="0%" render:x2="100%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="CompartmentGradientStart"/>
+                <render:stop render:offset="100%" render:stop-color="CompartmentGradientEnd"/>
+              </render:linearGradient>
+            </render:listOfGradientDefinitions>
+            <render:listOfStyles>
+              <render:style id="defaultText" render:roleList="defaultText">
+                <render:g font-style="normal" font-weight="normal" render:font-size="10" render:stroke="black" render:stroke-width="1.0" render:text-anchor="middle" render:vtext-anchor="middle"/>
+              </render:style>
+              <render:style id="SBO0000354multimer" render:roleList="SBO0000354multimer">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="5%" render:y="80%" xsi:type="RenderPoint"/>
+                      <render:element render:x="5%" render:y="5%" xsi:type="RenderPoint"/>
+                      <render:element render:x="5%" render:y="5%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="5%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="5%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="80%" xsi:type="RenderPoint"/>
+                      <render:element render:basepoint1_x="100%" render:basepoint1_y="100%" render:basepoint2_x="100%" render:basepoint2_y="100%" render:x="80%" render:y="100%" xsi:type="RenderCubicBezier"/>
+                      <render:element render:x="80%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="20%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:basepoint1_x="5%" render:basepoint1_y="100%" render:basepoint2_x="5%" render:basepoint2_y="100%" render:x="5%" render:y="80%" xsi:type="RenderCubicBezier"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="80%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="95%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="95%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="95%" render:y="80%" xsi:type="RenderPoint"/>
+                      <render:element render:basepoint1_x="95%" render:basepoint1_y="95%" render:basepoint2_x="95%" render:basepoint2_y="95%" render:x="80%" render:y="95%" xsi:type="RenderCubicBezier"/>
+                      <render:element render:x="80%" render:y="95%" xsi:type="RenderPoint"/>
+                      <render:element render:x="20%" render:y="95%" xsi:type="RenderPoint"/>
+                      <render:element render:basepoint1_x="0%" render:basepoint1_y="95%" render:basepoint2_x="0%" render:basepoint2_y="95%" render:x="0%" render:y="80%" xsi:type="RenderCubicBezier"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000245multimer" render:roleList="SBO0000245multimer">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:rectangle render:height="95%" render:rx="10%" render:width="95%" render:x="5%" render:y="5%"/>
+                  <render:rectangle render:height="95%" render:rx="10%" render:width="95%" render:x="0%" render:y="0%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000247multimer" render:roleList="SBO0000247multimer">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="55%" render:cy="55%" render:cz="0" render:rx="45%" render:ry="45%"/>
+                  <render:ellipse render:cx="45%" render:cy="45%" render:cz="0" render:rx="45%" render:ry="45%"/>
+                </render:g>
+              </render:style>
+            </render:listOfStyles>
+          </render:renderInformation>
+        </render:listOfRenderInformation>
         <layout:dimensions layout:depth="0" layout:height="0" layout:width="0"/>
         <layout:listOfSpeciesGlyphs>
-          <layout:speciesGlyph layout:id="glyph1_Glyph" layout:species="glyph1">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph1" layout:species="glyph1" render:objectRole="SBO0000247multimer">
             <layout:boundingBox>
               <layout:position layout:x="30" layout:y="20" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph3_Glyph" layout:species="glyph3">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph3" layout:species="glyph3" render:objectRole="SBO0000354multimer">
             <layout:boundingBox>
               <layout:position layout:x="286" layout:y="20" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph2_Glyph" layout:species="glyph2">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph2" layout:species="glyph2" render:objectRole="SBO0000245multimer">
             <layout:boundingBox>
               <layout:position layout:x="136" layout:y="20" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
@@ -25,19 +112,19 @@
           </layout:speciesGlyph>
         </layout:listOfSpeciesGlyphs>
         <layout:listOfTextGlyphs>
-          <layout:textGlyph layout:graphicalObject="glyph1_Glyph" layout:id="glyph1_TextGlyph" layout:originOfText="glyph1">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph1" layout:id="TextGlyph_glyph1" layout:originOfText="glyph1" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="30" layout:y="20" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph3_Glyph" layout:id="glyph3_TextGlyph" layout:originOfText="glyph3">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph3" layout:id="TextGlyph_glyph3" layout:originOfText="glyph3" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="286" layout:y="20" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph2_Glyph" layout:id="glyph2_TextGlyph" layout:originOfText="glyph2">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph2" layout:id="TextGlyph_glyph2" layout:originOfText="glyph2" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="136" layout:y="20" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="108"/>
@@ -46,46 +133,13 @@
         </layout:listOfTextGlyphs>
       </layout:layout>
     </layout:listOfLayouts>
-        <listOfSpecies>
-      <species id="glyph1" metaid="_7e242036-0a92-41f1-b087-fcf83c8bab34">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_7e242036-0a92-41f1-b087-fcf83c8bab34">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical multimer"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph3" metaid="_5b7d1126-9aa9-4e55-bfa0-512d52385f38" sboTerm="SBO:0000420">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_5b7d1126-9aa9-4e55-bfa0-512d52385f38">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="nucleic acid feature multimer"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph2" metaid="_258c2ae4-0a53-4c2b-8bf6-aea676fe7369" sboTerm="SBO:0000420">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_258c2ae4-0a53-4c2b-8bf6-aea676fe7369">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="macromolecule multimer"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
+    <listOfCompartments>
+      <compartment constant="true" id="DefaultCompartment_01"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph1" initialConcentration="1" sboTerm="SBO:0000421"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph3" initialConcentration="1" sboTerm="SBO:0000419"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph2" initialConcentration="1" sboTerm="SBO:0000420"/>
     </listOfSpecies>
-      </model>
+  </model>
 </sbml>

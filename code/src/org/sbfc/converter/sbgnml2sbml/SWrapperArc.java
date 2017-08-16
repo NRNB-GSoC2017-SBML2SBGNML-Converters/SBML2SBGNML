@@ -6,7 +6,7 @@ public class SWrapperArc {
 	public Arc arc;
 	public String arcId;
 	String sourceTargetType;
-	String arcClazz;
+	public String arcClazz;
 	public String sourceId;
 	public String targetId;
 	Object source;

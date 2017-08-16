@@ -4,18 +4,19 @@ package org.sbfc.converter.sbgnml2sbml;
 * For Cloud Computing Labs
 * Feb. 2014
 */
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import org.sbml.jsbml.ext.layout.Point;
 
-import java.io.StringReader;
 
-public class KMeans 
+/**
+ * 
+ * Obsolete. This class is no longer being used.
+ *
+ */
+public class SBMLPointsKMeans 
 {
   // Data members
   private double [][] _data; // Array of all records in dataset
@@ -29,7 +30,7 @@ public class KMeans
 
   // Constructor; loads records from file <fileName>. 
   // if labels do not exist, set labelname to null
-  public KMeans(List<Point> input, String labelname) 
+  public SBMLPointsKMeans(List<Point> input, String labelname) 
   {
     // Creates a new KMeans object by reading in all of the records that are stored in a csv file
     try 
@@ -39,8 +40,6 @@ public class KMeans
       _nrows = input.size();
       // 3 DIMENSIONS X Y Z
       _ndims = 3;
-
-      //System.out.println("KMeans " + _nrows + " "+_ndims);
 
       // initialize the _data variable
       _data = new double[_nrows][];
@@ -59,26 +58,11 @@ public class KMeans
         } else {
         	dv[2] = point.getZ();
         }
-        
-        //System.out.println("dv[0] "+dv[0]);
-        //System.out.println("dv[1] "+dv[1]);
-        //System.out.println("dv[2] "+dv[2]);
 
         _data[nrow] = dv;
 
       }      
 
-      if (labelname!=null){
-//        // load label file to _withLabel;
-//        reader = new BufferedReader(new FileReader(labelname));
-//        _withLabel = new int[_nrows];
-//        int c=0;
-//        while ((values = csv.parseLine(reader))!=null){
-//          _withLabel[c] = Integer.parseInt(values.get(0)); 
-//        }
-//        reader.close();
-//        System.out.println("loaded labels");
-      } 
     }
     catch(Exception e) 
     {
@@ -112,11 +96,8 @@ public class KMeans
           // copy the value from _data[c]
           _centroids[i] = new double[_ndims];
           for (int j=0; j<_ndims; j++){
-        	  //System.out.println("clustering i="+i+" j="+j);
             _centroids[i][j] = _data[c][j];}
         }
-        //System.out.println("selected random centroids");
-
       }
 
       double [][] c1 = _centroids;
@@ -140,7 +121,6 @@ public class KMeans
           break;
       }
 
-      //System.out.println("Clustering converges at round " + round);
   }
 
   // find the closest centroid for the record v 
@@ -247,29 +227,4 @@ public class KMeans
 
   }
 
-
-//  public static void main( String[] astrArgs ) 
-//  {
-//    /**
-//     * The code commented out here is just an example of how to use
-//     * the provided functions and constructors.
-//     * 
-//     */
-//     KMeans KM = new KMeans( "data.csv", null );
-//     KM.clustering(2, 10, null); // 2 clusters, maximum 10 iterations
-//     KM.printResults();
-//
-//     /** using CSVHelper to parse strings
-//     CSVHelper csv = new CSVHelper();
-//     StringReader r= new StringReader("x,y,z");
-//     try{
-//       ArrayList<String> ss = csv.parseLine(r);
-//       for (String v:ss)
-//        System.out.println(v);
-//     }catch(Exception e){
-//       System.err.println(e);
-//     }
-//     */
-//
-//  }
 }

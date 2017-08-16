@@ -14,10 +14,10 @@ import org.sbml.jsbml.ext.layout.TextGlyph;
 
 public class SWrapperGeneralGlyph {
 	public String id;
-	String clazz;
-	GeneralGlyph generalGlyph;
+	public String clazz;
+	public GeneralGlyph generalGlyph;
 	TextGlyph textGlyph;
-	Glyph glyph;
+	public Glyph glyph;
 	boolean hasParent;
 	GraphicalObject parent;
 		
@@ -26,7 +26,7 @@ public class SWrapperGeneralGlyph {
 	String sourceId;
 	String targetId;
 	
-	HashMap<String, SWrapperArc> arcs = new HashMap<String, SWrapperArc>();
+	public HashMap<String, SWrapperArc> arcs = new HashMap<String, SWrapperArc>();
 	HashMap<String, ReferenceGlyph> referenceGlyphs = new HashMap<String, ReferenceGlyph>();
 	
 	List<GraphicalObject> listOfGeneralGlyphs;
@@ -73,7 +73,7 @@ public class SWrapperGeneralGlyph {
 		this.sWrapperModel = sWrapperModel;
 	}
 			
-	void addSpeciesReferenceGlyph(String arcId, SWrapperReferenceGlyph sWrapperReferenceGlyph, SWrapperArc arc){
+	public void addSpeciesReferenceGlyph(String arcId, SWrapperReferenceGlyph sWrapperReferenceGlyph, SWrapperArc arc){
 		referenceGlyphs.put(arcId, sWrapperReferenceGlyph.referenceGlyph);
 		arcs.put(arcId, arc);
 		this.sWrapperModel.addSWrapperReferenceGlyph(arcId, sWrapperReferenceGlyph);

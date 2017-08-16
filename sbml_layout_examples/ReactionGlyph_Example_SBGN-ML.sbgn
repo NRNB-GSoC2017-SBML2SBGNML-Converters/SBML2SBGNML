@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map language="process description">
+        <arcgroup>
+            <glyph class="process" id="Hexokinase">
+                <bbox w="7.5" h="7.5" x="166.25" y="122.5"/>
+            </glyph>
+            <arc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+        </arcgroup>
+    </map>
+</sbgn>

@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" level="3" render:required="false" version="1" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
+  <model>
+    <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <layout:layout>
+        <render:listOfRenderInformation xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
+          <render:renderInformation render:id="LocalRenderInformation_01">
+            <render:listOfColorDefinitions>
+              <render:colorDefinition render:id="black" render:value="#000000FF"/>
+              <render:colorDefinition render:id="white" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="transparent" render:value="#FFFFFF00"/>
+              <render:colorDefinition render:id="EmptySetOutline" render:value="#808080FF"/>
+              <render:colorDefinition render:id="EmptySetGradientStart" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="EmptySetGradientEnd" render:value="#D3D3D3FF"/>
+              <render:colorDefinition render:id="CompartmentBorder" render:value="#666666FF"/>
+              <render:colorDefinition render:id="CompartmentGradientStart" render:value="#CCCCCCFF"/>
+              <render:colorDefinition render:id="CompartmentGradientEnd" render:value="#CCCCFFFF"/>
+              <render:colorDefinition render:id="CloneMarkerColor" render:value="#FFA500FF"/>
+              <render:colorDefinition render:id="EPNGradientStart" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="EPNGradientEnd" render:value="#C0C0C0FF"/>
+            </render:listOfColorDefinitions>
+            <render:listOfGradientDefinitions>
+              <render:linearGradient render:id="EPNBackgroundGradient" render:spreadMethod="pad" render:x1="0%" render:x2="100%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="EPNGradientStart"/>
+                <render:stop render:offset="100%" render:stop-color="EPNGradientEnd"/>
+              </render:linearGradient>
+              <render:linearGradient render:id="cloneMarker" render:spreadMethod="pad" render:x1="50%" render:x2="50%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="transparent"/>
+                <render:stop render:offset="0.75%" render:stop-color="transparent"/>
+                <render:stop render:offset="0.76%" render:stop-color="CloneMarkerColor"/>
+                <render:stop render:offset="1%" render:stop-color="CloneMarkerColor"/>
+              </render:linearGradient>
+              <render:linearGradient render:id="EmptySetGradient" render:spreadMethod="pad" render:x1="0%" render:x2="100%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="EmptySetGradientStart"/>
+                <render:stop render:offset="100%" render:stop-color="EmptySetGradientEnd"/>
+              </render:linearGradient>
+              <render:linearGradient render:id="CompartmentGradient" render:spreadMethod="pad" render:x1="0%" render:x2="100%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="CompartmentGradientStart"/>
+                <render:stop render:offset="100%" render:stop-color="CompartmentGradientEnd"/>
+              </render:linearGradient>
+            </render:listOfGradientDefinitions>
+            <render:listOfStyles>
+              <render:style id="defaultText" render:roleList="defaultText">
+                <render:g font-style="normal" font-weight="normal" render:font-size="10" render:stroke="black" render:stroke-width="1.0" render:text-anchor="middle" render:vtext-anchor="middle"/>
+              </render:style>
+              <render:style id="SBO0000289" render:roleList="SBO0000289">
+                <render:g render:fill="CompartmentGradient" render:stroke="CompartmentBorder" render:stroke-width="7.0">
+                  <render:rectangle render:height="100%" render:rx="10%" render:ry="10%" render:width="100%" render:x="0" render:y="0"/>
+                </render:g>
+              </render:style>
+            </render:listOfStyles>
+          </render:renderInformation>
+        </render:listOfRenderInformation>
+        <layout:dimensions layout:depth="0" layout:height="0" layout:width="0"/>
+        <layout:listOfCompartmentGlyphs>
+          <layout:compartmentGlyph layout:compartment="d28f4" layout:id="CompartmentGlyph_d28f4" layout:order="-2" render:objectRole="SBO0000289">
+            <layout:boundingBox>
+              <layout:position layout:x="21.5" layout:y="30" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="71" layout:width="118"/>
+            </layout:boundingBox>
+          </layout:compartmentGlyph>
+          <layout:compartmentGlyph layout:compartment="be96d" layout:id="CompartmentGlyph_be96d" layout:order="65538" render:objectRole="SBO0000289">
+            <layout:boundingBox>
+              <layout:position layout:x="89" layout:y="130" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="71" layout:width="118"/>
+            </layout:boundingBox>
+          </layout:compartmentGlyph>
+          <layout:compartmentGlyph layout:compartment="e7e5f" layout:id="CompartmentGlyph_e7e5f" layout:order="65537" render:objectRole="SBO0000289">
+            <layout:boundingBox>
+              <layout:position layout:x="57.5" layout:y="80" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="71" layout:width="118"/>
+            </layout:boundingBox>
+          </layout:compartmentGlyph>
+        </layout:listOfCompartmentGlyphs>
+        <layout:listOfTextGlyphs>
+          <layout:textGlyph layout:graphicalObject="CompartmentGlyph_d28f4" layout:id="TextGlyph_CompartmentGlyph_d28f4" layout:text="at the bottom" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="21.5" layout:y="30" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="71" layout:width="118"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="CompartmentGlyph_be96d" layout:id="TextGlyph_CompartmentGlyph_be96d" layout:text="on top" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="89" layout:y="130" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="71" layout:width="118"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+          <layout:textGlyph layout:graphicalObject="CompartmentGlyph_e7e5f" layout:id="TextGlyph_CompartmentGlyph_e7e5f" layout:text="in between" render:objectRole="defaultText">
+            <layout:boundingBox>
+              <layout:position layout:x="57.5" layout:y="80" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="71" layout:width="118"/>
+            </layout:boundingBox>
+          </layout:textGlyph>
+        </layout:listOfTextGlyphs>
+      </layout:layout>
+    </layout:listOfLayouts>
+    <listOfCompartments>
+      <compartment constant="true" id="d28f4" name="at the bottom"/>
+      <compartment constant="true" id="be96d" name="on top"/>
+      <compartment constant="true" id="e7e5f" name="in between"/>
+      <compartment constant="true" id="DefaultCompartment_01"/>
+    </listOfCompartments>
+      </model>
+</sbml>

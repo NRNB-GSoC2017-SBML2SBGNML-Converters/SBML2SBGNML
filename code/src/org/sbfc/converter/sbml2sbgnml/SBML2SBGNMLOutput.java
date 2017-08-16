@@ -88,13 +88,6 @@ public class SBML2SBGNMLOutput {
 		// this is lost
 		listOfEvents = sbmlModel.getListOfEvents();
 		
-		System.out.println("SBML2SBGNMLOutput");
-		System.out.println("　getNumCompartments　"+sbmlModel.getNumCompartments());
-		System.out.println("　getNumSpecies　"+sbmlModel.getNumSpecies());
-		System.out.println("　getNumReactions　"+sbmlModel.getNumReactions());
-		System.out.println("　getNumModifierSpeciesReferences　"+sbmlModel.getNumModifierSpeciesReferences());
-		System.out.println("　getNumSpeciesReferences　"+sbmlModel.getNumSpeciesReferences());
-		System.out.println("-----");
 		
 		if (sbmlModel.isSetPlugin("qual")){
 			//System.out.println("isSetPlugin(qual) true");
@@ -134,23 +127,23 @@ public class SBML2SBGNMLOutput {
 			
 			if (layout.isSetListOfCompartmentGlyphs()){
 				listOfCompartmentGlyphs = layout.getListOfCompartmentGlyphs();
-				System.out.println(" getNumCompartmentGlyphs " + layout.getNumCompartmentGlyphs());
+				//System.out.println(" getNumCompartmentGlyphs " + layout.getNumCompartmentGlyphs());
 							}			
 			if (layout.isSetListOfSpeciesGlyphs()){
 				listOfSpeciesGlyphs = layout.getListOfSpeciesGlyphs();
-				System.out.println(" getNumSpeciesGlyphs " + layout.getNumSpeciesGlyphs());
+				//System.out.println(" getNumSpeciesGlyphs " + layout.getNumSpeciesGlyphs());
 							}
 			if (layout.isSetListOfReactionGlyphs()){
 				listOfReactionGlyphs = layout.getListOfReactionGlyphs();
-				System.out.println(" getNumReactionGlyphs " + layout.getNumReactionGlyphs());
+				//System.out.println(" getNumReactionGlyphs " + layout.getNumReactionGlyphs());
 			}		
 			if (layout.isSetListOfAdditionalGraphicalObjects()){
 				listOfAdditionalGraphicalObjects = layout.getListOfAdditionalGraphicalObjects();
-				System.out.println(" getListOfAdditionalGraphicalObjects " + layout.getListOfAdditionalGraphicalObjects().size());
+				//System.out.println(" getListOfAdditionalGraphicalObjects " + layout.getListOfAdditionalGraphicalObjects().size());
 							}			
 			if (layout.isSetListOfTextGlyphs()){
 				listOfTextGlyphs = layout.getListOfTextGlyphs();
-				System.out.println(" getNumTextGlyphs " + layout.getNumTextGlyphs());
+				//System.out.println(" getNumTextGlyphs " + layout.getNumTextGlyphs());
 							}			
 	
 		}

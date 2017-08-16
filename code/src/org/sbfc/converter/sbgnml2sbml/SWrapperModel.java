@@ -25,24 +25,24 @@ public class SWrapperModel {
 	public Map map;
 
 	HashMap<String, Glyph> processNodes;
-	HashMap<String, Glyph> entityPoolNodes;
+	public HashMap<String, Glyph> entityPoolNodes;
 	HashMap<String, Glyph> compartments;
-	HashMap<String, Glyph> logicOperators;
+	public HashMap<String, Glyph> logicOperators;
 	HashMap<String, Glyph> annotations;
 	
 	HashMap<String, SWrapperArc> consumptionArcs;
 	HashMap<String, SWrapperArc> productionArcs;
-	HashMap<String, SWrapperArc> logicArcs;
-	HashMap<String, SWrapperArc> modifierArcs;
+	public HashMap<String, SWrapperArc> logicArcs;
+	public HashMap<String, SWrapperArc> modifierArcs;
 	
-	HashMap<String, SWrapperSpeciesGlyph> listOfWrapperSpeciesGlyphs;
+	public HashMap<String, SWrapperSpeciesGlyph> listOfWrapperSpeciesGlyphs;
 	HashMap<String, SWrapperCompartmentGlyph> listOfWrapperCompartmentGlyphs;
 	HashMap<String, SWrapperReactionGlyph> listOfWrapperReactionGlyphs;
 	HashMap<String, SWrapperSpeciesReferenceGlyph> listOfWrapperSpeciesReferenceGlyphs;
 	public HashMap<String, SWrapperGeneralGlyph> listOfWrapperGeneralGlyphs;
-	HashMap<String, SWrapperReferenceGlyph> listOfWrapperReferenceGlyphs;
+	public HashMap<String, SWrapperReferenceGlyph> listOfWrapperReferenceGlyphs;
 	public HashMap<String, SWrapperQualitativeSpecies> listOfSWrapperQualitativeSpecies;
-	HashMap<String, SWrapperTransition> listOfSWrapperTransitions;
+	public HashMap<String, SWrapperTransition> listOfSWrapperTransitions;
 	
 	Model model;
 	

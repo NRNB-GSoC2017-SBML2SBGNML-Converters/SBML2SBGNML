@@ -7,8 +7,8 @@ import org.sbml.jsbml.ext.layout.GraphicalObject;
 import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 
 public class SWrapperReferenceGlyph{
-	Arc arc;
-	ReferenceGlyph referenceGlyph;
+	public Arc arc;
+	public ReferenceGlyph referenceGlyph;
 	public SWrapperArc sWrapperArc;
 	public String id;
 	

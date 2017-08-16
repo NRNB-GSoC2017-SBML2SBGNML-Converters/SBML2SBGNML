@@ -1,209 +1,326 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" level="3" version="1" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1">
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" level="3" render:required="false" version="1" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
   <model>
     <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <layout:layout>
+        <render:listOfRenderInformation xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
+          <render:renderInformation render:id="LocalRenderInformation_01">
+            <render:listOfColorDefinitions>
+              <render:colorDefinition render:id="black" render:value="#000000FF"/>
+              <render:colorDefinition render:id="white" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="transparent" render:value="#FFFFFF00"/>
+              <render:colorDefinition render:id="EmptySetOutline" render:value="#808080FF"/>
+              <render:colorDefinition render:id="EmptySetGradientStart" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="EmptySetGradientEnd" render:value="#D3D3D3FF"/>
+              <render:colorDefinition render:id="CompartmentBorder" render:value="#666666FF"/>
+              <render:colorDefinition render:id="CompartmentGradientStart" render:value="#CCCCCCFF"/>
+              <render:colorDefinition render:id="CompartmentGradientEnd" render:value="#CCCCFFFF"/>
+              <render:colorDefinition render:id="CloneMarkerColor" render:value="#FFA500FF"/>
+              <render:colorDefinition render:id="EPNGradientStart" render:value="#FFFFFFFF"/>
+              <render:colorDefinition render:id="EPNGradientEnd" render:value="#C0C0C0FF"/>
+            </render:listOfColorDefinitions>
+            <render:listOfGradientDefinitions>
+              <render:linearGradient render:id="EPNBackgroundGradient" render:spreadMethod="pad" render:x1="0%" render:x2="100%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="EPNGradientStart"/>
+                <render:stop render:offset="100%" render:stop-color="EPNGradientEnd"/>
+              </render:linearGradient>
+              <render:linearGradient render:id="cloneMarker" render:spreadMethod="pad" render:x1="50%" render:x2="50%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="transparent"/>
+                <render:stop render:offset="0.75%" render:stop-color="transparent"/>
+                <render:stop render:offset="0.76%" render:stop-color="CloneMarkerColor"/>
+                <render:stop render:offset="1%" render:stop-color="CloneMarkerColor"/>
+              </render:linearGradient>
+              <render:linearGradient render:id="EmptySetGradient" render:spreadMethod="pad" render:x1="0%" render:x2="100%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="EmptySetGradientStart"/>
+                <render:stop render:offset="100%" render:stop-color="EmptySetGradientEnd"/>
+              </render:linearGradient>
+              <render:linearGradient render:id="CompartmentGradient" render:spreadMethod="pad" render:x1="0%" render:x2="100%" render:y1="0%" render:y2="100%" render:z1="0%" render:z2="100%">
+                <render:stop render:offset="0%" render:stop-color="CompartmentGradientStart"/>
+                <render:stop render:offset="100%" render:stop-color="CompartmentGradientEnd"/>
+              </render:linearGradient>
+            </render:listOfGradientDefinitions>
+            <render:listOfLineEndings>
+              <render:lineEnding render:id="product">
+                <layout:boundingBox>
+                  <layout:position layout:x="-12" layout:y="-6"/>
+                  <layout:dimensions layout:height="12" layout:width="12"/>
+                </layout:boundingBox>
+                <render:g render:fill="black" render:stroke="black" render:stroke-width="0.001">
+                  <render:polygon render:fill="black">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                  <render:polygon render:fill="black">
+                    <render:listOfElements>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
+                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
+                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
+                    </render:listOfElements>
+                                      </render:polygon>
+                </render:g>
+              </render:lineEnding>
+              <render:lineEnding render:id="activator">
+                <layout:boundingBox>
+                  <layout:position layout:x="-12" layout:y="-6"/>
+                  <layout:dimensions layout:height="12" layout:width="12"/>
+                </layout:boundingBox>
+                <render:g render:fill="white" render:stroke="black" render:stroke-width="1.0">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%" render:stroke="black" render:stroke-width="1.0"/>
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%" render:stroke="black" render:stroke-width="1.0"/>
+                </render:g>
+              </render:lineEnding>
+            </render:listOfLineEndings>
+            <render:listOfStyles>
+              <render:style id="defaultText" render:roleList="defaultText">
+                <render:g font-style="normal" font-weight="normal" render:font-size="10" render:stroke="black" render:stroke-width="1.0" render:text-anchor="middle" render:vtext-anchor="middle"/>
+              </render:style>
+              <render:style id="substrate" render:roleList="substrate">
+                <render:g render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000167" render:roleList="SBO0000167">
+                <render:g render:fill="white" render:stroke="black" render:stroke-width="1.0">
+                  <render:rectangle render:height="8" render:stroke="black" render:width="8" render:x="0%" render:y="0%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000172" render:roleList="SBO0000172">
+                <render:g render:endHead="activator" render:fill="white" render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="product" render:roleList="product">
+                <render:g render:endHead="product" render:stroke="black" render:stroke-width="2.0"/>
+              </render:style>
+              <render:style id="SBO0000245" render:roleList="SBO0000245">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:rectangle render:height="100%" render:rx="10%" render:width="100%" render:x="0%" render:y="0%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000247" render:roleList="SBO0000247">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
+                </render:g>
+              </render:style>
+              <render:style id="SBO0000247clone" render:roleList="SBO0000247clone">
+                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
+                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
+                  <render:ellipse render:cx="50%" render:cy="75%" render:cz="0" render:fill="cloneMarker" render:rx="25%" render:ry="25%"/>
+                </render:g>
+              </render:style>
+            </render:listOfStyles>
+          </render:renderInformation>
+        </render:listOfRenderInformation>
         <layout:dimensions layout:depth="0" layout:height="0" layout:width="0"/>
         <layout:listOfSpeciesGlyphs>
-          <layout:speciesGlyph layout:id="glyph30_Glyph" layout:species="glyph30">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph30" layout:species="glyph30" render:objectRole="SBO0000247">
             <layout:boundingBox>
               <layout:position layout:x="30" layout:y="460" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph13_Glyph" layout:species="glyph13">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph13" layout:species="glyph13" render:objectRole="SBO0000247clone">
             <layout:boundingBox>
               <layout:position layout:x="570" layout:y="230" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph35_Glyph" layout:species="glyph35">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph35" layout:species="glyph35" render:objectRole="SBO0000245">
             <layout:boundingBox>
               <layout:position layout:x="820" layout:y="540" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph36_Glyph" layout:species="glyph36">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph36" layout:species="glyph36" render:objectRole="SBO0000245">
             <layout:boundingBox>
               <layout:position layout:x="580" layout:y="540" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph12_Glyph" layout:species="glyph12">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph12" layout:species="glyph12" render:objectRole="SBO0000247clone">
             <layout:boundingBox>
               <layout:position layout:x="700" layout:y="230" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph17_Glyph" layout:species="glyph17">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph17" layout:species="glyph17" render:objectRole="SBO0000245">
             <layout:boundingBox>
               <layout:position layout:x="380" layout:y="40" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph39_Glyph" layout:species="glyph39">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph39" layout:species="glyph39" render:objectRole="SBO0000247clone">
             <layout:boundingBox>
               <layout:position layout:x="210" layout:y="390" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph18_Glyph" layout:species="glyph18">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph18" layout:species="glyph18" render:objectRole="SBO0000245">
             <layout:boundingBox>
               <layout:position layout:x="820" layout:y="40" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph15_Glyph" layout:species="glyph15">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph15" layout:species="glyph15" render:objectRole="SBO0000245">
             <layout:boundingBox>
               <layout:position layout:x="1080" layout:y="140" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph37_Glyph" layout:species="glyph37">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph37" layout:species="glyph37" render:objectRole="SBO0000245">
             <layout:boundingBox>
               <layout:position layout:x="350" layout:y="540" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph38_Glyph" layout:species="glyph38">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph38" layout:species="glyph38" render:objectRole="SBO0000245">
             <layout:boundingBox>
               <layout:position layout:x="100" layout:y="540" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph19_Glyph" layout:species="glyph19">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph19" layout:species="glyph19" render:objectRole="SBO0000245">
             <layout:boundingBox>
               <layout:position layout:x="600" layout:y="40" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph9_Glyph" layout:species="glyph9">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph9" layout:species="glyph9" render:objectRole="SBO0000245">
             <layout:boundingBox>
               <layout:position layout:x="170" layout:y="40" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph42_Glyph" layout:species="glyph42">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph42" layout:species="glyph42" render:objectRole="SBO0000247clone">
             <layout:boundingBox>
               <layout:position layout:x="910" layout:y="390" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph21_Glyph" layout:species="glyph21">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph21" layout:species="glyph21" render:objectRole="SBO0000247">
             <layout:boundingBox>
               <layout:position layout:x="960" layout:y="460" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph43_Glyph" layout:species="glyph43">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph43" layout:species="glyph43" render:objectRole="SBO0000247">
             <layout:boundingBox>
               <layout:position layout:x="320" layout:y="390" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph40_Glyph" layout:species="glyph40">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph40" layout:species="glyph40" render:objectRole="SBO0000247clone">
             <layout:boundingBox>
               <layout:position layout:x="60" layout:y="390" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph41_Glyph" layout:species="glyph41">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph41" layout:species="glyph41" render:objectRole="SBO0000247clone">
             <layout:boundingBox>
               <layout:position layout:x="780" layout:y="390" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph24_Glyph" layout:species="glyph24">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph24" layout:species="glyph24" render:objectRole="SBO0000247">
             <layout:boundingBox>
               <layout:position layout:x="1050" layout:y="280" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph5_Glyph" layout:species="glyph5">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph5" layout:species="glyph5" render:objectRole="SBO0000247">
             <layout:boundingBox>
               <layout:position layout:x="960" layout:y="40" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph4_Glyph" layout:species="glyph4">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph4" layout:species="glyph4" render:objectRole="SBO0000247">
             <layout:boundingBox>
               <layout:position layout:x="960" layout:y="240" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph25_Glyph" layout:species="glyph25">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph25" layout:species="glyph25" render:objectRole="SBO0000247">
             <layout:boundingBox>
               <layout:position layout:x="1050" layout:y="420" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph7_Glyph" layout:species="glyph7">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph7" layout:species="glyph7" render:objectRole="SBO0000247clone">
             <layout:boundingBox>
               <layout:position layout:x="270" layout:y="230" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph22_Glyph" layout:species="glyph22">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph22" layout:species="glyph22" render:objectRole="SBO0000245">
             <layout:boundingBox>
               <layout:position layout:x="1080" layout:y="350" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph6_Glyph" layout:species="glyph6">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph6" layout:species="glyph6" render:objectRole="SBO0000247clone">
             <layout:boundingBox>
               <layout:position layout:x="140" layout:y="230" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph23_Glyph" layout:species="glyph23">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph23" layout:species="glyph23" render:objectRole="SBO0000247">
             <layout:boundingBox>
               <layout:position layout:x="880" layout:y="280" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph1_Glyph" layout:species="glyph1">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph1" layout:species="glyph1" render:objectRole="SBO0000247">
             <layout:boundingBox>
               <layout:position layout:x="320" layout:y="140" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph0_Glyph" layout:species="glyph0">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph0" layout:species="glyph0" render:objectRole="SBO0000247">
             <layout:boundingBox>
               <layout:position layout:x="90" layout:y="140" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph3_Glyph" layout:species="glyph3">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph3" layout:species="glyph3" render:objectRole="SBO0000247">
             <layout:boundingBox>
               <layout:position layout:x="730" layout:y="140" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph2_Glyph" layout:species="glyph2">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph2" layout:species="glyph2" render:objectRole="SBO0000247">
             <layout:boundingBox>
               <layout:position layout:x="520" layout:y="140" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph28_Glyph" layout:species="glyph28">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph28" layout:species="glyph28" render:objectRole="SBO0000247">
             <layout:boundingBox>
               <layout:position layout:x="490" layout:y="460" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph29_Glyph" layout:species="glyph29">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph29" layout:species="glyph29" render:objectRole="SBO0000247">
             <layout:boundingBox>
               <layout:position layout:x="270" layout:y="460" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph26_Glyph" layout:species="glyph26">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph26" layout:species="glyph26" render:objectRole="SBO0000247">
             <layout:boundingBox>
               <layout:position layout:x="1050" layout:y="490" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="glyph27_Glyph" layout:species="glyph27">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_glyph27" layout:species="glyph27" render:objectRole="SBO0000247">
             <layout:boundingBox>
               <layout:position layout:x="720" layout:y="460" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
@@ -211,38 +328,54 @@
           </layout:speciesGlyph>
         </layout:listOfSpeciesGlyphs>
         <layout:listOfReactionGlyphs>
-          <layout:reactionGlyph layout:id="glyph20_Glyph" layout:reaction="glyph20">
+          <layout:reactionGlyph layout:id="ReactionGlyph_glyph20" layout:reaction="glyph20" render:objectRole="SBO0000167">
+            <layout:boundingBox>
+              <layout:position layout:x="980" layout:y="370" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
             <layout:curve>
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
-                  <layout:start layout:x="990" layout:y="360"/>
+                  <layout:start layout:x="990" layout:y="380"/>
                   <layout:end layout:x="990" layout:y="400"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="990" layout:y="380"/>
+                  <layout:end layout:x="990" layout:y="400"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="990" layout:y="380"/>
+                  <layout:end layout:x="990" layout:y="400"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="990" layout:y="360"/>
+                  <layout:end layout:x="990" layout:y="380"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="990" layout:y="360"/>
+                  <layout:end layout:x="990" layout:y="380"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="990" layout:y="360"/>
+                  <layout:end layout:x="990" layout:y="380"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences20_Glyph" layout:role="substrate" layout:speciesGlyph="glyph4_Glyph" layout:speciesReference="SpeciesReferences20">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xsi:type="LineSegment">
-                      <layout:start layout:x="990" layout:y="300"/>
-                      <layout:end layout:x="990" layout:y="360"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences22_Glyph" layout:role="substrate" layout:speciesGlyph="glyph23_Glyph" layout:speciesReference="SpeciesReferences22">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xsi:type="LineSegment">
-                      <layout:start layout:x="935.43994140625" layout:y="325.89996337890625"/>
-                      <layout:end layout:x="990" layout:y="360"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences23_Glyph" layout:role="substrate" layout:speciesGlyph="glyph24_Glyph" layout:speciesReference="SpeciesReferences23">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_24" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph24" layout:speciesReference="Arc_24" metaid="_96f962f8-1082-44a1-baad-4516780d3f84" render:objectRole="substrate">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_96f962f8-1082-44a1-baad-4516780d3f84">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph24"/>
+	<rdf:li rdf:resource="glyph20"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="1053.7752685546875" layout:y="324.56927490234375"/>
@@ -251,28 +384,64 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences21_Glyph" layout:role="product" layout:speciesGlyph="glyph21_Glyph" layout:speciesReference="SpeciesReferences21">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_23" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph23" layout:speciesReference="Arc_23" metaid="a1c4335f-792e-4d75-a61e-936cc1f0140c" render:objectRole="substrate">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#a1c4335f-792e-4d75-a61e-936cc1f0140c">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph23"/>
+	<rdf:li rdf:resource="glyph20"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
-                      <layout:start layout:x="990" layout:y="400"/>
-                      <layout:end layout:x="990" layout:y="460"/>
+                      <layout:start layout:x="935.43994140625" layout:y="325.89996337890625"/>
+                      <layout:end layout:x="990" layout:y="360"/>
                     </layout:curveSegment>
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences24_Glyph" layout:role="product" layout:speciesGlyph="glyph25_Glyph" layout:speciesReference="SpeciesReferences24">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_21" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph4" layout:speciesReference="Arc_21" metaid="cb8d16ea-dfcb-4588-901c-f31233d27778" render:objectRole="substrate">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#cb8d16ea-dfcb-4588-901c-f31233d27778">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph4"/>
+	<rdf:li rdf:resource="glyph20"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
-                      <layout:start layout:x="990" layout:y="400"/>
-                      <layout:end layout:x="1056.3194580078125" layout:y="431.581787109375"/>
+                      <layout:start layout:x="990" layout:y="300"/>
+                      <layout:end layout:x="990" layout:y="360"/>
                     </layout:curveSegment>
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences25_Glyph" layout:role="product" layout:speciesGlyph="glyph26_Glyph" layout:speciesReference="SpeciesReferences25">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_26" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph26" layout:speciesReference="Arc_26" metaid="_00ddb9f7-4029-42bf-849c-68d36bb6b574" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_00ddb9f7-4029-42bf-849c-68d36bb6b574">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph20"/>
+	<rdf:li rdf:resource="glyph26"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="990" layout:y="400"/>
@@ -281,8 +450,64 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences19_Glyph" layout:role="activator" layout:speciesGlyph="glyph22_Glyph" layout:speciesReference="SpeciesReferences19">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_25" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph25" layout:speciesReference="Arc_25" metaid="_436b9293-3b0f-43b7-b66b-7a29e1a4b990" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_436b9293-3b0f-43b7-b66b-7a29e1a4b990">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph20"/>
+	<rdf:li rdf:resource="glyph25"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="990" layout:y="400"/>
+                      <layout:end layout:x="1056.3194580078125" layout:y="431.581787109375"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_22" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph21" layout:speciesReference="Arc_22" metaid="_89edcd0a-44d6-479f-b1ac-bb3a55739c21" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_89edcd0a-44d6-479f-b1ac-bb3a55739c21">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph20"/>
+	<rdf:li rdf:resource="glyph21"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="990" layout:y="400"/>
+                      <layout:end layout:x="990" layout:y="460"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_20" layout:role="activator" layout:speciesGlyph="SpeciesGlyph_glyph22" layout:speciesReference="Arc_20" metaid="_87918c10-24b6-4915-956e-444b2e23656a" render:objectRole="SBO0000172">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_87918c10-24b6-4915-956e-444b2e23656a">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph22"/>
+	<rdf:li rdf:resource="glyph20"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="1080" layout:y="380"/>
@@ -293,28 +518,46 @@
               </layout:speciesReferenceGlyph>
             </layout:listOfSpeciesReferenceGlyphs>
           </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="glyph31_Glyph" layout:reaction="glyph31">
+          <layout:reactionGlyph layout:id="ReactionGlyph_glyph31" layout:reaction="glyph31" render:objectRole="SBO0000167">
+            <layout:boundingBox>
+              <layout:position layout:x="870" layout:y="480" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
             <layout:curve>
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
-                  <layout:start layout:x="900" layout:y="490"/>
+                  <layout:start layout:x="880" layout:y="490"/>
                   <layout:end layout:x="860" layout:y="490"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="880" layout:y="490"/>
+                  <layout:end layout:x="860" layout:y="490"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="900" layout:y="490"/>
+                  <layout:end layout:x="880" layout:y="490"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="900" layout:y="490"/>
+                  <layout:end layout:x="880" layout:y="490"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences30_Glyph" layout:role="substrate" layout:speciesGlyph="glyph21_Glyph" layout:speciesReference="SpeciesReferences30">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xsi:type="LineSegment">
-                      <layout:start layout:x="960" layout:y="490"/>
-                      <layout:end layout:x="900" layout:y="490"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences31_Glyph" layout:role="substrate" layout:speciesGlyph="glyph42_Glyph" layout:speciesReference="SpeciesReferences31">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_32" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph42" layout:speciesReference="Arc_32" metaid="_13ff3b8d-8028-492e-93e5-ad50c80d6b8c" render:objectRole="substrate">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_13ff3b8d-8028-492e-93e5-ad50c80d6b8c">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph42"/>
+	<rdf:li rdf:resource="glyph31"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="925.1158447265625" layout:y="446.04730224609375"/>
@@ -323,18 +566,42 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences32_Glyph" layout:role="product" layout:speciesGlyph="glyph41_Glyph" layout:speciesReference="SpeciesReferences32">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_31" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph21" layout:speciesReference="Arc_31" metaid="_6b0c42d7-f7c3-4b8d-81fd-0d59a3ffa8cb" render:objectRole="substrate">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_6b0c42d7-f7c3-4b8d-81fd-0d59a3ffa8cb">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph21"/>
+	<rdf:li rdf:resource="glyph31"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
-                      <layout:start layout:x="860" layout:y="490"/>
-                      <layout:end layout:x="831.2131958007812" layout:y="441.21319580078125"/>
+                      <layout:start layout:x="960" layout:y="490"/>
+                      <layout:end layout:x="900" layout:y="490"/>
                     </layout:curveSegment>
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences33_Glyph" layout:role="product" layout:speciesGlyph="glyph27_Glyph" layout:speciesReference="SpeciesReferences33">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_34" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph27" layout:speciesReference="Arc_34" metaid="_9399cc3f-ace7-45b1-ae70-401aa4bb0164" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_9399cc3f-ace7-45b1-ae70-401aa4bb0164">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph31"/>
+	<rdf:li rdf:resource="glyph27"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="860" layout:y="490"/>
@@ -343,8 +610,42 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences26_Glyph" layout:role="activator" layout:speciesGlyph="glyph35_Glyph" layout:speciesReference="SpeciesReferences26">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_33" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph41" layout:speciesReference="Arc_33" metaid="_644bc7cf-959b-48eb-bb83-be87f0de8104" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_644bc7cf-959b-48eb-bb83-be87f0de8104">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph31"/>
+	<rdf:li rdf:resource="glyph41"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="860" layout:y="490"/>
+                      <layout:end layout:x="831.2131958007812" layout:y="441.21319580078125"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_27" layout:role="activator" layout:speciesGlyph="SpeciesGlyph_glyph35" layout:speciesReference="Arc_27" metaid="_365b8d77-1752-4c01-bc2c-9c1f9557eaa4" render:objectRole="SBO0000172">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_365b8d77-1752-4c01-bc2c-9c1f9557eaa4">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph35"/>
+	<rdf:li rdf:resource="glyph31"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="880" layout:y="540"/>
@@ -355,18 +656,46 @@
               </layout:speciesReferenceGlyph>
             </layout:listOfSpeciesReferenceGlyphs>
           </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="glyph8_Glyph" layout:reaction="glyph8">
+          <layout:reactionGlyph layout:id="ReactionGlyph_glyph8" layout:reaction="glyph8" render:objectRole="SBO0000167">
+            <layout:boundingBox>
+              <layout:position layout:x="220" layout:y="160" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
             <layout:curve>
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
-                  <layout:start layout:x="210" layout:y="170"/>
+                  <layout:start layout:x="230" layout:y="170"/>
                   <layout:end layout:x="250" layout:y="170"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="230" layout:y="170"/>
+                  <layout:end layout:x="250" layout:y="170"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="210" layout:y="170"/>
+                  <layout:end layout:x="230" layout:y="170"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="210" layout:y="170"/>
+                  <layout:end layout:x="230" layout:y="170"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences1_Glyph" layout:role="substrate" layout:speciesGlyph="glyph0_Glyph" layout:speciesReference="SpeciesReferences1">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_2" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph0" layout:speciesReference="Arc_2" metaid="a4bac928-7052-447c-be97-42414b585053" render:objectRole="substrate">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#a4bac928-7052-447c-be97-42414b585053">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph0"/>
+	<rdf:li rdf:resource="glyph8"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="150" layout:y="170"/>
@@ -375,8 +704,20 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences3_Glyph" layout:role="substrate" layout:speciesGlyph="glyph6_Glyph" layout:speciesReference="SpeciesReferences3">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_4" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph6" layout:speciesReference="Arc_4" metaid="eda4a5d1-7d00-4fcd-9c0f-4e16e2682371" render:objectRole="substrate">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#eda4a5d1-7d00-4fcd-9c0f-4e16e2682371">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph6"/>
+	<rdf:li rdf:resource="glyph8"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="182.1841583251953" layout:y="232.5856475830078"/>
@@ -385,18 +726,20 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences2_Glyph" layout:role="product" layout:speciesGlyph="glyph1_Glyph" layout:speciesReference="SpeciesReferences2">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xsi:type="LineSegment">
-                      <layout:start layout:x="250" layout:y="170"/>
-                      <layout:end layout:x="320" layout:y="170"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences4_Glyph" layout:role="product" layout:speciesGlyph="glyph7_Glyph" layout:speciesReference="SpeciesReferences4">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_5" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph7" layout:speciesReference="Arc_5" metaid="ea3cf5d8-86af-4f22-826c-d9897b17d71a" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#ea3cf5d8-86af-4f22-826c-d9897b17d71a">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph8"/>
+	<rdf:li rdf:resource="glyph7"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="250" layout:y="170"/>
@@ -405,8 +748,42 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences0_Glyph" layout:role="activator" layout:speciesGlyph="glyph9_Glyph" layout:speciesReference="SpeciesReferences0">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_3" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph1" layout:speciesReference="Arc_3" metaid="a71dcff1-a90c-4036-ab75-595b9f04b850" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#a71dcff1-a90c-4036-ab75-595b9f04b850">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph8"/>
+	<rdf:li rdf:resource="glyph1"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="250" layout:y="170"/>
+                      <layout:end layout:x="320" layout:y="170"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_1" layout:role="activator" layout:speciesGlyph="SpeciesGlyph_glyph9" layout:speciesReference="Arc_1" metaid="_213fa391-4573-4a43-8443-8e24af0c0377" render:objectRole="SBO0000172">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_213fa391-4573-4a43-8443-8e24af0c0377">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph9"/>
+	<rdf:li rdf:resource="glyph8"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="230" layout:y="100"/>
@@ -417,18 +794,38 @@
               </layout:speciesReferenceGlyph>
             </layout:listOfSpeciesReferenceGlyphs>
           </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="glyph10_Glyph" layout:reaction="glyph10">
+          <layout:reactionGlyph layout:id="ReactionGlyph_glyph10" layout:reaction="glyph10" render:objectRole="SBO0000167">
+            <layout:boundingBox>
+              <layout:position layout:x="430" layout:y="160" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
             <layout:curve>
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
-                  <layout:start layout:x="420" layout:y="170"/>
+                  <layout:start layout:x="440" layout:y="170"/>
                   <layout:end layout:x="460" layout:y="170"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="420" layout:y="170"/>
+                  <layout:end layout:x="440" layout:y="170"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences7_Glyph" layout:role="substrate" layout:speciesGlyph="glyph1_Glyph" layout:speciesReference="SpeciesReferences7">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_8" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph1" layout:speciesReference="Arc_8" metaid="c6798b86-56e1-4e26-a287-8f086a79fc91" render:objectRole="substrate">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#c6798b86-56e1-4e26-a287-8f086a79fc91">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph1"/>
+	<rdf:li rdf:resource="glyph10"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="380" layout:y="170"/>
@@ -437,8 +834,20 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences8_Glyph" layout:role="product" layout:speciesGlyph="glyph2_Glyph" layout:speciesReference="SpeciesReferences8">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_9" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph2" layout:speciesReference="Arc_9" metaid="_49bd1bcc-cc6a-4abd-9b2c-1d541c9789f9" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_49bd1bcc-cc6a-4abd-9b2c-1d541c9789f9">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph10"/>
+	<rdf:li rdf:resource="glyph2"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="460" layout:y="170"/>
@@ -447,8 +856,20 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences16_Glyph" layout:role="activator" layout:speciesGlyph="glyph17_Glyph" layout:speciesReference="SpeciesReferences16">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_17" layout:role="activator" layout:speciesGlyph="SpeciesGlyph_glyph17" layout:speciesReference="Arc_17" metaid="_03f8326b-a155-4718-b8ef-e64578c82278" render:objectRole="SBO0000172">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_03f8326b-a155-4718-b8ef-e64578c82278">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph17"/>
+	<rdf:li rdf:resource="glyph10"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="440" layout:y="100"/>
@@ -459,18 +880,38 @@
               </layout:speciesReferenceGlyph>
             </layout:listOfSpeciesReferenceGlyphs>
           </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="glyph32_Glyph" layout:reaction="glyph32">
+          <layout:reactionGlyph layout:id="ReactionGlyph_glyph32" layout:reaction="glyph32" render:objectRole="SBO0000167">
+            <layout:boundingBox>
+              <layout:position layout:x="630" layout:y="480" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
             <layout:curve>
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
-                  <layout:start layout:x="660" layout:y="490"/>
+                  <layout:start layout:x="640" layout:y="490"/>
                   <layout:end layout:x="620" layout:y="490"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="660" layout:y="490"/>
+                  <layout:end layout:x="640" layout:y="490"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences34_Glyph" layout:role="substrate" layout:speciesGlyph="glyph27_Glyph" layout:speciesReference="SpeciesReferences34">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_35" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph27" layout:speciesReference="Arc_35" metaid="_4789deef-5104-4e8e-90a9-341d539c3fb7" render:objectRole="substrate">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_4789deef-5104-4e8e-90a9-341d539c3fb7">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph27"/>
+	<rdf:li rdf:resource="glyph32"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="720" layout:y="490"/>
@@ -479,8 +920,20 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences35_Glyph" layout:role="product" layout:speciesGlyph="glyph28_Glyph" layout:speciesReference="SpeciesReferences35">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_36" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph28" layout:speciesReference="Arc_36" metaid="_60df8d66-d8c1-4e86-a849-be80843a08e6" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_60df8d66-d8c1-4e86-a849-be80843a08e6">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph32"/>
+	<rdf:li rdf:resource="glyph28"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="620" layout:y="490"/>
@@ -489,8 +942,20 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences27_Glyph" layout:role="activator" layout:speciesGlyph="glyph36_Glyph" layout:speciesReference="SpeciesReferences27">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_28" layout:role="activator" layout:speciesGlyph="SpeciesGlyph_glyph36" layout:speciesReference="Arc_28" metaid="e604df38-c136-4766-a987-1498493d8539" render:objectRole="SBO0000172">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#e604df38-c136-4766-a987-1498493d8539">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph36"/>
+	<rdf:li rdf:resource="glyph32"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="640" layout:y="540"/>
@@ -501,28 +966,38 @@
               </layout:speciesReferenceGlyph>
             </layout:listOfSpeciesReferenceGlyphs>
           </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="glyph14_Glyph" layout:reaction="glyph14">
+          <layout:reactionGlyph layout:id="ReactionGlyph_glyph14" layout:reaction="glyph14" render:objectRole="SBO0000167">
+            <layout:boundingBox>
+              <layout:position layout:x="980" layout:y="160" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
             <layout:curve>
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
-                  <layout:start layout:x="980" layout:y="160"/>
+                  <layout:start layout:x="990" layout:y="170"/>
                   <layout:end layout:x="990" layout:y="190"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="990" layout:y="170"/>
+                  <layout:end layout:x="990" layout:y="150"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences43_Glyph" layout:role="product" layout:speciesGlyph="glyph5_Glyph" layout:speciesReference="SpeciesReferences43">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xsi:type="LineSegment">
-                      <layout:start layout:x="990" layout:y="150"/>
-                      <layout:end layout:x="990" layout:y="100"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences11_Glyph" layout:role="product" layout:speciesGlyph="glyph4_Glyph" layout:speciesReference="SpeciesReferences11">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_12" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph4" layout:speciesReference="Arc_12" metaid="d39495d2-0fec-4ec3-9a66-00d5fc6783d9" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#d39495d2-0fec-4ec3-9a66-00d5fc6783d9">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph14"/>
+	<rdf:li rdf:resource="glyph4"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="990" layout:y="190"/>
@@ -531,8 +1006,42 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences12_Glyph" layout:role="activator" layout:speciesGlyph="glyph15_Glyph" layout:speciesReference="SpeciesReferences12">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_44" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph5" layout:speciesReference="Arc_44" metaid="_37b7cdb7-4243-43cb-9f74-78b2712938aa" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_37b7cdb7-4243-43cb-9f74-78b2712938aa">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph14"/>
+	<rdf:li rdf:resource="glyph5"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="990" layout:y="150"/>
+                      <layout:end layout:x="990" layout:y="100"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_13" layout:role="activator" layout:speciesGlyph="SpeciesGlyph_glyph15" layout:speciesReference="Arc_13" metaid="bd201d73-b338-4449-a4d6-dc9f4db5a560" render:objectRole="SBO0000172">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#bd201d73-b338-4449-a4d6-dc9f4db5a560">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph15"/>
+	<rdf:li rdf:resource="glyph14"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="1080" layout:y="170"/>
@@ -543,28 +1052,46 @@
               </layout:speciesReferenceGlyph>
             </layout:listOfSpeciesReferenceGlyphs>
           </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="glyph11_Glyph" layout:reaction="glyph11">
+          <layout:reactionGlyph layout:id="ReactionGlyph_glyph11" layout:reaction="glyph11" render:objectRole="SBO0000167">
+            <layout:boundingBox>
+              <layout:position layout:x="650" layout:y="160" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
             <layout:curve>
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
-                  <layout:start layout:x="640" layout:y="170"/>
+                  <layout:start layout:x="660" layout:y="170"/>
                   <layout:end layout:x="680" layout:y="170"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="660" layout:y="170"/>
+                  <layout:end layout:x="680" layout:y="170"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="640" layout:y="170"/>
+                  <layout:end layout:x="660" layout:y="170"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="640" layout:y="170"/>
+                  <layout:end layout:x="660" layout:y="170"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences9_Glyph" layout:role="substrate" layout:speciesGlyph="glyph2_Glyph" layout:speciesReference="SpeciesReferences9">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xsi:type="LineSegment">
-                      <layout:start layout:x="580" layout:y="170"/>
-                      <layout:end layout:x="640" layout:y="170"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences6_Glyph" layout:role="substrate" layout:speciesGlyph="glyph13_Glyph" layout:speciesReference="SpeciesReferences6">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_7" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph13" layout:speciesReference="Arc_7" metaid="e336c827-faf4-42c7-ae3c-616fb932cfa6" render:objectRole="substrate">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#e336c827-faf4-42c7-ae3c-616fb932cfa6">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph13"/>
+	<rdf:li rdf:resource="glyph11"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="612.1841430664062" layout:y="232.5856475830078"/>
@@ -573,18 +1100,42 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences10_Glyph" layout:role="product" layout:speciesGlyph="glyph3_Glyph" layout:speciesReference="SpeciesReferences10">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_10" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph2" layout:speciesReference="Arc_10" metaid="ca42a34e-061a-49df-a311-ab983bc1e37a" render:objectRole="substrate">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#ca42a34e-061a-49df-a311-ab983bc1e37a">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph2"/>
+	<rdf:li rdf:resource="glyph11"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
-                      <layout:start layout:x="680" layout:y="170"/>
-                      <layout:end layout:x="730" layout:y="170"/>
+                      <layout:start layout:x="580" layout:y="170"/>
+                      <layout:end layout:x="640" layout:y="170"/>
                     </layout:curveSegment>
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences5_Glyph" layout:role="product" layout:speciesGlyph="glyph12_Glyph" layout:speciesReference="SpeciesReferences5">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_6" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph12" layout:speciesReference="Arc_6" metaid="bb6a3e70-2f97-42b4-835b-bb872caf7b5d" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#bb6a3e70-2f97-42b4-835b-bb872caf7b5d">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph11"/>
+	<rdf:li rdf:resource="glyph12"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="680" layout:y="170"/>
@@ -593,8 +1144,42 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences17_Glyph" layout:role="activator" layout:speciesGlyph="glyph19_Glyph" layout:speciesReference="SpeciesReferences17">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_11" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph3" layout:speciesReference="Arc_11" metaid="ab7d0975-0b1d-42bb-bcc9-3c1d1835fd41" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#ab7d0975-0b1d-42bb-bcc9-3c1d1835fd41">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph11"/>
+	<rdf:li rdf:resource="glyph3"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="680" layout:y="170"/>
+                      <layout:end layout:x="730" layout:y="170"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_18" layout:role="activator" layout:speciesGlyph="SpeciesGlyph_glyph19" layout:speciesReference="Arc_18" metaid="_8d13b381-5234-4a3c-80e6-6eeed8687686" render:objectRole="SBO0000172">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_8d13b381-5234-4a3c-80e6-6eeed8687686">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph19"/>
+	<rdf:li rdf:resource="glyph11"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="660" layout:y="100"/>
@@ -605,18 +1190,42 @@
               </layout:speciesReferenceGlyph>
             </layout:listOfSpeciesReferenceGlyphs>
           </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="glyph33_Glyph" layout:reaction="glyph33">
+          <layout:reactionGlyph layout:id="ReactionGlyph_glyph33" layout:reaction="glyph33" render:objectRole="SBO0000167">
+            <layout:boundingBox>
+              <layout:position layout:x="400" layout:y="480" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
             <layout:curve>
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
-                  <layout:start layout:x="430" layout:y="490"/>
+                  <layout:start layout:x="410" layout:y="490"/>
                   <layout:end layout:x="390" layout:y="490"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="410" layout:y="490"/>
+                  <layout:end layout:x="390" layout:y="490"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="430" layout:y="490"/>
+                  <layout:end layout:x="410" layout:y="490"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences36_Glyph" layout:role="substrate" layout:speciesGlyph="glyph28_Glyph" layout:speciesReference="SpeciesReferences36">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_37" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph28" layout:speciesReference="Arc_37" metaid="_2956e58d-35a4-4085-ad12-ebd7916d272a" render:objectRole="substrate">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_2956e58d-35a4-4085-ad12-ebd7916d272a">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph28"/>
+	<rdf:li rdf:resource="glyph33"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="490" layout:y="490"/>
@@ -625,18 +1234,20 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences37_Glyph" layout:role="product" layout:speciesGlyph="glyph43_Glyph" layout:speciesReference="SpeciesReferences37">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xsi:type="LineSegment">
-                      <layout:start layout:x="390" layout:y="490"/>
-                      <layout:end layout:x="369.52374267578125" layout:y="442.7777099609375"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences38_Glyph" layout:role="product" layout:speciesGlyph="glyph29_Glyph" layout:speciesReference="SpeciesReferences38">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_39" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph29" layout:speciesReference="Arc_39" metaid="_551f2ee1-e829-44f8-95af-706b9c1f8136" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_551f2ee1-e829-44f8-95af-706b9c1f8136">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph33"/>
+	<rdf:li rdf:resource="glyph29"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="390" layout:y="490"/>
@@ -645,8 +1256,42 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences28_Glyph" layout:role="activator" layout:speciesGlyph="glyph37_Glyph" layout:speciesReference="SpeciesReferences28">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_38" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph43" layout:speciesReference="Arc_38" metaid="_91100c3a-1b4d-44fd-9e8f-56c2c62f157c" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_91100c3a-1b4d-44fd-9e8f-56c2c62f157c">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph33"/>
+	<rdf:li rdf:resource="glyph43"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="390" layout:y="490"/>
+                      <layout:end layout:x="369.52374267578125" layout:y="442.7777099609375"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_29" layout:role="activator" layout:speciesGlyph="SpeciesGlyph_glyph37" layout:speciesReference="Arc_29" metaid="ee79425c-5de1-4af0-9cc4-f21f2ddf7e73" render:objectRole="SBO0000172">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#ee79425c-5de1-4af0-9cc4-f21f2ddf7e73">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph37"/>
+	<rdf:li rdf:resource="glyph33"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="410" layout:y="540"/>
@@ -657,18 +1302,46 @@
               </layout:speciesReferenceGlyph>
             </layout:listOfSpeciesReferenceGlyphs>
           </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="glyph34_Glyph" layout:reaction="glyph34">
+          <layout:reactionGlyph layout:id="ReactionGlyph_glyph34" layout:reaction="glyph34" render:objectRole="SBO0000167">
+            <layout:boundingBox>
+              <layout:position layout:x="150" layout:y="480" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
             <layout:curve>
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
-                  <layout:start layout:x="180" layout:y="490"/>
+                  <layout:start layout:x="160" layout:y="490"/>
                   <layout:end layout:x="140" layout:y="490"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="160" layout:y="490"/>
+                  <layout:end layout:x="140" layout:y="490"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="180" layout:y="490"/>
+                  <layout:end layout:x="160" layout:y="490"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="180" layout:y="490"/>
+                  <layout:end layout:x="160" layout:y="490"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences40_Glyph" layout:role="substrate" layout:speciesGlyph="glyph39_Glyph" layout:speciesReference="SpeciesReferences40">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_41" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph39" layout:speciesReference="Arc_41" metaid="_866e51c3-a8a0-4eca-93b7-7a85174bc6ca" render:objectRole="substrate">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_866e51c3-a8a0-4eca-93b7-7a85174bc6ca">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph39"/>
+	<rdf:li rdf:resource="glyph34"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="220.47625732421875" layout:y="442.7777099609375"/>
@@ -677,8 +1350,20 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences39_Glyph" layout:role="substrate" layout:speciesGlyph="glyph29_Glyph" layout:speciesReference="SpeciesReferences39">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_40" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph29" layout:speciesReference="Arc_40" metaid="e46ec1ed-12ae-4820-b5cf-3be78f81f0dd" render:objectRole="substrate">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#e46ec1ed-12ae-4820-b5cf-3be78f81f0dd">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph29"/>
+	<rdf:li rdf:resource="glyph34"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="270" layout:y="490"/>
@@ -687,18 +1372,20 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences41_Glyph" layout:role="product" layout:speciesGlyph="glyph40_Glyph" layout:speciesReference="SpeciesReferences41">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xsi:type="LineSegment">
-                      <layout:start layout:x="140" layout:y="490"/>
-                      <layout:end layout:x="111.21320343017578" layout:y="441.21319580078125"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences42_Glyph" layout:role="product" layout:speciesGlyph="glyph30_Glyph" layout:speciesReference="SpeciesReferences42">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_43" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph30" layout:speciesReference="Arc_43" metaid="_365230cc-29ca-4f50-9a87-13f47a3702cb" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_365230cc-29ca-4f50-9a87-13f47a3702cb">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph34"/>
+	<rdf:li rdf:resource="glyph30"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="140" layout:y="490"/>
@@ -707,8 +1394,42 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences29_Glyph" layout:role="activator" layout:speciesGlyph="glyph38_Glyph" layout:speciesReference="SpeciesReferences29">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_42" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph40" layout:speciesReference="Arc_42" metaid="d04dedbb-1430-4242-a2a3-db0cca0fddcf" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#d04dedbb-1430-4242-a2a3-db0cca0fddcf">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph34"/>
+	<rdf:li rdf:resource="glyph40"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="140" layout:y="490"/>
+                      <layout:end layout:x="111.21320343017578" layout:y="441.21319580078125"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_30" layout:role="activator" layout:speciesGlyph="SpeciesGlyph_glyph38" layout:speciesReference="Arc_30" metaid="_49ba475a-2775-4871-949c-37b27a079695" render:objectRole="SBO0000172">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_49ba475a-2775-4871-949c-37b27a079695">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph38"/>
+	<rdf:li rdf:resource="glyph34"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="160" layout:y="540"/>
@@ -719,18 +1440,42 @@
               </layout:speciesReferenceGlyph>
             </layout:listOfSpeciesReferenceGlyphs>
           </layout:reactionGlyph>
-          <layout:reactionGlyph layout:id="glyph16_Glyph" layout:reaction="glyph16">
+          <layout:reactionGlyph layout:id="ReactionGlyph_glyph16" layout:reaction="glyph16" render:objectRole="SBO0000167">
+            <layout:boundingBox>
+              <layout:position layout:x="870" layout:y="160" layout:z="0"/>
+              <layout:dimensions layout:depth="0" layout:height="20" layout:width="20"/>
+            </layout:boundingBox>
             <layout:curve>
               <layout:listOfCurveSegments>
                 <layout:curveSegment xsi:type="LineSegment">
-                  <layout:start layout:x="860" layout:y="170"/>
+                  <layout:start layout:x="880" layout:y="170"/>
                   <layout:end layout:x="900" layout:y="170"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="880" layout:y="170"/>
+                  <layout:end layout:x="900" layout:y="170"/>
+                </layout:curveSegment>
+                <layout:curveSegment xsi:type="LineSegment">
+                  <layout:start layout:x="860" layout:y="170"/>
+                  <layout:end layout:x="880" layout:y="170"/>
                 </layout:curveSegment>
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences13_Glyph" layout:role="substrate" layout:speciesGlyph="glyph3_Glyph" layout:speciesReference="SpeciesReferences13">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_14" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph3" layout:speciesReference="Arc_14" metaid="_1fcfb8f6-acb7-45ab-b3d6-c6de40188ae6" render:objectRole="substrate">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_1fcfb8f6-acb7-45ab-b3d6-c6de40188ae6">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph3"/>
+	<rdf:li rdf:resource="glyph16"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="790" layout:y="170"/>
@@ -739,18 +1484,20 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences14_Glyph" layout:role="product" layout:speciesGlyph="glyph5_Glyph" layout:speciesReference="SpeciesReferences14">
-                <layout:curve>
-                  <layout:listOfCurveSegments>
-                    <layout:curveSegment xsi:type="LineSegment">
-                      <layout:start layout:x="900" layout:y="170"/>
-                      <layout:end layout:x="967.8018188476562" layout:y="90.18018341064453"/>
-                    </layout:curveSegment>
-                  </layout:listOfCurveSegments>
-                </layout:curve>
-              </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences15_Glyph" layout:role="product" layout:speciesGlyph="glyph4_Glyph" layout:speciesReference="SpeciesReferences15">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_16" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph4" layout:speciesReference="Arc_16" metaid="_00db48cb-97e7-419d-b522-13e51e67a261" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_00db48cb-97e7-419d-b522-13e51e67a261">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph16"/>
+	<rdf:li rdf:resource="glyph4"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="900" layout:y="170"/>
@@ -759,8 +1506,42 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferences18_Glyph" layout:role="activator" layout:speciesGlyph="glyph18_Glyph" layout:speciesReference="SpeciesReferences18">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_15" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph5" layout:speciesReference="Arc_15" metaid="e3291fad-f2f6-4043-93ed-b12b6ae97186" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#e3291fad-f2f6-4043-93ed-b12b6ae97186">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph16"/>
+	<rdf:li rdf:resource="glyph5"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
+                  <layout:listOfCurveSegments>
+                    <layout:curveSegment xsi:type="LineSegment">
+                      <layout:start layout:x="900" layout:y="170"/>
+                      <layout:end layout:x="967.8018188476562" layout:y="90.18018341064453"/>
+                    </layout:curveSegment>
+                  </layout:listOfCurveSegments>
+                </layout:curve>
+              </layout:speciesReferenceGlyph>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Arc_19" layout:role="activator" layout:speciesGlyph="SpeciesGlyph_glyph18" layout:speciesReference="Arc_19" metaid="_7d1ba3cc-5cc4-41cf-837d-61193aba72af" render:objectRole="SBO0000172">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_7d1ba3cc-5cc4-41cf-837d-61193aba72af">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph18"/>
+	<rdf:li rdf:resource="glyph16"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="880" layout:y="100"/>
@@ -773,205 +1554,205 @@
           </layout:reactionGlyph>
         </layout:listOfReactionGlyphs>
         <layout:listOfTextGlyphs>
-          <layout:textGlyph layout:graphicalObject="glyph30_Glyph" layout:id="glyph30_TextGlyph" layout:originOfText="glyph30">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph30" layout:id="TextGlyph_glyph30" layout:originOfText="glyph30" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="30" layout:y="460" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph13_Glyph" layout:id="glyph13_TextGlyph" layout:originOfText="glyph13">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph13" layout:id="TextGlyph_glyph13" layout:originOfText="glyph13" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="570" layout:y="230" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph35_Glyph" layout:id="glyph35_TextGlyph" layout:originOfText="glyph35">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph35" layout:id="TextGlyph_glyph35" layout:originOfText="glyph35" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="820" layout:y="540" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph36_Glyph" layout:id="glyph36_TextGlyph" layout:originOfText="glyph36">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph36" layout:id="TextGlyph_glyph36" layout:originOfText="glyph36" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="580" layout:y="540" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph12_Glyph" layout:id="glyph12_TextGlyph" layout:originOfText="glyph12">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph12" layout:id="TextGlyph_glyph12" layout:originOfText="glyph12" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="700" layout:y="230" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph17_Glyph" layout:id="glyph17_TextGlyph" layout:originOfText="glyph17">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph17" layout:id="TextGlyph_glyph17" layout:originOfText="glyph17" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="380" layout:y="40" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph39_Glyph" layout:id="glyph39_TextGlyph" layout:originOfText="glyph39">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph39" layout:id="TextGlyph_glyph39" layout:originOfText="glyph39" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="210" layout:y="390" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph18_Glyph" layout:id="glyph18_TextGlyph" layout:originOfText="glyph18">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph18" layout:id="TextGlyph_glyph18" layout:originOfText="glyph18" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="820" layout:y="40" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph15_Glyph" layout:id="glyph15_TextGlyph" layout:originOfText="glyph15">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph15" layout:id="TextGlyph_glyph15" layout:originOfText="glyph15" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="1080" layout:y="140" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph37_Glyph" layout:id="glyph37_TextGlyph" layout:originOfText="glyph37">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph37" layout:id="TextGlyph_glyph37" layout:originOfText="glyph37" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="350" layout:y="540" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph38_Glyph" layout:id="glyph38_TextGlyph" layout:originOfText="glyph38">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph38" layout:id="TextGlyph_glyph38" layout:originOfText="glyph38" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="100" layout:y="540" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph19_Glyph" layout:id="glyph19_TextGlyph" layout:originOfText="glyph19">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph19" layout:id="TextGlyph_glyph19" layout:originOfText="glyph19" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="600" layout:y="40" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph9_Glyph" layout:id="glyph9_TextGlyph" layout:originOfText="glyph9">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph9" layout:id="TextGlyph_glyph9" layout:originOfText="glyph9" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="170" layout:y="40" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph42_Glyph" layout:id="glyph42_TextGlyph" layout:originOfText="glyph42">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph42" layout:id="TextGlyph_glyph42" layout:originOfText="glyph42" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="910" layout:y="390" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph21_Glyph" layout:id="glyph21_TextGlyph" layout:originOfText="glyph21">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph21" layout:id="TextGlyph_glyph21" layout:originOfText="glyph21" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="960" layout:y="460" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph43_Glyph" layout:id="glyph43_TextGlyph" layout:originOfText="glyph43">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph43" layout:id="TextGlyph_glyph43" layout:originOfText="glyph43" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="320" layout:y="390" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph40_Glyph" layout:id="glyph40_TextGlyph" layout:originOfText="glyph40">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph40" layout:id="TextGlyph_glyph40" layout:originOfText="glyph40" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="60" layout:y="390" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph41_Glyph" layout:id="glyph41_TextGlyph" layout:originOfText="glyph41">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph41" layout:id="TextGlyph_glyph41" layout:originOfText="glyph41" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="780" layout:y="390" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph24_Glyph" layout:id="glyph24_TextGlyph" layout:originOfText="glyph24">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph24" layout:id="TextGlyph_glyph24" layout:originOfText="glyph24" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="1050" layout:y="280" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph5_Glyph" layout:id="glyph5_TextGlyph" layout:originOfText="glyph5">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph5" layout:id="TextGlyph_glyph5" layout:originOfText="glyph5" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="960" layout:y="40" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph4_Glyph" layout:id="glyph4_TextGlyph" layout:originOfText="glyph4">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph4" layout:id="TextGlyph_glyph4" layout:originOfText="glyph4" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="960" layout:y="240" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph25_Glyph" layout:id="glyph25_TextGlyph" layout:originOfText="glyph25">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph25" layout:id="TextGlyph_glyph25" layout:originOfText="glyph25" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="1050" layout:y="420" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph7_Glyph" layout:id="glyph7_TextGlyph" layout:originOfText="glyph7">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph7" layout:id="TextGlyph_glyph7" layout:originOfText="glyph7" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="270" layout:y="230" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph22_Glyph" layout:id="glyph22_TextGlyph" layout:originOfText="glyph22">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph22" layout:id="TextGlyph_glyph22" layout:originOfText="glyph22" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="1080" layout:y="350" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="120"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph6_Glyph" layout:id="glyph6_TextGlyph" layout:originOfText="glyph6">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph6" layout:id="TextGlyph_glyph6" layout:originOfText="glyph6" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="140" layout:y="230" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph23_Glyph" layout:id="glyph23_TextGlyph" layout:originOfText="glyph23">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph23" layout:id="TextGlyph_glyph23" layout:originOfText="glyph23" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="880" layout:y="280" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph1_Glyph" layout:id="glyph1_TextGlyph" layout:originOfText="glyph1">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph1" layout:id="TextGlyph_glyph1" layout:originOfText="glyph1" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="320" layout:y="140" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph0_Glyph" layout:id="glyph0_TextGlyph" layout:originOfText="glyph0">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph0" layout:id="TextGlyph_glyph0" layout:originOfText="glyph0" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="90" layout:y="140" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph3_Glyph" layout:id="glyph3_TextGlyph" layout:originOfText="glyph3">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph3" layout:id="TextGlyph_glyph3" layout:originOfText="glyph3" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="730" layout:y="140" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph2_Glyph" layout:id="glyph2_TextGlyph" layout:originOfText="glyph2">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph2" layout:id="TextGlyph_glyph2" layout:originOfText="glyph2" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="520" layout:y="140" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph28_Glyph" layout:id="glyph28_TextGlyph" layout:originOfText="glyph28">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph28" layout:id="TextGlyph_glyph28" layout:originOfText="glyph28" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="490" layout:y="460" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph29_Glyph" layout:id="glyph29_TextGlyph" layout:originOfText="glyph29">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph29" layout:id="TextGlyph_glyph29" layout:originOfText="glyph29" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="270" layout:y="460" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph26_Glyph" layout:id="glyph26_TextGlyph" layout:originOfText="glyph26">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph26" layout:id="TextGlyph_glyph26" layout:originOfText="glyph26" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="1050" layout:y="490" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
             </layout:boundingBox>
           </layout:textGlyph>
-          <layout:textGlyph layout:graphicalObject="glyph27_Glyph" layout:id="glyph27_TextGlyph" layout:originOfText="glyph27">
+          <layout:textGlyph layout:graphicalObject="SpeciesGlyph_glyph27" layout:id="TextGlyph_glyph27" layout:originOfText="glyph27" render:objectRole="defaultText">
             <layout:boundingBox>
               <layout:position layout:x="720" layout:y="460" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="60" layout:width="60"/>
@@ -980,554 +1761,167 @@
         </layout:listOfTextGlyphs>
       </layout:layout>
     </layout:listOfLayouts>
-        <listOfSpecies>
-      <species id="glyph30" metaid="a00ae7f9-4e43-4931-b44d-79730f2e80b8" name="pyruvate" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#a00ae7f9-4e43-4931-b44d-79730f2e80b8">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph13" metaid="_50db3a8d-8378-4a76-868b-9ef71d87b090" name="ATP" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_50db3a8d-8378-4a76-868b-9ef71d87b090">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph35" metaid="_6c0f20ec-3056-4825-98ad-abccf86c55c2" name="PGK1" sboTerm="SBO:0000245">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_6c0f20ec-3056-4825-98ad-abccf86c55c2">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="macromolecule"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph36" metaid="_0b01a6cd-4a91-47ef-ab70-ee726203596b" name="PG mutase" sboTerm="SBO:0000245">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_0b01a6cd-4a91-47ef-ab70-ee726203596b">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="macromolecule"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph12" metaid="_770bb4a4-ce1c-41cf-93fc-1fe598f213e3" name="ADP" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_770bb4a4-ce1c-41cf-93fc-1fe598f213e3">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph17" metaid="_5606e72c-8a94-47e9-bb00-c545e091e0d8" name="glucose-6P&#xa;isomerase" sboTerm="SBO:0000245">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_5606e72c-8a94-47e9-bb00-c545e091e0d8">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="macromolecule"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph39" metaid="_3ed49c24-43cc-4134-8053-a2288e70e97a" name="ADP" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_3ed49c24-43cc-4134-8053-a2288e70e97a">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph18" metaid="d68e9b7b-6e34-4f6c-bec9-37e4372ecd46" name="adolase" sboTerm="SBO:0000245">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#d68e9b7b-6e34-4f6c-bec9-37e4372ecd46">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="macromolecule"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph15" metaid="_7a28f261-45dc-4277-906f-b93a768f80c5" name="triose-P&#xa;isomerase" sboTerm="SBO:0000245">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_7a28f261-45dc-4277-906f-b93a768f80c5">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="macromolecule"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph37" metaid="_66c35bee-cd3b-4961-ab51-7800004d72a3" name="enolase" sboTerm="SBO:0000245">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_66c35bee-cd3b-4961-ab51-7800004d72a3">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="macromolecule"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph38" metaid="_336fdaa0-e66e-4f36-bc5c-33bd90140772" name="pyruvate&#xa;kinase" sboTerm="SBO:0000245">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_336fdaa0-e66e-4f36-bc5c-33bd90140772">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="macromolecule"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph19" metaid="c279d835-0f7d-4d08-b799-b8970bdf545f" name="phospho&#xa;fructokinase" sboTerm="SBO:0000245">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#c279d835-0f7d-4d08-b799-b8970bdf545f">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="macromolecule"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph9" metaid="b045c456-92f9-436c-9589-c27b24f76307" name="hexokinase" sboTerm="SBO:0000245">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#b045c456-92f9-436c-9589-c27b24f76307">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="macromolecule"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph42" metaid="e3a2e55a-5a03-4d34-866b-ce974e8609d6" name="ADP" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#e3a2e55a-5a03-4d34-866b-ce974e8609d6">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph21" metaid="_2594583d-a74a-4887-bcd5-ea50850d116b" name="1,3 BPG" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_2594583d-a74a-4887-bcd5-ea50850d116b">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph43" metaid="f215cce7-e148-4f5a-9798-4c8e7b618616" name="H2O" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#f215cce7-e148-4f5a-9798-4c8e7b618616">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph40" metaid="_27242b89-587c-4e35-b9d0-c938a0bd1352" name="ATP" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_27242b89-587c-4e35-b9d0-c938a0bd1352">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph41" metaid="feecfa3a-6e0b-4e94-9e7f-97309e07b7bb" name="ATP" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#feecfa3a-6e0b-4e94-9e7f-97309e07b7bb">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph24" metaid="_83602068-3770-4b60-944d-d7eccb1c09c8" name="NAD" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_83602068-3770-4b60-944d-d7eccb1c09c8">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph5" metaid="_9e66ab4e-e2db-437c-85bb-3bdcd7f1fe63" name="DHA-P" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_9e66ab4e-e2db-437c-85bb-3bdcd7f1fe63">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph4" metaid="_29f06be7-e424-4783-9e48-666150bbcb97" name="GA-3P" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_29f06be7-e424-4783-9e48-666150bbcb97">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph25" metaid="d5357314-c7d3-4632-8b22-ea7eae5c468a" name="H+" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#d5357314-c7d3-4632-8b22-ea7eae5c468a">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph7" metaid="_6f18c86b-455a-4b31-89ef-eb02366aea37" name="ADP" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_6f18c86b-455a-4b31-89ef-eb02366aea37">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph22" metaid="ed36c438-c7c7-4b93-8e9d-70e7a7a2191e" name="GAPDH" sboTerm="SBO:0000245">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#ed36c438-c7c7-4b93-8e9d-70e7a7a2191e">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="macromolecule"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph6" metaid="_2e7c8b80-2f55-4935-a43f-e8cdaa82495b" name="ATP" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_2e7c8b80-2f55-4935-a43f-e8cdaa82495b">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph23" metaid="d62d5d54-65bd-4cc9-b0cf-bff4293efd96" name="Pi" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#d62d5d54-65bd-4cc9-b0cf-bff4293efd96">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph1" metaid="_0bab19ef-f9e0-4d5e-998e-2f806e3ff9ad" name="glucose&#xa;6P" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_0bab19ef-f9e0-4d5e-998e-2f806e3ff9ad">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph0" metaid="d5989b86-b9e2-456d-a1a6-6553f4abcb26" name="glucose" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#d5989b86-b9e2-456d-a1a6-6553f4abcb26">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph3" metaid="_24788e38-cb97-4c50-b559-8c5e4e4b8f41" name="fructose&#xa;1,6P" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_24788e38-cb97-4c50-b559-8c5e4e4b8f41">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph2" metaid="_33586105-d4a8-4066-be15-fa1d80e18913" name="fructose&#xa;6P" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_33586105-d4a8-4066-be15-fa1d80e18913">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph28" metaid="ce06feb5-2932-4b55-b85a-334a79466c33" name="2 PG" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#ce06feb5-2932-4b55-b85a-334a79466c33">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph29" metaid="_819cdcc0-ee65-4d30-974e-e8431869075e" name="PEP" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_819cdcc0-ee65-4d30-974e-e8431869075e">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph26" metaid="_997f7791-fcad-4ac1-a139-cbc5fa66233b" name="NADH" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_997f7791-fcad-4ac1-a139-cbc5fa66233b">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
-      <species id="glyph27" metaid="eca5bf50-6af4-47d3-9357-82e3d49af81b" name="3 PG" sboTerm="SBO:0000247">
-        <annotation>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#eca5bf50-6af4-47d3-9357-82e3d49af81b">
-	<bqbiol:isVersionOf>
-	<rdf:Bag>
-	<rdf:li rdf:resource="simple chemical"/>
-	</rdf:Bag>
-	</bqbiol:isVersionOf>
-	</rdf:Description>
-	</rdf:RDF>
-	</annotation>
-            </species>
+    <listOfCompartments>
+      <compartment constant="true" id="DefaultCompartment_01"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph30" initialConcentration="1" name="pyruvate" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph13" initialConcentration="1" name="ATP" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph35" initialConcentration="1" name="PGK1" sboTerm="SBO:0000245"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph36" initialConcentration="1" name="PG mutase" sboTerm="SBO:0000245"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph12" initialConcentration="1" name="ADP" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph17" initialConcentration="1" name="glucose-6P&#xa;isomerase" sboTerm="SBO:0000245"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph39" initialConcentration="1" name="ADP" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph18" initialConcentration="1" name="adolase" sboTerm="SBO:0000245"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph15" initialConcentration="1" name="triose-P&#xa;isomerase" sboTerm="SBO:0000245"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph37" initialConcentration="1" name="enolase" sboTerm="SBO:0000245"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph38" initialConcentration="1" name="pyruvate&#xa;kinase" sboTerm="SBO:0000245"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph19" initialConcentration="1" name="phospho&#xa;fructokinase" sboTerm="SBO:0000245"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph9" initialConcentration="1" name="hexokinase" sboTerm="SBO:0000245"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph42" initialConcentration="1" name="ADP" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph21" initialConcentration="1" name="1,3 BPG" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph43" initialConcentration="1" name="H2O" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph40" initialConcentration="1" name="ATP" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph41" initialConcentration="1" name="ATP" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph24" initialConcentration="1" name="NAD" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph5" initialConcentration="1" name="DHA-P" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph4" initialConcentration="1" name="GA-3P" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph25" initialConcentration="1" name="H+" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph7" initialConcentration="1" name="ADP" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph22" initialConcentration="1" name="GAPDH" sboTerm="SBO:0000245"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph6" initialConcentration="1" name="ATP" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph23" initialConcentration="1" name="Pi" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph1" initialConcentration="1" name="glucose&#xa;6P" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph0" initialConcentration="1" name="glucose" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph3" initialConcentration="1" name="fructose&#xa;1,6P" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph2" initialConcentration="1" name="fructose&#xa;6P" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph28" initialConcentration="1" name="2 PG" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph29" initialConcentration="1" name="PEP" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph26" initialConcentration="1" name="NADH" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph27" initialConcentration="1" name="3 PG" sboTerm="SBO:0000247"/>
     </listOfSpecies>
     <listOfReactions>
-      <reaction id="glyph20">
+      <reaction fast="false" id="glyph20" reversible="false">
         <listOfReactants>
-          <speciesReference id="SpeciesReferences20" species="glyph4"/>
-          <speciesReference id="SpeciesReferences22" species="glyph23"/>
-          <speciesReference id="SpeciesReferences23" species="glyph24"/>
-          <speciesReference id="SpeciesReferences19" species="glyph22"/>
+          <speciesReference constant="true" id="Arc_24" species="glyph24" stoichiometry="1"/>
+          <speciesReference constant="true" id="Arc_23" species="glyph23" stoichiometry="1"/>
+          <speciesReference constant="true" id="Arc_21" species="glyph4" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference id="SpeciesReferences21" species="glyph21"/>
-          <speciesReference id="SpeciesReferences24" species="glyph25"/>
-          <speciesReference id="SpeciesReferences25" species="glyph26"/>
+          <speciesReference constant="true" id="Arc_26" species="glyph26" stoichiometry="1"/>
+          <speciesReference constant="true" id="Arc_25" species="glyph25" stoichiometry="1"/>
+          <speciesReference constant="true" id="Arc_22" species="glyph21" stoichiometry="1"/>
         </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference id="Arc_20" species="glyph22"/>
+        </listOfModifiers>
       </reaction>
-      <reaction id="glyph31">
+      <reaction fast="false" id="glyph31" reversible="false">
         <listOfReactants>
-          <speciesReference id="SpeciesReferences30" species="glyph21"/>
-          <speciesReference id="SpeciesReferences31" species="glyph42"/>
-          <speciesReference id="SpeciesReferences26" species="glyph35"/>
+          <speciesReference constant="true" id="Arc_32" species="glyph42" stoichiometry="1"/>
+          <speciesReference constant="true" id="Arc_31" species="glyph21" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference id="SpeciesReferences32" species="glyph41"/>
-          <speciesReference id="SpeciesReferences33" species="glyph27"/>
+          <speciesReference constant="true" id="Arc_34" species="glyph27" stoichiometry="1"/>
+          <speciesReference constant="true" id="Arc_33" species="glyph41" stoichiometry="1"/>
         </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference id="Arc_27" species="glyph35"/>
+        </listOfModifiers>
       </reaction>
-      <reaction id="glyph8">
+      <reaction fast="false" id="glyph8" reversible="false">
         <listOfReactants>
-          <speciesReference id="SpeciesReferences1" species="glyph0"/>
-          <speciesReference id="SpeciesReferences3" species="glyph6"/>
-          <speciesReference id="SpeciesReferences0" species="glyph9"/>
+          <speciesReference constant="true" id="Arc_2" species="glyph0" stoichiometry="1"/>
+          <speciesReference constant="true" id="Arc_4" species="glyph6" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference id="SpeciesReferences2" species="glyph1"/>
-          <speciesReference id="SpeciesReferences4" species="glyph7"/>
+          <speciesReference constant="true" id="Arc_5" species="glyph7" stoichiometry="1"/>
+          <speciesReference constant="true" id="Arc_3" species="glyph1" stoichiometry="1"/>
         </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference id="Arc_1" species="glyph9"/>
+        </listOfModifiers>
       </reaction>
-      <reaction id="glyph10">
+      <reaction fast="false" id="glyph10" reversible="false">
         <listOfReactants>
-          <speciesReference id="SpeciesReferences7" species="glyph1"/>
-          <speciesReference id="SpeciesReferences16" species="glyph17"/>
+          <speciesReference constant="true" id="Arc_8" species="glyph1" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference id="SpeciesReferences8" species="glyph2"/>
+          <speciesReference constant="true" id="Arc_9" species="glyph2" stoichiometry="1"/>
         </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference id="Arc_17" species="glyph17"/>
+        </listOfModifiers>
       </reaction>
-      <reaction id="glyph32">
+      <reaction fast="false" id="glyph32" reversible="false">
         <listOfReactants>
-          <speciesReference id="SpeciesReferences34" species="glyph27"/>
-          <speciesReference id="SpeciesReferences27" species="glyph36"/>
+          <speciesReference constant="true" id="Arc_35" species="glyph27" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference id="SpeciesReferences35" species="glyph28"/>
+          <speciesReference constant="true" id="Arc_36" species="glyph28" stoichiometry="1"/>
         </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference id="Arc_28" species="glyph36"/>
+        </listOfModifiers>
       </reaction>
-      <reaction id="glyph14">
-        <listOfReactants>
-          <speciesReference id="SpeciesReferences12" species="glyph15"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference id="SpeciesReferences43" species="glyph5"/>
-          <speciesReference id="SpeciesReferences11" species="glyph4"/>
+      <reaction fast="false" id="glyph14" reversible="false">
+                <listOfProducts>
+          <speciesReference constant="true" id="Arc_12" species="glyph4" stoichiometry="1"/>
+          <speciesReference constant="true" id="Arc_44" species="glyph5" stoichiometry="1"/>
         </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference id="Arc_13" species="glyph15"/>
+        </listOfModifiers>
       </reaction>
-      <reaction id="glyph11">
+      <reaction fast="false" id="glyph11" reversible="false">
         <listOfReactants>
-          <speciesReference id="SpeciesReferences9" species="glyph2"/>
-          <speciesReference id="SpeciesReferences6" species="glyph13"/>
-          <speciesReference id="SpeciesReferences17" species="glyph19"/>
+          <speciesReference constant="true" id="Arc_7" species="glyph13" stoichiometry="1"/>
+          <speciesReference constant="true" id="Arc_10" species="glyph2" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference id="SpeciesReferences10" species="glyph3"/>
-          <speciesReference id="SpeciesReferences5" species="glyph12"/>
+          <speciesReference constant="true" id="Arc_6" species="glyph12" stoichiometry="1"/>
+          <speciesReference constant="true" id="Arc_11" species="glyph3" stoichiometry="1"/>
         </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference id="Arc_18" species="glyph19"/>
+        </listOfModifiers>
       </reaction>
-      <reaction id="glyph33">
+      <reaction fast="false" id="glyph33" reversible="false">
         <listOfReactants>
-          <speciesReference id="SpeciesReferences36" species="glyph28"/>
-          <speciesReference id="SpeciesReferences28" species="glyph37"/>
+          <speciesReference constant="true" id="Arc_37" species="glyph28" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference id="SpeciesReferences37" species="glyph43"/>
-          <speciesReference id="SpeciesReferences38" species="glyph29"/>
+          <speciesReference constant="true" id="Arc_39" species="glyph29" stoichiometry="1"/>
+          <speciesReference constant="true" id="Arc_38" species="glyph43" stoichiometry="1"/>
         </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference id="Arc_29" species="glyph37"/>
+        </listOfModifiers>
       </reaction>
-      <reaction id="glyph34">
+      <reaction fast="false" id="glyph34" reversible="false">
         <listOfReactants>
-          <speciesReference id="SpeciesReferences40" species="glyph39"/>
-          <speciesReference id="SpeciesReferences39" species="glyph29"/>
-          <speciesReference id="SpeciesReferences29" species="glyph38"/>
+          <speciesReference constant="true" id="Arc_41" species="glyph39" stoichiometry="1"/>
+          <speciesReference constant="true" id="Arc_40" species="glyph29" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference id="SpeciesReferences41" species="glyph40"/>
-          <speciesReference id="SpeciesReferences42" species="glyph30"/>
+          <speciesReference constant="true" id="Arc_43" species="glyph30" stoichiometry="1"/>
+          <speciesReference constant="true" id="Arc_42" species="glyph40" stoichiometry="1"/>
         </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference id="Arc_30" species="glyph38"/>
+        </listOfModifiers>
       </reaction>
-      <reaction id="glyph16">
+      <reaction fast="false" id="glyph16" reversible="false">
         <listOfReactants>
-          <speciesReference id="SpeciesReferences13" species="glyph3"/>
-          <speciesReference id="SpeciesReferences18" species="glyph18"/>
+          <speciesReference constant="true" id="Arc_14" species="glyph3" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference id="SpeciesReferences14" species="glyph5"/>
-          <speciesReference id="SpeciesReferences15" species="glyph4"/>
+          <speciesReference constant="true" id="Arc_16" species="glyph4" stoichiometry="1"/>
+          <speciesReference constant="true" id="Arc_15" species="glyph5" stoichiometry="1"/>
         </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference id="Arc_19" species="glyph18"/>
+        </listOfModifiers>
       </reaction>
     </listOfReactions>
   </model>

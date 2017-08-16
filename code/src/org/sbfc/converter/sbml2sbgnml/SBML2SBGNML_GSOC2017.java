@@ -40,6 +40,7 @@ import org.sbml.jsbml.ListOf;
 import org.sbml.jsbml.Model;
 import org.sbml.jsbml.ModifierSpeciesReference;
 import org.sbml.jsbml.Parameter;
+import org.sbml.jsbml.PropertyUndefinedError;
 import org.sbml.jsbml.Reaction;
 import org.sbml.jsbml.Rule;
 import org.sbml.jsbml.SBMLDocument;
@@ -129,18 +130,26 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		}
 		
 		
-		
-		
-		System.out.println("-----");
+		System.out.println();
+		System.out.println("File: ");
+		System.out.println("-----INPUT-----");
+		System.out.println("SBML2SBGNMLOutput");
+		System.out.println("　getNumCompartments　"+sOutput.sbmlModel.getNumCompartments());
+		System.out.println("　getNumSpecies　"+sOutput.sbmlModel.getNumSpecies());
+		System.out.println("　getNumReactions　"+sOutput.sbmlModel.getNumReactions());
+		System.out.println("　getNumModifierSpeciesReferences　"+sOutput.sbmlModel.getNumModifierSpeciesReferences());
+		System.out.println("　getNumSpeciesReferences　"+sOutput.sbmlModel.getNumSpeciesReferences());
+
+		System.out.println("-----OUTPUT-----");
 		System.out.println("sbgnObject.getMap().getGlyph() ="+sOutput.sbgnObject.getMap().getGlyph().size());
 		System.out.println("sbgnObject.getMap().getArc() ="+sOutput.sbgnObject.getMap().getArc().size());
 		System.out.println("sbgnObject.getMap().getArcgroup() ="+sOutput.sbgnObject.getMap().getArcgroup().size());
-
+		System.out.println("-----DEBUG-----");
 		System.out.println(Arrays.toString(sWrapperMap.listOfSWrapperGlyphEntityPools.keySet().toArray()));
 		System.out.println(Arrays.toString(sWrapperMap.listOfSWrapperArcs.keySet().toArray()));
 		System.out.println(" listOfSWrapperAuxiliary size="+sWrapperMap.listOfSWrapperAuxiliary.size());
 		System.out.println(" generalGlyphErrors ="+generalGlyphErrors);
-		
+
 		
 		
 		sOutput.sbgnObject.getMap().setLanguage(toLanguage);
@@ -178,6 +187,9 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 
 		List<Glyph> listOfGlyphs = sOutput.sbgnObject.getMap().getGlyph();
 		for (Glyph glyph: listOfGlyphs){
+			if (glyph.getExtension() == null){
+				glyph.setExtension(new Extension());
+			}
 			List<Element> elements = glyph.getExtension().getAny();
 			for (Element e : elements){
 				String tagName = e.getTagName();
@@ -713,7 +725,9 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 				return null;			}
 			
 			// for now, set style to just a Bbox
-			sUtil.createBBox(reactionGlyph, processNode.getGlyph().get(0));
+			if (reactionGlyph.getBoundingBox() != null){
+				sUtil.createBBox(reactionGlyph, processNode.getGlyph().get(0));	
+			}
 			
 			// todo: should remove all the extra stuff done in createOneProcessNode
 			if (processNode.getArc().size() > 0){
@@ -902,6 +916,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		} else if (textGlyph.isSetOriginOfText()) {
 			// todo: don't get the reference, get the text instead
 			text = textGlyph.getOriginOfTextInstance().getName();
+			//System.out.println("/////////////////////// textGlyph"+textGlyph.getId()+" text="+ text);
 		} else {
 			text = "";
 		}
@@ -1137,9 +1152,14 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		// need port
 		arc = sUtil.createOneArc(sbmlCurve);
 		
+		String clazz = "unspecified entity";
 		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) referenceGlyph.getPlugin(RenderConstants.shortLabel);
-		String objectRole = renderGraphicalObjectPlugin.getObjectRole();
-		String clazz = mapObjectRoleToClazz(objectRole);
+		try{
+			String objectRole = renderGraphicalObjectPlugin.getObjectRole();
+			clazz = mapObjectRoleToClazz(objectRole);		
+		} catch (Exception e) {
+			System.out.println("createFromOneReferenceGlyph " + "cannot get object role for "+referenceGlyph.getId());
+		}
 		
 		// todo: need to determine from getOutputFromClass between production/consumption etc
 		if (clazz.equals("unspecified entity")){
@@ -1288,9 +1308,12 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		
 		if (clazz.equals("unspecified entity")){
 		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) graphicalObject.getPlugin(RenderConstants.shortLabel);
-		String objectRole = renderGraphicalObjectPlugin.getObjectRole();
-		clazz = mapObjectRoleToClazz(objectRole);
-		//System.out.println("####createFromOneGraphicalObject"+ clazz);
+		try {
+			String objectRole = renderGraphicalObjectPlugin.getObjectRole();
+			clazz = mapObjectRoleToClazz(objectRole);
+			//System.out.println("####createFromOneGraphicalObject"+ clazz);
+		} catch (PropertyUndefinedError e){}
+
 		}
 		
 		

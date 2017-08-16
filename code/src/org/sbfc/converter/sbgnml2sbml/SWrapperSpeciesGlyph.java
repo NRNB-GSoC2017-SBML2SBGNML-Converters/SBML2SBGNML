@@ -11,7 +11,7 @@ import org.sbml.jsbml.ext.layout.TextGlyph;
 
 public class SWrapperSpeciesGlyph {
 	Species species;
-	SpeciesGlyph speciesGlyph;
+	public SpeciesGlyph speciesGlyph;
 	String clazz;
 	String id;
 	
@@ -30,7 +30,7 @@ public class SWrapperSpeciesGlyph {
 	boolean hasClone = false;
 	String cloneText = "";
 	
-	SWrapperSpeciesGlyph(Species species, SpeciesGlyph speciesGlyph, Glyph glyph, TextGlyph textGlyph) {
+	public SWrapperSpeciesGlyph(Species species, SpeciesGlyph speciesGlyph, Glyph glyph, TextGlyph textGlyph) {
 		this.species = species;
 		this.id = glyph.getId();
 		this.speciesGlyph = speciesGlyph;	
