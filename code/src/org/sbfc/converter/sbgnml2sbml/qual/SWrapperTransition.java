@@ -25,10 +25,9 @@ public class SWrapperTransition {
 			new HashMap<String, SWrapperGeneralGlyph>();
 	public HashMap<String, SWrapperReferenceGlyph> listOfWrapperReferenceGlyphs = 
 			new HashMap<String, SWrapperReferenceGlyph>();
-//	HashMap<String, SWrapperSpeciesReferenceGlyph> listOfWrapperSpeciesReferenceGlyphs = 
-//			new HashMap<String, SWrapperSpeciesReferenceGlyph>();
+
 	
-	// assume there's only 1 in logic model
+	// assume there's only 1 modifier arc per transition in logic model
 	public SWrapperReferenceGlyph outputModifierArc;
 	public String outputClazz;
 	public ASTNode rootFunctionTerm;
@@ -50,7 +49,13 @@ public class SWrapperTransition {
 		this.sWrapperModel = sWrapperModel;
 	}
 
-	// special case where there is only one Arc to map to Transition
+	/**
+	 * For special case, where there is only one Arc to map to Transition
+	 * @param transition
+	 * @param sWrapperGeneralGlyph
+	 * @param arc
+	 * @param sWrapperModel
+	 */
 	public SWrapperTransition(Transition transition, SWrapperGeneralGlyph sWrapperGeneralGlyph, SWrapperArc arc,
 			SWrapperModel sWrapperModel) {
 		this.id = transition.getId();
@@ -81,10 +86,6 @@ public class SWrapperTransition {
 		
 	}
 	
-//	public void addSpeciesReference(SWrapperSpeciesReferenceGlyph sWrapperSpeciesReferenceGlyph, SWrapperArc SWrapperArc){
-//		this.listOfWrapperSpeciesReferenceGlyphs.put(sWrapperSpeciesReferenceGlyph.id, sWrapperSpeciesReferenceGlyph);
-//		this.logicArcs.put(SWrapperArc.arcId, SWrapperArc);
-//	}
 	
 	public void addGeneralGlyph(String id, SWrapperGeneralGlyph sWrapperGeneralGlyph, Glyph glyph){
 		this.listOfWrapperGeneralGlyphs.put(sWrapperGeneralGlyph.id, sWrapperGeneralGlyph);

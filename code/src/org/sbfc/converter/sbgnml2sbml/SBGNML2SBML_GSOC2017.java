@@ -94,6 +94,8 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	 * is mapped to some elements of the SBML <code>Model</code>.
 	 */	
 	public void convertToSBML() {
+		System.out.println("File: " + fileName);
+		
 		List<Glyph> listOfGlyphs = sWrapperModel.map.getGlyph();
 		List<Arc> listOfArcs = sWrapperModel.map.getArc();
 		List<Arcgroup> listOfArcgroups = sWrapperModel.map.getArcgroup();
@@ -144,7 +146,6 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		sOutput.removeExtraStyles();
 		
 		// Print some statistics
-		System.out.println("File: " + fileName);
 		System.out.println("-----BEFORE CONVERSION-----");
 		System.out.println("listOfGlyphs:"+listOfGlyphs.size()+" listOfArcs:"+listOfArcs.size());
 		System.out.println("processNodes "+sWrapperModel.processNodes.size());
@@ -322,7 +323,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		clazz = glyph.getClazz();
 		speciesId = glyph.getId();
 				
-		// create a Species, add it to the output
+		// create a Species, add SBOTerms and Annotation. add Species to the output
 		species = sUtil.createJsbmlSpecies(speciesId, name, clazz, false, true);
 		// store the Species in the output Model
 		sOutput.addSpecies(species);
@@ -449,6 +450,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		
 		// Create a Reaction
 		reaction = sUtil.createJsbmlReaction(reactionId);
+		sUtil.addSBO(reaction, clazz);	
 		sOutput.addReaction(reaction);
 		
 		// Create a ReactionGlyph
@@ -487,6 +489,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		// create a SpeciesReference
 		species = sOutput.findSpecies(speciesId);
 		speciesReference = sUtil.createSpeciesReference(reaction, species, speciesReferenceId);
+		sUtil.addSBO(speciesReference, sWrapperArc.arc.getClazz());	
 		
 		// create a SpeciesReferenceGlyph
 		speciesReferenceGlyph = sUtil.createOneSpeciesReferenceGlyph(speciesReferenceId, sWrapperArc.arc, 
@@ -536,6 +539,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		// create a SpeciesReference
 		species = sOutput.findSpecies(speciesId);
 		speciesReference = sUtil.createModifierSpeciesReference(reaction, species, speciesReferenceId);
+		sUtil.addSBO(speciesReference, sWrapperArc.arc.getClazz());	
 		
 		// create a SpeciesReferenceGlyph
 		speciesReferenceGlyph = sUtil.createOneSpeciesReferenceGlyph(speciesReferenceId, sWrapperArc.arc, 
@@ -1068,6 +1072,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		// create a ReferenceGlyph
 		referenceGlyph = sUtil.createOneReferenceGlyph(sWrapperArc.arc.getId(), sWrapperArc.arc, 
 			null, object);
+		sUtil.addSBO(referenceGlyph, sWrapperArc.arc.getClazz());	
 		
 		// create the Curve for the ReferenceGlyph
 		curve = sUtil.createOneCurve(sWrapperArc.arc);
@@ -1112,10 +1117,10 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		// There are 4 types of SBGN glyphs that should be converted to GeneralGlyphs:
 		// 1. Annotation
 		// 2. Logic Arcs
-		// 3. The center Curve of a Logic Operator
-		// 4. Auxiliary Information such as State Variables
+		// 3. The center Curve of a Logic Operator (see example in SBGN-PD_all.sbgn)
+		// 4. Auxiliary Information such as State Variables (not created here)
 		
-		// SBGN glyph.clazz == "annotation"
+		// 1. SBGN glyph.clazz == "annotation"
 		for (String key: sWrapperModel.annotations.keySet()) {
 			Glyph glyph = sWrapperModel.annotations.get(key);
 			
@@ -1135,7 +1140,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			sWrapperModel.addWrapperGeneralGlyph(glyph.getId(), sWrapperGeneralGlyph);
 		}
 		
-		// create a GeneralGlyph for each Logic Arc
+		// 2. create a GeneralGlyph for each Logic Arc
 		for (String key: sWrapperModel.logicArcs.keySet()) {
 			sWrapperArc = sWrapperModel.logicArcs.get(key);
 			arc = sWrapperArc.arc;
@@ -1160,10 +1165,13 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 				}
 			
 			} catch (Exception e){
+				e.printStackTrace();
 				System.out.println("speciesGlyph objectId "+objectId); 
 			}
 			
-			// Add the ReferenceGlyph to the generalGlyph
+			if (sWrapperGeneralGlyph == null){System.out.format("! sWrapperGeneralGlyph");}
+			if (sWrapperReferenceGlyph == null){System.out.format("! sWrapperReferenceGlyph");}
+			// Add the referenceGlyph to the generalGlyph
 			sOutput.addReferenceGlyph(sWrapperGeneralGlyph.generalGlyph, sWrapperReferenceGlyph.referenceGlyph);
 			
 			// Add the ReferenceGlyph to the wrapper. This step is mandatory if we are converting to SBML qual
@@ -1173,7 +1181,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 			sOutput.addGeneralGlyph(sWrapperGeneralGlyph.generalGlyph);
 		}	
 		
-		// Creating center Curves for Logic Operator. 
+		// 3. Creating center Curves for Logic Operator. 
 		// Note that Logic Operator are converted to SpeciesGlyphs, but Logic Operators look like reactions where ReferenceGlyph arcs
 		// are connecting to it. Since Logic Operator are SpeciesGlyphsso, we cannot set a Curve (like ReactionGlyphs). This is why
 		// we need to create an extra GeneralGlyph that looks like the center Curve of a reaction

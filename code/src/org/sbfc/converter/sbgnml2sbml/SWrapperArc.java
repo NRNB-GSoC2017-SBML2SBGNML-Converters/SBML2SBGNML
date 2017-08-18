@@ -2,6 +2,11 @@ package org.sbfc.converter.sbgnml2sbml;
 
 import org.sbgn.bindings.Arc;
 
+/**
+ * This class stores meta information of an Sbgn arc
+ * @author haoran
+ *
+ */
 public class SWrapperArc {
 	public Arc arc;
 	public String arcId;

@@ -17,6 +17,7 @@ public class SWrapperSpeciesGlyph {
 	
 	Glyph sbgnGlyph;
 	
+	// not all of these are used
 	boolean hasPort = false;
 	boolean hasNestedGlyph = false;
 	boolean hasExtension = false;
@@ -37,8 +38,13 @@ public class SWrapperSpeciesGlyph {
 		this.clazz = glyph.getClazz();
 		this.sbgnGlyph = glyph;
 		
-		if (this.clazz.equals("tag")){this.clazz = glyph.getClazz()+"_"+glyph.getOrientation();}
-		if (this.clazz.equals("terminal")){this.clazz = glyph.getClazz()+"_"+glyph.getOrientation(); }
+		// clazz becomes clazz_orientation, so that we know how to render the layout Glyph
+		if (this.clazz.equals("tag")){
+			this.clazz = glyph.getClazz()+"_"+glyph.getOrientation();
+		}
+		if (this.clazz.equals("terminal")){
+			this.clazz = glyph.getClazz()+"_"+glyph.getOrientation(); 
+		}
 		
 		this.textGlyph = textGlyph;
 	}	
@@ -51,6 +57,7 @@ public class SWrapperSpeciesGlyph {
 		if (text == null){
 			this.hasClone = false;
 		}
+		// clazz becomes clazz_clone, so that we know how to render the layout Glyph
 		else {
 			this.hasClone = true;
 			this.cloneText = text;

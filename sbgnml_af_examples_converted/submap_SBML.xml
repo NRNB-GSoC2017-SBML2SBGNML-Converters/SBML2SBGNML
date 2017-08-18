@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" level="3" qual:required="false" render:required="false" version="1" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:qual="http://www.sbml.org/sbml/level3/version1/qual/version1" xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" level="3" qual:required="true" render:required="false" version="1" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:qual="http://www.sbml.org/sbml/level3/version1/qual/version1" xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
   <model>
     <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <layout:layout>
@@ -164,10 +164,10 @@
         </render:listOfRenderInformation>
         <layout:dimensions layout:depth="0" layout:height="0" layout:width="0"/>
         <layout:listOfAdditionalGraphicalObjects>
-          <layout:generalGlyph layout:id="GeneralGlyph_a1" metaid="_9001245c-2136-47ce-afb1-f6f20fcf528f" render:objectRole="SBO0000170">
+          <layout:generalGlyph layout:id="GeneralGlyph_a1" metaid="_7bf63cb2-3282-4f8d-aba2-75927c66408b" render:objectRole="SBO0000170">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_9001245c-2136-47ce-afb1-f6f20fcf528f">
+	<rdf:Description rdf:about="#_7bf63cb2-3282-4f8d-aba2-75927c66408b">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="g4"/>
@@ -178,10 +178,10 @@
 	</rdf:RDF>
 	</annotation>
                       <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:glyph="SpeciesGlyph_g4" layout:id="ReferenceGlyph_a1" metaid="_309c096f-9e96-4198-a512-439e426adadc" render:objectRole="SBO0000170">
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_g4" layout:id="ReferenceGlyph_a1" metaid="_3af6226c-97e6-4efc-a60f-109e35427b6f" render:objectRole="SBO0000170" sboTerm="SBO:0000170">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_309c096f-9e96-4198-a512-439e426adadc">
+	<rdf:Description rdf:about="#_3af6226c-97e6-4efc-a60f-109e35427b6f">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="g4"/>
@@ -202,10 +202,10 @@
               </layout:referenceGlyph>
             </layout:listOfReferenceGlyphs>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_a2" metaid="_12fd72f8-c589-408a-9cf9-3889e95de7fa" render:objectRole="equivalence">
+          <layout:generalGlyph layout:id="GeneralGlyph_a2" metaid="c7cbfb33-a4c5-4115-9038-9bfe76577c84" render:objectRole="equivalence">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_12fd72f8-c589-408a-9cf9-3889e95de7fa">
+	<rdf:Description rdf:about="#c7cbfb33-a4c5-4115-9038-9bfe76577c84">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="g5"/>
@@ -216,10 +216,10 @@
 	</rdf:RDF>
 	</annotation>
                       <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:glyph="SpeciesGlyph_g5" layout:id="ReferenceGlyph_a2" metaid="c587c398-4da4-4580-8c22-712668c9d1d9" render:objectRole="equivalence">
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_g5" layout:id="ReferenceGlyph_a2" metaid="fa5a1574-24e4-47dc-9723-e258e978da56" render:objectRole="equivalence">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#c587c398-4da4-4580-8c22-712668c9d1d9">
+	<rdf:Description rdf:about="#fa5a1574-24e4-47dc-9723-e258e978da56">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="g5"/>
@@ -240,10 +240,10 @@
               </layout:referenceGlyph>
             </layout:listOfReferenceGlyphs>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_a3" metaid="_827594a1-5b15-4122-b609-2197d929c32b" render:objectRole="equivalence">
+          <layout:generalGlyph layout:id="GeneralGlyph_a3" metaid="e6b69daa-0040-45df-930e-8ca76d6b4733" render:objectRole="equivalence">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_827594a1-5b15-4122-b609-2197d929c32b">
+	<rdf:Description rdf:about="#e6b69daa-0040-45df-930e-8ca76d6b4733">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="g7"/>
@@ -254,10 +254,10 @@
 	</rdf:RDF>
 	</annotation>
                       <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:glyph="SpeciesGlyph_g7" layout:id="ReferenceGlyph_a3" metaid="_291953e7-b30c-4e3e-b926-38eed9dd75cc" render:objectRole="equivalence">
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_g7" layout:id="ReferenceGlyph_a3" metaid="a2d1c326-6565-43b4-834e-263a0fe5eed7" render:objectRole="equivalence">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_291953e7-b30c-4e3e-b926-38eed9dd75cc">
+	<rdf:Description rdf:about="#a2d1c326-6565-43b4-834e-263a0fe5eed7">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="g7"/>
@@ -278,10 +278,10 @@
               </layout:referenceGlyph>
             </layout:listOfReferenceGlyphs>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_a4" metaid="e8405704-e02b-4c81-a63e-868107b958a0" render:objectRole="equivalence">
+          <layout:generalGlyph layout:id="GeneralGlyph_a4" metaid="_1ae4d6f2-c565-4259-a63b-6c97a2cfffc4" render:objectRole="equivalence">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#e8405704-e02b-4c81-a63e-868107b958a0">
+	<rdf:Description rdf:about="#_1ae4d6f2-c565-4259-a63b-6c97a2cfffc4">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="g6"/>
@@ -292,10 +292,10 @@
 	</rdf:RDF>
 	</annotation>
                       <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:glyph="SpeciesGlyph_g6" layout:id="ReferenceGlyph_a4" metaid="c609ac64-bd4c-47be-941b-8c265730318a" render:objectRole="equivalence">
+              <layout:referenceGlyph layout:glyph="SpeciesGlyph_g6" layout:id="ReferenceGlyph_a4" metaid="_891995b2-d50f-426a-b4b6-36b05d3b70a7" render:objectRole="equivalence">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#c609ac64-bd4c-47be-941b-8c265730318a">
+	<rdf:Description rdf:about="#_891995b2-d50f-426a-b4b6-36b05d3b70a7">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="g6"/>
@@ -316,10 +316,10 @@
               </layout:referenceGlyph>
             </layout:listOfReferenceGlyphs>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_a5" metaid="_137a7f2e-9fc1-4c64-9cc2-12a0baa1de9d" render:objectRole="equivalence">
+          <layout:generalGlyph layout:id="GeneralGlyph_a5" metaid="ce52ab6a-00a4-4866-9d09-89d410552fb2" render:objectRole="equivalence">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_137a7f2e-9fc1-4c64-9cc2-12a0baa1de9d">
+	<rdf:Description rdf:about="#ce52ab6a-00a4-4866-9d09-89d410552fb2">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="g2"/>
@@ -330,10 +330,10 @@
 	</rdf:RDF>
 	</annotation>
                       <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:glyph="CompartmentGlyph_g2" layout:id="ReferenceGlyph_a5" metaid="_39d7bd0c-83e1-4895-9f8a-d9c6b8db6d76" render:objectRole="equivalence">
+              <layout:referenceGlyph layout:glyph="CompartmentGlyph_g2" layout:id="ReferenceGlyph_a5" metaid="c6bd383a-9cb5-4dda-a38f-3994d4eb5d4b" render:objectRole="equivalence">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_39d7bd0c-83e1-4895-9f8a-d9c6b8db6d76">
+	<rdf:Description rdf:about="#c6bd383a-9cb5-4dda-a38f-3994d4eb5d4b">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="g2"/>
@@ -354,10 +354,10 @@
               </layout:referenceGlyph>
             </layout:listOfReferenceGlyphs>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_a6" metaid="b751c207-5553-4ed0-923f-9eaacabd0b3a" render:objectRole="equivalence">
+          <layout:generalGlyph layout:id="GeneralGlyph_a6" metaid="_476b7e83-0fd8-4b2c-acf1-52e6ff5ad1b5" render:objectRole="equivalence">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#b751c207-5553-4ed0-923f-9eaacabd0b3a">
+	<rdf:Description rdf:about="#_476b7e83-0fd8-4b2c-acf1-52e6ff5ad1b5">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="g1"/>
@@ -368,10 +368,10 @@
 	</rdf:RDF>
 	</annotation>
                       <layout:listOfReferenceGlyphs>
-              <layout:referenceGlyph layout:glyph="CompartmentGlyph_g1" layout:id="ReferenceGlyph_a6" metaid="_8995e865-2595-40d0-b532-9788c7aeaf06" render:objectRole="equivalence">
+              <layout:referenceGlyph layout:glyph="CompartmentGlyph_g1" layout:id="ReferenceGlyph_a6" metaid="cc724ade-6853-4d9e-8fc3-910164171477" render:objectRole="equivalence">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_8995e865-2595-40d0-b532-9788c7aeaf06">
+	<rdf:Description rdf:about="#cc724ade-6853-4d9e-8fc3-910164171477">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="g1"/>
@@ -551,12 +551,12 @@
       <compartment constant="true" id="DefaultCompartment_01"/>
     </listOfCompartments>
     <listOfSpecies>
-      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g7" initialConcentration="1" name="adenylate&#xa;cyclase"/>
-      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g3" initialConcentration="1"/>
-      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g3_1" initialConcentration="1" metaid="_5c505650-4b7a-4bcb-84c6-23f7644d1b31" name="1">
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g7" initialConcentration="1" name="adenylate&#xa;cyclase" sboTerm="SBO:0000412"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g3" initialConcentration="1" sboTerm="SBO:0000395"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g3_1" initialConcentration="1" metaid="_83d4f198-e3b2-47fa-bb89-51e0ca763ac8" name="1">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_5c505650-4b7a-4bcb-84c6-23f7644d1b31">
+	<rdf:Description rdf:about="#_83d4f198-e3b2-47fa-bb89-51e0ca763ac8">
 	<bqbiol:isPartOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="SpeciesGlyph_g3"/>
@@ -566,10 +566,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g3_2" initialConcentration="1" metaid="_73e54233-f4e3-4e6d-aa5b-b4ded9782e36" name="2">
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g3_2" initialConcentration="1" metaid="de745156-9d6c-43ad-8871-778351ab27a2" name="2">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_73e54233-f4e3-4e6d-aa5b-b4ded9782e36">
+	<rdf:Description rdf:about="#de745156-9d6c-43ad-8871-778351ab27a2">
 	<bqbiol:isPartOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="SpeciesGlyph_g3"/>
@@ -579,10 +579,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g3_3" initialConcentration="1" metaid="e8a4d135-aa02-4d5e-9b37-ee585fa7ec40" name="3">
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g3_3" initialConcentration="1" metaid="_384c748d-d9e3-4540-8a2a-a721cf08a85a" name="3">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#e8a4d135-aa02-4d5e-9b37-ee585fa7ec40">
+	<rdf:Description rdf:about="#_384c748d-d9e3-4540-8a2a-a721cf08a85a">
 	<bqbiol:isPartOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="SpeciesGlyph_g3"/>
@@ -592,10 +592,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g3_4" initialConcentration="1" metaid="_2826868d-2100-4f54-8ea4-a10909b0aa94" name="4">
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g3_4" initialConcentration="1" metaid="d4cfa529-d362-4890-bb7e-f693bfabfdc4" name="4">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_2826868d-2100-4f54-8ea4-a10909b0aa94">
+	<rdf:Description rdf:about="#d4cfa529-d362-4890-bb7e-f693bfabfdc4">
 	<bqbiol:isPartOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="SpeciesGlyph_g3"/>
@@ -605,10 +605,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g3_5" initialConcentration="1" metaid="_0e747761-ee15-47c9-83d9-6646966bf9f1" name="5">
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g3_5" initialConcentration="1" metaid="dd3dcf80-402c-4b49-93c8-e08fbba2a51f" name="5">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_0e747761-ee15-47c9-83d9-6646966bf9f1">
+	<rdf:Description rdf:about="#dd3dcf80-402c-4b49-93c8-e08fbba2a51f">
 	<bqbiol:isPartOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="SpeciesGlyph_g3"/>
@@ -618,9 +618,9 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g4" initialConcentration="1" name="ligand"/>
-      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g5" initialConcentration="1" name="GiPCR"/>
-      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g6" initialConcentration="1" name="GIRK"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g4" initialConcentration="1" name="ligand" sboTerm="SBO:0000412"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g5" initialConcentration="1" name="GiPCR" sboTerm="SBO:0000412"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="g6" initialConcentration="1" name="GIRK" sboTerm="SBO:0000412"/>
     </listOfSpecies>
   </model>
 </sbml>

@@ -116,10 +116,10 @@
         </render:listOfRenderInformation>
         <layout:dimensions layout:depth="0" layout:height="0" layout:width="0"/>
         <layout:listOfAdditionalGraphicalObjects>
-          <layout:generalGlyph layout:id="GeneralGlyph_glyph2a" metaid="_4975e6c1-677a-4ccf-b000-5fd79f9ff89b" render:objectRole="unitofinfo">
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph2a" metaid="fbe56253-5920-4f59-8e01-01039b552877" render:objectRole="unitofinfo">
             <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_4975e6c1-677a-4ccf-b000-5fd79f9ff89b">
+	<rdf:Description rdf:about="#fbe56253-5920-4f59-8e01-01039b552877">
 	<bqbiol:isPartOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="SpeciesGlyph_glyph2"/>
@@ -167,10 +167,10 @@
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a1" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph1" layout:speciesReference="a1" metaid="_6fa9b81a-5832-4865-8d1e-7c77b817519d" render:objectRole="substrate">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a1" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph1" layout:speciesReference="a1" metaid="cc4ac793-7471-4e06-a785-8f22d98d8154" render:objectRole="substrate">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_6fa9b81a-5832-4865-8d1e-7c77b817519d">
+	<rdf:Description rdf:about="#cc4ac793-7471-4e06-a785-8f22d98d8154">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph1"/>
@@ -189,10 +189,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a2" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph2" layout:speciesReference="a2" metaid="_98eef7fa-dab2-4bf2-bb5e-53894759a2fb" render:objectRole="product">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a2" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph2" layout:speciesReference="a2" metaid="b9c2c081-f81b-4588-bad3-6d1e42585ba4" render:objectRole="product">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_98eef7fa-dab2-4bf2-bb5e-53894759a2fb">
+	<rdf:Description rdf:about="#b9c2c081-f81b-4588-bad3-6d1e42585ba4">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="pn1"/>
@@ -244,12 +244,12 @@
       <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph2" initialConcentration="1" name="Dimer" sboTerm="SBO:0000420"/>
     </listOfSpecies>
     <listOfReactions>
-      <reaction fast="false" id="pn1" reversible="false">
+      <reaction fast="false" id="pn1" reversible="false" sboTerm="SBO:0000375">
         <listOfReactants>
-          <speciesReference constant="true" id="a1" species="glyph1" stoichiometry="1"/>
+          <speciesReference constant="true" id="a1" sboTerm="SBO:0000394" species="glyph1" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference constant="true" id="a2" species="glyph2" stoichiometry="1"/>
+          <speciesReference constant="true" id="a2" sboTerm="SBO:0000393" species="glyph2" stoichiometry="1"/>
         </listOfProducts>
               </reaction>
     </listOfReactions>

@@ -18,9 +18,12 @@ public class SWrapperGeneralGlyph {
 	public GeneralGlyph generalGlyph;
 	TextGlyph textGlyph;
 	public Glyph glyph;
+	
+	// if we have a units of information or state variable
 	boolean hasParent;
 	GraphicalObject parent;
 		
+	// if we have a logic arc, then there is only a ReferenceGlyph
 	boolean glyphIsMissing;
 	Arc arc;
 	String sourceId;
@@ -33,6 +36,7 @@ public class SWrapperGeneralGlyph {
 	
 	SWrapperModel sWrapperModel;
 	
+	// an Sbgn annotation glyph is converted a GeneralGlyph
 	boolean isAnnotation = false;
 	Point calloutPoint;
 	String calloutTarget;
@@ -73,9 +77,15 @@ public class SWrapperGeneralGlyph {
 		this.sWrapperModel = sWrapperModel;
 	}
 			
+	/**
+	 * This is a very important function for the SBGN AF to SBML qual converter, it allows us to find all the referenceGlyphs connected to a generalGlyph
+	 * @param arcId
+	 * @param sWrapperReferenceGlyph
+	 * @param arc
+	 */
 	public void addSpeciesReferenceGlyph(String arcId, SWrapperReferenceGlyph sWrapperReferenceGlyph, SWrapperArc arc){
-		referenceGlyphs.put(arcId, sWrapperReferenceGlyph.referenceGlyph);
-		arcs.put(arcId, arc);
+		this.referenceGlyphs.put(arcId, sWrapperReferenceGlyph.referenceGlyph);
+		this.arcs.put(arcId, arc);
 		this.sWrapperModel.addSWrapperReferenceGlyph(arcId, sWrapperReferenceGlyph);
 	}
 	

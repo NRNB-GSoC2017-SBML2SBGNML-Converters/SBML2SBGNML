@@ -184,10 +184,10 @@
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a01" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph1" layout:speciesReference="a01" metaid="_4cdefe9f-127a-4463-9b99-2f5320bd9970" render:objectRole="substrate">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a01" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph1" layout:speciesReference="a01" metaid="_7e03d81b-123d-47c4-8d9a-98ba863ad077" render:objectRole="substrate">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_4cdefe9f-127a-4463-9b99-2f5320bd9970">
+	<rdf:Description rdf:about="#_7e03d81b-123d-47c4-8d9a-98ba863ad077">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph1"/>
@@ -206,10 +206,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a06" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph_nad" layout:speciesReference="a06" metaid="c2dba24d-b73b-487d-8af8-a362af79167b" render:objectRole="substrate">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a06" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph_nad" layout:speciesReference="a06" metaid="b0de6cf5-69d1-41f7-aaee-d57ca7a8b576" render:objectRole="substrate">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#c2dba24d-b73b-487d-8af8-a362af79167b">
+	<rdf:Description rdf:about="#b0de6cf5-69d1-41f7-aaee-d57ca7a8b576">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph_nad"/>
@@ -228,10 +228,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a02" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph_nadh" layout:speciesReference="a02" metaid="b7de90c6-6315-4f33-beef-4a933e091345" render:objectRole="product">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a02" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph_nadh" layout:speciesReference="a02" metaid="_5806f3e1-2b7c-4fb4-8342-fb0e352b5c2d" render:objectRole="product">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#b7de90c6-6315-4f33-beef-4a933e091345">
+	<rdf:Description rdf:about="#_5806f3e1-2b7c-4fb4-8342-fb0e352b5c2d">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="pn1"/>
@@ -250,10 +250,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a04" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph_h" layout:speciesReference="a04" metaid="ea0bb7c5-c225-46da-add2-1742473f829c" render:objectRole="product">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a04" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph_h" layout:speciesReference="a04" metaid="b0e0a052-15e8-4c5b-9944-a40f84412b77" render:objectRole="product">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#ea0bb7c5-c225-46da-add2-1742473f829c">
+	<rdf:Description rdf:about="#b0e0a052-15e8-4c5b-9944-a40f84412b77">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="pn1"/>
@@ -272,10 +272,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a05" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph_ethanal" layout:speciesReference="a05" metaid="_41de4710-8844-4e5a-a987-6350496a2739" render:objectRole="product">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a05" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph_ethanal" layout:speciesReference="a05" metaid="_4b3fe958-b584-4e9f-a8eb-3b3999535965" render:objectRole="product">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_41de4710-8844-4e5a-a987-6350496a2739">
+	<rdf:Description rdf:about="#_4b3fe958-b584-4e9f-a8eb-3b3999535965">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="pn1"/>
@@ -294,10 +294,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a03" layout:role="activator" layout:speciesGlyph="SpeciesGlyph_glyph_adh1" layout:speciesReference="a03" metaid="_4b1a8376-0d83-4c9b-b58e-ef41e094ca9d" render:objectRole="SBO0000172">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a03" layout:role="activator" layout:speciesGlyph="SpeciesGlyph_glyph_adh1" layout:speciesReference="a03" metaid="a641fb8a-acd3-418e-8b5f-ab9e2044c91e" render:objectRole="SBO0000172">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_4b1a8376-0d83-4c9b-b58e-ef41e094ca9d">
+	<rdf:Description rdf:about="#a641fb8a-acd3-418e-8b5f-ab9e2044c91e">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph_adh1"/>
@@ -371,18 +371,18 @@
       <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph_h" initialConcentration="1" name="H+" sboTerm="SBO:0000247"/>
     </listOfSpecies>
     <listOfReactions>
-      <reaction fast="false" id="pn1" reversible="false">
+      <reaction fast="false" id="pn1" reversible="false" sboTerm="SBO:0000375">
         <listOfReactants>
-          <speciesReference constant="true" id="a01" species="glyph1" stoichiometry="1"/>
-          <speciesReference constant="true" id="a06" species="glyph_nad" stoichiometry="1"/>
+          <speciesReference constant="true" id="a01" sboTerm="SBO:0000394" species="glyph1" stoichiometry="1"/>
+          <speciesReference constant="true" id="a06" sboTerm="SBO:0000394" species="glyph_nad" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference constant="true" id="a02" species="glyph_nadh" stoichiometry="1"/>
-          <speciesReference constant="true" id="a04" species="glyph_h" stoichiometry="1"/>
-          <speciesReference constant="true" id="a05" species="glyph_ethanal" stoichiometry="1"/>
+          <speciesReference constant="true" id="a02" sboTerm="SBO:0000393" species="glyph_nadh" stoichiometry="1"/>
+          <speciesReference constant="true" id="a04" sboTerm="SBO:0000393" species="glyph_h" stoichiometry="1"/>
+          <speciesReference constant="true" id="a05" sboTerm="SBO:0000393" species="glyph_ethanal" stoichiometry="1"/>
         </listOfProducts>
         <listOfModifiers>
-          <modifierSpeciesReference id="a03" species="glyph_adh1"/>
+          <modifierSpeciesReference id="a03" sboTerm="SBO:0000172" species="glyph_adh1"/>
         </listOfModifiers>
       </reaction>
     </listOfReactions>

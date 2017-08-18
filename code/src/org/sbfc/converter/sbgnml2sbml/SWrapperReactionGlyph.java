@@ -16,7 +16,6 @@ public class SWrapperReactionGlyph {
 	Reaction reaction;
 	ReactionGlyph reactionGlyph;
 	String clazz;
-	// todo: add
 	Glyph glyph;
 	
 	HashMap<String, SWrapperArc> consumptionArcs = new HashMap<String, SWrapperArc>();
@@ -25,6 +24,7 @@ public class SWrapperReactionGlyph {
 
 	HashMap<String, SpeciesReferenceGlyph> speciesReferenceGlyphs = new HashMap<String, SpeciesReferenceGlyph>();
 	
+	// useful if we want to create the center Curve of the reactionGlyph later
 	List<Point> listOfEndPoints = new ArrayList<Point>();
 	List<Point> listOfStartPoints = new ArrayList<Point>();
 	
@@ -36,6 +36,7 @@ public class SWrapperReactionGlyph {
 		this.reactionGlyph = reactionGlyph;	
 		this.clazz = glyph.getClazz();
 		this.sWrapperModel = sWrapperModel;
+		this.glyph = glyph;
 	}		
 
 	void addArc(String arcId, SWrapperArc arc, String type) {

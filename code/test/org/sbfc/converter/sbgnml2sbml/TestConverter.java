@@ -95,6 +95,35 @@ public class TestConverter {
 		testFiles.add(examplesDirectory + "protein_degradation.sbgn");
 		testFiles.add(examplesDirectory + "reversible-verticalpn.sbgn");	
 		testFiles.add(examplesDirectory + "or-simple.sbgn");
+		testFiles.add(examplesDirectory + "and.sbgn");
+		testFiles.add(examplesDirectory + "annotation.sbgn");
+		testFiles.add(examplesDirectory + "bool-expr-pd.sbgn");
+		testFiles.add(examplesDirectory + "clone-marker.sbgn");
+		testFiles.add(examplesDirectory + "edgerouting.sbgn");
+		testFiles.add(examplesDirectory + "insulin-like_growth_factor_signaling.sbgn");
+		testFiles.add(examplesDirectory + "labeledCloneMarker.sbgn");
+		testFiles.add(examplesDirectory + "mapk_cascade.sbgn");
+		testFiles.add(examplesDirectory + "neuronal_muscle_signalling.sbgn");
+		testFiles.add(examplesDirectory + "states.sbgn");
+		testFiles.add(examplesDirectory + "statesType2.sbgn");
+		testFiles.add(examplesDirectory + "stoichiometry.sbgn");
+		testFiles.add(examplesDirectory + "submap.sbgn");
+		testFiles.add(examplesDirectory + "utf8_test_case_with_byte_order_mark.sbgn");
+		testFiles.add(examplesDirectory + "utf8_test_case_without_byte_order_mark.sbgn");
+		testFiles.add(examplesDirectory + "SBGN-PD_all.sbgn");		
+		testFiles.add(examplesDirectory + "activated_stat1alpha_induction_of_the_irf1_gene.sbgn");
+		examplesDirectory = properties.getProperty("sbgnml2sbml.integrationtest_files.af");
+		testFiles.add(examplesDirectory + "activity-nodes.sbgn");
+		testFiles.add(examplesDirectory + "auxiliary-units.sbgn");
+		testFiles.add(examplesDirectory + "compartment_extended.sbgn");
+		testFiles.add(examplesDirectory + "compartment.sbgn");
+		testFiles.add(examplesDirectory + "delay.sbgn");
+		testFiles.add(examplesDirectory + "modulation.sbgn");
+		testFiles.add(examplesDirectory + "submap_expanded.sbgn");
+		testFiles.add(examplesDirectory + "submap.sbgn");
+		testFiles.add(examplesDirectory + "two_edges_between_two_activities.sbgn");
+		examplesDirectory = properties.getProperty("sbgnml2sbml.integrationtest_files.roundtrip");
+		testFiles.add(examplesDirectory + "e_coli_core_metabolism.sbgn");
 		
 		inputFile = new File(sbgnFileNameInput);
 		
@@ -138,6 +167,7 @@ public class TestConverter {
 			Dimensions dimensions = new Dimensions(converter.sOutput.dimensionX, converter.sOutput.dimensionY, converter.sOutput.dimensionZ, 3, 1);
 			converter.sOutput.layout.setDimensions(dimensions);
 			SBMLWriter sbmlWriter = new SBMLWriter();
+			
 			try {
 				sbmlWriter.writeSBML(sbmlDocument, outputFile);
 			} catch (Exception e) {
@@ -147,7 +177,6 @@ public class TestConverter {
 			numOfFilesConverted++;
 		}
 		
-		//System.out.println(numOfFilesConverted);
 		assertEquals("Not all models were successfully converted", numOfFilesConverted, testFiles.size());
 
 	}
@@ -184,9 +213,7 @@ public class TestConverter {
 					System.out.println("compartment == null");
 					System.out.println("id="+id);
 					System.out.println("listOfCompartments="+listOfCompartments.size());
-					
 				}
-				
 				
 				assertEquals(glyph.getLabel().getText(), compartment.getName());
 				

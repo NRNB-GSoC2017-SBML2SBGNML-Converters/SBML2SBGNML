@@ -21,36 +21,56 @@ import org.sbml.jsbml.Species;
 import org.sbml.jsbml.ext.layout.ReactionGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 
+/**
+ * A SWrapperModel Model wrapper stores the SBML Model as well as some objects contained in the Model.
+ * Example: Species, Reaction, Compartment, SpeciesGlyph, ReactionGlyph, CompartmentGlyph, etc. and their
+ * corresponding glyphs in the Sbgn model.
+ * SWrapperModel allows to retrieve information easily without having to search in the Model
+ * SWrapperModel stores SWrapperSpeciesGlyph, SWrapperReactionGlyph, etc, which are Wrappers for SpeciesGlyph, ReactionGlyph, etc.
+ * @author haoran
+ *
+ */
 public class SWrapperModel {
+	// the Sbgn map
 	public Map map;
 
-	HashMap<String, Glyph> processNodes;
+	// we classified all the glyphs and arcs in an Sbgn model into the following categories.
+	// we iterate each of these lists to convert and construct our SBML layout glyphs
+	public HashMap<String, Glyph> processNodes;
 	public HashMap<String, Glyph> entityPoolNodes;
-	HashMap<String, Glyph> compartments;
+	public HashMap<String, Glyph> compartments;
 	public HashMap<String, Glyph> logicOperators;
-	HashMap<String, Glyph> annotations;
+	public HashMap<String, Glyph> annotations;
 	
-	HashMap<String, SWrapperArc> consumptionArcs;
-	HashMap<String, SWrapperArc> productionArcs;
+	public HashMap<String, SWrapperArc> consumptionArcs;
+	public HashMap<String, SWrapperArc> productionArcs;
 	public HashMap<String, SWrapperArc> logicArcs;
 	public HashMap<String, SWrapperArc> modifierArcs;
 	
+	// stores all the wrappers we created as we interpret the Sbgn model, each wrapper stores meta information 
+	// of the mapping from Sbgn glyphs to SBML layout glyphs
 	public HashMap<String, SWrapperSpeciesGlyph> listOfWrapperSpeciesGlyphs;
-	HashMap<String, SWrapperCompartmentGlyph> listOfWrapperCompartmentGlyphs;
-	HashMap<String, SWrapperReactionGlyph> listOfWrapperReactionGlyphs;
-	HashMap<String, SWrapperSpeciesReferenceGlyph> listOfWrapperSpeciesReferenceGlyphs;
+	public HashMap<String, SWrapperCompartmentGlyph> listOfWrapperCompartmentGlyphs;
+	public HashMap<String, SWrapperReactionGlyph> listOfWrapperReactionGlyphs;
+	public HashMap<String, SWrapperSpeciesReferenceGlyph> listOfWrapperSpeciesReferenceGlyphs;
 	public HashMap<String, SWrapperGeneralGlyph> listOfWrapperGeneralGlyphs;
 	public HashMap<String, SWrapperReferenceGlyph> listOfWrapperReferenceGlyphs;
 	public HashMap<String, SWrapperQualitativeSpecies> listOfSWrapperQualitativeSpecies;
 	public HashMap<String, SWrapperTransition> listOfSWrapperTransitions;
 	
+	// The model that we will use to generate the output converted file
 	Model model;
 	
+	// Stores mapping from a port id to a parent glyph id
 	HashMap<String, String> portGlyphMap = new HashMap<String, String>();
+	
+	// stores the compartmentOrder values of all the compartment glyphs in the Sbgn model
 	HashMap<String, Float> compartmentOrderList = new HashMap<String, Float>();
+	
 	// Maps a SWrapperGeneralGlyph id to a SWrapperTransition id
 	HashMap<String, String> generalGlyphTransitionMap = new HashMap<String, String>();
 	
+	// Maps a TextGlyph id to the layout Glyph that contains the text.
 	HashMap<String, String> textSourceMap = new HashMap<String, String>();
 	
 	// keep track of how many Arcs are in Sbgn
@@ -208,6 +228,10 @@ public class SWrapperModel {
 		modifierArcs.put(id, arc);
 	}
 	
+	/**
+	 * Stores mapping from a port id to a parent glyph id
+	 * @param glyph
+	 */
 	public void updatePortGlyphMap(Glyph glyph){
 		List<Port> listOfPorts;
 		listOfPorts = glyph.getPort();
@@ -240,7 +264,11 @@ public class SWrapperModel {
 		compartmentOrderList = sortByValue(compartmentOrderList);
 	}
 	
-	// https://www.mkyong.com/java/how-to-sort-a-map-in-java/
+	/**
+	 * https://www.mkyong.com/java/how-to-sort-a-map-in-java/
+	 * @param unsortMap
+	 * @return
+	 */
 	private static HashMap<String, Float> sortByValue(HashMap<String, Float> unsortMap) {
 
         // 1. Convert Map to List of Map
@@ -260,16 +288,7 @@ public class SWrapperModel {
         HashMap<String, Float> sortedMap = new LinkedHashMap<String, Float>();
         for (HashMap.Entry<String, Float> entry : list) {
             sortedMap.put(entry.getKey(), entry.getValue());
-            //////System.out.println("sortByValue id="+entry.getKey());
         }
-
-        /*
-        //classic iterator example
-        for (Iterator<Map.Entry<String, Integer>> it = list.iterator(); it.hasNext(); ) {
-            Map.Entry<String, Integer> entry = it.next();
-            sortedMap.put(entry.getKey(), entry.getValue());
-        }*/
-
 
         return sortedMap;
     }

@@ -51,12 +51,20 @@ import org.sbml.jsbml.ext.render.RenderLayoutPlugin;
 import org.sbml.jsbml.ext.render.Style;
 import org.sbml.jsbml.ext.render.Transformation2D;
 
+/**
+ * SBGNML2SBMLOutput contains all data structures needed to create the output XML document.
+ * Example: LayoutModelPlugin, QualModelPlugin, RenderLayoutPlugin, etc.
+ * @author haoran
+ *
+ */
 public class SBGNML2SBMLOutput {
 	public Model model;
 	
+	// Layout classes
 	LayoutModelPlugin layoutPlugin;
 	Layout layout;
 	
+	// Rendering classes
 	RenderLayoutPlugin renderLayoutPlugin;
 	ListOfLocalRenderInformation listOfLocalRenderInformation;
 	LocalRenderInformation localRenderInformation;
@@ -68,18 +76,20 @@ public class SBGNML2SBMLOutput {
 	
 	ListOf<LineEnding> listOfLineEndings_temp;	
 	ListOf<LocalStyle> listOfStyles_temp;
+	HashMap<String, String> stylesInModel = new HashMap<String, String>();
+	HashMap<String, String> lineEndingsInModel = new HashMap<String, String>();
 	
+	// Qual
 	QualModelPlugin qualModelPlugin;
 	
-	// keep track of the maximum value for each dimension. Finally, set these 3 values as the dimensions of the layout
+	// keep track of the maximum value for each dimension. In the end, we set these 3 values as the dimensions of the layout
+	// TODO: might be broken
 	Double dimensionX;
 	Double dimensionY;
 	Double dimensionZ;
 	Dimensions dimensions;
-	
-	HashMap<String, String> stylesInModel = new HashMap<String, String>();
-	HashMap<String, String> lineEndingsInModel = new HashMap<String, String>();
-	
+		
+	// keep track of the statistics
 	int numOfSpecies = 0;
 	int numOfSpeciesGlyphs = 0;
 	int numOfReactions = 0;
@@ -132,23 +142,12 @@ public class SBGNML2SBMLOutput {
 		this.listOfGradientDefinitions = renderLayoutPlugin.getLocalRenderInformation(0).getListOfGradientDefinitions();
 	
 		this.listOfLineEndings_temp = new ListOf<LineEnding>(3, 1);
-		//this.listOfStyles_temp = new ListOf<LocalStyle>(3, 1);
 	}
 	
 	private void createQual() {
 		this.qualModelPlugin = (QualModelPlugin) model.getPlugin("qual");
 
 	}
-	
-//	public void addListOfColorDefinitions(ListOf<ColorDefinition> listOfColorDefinitions) {
-//		this.listOfColorDefinitions.addAll(listOfColorDefinitions.clone());
-//	}
-//	public void addListOfLineEndings(ListOf<LineEnding> listOfLineEndings) {
-//		this.listOfLineEndings.addAll(listOfLineEndings.clone());
-//	}
-//	public void addListOfStyles(ListOf<LocalStyle> listOfStyles) {
-//		this.listOfStyles.addAll(listOfStyles.clone());
-//	}
 	
 	/**
 	 * Set the dimensionX, dimensionY, dimensionZ from the <code>BoundingBox</code> values.
@@ -342,6 +341,15 @@ public class SBGNML2SBMLOutput {
 		numOfReferenceGlyphs++;
 	}
 	
+	public void addTransition(Transition transition) {
+		qualModelPlugin.addTransition(transition);
+	}
+	
+	/**
+	 * Load the SBML file
+	 * @param sbmlFileName
+	 * @return
+	 */
 	public static SBMLDocument getSBMLDocument(String sbmlFileName) {
 
 		SBMLDocument document = null;
@@ -358,6 +366,11 @@ public class SBGNML2SBMLOutput {
 		return document;
 	}	
 	
+	/**
+	 * Load a template rendering styles file.
+	 * TODO: remove the hard-coded file names
+	 * @return
+	 */
 	public LocalRenderInformation loadTemplateFromFile() {
 		Properties properties = new Properties();	
 		InputStream inputProperties;	
@@ -382,13 +395,15 @@ public class SBGNML2SBMLOutput {
 		RenderLayoutPlugin renderLayoutPlugin = (RenderLayoutPlugin) templateLayout.getPlugin(RenderConstants.shortLabel);
 		LocalRenderInformation localRenderInformation = renderLayoutPlugin.getLocalRenderInformation(0);
 		
-		//System.out.println("loadTemplateFromFile "+localRenderInformation.getId());
-		
 		return localRenderInformation;
 	}
 	
+	/**
+	 * We loaded a rendering styles template containing all the styles of all the layout Glyphs. We load them in our lists 
+	 * so that we can use them later.
+	 * @param localRenderInformation
+	 */
 	public void storeTemplateLocalRenderInformation(LocalRenderInformation localRenderInformation) {
-		//System.out.println("storeTemplateLocalRenderInformation "+localRenderInformation.getId());
 		
 		ListOf<ColorDefinition> listOfColorDefinitions = localRenderInformation.getListOfColorDefinitions();
 		for (ColorDefinition cd : listOfColorDefinitions){
@@ -406,7 +421,6 @@ public class SBGNML2SBMLOutput {
 			RenderGroup rgClone = le.getGroup().clone();
 			ListOf<Transformation2D> listOfTransformation2D = le.getGroup().getListOfElements();
 			for (Transformation2D t2d : listOfTransformation2D){
-				//System.out.println("storeTemplateLocalRenderInformation "+t2d.getClass().toString());
 				if (t2d instanceof Ellipse){
 					rgClone.addElement((Ellipse) t2d.clone());
 				} else if (t2d instanceof Rectangle) {
@@ -417,7 +431,6 @@ public class SBGNML2SBMLOutput {
 					if (curve_segs.size() > 0){
 						Point s = curve_segs.get(0).getStart();
 						Point e = curve_segs.get(0).getEnd();
-						//System.out.println("Polygon " + le.getId() + ": " + s.getX() + s.getY() + e.getX() + e.getY());
 					}
 					rgClone.addElement(polygon);
 				} else {
@@ -430,69 +443,50 @@ public class SBGNML2SBMLOutput {
 		}
 		
 		ListOf<LocalStyle> listOfStyles = localRenderInformation.getListOfLocalStyles();
-//		for (LocalStyle ls : listOfStyles){
-//			//System.out.println("storeTemplateLocalRenderInformation "+ls.getId());
-//			//this.listOfStyles.add(new LocalStyle(ls.getId(), 3, 1, ls.getGroup()));
-//			LocalStyle ls_clone = ls.clone();
-//			ls_clone.setId(ls.getId());
-//			this.listOfStyles.add(ls_clone);
-//			//System.out.println("LocalStyle"+ls_clone.getRoleList().get(0));
-//		}
 		
 		this.listOfStyles_temp = localRenderInformation.getListOfLocalStyles();
 				
-//		System.out.println("storeTemplateLocalRenderInformation listOfColorDefinitions "+this.listOfColorDefinitions.size());
-//		System.out.println("storeTemplateLocalRenderInformation listOfLineEndings "+this.listOfLineEndings.size());
-//		System.out.println(this.listOfLineEndings.get(0).getGroup().getStroke());
-//		System.out.println("storeTemplateLocalRenderInformation listOfStyles "+this.listOfStyles.size());
-//		System.out.println("storeTemplateLocalRenderInformation listOfGradientDefinitions "+this.listOfGradientDefinitions.size());
-//		
 	}
 	
+	/**
+	 * We only store the render styles that we used in the model. We need to removed all the styles that we don't use so that
+	 * the converted file will not be swamped by all the styles.
+	 */
 	public void removeExtraStyles() {
 		for (String id : stylesInModel.keySet()){
-			//System.out.println("LocalStyle ==" + id);
+			// TODO: remove the extra styles in here as well
 		}
 		for (String id : lineEndingsInModel.keySet()){
-			//System.out.println("LineEnding ==" + id);
+			// TODO: remove the extra styles in here as well
 		}
 		
 		this.listOfStyles = renderLayoutPlugin.getLocalRenderInformation(0).getListOfLocalStyles(); 
 		
 		for (LocalStyle ls : listOfStyles_temp){
-			//System.out.println("LocalStyle:: " + ls.getId());
 			if (stylesInModel.containsKey(ls.getId())){
-				//System.out.println("LocalStyle "+ls.getId());
 				LocalStyle ls_clone = ls.clone();
 				ls_clone.setId(ls.getId());
 				this.listOfStyles.add(ls_clone);
 			}
 		}
-		
-		//System.out.println("listOfStyles ==>" + listOfStyles.size());
-		
+
 		for (LineEnding le : listOfLineEndings_temp){
-			//System.out.println("LineEnding:: " + le.getId());
 			if (lineEndingsInModel.containsKey(le.getId())){
-				//System.out.println("LineEnding "+le.getId());
 				listOfLineEndings.add(le.clone());
 			}			
 		}
 	}
 
-	
+	/**
+	 * Auto-fill missing values for required fields in the SBML Model
+	 */
 	public void completeModel() {
-		// Auto-fill missing values for required fields in the SBML Model
+
 		SBMLModelCompleter modelCompleter = new SBMLModelCompleter();
-	
 		model = modelCompleter.autoCompleteRequiredAttributes(model);
 
 	}
 
-	public void addTransition(Transition transition) {
-		qualModelPlugin.addTransition(transition);
-	}
-		
-	
+
 }
 

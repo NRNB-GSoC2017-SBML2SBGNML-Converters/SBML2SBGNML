@@ -40,178 +40,6 @@
               </render:linearGradient>
             </render:listOfGradientDefinitions>
             <render:listOfLineEndings>
-              <render:lineEnding render:id="modulation">
-                <layout:boundingBox>
-                  <layout:position layout:x="-12" layout:y="-6"/>
-                  <layout:dimensions layout:height="12" layout:width="12"/>
-                </layout:boundingBox>
-                <render:g render:fill="white" render:stroke="black" render:stroke-width="0.001">
-                  <render:polygon render:fill="ffffff" render:stroke="black" render:stroke-width="0.001">
-                    <render:listOfElements>
-                      <render:element render:x="50%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="50%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="50%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="50%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="ffffff" render:stroke="black" render:stroke-width="0.001">
-                    <render:listOfElements>
-                      <render:element render:x="50%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="50%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="50%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="50%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:lineEnding>
-              <render:lineEnding render:id="modulation_black">
-                <layout:boundingBox>
-                  <layout:position layout:x="-12" layout:y="-6"/>
-                  <layout:dimensions layout:height="12" layout:width="12"/>
-                </layout:boundingBox>
-                <render:g render:fill="black" render:stroke="black" render:stroke-width="0.001">
-                  <render:polygon render:fill="black">
-                    <render:listOfElements>
-                      <render:element render:x="50%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="50%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="50%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="50%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="black">
-                    <render:listOfElements>
-                      <render:element render:x="50%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="50%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="50%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="50%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:lineEnding>
-              <render:lineEnding render:id="necessary_stimulation">
-                <layout:boundingBox>
-                  <layout:position layout:x="-12" layout:y="-6"/>
-                  <layout:dimensions layout:height="12" layout:width="12"/>
-                </layout:boundingBox>
-                <render:g render:fill="white" render:stroke="black" render:stroke-width="0.001">
-                  <render:polygon render:fill="white">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="white">
-                    <render:listOfElements>
-                      <render:element render:x="30%" render:y="20%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="30%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="30%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="30%" render:y="20%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="white">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="white">
-                    <render:listOfElements>
-                      <render:element render:x="30%" render:y="20%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="30%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="30%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="30%" render:y="20%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:lineEnding>
-              <render:lineEnding render:id="old_stimulation">
-                <layout:boundingBox>
-                  <layout:position layout:x="-12" layout:y="-6"/>
-                  <layout:dimensions layout:height="12" layout:width="12"/>
-                </layout:boundingBox>
-                <render:g render:fill="white" render:stroke="black" render:stroke-width="0.001">
-                  <render:polygon render:fill="white">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="white">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="33%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:lineEnding>
-              <render:lineEnding render:id="stimulation">
-                <layout:boundingBox>
-                  <layout:position layout:x="-12" layout:y="-6"/>
-                  <layout:dimensions layout:height="12" layout:width="12"/>
-                </layout:boundingBox>
-                <render:g render:fill="white" render:stroke="black" render:stroke-width="0.001">
-                  <render:polygon render:fill="white">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="white">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:lineEnding>
               <render:lineEnding render:id="product">
                 <layout:boundingBox>
                   <layout:position layout:x="-12" layout:y="-6"/>
@@ -244,108 +72,6 @@
                                       </render:polygon>
                 </render:g>
               </render:lineEnding>
-              <render:lineEnding render:id="activator">
-                <layout:boundingBox>
-                  <layout:position layout:x="-12" layout:y="-6"/>
-                  <layout:dimensions layout:height="12" layout:width="12"/>
-                </layout:boundingBox>
-                <render:g render:fill="white" render:stroke="black" render:stroke-width="1.0">
-                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%" render:stroke="black" render:stroke-width="1.0"/>
-                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%" render:stroke="black" render:stroke-width="1.0"/>
-                </render:g>
-              </render:lineEnding>
-              <render:lineEnding render:id="association">
-                <layout:boundingBox>
-                  <layout:position layout:x="-1" layout:y="-2.5"/>
-                  <layout:dimensions layout:height="5" layout:width="5"/>
-                </layout:boundingBox>
-                <render:g render:fill="black" render:stroke="black" render:stroke-width="1.0">
-                  <render:ellipse render:cx="2.5" render:cy="2.5" render:cz="0" render:rx="2" render:ry="2" render:stroke="black" render:stroke-width="1.0"/>
-                  <render:ellipse render:cx="2.5" render:cy="2.5" render:cz="0" render:rx="2" render:ry="2" render:stroke="black" render:stroke-width="1.0"/>
-                </render:g>
-              </render:lineEnding>
-              <render:lineEnding render:id="disassociation">
-                <layout:boundingBox>
-                  <layout:position layout:x="-1" layout:y="-2.5"/>
-                  <layout:dimensions layout:height="5" layout:width="5"/>
-                </layout:boundingBox>
-                <render:g render:fill="white" render:stroke="black" render:stroke-width="1.0">
-                  <render:ellipse render:cx="2.5" render:cy="2.5" render:cz="0" render:rx="2" render:ry="2" render:stroke="black" render:stroke-width="1.0"/>
-                  <render:ellipse render:cx="2.5" render:cy="2.5" render:cz="0" render:rx="1" render:ry="1" render:stroke="black" render:stroke-width="1.0"/>
-                  <render:ellipse render:cx="2.5" render:cy="2.5" render:cz="0" render:rx="2" render:ry="2" render:stroke="black" render:stroke-width="1.0"/>
-                  <render:ellipse render:cx="2.5" render:cy="2.5" render:cz="0" render:rx="1" render:ry="1" render:stroke="black" render:stroke-width="1.0"/>
-                </render:g>
-              </render:lineEnding>
-              <render:lineEnding render:id="process">
-                <layout:boundingBox>
-                  <layout:position layout:x="-4" layout:y="-4"/>
-                  <layout:dimensions layout:height="8" layout:width="8"/>
-                </layout:boundingBox>
-                <render:g render:fill="white" render:stroke="black" render:stroke-width="1.0">
-                  <render:rectangle render:height="8" render:stroke="black" render:width="8" render:x="0%" render:y="0%"/>
-                  <render:rectangle render:height="8" render:stroke="black" render:width="8" render:x="0%" render:y="0%"/>
-                </render:g>
-              </render:lineEnding>
-              <render:lineEnding render:id="modifier">
-                <layout:boundingBox>
-                  <layout:position layout:x="0" layout:y="-2.5"/>
-                  <layout:dimensions layout:height="5" layout:width="5"/>
-                </layout:boundingBox>
-                <render:g render:fill="white" render:stroke="black" render:stroke-width="1.0">
-                  <render:polygon>
-                    <render:listOfElements>
-                      <render:element render:x="0" render:y="2.5" xsi:type="RenderPoint"/>
-                      <render:element render:x="2.5" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="2.5" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="5" render:y="2.5" xsi:type="RenderPoint"/>
-                      <render:element render:x="5" render:y="2.5" xsi:type="RenderPoint"/>
-                      <render:element render:x="2.5" render:y="0" xsi:type="RenderPoint"/>
-                      <render:element render:x="2.5" render:y="0" xsi:type="RenderPoint"/>
-                      <render:element render:x="0" render:y="2.5" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon>
-                    <render:listOfElements>
-                      <render:element render:x="0" render:y="2.5" xsi:type="RenderPoint"/>
-                      <render:element render:x="2.5" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="2.5" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="5" render:y="2.5" xsi:type="RenderPoint"/>
-                      <render:element render:x="5" render:y="2.5" xsi:type="RenderPoint"/>
-                      <render:element render:x="2.5" render:y="0" xsi:type="RenderPoint"/>
-                      <render:element render:x="2.5" render:y="0" xsi:type="RenderPoint"/>
-                      <render:element render:x="0" render:y="2.5" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:lineEnding>
-              <render:lineEnding render:id="inhibitor">
-                <layout:boundingBox>
-                  <layout:position layout:x="-0.5" layout:y="-4"/>
-                  <layout:dimensions layout:height="8" layout:width="0.6"/>
-                </layout:boundingBox>
-                <render:g render:fill="black" render:stroke="black" render:stroke-width="0.1">
-                  <render:polygon>
-                                                          </render:polygon>
-                  <render:polygon>
-                                                          </render:polygon>
-                </render:g>
-              </render:lineEnding>
-              <render:lineEnding render:id="absolute_inhibitor">
-                <layout:boundingBox>
-                  <layout:position layout:x="-2.5" layout:y="-5"/>
-                  <layout:dimensions layout:height="10" layout:width="5"/>
-                </layout:boundingBox>
-                <render:g render:fill="black" render:stroke="black" render:stroke-width="0.1">
-                  <render:polygon render:stroke="black" render:stroke-width="0.1">
-                                                          </render:polygon>
-                  <render:polygon render:stroke="black" render:stroke-width="0.1">
-                                                          </render:polygon>
-                  <render:polygon render:stroke="black" render:stroke-width="0.1">
-                                                          </render:polygon>
-                  <render:polygon render:stroke="black" render:stroke-width="0.1">
-                                                          </render:polygon>
-                </render:g>
-              </render:lineEnding>
             </render:listOfLineEndings>
             <render:listOfStyles>
               <render:style id="defaultText" render:roleList="defaultText">
@@ -355,673 +81,15 @@
                 <render:g render:stroke="black" render:stroke-width="2.0"/>
               </render:style>
               <render:style id="SBO0000167" render:roleList="SBO0000167">
-                <render:g render:endHead="process" render:fill="white" render:stroke="black" render:stroke-width="2.0"/>
-              </render:style>
-              <render:style id="SBO0000177" render:roleList="SBO0000177">
-                <render:g render:endHead="association" render:stroke="black" render:stroke-width="2.0"/>
-              </render:style>
-              <render:style id="SBO0000169" render:roleList="SBO0000169">
-                <render:g render:endHead="inhibitor" render:stroke="black" render:stroke-width="2.0"/>
-              </render:style>
-              <render:style id="SBO0000171" render:roleList="SBO0000171">
-                <render:g render:endHead="necessary_stimulation" render:stroke="black" render:stroke-width="2.0"/>
-              </render:style>
-              <render:style id="SBO0000172" render:roleList="SBO0000172">
-                <render:g render:endHead="activator" render:fill="white" render:stroke="black" render:stroke-width="2.0"/>
-              </render:style>
-              <render:style id="SBO0000168" render:roleList="SBO0000168">
-                <render:g render:endHead="modulation" render:fill="white" render:stroke="black" render:stroke-width="2.0"/>
-              </render:style>
-              <render:style id="SBO0000170" render:roleList="SBO0000170">
-                <render:g render:endHead="stimulation" render:fill="white" render:stroke="black" render:stroke-width="2.0"/>
-              </render:style>
-              <render:style id="SBO0000180" render:roleList="SBO0000180">
-                <render:g render:endHead="disassociation" render:stroke="black" render:stroke-width="2.0"/>
+                <render:g render:fill="white" render:stroke="black" render:stroke-width="1.0">
+                  <render:rectangle render:height="8" render:stroke="black" render:width="8" render:x="0%" render:y="0%"/>
+                </render:g>
               </render:style>
               <render:style id="product" render:roleList="product">
                 <render:g render:endHead="product" render:stroke="black" render:stroke-width="2.0"/>
               </render:style>
-              <render:style id="interaction" render:roleList="interaction">
-                <render:g render:endHead="product" render:startHead="product" render:stroke="black" render:stroke-width="2.0"/>
-              </render:style>
-              <render:style id="SBO0000354" render:roleList="SBO0000354">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="80%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="80%" xsi:type="RenderPoint"/>
-                      <render:element render:basepoint1_x="100%" render:basepoint1_y="100%" render:basepoint2_x="100%" render:basepoint2_y="100%" render:x="80%" render:y="100%" xsi:type="RenderCubicBezier"/>
-                      <render:element render:x="80%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:basepoint1_x="0%" render:basepoint1_y="100%" render:basepoint2_x="0%" render:basepoint2_y="100%" render:x="0%" render:y="80%" xsi:type="RenderCubicBezier"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000354multimer" render:roleList="SBO0000354multimer">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="5%" render:y="80%" xsi:type="RenderPoint"/>
-                      <render:element render:x="5%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="5%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="80%" xsi:type="RenderPoint"/>
-                      <render:element render:basepoint1_x="100%" render:basepoint1_y="100%" render:basepoint2_x="100%" render:basepoint2_y="100%" render:x="80%" render:y="100%" xsi:type="RenderCubicBezier"/>
-                      <render:element render:x="80%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:basepoint1_x="5%" render:basepoint1_y="100%" render:basepoint2_x="5%" render:basepoint2_y="100%" render:x="5%" render:y="80%" xsi:type="RenderCubicBezier"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="80%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="80%" xsi:type="RenderPoint"/>
-                      <render:element render:basepoint1_x="95%" render:basepoint1_y="95%" render:basepoint2_x="95%" render:basepoint2_y="95%" render:x="80%" render:y="95%" xsi:type="RenderCubicBezier"/>
-                      <render:element render:x="80%" render:y="95%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="95%" xsi:type="RenderPoint"/>
-                      <render:element render:basepoint1_x="0%" render:basepoint1_y="95%" render:basepoint2_x="0%" render:basepoint2_y="95%" render:x="0%" render:y="80%" xsi:type="RenderCubicBezier"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000354clone" render:roleList="SBO0000354clone">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="80%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="80%" xsi:type="RenderPoint"/>
-                      <render:element render:basepoint1_x="100%" render:basepoint1_y="100%" render:basepoint2_x="100%" render:basepoint2_y="100%" render:x="80%" render:y="100%" xsi:type="RenderCubicBezier"/>
-                      <render:element render:x="80%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:basepoint1_x="0%" render:basepoint1_y="100%" render:basepoint2_x="0%" render:basepoint2_y="100%" render:x="0%" render:y="80%" xsi:type="RenderCubicBezier"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="cloneMarker">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="80%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="80%" xsi:type="RenderPoint"/>
-                      <render:element render:basepoint1_x="100%" render:basepoint1_y="100%" render:basepoint2_x="100%" render:basepoint2_y="100%" render:x="80%" render:y="100%" xsi:type="RenderCubicBezier"/>
-                      <render:element render:x="80%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:basepoint1_x="0%" render:basepoint1_y="100%" render:basepoint2_x="0%" render:basepoint2_y="100%" render:x="0%" render:y="80%" xsi:type="RenderCubicBezier"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000354multimerclone" render:roleList="SBO0000354multimerclone">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="5%" render:y="80%" xsi:type="RenderPoint"/>
-                      <render:element render:x="5%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="5%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="80%" xsi:type="RenderPoint"/>
-                      <render:element render:basepoint1_x="100%" render:basepoint1_y="100%" render:basepoint2_x="100%" render:basepoint2_y="100%" render:x="80%" render:y="100%" xsi:type="RenderCubicBezier"/>
-                      <render:element render:x="80%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:basepoint1_x="5%" render:basepoint1_y="100%" render:basepoint2_x="5%" render:basepoint2_y="100%" render:x="5%" render:y="80%" xsi:type="RenderCubicBezier"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="cloneMarker">
-                    <render:listOfElements>
-                      <render:element render:x="5%" render:y="80%" xsi:type="RenderPoint"/>
-                      <render:element render:x="5%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="5%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="80%" xsi:type="RenderPoint"/>
-                      <render:element render:basepoint1_x="100%" render:basepoint1_y="100%" render:basepoint2_x="100%" render:basepoint2_y="100%" render:x="80%" render:y="100%" xsi:type="RenderCubicBezier"/>
-                      <render:element render:x="80%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:basepoint1_x="5%" render:basepoint1_y="100%" render:basepoint2_x="5%" render:basepoint2_y="100%" render:x="5%" render:y="80%" xsi:type="RenderCubicBezier"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="80%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="80%" xsi:type="RenderPoint"/>
-                      <render:element render:basepoint1_x="95%" render:basepoint1_y="95%" render:basepoint2_x="95%" render:basepoint2_y="95%" render:x="80%" render:y="95%" xsi:type="RenderCubicBezier"/>
-                      <render:element render:x="80%" render:y="95%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="95%" xsi:type="RenderPoint"/>
-                      <render:element render:basepoint1_x="0%" render:basepoint1_y="95%" render:basepoint2_x="0%" render:basepoint2_y="95%" render:x="0%" render:y="80%" xsi:type="RenderCubicBezier"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="cloneMarker">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="80%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="80%" xsi:type="RenderPoint"/>
-                      <render:element render:basepoint1_x="95%" render:basepoint1_y="95%" render:basepoint2_x="95%" render:basepoint2_y="95%" render:x="80%" render:y="95%" xsi:type="RenderCubicBezier"/>
-                      <render:element render:x="80%" render:y="95%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="95%" xsi:type="RenderPoint"/>
-                      <render:element render:basepoint1_x="0%" render:basepoint1_y="95%" render:basepoint2_x="0%" render:basepoint2_y="95%" render:x="0%" render:y="80%" xsi:type="RenderCubicBezier"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000245" render:roleList="SBO0000245">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:rectangle render:height="100%" render:rx="10%" render:width="100%" render:x="0%" render:y="0%"/>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000245multimer" render:roleList="SBO0000245multimer">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:rectangle render:height="95%" render:rx="10%" render:width="95%" render:x="5%" render:y="5%"/>
-                  <render:rectangle render:height="95%" render:rx="10%" render:width="95%" render:x="0%" render:y="0%"/>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000245clone" render:roleList="SBO0000245clone">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:rectangle render:height="100%" render:rx="10%" render:width="100%" render:x="0%" render:y="0%"/>
-                  <render:rectangle render:fill="cloneMarker" render:height="100%" render:rx="10%" render:width="100%" render:x="0%" render:y="0%"/>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000245multimerclone" render:roleList="SBO0000245multimerclone">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:rectangle render:height="95%" render:rx="10%" render:width="95%" render:x="5%" render:y="5%"/>
-                  <render:rectangle render:fill="cloneMarker" render:height="95%" render:rx="10%" render:width="95%" render:x="5%" render:y="5%"/>
-                  <render:rectangle render:height="95%" render:rx="10%" render:width="95%" render:x="0%" render:y="0%"/>
-                  <render:rectangle render:fill="cloneMarker" render:height="95%" render:rx="10%" render:width="95%" render:x="0%" render:y="0%"/>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000285" render:roleList="SBO0000285">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000285multimer" render:roleList="SBO0000285multimer">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:ellipse render:cx="45%" render:cy="45%" render:cz="0" render:rx="45%" render:ry="45%"/>
-                  <render:ellipse render:cx="55%" render:cy="55%" render:cz="0" render:rx="45%" render:ry="45%"/>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000285clone" render:roleList="SBO0000285clone">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
-                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:fill="cloneMarker" render:rx="50%" render:ry="50%"/>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000285multimerclone" render:roleList="SBO0000285multimerclone">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:ellipse render:cx="45%" render:cy="45%" render:cz="0" render:rx="45%" render:ry="45%"/>
-                  <render:ellipse render:cx="45%" render:cy="45%" render:cz="0" render:fill="cloneMarker" render:rx="45%" render:ry="45%"/>
-                  <render:ellipse render:cx="55%" render:cy="55%" render:cz="0" render:rx="45%" render:ry="45%"/>
-                  <render:ellipse render:cx="55%" render:cy="55%" render:cz="0" render:fill="cloneMarker" render:rx="45%" render:ry="45%"/>
-                </render:g>
-              </render:style>
               <render:style id="SBO0000247" render:roleList="SBO0000247">
                 <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000247multimer" render:roleList="SBO0000247multimer">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:ellipse render:cx="55%" render:cy="55%" render:cz="0" render:rx="45%" render:ry="45%"/>
-                  <render:ellipse render:cx="45%" render:cy="45%" render:cz="0" render:rx="45%" render:ry="45%"/>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000247clone" render:roleList="SBO0000247clone">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
-                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:fill="cloneMarker" render:rx="50%" render:ry="50%"/>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000247multimerclone" render:roleList="SBO0000247multimerclone">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:ellipse render:cx="55%" render:cy="55%" render:cz="0" render:rx="45%" render:ry="45%"/>
-                  <render:ellipse render:cx="55%" render:cy="55%" render:cz="0" render:fill="cloneMarker" render:rx="45%" render:ry="45%"/>
-                  <render:ellipse render:cx="45%" render:cy="45%" render:cz="0" render:rx="45%" render:ry="45%"/>
-                  <render:ellipse render:cx="45%" render:cy="45%" render:cz="0" render:fill="cloneMarker" render:rx="45%" render:ry="45%"/>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000291" render:roleList="SBO0000291">
-                <render:g render:fill="EmptySetGradient" render:stroke="EmptySetOutline" render:stroke-width="1.25">
-                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
-                  <render:polygon render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000253" render:roleList="SBO0000253">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="10" xsi:type="RenderPoint"/>
-                      <render:element render:x="10" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="NaN%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="NaN%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="10" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="10" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="NaN%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="NaN%" xsi:type="RenderPoint"/>
-                      <render:element render:x="NaN%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="NaN%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="NaN%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="NaN%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="10" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000253multimer" render:roleList="SBO0000253multimer">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="5%" render:y="15%" xsi:type="RenderPoint"/>
-                      <render:element render:x="15%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="15%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="15%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="15%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="15%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="15%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="5%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="5%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="5%" render:y="15%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="10%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="85%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="85%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="10%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="10%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="85%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="85%" xsi:type="RenderPoint"/>
-                      <render:element render:x="85%" render:y="95%" xsi:type="RenderPoint"/>
-                      <render:element render:x="85%" render:y="95%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="95%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="95%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="85%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="85%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="10%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000253clone" render:roleList="SBO0000253clone">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="10%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="10%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="10%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="10%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="cloneMarker">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="10%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="10%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="10%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="10%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000253multimerclone" render:roleList="SBO0000253multimerclone">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="5%" render:y="15%" xsi:type="RenderPoint"/>
-                      <render:element render:x="15%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="15%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="15%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="15%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="15%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="15%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="5%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="5%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="5%" render:y="15%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="cloneMarker">
-                    <render:listOfElements>
-                      <render:element render:x="5%" render:y="15%" xsi:type="RenderPoint"/>
-                      <render:element render:x="15%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="15%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="5%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="15%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="15%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="90%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="15%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="15%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="5%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="5%" render:y="90%" xsi:type="RenderPoint"/>
-                      <render:element render:x="5%" render:y="15%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="10%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="85%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="85%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="10%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="10%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="85%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="85%" xsi:type="RenderPoint"/>
-                      <render:element render:x="85%" render:y="95%" xsi:type="RenderPoint"/>
-                      <render:element render:x="85%" render:y="95%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="95%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="95%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="85%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="85%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="10%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="cloneMarker">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="10%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="85%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="85%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="10%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="10%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="85%" xsi:type="RenderPoint"/>
-                      <render:element render:x="95%" render:y="85%" xsi:type="RenderPoint"/>
-                      <render:element render:x="85%" render:y="95%" xsi:type="RenderPoint"/>
-                      <render:element render:x="85%" render:y="95%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="95%" xsi:type="RenderPoint"/>
-                      <render:element render:x="10%" render:y="95%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="85%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="85%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="10%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000405" render:roleList="SBO0000405">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="80%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="80%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000405clone" render:roleList="SBO0000405clone">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="80%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="80%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="cloneMarker">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="80%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="80%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:style>
-              <render:style id="Tag" render:roleList="Tag">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="75%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="75%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="75%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="75%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:style>
-              <render:style id="Tagright" render:roleList="Tagright">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="75%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="75%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="75%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="75%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:style>
-              <render:style id="Tagup" render:roleList="Tagup">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="25%" xsi:type="RenderPoint"/>
-                      <render:element render:x="50%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="50%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="25%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="25%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="25%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:style>
-              <render:style id="Tagdown" render:roleList="Tagdown">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="75%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="75%" xsi:type="RenderPoint"/>
-                      <render:element render:x="50%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="50%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="75%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="75%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:style>
-              <render:style id="Tagleft" render:roleList="Tagleft">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="25%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="25%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="25%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="25%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000358" render:roleList="SBO0000358">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="20%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="80%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="80%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="80%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="80%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000358clone" render:roleList="SBO0000358clone">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:polygon render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                    <render:listOfElements>
-                      <render:element render:x="20%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="80%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="80%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="80%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="80%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                  <render:polygon render:fill="cloneMarker">
-                    <render:listOfElements>
-                      <render:element render:x="20%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="80%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="80%" render:y="0%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="100%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="80%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="80%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="100%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="0%" render:y="50%" xsi:type="RenderPoint"/>
-                      <render:element render:x="20%" render:y="0%" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000395" render:roleList="SBO0000395">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:rectangle render:height="100%" render:rx="0%" render:ry="0%" render:width="100%" render:x="0" render:y="0"/>
-                </render:g>
-              </render:style>
-              <render:style id="SBO0000289" render:roleList="SBO0000289">
-                <render:g render:fill="CompartmentGradient" render:stroke="CompartmentBorder" render:stroke-width="7.0">
-                  <render:rectangle render:height="100%" render:rx="10%" render:ry="10%" render:width="100%" render:x="0" render:y="0"/>
-                </render:g>
-              </render:style>
-              <render:style id="statevar" render:roleList="statevar">
-                <render:g render:stroke="black" render:stroke-width="2.0">
                   <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
                 </render:g>
               </render:style>
@@ -1037,34 +105,41 @@
                                       </render:polygon>
                 </render:g>
               </render:style>
-              <render:style id="and" render:roleList="and">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
-                </render:g>
-              </render:style>
-              <render:style id="not" render:roleList="not">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
-                </render:g>
-              </render:style>
-              <render:style id="or" render:roleList="or">
-                <render:g render:fill="EPNBackgroundGradient" render:stroke="black" render:stroke-width="2.0">
-                  <render:ellipse render:cx="50%" render:cy="50%" render:cz="0" render:rx="50%" render:ry="50%"/>
-                </render:g>
-              </render:style>
             </render:listOfStyles>
           </render:renderInformation>
         </render:listOfRenderInformation>
         <layout:dimensions layout:depth="0" layout:height="0" layout:width="0"/>
         <layout:listOfAdditionalGraphicalObjects>
-          <layout:generalGlyph layout:id="GeneralGlyph_glyph10" render:objectRole="unitofinfo">
-            <layout:boundingBox>
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph10" metaid="d1b799fd-5531-4af5-9095-3f15f86b8c37" render:objectRole="unitofinfo">
+            <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#d1b799fd-5531-4af5-9095-3f15f86b8c37">
+	<bqbiol:isPartOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="SpeciesReferenceGlyph_a1"/>
+	</rdf:Bag>
+	</bqbiol:isPartOf>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                      <layout:boundingBox>
               <layout:position layout:x="140" layout:y="60" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="16" layout:width="20"/>
             </layout:boundingBox>
           </layout:generalGlyph>
-          <layout:generalGlyph layout:id="GeneralGlyph_glyph11" render:objectRole="unitofinfo">
-            <layout:boundingBox>
+          <layout:generalGlyph layout:id="GeneralGlyph_glyph11" metaid="d4991b29-4b7c-4cf5-bd2c-0a1e432157c1" render:objectRole="unitofinfo">
+            <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#d4991b29-4b7c-4cf5-bd2c-0a1e432157c1">
+	<bqbiol:isPartOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="SpeciesReferenceGlyph_a2"/>
+	</rdf:Bag>
+	</bqbiol:isPartOf>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                      <layout:boundingBox>
               <layout:position layout:x="200" layout:y="60" layout:z="0"/>
               <layout:dimensions layout:depth="0" layout:height="16" layout:width="20"/>
             </layout:boundingBox>
@@ -1103,8 +178,20 @@
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a1" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph1" layout:speciesReference="a1" render:objectRole="substrate">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a1" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph1" layout:speciesReference="a1" metaid="_51016d68-3bd7-4e93-8063-857189da78f2" render:objectRole="substrate">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_51016d68-3bd7-4e93-8063-857189da78f2">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph1"/>
+	<rdf:li rdf:resource="pn1"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="110" layout:y="80"/>
@@ -1113,8 +200,20 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a2" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph2" layout:speciesReference="a2" render:objectRole="product">
-                <layout:curve>
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a2" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph2" layout:speciesReference="a2" metaid="_875d1d0d-af49-43d8-a734-af1f6dcb3223" render:objectRole="product">
+                <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#_875d1d0d-af49-43d8-a734-af1f6dcb3223">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="pn1"/>
+	<rdf:li rdf:resource="glyph2"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+                              <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">
                       <layout:start layout:x="200" layout:y="80"/>
@@ -1158,16 +257,16 @@
       <compartment constant="true" id="DefaultCompartment_01"/>
     </listOfCompartments>
     <listOfSpecies>
-      <species boundaryCondition="true" compartment="DefaultCompartment_01" constant="true" hasOnlySubstanceUnits="true" id="glyph1" name="lactose" sboTerm="SBO:0000247"/>
-      <species boundaryCondition="true" compartment="DefaultCompartment_01" constant="true" hasOnlySubstanceUnits="true" id="glyph2" name="galactose" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph1" initialConcentration="1" name="lactose" sboTerm="SBO:0000247"/>
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph2" initialConcentration="1" name="galactose" sboTerm="SBO:0000247"/>
     </listOfSpecies>
     <listOfReactions>
-      <reaction fast="true" id="pn1" reversible="true">
+      <reaction fast="false" id="pn1" reversible="false" sboTerm="SBO:0000375">
         <listOfReactants>
-          <speciesReference constant="true" id="a1" species="glyph1" stoichiometry="1"/>
+          <speciesReference constant="true" id="a1" sboTerm="SBO:0000394" species="glyph1" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference constant="true" id="a2" species="glyph2" stoichiometry="1"/>
+          <speciesReference constant="true" id="a2" sboTerm="SBO:0000393" species="glyph2" stoichiometry="1"/>
         </listOfProducts>
               </reaction>
     </listOfReactions>

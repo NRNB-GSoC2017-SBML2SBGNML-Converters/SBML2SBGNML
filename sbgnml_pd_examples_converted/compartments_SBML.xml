@@ -195,10 +195,10 @@
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a02" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph4" layout:speciesReference="a02" metaid="_917da8e3-89fa-431a-8502-5ecfe115d3e9" render:objectRole="substrate">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a02" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph4" layout:speciesReference="a02" metaid="bb0bac80-181e-4dee-89cf-b98442364617" render:objectRole="substrate">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_917da8e3-89fa-431a-8502-5ecfe115d3e9">
+	<rdf:Description rdf:about="#bb0bac80-181e-4dee-89cf-b98442364617">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph4"/>
@@ -217,10 +217,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a03" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph5" layout:speciesReference="a03" metaid="_75296737-f227-4c81-ab30-365138d1e858" render:objectRole="substrate">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a03" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph5" layout:speciesReference="a03" metaid="dc21b9d5-2130-44e5-8b7b-72d27bcda984" render:objectRole="substrate">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_75296737-f227-4c81-ab30-365138d1e858">
+	<rdf:Description rdf:about="#dc21b9d5-2130-44e5-8b7b-72d27bcda984">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph5"/>
@@ -239,10 +239,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a01" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph2" layout:speciesReference="a01" metaid="c052ecb9-834c-48b7-b4e8-01c3a6969360" render:objectRole="product">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a01" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph2" layout:speciesReference="a01" metaid="ae2e5523-2beb-4330-8c86-d41b9f5f23c0" render:objectRole="product">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#c052ecb9-834c-48b7-b4e8-01c3a6969360">
+	<rdf:Description rdf:about="#ae2e5523-2beb-4330-8c86-d41b9f5f23c0">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="pn1"/>
@@ -319,10 +319,10 @@
       <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph5" initialConcentration="1" name="IGF" sboTerm="SBO:0000245"/>
       <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph4" initialConcentration="1" name="IGFR" sboTerm="SBO:0000245"/>
       <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph2" initialConcentration="1" sboTerm="SBO:0000253"/>
-      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph3" initialConcentration="1" metaid="_4d78fb84-2ac5-464d-9447-bf033748cb40" name="IGF" sboTerm="SBO:0000245">
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph3" initialConcentration="1" metaid="_1e77bdf0-f274-4a5e-ae95-fbac8c1fc151" name="IGF" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_4d78fb84-2ac5-464d-9447-bf033748cb40">
+	<rdf:Description rdf:about="#_1e77bdf0-f274-4a5e-ae95-fbac8c1fc151">
 	<bqbiol:isPartOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="SpeciesGlyph_glyph2"/>
@@ -332,10 +332,10 @@
 	</rdf:RDF>
 	</annotation>
             </species>
-      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph6" initialConcentration="1" metaid="_52feb80e-e293-4b46-8a64-abb781617ae5" name="IGFR" sboTerm="SBO:0000245">
+      <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph6" initialConcentration="1" metaid="_56d7c05e-52ea-4efd-b029-7d3cba1f5630" name="IGFR" sboTerm="SBO:0000245">
         <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_52feb80e-e293-4b46-8a64-abb781617ae5">
+	<rdf:Description rdf:about="#_56d7c05e-52ea-4efd-b029-7d3cba1f5630">
 	<bqbiol:isPartOf>
 	<rdf:Bag>
 	<rdf:li rdf:resource="SpeciesGlyph_glyph2"/>
@@ -347,13 +347,13 @@
             </species>
     </listOfSpecies>
     <listOfReactions>
-      <reaction fast="false" id="pn1" reversible="false">
+      <reaction fast="false" id="pn1" reversible="false" sboTerm="SBO:0000177">
         <listOfReactants>
-          <speciesReference constant="true" id="a02" species="glyph4" stoichiometry="1"/>
-          <speciesReference constant="true" id="a03" species="glyph5" stoichiometry="1"/>
+          <speciesReference constant="true" id="a02" sboTerm="SBO:0000394" species="glyph4" stoichiometry="1"/>
+          <speciesReference constant="true" id="a03" sboTerm="SBO:0000394" species="glyph5" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference constant="true" id="a01" species="glyph2" stoichiometry="1"/>
+          <speciesReference constant="true" id="a01" sboTerm="SBO:0000393" species="glyph2" stoichiometry="1"/>
         </listOfProducts>
               </reaction>
     </listOfReactions>

@@ -131,15 +131,12 @@ public class SBML2SBGNMLQual {
 					System.out.println("====getParent====" + math.getParent().toString());
 					System.out.println("====getChildren====" + math.getChildren().toString());
 					System.out.println("====getType====" + math.getType().toString());
-					//System.out.println("====getVariable====" + math.getVariable().toString());
 				}
 				
 				System.out.format("    FunctionTerm resultLevel=%s isDefaultTerm=%s mathString=%s \n",
 						resultLevel, 
 						functionTerm.isDefaultTerm() ? "DefaultTerm" : "FunctionTerm", 
 						mathString);
-//				System.out.format("    ======= \n math=%s \n ======= \n",
-//						math);
 			}
 			System.out.println();
 			System.out.println("-----");
@@ -148,7 +145,6 @@ public class SBML2SBGNMLQual {
 		for (Compartment compartment: listOfCompartments){
 			id = compartment.getId();
 			name = compartment.getName();
-			// etc.
 			
 			System.out.format("Compartment id=%s name=%s \n\n", id, name);
 					
@@ -165,8 +161,7 @@ public class SBML2SBGNMLQual {
 		File file;
 		
 		if (args.length < 1 || args.length > 3) {
-			// todo: change
-			System.out.println("usage: java org.sbfc.converter.sbml2sbgnml.qual.SBMLQualApplication <SBML filename>. ");
+			System.out.println("usage: java org.sbfc.converter.sbml2sbgnml.qual.SBML2SBGNMLQual <SBML filename>. ");
 		}
 
 		String workingDirectory = System.getProperty("user.dir");
@@ -191,14 +186,5 @@ public class SBML2SBGNMLQual {
 
 		toStringDebug(sbml2sbgnml);
 		
-//		sbgnObject = sbml2sbgnml.convertToSBGNML(sbmlDocument);	
-//		
-//		file = new File(sbgnFileNameOutput);
-//		try {
-//			SbgnUtil.writeToFile(sbgnObject, file);
-//		} catch (JAXBException e) {
-//			e.printStackTrace();
-//		}
-
 	}	
 }

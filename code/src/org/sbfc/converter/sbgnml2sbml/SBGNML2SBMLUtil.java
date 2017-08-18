@@ -63,614 +63,30 @@ import org.sbml.jsbml.ext.qual.OutputTransitionEffect;
 import org.sbml.jsbml.ext.qual.QualitativeSpecies;
 import org.sbml.jsbml.ext.qual.Transition;
 
+/**
+ * SBGNML2SBMLUtil contains methods that do not depend on any information in the Model. 
+ * Example: finding a value from a given list.
+ * @author haoran
+ *
+ */
 public class SBGNML2SBMLUtil {
-	int debugMode;
 	int level;
 	int version;
 	
+	// for debugging
+	int debugMode;
 	int createOneCurveError = 0;
 	
+	/**
+	 * Constructor. Note that the only possible value for level is 3, and version 1
+	 * @param level
+	 * @param version
+	 */
 	SBGNML2SBMLUtil(int level, int version) {
 		this.level = level;
 		this.version = version;
 	}
-	
-	public QualitativeSpecies createQualitativeSpecies(String speciesId, String name, String clazz, 
-			boolean addAnnotation, boolean addSBO) {
-		QualitativeSpecies species;
-		species = new QualitativeSpecies(speciesId, name, level, version);
-		
-//		if (addAnnotation){
-//			addAnnotation(species, clazz);
-//		}
-//		if (addSBO){
-//			addSBO(species, clazz);	
-//		}
-		
-		return species;
-	}
-	
-	public Species createJsbmlSpecies(String speciesId, String name, String clazz, 
-			boolean addAnnotation, boolean addSBO) {
-		Species species;
-		species = new Species(speciesId, name, level, version);
-		
-		// if no [] info provided
-		species.setInitialConcentration(1.0);
-		
-		// todo: do this for other objects in sbml (e.g. reaction, speciesreference)
-		if (addAnnotation){
-			// todo change to something else
-			addAnnotation(species, clazz, Qualifier.BQB_IS_VERSION_OF);
-		}
-		if (addSBO){
-			addSBO(species, clazz);	
-		}
-		
-		return species;
-	}	
-	
-	public SpeciesGlyph createJsbmlSpeciesGlyph(String speciesId, String name, String clazz, 
-			Species species, boolean createBoundingBox, Bbox bbox) {
-		SpeciesGlyph speciesGlyph;
-		BoundingBox boundingBox;
-		
-		speciesGlyph = new SpeciesGlyph();
-		speciesGlyph.setId("SpeciesGlyph_" + speciesId);
-		
-		// QualitativeSpecies is not Species
-		if (species != null){
-			speciesGlyph.setSpecies(species);
-		}
-				
-		if (createBoundingBox) {
-			boundingBox = new BoundingBox();
-			// todo: horizontal or vertical orientation?
-			boundingBox.createDimensions(bbox.getW(), bbox.getH(), 0);
-			boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);
-			speciesGlyph.setBoundingBox(boundingBox);				
-		}
-		return speciesGlyph;
-	}
-	
-	public GeneralGlyph createJsbmlGeneralGlyph(String id, boolean createBoundingBox, Bbox bbox) {
-		GeneralGlyph generalGlyph;
-		BoundingBox boundingBox;
 
-		generalGlyph = new GeneralGlyph();
-		generalGlyph.setId("GeneralGlyph_" + id);
-		
-		if (createBoundingBox) {
-			boundingBox = new BoundingBox();
-			// todo: horizontal or vertical orientation?
-			boundingBox.createDimensions(bbox.getW(), bbox.getH(), 0);
-			boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);
-			generalGlyph.setBoundingBox(boundingBox);					
-		}
-
-		return generalGlyph;
-	}
-	
-	/**
-	 * Create a TextGlyph using values from a <code>SpeciesGlyph</code> and its associated <code>Species</code>.
-	 * 
-	 * @param <code>Species</code> species
-	 * @param <code>SpeciesGlyph</code> speciesGlyph
-	 */		
-	public TextGlyph createJsbmlTextGlyph(NamedSBase species, SpeciesGlyph speciesGlyph, Bbox labelBbox) {
-		TextGlyph textGlyph;
-		String id;
-		BoundingBox boundingBoxText;
-		BoundingBox boundingBoxSpecies;
-		
-		textGlyph = new TextGlyph(level, version);
-		id = "TextGlyph_" + species.getId();
-		textGlyph.setId(id);
-		textGlyph.setOriginOfText(species);
-		textGlyph.setGraphicalObject(speciesGlyph);
-		
-		boundingBoxText = new BoundingBox();
-		
-		if (labelBbox == null){
-		boundingBoxSpecies = speciesGlyph.getBoundingBox();
-		boundingBoxText.setDimensions(boundingBoxSpecies.getDimensions());
-		boundingBoxText.setPosition(boundingBoxSpecies.getPosition());
-		textGlyph.setBoundingBox(boundingBoxText);
-		} else {
-			boundingBoxText.createDimensions(labelBbox.getW(), labelBbox.getH(), 0);
-			boundingBoxText.createPosition(labelBbox.getX(), labelBbox.getY(), 0);
-			textGlyph.setBoundingBox(boundingBoxText);	
-		}
-				
-		return textGlyph;
-	}	
-	
-	
-	public TextGlyph createJsbmlTextGlyph(GraphicalObject generalGlyph, String text, Bbox labelBbox) {
-		TextGlyph textGlyph;
-		String id;
-		BoundingBox boundingBoxText;
-		BoundingBox boundingBoxGeneralGlyph;
-		
-		textGlyph = new TextGlyph(level, version);
-		id = "TextGlyph_" + generalGlyph.getId();
-		textGlyph.setId(id);
-		textGlyph.setGraphicalObject(generalGlyph);
-		textGlyph.setText(text);
-		
-		boundingBoxText = new BoundingBox();
-		
-		if (labelBbox == null){
-			boundingBoxGeneralGlyph = generalGlyph.getBoundingBox();
-			boundingBoxText.setDimensions(boundingBoxGeneralGlyph.getDimensions());
-			boundingBoxText.setPosition(boundingBoxGeneralGlyph.getPosition());
-			textGlyph.setBoundingBox(boundingBoxText);			
-		} else {
-			// todo: horizontal or vertical orientation?
-			boundingBoxText.createDimensions(labelBbox.getW(), labelBbox.getH(), 0);
-			boundingBoxText.createPosition(labelBbox.getX(), labelBbox.getY(), 0);
-			textGlyph.setBoundingBox(boundingBoxText);	
-		}
-				
-		return textGlyph;
-	}		
-	
-	
-	public String getText(Glyph glyph){
-		if (glyph.getLabel() != null) {
-
-			return glyph.getLabel().getText();
-		}
-		if (glyph.getClazz().equals("state variable")){
-			if (glyph.getState() != null){
-				return glyph.getState().getValue() + "@" + glyph.getState().getVariable();
-			}
-			// todo: add more cases
-			else {
-				//System.out.println("======getText no state");
-				return "";
-			}
-		}
-		return "";
-	}
-	
-	public String getClone(Glyph glyph) {
-		String text = new String();
-		try {
-			Glyph.Clone clone = glyph.getClone();
-			Label label = clone.getLabel();
-			try {
-				text = new String(String.copyValueOf(label.getText().toCharArray())) ;
-			}
-			catch (NullPointerException e) {
-				
-			}
-		}
-		catch (NullPointerException e) {
-			return null;
-		}	
-		
-		return text;
-	}
-	
-	public Reaction createJsbmlReaction(String reactionId) {
-		Reaction reaction;
-		
-		reaction = new Reaction();
-		reaction.setId(reactionId);
-		
-		return reaction;
-	}
-	
-	public ReactionGlyph createJsbmlReactionGlyph(String reactionId, String name, String clazz, 
-			Reaction reaction, boolean createBoundingBox, Bbox bbox) {
-		ReactionGlyph reactionGlyph;
-		BoundingBox boundingBox;
-		
-		reactionGlyph = new ReactionGlyph();
-		reactionGlyph.setId("ReactionGlyph_" + reactionId);
-		reactionGlyph.setReaction(reaction);
-		
-		if (createBoundingBox) {
-			boundingBox = new BoundingBox();
-			// todo: horizontal or vertical orientation?
-			boundingBox.createDimensions(bbox.getW(), bbox.getH(), 0);
-			boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);
-			reactionGlyph.setBoundingBox(boundingBox);				
-		}
-		return reactionGlyph;
-	}	
-	
-	public Dimensions createDimensions(BoundingBox boundingBox, Bbox bbox){
-		Dimensions dimension;
-		
-		boundingBox.createDimensions(bbox.getW(), bbox.getH(), 0);
-		
-		return boundingBox.getDimensions();
-	}
-	public Point createPoint(BoundingBox boundingBox, Bbox bbox){
-		Point point;
-		
-		boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);	
-		
-		return boundingBox.getPosition();
-	}
-	public void createBoundingBox(GraphicalObject graphicalObject, Glyph glyph){
-		BoundingBox boundingBox = new BoundingBox();
-		Bbox bbox = glyph.getBbox();
-		
-		graphicalObject.setBoundingBox(boundingBox);
-		createDimensions(boundingBox, bbox);
-		createPoint(boundingBox, bbox);
-	}	
-	
-	/**
-	 * Create a temporary <code>Curve</code> for the given <code>ReactionGlyph</code>. 
-	 * This Curve has incorrect Start and End Points. 
-	 * The values of the <code>Curve</code> will be modified later;
-	 */	
-	public void createReactionGlyphCurve(ReactionGlyph reactionGlyph, Glyph glyph) {
-		Curve curve;
-		CurveSegment curveSegment;
-		Point point;
-		Bbox bbox;
-		
-		curve = new Curve();
-		//curveSegment = new LineSegment();
-		bbox = glyph.getBbox();
-		point = new Point(bbox.getX(), bbox.getY());
-		//curveSegment.setStart(point);
-		point = new Point(bbox.getX()+bbox.getW(), bbox.getY()+bbox.getH());
-		//curveSegment.setEnd(point);
-		//curve.addCurveSegment(curveSegment);
-		reactionGlyph.setCurve(curve);		
-	}
-		
-	public SpeciesReference createSpeciesReference(Reaction reaction, Species species, 
-			String speciesReferenceId) {
-		SpeciesReference speciesReference;
-		
-		speciesReference = new SpeciesReference();
-		speciesReference.setId(speciesReferenceId);
-		speciesReference.setSpecies(species);
-	
-		return speciesReference;
-	}	
-	
-	public ModifierSpeciesReference createModifierSpeciesReference(Reaction reaction, Species species, 
-			String speciesReferenceId) {
-		ModifierSpeciesReference speciesReference;
-		
-		speciesReference = new ModifierSpeciesReference();
-		speciesReference.setId(speciesReferenceId);
-		speciesReference.setSpecies(species);
-	
-		return speciesReference;
-	}		
-	
-	public Transition createTransition(String id, 
-			QualitativeSpecies inputQualitativeSpecies, QualitativeSpecies outputQualitativeSpecies){
-		Transition transition = new Transition();
-		Input input;
-		Output output;
-		String inputId;
-		String outputId;
-		FunctionTerm functionTerm;
-		
-		if (inputQualitativeSpecies != null){
-			inputId = "Input_" + inputQualitativeSpecies.getId() + "_in_" + id;
-			input = new Input(inputId, inputQualitativeSpecies, InputTransitionEffect.none);
-			transition.addInput(input);
-		}
-		
-		if (outputQualitativeSpecies != null){
-			outputId = "Output_" + outputQualitativeSpecies.getId() + "_in_" + id; 
-			output = new Output(outputId, outputQualitativeSpecies, OutputTransitionEffect.assignmentLevel);
-			transition.addOutput(output);
-		}
-		
-		functionTerm = new FunctionTerm();
-		functionTerm.setDefaultTerm(true);
-		functionTerm.setResultLevel(0);
-		transition.addFunctionTerm(functionTerm);
-		
-		// todo: only create one if both input and output is known
-		functionTerm = new FunctionTerm();
-		functionTerm.setDefaultTerm(false);
-		functionTerm.setResultLevel(1);
-		transition.addFunctionTerm(functionTerm);
-		
-		return transition;
-	}
-	
-	public Transition createTransition(String id){
-		Transition transition = new Transition(id);
-		
-		return transition;
-	}
-	
-	public Input addInputToTransition(Transition transition, QualitativeSpecies inputQualitativeSpecies){
-		Input input;
-		String inputId;		
-
-		inputId = "Input_" + inputQualitativeSpecies.getId() + "_in_" + transition.getId();
-		input = new Input(inputId, inputQualitativeSpecies, InputTransitionEffect.none);
-		transition.addInput(input);
-		
-		return input;
-	}
-	
-	public Output addOutputToTransition(Transition transition, QualitativeSpecies outputQualitativeSpecies){
-		Output output;
-		String outputId;
-		
-		outputId = "Output_" + outputQualitativeSpecies.getId() + "_in_" + transition.getId(); 
-		output = new Output(outputId, outputQualitativeSpecies, OutputTransitionEffect.assignmentLevel);
-		transition.addOutput(output);	
-		
-		return output;
-	}
-	
-	public FunctionTerm addFunctionTermToTransition(Transition transition, boolean setDefaultTerm, int resultLevel){
-		FunctionTerm functionTerm;
-		
-		functionTerm = new FunctionTerm();
-		functionTerm.setDefaultTerm(setDefaultTerm);
-		functionTerm.setResultLevel(resultLevel);
-		transition.addFunctionTerm(functionTerm);
-		
-		return functionTerm;
-	}
-	
-	public ASTNode createMath(ASTNode parentMath, String type){
-		//ASTNode math = functionTerm.getMath();
-		ASTNode math = null;
-//		Type		
-//		LOGICAL_AND
-//		LOGICAL_OR
-//		LOGICAL_NOT
-		if (type.equals("and")){
-			math = new ASTNode(ASTNode.Type.LOGICAL_AND);
-		} if (type.equals("or")){
-			math = new ASTNode(ASTNode.Type.LOGICAL_OR);
-		} if (type.equals("not")){
-			math = new ASTNode(ASTNode.Type.LOGICAL_NOT);
-		} 
-		
-		parentMath.insertChild(0, math);
-				
-		return math;
-	}
-	
-	public ASTNode createMath(String type, FunctionTerm mathContainer){
-		//ASTNode math = functionTerm.getMath();
-		ASTNode math = null;
-//		Type		
-//		LOGICAL_AND
-//		LOGICAL_OR
-//		LOGICAL_NOT
-		if (type.equals("and")){
-			math = new ASTNode(ASTNode.Type.LOGICAL_AND);
-		} if (type.equals("or")){
-			math = new ASTNode(ASTNode.Type.LOGICAL_OR);
-		} if (type.equals("not")){
-			math = new ASTNode(ASTNode.Type.LOGICAL_NOT);
-		} 
-		
-		math.setParentSBMLObject(mathContainer);
-		
-		return math;
-	}
-	
-	/**
-	 * Create a <code>SpeciesReferenceGlyph</code> using values from an SBGN <code>Arc</code>. 
-	 * Associate the <code>SpeciesReferenceGlyph</code> with a <code>SpeciesGlyph</code> and 
-	 * a <code>SpeciesReference</code>.
-	 * 
-	 * @param <code>String</code> id
-	 * @param <code>Arc</code> arc
-	 * @param <code>SpeciesReference</code> speciesReference
-	 * @param <code>Glyph</code> speciesGlyph
-	 * @return <code>SpeciesReferenceGlyph</code> speciesReferenceGlyph
-	 */		
-	public SpeciesReferenceGlyph createOneSpeciesReferenceGlyph(String id, Arc arc, 
-			SimpleSpeciesReference speciesReference, Glyph speciesGlyph, SBGNML2SBMLOutput sOutput) {
-		SpeciesReferenceGlyph speciesReferenceGlyph;
-		
-		speciesReferenceGlyph = new SpeciesReferenceGlyph();
-		speciesReferenceGlyph.setId("SpeciesReferenceGlyph_"+id);
-		speciesReferenceGlyph.setRole(findReactionRole(arc.getClazz()));
-		speciesReferenceGlyph.setSpeciesGlyph("SpeciesGlyph_"+speciesGlyph.getId());
-		speciesReferenceGlyph.setSpeciesReference(speciesReference);	
-		sOutput.numOfSpeciesReferences++;			
-		
-		return speciesReferenceGlyph;
-	}
-	
-	/**
-	 * Create an SBML <code>Curve</code> from values in an SBGN <code>Arc</code>. 
-	 * TODO: need to handle more complex cases where an Arc consists of multiple parts
-	 */		
-	public Curve createOneCurve(Arc arc) {
-		Curve curve;
-		CurveSegment curveSegment;
-		//Point point;
-		
-		Arc.Start start;
-		Arc.End end;
-		List<Arc.Next> listOfNext;
-		List<org.sbgn.bindings.Point> points;
-		
-		List<Point> curvePoints = new ArrayList<Point>();
-		
-		start = arc.getStart();
-		//point = new Point(start.getX(), start.getY());
-		curvePoints.add(new Point(start.getX(), start.getY()));
-		
-		listOfNext = arc.getNext();
-		//System.out.format("=====Arc id=%s \n", arc.getId());
-		for (Arc.Next next: listOfNext){
-			//System.out.format("Next: (x=%s,y=%s) \n", Float.toString(next.getX()), Float.toString(next.getY()));
-			//point = new Point(next.getX(), next.getY());
-			
-			points = next.getPoint();
-			
-			if (points.size() > 0){
-//				for (org.sbgn.bindings.Point p: points){
-//					//System.out.format("    Point: (x=%s,y=%s) \n", Float.toString(p.getX()), Float.toString(p.getY()));
-//				}		
-				SBGNWrapperPoint sWrapperPoint = new SBGNWrapperPoint(next.getX(), next.getY());
-				sWrapperPoint.addbasePoint(points);
-				curvePoints.add(sWrapperPoint);
-				
-			} else {
-				curvePoints.add(new Point(next.getX(), next.getY()));
-			}
-
-			
-
-		}
-		
-		end = arc.getEnd();
-		//point = new Point(end.getX(), end.getY());
-		points = end.getPoint();
-		if (points.size() > 0){
-			SBGNWrapperPoint sWrapperPoint = new SBGNWrapperPoint(end.getX(), end.getY());
-			sWrapperPoint.addbasePoint(points);
-			curvePoints.add(sWrapperPoint);
-		} else {
-			curvePoints.add(new Point(end.getX(), end.getY()));
-		}
-		
-		curve = new Curve();
-		Point startPoint;
-		Point endPoint;
-		for (int i = 0; i < curvePoints.size(); i++){
-			
-			// last Point
-			if (i == curvePoints.size() - 1){
-				break;
-			}
-			
-			curveSegment = null;
-			
-			startPoint = curvePoints.get(i);
-			if (startPoint instanceof SBGNWrapperPoint){
-				startPoint = ((SBGNWrapperPoint) startPoint).targetPoint.clone();
-			}
-			
-			endPoint = curvePoints.get(i + 1);
-			if (endPoint instanceof SBGNWrapperPoint){
-				Point endPointNew = ((SBGNWrapperPoint) endPoint).targetPoint.clone();
-				Point basePoint1 = ((SBGNWrapperPoint) endPoint).basePoint1.clone();
-				Point basePoint2 = ((SBGNWrapperPoint) endPoint).basePoint2.clone();
-				
-				curveSegment = new CubicBezier();
-				curveSegment.setStart(startPoint);
-				curveSegment.setEnd(endPointNew);	
-				
-				((CubicBezier) curveSegment).setBasePoint1(basePoint1);
-				((CubicBezier) curveSegment).setBasePoint2(basePoint2);
-				
-			} else {
-				endPoint = curvePoints.get(i + 1).clone();
-				curveSegment = new LineSegment();
-				
-				curveSegment.setStart(startPoint);
-				curveSegment.setEnd(endPoint);	
-			}	
-			
-			curve.addCurveSegment(curveSegment);				
-		}
-		
-		if (curve.getCurveSegmentCount() == 0){
-			createOneCurveError ++;
-			System.out.format("! createOneCurve sbml="+curvePoints.size());
-			for (Arc.Next next: listOfNext){
-				points = next.getPoint();
-				
-				System.out.format(" sbgn.next="+next.getPoint().size());
-			}
-			System.out.format(" sbgn.end="+end.getPoint().size()+" \n");
-
-		}
-		
-		return curve;
-	}	
-	
-	public Compartment createJsbmlCompartment(String compartmentId, String name) {
-		Compartment compartment = new Compartment(compartmentId, name, level, version);
-		return compartment;
-	}
-	
-	public CompartmentGlyph createJsbmlCompartmentGlyph(Glyph glyph, String compartmentId, Compartment compartment,
-			boolean createBoundingBox) {
-		CompartmentGlyph compartmentGlyph;
-		Bbox bbox;
-		BoundingBox boundingBox;
-		
-		compartmentGlyph = new CompartmentGlyph();
-		compartmentGlyph.setId("CompartmentGlyph_" + compartmentId);
-		compartmentGlyph.setCompartment(compartment);
-		
-		if (createBoundingBox){
-			bbox = glyph.getBbox();
-			boundingBox = new BoundingBox();
-			// todo: horizontal?
-			boundingBox.createDimensions(bbox.getW(), bbox.getH(), 0);
-			boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);
-			compartmentGlyph.setBoundingBox(boundingBox);			
-		}
-		return compartmentGlyph;
-	}
-	
-	public void setCompartmentOrder(CompartmentGlyph compartmentGlyph, Glyph glyph) {
-//		System.out.println(compartmentGlyph.getId());
-//		System.out.println(glyph.getId());
-		
-		try {
-			float order = glyph.getCompartmentOrder();
-			if ((Object) order != null){
-				compartmentGlyph.setOrder(order);
-			}
-		} catch (NullPointerException e) {
-			
-		}
-	}
-	
-	// todo: move to a ModelCompleter
-	public void createDefaultCompartment(Model modelObject) {
-		String compartmentId = "DefaultCompartment_01";
-		Compartment compartment = new Compartment(compartmentId);
-		modelObject.getListOfCompartments().add(compartment);
-		
-		for (Species species: modelObject.getListOfSpecies()){
-			if (species.getCompartment() == ""){
-				species.setCompartment(compartment);	
-			}
-		}
-	}
-	
-	
-	public ReferenceGlyph createOneReferenceGlyph(String id, Arc arc, ModifierSpeciesReference reference, 
-			SBase object) {
-		ReferenceGlyph referenceGlyph;
-		
-		referenceGlyph = new ReferenceGlyph();
-		referenceGlyph.setId("ReferenceGlyph_" + id);
-		
-		//System.out.println("createOneReferenceGlyph id="+id+" arc="+arc.getId());
-		referenceGlyph.setGlyph(object.getId());
-		
-		// does not work because we can't create a ModifierSpeciesReference. 
-		// A ModifierSpeciesReference needs to associate with a Species, but we don't have a Species
-		//referenceGlyph.setReference(reference.getId());
-
-		return referenceGlyph;
-	}	
-	
-	
-	
 	public Boolean isProcessNode(String clazz) {
 		if (clazz.equals("process")) {
 			return true;
@@ -701,15 +117,17 @@ public class SBGNML2SBMLUtil {
 			return true;
 		} else if (clazz.equals("not")) {
 			return true;
-		}
+		} else if (clazz.equals("delay")) {
+			return true;
+		} 
 		return false;
 	}
 	
-
 	public boolean isTag(String clazz) {
 		if (clazz.equals("tag")) {
 			return true;
 		} 
+		// terminals are "nested glyphs" inside another glyph, so we don't create a SpeciesGlyph for it (we create a GeneralGlyph instead)
 //		else if (clazz.equals("terminal")){
 //			System.out.println("terminal");
 //			return true;
@@ -756,43 +174,12 @@ public class SBGNML2SBMLUtil {
 			return true;
 		} else if (clazz.equals("phenotype")) {
 			return true;
-		} else if (clazz.equals("delay")) {
-			return true;
 		} else if (clazz.equals("submap")) {
 			return true;
 		} else {
 			return false;
 		}		
-	}
-	
-	public Boolean isGlyphToGlyphArc(Arc arc) {
-		if (arc.getTarget() instanceof Glyph && arc.getSource() instanceof Glyph) {
-			return true;
-		}
-		return false;
-	}
-	
-	public Boolean isPortToGlyphArc(Arc arc) {
-		if (arc.getTarget() instanceof Port && arc.getSource() instanceof Glyph) {
-			return true;
-		}
-		return false;		
-	}
-	
-	public Boolean isGlyphToPortArc(Arc arc) {
-		if (arc.getTarget() instanceof Glyph && arc.getSource() instanceof Port) {
-			return true;
-		}
-		return false;		
-	}
-	
-	// todo
-	public Boolean isPortToPortArc(Arc arc) {
-		if (arc.getTarget() instanceof Port && arc.getSource() instanceof Port) {
-			return true;
-		}		
-		return false;
-	}
+	}	
 	
 	public Boolean isLogicArc(Arc arc) {
 		String clazz = arc.getClazz();
@@ -817,7 +204,7 @@ public class SBGNML2SBMLUtil {
 			return true;
 		} else if (clazz.equals("unknown influence")) {
 			return true;
-		} // ...
+		} // TODO: there are more
 		else {
 			return false;
 		} 
@@ -826,7 +213,7 @@ public class SBGNML2SBMLUtil {
 	public Boolean isConsumptionArc(String clazz) {
 		if (clazz.equals("consumption")) {
 			return true;
-		} // ...
+		}
 		else {
 			return false;
 		} 
@@ -840,7 +227,11 @@ public class SBGNML2SBMLUtil {
 		} 		
 	}
 	
-		
+	/**
+	 * Map a Sbgn string clazz to a Jsbml SpeciesReferenceRole object
+	 * @param clazz
+	 * @return
+	 */
 	public SpeciesReferenceRole findReactionRole(String clazz) {
 		SpeciesReferenceRole role = null;
 
@@ -857,67 +248,940 @@ public class SBGNML2SBMLUtil {
 		} else if (clazz.equals("inhibition")) {
 			role = SpeciesReferenceRole.INHIBITOR;
 		} else if (clazz.equals("modulation")) {
-			role = SpeciesReferenceRole.MODIFIER;	// not sure
+			role = SpeciesReferenceRole.MODIFIER;
 		} else if (clazz.equals("unknown influence")) {
 			role = SpeciesReferenceRole.UNDEFINED;
 		}
 		
 		return role;		
 	}
+			
+	/**
+	 * Set the SBOTerm of an SBase, based on the Sbgn clazz
+	 * @param sbase
+	 * @param clazz
+	 */
+	public void addSBO(SBase sbase, String clazz){
+		int sboTerm = -1;
 		
-	public void addAnnotation(SBase species, String clazz, Qualifier qualifier) {
+		// Entity Pool
+		if (clazz.equals("simple chemical")) {
+			sboTerm = 247;
+			sbase.setSBOTerm(sboTerm);
+		} else if (clazz.equals("macromolecule")) {
+			sboTerm = 245;
+			sbase.setSBOTerm(sboTerm);
+		} else if (clazz.equals("nucleic acid feature")) {
+			sboTerm = 354;
+			sbase.setSBOTerm(sboTerm);
+		} else if (clazz.equals("complex multimer")) {
+			sboTerm = 418;
+			sbase.setSBOTerm(sboTerm);
+		} else if (clazz.equals("complex")) {
+			sboTerm = 253;
+			sbase.setSBOTerm(sboTerm);
+		} else if (clazz.equals("macromolecule multimer")) {
+			sboTerm = 420;
+			sbase.setSBOTerm(sboTerm);
+		} else if (clazz.equals("nucleic acid feature multimer")) {
+			sboTerm = 419;
+			sbase.setSBOTerm(sboTerm);
+		} else if (clazz.equals("source and sink")) {
+			sboTerm = 291;
+			sbase.setSBOTerm(sboTerm);
+		} else if (clazz.equals("perturbing agent")) {
+			sboTerm = 405;
+			sbase.setSBOTerm(sboTerm);
+		} else if (clazz.equals("unspecified entity")) {
+			sboTerm = 285;
+			sbase.setSBOTerm(sboTerm);			
+		} else if (clazz.equals("simple chemical multimer")) {
+			sboTerm = 421;
+			sbase.setSBOTerm(sboTerm);
+		}
+		
+		// Activity
+		else if (clazz.equals("biological activity")){sboTerm = 412; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("phenotype")){sboTerm = 358; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("observable")){sboTerm = 358; sbase.setSBOTerm(sboTerm);}
+		
+		// Encapsulation
+		else if (clazz.equals("compartment")){sboTerm = 290; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("submap")){sboTerm = 395; sbase.setSBOTerm(sboTerm);}
+
+		// Process
+		else if (clazz.equals("process")){sboTerm = 375; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("omitted process")){sboTerm = 397; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("uncertain process")){sboTerm = 396; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("association")){sboTerm = 177; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("dissociation")){sboTerm = 180; sbase.setSBOTerm(sboTerm);}
+		
+		// Logic Operator
+		else if (clazz.equals("and")){sboTerm = 173; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("or")){sboTerm = 174; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("not")){sboTerm = 238; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("delay")){sboTerm = 225; sbase.setSBOTerm(sboTerm);}
+		
+		// Auxiliary Information
+		else if (clazz.equals("state variable")){}
+		else if (clazz.equals("unit of information")){}
+		else if (clazz.equals("cardinality")){sboTerm = 364; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("annotation")){sboTerm = 550; sbase.setSBOTerm(sboTerm);}
+
+		else if (clazz.equals("tag")){} // identified by render:objectRole
+		else if (clazz.equals("perturbation")){} // this is "unit of information"
+		else if (clazz.equals("terminal")){} //
+		
+		// TODO add sbo
+		else if (clazz.equals("entity")){}
+		else if (clazz.equals("existence")){}
+		else if (clazz.equals("location")){}
+		else if (clazz.equals("variable value")){}
+		else if (clazz.equals("implicit xor")){}
+		else if (clazz.equals("outcome")){}
+		else if (clazz.equals("interaction")){}
+		else if (clazz.equals("influence target")){}
+		
+		// Arc
+		else if (clazz.equals("production")){sboTerm = 393; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("consumption")){sboTerm = 394; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("catalysis")){sboTerm = 172; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("modulation")){sboTerm = 168; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("stimulation")){sboTerm = 170; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("inhibition")){sboTerm = 169; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("positive influence")){sboTerm = 170; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("negative influence")){sboTerm = 169; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("unknown influence")){sboTerm = 168; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("equivalence arc")){}
+		else if (clazz.equals("necessary stimulation")){sboTerm = 171; sbase.setSBOTerm(sboTerm);}
+		else if (clazz.equals("logic arc")){sboTerm = 398; sbase.setSBOTerm(sboTerm);}
+		
+		// TODO add sbo
+		else if (clazz.equals("assignment")){}
+		else if (clazz.equals("interaction")){}
+		else if (clazz.equals("absolute inhibition")){}
+		else if (clazz.equals("absolute stimulation")){}
+		
+	}	
+	
+	/** 
+	 * Store the Sbgn string clazz to a Annotation's CVTerm of the given SBase
+	 * @param sbase
+	 * @param clazz
+	 * @param qualifier
+	 */
+	public void addAnnotation(SBase sbase, String clazz, Qualifier qualifier) {
 		Annotation annotation;
 		CVTerm cvTerm;
 		
-		annotation = species.getAnnotation();
-		// todo: use different namespace
+		annotation = sbase.getAnnotation();
+		// TODO: use different namespace, should be urn
 		cvTerm = new CVTerm(Type.BIOLOGICAL_QUALIFIER, qualifier);
-		// should be urn
-		// add hasPart
 		cvTerm.addResource(clazz);
 		annotation.addCVTerm(cvTerm);
 	}
 	
-	public void addSBO(Species species, String clazz) {
-		int sboTerm = -1;
+	/**
+	 * Create a new Species
+	 * @param speciesId
+	 * @param name
+	 * @param clazz
+	 * @param addAnnotation
+	 * @param addSBO
+	 * @return
+	 */
+	public Species createJsbmlSpecies(String speciesId, String name, String clazz, 
+			boolean addAnnotation, boolean addSBO) {
+		Species species;
+		species = new Species(speciesId, name, level, version);
 		
-		if (clazz.equals("simple chemical")) {
-			sboTerm = 247;
-			species.setSBOTerm(sboTerm);
-		} else if (clazz.equals("macromolecule")) {
-			sboTerm = 245;
-			species.setSBOTerm(sboTerm);
-		} else if (clazz.equals("nucleic acid feature")) {
-			sboTerm = 354;
-			species.setSBOTerm(sboTerm);
-		} else if (clazz.equals("complex multimer")) {
-			sboTerm = 418;
-			species.setSBOTerm(sboTerm);
-		} else if (clazz.equals("complex")) {
-			sboTerm = 253;
-			species.setSBOTerm(sboTerm);
-		} else if (clazz.equals("macromolecule multimer")) {
-			sboTerm = 420;
-			species.setSBOTerm(sboTerm);
-		} else if (clazz.equals("nucleic acid feature multimer")) {
-			sboTerm = 419;
-			species.setSBOTerm(sboTerm);
-		} else if (clazz.equals("source and sink")) {
-			sboTerm = 291;
-			species.setSBOTerm(sboTerm);
-		} else if (clazz.equals("perturbing agent")) {
-			sboTerm = 405;
-			species.setSBOTerm(sboTerm);
-		} else if (clazz.equals("unspecified entity")) {
-			sboTerm = 285;
-			species.setSBOTerm(sboTerm);			
-		} else if (clazz.equals("simple chemical multimer")) {
-			sboTerm = 421;
-			species.setSBOTerm(sboTerm);
-		}// ...
+		// if no [] info provided
+		species.setInitialConcentration(1.0);
 		
+		if (addAnnotation){
+			// TODO change the qualifier so that it doesn't conflict 
+			addAnnotation(species, clazz, Qualifier.BQB_IS_VERSION_OF);
+		}
+		if (addSBO){
+			addSBO(species, clazz);	
+		}
+		
+		return species;
+	}	
+	
+	/**
+	 * Create a new SpeciesGlyph
+	 * @param speciesId
+	 * @param name
+	 * @param clazz
+	 * @param species
+	 * @param createBoundingBox
+	 * @param bbox
+	 * @return
+	 */
+	public SpeciesGlyph createJsbmlSpeciesGlyph(String speciesId, String name, String clazz, 
+			Species species, boolean createBoundingBox, Bbox bbox) {
+		SpeciesGlyph speciesGlyph;
+		BoundingBox boundingBox;
+		
+		speciesGlyph = new SpeciesGlyph(level, version);
+		speciesGlyph.setId("SpeciesGlyph_" + speciesId);
+		
+		// QualitativeSpecies is not a Species, so its SpeciesGlyph does not have a Species
+		if (species != null){
+			speciesGlyph.setSpecies(species);
+		}
+				
+		if (createBoundingBox) {
+			boundingBox = new BoundingBox();
+			// TODO: horizontal or vertical orientation?
+			boundingBox.createDimensions(bbox.getW(), bbox.getH(), 0);
+			boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);
+			speciesGlyph.setBoundingBox(boundingBox);				
+		}
+		return speciesGlyph;
+	}
+	
+	/**
+	 * Create a new GeneralGlyph
+	 * @param id
+	 * @param createBoundingBox
+	 * @param bbox
+	 * @return
+	 */
+	public GeneralGlyph createJsbmlGeneralGlyph(String id, boolean createBoundingBox, Bbox bbox) {
+		GeneralGlyph generalGlyph;
+		BoundingBox boundingBox;
+
+		generalGlyph = new GeneralGlyph(level, version);
+		generalGlyph.setId("GeneralGlyph_" + id);
+		
+		if (createBoundingBox) {
+			boundingBox = new BoundingBox();
+			// TODO: horizontal or vertical orientation?
+			boundingBox.createDimensions(bbox.getW(), bbox.getH(), 0);
+			boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);
+			generalGlyph.setBoundingBox(boundingBox);					
+		}
+
+		return generalGlyph;
+	}
+	
+	/**
+	 * Create a TextGlyph using values from a <code>SpeciesGlyph</code> and its 
+	 * associated <code>Species</code>.
+	 */		
+	public TextGlyph createJsbmlTextGlyph(NamedSBase species, SpeciesGlyph speciesGlyph, Bbox labelBbox) {
+		TextGlyph textGlyph;
+		String id;
+		BoundingBox boundingBoxText;
+		BoundingBox boundingBoxSpecies;
+		
+		textGlyph = new TextGlyph(level, version);
+		id = "TextGlyph_" + species.getId();
+		textGlyph.setId(id);
+		textGlyph.setOriginOfText(species);
+		textGlyph.setGraphicalObject(speciesGlyph);
+		
+		boundingBoxText = new BoundingBox();
+		
+		if (labelBbox == null){
+		boundingBoxSpecies = speciesGlyph.getBoundingBox();
+		boundingBoxText.setDimensions(boundingBoxSpecies.getDimensions());
+		boundingBoxText.setPosition(boundingBoxSpecies.getPosition());
+		textGlyph.setBoundingBox(boundingBoxText);
+		} else {
+			boundingBoxText.createDimensions(labelBbox.getW(), labelBbox.getH(), 0);
+			boundingBoxText.createPosition(labelBbox.getX(), labelBbox.getY(), 0);
+			textGlyph.setBoundingBox(boundingBoxText);	
+		}
+				
+		return textGlyph;
+	}	
+	
+	/**
+	 * Create a new TextGlyph, set the text to the text provided in the parameter
+	 * @param generalGlyph
+	 * @param text
+	 * @param labelBbox
+	 * @return
+	 */
+	public TextGlyph createJsbmlTextGlyph(GraphicalObject generalGlyph, String text, Bbox labelBbox) {
+		TextGlyph textGlyph;
+		String id;
+		BoundingBox boundingBoxText;
+		BoundingBox boundingBoxGeneralGlyph;
+		
+		textGlyph = new TextGlyph(level, version);
+		id = "TextGlyph_" + generalGlyph.getId();
+		textGlyph.setId(id);
+		textGlyph.setGraphicalObject(generalGlyph);
+		textGlyph.setText(text);
+		
+		boundingBoxText = new BoundingBox();
+		
+		if (labelBbox == null){
+			boundingBoxGeneralGlyph = generalGlyph.getBoundingBox();
+			boundingBoxText.setDimensions(boundingBoxGeneralGlyph.getDimensions());
+			boundingBoxText.setPosition(boundingBoxGeneralGlyph.getPosition());
+			textGlyph.setBoundingBox(boundingBoxText);			
+		} else {
+			// TODO: horizontal or vertical orientation?
+			boundingBoxText.createDimensions(labelBbox.getW(), labelBbox.getH(), 0);
+			boundingBoxText.createPosition(labelBbox.getX(), labelBbox.getY(), 0);
+			textGlyph.setBoundingBox(boundingBoxText);	
+		}
+				
+		return textGlyph;
+	}		
+	
+	/**
+	 * Create a new QualitativeSpecies
+	 * @param speciesId
+	 * @param name
+	 * @param clazz
+	 * @param addAnnotation
+	 * @param addSBO
+	 * @return
+	 */
+	public QualitativeSpecies createQualitativeSpecies(String speciesId, String name, String clazz, 
+			boolean addAnnotation, boolean addSBO) {
+		QualitativeSpecies species;
+		species = new QualitativeSpecies(speciesId, name, level, version);
+		
+		if (addAnnotation){
+			addAnnotation(species, clazz, Qualifier.BQB_IS_VERSION_OF);
+		}
+		if (addSBO){
+			addSBO(species, clazz);	
+		}
+		
+		return species;
+	}
+	
+	/** 
+	 * Get the text stored in a Sbgn glyph
+	 * @param glyph
+	 * @return
+	 */
+	public String getText(Glyph glyph){
+		if (glyph.getLabel() != null) {
+
+			return glyph.getLabel().getText();
+		}
+		if (glyph.getClazz().equals("state variable")){
+			if (glyph.getState() != null){
+				if (glyph.getState().getValue() != null && glyph.getState().getVariable() != null){
+					return glyph.getState().getValue() + "@" + glyph.getState().getVariable();
+				} else if (glyph.getState().getValue() != null){
+					return glyph.getState().getValue();
+				} else if (glyph.getState().getVariable() != null){
+					return "@" + glyph.getState().getVariable();
+				}
+			}
+		}
+		return "";
+	}
+	
+	/**
+	 * Get the clone text in a glyph
+	 * @param glyph
+	 * @return
+	 */
+	public String getClone(Glyph glyph) {
+		String text = new String();
+		try {
+			Glyph.Clone clone = glyph.getClone();
+			Label label = clone.getLabel();
+			// there's bug, we can't just return the string in label
+			try {
+				text = new String(String.copyValueOf(label.getText().toCharArray())) ;
+			}
+			catch (NullPointerException e) {
+				
+			}
+		}
+		catch (NullPointerException e) {
+			return null;
+		}	
+		
+		return text;
+	}
+	
+	/**
+	 * Create a new Reaction
+	 * @param reactionId
+	 * @return
+	 */
+	public Reaction createJsbmlReaction(String reactionId) {
+		Reaction reaction;
+		
+		reaction = new Reaction(level, version);
+		reaction.setId(reactionId);
+				
+		return reaction;
+	}
+	
+	/**
+	 * Create a new ReactionGlyph
+	 * @param reactionId
+	 * @param name
+	 * @param clazz
+	 * @param reaction
+	 * @param createBoundingBox
+	 * @param bbox
+	 * @return
+	 */
+	public ReactionGlyph createJsbmlReactionGlyph(String reactionId, String name, String clazz, 
+			Reaction reaction, boolean createBoundingBox, Bbox bbox) {
+		ReactionGlyph reactionGlyph;
+		BoundingBox boundingBox;
+		
+		reactionGlyph = new ReactionGlyph(level, version);
+		reactionGlyph.setId("ReactionGlyph_" + reactionId);
+		reactionGlyph.setReaction(reaction);
+		
+		if (createBoundingBox) {
+			boundingBox = new BoundingBox();
+			// TODO: horizontal or vertical orientation?
+			boundingBox.createDimensions(bbox.getW(), bbox.getH(), 0);
+			boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);
+			reactionGlyph.setBoundingBox(boundingBox);				
+		}
+		return reactionGlyph;
+	}	
+	
+	/**
+	 * Create the dimensions for a boundingBox
+	 * @param boundingBox
+	 * @param bbox
+	 * @return
+	 */
+	public Dimensions createDimensions(BoundingBox boundingBox, Bbox bbox){
+		Dimensions dimension;
+		
+		boundingBox.createDimensions(bbox.getW(), bbox.getH(), 0);
+		
+		return boundingBox.getDimensions();
+	}
+	
+	/**
+	 * Create the position for a boundingBox
+	 * @param boundingBox
+	 * @param bbox
+	 * @return
+	 */
+	public Point createPoint(BoundingBox boundingBox, Bbox bbox){
+		Point point;
+		
+		boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);	
+		
+		return boundingBox.getPosition();
+	}
+	
+	/** 
+	 * Create the boundingBox for a graphicalObject
+	 * @param graphicalObject
+	 * @param glyph
+	 */
+	public void createBoundingBox(GraphicalObject graphicalObject, Glyph glyph){
+		BoundingBox boundingBox = new BoundingBox();
+		Bbox bbox = glyph.getBbox();
+		
+		graphicalObject.setBoundingBox(boundingBox);
+		createDimensions(boundingBox, bbox);
+		createPoint(boundingBox, bbox);
+	}	
+	
+	/**
+	 * Create a temporary <code>Curve</code> for the given <code>ReactionGlyph</code>. 
+	 * This Curve has incorrect Start and End Points. 
+	 * The values of the <code>Curve</code> will be modified later;
+	 */	
+	public void createReactionGlyphCurve(ReactionGlyph reactionGlyph, Glyph glyph) {
+		Curve curve;
+		CurveSegment curveSegment;
+		Point point;
+		Bbox bbox;
+		
+		curve = new Curve();
+		bbox = glyph.getBbox();
+		point = new Point(bbox.getX(), bbox.getY());
+		point = new Point(bbox.getX()+bbox.getW(), bbox.getY()+bbox.getH());
+		// do nothing with the point
+
+		reactionGlyph.setCurve(curve);		
+	}
+		
+	/**
+	 * Create a new SpeciesReference
+	 * @param reaction
+	 * @param species
+	 * @param speciesReferenceId
+	 * @return
+	 */
+	public SpeciesReference createSpeciesReference(Reaction reaction, Species species, 
+			String speciesReferenceId) {
+		SpeciesReference speciesReference;
+		
+		speciesReference = new SpeciesReference(level, version);
+		speciesReference.setId(speciesReferenceId);
+		speciesReference.setSpecies(species);
+	
+		return speciesReference;
+	}	
+	
+	/**
+	 * Create a new ModifierSpeciesReference
+	 * @param reaction
+	 * @param species
+	 * @param speciesReferenceId
+	 * @return
+	 */
+	public ModifierSpeciesReference createModifierSpeciesReference(Reaction reaction, Species species, 
+			String speciesReferenceId) {
+		ModifierSpeciesReference speciesReference;
+		
+		speciesReference = new ModifierSpeciesReference(level, version);
+		speciesReference.setId(speciesReferenceId);
+		speciesReference.setSpecies(species);
+	
+		return speciesReference;
+	}		
+	
+	/**
+	 * Create a new Transition for the special case where there are no Logic Operators
+	 * @param id
+	 * @param inputQualitativeSpecies
+	 * @param outputQualitativeSpecies
+	 * @return
+	 */
+	public Transition createTransition(String id, 
+			QualitativeSpecies inputQualitativeSpecies, QualitativeSpecies outputQualitativeSpecies){
+		Transition transition = new Transition(level, version);
+		Input input;
+		Output output;
+		String inputId;
+		String outputId;
+		FunctionTerm functionTerm;
+		
+		if (inputQualitativeSpecies != null){
+			inputId = "Input_" + inputQualitativeSpecies.getId() + "_in_" + id;
+			input = new Input(inputId, inputQualitativeSpecies, InputTransitionEffect.none);
+			transition.addInput(input);
+		}
+		
+		if (outputQualitativeSpecies != null){
+			outputId = "Output_" + outputQualitativeSpecies.getId() + "_in_" + id; 
+			output = new Output(outputId, outputQualitativeSpecies, OutputTransitionEffect.assignmentLevel);
+			transition.addOutput(output);
+		}
+		
+		functionTerm = new FunctionTerm();
+		functionTerm.setDefaultTerm(true);
+		functionTerm.setResultLevel(0);
+		transition.addFunctionTerm(functionTerm);
+		
+		// TODO: only create one if both input and output is known
+		functionTerm = new FunctionTerm();
+		functionTerm.setDefaultTerm(false);
+		functionTerm.setResultLevel(1);
+		transition.addFunctionTerm(functionTerm);
+		
+		return transition;
+	}
+	
+	/**
+	 * Create a new Transition
+	 * @param id
+	 * @return
+	 */
+	public Transition createTransition(String id){
+		Transition transition = new Transition(id, level, version);
+		
+		return transition;
+	}
+	
+	/**
+	 * Add a input QualitativeSpecies to the transition
+	 * @param transition
+	 * @param inputQualitativeSpecies
+	 * @return
+	 */
+	public Input addInputToTransition(Transition transition, QualitativeSpecies inputQualitativeSpecies){
+		Input input;
+		String inputId;		
+
+		inputId = "Input_" + inputQualitativeSpecies.getId() + "_in_" + transition.getId();
+		input = new Input(inputId, inputQualitativeSpecies, InputTransitionEffect.none);
+		transition.addInput(input);
+		
+		return input;
+	}
+	
+	/**
+	 * Add a output QualitativeSpecies to the transition
+	 * @param transition
+	 * @param outputQualitativeSpecies
+	 * @return
+	 */
+	public Output addOutputToTransition(Transition transition, QualitativeSpecies outputQualitativeSpecies){
+		Output output;
+		String outputId;
+		
+		outputId = "Output_" + outputQualitativeSpecies.getId() + "_in_" + transition.getId(); 
+		output = new Output(outputId, outputQualitativeSpecies, OutputTransitionEffect.assignmentLevel);
+		transition.addOutput(output);	
+		
+		return output;
+	}
+	
+	/**
+	 * Add a new functionTerm to transition without a MathML. The MathML will be created in other functions
+	 * @param transition
+	 * @param setDefaultTerm
+	 * @param resultLevel
+	 * @return
+	 */
+	public FunctionTerm addFunctionTermToTransition(Transition transition, boolean setDefaultTerm, int resultLevel){
+		FunctionTerm functionTerm;
+		
+		functionTerm = new FunctionTerm();
+		functionTerm.setDefaultTerm(setDefaultTerm);
+		functionTerm.setResultLevel(resultLevel);
+		transition.addFunctionTerm(functionTerm);
+		
+		return functionTerm;
+	}
+	
+	/**
+	 * Create a new ASTNode, and insert it into an existing parent ASTNode
+	 * @param parentMath
+	 * @param type
+	 * @return
+	 */
+	public ASTNode createMath(ASTNode parentMath, String type){
+		//ASTNode math = functionTerm.getMath();
+		ASTNode math = null;
+
+		if (type.equals("and")){
+			math = new ASTNode(ASTNode.Type.LOGICAL_AND);
+		} if (type.equals("or")){
+			math = new ASTNode(ASTNode.Type.LOGICAL_OR);
+		} if (type.equals("not")){
+			math = new ASTNode(ASTNode.Type.LOGICAL_NOT);
+		} 
+		
+		parentMath.insertChild(0, math);
+				
+		return math;
+	}
+	
+	/**
+	 * Create a new ASTNode, it will be root of the MathML in a FunctionTerm
+	 * @param type
+	 * @param mathContainer
+	 * @return
+	 */
+	public ASTNode createMath(String type, FunctionTerm mathContainer){
+		//ASTNode math = functionTerm.getMath();
+		ASTNode math = null;
+
+		if (type.equals("and")){
+			math = new ASTNode(ASTNode.Type.LOGICAL_AND);
+		} if (type.equals("or")){
+			math = new ASTNode(ASTNode.Type.LOGICAL_OR);
+		} if (type.equals("not")){
+			math = new ASTNode(ASTNode.Type.LOGICAL_NOT);
+		} 
+		
+		math.setParentSBMLObject(mathContainer);
+		
+		return math;
+	}
+	
+	/**
+	 * Create a <code>SpeciesReferenceGlyph</code> using values from an SBGN <code>Arc</code>. 
+	 * Associate the <code>SpeciesReferenceGlyph</code> with a <code>SpeciesGlyph</code> and 
+	 * a <code>SpeciesReference</code>.
+	 * 
+	 * @param <code>String</code> id
+	 * @param <code>Arc</code> arc
+	 * @param <code>SpeciesReference</code> speciesReference
+	 * @param <code>Glyph</code> speciesGlyph
+	 * @return <code>SpeciesReferenceGlyph</code> speciesReferenceGlyph
+	 */		
+	public SpeciesReferenceGlyph createOneSpeciesReferenceGlyph(String id, Arc arc, 
+			SimpleSpeciesReference speciesReference, Glyph speciesGlyph, SBGNML2SBMLOutput sOutput) {
+		SpeciesReferenceGlyph speciesReferenceGlyph;
+		
+		speciesReferenceGlyph = new SpeciesReferenceGlyph(level, version);
+		speciesReferenceGlyph.setId("SpeciesReferenceGlyph_"+id);
+		speciesReferenceGlyph.setRole(findReactionRole(arc.getClazz()));
+		speciesReferenceGlyph.setSpeciesGlyph("SpeciesGlyph_"+speciesGlyph.getId());
+		speciesReferenceGlyph.setSpeciesReference(speciesReference);	
+		sOutput.numOfSpeciesReferences++;			
+		
+		return speciesReferenceGlyph;
+	}
+	
+	/**
+	 * Create an SBML <code>Curve</code> from values in an SBGN <code>Arc</code>. 
+	 * It creates both LineSegments as well as CurveSegments
+	 */		
+	public Curve createOneCurve(Arc arc) {
+		Curve curve;
+		CurveSegment curveSegment;
+		
+		Arc.Start start;
+		Arc.End end;
+		List<Arc.Next> listOfNext;
+		List<org.sbgn.bindings.Point> points;
+		
+		// We will use this list of curvePoints to construct the CurveSegments of a Curve
+		// first, we store the points, later, we use them
+		List<Point> curvePoints = new ArrayList<Point>();
+		
+		// The starting point
+		start = arc.getStart();
+		curvePoints.add(new Point(start.getX(), start.getY()));
+		
+		// The points in Arc.Next
+		listOfNext = arc.getNext();
+		for (Arc.Next next: listOfNext){	
+			points = next.getPoint();
+			
+			// We have a CubicBezier
+			if (points.size() > 0){
+				// create a Wrapper for the list of points in this CubicBezier
+				SBGNWrapperPoint sWrapperPoint = new SBGNWrapperPoint(next.getX(), next.getY());
+				sWrapperPoint.addbasePoint(points);
+				curvePoints.add(sWrapperPoint);
+			} 
+			// We have a Line
+			else {
+				curvePoints.add(new Point(next.getX(), next.getY()));
+			}
+		}
+		
+		// The end point or end CubicBezier points
+		end = arc.getEnd();
+		points = end.getPoint();
+		// We have a CubicBezier
+		if (points.size() > 0){
+			SBGNWrapperPoint sWrapperPoint = new SBGNWrapperPoint(end.getX(), end.getY());
+			sWrapperPoint.addbasePoint(points);
+			curvePoints.add(sWrapperPoint);
+		} 
+		// We have a Line
+		else {
+			curvePoints.add(new Point(end.getX(), end.getY()));
+		}
+		
+		// Now we create a new Curve, and construct the CurveSegments using the curvePoints we stored
+		curve = new Curve();
+		Point startPoint;
+		Point endPoint;
+		for (int i = 0; i < curvePoints.size(); i++){
+			// last Point
+			if (i == curvePoints.size() - 1){
+				break;
+			}
+			
+			curveSegment = null;
+			// a curveSegment will have a start and an end point
+			startPoint = curvePoints.get(i);
+			// We have a CubicBezier, so we need to get the point, not the Wrapper of the point
+			if (startPoint instanceof SBGNWrapperPoint){
+				startPoint = ((SBGNWrapperPoint) startPoint).onePoint.clone();
+			}
+			
+			// the end point will be the next point stored in curvePoints
+			endPoint = curvePoints.get(i + 1);
+			// We have a CubicBezier, so we need to get the point, not the Wrapper of the point
+			if (endPoint instanceof SBGNWrapperPoint){
+				Point endPointNew = ((SBGNWrapperPoint) endPoint).onePoint.clone();
+				Point basePoint1 = ((SBGNWrapperPoint) endPoint).basePoint1.clone();
+				Point basePoint2 = ((SBGNWrapperPoint) endPoint).basePoint2.clone();
+				
+				curveSegment = new CubicBezier();
+				// set the start and end
+				curveSegment.setStart(startPoint);
+				curveSegment.setEnd(endPointNew);	
+				
+				// set the 2 base points as well
+				((CubicBezier) curveSegment).setBasePoint1(basePoint1);
+				((CubicBezier) curveSegment).setBasePoint2(basePoint2);
+				
+			} 
+			// We have a Line
+			else {
+				endPoint = curvePoints.get(i + 1).clone();
+				curveSegment = new LineSegment();
+				
+				// set the start and end
+				curveSegment.setStart(startPoint);
+				curveSegment.setEnd(endPoint);	
+			}	
+			
+			// add CurveSegment to the Curve
+			curve.addCurveSegment(curveSegment);				
+		}
+		
+		// error
+		if (curve.getCurveSegmentCount() == 0){
+			createOneCurveError ++;
+			System.out.format("! createOneCurve sbml="+curvePoints.size());
+			for (Arc.Next next: listOfNext){
+				points = next.getPoint();
+				
+				System.out.format(" sbgn.next="+next.getPoint().size());
+			}
+			System.out.format(" sbgn.end="+end.getPoint().size()+" \n");
+
+		}
+		
+		return curve;
+	}	
+	
+	/**
+	 * Create a new Compartment
+	 * @param compartmentId
+	 * @param name
+	 * @return
+	 */
+	public Compartment createJsbmlCompartment(String compartmentId, String name) {
+		Compartment compartment = new Compartment(compartmentId, name, level, version);
+		return compartment;
+	}
+	
+	/**
+	 * Create a new CompartmentGlyph
+	 * @param glyph
+	 * @param compartmentId
+	 * @param compartment
+	 * @param createBoundingBox
+	 * @return
+	 */
+	public CompartmentGlyph createJsbmlCompartmentGlyph(Glyph glyph, String compartmentId, Compartment compartment,
+			boolean createBoundingBox) {
+		CompartmentGlyph compartmentGlyph;
+		Bbox bbox;
+		BoundingBox boundingBox;
+		
+		compartmentGlyph = new CompartmentGlyph();
+		compartmentGlyph.setId("CompartmentGlyph_" + compartmentId);
+		compartmentGlyph.setCompartment(compartment);
+		
+		if (createBoundingBox){
+			bbox = glyph.getBbox();
+			boundingBox = new BoundingBox();
+			// TODO: horizontal or vertical orientation?
+			boundingBox.createDimensions(bbox.getW(), bbox.getH(), 0);
+			boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);
+			compartmentGlyph.setBoundingBox(boundingBox);			
+		}
+		return compartmentGlyph;
+	}
+	
+	/**
+	 * Set the compartmentOrder attribute of the compartmentGlyph
+	 * @param compartmentGlyph
+	 * @param glyph
+	 */
+	public void setCompartmentOrder(CompartmentGlyph compartmentGlyph, Glyph glyph) {	
+		try {
+			float order = glyph.getCompartmentOrder();
+			if ((Object) order != null){
+				compartmentGlyph.setOrder(order);
+			}
+		} catch (NullPointerException e) {
+			
+		}
+	}
+	
+	/**
+	 * We always create a default compartment and assign Species that do not have a Compartment to this Compartment
+	 * TODO: need to check compartmentRef of an Sbgn glyph to find its compartment
+	 * TODO: move to a ModelCompleter
+	 * @param modelObject
+	 */
+	public void createDefaultCompartment(Model modelObject) {
+		String compartmentId = "DefaultCompartment_01";
+		Compartment compartment = new Compartment(compartmentId);
+		modelObject.getListOfCompartments().add(compartment);
+		
+		for (Species species: modelObject.getListOfSpecies()){
+			if (species.getCompartment() == ""){
+				species.setCompartment(compartment);	
+			}
+		}
+	}
+	
+	/**
+	 * Create a new ReferenceGlyph for a ModifierSpeciesReference.
+	 * The ModifierSpeciesReference is part of a logic network (see the NOT network in SBGN-PD_all.sbgn)
+	 * Note that normally, a ModifierSpeciesReference associates with a Reaction and a Species,
+	 * but if we have a Logic Operator instead of a Species, we can't create a SpeciesReferenceGlyph
+	 * we have to create a ReferenceGlyph instead.
+	 * @param id
+	 * @param arc
+	 * @param reference
+	 * @param object
+	 * @return
+	 */
+	public ReferenceGlyph createOneReferenceGlyph(String id, Arc arc, ModifierSpeciesReference reference, 
+			SBase object) {
+		ReferenceGlyph referenceGlyph;
+		
+		referenceGlyph = new ReferenceGlyph(level, version);
+		referenceGlyph.setId("ReferenceGlyph_" + id);
+
+		referenceGlyph.setGlyph(object.getId());
+		
+		// the following does not work because we can't create a ModifierSpeciesReference. 
+		// A ModifierSpeciesReference needs to associate with a Species, but we don't have a Species
+		//referenceGlyph.setReference(reference.getId());
+
+		return referenceGlyph;
+	}		
+	
+	/**
+	 * Check if the arc's source and target objects are both glyphs
+	 * @param arc
+	 * @return
+	 */
+	public Boolean isGlyphToGlyphArc(Arc arc) {
+		if (arc.getTarget() instanceof Glyph && arc.getSource() instanceof Glyph) {
+			return true;
+		}
+		return false;
+	}
+	
+	public Boolean isPortToGlyphArc(Arc arc) {
+		if (arc.getTarget() instanceof Port && arc.getSource() instanceof Glyph) {
+			return true;
+		}
+		return false;		
+	}
+	
+	public Boolean isGlyphToPortArc(Arc arc) {
+		if (arc.getTarget() instanceof Glyph && arc.getSource() instanceof Port) {
+			return true;
+		}
+		return false;		
 	}
 
+	public Boolean isPortToPortArc(Arc arc) {
+		if (arc.getTarget() instanceof Port && arc.getSource() instanceof Port) {
+			return true;
+		}		
+		return false;
+	}
+	
+	/**
+	 * For debugging only
+	 */
 	public static void debugSbgnObject(Map map){
 		
 		List<Arc> listOfArcs = map.getArc();
@@ -990,6 +1254,9 @@ public class SBGNML2SBMLUtil {
 		}
 	}
 	
+	/**
+	 * For debugging only
+	 */
 	public static String displaySourceAndTarget(Object source, Object target) {
 
 		String type = "";
@@ -1006,6 +1273,9 @@ public class SBGNML2SBMLUtil {
 		return String.format("%s %s %s", source.getClass(), target.getClass(), type);		
 	}
 	
+	/**
+	 * For debugging only
+	 */
 	public static String displayCoordinates(Bbox bbox) {
 		if (bbox == null) {
 			return "[ ]";
@@ -1017,7 +1287,10 @@ public class SBGNML2SBMLUtil {
 			
 		return String.format("[x=%s y=%s w=%s h=%s]", X, Y, W, H);
 	}
-
+	
+	/**
+	 * For debugging only
+	 */
 	public static String displayCoordinates(Arc.Start start, Arc.End end) {
 		List<org.sbgn.bindings.Point> listOfPoints;
 		int numOfPoints;
@@ -1042,6 +1315,9 @@ public class SBGNML2SBMLUtil {
 		return "NOT NULL";
 	}
 	
+	/**
+	 * For debugging only
+	 */
 	public static String sizeOf(Object list, int elementType) {		
 		if (list != null) {
 			if (elementType == 0) {
@@ -1065,12 +1341,18 @@ public class SBGNML2SBMLUtil {
 		return "0";
 	}
 	
+	/**
+	 * For debugging only
+	 */
 	public void printHelper(String source, String message){
 		if (debugMode == 1){
 			System.out.println("[" + source + "] " + message);
 		}
-	}	
-	
+	}
+
+	/**
+	 * For debugging only
+	 */
 	public void printHelper(String source, Integer message){
 		if (debugMode == 1){
 			System.out.println("[" + source + "] " + Integer.toString(message));
@@ -1088,7 +1370,9 @@ public class SBGNML2SBMLUtil {
 //		}
 //	}
 	
-	
+	/**
+	 * Read in a .sbgn file and create an Sbgn object
+	 */
 	public static Sbgn readSbgnFile(String sbgnFileNameInput) {
 		Sbgn sbgnObject = null;
 		File inputFile;
@@ -1103,6 +1387,9 @@ public class SBGNML2SBMLUtil {
 		return sbgnObject;
 	}
 	
+	/**
+	 * Write a Model out to a .xml file
+	 */
 	public static void writeSbmlFile(String sbmlFileNameOutput, Model model) {
 		File outputFile;
 		outputFile = new File(sbmlFileNameOutput);

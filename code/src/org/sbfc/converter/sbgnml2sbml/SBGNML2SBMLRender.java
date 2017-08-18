@@ -59,6 +59,11 @@ import org.sbml.jsbml.ext.render.RenderPoint;
 import org.sbml.jsbml.ext.render.Text;
 import org.sbml.jsbml.ext.render.VTextAnchor;
 
+/**
+ * SBGNML2SBMLRender contains methods to create the RenderInformation element of the Model.
+ * @author haoran
+ *
+ */
 public class SBGNML2SBMLRender {
 	SWrapperModel sWrapperModel;
 	SBGNML2SBMLOutput sOutput;
@@ -68,28 +73,23 @@ public class SBGNML2SBMLRender {
 		this.sWrapperModel = sWrapperModel;
 		this.sOutput = sOutput;
 		this.sUtil = sUtil;
-		//createColourDefinitions();
-		
-		//createLineEndings();
 	}
 	
 	public void renderGeneralGlyphs() {
-		//todo: generalGlyphs as species (for a logic operator)?
-		// as reactions might not work
 		SWrapperGeneralGlyph sWrapperGeneralGlyph;
 		
 		for (String key : sWrapperModel.listOfWrapperGeneralGlyphs.keySet()){
 			sWrapperGeneralGlyph = sWrapperModel.getWrapperGeneralGlyph(key);
 			
+			// units of information in SBGN AF has different shapes
 			String auxiliaryClazz = "";
 			if (sWrapperGeneralGlyph.glyph != null && sWrapperGeneralGlyph.glyph.getEntity() != null){
 				Glyph.Entity entity = sWrapperGeneralGlyph.glyph.getEntity();
 				auxiliaryClazz = entity.getName();
 			}
-			
 			LocalStyle localStyle = createStyle(sWrapperGeneralGlyph.generalGlyph, sWrapperGeneralGlyph.clazz+auxiliaryClazz);
 			
-			
+			// annotation glyphs has an extra callout glyph
 			if (sWrapperGeneralGlyph.isAnnotation) {
 				Dimensions dim = sWrapperGeneralGlyph.generalGlyph.getBoundingBox().getDimensions();
 				Point startPoint = sWrapperGeneralGlyph.calloutPoint;
@@ -106,41 +106,18 @@ public class SBGNML2SBMLRender {
 			SWrapperReferenceGlyph sWrapperReferenceGlyph = sWrapperModel.listOfWrapperReferenceGlyphs.get(key);
 			
 			LocalStyle localStyle = createStyle(sWrapperReferenceGlyph.referenceGlyph, sWrapperReferenceGlyph.arc.getClazz());
-			
 		}
 	}	
-	
-	public void createTriangle(LocalStyle localStyle, Point p1, Point p2, Point p3){
-		Polygon polygon = new Polygon();
-		ListOf<RenderPoint> elements = polygon.getListOfElements();
-				
-		elements.add(createRenderPoint(p1.getX(), p1.getY(), true, true));
-		elements.add(createRenderPoint(p2.getX(), p2.getY(), true, true));
-		elements.add(createRenderPoint(p3.getX(), p3.getY(), true, true));
 		
-		RenderGroup renderGroup = localStyle.getGroup();
-		renderGroup.addElement(polygon);
-	}
-	
-	public RenderPoint createRenderPoint(double x, double y, boolean absoluteX, boolean absoluteY){
-		RenderPoint renderPoint = new RenderPoint();
-		renderPoint.setX(x);
-		renderPoint.setY(y);
-		renderPoint.setAbsoluteX(absoluteX);
-		renderPoint.setAbsoluteY(absoluteY);	
-		
-		return renderPoint;
-	}
-	
 	public void renderCompartmentGlyphs() {
 		SWrapperCompartmentGlyph sWrapperCompartmentGlyph;
 		
+		// sorting is not needed
 		sWrapperModel.sortCompartmentOrderList();
 		for (String key : sWrapperModel.compartmentOrderList.keySet()){
 			sWrapperCompartmentGlyph = sWrapperModel.getWrapperCompartmentGlyph(key);
 			createStyle(sWrapperCompartmentGlyph.compartmentGlyph, sWrapperCompartmentGlyph.clazz);
-			
-			//System.out.println("renderCompartmentGlyphs id="+sWrapperCompartmentGlyph.glyph.getId());
+
 		}			
 	}
 	
@@ -151,10 +128,10 @@ public class SBGNML2SBMLRender {
 			LocalStyle localStyle = createStyle(sWrapperSpeciesGlyph.speciesGlyph, sWrapperSpeciesGlyph.clazz);
 			
 			if (sWrapperSpeciesGlyph.hasClone){
+				// TODO: broken, need to fix
 				//addCloneText(localStyle, sWrapperSpeciesGlyph.speciesGlyph, sWrapperSpeciesGlyph.cloneText);
 			}
 		}		
-		
 		SWrapperQualitativeSpecies sWrapperQualitativeSpecies;
 		for (String key : sWrapperModel.listOfSWrapperQualitativeSpecies.keySet()){
 			sWrapperQualitativeSpecies = sWrapperModel.getSWrapperQualitativeSpecies(key);
@@ -165,34 +142,15 @@ public class SBGNML2SBMLRender {
 	public void renderTextGlyphs() {
 		
 		for (TextGlyph tg : sOutput.layout.getListOfTextGlyphs()){
-
 			if (sWrapperModel.textSourceMap.containsKey(tg.getId())){
 				//LocalStyle localStyle = createStyle(tg, "top_text");
 				LocalStyle localStyle = createStyle(tg, "text");
 			} else {
 				LocalStyle localStyle = createStyle(tg, "text");
 			}
-			
-
-		}		
-		
+		}
 	}
-	
-	// todo: fix broken
-	public void addCloneText(LocalStyle localStyle, SpeciesGlyph speciesGlyph, String cloneText) {
-		// the 0 and 80 is not used?
-		Text text = createText(0, 80, false, false);
-		text.setFontFamily(FontFamily.MONOSPACE);
-		text.setTextAnchor(HTextAnchor.MIDDLE);
-		text.setVTextAnchor(VTextAnchor.BOTTOM);	
-		text.setName(cloneText);	
 		
-		RenderGroup renderGroup = localStyle.getGroup();
-		renderGroup.setStroke("white");
-		renderGroup.addElement(text);
-		// todo: how to put text value in element?
-	}
-	
 	public void renderReactionGlyphs() {
 		SWrapperReactionGlyph sWrapperReactionGlyph;
 		for (String key : sWrapperModel.listOfWrapperReactionGlyphs.keySet()){
@@ -202,10 +160,7 @@ public class SBGNML2SBMLRender {
 			
 			if (sWrapperReactionGlyph.clazz.equals("uncertain process")){
 				Bbox labelBbox = null;
-//				if (sWrapperReactionGlyph.glyph.getLabel() != null){
-//					labelBbox = sWrapperReactionGlyph.glyph.getLabel().getBbox();
-//				}
-				
+
 				TextGlyph tg = sUtil.createJsbmlTextGlyph(sWrapperReactionGlyph.reactionGlyph, "?", labelBbox);
 				sOutput.addTextGlyph(tg);
 			}
@@ -215,14 +170,10 @@ public class SBGNML2SBMLRender {
 	public void renderSpeciesReferenceGlyphs(SWrapperReactionGlyph sWrapperReactionGlyph) {
 		Arc arc;
 		SpeciesReferenceGlyph speciesReferenceGlyph;
-		//System.out.println("===renderSpeciesReferenceGlyphs "+sWrapperReactionGlyph.speciesReferenceGlyphs.keySet().size());
-		
+
 		for (String arcKey : sWrapperReactionGlyph.speciesReferenceGlyphs.keySet()){
 			speciesReferenceGlyph = sWrapperReactionGlyph.speciesReferenceGlyphs.get(arcKey);
 			arc = sWrapperReactionGlyph.getArc(arcKey);
-			//System.out.println("===renderSpeciesReferenceGlyphs "+sWrapperReactionGlyph.consumptionArcs.size());
-			//System.out.println("===renderSpeciesReferenceGlyphs "+sWrapperReactionGlyph.productionArcs.size());
-			//System.out.println("===renderSpeciesReferenceGlyphs "+sWrapperReactionGlyph.modifierArcs.size());
 
 			createStyle((GraphicalObject) speciesReferenceGlyph, arc);
 		}		
@@ -241,36 +192,21 @@ public class SBGNML2SBMLRender {
 	
 	public LocalStyle createStyle(GraphicalObject graphicalObject, String clazz) {
 		RenderGroup renderGroup;
-		
 		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin;
 		LocalRenderInformation localRenderInformation = sOutput.localRenderInformation;
 		Layout layout = sOutput.layout;
 		
 		String styleId = findObjectRole(clazz);
-		
-//		String styleId = "LocalStyle_" + graphicalObject.getId();
-//		renderGroup = new RenderGroup(layout.getLevel(), layout.getVersion());
-//		initializeDefaultRenderGroup(renderGroup);
-//		localStyle = new LocalStyle(styleId, layout.getLevel(), layout.getVersion(), renderGroup);
-//		localRenderInformation.addLocalStyle(localStyle);
-//		localStyle.getRoleList().add(styleId);
-		
+
 		renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) graphicalObject.getPlugin(RenderConstants.shortLabel);
 		renderGraphicalObjectPlugin.setObjectRole(styleId);		
-				
-//		Image image = createImage(graphicalObject, clazz);
-//		renderGroup.addElement(image);	
-		
-		// todo: return a Style
-		
+
 		for (LocalStyle localStyle: sOutput.listOfStyles_temp){
 			if (localStyle.getId().equals(styleId)){
 				return localStyle;
 			}
 		}
-		
 
-		
 		return null;
 	}
 	
@@ -283,67 +219,14 @@ public class SBGNML2SBMLRender {
 		
 		String styleId = findObjectRole(arc.getClazz());
 		
-//		String styleId = "LocalStyle_" + graphicalObject.getId();
-//		renderGroup = new RenderGroup(layout.getLevel(), layout.getVersion());
-//		initializeDefaultRenderGroup(renderGroup);
-//		localStyle = new LocalStyle(styleId, layout.getLevel(), layout.getVersion(), renderGroup);
-//		localRenderInformation.addLocalStyle(localStyle);
-//		localStyle.getRoleList().add(styleId);
-		
 		renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) graphicalObject.getPlugin(RenderConstants.shortLabel);
 		renderGraphicalObjectPlugin.setObjectRole(styleId);		
-		
-		
-		
-
 	}	
-	
-//	public void createColourDefinitions() {
-//		LocalRenderInformation localRenderInformation = sOutput.localRenderInformation;
-//		Layout layout = sOutput.layout;
-//		
-//		ColorDefinition colorDefinition;
-//		colorDefinition = new ColorDefinition(layout.getLevel(), layout.getVersion());
-//		colorDefinition.setId("white");
-//		colorDefinition.setValue(Color.decode("#FFFFFF"));		
-//		localRenderInformation.addColorDefinition(colorDefinition);		
-//		
-//		colorDefinition = new ColorDefinition(layout.getLevel(), layout.getVersion());
-//		colorDefinition.setId("black");
-//		colorDefinition.setValue(Color.decode("#000000"));		
-//		localRenderInformation.addColorDefinition(colorDefinition);		
-//	}
-	
-//	public void createLineEndings(ListOf<LineEnding>  listOfLineEndings) {
-//		sOutput.addListOfLineEndings(listOfLineEndings);
-//	}
-	
-//	public void initializeDefaultRenderGroup(RenderGroup renderGroup) {
-//		renderGroup.setStroke("black");
-//		renderGroup.setStrokeWidth(3);
-//		renderGroup.setFillRule(FillRule.NONZERO);
-//		renderGroup.setFontSize((short) 12);
-//		renderGroup.setFontFamily(FontFamily.SANS_SERIF);
-//		renderGroup.setFontStyleItalic(false);
-//		renderGroup.setFontWeightBold(false);
-//		renderGroup.setTextAnchor(HTextAnchor.MIDDLE);
-//		renderGroup.setVTextAnchor(VTextAnchor.MIDDLE);
-//	}
-	
+
 	public String findObjectRole(String clazz){
-//		Image image = new Image("Image_" + generalGlyph.getId());
-//		image.setX(0);
-//		image.setX(0);
-//		image.setWidth(100);
-//		image.setHeight(100);
-//		image.setAbsoluteX(false);
-//		image.setAbsoluteY(false);		
-//		image.setAbsoluteWidth(false);
-//		image.setAbsoluteHeight(false);	
-		
 		String styleId = null;
 		
-		// todo: horizontal or vertical?
+		// TODO: horizontal or vertical orientation
 		if (clazz.equals("or")){
 			styleId = "or";
 		} else if (clazz.equals("and")){
@@ -376,9 +259,9 @@ public class SBGNML2SBMLRender {
 			styleId = "SBO0000253";
 		} else if (clazz.equals("perturbing agent")){
 			styleId = "SBO0000405";
-		 } else if (clazz.equals("perturbation")){
+		} else if (clazz.equals("perturbation")){
 				styleId = "perturbation";
-		 } else if (clazz.equals("unspecified entity")){
+		} else if (clazz.equals("unspecified entity")){
 			styleId = "SBO0000285";
 		}
 		
@@ -490,7 +373,7 @@ public class SBGNML2SBMLRender {
 		} else if (clazz.equals("negative influence")){
 			sOutput.lineEndingsInModel.put("inhibitor", null);
 			styleId = "SBO0000169";
-		}else if (clazz.equals("modulation")){
+		} else if (clazz.equals("modulation")){
 			sOutput.lineEndingsInModel.put("modulation", null);
 			styleId = "SBO0000168";
 		}
@@ -500,20 +383,69 @@ public class SBGNML2SBMLRender {
 		} else if (clazz.equals("logic arc")){
 			styleId = "SBO0000398";
 		}
-		
-		
+
 		else if (clazz.equals("text")){
 			styleId = "defaultText";
-		} 		else if (clazz.equals("top_text")){
+		} else if (clazz.equals("top_text")){
 			styleId = "topText";
 		}
-		
-		
+
 		sOutput.stylesInModel.put(styleId, null);
-		//System.out.println("stylesInModel ===+" + styleId);
-		
-		
+
 		return styleId;
+	}
+	
+	public void createTriangle(LocalStyle localStyle, Point p1, Point p2, Point p3){
+		Polygon polygon = new Polygon();
+		ListOf<RenderPoint> elements = polygon.getListOfElements();
+				
+		elements.add(createRenderPoint(p1.getX(), p1.getY(), true, true));
+		elements.add(createRenderPoint(p2.getX(), p2.getY(), true, true));
+		elements.add(createRenderPoint(p3.getX(), p3.getY(), true, true));
+		
+		RenderGroup renderGroup = localStyle.getGroup();
+		renderGroup.addElement(polygon);
+	}
+	
+	public RenderPoint createRenderPoint(double x, double y, boolean absoluteX, boolean absoluteY){
+		RenderPoint renderPoint = new RenderPoint();
+		renderPoint.setX(x);
+		renderPoint.setY(y);
+		renderPoint.setAbsoluteX(absoluteX);
+		renderPoint.setAbsoluteY(absoluteY);	
+		
+		return renderPoint;
+	}
+	
+	public Text createText(double x, double y, 
+			boolean absoluteX, boolean absoluteY) {
+		Text text = new Text();
+		
+		text.setAbsoluteX(absoluteX);
+		text.setAbsoluteY(absoluteY);
+		text.setX(x);
+		text.setY(y);	
+			
+		return text;
+	}
+	
+	/**
+	 * Add text to the clone marker.
+	 * TODO: broken, need to fix
+	 * @param localStyle
+	 * @param speciesGlyph
+	 * @param cloneText
+	 */
+	public void addCloneText(LocalStyle localStyle, SpeciesGlyph speciesGlyph, String cloneText) {
+		Text text = createText(0, 80, false, false);
+		text.setFontFamily(FontFamily.MONOSPACE);
+		text.setTextAnchor(HTextAnchor.MIDDLE);
+		text.setVTextAnchor(VTextAnchor.BOTTOM);	
+		text.setName(cloneText);	
+		
+		RenderGroup renderGroup = localStyle.getGroup();
+		renderGroup.setStroke("white");
+		renderGroup.addElement(text);
 	}
 	
 	public Rectangle createRectangle(double x, double y, 
@@ -556,18 +488,37 @@ public class SBGNML2SBMLRender {
 		return ellipse;
 	}
 	
-	public Text createText(double x, double y, 
-			boolean absoluteX, boolean absoluteY) {
-		Text text = new Text();
+	public void createColourDefinitions() {
+		LocalRenderInformation localRenderInformation = sOutput.localRenderInformation;
+		Layout layout = sOutput.layout;
 		
-		text.setAbsoluteX(absoluteX);
-		text.setAbsoluteY(absoluteY);
-		text.setX(x);
-		text.setY(y);	
-			
-		return text;
+		ColorDefinition colorDefinition;
+		colorDefinition = new ColorDefinition(layout.getLevel(), layout.getVersion());
+		colorDefinition.setId("white");
+		colorDefinition.setValue(Color.decode("#FFFFFF"));		
+		localRenderInformation.addColorDefinition(colorDefinition);		
+		
+		colorDefinition = new ColorDefinition(layout.getLevel(), layout.getVersion());
+		colorDefinition.setId("black");
+		colorDefinition.setValue(Color.decode("#000000"));		
+		localRenderInformation.addColorDefinition(colorDefinition);		
 	}
 	
+	public void initializeDefaultRenderGroup(RenderGroup renderGroup) {
+		renderGroup.setStroke("black");
+		renderGroup.setStrokeWidth(3);
+		renderGroup.setFillRule(FillRule.NONZERO);
+		renderGroup.setFontSize((short) 12);
+		renderGroup.setFontFamily(FontFamily.SANS_SERIF);
+		renderGroup.setFontStyleItalic(false);
+		renderGroup.setFontWeightBold(false);
+		renderGroup.setTextAnchor(HTextAnchor.MIDDLE);
+		renderGroup.setVTextAnchor(VTextAnchor.MIDDLE);
+	}	
+	
+	/**
+	 * For debugging
+	 */
 	public void display() {
 		for (LineEnding lineEnding: sOutput.listOfLineEndings) {
 			System.out.println("[renderGeneralGlyphs] lineEnding "+lineEnding.getId());

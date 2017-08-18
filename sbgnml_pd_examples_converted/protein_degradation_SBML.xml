@@ -160,10 +160,10 @@
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a2" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph3" layout:speciesReference="a2" metaid="cf3e7b1d-602c-497f-bd18-65379fa7731f" render:objectRole="substrate">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a2" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_glyph3" layout:speciesReference="a2" metaid="a2530436-b035-47cd-a766-fdcdf8d44544" render:objectRole="substrate">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#cf3e7b1d-602c-497f-bd18-65379fa7731f">
+	<rdf:Description rdf:about="#a2530436-b035-47cd-a766-fdcdf8d44544">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph3"/>
@@ -182,10 +182,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a1" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph1" layout:speciesReference="a1" metaid="_70d7f722-7e72-4101-9586-5565b703de8c" render:objectRole="product">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a1" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph1" layout:speciesReference="a1" metaid="_0e3638e3-e357-44f7-a789-2ba8d11c9915" render:objectRole="product">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_70d7f722-7e72-4101-9586-5565b703de8c">
+	<rdf:Description rdf:about="#_0e3638e3-e357-44f7-a789-2ba8d11c9915">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph2"/>
@@ -225,12 +225,12 @@
       <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph3" initialConcentration="1" name="Protein" sboTerm="SBO:0000245"/>
     </listOfSpecies>
     <listOfReactions>
-      <reaction fast="false" id="glyph2" reversible="false">
+      <reaction fast="false" id="glyph2" reversible="false" sboTerm="SBO:0000397">
         <listOfReactants>
-          <speciesReference constant="true" id="a2" species="glyph3" stoichiometry="1"/>
+          <speciesReference constant="true" id="a2" sboTerm="SBO:0000394" species="glyph3" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference constant="true" id="a1" species="glyph1" stoichiometry="1"/>
+          <speciesReference constant="true" id="a1" sboTerm="SBO:0000393" species="glyph1" stoichiometry="1"/>
         </listOfProducts>
               </reaction>
     </listOfReactions>

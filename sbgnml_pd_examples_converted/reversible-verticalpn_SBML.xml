@@ -151,10 +151,10 @@
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a1" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph1" layout:speciesReference="a1" metaid="_65e103a0-051f-4e93-af7d-0a2b67e27c00" render:objectRole="product">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a1" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph1" layout:speciesReference="a1" metaid="_95f49d7c-bfd3-4ad6-91be-046d087bb4ba" render:objectRole="product">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#_65e103a0-051f-4e93-af7d-0a2b67e27c00">
+	<rdf:Description rdf:about="#_95f49d7c-bfd3-4ad6-91be-046d087bb4ba">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="pn1"/>
@@ -173,10 +173,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a2" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph2" layout:speciesReference="a2" metaid="a96e4a1a-b304-4fdb-a6d0-7c06a40852ae" render:objectRole="product">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a2" layout:role="product" layout:speciesGlyph="SpeciesGlyph_glyph2" layout:speciesReference="a2" metaid="_997ef522-de39-47d5-b9c6-1a96ffa7ba3d" render:objectRole="product">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#a96e4a1a-b304-4fdb-a6d0-7c06a40852ae">
+	<rdf:Description rdf:about="#_997ef522-de39-47d5-b9c6-1a96ffa7ba3d">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="pn1"/>
@@ -195,10 +195,10 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a3" layout:role="activator" layout:speciesGlyph="SpeciesGlyph_glyph3" layout:speciesReference="a3" metaid="bee0a8b9-99a3-4606-8724-251f075f59e2" render:objectRole="SBO0000172">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_a3" layout:role="activator" layout:speciesGlyph="SpeciesGlyph_glyph3" layout:speciesReference="a3" metaid="d8d31e79-fb0f-49d9-b4b3-29fae93626d5" render:objectRole="SBO0000172">
                 <annotation>
 	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
-	<rdf:Description rdf:about="#bee0a8b9-99a3-4606-8724-251f075f59e2">
+	<rdf:Description rdf:about="#d8d31e79-fb0f-49d9-b4b3-29fae93626d5">
 	<bqbiol:hasProperty>
 	<rdf:Bag>
 	<rdf:li rdf:resource="glyph3"/>
@@ -251,13 +251,13 @@
       <species boundaryCondition="false" compartment="DefaultCompartment_01" constant="false" hasOnlySubstanceUnits="false" id="glyph2" initialConcentration="1" name="GA-3P" sboTerm="SBO:0000247"/>
     </listOfSpecies>
     <listOfReactions>
-      <reaction fast="false" id="pn1" reversible="false">
+      <reaction fast="false" id="pn1" reversible="false" sboTerm="SBO:0000375">
                 <listOfProducts>
-          <speciesReference constant="true" id="a1" species="glyph1" stoichiometry="1"/>
-          <speciesReference constant="true" id="a2" species="glyph2" stoichiometry="1"/>
+          <speciesReference constant="true" id="a1" sboTerm="SBO:0000393" species="glyph1" stoichiometry="1"/>
+          <speciesReference constant="true" id="a2" sboTerm="SBO:0000393" species="glyph2" stoichiometry="1"/>
         </listOfProducts>
         <listOfModifiers>
-          <modifierSpeciesReference id="a3" species="glyph3"/>
+          <modifierSpeciesReference id="a3" sboTerm="SBO:0000172" species="glyph3"/>
         </listOfModifiers>
       </reaction>
     </listOfReactions>

@@ -2,19 +2,18 @@ package org.sbfc.converter.sbgnml2sbml;
 
 import java.util.List;
 
+/**
+ * This class stores meta information of a curved arc, equivalent to a SBML layout CubicBezier
+ * @author haoran
+ *
+ */
 public class SBGNWrapperPoint extends org.sbml.jsbml.ext.layout.Point {
 	org.sbml.jsbml.ext.layout.Point basePoint1;
 	org.sbml.jsbml.ext.layout.Point basePoint2;
-	org.sbml.jsbml.ext.layout.Point targetPoint;
-		
-//	SBGNWrapperPoint(org.sbgn.bindings.Point basePoint1, org.sbgn.bindings.Point basePoint2, org.sbgn.bindings.Point targetPoint){
-//		this.basePoint1 = basePoint1;
-//		this.basePoint2 = basePoint2;
-//		this.targetPoint = targetPoint;
-//	}
-	
+	org.sbml.jsbml.ext.layout.Point onePoint;
+			
 	SBGNWrapperPoint(float x, float y){
-		this.targetPoint = new org.sbml.jsbml.ext.layout.Point(x, y);
+		this.onePoint = new org.sbml.jsbml.ext.layout.Point(x, y);
 	}
 	
 	public void addbasePoint(List<org.sbgn.bindings.Point> points){

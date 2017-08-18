@@ -234,17 +234,7 @@ public class TestConverter {
 			assertEquals((float) dimensions.getHeight(), bbox.getH(), 0.01);			
 		}
 	}
-	
-	@Test
-	public void testCreateGlyphsFromGeneralGlyphs(){
-		fail("not implemented");
-	}
 		
-	@Test
-	public void testCreateGlyphFromGeneralGlyph(){
-		fail("not implemented");
-	}
-	
 	@Test
 	public void testCreateGlyphsFromReactionGlyphs(){
 		converter.createFromReactionGlyphs(converter.sOutput.sbgnObject, converter.sOutput.listOfReactionGlyphs);
@@ -335,6 +325,16 @@ public class TestConverter {
 				
 			}
 		}
+	}
+	
+	@Test
+	public void testCreateGlyphsFromGeneralGlyphs(){
+		fail("not implemented");
+	}
+		
+	@Test
+	public void testCreateGlyphFromGeneralGlyph(){
+		fail("not implemented");
 	}
 	
 	
