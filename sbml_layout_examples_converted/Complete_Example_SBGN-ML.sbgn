@@ -61,36 +61,36 @@
             </label>
             <bbox w="60.0" h="20.0" x="50.0" y="100.0"/>
         </glyph>
-        <arc class="consumption" id="SpeciesReference_Glucose" source="SpeciesGlyph_Glucose" target="Port_Glucose_Hexokinase">
+        <arc class="consumption" id="SpeciesReference_Glucose">
             <start x="170.0" y="100.0"/>
             <end x="170.0" y="50.0"/>
         </arc>
-        <arc class="consumption" id="SpeciesReference_ATP" source="SpeciesGlyph_ATP" target="Port_ATP_Hexokinase">
+        <arc class="consumption" id="SpeciesReference_ATP">
             <start x="170.0" y="100.0"/>
             <end x="260.0" y="80.0">
                 <point x="170.0" y="80.0"/>
                 <point x="170.0" y="80.0"/>
             </end>
         </arc>
-        <arc class="production" id="SpeciesReference_G6P" source="Port_Hexokinase_G6P" target="SpeciesGlyph_G6P">
+        <arc class="production" id="SpeciesReference_G6P">
             <start x="170.0" y="130.0"/>
             <end x="170.0" y="180.0"/>
         </arc>
-        <arc class="production" id="SpeciesReference_ADP" source="Port_Hexokinase_ADP" target="glyph_ADP">
+        <arc class="production" id="SpeciesReference_ADP">
             <start x="170.0" y="130.0"/>
             <end x="260.0" y="150.0">
                 <point x="170.0" y="150.0"/>
                 <point x="170.0" y="150.0"/>
             </end>
         </arc>
-        <arc class="inhibition" id="ModifierSpeciesReference_G6P" source="SpeciesGlyph_G6P" target="Port_G6P_Hexokinase">
+        <arc class="inhibition" id="ModifierSpeciesReference_G6P">
             <start x="45.0" y="200.0"/>
             <end x="165.0" y="120.0">
                 <point x="0.0" y="200.0"/>
                 <point x="0.0" y="120.0"/>
             </end>
         </arc>
-        <arc class="catalysis" id="ModifierSpeciesReference_Pi" source="SpeciesGlyph_Pi" target="Port_Pi_Hexokinase">
+        <arc class="catalysis" id="ModifierSpeciesReference_Pi">
             <start x="115.0" y="110.0"/>
             <end x="165.0" y="110.0">
                 <point x="140.0" y="110.0"/>

@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <sbgn xmlns="http://sbgn.org/libsbgn/0.2">
-    <map>
-        <glyph class="macromolecule" id="SpeciesGlyph_Glucose">
+    <extension>
+        <sbfcanno:unitDefinition xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:name="">
+            <sbfcanno:kindMOLE sbfcanno:exponent="1.0" sbfcanno:kind="MOLE" sbfcanno:multiplier="1.0" sbfcanno:scale="0"/>
+        </sbfcanno:unitDefinition>
+        <sbfcanno:unitDefinition xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:name="">
+            <sbfcanno:kindMETRE sbfcanno:exponent="2.0" sbfcanno:kind="METRE" sbfcanno:multiplier="1.0" sbfcanno:scale="0"/>
+        </sbfcanno:unitDefinition>
+    </extension>
+    <map language="process description">
+        <glyph class="unspecified entity" id="SpeciesGlyph_Glucose">
+            <extension>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="Yeast" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="Glucose" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="NaN" sbfcanno:name="" sbfcanno:substanceUnits="substance"/>
+            </extension>
             <bbox w="130.0" h="20.0" x="105.0" y="20.0"/>
         </glyph>
     </map>

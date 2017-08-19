@@ -2,15 +2,19 @@
 <sbgn xmlns="http://sbgn.org/libsbgn/0.2">
     <extension>
         <sbfcanno:unitDefinition xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:name="">
-            <sbfcanno:kindLITRE sbfcanno:exponent="1.0" sbfcanno:kind="LITRE" sbfcanno:multiplier="1.0" sbfcanno:scale="0"/>
-        </sbfcanno:unitDefinition>
-        <sbfcanno:unitDefinition xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:name="">
             <sbfcanno:kindMETRE sbfcanno:exponent="2.0" sbfcanno:kind="METRE" sbfcanno:multiplier="1.0" sbfcanno:scale="0"/>
         </sbfcanno:unitDefinition>
     </extension>
     <map language="process description">
-        <glyph class="compartment" id="CompartmentGlyph_1">
-            <bbox w="390.0" h="220.0" x="5.0" y="5.0"/>
-        </glyph>
+        <arc class="consumption" id="SpeciesReference_Glucose">
+            <start x="170.0" y="100.0"/>
+            <end x="170.0" y="50.0"/>
+        </arc>
+        <arcgroup>
+            <glyph class="process" id="Hexokinase">
+                <bbox w="0.0" h="0.0" x="0.0" y="0.0"/>
+                <port id="Port_null_Hexokinase" x="170.0" y="50.0"/>
+            </glyph>
+        </arcgroup>
     </map>
 </sbgn>

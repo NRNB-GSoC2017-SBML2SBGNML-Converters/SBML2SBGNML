@@ -5,14 +5,13 @@
       <layout:layout>
         <render:listOfRenderInformation xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
           <render:renderInformation render:id="LocalRenderInformation_01">
-            <render:listOfColorDefinitions>
-              <render:colorDefinition render:id="white" render:value="#FFFFFFFF"/>
-              <render:colorDefinition render:id="black" render:value="#000000FF"/>
-            </render:listOfColorDefinitions>
             <render:listOfStyles>
               <render:style id="LocalStyle_01" render:roleList="LocalStyle_01">
                 <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
-                  <render:image render:height="100%" render:href="multimer-glyph.png" render:width="90%" render:x="0%" render:y="0"/>
+                  <render:image render:height="100%" render:href="complex-glyph.png" render:width="90%" render:x="0%" render:z="0"/>
+                  <render:ellipse render:cx="90%" render:cy="50%" render:fill="white" render:rx="10"/>
+                  <render:text name="Protein" render:font-family="monospace" render:text-anchor="middle" render:vtext-anchor="middle" render:x="-10" render:y="-9.6"/>
+                  <render:text name="P" render:font-family="monospace" render:text-anchor="end" render:vtext-anchor="middle" render:x="-5%" render:y="-9.6"/>
                 </render:g>
               </render:style>
             </render:listOfStyles>

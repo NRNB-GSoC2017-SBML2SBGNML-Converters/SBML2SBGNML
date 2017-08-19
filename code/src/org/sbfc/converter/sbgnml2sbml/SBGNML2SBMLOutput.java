@@ -62,12 +62,12 @@ public class SBGNML2SBMLOutput {
 	
 	// Layout classes
 	LayoutModelPlugin layoutPlugin;
-	Layout layout;
+	public Layout layout;
 	
 	// Rendering classes
 	RenderLayoutPlugin renderLayoutPlugin;
 	ListOfLocalRenderInformation listOfLocalRenderInformation;
-	LocalRenderInformation localRenderInformation;
+	public LocalRenderInformation localRenderInformation;
 	
 	ListOf<ColorDefinition> listOfColorDefinitions;
 	ListOf<LineEnding> listOfLineEndings;	
@@ -106,7 +106,7 @@ public class SBGNML2SBMLOutput {
 
 	int numOfSpeciesReferenceGlyphErrors = 0;
 	
-	SBGNML2SBMLOutput(int level, int version, String language) {
+	public SBGNML2SBMLOutput(int level, int version, String language) {
 		this.model = new Model(level, version);
 		createLayout();
 		createRenderInformation();

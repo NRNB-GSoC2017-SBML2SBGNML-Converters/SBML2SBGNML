@@ -13,6 +13,5 @@ public class SWrapperLogicOperator {
 	TextGlyph textGlyph;
 	
 	HashMap<String, ReferenceGlyph> referenceGlyphs;
-	
 	HashMap<String, SWrapperArc> logicArcs;
 }

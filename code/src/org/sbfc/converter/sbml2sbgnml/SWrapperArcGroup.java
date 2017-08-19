@@ -34,7 +34,11 @@ public class SWrapperArcGroup {
 	
 	String reactionId;
 	
-	// Process Node
+	/**
+	 * The Arcgroup is ReactionGlyph converted to a Process Node glyph + all the Arcs it is associated with
+	 * @param reactionId
+	 * @param arcGroup
+	 */
 	SWrapperArcGroup(String reactionId, Arcgroup arcGroup){
 		this.reactionId = reactionId;
 		this.arcGroup = arcGroup;

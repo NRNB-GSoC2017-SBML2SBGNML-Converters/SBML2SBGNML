@@ -33,8 +33,10 @@ public class SWrapperMap {
 	HashMap<String, SWrapperGlyphProcess> listOfSWrapperGlyphProcesses;
 	HashMap<String, SWrapperAuxiliary> listOfSWrapperAuxiliary;
 	
+	// all the child glyphs (e.g. unit of information) that are going to be added to they parent in the end of the conversion
 	HashMap<String, String> notAdded = new HashMap<String, String>();
 	
+	// all the glyphs added to the Map
 	HashMap<String, Glyph> listOfGlyphs = new HashMap<String, Glyph>();
 	
 	SWrapperMap(Map map, Model model){
@@ -57,7 +59,11 @@ public class SWrapperMap {
 		listOfSWrapperAuxiliary = new HashMap<String, SWrapperAuxiliary>();
 	}
 
-	
+	/**
+	 * Find the glyph with the id
+	 * @param id
+	 * @return
+	 */
 	Glyph getGlyph(String id){
 		for (String key : listOfSWrapperGlyphEntityPools.keySet()){
 			if (key.equals(id)){
@@ -71,7 +77,6 @@ public class SWrapperMap {
 					return g;
 				}
 			}
-			
 		}
 		
 		for (String key : listOfSWrapperAuxiliary.keySet()){
@@ -80,11 +85,14 @@ public class SWrapperMap {
 				return listOfSWrapperAuxiliary.get(key).glyph;
 			}
 		}
-		
 		return null;
 	}
 
-
+	/**
+	 * Find the arc with the id
+	 * @param id
+	 * @return
+	 */
 	public Arc getArc(String id) {
 		for (String key : listOfSWrapperArcs.keySet()){
 			if (key.equals(id)){
@@ -99,7 +107,6 @@ public class SWrapperMap {
 					return a;
 				}
 			}
-			
 		}		
 		return null;
 	}

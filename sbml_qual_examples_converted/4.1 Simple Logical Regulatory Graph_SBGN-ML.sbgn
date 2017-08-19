@@ -62,46 +62,72 @@
   </apply>
 </math>
     </extension>
-    <map>
+    <map language="process description">
         <glyph class="unspecified entity" id="sGlyph_A">
-            <label text="A"/>
+            <extension/>
+            <label text="A">
+                <bbox w="50.0" h="50.0" x="300.0" y="100.0"/>
+            </label>
             <bbox w="50.0" h="50.0" x="300.0" y="100.0"/>
         </glyph>
         <glyph class="unspecified entity" id="sGlyph_B">
-            <label text="B"/>
+            <extension/>
+            <label text="B">
+                <bbox w="50.0" h="50.0" x="300.0" y="200.0"/>
+            </label>
             <bbox w="50.0" h="50.0" x="300.0" y="200.0"/>
         </glyph>
         <glyph class="unspecified entity" id="sGlyph_C">
-            <label text="C"/>
+            <extension/>
+            <label text="C">
+                <bbox w="50.0" h="50.0" x="100.0" y="200.0"/>
+            </label>
             <bbox w="50.0" h="50.0" x="100.0" y="200.0"/>
         </glyph>
         <arcgroup class="rGlyph_AA1">
+            <glyph class="unspecified entity" id="rGlyph_AA1">
+                <bbox w="0.0" h="0.0" x="0.0" y="0.0"/>
+            </glyph>
             <arc class="catalysis">
                 <start x="315.0" y="105.0"/>
+                <next x="325.0" y="55.0"/>
                 <next x="325.0" y="55.0"/>
                 <end x="335.0" y="95.0"/>
             </arc>
         </arcgroup>
         <arcgroup class="rGlyph_AA0">
+            <glyph class="unspecified entity" id="rGlyph_AA0">
+                <bbox w="0.0" h="0.0" x="0.0" y="0.0"/>
+            </glyph>
             <arc class="inhibition">
                 <start x="345.0" y="115.0"/>
+                <next x="395.0" y="125.0"/>
                 <next x="395.0" y="125.0"/>
                 <end x="355.0" y="135.0"/>
             </arc>
         </arcgroup>
         <arcgroup class="rGlyph_AB">
+            <glyph class="unspecified entity" id="rGlyph_AB">
+                <bbox w="0.0" h="0.0" x="0.0" y="0.0"/>
+            </glyph>
             <arc class="catalysis">
                 <start x="325.0" y="150.0"/>
                 <end x="325.0" y="200.0"/>
             </arc>
         </arcgroup>
         <arcgroup class="rGlyph_BC">
+            <glyph class="unspecified entity" id="rGlyph_BC">
+                <bbox w="0.0" h="0.0" x="0.0" y="0.0"/>
+            </glyph>
             <arc class="catalysis">
                 <start x="300.0" y="225.0"/>
                 <end x="150.0" y="225.0"/>
             </arc>
         </arcgroup>
         <arcgroup class="rGlyph_CA">
+            <glyph class="unspecified entity" id="rGlyph_CA">
+                <bbox w="0.0" h="0.0" x="0.0" y="0.0"/>
+            </glyph>
             <arc class="catalysis">
                 <start x="125.0" y="200.0"/>
                 <end x="300.0" y="125.0"/>

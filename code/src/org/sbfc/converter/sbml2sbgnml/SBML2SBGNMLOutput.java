@@ -35,6 +35,11 @@ import org.sbml.jsbml.ext.qual.QualModelPlugin;
 import org.sbml.jsbml.ext.qual.QualitativeSpecies;
 import org.sbml.jsbml.ext.qual.Transition;
 
+/**
+ * SBML2SBGNMLOutput contains all data structures retrieved from the SBML Model and the lists to create the output Sbgn document.
+ * @author haoran
+ *
+ */
 public class SBML2SBGNMLOutput {
 	
 	Model sbmlModel;
@@ -63,6 +68,8 @@ public class SBML2SBGNMLOutput {
 	ListOf<SpeciesGlyph> listOfSpeciesGlyphs = null;
 	ListOf<TextGlyph> listOfTextGlyphs = null;		
 		
+	public Layout layout;
+	
 	QualModelPlugin qualModelPlugin = null;
 	public ListOf<QualitativeSpecies> listOfQualitativeSpecies = null;
 	public ListOf<Transition> listOfTransitions = null;
@@ -85,12 +92,11 @@ public class SBML2SBGNMLOutput {
 		listOfInitialAssignments = sbmlModel.getListOfInitialAssignments();
 		listOfRules = sbmlModel.getListOfRules();
 		listOfConstraints = sbmlModel.getListOfConstraints();
-		// this is lost
+		// in this converter, it is hard to represent the information stored in listOfEvents
 		listOfEvents = sbmlModel.getListOfEvents();
 		
 		
 		if (sbmlModel.isSetPlugin("qual")){
-			//System.out.println("isSetPlugin(qual) true");
 			qualModelPlugin = (QualModelPlugin) sbmlModel.getPlugin("qual");
 			
 			System.out.println(" getNumQualitativeSpecies " + qualModelPlugin.getNumQualitativeSpecies());
@@ -128,11 +134,11 @@ public class SBML2SBGNMLOutput {
 			if (layout.isSetListOfCompartmentGlyphs()){
 				listOfCompartmentGlyphs = layout.getListOfCompartmentGlyphs();
 				//System.out.println(" getNumCompartmentGlyphs " + layout.getNumCompartmentGlyphs());
-							}			
+			}			
 			if (layout.isSetListOfSpeciesGlyphs()){
 				listOfSpeciesGlyphs = layout.getListOfSpeciesGlyphs();
 				//System.out.println(" getNumSpeciesGlyphs " + layout.getNumSpeciesGlyphs());
-							}
+			}
 			if (layout.isSetListOfReactionGlyphs()){
 				listOfReactionGlyphs = layout.getListOfReactionGlyphs();
 				//System.out.println(" getNumReactionGlyphs " + layout.getNumReactionGlyphs());
@@ -140,12 +146,12 @@ public class SBML2SBGNMLOutput {
 			if (layout.isSetListOfAdditionalGraphicalObjects()){
 				listOfAdditionalGraphicalObjects = layout.getListOfAdditionalGraphicalObjects();
 				//System.out.println(" getListOfAdditionalGraphicalObjects " + layout.getListOfAdditionalGraphicalObjects().size());
-							}			
+			}			
 			if (layout.isSetListOfTextGlyphs()){
 				listOfTextGlyphs = layout.getListOfTextGlyphs();
 				//System.out.println(" getNumTextGlyphs " + layout.getNumTextGlyphs());
-							}			
-	
+			}	
+			this.layout = layout;
 		}
 				
 	}

@@ -417,7 +417,7 @@ public class SBGNML2SBMLRender {
 		return renderPoint;
 	}
 	
-	public Text createText(double x, double y, 
+	public static Text createText(double x, double y, 
 			boolean absoluteX, boolean absoluteY) {
 		Text text = new Text();
 		
@@ -448,7 +448,7 @@ public class SBGNML2SBMLRender {
 		renderGroup.addElement(text);
 	}
 	
-	public Rectangle createRectangle(double x, double y, 
+	public static Rectangle createRectangle(double x, double y, 
 			double width, double height, 
 			double rx, double ry, 
 			boolean absoluteX, boolean absoluteY, 
@@ -472,7 +472,7 @@ public class SBGNML2SBMLRender {
 		return rectangle;
 	}
 	
-	public Ellipse createEllipse(double cx, double cy, double rx,
+	public static Ellipse createEllipse(double cx, double cy, double rx,
 			boolean absoluteCx, boolean absoluteCy, boolean absoluteRx) {
 		Ellipse ellipse = new Ellipse(3, 1);
 		
@@ -504,7 +504,7 @@ public class SBGNML2SBMLRender {
 		localRenderInformation.addColorDefinition(colorDefinition);		
 	}
 	
-	public void initializeDefaultRenderGroup(RenderGroup renderGroup) {
+	public static void initializeDefaultRenderGroup(RenderGroup renderGroup) {
 		renderGroup.setStroke("black");
 		renderGroup.setStrokeWidth(3);
 		renderGroup.setFillRule(FillRule.NONZERO);

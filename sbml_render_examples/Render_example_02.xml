@@ -1,105 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" level="3" render:required="false" version="1" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1">
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" layout:required="false" level="3" version="1" xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1">
   <model>
     <layout:listOfLayouts xmlns:layout="http://www.sbml.org/sbml/level3/version1/layout/version1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <layout:layout>
-        <render:listOfRenderInformation xmlns:render="http://www.sbml.org/sbml/level3/version1/render/version1" render:versionMajor="1" render:versionMinor="0">
-          <render:renderInformation render:backgroundColor="#FFFFFFFF" render:id="SBGN" render:programName="Ralph Gauges" render:programVersion="1.0">
-            <render:listOfColorDefinitions>
-              <render:colorDefinition render:id="black" render:value="#000000FF"/>
-              <render:colorDefinition render:id="white" render:value="#FFFFFFFF"/>
-            </render:listOfColorDefinitions>
-            <render:listOfLineEndings>
-              <render:lineEnding render:id="productionHead">
-                <layout:boundingBox>
-                  <layout:position layout:x="-10" layout:y="-6"/>
-                  <layout:dimensions layout:height="10" layout:width="14"/>
-                </layout:boundingBox>
-                <render:g render:fill="black" render:stroke="black" render:stroke-width="1.0">
-                  <render:polygon>
-                    <render:listOfElements>
-                      <render:element render:x="0" render:y="0" xsi:type="RenderPoint"/>
-                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="14" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="0" render:y="10" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:polygon>
-                </render:g>
-              </render:lineEnding>
-              <render:lineEnding render:id="catalysisHead">
-                <layout:boundingBox>
-                  <layout:position layout:x="0" layout:y="-7"/>
-                  <layout:dimensions layout:height="14" layout:width="14"/>
-                </layout:boundingBox>
-                <render:g render:stroke="black" render:stroke-width="2.0">
-                  <render:ellipse render:cx="50%" render:cy="50%" render:rx="50%"/>
-                </render:g>
-              </render:lineEnding>
-            </render:listOfLineEndings>
-            <render:listOfStyles>
-              <render:style id="proteinKinaseStyle" render:idList="SpeciesGlyph_ProteinKinase">
-                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="monospace" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="top">
-                  <render:rectangle render:height="100%" render:rx="10" render:ry="10" render:width="100%" render:x="0" render:y="0"/>
-                </render:g>
-              </render:style>
-              <render:style id="proteinStyle" render:idList="SpeciesGlyph_Protein">
-                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
-                  <render:rectangle render:height="100%" render:rx="10" render:ry="10" render:width="100%" render:x="0" render:y="0"/>
-                </render:g>
-              </render:style>
-              <render:style id="proteinPStyle" render:idList="SpeciesGlyph_ProteinP">
-                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
-                  <render:rectangle render:height="100%" render:rx="10" render:ry="10" render:width="90%" render:x="0" render:y="0"/>
-                  <render:ellipse render:cx="90%" render:cy="50%" render:fill="white" render:rx="10"/>
-                </render:g>
-              </render:style>
-              <render:style id="ATPStyle" render:idList="SpeciesGlyph_ATP">
-                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
-                  <render:ellipse render:cx="NaN%" render:cy="50%" render:rx="17"/>
-                </render:g>
-              </render:style>
-              <render:style id="ADPStyle" render:idList="SpeciesGlyph_ADP">
-                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
-                  <render:ellipse render:cx="NaN%" render:cy="50%" render:rx="17"/>
-                </render:g>
-              </render:style>
-              <render:style id="PStyle" render:idList="SpeciesGlyph_P">
-                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="12" render:stroke="black" render:stroke-width="3.0" render:text-anchor="middle" render:vtext-anchor="middle">
-                  <render:ellipse render:cx="50%" render:cy="50%" render:rx="15"/>
-                </render:g>
-              </render:style>
-              <render:style id="reactionGlyphStyle" render:typeList="REACTIONGLYPH">
-                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="0" render:stroke="black" render:stroke-width="2.0">
-                  <render:curve>
-                    <render:listOfElements>
-                      <render:element render:x="0" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="10" render:y="5" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:curve>
-                  <render:curve>
-                    <render:listOfElements>
-                      <render:element render:x="20" render:y="5" xsi:type="RenderPoint"/>
-                      <render:element render:x="30" render:y="5" xsi:type="RenderPoint"/>
-                    </render:listOfElements>
-                                      </render:curve>
-                  <render:rectangle render:height="10" render:width="10" render:x="10" render:y="0"/>
-                </render:g>
-              </render:style>
-              <render:style id="textGlyphStyle" render:typeList="TEXTGLYPH">
-                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="0" render:stroke-width="0.0"/>
-              </render:style>
-              <render:style id="substrateSpeciesReferenceGlyphStyle" render:roleList="sidesubstrate substrate">
-                <render:g font-style="normal" font-weight="normal" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="0" render:stroke="#000000" render:stroke-width="2.0"/>
-              </render:style>
-              <render:style id="productSpeciesReferenceGlyphStyle" render:roleList="product sideproduct">
-                <render:g font-style="normal" font-weight="normal" render:endHead="productionHead" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="0" render:stroke="#000000" render:stroke-width="2.0"/>
-              </render:style>
-              <render:style id="activatorSpeciesReferenceGlyphStyle" render:roleList="activator catalyst">
-                <render:g font-style="normal" font-weight="normal" render:endHead="catalysisHead" render:fill-rule="nonzero" render:font-family="sans-serif" render:font-size="0" render:stroke="black" render:stroke-width="2.0"/>
-              </render:style>
-            </render:listOfStyles>
-          </render:renderInformation>
-        </render:listOfRenderInformation>
         <layout:dimensions layout:height="400" layout:width="450"/>
         <layout:listOfSpeciesGlyphs>
           <layout:speciesGlyph layout:id="SpeciesGlyph_Protein" layout:species="Protein">
@@ -108,7 +11,7 @@
               <layout:dimensions layout:height="40" layout:width="80"/>
             </layout:boundingBox>
           </layout:speciesGlyph>
-          <layout:speciesGlyph layout:id="SpeciesGlyph_ProteinP" layout:species="ProteinP" render:objectRole="phosphorylated">
+          <layout:speciesGlyph layout:id="SpeciesGlyph_ProteinP" layout:species="ProteinP" >
             <layout:boundingBox layout:id="bb2">
               <layout:position layout:x="330" layout:y="230"/>
               <layout:dimensions layout:height="40" layout:width="93"/>
@@ -134,7 +37,7 @@
               </layout:listOfCurveSegments>
             </layout:curve>
             <layout:listOfSpeciesReferenceGlyphs>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Protein" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_Protein" layout:speciesReference="SpeciesReference_Protein" render:objectRole="substrate">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_Protein" layout:role="substrate" layout:speciesGlyph="SpeciesGlyph_Protein" layout:speciesReference="SpeciesReference_Protein" >
                 <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="CubicBezier">
@@ -146,7 +49,7 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_ProteinP" layout:role="product" layout:speciesGlyph="SpeciesGlyph_ProteinP" layout:speciesReference="SpeciesReference_ProteinP" render:objectRole="product">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_ProteinP" layout:role="product" layout:speciesGlyph="SpeciesGlyph_ProteinP" layout:speciesReference="SpeciesReference_ProteinP" >
                 <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="CubicBezier">
@@ -158,7 +61,7 @@
                   </layout:listOfCurveSegments>
                 </layout:curve>
               </layout:speciesReferenceGlyph>
-              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_ProteinKinase" layout:role="activator" layout:speciesGlyph="SpeciesGlyph_ProteinKinase" layout:speciesReference="ModifierSpeciesReference_ProteinKinase" render:objectRole="catalyst">
+              <layout:speciesReferenceGlyph layout:id="SpeciesReferenceGlyph_ProteinKinase" layout:role="activator" layout:speciesGlyph="SpeciesGlyph_ProteinKinase" layout:speciesReference="ModifierSpeciesReference_ProteinKinase" >
                 <layout:curve>
                   <layout:listOfCurveSegments>
                     <layout:curveSegment xsi:type="LineSegment">

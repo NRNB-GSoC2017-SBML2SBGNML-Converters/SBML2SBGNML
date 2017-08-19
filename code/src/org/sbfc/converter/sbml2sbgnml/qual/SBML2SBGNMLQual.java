@@ -27,6 +27,14 @@ import org.xml.sax.SAXException;
 import org.sbml.jsbml.ASTNode;
 import org.sbml.jsbml.AbstractMathContainer;
 
+/**
+ * This class is incomplete, to convert SBML qual to SBGN, please use the SBML2SBGNML_GSOC2017, which is able to convert all the layout
+ * to Sbgn glyphs. However, the clazz of the converted glyphs may not be correct if the target language is SBGN AF. For example, in 
+ * AF, there are many types of modulation arcs (Positive, Negative, Unknown influence), but SBML2SBGNML_GSOC2017 will set all of these 
+ * arcs to "modulation"
+ * @author haoran
+ *
+ */
 public class SBML2SBGNMLQual {
 	
 	public static void toStringDebug(SBML2SBGNML_GSOC2017 sbml2sbgnml){
@@ -34,8 +42,7 @@ public class SBML2SBGNMLQual {
 		ListOf<QualitativeSpecies> listOfQualitativeSpecies = sbml2sbgnml.sOutput.listOfQualitativeSpecies;
 		ListOf<Compartment> listOfCompartments = sbml2sbgnml.sOutput.listOfCompartments;
 		ListOf<Transition> listOfTransitions = sbml2sbgnml.sOutput.listOfTransitions;
-		
-		
+	
 		String id; 
 		String name;
 		String compartmentForSpecies;
