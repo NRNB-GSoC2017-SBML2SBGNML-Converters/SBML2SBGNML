@@ -10,9 +10,12 @@ import org.sbgn.bindings.Arc;
 public class SWrapperArc {
 	public Arc arc;
 	public String arcId;
+	//sourceTargetType tells whether the Arc Source is a Glyph or a Port, and whether the Arc Target is a Glyph or a Port
 	String sourceTargetType;
 	public String arcClazz;
+	//sourceId is the Glyph id of the Source, even if the Arc points to a Port
 	public String sourceId;
+	//targetId is the Glyph id of the Target, even if the Arc points to a Port
 	public String targetId;
 	Object source;
 	Object target;

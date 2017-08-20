@@ -6,6 +6,11 @@ import org.sbgn.bindings.Arc;
 import org.sbml.jsbml.ext.layout.GraphicalObject;
 import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 
+/**
+ * Mapping SBGN Arc->SBML ReferenceGlyph
+ * @author haoran
+ *
+ */
 public class SWrapperReferenceGlyph{
 	public Arc arc;
 	public ReferenceGlyph referenceGlyph;

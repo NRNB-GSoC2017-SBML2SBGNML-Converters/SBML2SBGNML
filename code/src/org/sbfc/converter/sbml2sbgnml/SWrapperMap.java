@@ -14,8 +14,17 @@ import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 import org.sbml.jsbml.ext.layout.TextGlyph;
 
+/**
+ * A SWrapperMap Sbgn.Map wrapper stores the Map as well as lists of glyphs and arcs contained in the Map.
+ * Mapping SBML `Model`+'layout'->SBGN `Map` 
+ * SWrapperMap allows to retrieve information easily without having to search in the Map
+ * SWrapperMap stores SWrapperArc, SWrapperGlyphEntityPool, etc, which are Wrappers for Arc, Entity Pool Glyph, etc.
+ * 
+ * @author haoran
+ *
+ */
 public class SWrapperMap {
-	Map map;
+	//Model contains Species, SpeciesGlyph, Compartment, CompartmentGlyph, etc.
 	Model model;
 	
 	HashMap<String, SpeciesGlyph> listOfWrapperSpeciesGlyphs;
@@ -26,6 +35,10 @@ public class SWrapperMap {
 	HashMap<String, ReferenceGlyph> listOfWrapperReferenceGlyphs;
 	HashMap<String, TextGlyph> listOfTextGlyphs;
 	
+	//Map contains Glyphs: Process Nodes, Entity Pool Nodes, Encapsulations, etc. 
+	//Map contains Arcs and ArcGroups etc.
+	Map map;	
+	
 	HashMap<String, SWrapperArc> listOfSWrapperArcs;
 	HashMap<String, SWrapperArcGroup> listOfSWrapperArcGroups;
 	HashMap<String, SWrapperGlyphEncapsulation> listOfSWrapperGlyphEncapsulations;
@@ -33,10 +46,11 @@ public class SWrapperMap {
 	HashMap<String, SWrapperGlyphProcess> listOfSWrapperGlyphProcesses;
 	HashMap<String, SWrapperAuxiliary> listOfSWrapperAuxiliary;
 	
-	// all the child glyphs (e.g. unit of information) that are going to be added to they parent in the end of the conversion
+	//notAdded contains all the glyphs that are nested inside parent glyphs
+	//all the child glyphs (e.g. unit of information) that are going to be added to they parent in the end of the conversion
 	HashMap<String, String> notAdded = new HashMap<String, String>();
 	
-	// all the glyphs added to the Map
+	//stores all the glyphs added to the Map
 	HashMap<String, Glyph> listOfGlyphs = new HashMap<String, Glyph>();
 	
 	SWrapperMap(Map map, Model model){

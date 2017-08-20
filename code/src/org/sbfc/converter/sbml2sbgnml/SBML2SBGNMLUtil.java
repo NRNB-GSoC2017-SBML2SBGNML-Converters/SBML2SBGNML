@@ -673,7 +673,7 @@ public class SBML2SBGNMLUtil {
 		} if (speciesReferenceRole.equals("sideproduct")) {
 			sbgnClazz = "production";
 		} if (speciesReferenceRole.equals("activator")) {
-			sbgnClazz = "catalysis";
+			sbgnClazz = "stimulation";
 		} if (speciesReferenceRole.equals("inhibitor")) {
 			sbgnClazz = "inhibition";
 		} if (speciesReferenceRole.equals("modifier")) {

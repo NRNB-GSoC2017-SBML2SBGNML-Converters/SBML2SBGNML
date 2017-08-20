@@ -6,6 +6,15 @@ import org.sbml.jsbml.SpeciesReference;
 import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 
+/**
+ * Mapping of SBML->SBGN works as follows:
+ * (case 1) SpeciesReferenceGlyph+SpeciesReference->Arc 
+ * (case 2) SpeciesReferenceGlyph+ModifierSpeciesReference->Arc 
+ * (case 3) ReferenceGlyph->Arc
+ * 
+ * @author haoran
+ *
+ */
 public class SWrapperArc {
 	// does the SWrapperArc contain a SpeciesReferenceGlyph or a ReferenceGlyph?
 	boolean isSpeciesReferenceGlyph = false;
@@ -18,12 +27,14 @@ public class SWrapperArc {
 	boolean hasModifierSpeciesReference = false;
 	ModifierSpeciesReference modifierSpeciesReference = null;
 	
+	// note that not all of the following attributes are being used by the converter
 	Arc arc;
 	String id;
 	String clazz;
 	String reference; // this id could be the "source" or "target" of the arc
 	String glyph; // this id could be the "source" or "target" of the arc
 	
+	// sourceTargetType tells whether the Arc Source is a Glyph or a Port, and whether the Arc Target is a Glyph or a Port
 	// The value must be one of "reactionToSpecies", "speciesToReaction"
 	String sourceTargetType;
 	

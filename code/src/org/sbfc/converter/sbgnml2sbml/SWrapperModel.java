@@ -23,6 +23,7 @@ import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 
 /**
  * A SWrapperModel Model wrapper stores the SBML Model as well as some objects contained in the Model.
+ * Mapping SBGN Map -> SBML Model+'layout'+'render' 
  * Example: Species, Reaction, Compartment, SpeciesGlyph, ReactionGlyph, CompartmentGlyph, etc. and their
  * corresponding glyphs in the Sbgn model.
  * SWrapperModel allows to retrieve information easily without having to search in the Model

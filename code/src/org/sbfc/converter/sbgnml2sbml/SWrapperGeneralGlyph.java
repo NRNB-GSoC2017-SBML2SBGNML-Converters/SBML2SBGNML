@@ -12,6 +12,17 @@ import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 import org.sbml.jsbml.ext.layout.TextGlyph;
 
+/**
+ * SWrapperGeneralGlyph maps SBGN arcs and glyphs to a single SBML GeneralGlyph
+ * (case 1) Mapping SBGN Glyph->SBML GeneralGlyph+TextGlyph or
+ * (case 2) Mapping SBGN Arc->SBML GeneralGlyph or
+ * (case 3) Mapping multiple SBGN Glyphs+Arcs->SBML GeneralGlyph+TextGlyph
+ * arc is the single Arc that maps to the GeneralGlyph (case 2)
+ * arcs stores all Arcs that maps to the GeneralGlyph (case 3)
+ * referenceGlyphs stores all ReferenceGlyphs the GeneralGlyph contains (case 1,2,3)
+ * @author haoran
+ *
+ */
 public class SWrapperGeneralGlyph {
 	public String id;
 	public String clazz;
@@ -19,11 +30,11 @@ public class SWrapperGeneralGlyph {
 	TextGlyph textGlyph;
 	public Glyph glyph;
 	
-	// if we have a units of information or state variable
+	//hasParent true means if we have a units of information or state variable
 	boolean hasParent;
 	GraphicalObject parent;
 		
-	// if we have a logic arc, then there is only a ReferenceGlyph
+	//glyphIsMissing means if we have a logic arc, then there is only a ReferenceGlyph (no SubGlyphs)
 	boolean glyphIsMissing;
 	Arc arc;
 	String sourceId;
@@ -32,6 +43,7 @@ public class SWrapperGeneralGlyph {
 	public HashMap<String, SWrapperArc> arcs = new HashMap<String, SWrapperArc>();
 	HashMap<String, ReferenceGlyph> referenceGlyphs = new HashMap<String, ReferenceGlyph>();
 	
+	//store all the nested glyphs
 	List<GraphicalObject> listOfGeneralGlyphs;
 	
 	SWrapperModel sWrapperModel;

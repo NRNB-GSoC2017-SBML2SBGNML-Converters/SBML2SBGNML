@@ -7,6 +7,11 @@ import org.sbml.jsbml.SpeciesReference;
 import org.sbml.jsbml.ext.layout.GraphicalObject;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 
+/**
+ * Mapping SBGN Arc->SBML SpeciesReference+SpeciesReferenceGlyph
+ * @author haoran
+ *
+ */
 public class SWrapperSpeciesReferenceGlyph{
 	SpeciesReference speciesReference;
 	SpeciesReferenceGlyph speciesReferenceGlyph;

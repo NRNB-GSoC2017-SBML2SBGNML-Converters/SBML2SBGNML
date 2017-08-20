@@ -570,11 +570,11 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		
 		// if still unable to determine a clazz, then try to determine using the speciesReferenceGlyph
 		if (clazz == null){
-			clazz = sUtil.sbu.getOutputFromClass(speciesReferenceGlyph, "unknown influence");
+			clazz = sUtil.sbu.getOutputFromClass(speciesReferenceGlyph, "modulation");
 		}
 		// if unable to determine a clazz using the speciesReferenceGlyph, try SpeciesReference object of speciesReferenceGlyph
-		if (clazz.equals("unknown influence")){
-			clazz = sUtil.sbu.getOutputFromClass(speciesReferenceGlyph.getReferenceInstance(), "unknown influence");
+		if (clazz.equals("modulation")){
+			clazz = sUtil.sbu.getOutputFromClass(speciesReferenceGlyph.getReferenceInstance(), "modulation");
 		}
 		
 		// finally, set the clazz of the Sbgn glyph

@@ -6,7 +6,11 @@ import org.sbgn.bindings.Glyph;
 import org.sbml.jsbml.Compartment;
 import org.sbml.jsbml.ext.layout.CompartmentGlyph;
 
-
+/**
+ * Mapping SBGN Glyph->SBML Compartment+CompartmentGlyph
+ * @author haoran
+ *
+ */
 public class SWrapperCompartmentGlyph {
 	
 	Compartment compartment;

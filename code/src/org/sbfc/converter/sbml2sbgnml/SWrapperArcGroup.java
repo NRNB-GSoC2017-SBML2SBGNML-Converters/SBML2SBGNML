@@ -14,6 +14,22 @@ import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 import org.sbml.jsbml.ext.layout.TextGlyph;
 
+/**
+ * Arcgroup consists of a collection of Arcs and Glyphs Mapping of one SBML->SBGN element works as follows:
+ * (case 1) 
+ * ReactionGlyph+Reaction+TextGlyph->Glyph 
+ * SpeciesReferenceGlyph+SpeciesReference->Arc
+ * (case 2)
+ * ReactionGlyph+Reaction+TextGlyph->Glyph
+ * SpeciesReferenceGlyph+ModifierSpeciesReference->Arc
+ * (case 3)
+ * GeneralGlyph+TextGlyph->Glyph
+ * ReferenceGlyph->Arc
+ * (case 1,2,3) A GeneralGlyph might store subglyphs, they will be stored in speciesGlyphs
+ * 
+ * @author haoran
+ *
+ */
 public class SWrapperArcGroup {
 	boolean isReactionGlyph;
 	ReactionGlyph reactionGlyph;

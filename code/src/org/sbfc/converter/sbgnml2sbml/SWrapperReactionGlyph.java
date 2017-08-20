@@ -11,6 +11,12 @@ import org.sbml.jsbml.ext.layout.Point;
 import org.sbml.jsbml.ext.layout.ReactionGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 
+/**
+ * Mapping SBGN Glyph->SBML Reaction+ReactionGlyph
+ * This class also stores Arcs and the mapped SpeciesReferenceGlyph that this Reaction is associated with.
+ * @author haoran
+ *
+ */
 public class SWrapperReactionGlyph {
 	String reactionId;
 	Reaction reaction;
@@ -25,6 +31,7 @@ public class SWrapperReactionGlyph {
 	HashMap<String, SpeciesReferenceGlyph> speciesReferenceGlyphs = new HashMap<String, SpeciesReferenceGlyph>();
 	
 	// useful if we want to create the center Curve of the reactionGlyph later
+	// listOfEndPoints and listOfStartPoints are the Points that touch the ReactionGlyph
 	List<Point> listOfEndPoints = new ArrayList<Point>();
 	List<Point> listOfStartPoints = new ArrayList<Point>();
 	

@@ -5,6 +5,11 @@ import org.sbml.jsbml.ModifierSpeciesReference;
 import org.sbml.jsbml.SpeciesReference;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 
+/**
+ * Mapping SBGN Arc->SBML ModifierSpeciesReference+SpeciesReferenceGlyph
+ * @author haoran
+ *
+ */
 public class SWrapperModifierSpeciesReferenceGlyph extends SWrapperSpeciesReferenceGlyph {
 	ModifierSpeciesReference speciesReference;
 	SpeciesReferenceGlyph speciesReferenceGlyph;

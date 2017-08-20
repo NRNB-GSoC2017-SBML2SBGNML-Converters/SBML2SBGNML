@@ -11,6 +11,11 @@ import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 import org.sbml.jsbml.ext.layout.TextGlyph;
 
+/**
+ * Mapping SBML Reaction+ReactionGlyph+TextGlyph->SBGN Process Glyph
+ * @author haoran
+ *
+ */
 public class SWrapperGlyphProcess {
 	ReactionGlyph reactionGlyph;
 	Reaction reaction;
@@ -25,6 +30,14 @@ public class SWrapperGlyphProcess {
 	HashMap<String, SpeciesReference> speciesReferences;
 	HashMap<String, ModifierSpeciesReference> modifierSpeciesReferences;
 	
+	/*
+	 * arcs stores Arcs that has either Source or Target pointing to the Glyph, 
+	 * note that this extra information is not part of the Process Glyph
+	 * Mapping of SBML->SBGN works as follows:
+	 * (case 1) SpeciesReferenceGlyph+SpeciesReference->Arc 
+	 * (case 2) SpeciesReferenceGlyph+ModifierSpeciesReference->Arc 
+	 * (case 3) ReferenceGlyph->Arc
+	 */
 	HashMap<String, SWrapperArc> arcs;
 
 	SWrapperGlyphProcess(SWrapperArcGroup processNode, ReactionGlyph reactionGlyph, Reaction reaction, TextGlyph textGlyph, Glyph processNodeGlyph) {
