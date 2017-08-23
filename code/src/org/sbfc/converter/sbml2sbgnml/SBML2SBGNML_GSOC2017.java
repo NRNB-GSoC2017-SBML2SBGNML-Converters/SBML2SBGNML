@@ -136,7 +136,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			createFromReactionGlyphs(sOutput.sbgnObject, sOutput.listOfReactionGlyphs);	
 			
 			// Add nested glyphs inside parent glyphs
-			// Example: add units of information of an Enity Pool glyph
+			// Example: add units of information of an Entity Pool glyph
 			addChildGlyphsToParent();
 			
 			// for converting SBML ReferenceGlyphs to SBGN Arcs:
@@ -1229,6 +1229,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 
 	/**
 	 * Add all the stored child (in notAdded) glyphs to their associated parents, thus adding the child glyph to the output Sbgn Map
+	 * Note that this function is used in a roundtrip conversion.
 	 */
 	private void addChildGlyphsToParent() {
 		
