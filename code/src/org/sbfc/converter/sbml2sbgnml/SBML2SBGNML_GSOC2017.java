@@ -192,7 +192,6 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			
 	/**
 	 * Create multiple SBGN <code>Glyph</code>, each corresponding to an SBML <code>CompartmentGlyph</code>. 
-	 * TODO: many things still need to be handled, see comments below
 	 * 
 	 * @param <code>Sbgn</code> sbgnObject
 	 * @param <code>ListOf<CompartmentGlyph></code> listOfCompartmentGlyphs

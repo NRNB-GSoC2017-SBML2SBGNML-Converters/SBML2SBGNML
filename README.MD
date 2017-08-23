@@ -139,33 +139,163 @@ The mapping diagram is almost identical to `SBML 'layout'+'render' <-> SBGN PD`
 5. `SBML 'qual' <-> SBGN AF`
 ![](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/documentation/SBML2SBGN_%5Bqual_to_AF%5D_MIRIAM%2BSBO.png)
 
-Note 1:
-SBML core <-> SBGN PD
-Logic arc 
-Equivalence arc
-And
-Or
-Not
+The diagrams above were generated using [draw.io](https://www.draw.io/#). The diagrams were stored in XML format in [documentation](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/tree/master/documentation). These can be imported and edited.
+### Note 1:
+For the converter `SBML 'core' <- SBGN PD` and `SBML 'layout' <- SBGN PD`, we have multiple ways to map SBGN 'Logic arc', 'Equivalence arc', 'And', 'Or', 'Not' to SBML 'layout' objects. There are 3 alternatives we have discussed in [Post #10](http://haleyyew-gsoc.blogspot.ca/2017/07/week-10.html) in the blog and in an [Github Issue](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/issues/51). The example that we use is [or-simple.sbgn](https://github.com/sbgn/libsbgn/blob/master/test-files/PD/or-simple.png).
 
-Note 2:
-SBML core <-> SBGN PD
-Event
-Multiple diagrams for different time points
+1. Alternative 1 (incorrect)
+![](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/documentation/or-simple_mapping1.png)
 
-Note 3:
-SBML core <-> SBGN AF
-KineticLaw
+However, we discussed in the blog that this violates the syntax of SBML 'core' and 'layout'. A ModifierSpeciesReference(MSR) cannot participate in 2 reactions. In this case, if the 'OR' glyph is mapped to a Reaction, then MSR would be a Product in the 'OR' Reaction. But then MSR is at the same time a Modifier in the 'Subst->Prod' Reaction.
 
-Note 4:
-SBML qual <-> SBGN AF
-Transition stores FunctionTerm
+2. Alternative 2 (not optimal)
+![](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/documentation/or-simple_mapping2.png)
 
-Note 5:
-Preserving information in SBML core
+If we map the 'OR' glyph to a GeneralGlyph, then we lose many objects in the SBML 'core' model. The 'core' model no longer stores the 2 Logic arcs, the 'OR' glyph, and the Modifier arc. 
+
+3. Alternative 3
+![](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/documentation/or-simple_mapping3.png)
+
+We end up using this option because it allows us to store as many objects in the 'core' model as possible. There is a tradeoff: since we map the 'OR' glyph to a Species+SpeciesGlyph, we cannot draw the center Curve that connects the Arcs. We need to create a separate ReferenceGlyph to mimic the appearance of the center Curve of a ReactionGlyph.
+
+We also lose the 2 Logic arcs in the 'core' model, but we managed to insert an Annotation element for the 2 mapped ReferenceGlyphs that informs to whom they interact with. For example, in one of the ReferenceGlyphs, the Annotation indicates the following:
+```
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph2"/>
+	<rdf:li rdf:resource="glyph3"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+```
+The ReferenceGlyph's 'source' is Species="glyph2" (which is Enzym2), and the 'target' is Species="glyph3" (which is 'OR').
+
+The converted SBML model for or-simple.sbgn is [or-simple_SBML.xml](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/sbgnml_pd_examples_converted/or-simple_SBML.xml).
+
+### Note 2:
+For the converter `SBML 'core' -> SBGN PD`, we were concerned with not being able to store any 'layout' information contained inside an Event object in SBML 'core'. The approach that we plan to use, in the case where an Event changes the state of Species and Reactions, is to store multiple diagrams for different time points. An example is given below. This example was taken from [7.11 Example involving events](http://sbml.org/Special/specifications/sbml-level-3/version-1/core/release-2/sbml-level-3-version-1-core-release-2.pdf) in the SBML 'core' specification (with slight modifications).
+![](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/documentation/note2.png)
+Consider a system with two genes, G1 and G2. G1 is initially on and G2 is initially off. When G1 is turned on, the two genes, together, lead to the production of two products, P1 and P2. When P1 reaches a given concentration (by some other reactions), G2 switches on.
+
+This idea has not been tested due to the lack of examples and a lack of time.
+
+### Note 3:
+For the converter `SBML 'core' <- SBGN AF`, we are concerned with how to map SBGN 'Logic arc', 'Equivalence arc', 'And', 'Or', 'Not' to SBML 'layout' objects to SBML KineticLaw. We found that KineticLaw might be a suitable candidate, however there will not be a Reaction in the 'core' model. For example, consider the SBGN model [compartment_extended.sbgn](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/sbgnml_af_examples/compartment_extended.sbgn):
+![compartment_extended.sbgn](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/sbgnml_af_examples/compartment_extended.png)
+The KineticLaw that describes the Logic circuit network from the "co-repressor", "co-activator", and the "RNA polymerase" to the "Gene transcription" is the following:
+```
+          <kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <or/>
+                <apply>
+                  <and/>
+                  <ci> g2 </ci>
+                  <ci> g3 </ci>
+                </apply>
+                <ci> g6 </ci>
+              </apply>
+            </math>
+          </kineticLaw>
+```
+The initial values of g2, g3, and g6 must be either True or False. This idea was not implemented due to the lack of time, however, the idea in Note 4 was implemented. 
+
+### Note 4:
+For the converter `SBML 'qual' <-> SBGN AF`, we mapped SBGN 'Logic arc', 'Equivalence arc', 'And', 'Or', 'Not' to SBML 'qual' Transition, which stores a FunctionTerm. The example we worked with was [compartment_extended.sbgn](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/sbgnml_af_examples/compartment_extended.sbgn), it was converted using [SBGNML2SBMLQual.java](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/code/src/org/sbfc/converter/sbgnml2sbml/qual/SBGNML2SBMLQual.java). The converted SBML 'qual' model was [compartment_extended_SBML+qual.xml](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/sbgnml_af_examples_converted/compartment_extended_SBML%2Bqual.xml). Notice how the Logic circuit network was mapped to the following Transition:
+```
+      <qual:transition qual:id="g7">
+        <qual:listOfInputs>
+          <qual:input qual:id="Input_g2_in_g7" qual:qualitativeSpecies="g2" qual:transitionEffect="none"/>
+          <qual:input qual:id="Input_g3_in_g7" qual:qualitativeSpecies="g3" qual:transitionEffect="none"/>
+          <qual:input qual:id="Input_g6_in_g7" qual:qualitativeSpecies="g6" qual:transitionEffect="none"/>
+        </qual:listOfInputs>
+        <qual:listOfOutputs>
+          <qual:output qual:id="Output_g5_in_g7" qual:qualitativeSpecies="g5" qual:transitionEffect="assignmentLevel"/>
+        </qual:listOfOutputs>
+        <qual:listOfFunctionTerms>
+          <qual:defaultTerm qual:resultLevel="1">
+          </qual:defaultTerm>
+          <qual:functionTerm qual:resultLevel="0">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <or/>
+                <apply>
+                  <and/>
+                  <ci> Input_g2_in_g7 </ci>
+                  <ci> Input_g3_in_g7 </ci>
+                </apply>
+                <ci> Input_g6_in_g7 </ci>
+              </apply>
+            </math>
+          </qual:functionTerm>
+        </qual:listOfFunctionTerms>
+      </qual:transition>
+```
+
+### Note 5:
+Since SBGN and SBML are not semantically equivalent, we cannot perform a one-to-one mapping between SBGN objects and SBML objects. However, we aim to preserve the information in some way so that it can be restored once we perform a roundtrip conversion. That is, we aim to preserve:
+1. information in SBML 'core' that cannot be mapped directly to SBGN objects, and 
+2. information in SBGN objects that cannot be mapped directly to SBML 'core'. 
+
+#### 1. 
+For example, as we discussed in [Post #14](http://haleyyew-gsoc.blogspot.ca/2017/08/week-14.html) in the blog, if we have the following listOfUnitDefinitions in SBML,
+```
+    <listOfUnitDefinitions>
+      <unitDefinition id="per_second">
+        <listOfUnits>
+          <unit exponent="-1" kind="second" />
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="litre_per_mole_per_second">
+        <listOfUnits>
+          <unit exponent="-1" kind="mole" />
+          <unit exponent="1" kind="litre" />
+          <unit exponent="-1" kind="second" />
+        </listOfUnits>
+      </unitDefinition>
+</listOfUnitDefinitions>
+```
+The UnitDefinitions will be preserved as SBGN Extension elements like the following:
+```
+    <extension>
+        <sbfcanno:unitDefinition xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:name="">
+            <sbfcanno:kindSECOND sbfcanno:exponent="-1.0" sbfcanno:kind="SECOND" sbfcanno:multiplier="1.0" sbfcanno:scale="0"/>
+        </sbfcanno:unitDefinition>
+        <sbfcanno:unitDefinition xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:name="">
+            <sbfcanno:kindMOLE sbfcanno:exponent="-1.0" sbfcanno:kind="MOLE" sbfcanno:multiplier="1.0" sbfcanno:scale="0"/>
+            <sbfcanno:kindLITRE sbfcanno:exponent="1.0" sbfcanno:kind="LITRE" sbfcanno:multiplier="1.0" sbfcanno:scale="0"/>
+            <sbfcanno:kindSECOND sbfcanno:exponent="-1.0" sbfcanno:kind="SECOND" sbfcanno:multiplier="1.0" sbfcanno:scale="0"/>
+        </sbfcanno:unitDefinition>
+</extension>
+```
+#### 2.
+In an SBGN Arc, the we cannot directly map the Arc.source and Arc.target attributes. However, we can preserve the values by using the Miriam Qualifiers. For example, 
+```
+<arc target="glyph23.1" source="glyph13" id="arc18" class="logic arc">...</arc>
+```
+The source and target glyph id would be stored in a CVTerm in the Annotation element.
+```
+        <annotation>
+	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+	<rdf:Description rdf:about="#e9d8584d-c080-43fd-99d2-b2f2233186a7">
+	<bqbiol:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="glyph13"/>
+	<rdf:li rdf:resource="glyph23"/>
+	</rdf:Bag>
+	</bqbiol:hasProperty>
+	</rdf:Description>
+	</rdf:RDF>
+	</annotation>
+```
+However, using the Miriam Qualifiers could cause a conflict with an existing Annotation that already uses the Qualifiers. A custom annotation should be created to store these preserved information, but this was not implemented. So far, the following Biology Qualifiers were used:
+1. `Qualifier.BQB_IS_VERSION_OF` to store the Glyph.clazz or Arc.clazz attribute
+2. `Qualifier.BQB_HAS_PROPERTY` to store the Arc.source and Arc.target attributes
+3. `Qualifier.BQB_IS_PART_OF` to store the parent-child relationship between glyphs. Consider a complex containing many macromolecules. Then a macromolecule is part of the complex.
 
 ## Wrappers for mapping
 
 ### Mapping "SBML Layout glyphs" to "SBGN ML Glyphs" using Wrappers
+The wrappers were created to store meta information for an object in SBGN or in SBML. For example, in SBGN, a SWrapperArc was created for an Arc. The SWrapperArc stores the Arc, and because we use the Arc.source and Arc.target attributes in the SBGN->SBML conversion, the Object referenced by Arc.source and Arc.target need to be known. However we do not know the identity of the objects directly from Arc.source and Arc.target, we need to do some computations to find out the identities. We store the identities in SWrapperArc, so that we do not need to recompute the identities in the future, and we can retrieve the values easily from SWrapperArc. Most of the wrappers below are not as useful as expected, we hope that they may become more useful in the future as the converter gets more complex.
 
 #### 1.1 SWrapperMap
 ```
@@ -478,35 +608,57 @@ public class SWrapperReferenceGlyph{
 Mapping SBGN `Arc`->SBML `ReferenceGlyph`
 
 ## Information Lost:
+### SBML->SBGN
+1. Most of the mathematical formula of the SBML model are ignored, only the reaction layout is converted.
+2. FunctionDefinition,UnitDefinition,Parameters,InitialAssignment,Rule,Constraint,Event
+3. Attributes of Species, Reaction, Compartment, SpeciesReference, and ModifierSpeciesReference
+### SBGN->SBML
+1. The source and target reference of an Arc 
+2. compartmentRef of a Glyph
 
 ## Problems
-### Problem 1:
-SBML layout <-> SBGN PD
-See Note 1
+The problems listed here also have a TODO task in the converter code. Please refer to the TODO tasks for detailed information.
+### Problem 1: SBML layout <- SBGN PD
+See Note 1 in [Mapping diagrams](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/wiki/Mapping-diagrams)
 
-### Problem 2:
-SBGN Clone markers cannot display text.
+### Problem 2: SBML layout+render <- SBGN PD
+SBGN Clone markers cannot display text. See the 'labeledCloneMarker.sbgn' example in [Post #12](http://haleyyew-gsoc.blogspot.ca/2017/07/week-12.html) in the blog.
 
-### Problem 3:
-Does not consider the Glyph.orientation of the SBGN glyphs. 
+### Problem 3: SBML layout+render <- SBGN PD
+Does not consider the Glyph.orientation of the SBGN glyphs when creating 'layout', therefore Points that are not specified explicitly may get misplaced. See SBGNML2SBMLRender.findObjectRole for details.
 
-### Problem 4:
+### Problem 4: SBML layout <- SBGN PD
 We assume in SBGNML, Arc.start=Arc.source, Arc.end=Arc.target, but this might not be true. See SBGNML2SBML_GSOC2017.createOneModifierSpeciesReferenceGlyph for details.
 
-### Problem 5:
+### Problem 5: SBML layout <- SBGN PD
 Assume in SBML, ReferenceGlyph.glyph is SpeciesGlyph, ReferenceGlyph.reference is a ReactionGlyph, see SBGNML2SBML_GSOC2017.createOneReferenceGlyph for details.
 
-### Problem 6:
-Ordering of compartments
+### Problem 6: SBML layout+render <- SBGN PD
+Ordering of CompartmentGlyphs is incorrect if rendered using the 'render' package. See [Post #12](http://haleyyew-gsoc.blogspot.ca/2017/07/week-12.html) in the blog and [GitHub Issue](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/issues/47) for details.
 
-### Problem 7:
-See note 2
+### Problem 7: SBML 'core' -> SBGN PD
+See Note 2 in [Mapping diagrams](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/wiki/Mapping-diagrams)
 
-### Problem 8:
-See note 3
+### Problem 8: SBML 'core' <- SBGN AF
+See Note 3 in [Mapping diagrams](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/wiki/Mapping-diagrams)
 
-### Problem 9:
-See note 4
+### Problem 9: SBML 'qual' <-> SBGN AF
+See Note 4 in [Mapping diagrams](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/wiki/Mapping-diagrams)
 
-### Problem 10:
-See note 5
+### Problem 10: Preserving information in models
+See Note 5 in [Mapping diagrams](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/wiki/Mapping-diagrams)
+
+### Problem 11:
+When converting Species, all Species are placed in the DefaultCompartment. Need to check compartmentRef of the Sbgn glyph to find out which SBML compartment to contain the Species. See SBGNML2SBMLUtil.createDefaultCompartment for details.
+
+### Problem 12:
+Cannot find the correct 'clazz' for the Arc if we convert from SBML to SBGN AF. This is because there is only one type of Modulation in SBML, but there are many more 'clazz' for Modulation arcs in SBGN. See SBML2SBGNMLUtil.searchForReactionRole and SBML2SBGNML_GSOC2017.mapObjectRoleToClazz for details.
+
+### Problem 13:
+The splitting pattern to parse the id of an SBGN object is not correct, need a better splitting pattern. See SBML2SBGNML_GSOC2017.checkParentChildGlyph for details.
+
+### Problem 14:
+The architecture of SWrapperGlyphEntityPool needs to be changed. See SBML2SBGNML_GSOC2017.addCloneMarkers for details.
+
+### Problem 15: Rendering Styles for SBML
+See the problems in [Post #15](http://haleyyew-gsoc.blogspot.ca/2017/08/week-15.html) for details.
