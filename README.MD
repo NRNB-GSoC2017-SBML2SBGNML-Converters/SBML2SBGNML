@@ -1,8 +1,8 @@
 # SBML-SBGNML Converters
-Welcome to the SBML2SBGNML wiki!
-GSoC project link: https://summerofcode.withgoogle.com/projects/#6351966180474880
-Blog link: https://haleyyew-gsoc.blogspot.ca/
-Repository link: https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML
+Welcome to the SBML2SBGNML wiki! \
+GSoC project link: https://summerofcode.withgoogle.com/projects/#6351966180474880 \
+Blog link: https://haleyyew-gsoc.blogspot.ca/ \
+Repository link: https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML \
 
 ## What is SBML2SBGNML?
 SBML2SBGNML is a converter between two XML-based file formats: SBML and SBGNML. SBML2SBGNML converts SBML files to SBGNML and vice versa. Both SBML and SBGNML are used by systems biology researchers to store graph-based diagrams (i.e. diagrams that consists of nodes and edges). The diagrams are generated as part of a research publication that serve as a simplification of the underlying models in order to communicate with non-experts, however, the main research results are the detailed models (containing formulas such as reaction rates of interacting species). For more information, please see the list of readings in [Post #1](http://haleyyew-gsoc.blogspot.ca/2017/05/greetings-to-google-summer-of-code.html) of the project's blog.
