@@ -1,0 +1,1 @@
+All .xml files were converted from the examples in `/sbgnml_pd_examples`. The images in `examples_converted_images_old` are outdated. The `SBGN-PD_all_SBML_SBGN-ML.sbgn` output is converted from `SBGN-PD_all_SBML.xml` to test for SBGN->SBML->SBGN roundtrip conversion.

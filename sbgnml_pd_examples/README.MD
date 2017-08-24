@@ -1,0 +1,1 @@
+All examples in `/sbgnml_pd_examples` were taken from [libsbgn/test-files/PD](https://github.com/sbgn/libsbgn/tree/master/test-files/PD). The purpose of these examples are to test the `SBML 'layout'+'render' <- SBGN PD` converter.

@@ -1,0 +1,2 @@
+All examples in `/sbgnml_af_examples` were taken from [libsbgn/test-files/AF](https://github.com/sbgn/libsbgn/tree/master/test-files/AF) 
+with the exception of `compartment_extended.sbgn`, which was created by haleyyew. `compartment_extended.sbgn` is a test example for the `SBML 'qual' <-> SBGN AF` converter. The purpose of these examples are to test the `SBML 'layout'+'render' <- SBGN AF` converter.
