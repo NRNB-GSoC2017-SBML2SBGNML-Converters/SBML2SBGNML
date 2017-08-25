@@ -2,26 +2,29 @@ package org.sbfc.converter.sbgnml2sbml;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
+import org.sbfc.converter.GeneralConverter;
+import org.sbfc.converter.exceptions.ConversionException;
+import org.sbfc.converter.exceptions.ReadModelException;
+import org.sbfc.converter.models.GeneralModel;
+import org.sbfc.converter.models.SBGNModel;
+import org.sbfc.converter.models.SBMLModel;
 import org.sbgn.bindings.Arc;
 import org.sbgn.bindings.Arcgroup;
 import org.sbgn.bindings.Bbox;
 import org.sbgn.bindings.Glyph;
-import org.sbgn.bindings.Label;
 import org.sbgn.bindings.Map;
 import org.sbgn.bindings.Port;
 import org.sbgn.bindings.Sbgn;
-import org.sbml.jsbml.ASTNode;
-import org.sbml.jsbml.CVTerm.Qualifier;
-import org.sbml.jsbml.CVTerm.Type;
 import org.sbml.jsbml.Annotation;
 import org.sbml.jsbml.CVTerm;
+import org.sbml.jsbml.CVTerm.Qualifier;
+import org.sbml.jsbml.CVTerm.Type;
 import org.sbml.jsbml.Compartment;
 import org.sbml.jsbml.ModifierSpeciesReference;
 import org.sbml.jsbml.Reaction;
+import org.sbml.jsbml.SBMLDocument;
 import org.sbml.jsbml.SBase;
 import org.sbml.jsbml.Species;
 import org.sbml.jsbml.SpeciesReference;
@@ -37,10 +40,6 @@ import org.sbml.jsbml.ext.layout.ReferenceGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesGlyph;
 import org.sbml.jsbml.ext.layout.SpeciesReferenceGlyph;
 import org.sbml.jsbml.ext.layout.TextGlyph;
-import org.sbfc.converter.GeneralConverter;
-import org.sbfc.converter.exceptions.ConversionException;
-import org.sbfc.converter.exceptions.ReadModelException;
-import org.sbfc.converter.models.GeneralModel;
 
 
 /**
@@ -49,7 +48,7 @@ import org.sbfc.converter.models.GeneralModel;
  * Model elements are added as the converter interprets the input libSBGN Sbgn.Map.
  * @author haoran
  */	
-public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
+public class SBGNML2SBML_GSOC2017  extends GeneralConverter {
 	// A SWrapperModel Model wrapper stores the Model as well as some objects contained in the Model. 
 	// Example: Species, Reaction, Compartment, SpeciesGlyph, ReactionGlyph, CompartmentGlyph, etc.
 	// SWrapperModel allows to retrieve information easily without having to search in the Model
@@ -73,6 +72,12 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	private int productionArcErrors = 0;
 	public String fileName = "";
 		
+	
+	public SBGNML2SBML_GSOC2017() {
+	  
+	}
+	
+	
 	/**
 	 * The constructor.
 	 * Creates 4 helper classes for the converter: SBGNML2SBMLOutput, SBGNML2SBMLUtil, 
@@ -80,11 +85,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	 * @param map: contained in Sbgn
 	 */
 	public SBGNML2SBML_GSOC2017(Map map) {
-		// currently, this converter only works on Version 3 Level 1
-		sOutput = new SBGNML2SBMLOutput(3, 1, map.getLanguage());
-		sUtil = new SBGNML2SBMLUtil(3, 1);
-		sWrapperModel = new SWrapperModel(sOutput.getModel(), map);
-		sRender = new SBGNML2SBMLRender(sWrapperModel, sOutput, sUtil);
+		
 	}
 
 	/**
@@ -93,8 +94,17 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 	 * i.e. each <code>Glyph</code> or <code>Arc</code> of the <code>Map</code> 
 	 * is mapped to some elements of the SBML <code>Model</code>.
 	 */	
-	public void convertToSBML() {
+	public void convertToSBML(Map map) {
 		System.out.println("File: " + fileName);
+		
+		// TODO - we should not be using class variables here so that the class can be used to convert several models at the same time without problems.
+		// this method should just return an SBMLdocument and the sWrapperModel and any other needed variable should be passes as arguments of the methods that need them.
+		
+		// currently, this converter only works on Version 3 Level 1
+        sOutput = new SBGNML2SBMLOutput(3, 1);
+        sUtil = new SBGNML2SBMLUtil(3, 1);
+        sWrapperModel = new SWrapperModel(sOutput.getModel(), map);
+        sRender = new SBGNML2SBMLRender(sWrapperModel, sOutput, sUtil);
 		
 		List<Glyph> listOfGlyphs = sWrapperModel.map.getGlyph();
 		List<Arc> listOfArcs = sWrapperModel.map.getArc();
@@ -1359,7 +1369,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 		// Load a template file containing predefined RenderInformation
 		converter.storeTemplateRenderInformation();
 		// Convert the file
-		converter.convertToSBML();
+		converter.convertToSBML(map);
 				
 		// Write converted SBML file
 		SBGNML2SBMLUtil.writeSbmlFile(sbmlFileNameOutput, converter.sOutput.model);
@@ -1367,8 +1377,23 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 
 	@Override
 	public GeneralModel convert(GeneralModel sbgn) throws ConversionException, ReadModelException {
-		// TODO Auto-generated method stub
-		return null;
+
+	  // this method is the main method to be integrated into SBFC, it will pass an SBGN model wrapped into
+	  // a GeneralModel instance and need to send back the converted SBML model into an other GeneralModel.
+	  
+	  if (sbgn instanceof SBGNModel) {
+	    SBGNModel sbgnSbfcModel = (SBGNModel) sbgn; 
+	    
+	    convertToSBML(sbgnSbfcModel.getSbgnModel().getMap());
+
+	    SBMLDocument sbmlDocument = new SBMLDocument(3, 1);
+        sbmlDocument.setModel(sOutput.model);
+        
+	     return new SBMLModel(sbmlDocument);
+
+	  } else {
+	    throw new ConversionException("We expect an SBGNML model as input, got '" + sbgn.getClass().getSimpleName() + "'.");
+	  }
 	}
 
 	@Override
@@ -1385,14 +1410,12 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter{
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return "SBGNML to SBML";
 	}
 
 	@Override
 	public String getResultExtension() {
-		// TODO Auto-generated method stub
-		return null;
+		return "-sbml.xml";
 	}
 
 }

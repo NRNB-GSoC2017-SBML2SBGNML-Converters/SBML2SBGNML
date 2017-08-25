@@ -11,7 +11,7 @@
 		</tstamp>
 		<property name="Name" value="GSOG 2017 SBML-SBGNML converters"/>
 		<property name="name" value="sbfc-gsoc2017-converters"/>
-		<property name="version" value="0.6"/>
+		<property name="version" value="0.8"/>
 
 		<property name="year" value="${YEAR}"/>
 

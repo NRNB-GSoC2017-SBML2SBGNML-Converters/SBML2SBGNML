@@ -79,9 +79,6 @@ public class SBGNML2SBMLOutput {
 	HashMap<String, String> stylesInModel = new HashMap<String, String>();
 	HashMap<String, String> lineEndingsInModel = new HashMap<String, String>();
 	
-	// Qual
-	QualModelPlugin qualModelPlugin;
-	
 	// keep track of the maximum value for each dimension. In the end, we set these 3 values as the dimensions of the layout
 	// TODO: might be broken
 	Double dimensionX;
@@ -106,15 +103,11 @@ public class SBGNML2SBMLOutput {
 
 	int numOfSpeciesReferenceGlyphErrors = 0;
 	
-	public SBGNML2SBMLOutput(int level, int version, String language) {
+	public SBGNML2SBMLOutput(int level, int version) {
 		this.model = new Model(level, version);
 		createLayout();
 		createRenderInformation();
 		
-		if (language.equals("activity flow")){
-			createQual();
-		}
-					
 		this.dimensionX = 0.0;
 		this.dimensionY = 0.0;
 		this.dimensionZ = 0.0;		
@@ -144,8 +137,8 @@ public class SBGNML2SBMLOutput {
 		this.listOfLineEndings_temp = new ListOf<LineEnding>(3, 1);
 	}
 	
-	private void createQual() {
-		this.qualModelPlugin = (QualModelPlugin) model.getPlugin("qual");
+	private QualModelPlugin getQualModelPlugin() {
+		return (QualModelPlugin) model.getPlugin("qual");
 
 	}
 	
@@ -201,7 +194,7 @@ public class SBGNML2SBMLOutput {
 	}
 	
 	public void addQualitativeSpecies(QualitativeSpecies species) {
-		ListOf<QualitativeSpecies> listOfSpecies = qualModelPlugin.getListOfQualitativeSpecies();
+		ListOf<QualitativeSpecies> listOfSpecies = getQualModelPlugin().getListOfQualitativeSpecies();
 		listOfSpecies.add(species);
 	}
 	
@@ -342,7 +335,7 @@ public class SBGNML2SBMLOutput {
 	}
 	
 	public void addTransition(Transition transition) {
-		qualModelPlugin.addTransition(transition);
+	  getQualModelPlugin().addTransition(transition);
 	}
 	
 	/**
