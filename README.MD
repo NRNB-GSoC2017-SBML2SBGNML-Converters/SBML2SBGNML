@@ -81,7 +81,7 @@ There is an alternative conversion `SBML 'qual' <- SBGN AF` for this example, pl
 
 ## How to run the converters
 1. First, `git clone https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML.git`  
-2. Load the project in `code/` into an IDE such as Eclipse.  
+2. Load the project in `code/` into an IDE such as Eclipse. Add all the jar in /lib to build path. Note: `org.sbgn-m2.jar` is snapshot taken from the most recent commit on github.
 3. Go to the [sbml2sbgnml](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/tree/master/code/src/org/sbfc/converter/sbml2sbgnml) or the [sbgnml2sbml](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/tree/master/code/src/org/sbfc/converter/sbgnml2sbml) directory. Choose the converter to run. 
     1. `SBML 'core' <-> SBGN PD`:
         1. For `SBML 'core' -> SBGN PD`, use [SBML2SBGNML_2011.java](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/code/src/org/sbfc/converter/sbml2sbgnml/SBML2SBGNML_2011.java)
