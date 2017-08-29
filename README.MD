@@ -2,7 +2,7 @@
 Welcome to the SBML2SBGNML wiki! \
 GSoC project link: https://summerofcode.withgoogle.com/projects/#6351966180474880 \
 Blog link: https://haleyyew-gsoc.blogspot.ca/ \
-Repository link: https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML \
+Repository link: https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML 
 
 ## What is SBML2SBGNML?
 SBML2SBGNML is a converter between two XML-based file formats: SBML and SBGNML. SBML2SBGNML converts SBML files to SBGNML and vice versa. Both SBML and SBGNML are used by systems biology researchers to store graph-based diagrams (i.e. diagrams that consists of nodes and edges). The diagrams are generated as part of a research publication that serve as a simplification of the underlying models in order to communicate with non-experts, however, the main research results are the detailed models (containing formulas such as reaction rates of interacting species). For more information, please see the list of readings in [Post #1](http://haleyyew-gsoc.blogspot.ca/2017/05/greetings-to-google-summer-of-code.html) of the project's blog.
@@ -77,11 +77,11 @@ Converted SBML:
 [compartment_extended_SBML.xml](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/sbgnml_af_examples_converted/compartment_extended_SBML.xml)
 ![](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/sbgnml_af_examples_converted/compartment_extended_SBML.jpg)
 
-There is an alternative conversion `SBML 'qual' <- SBGN AF` for this example, please see the **Problems** section of this README.
+There is an alternative conversion `SBML 'qual' <- SBGN AF` for this example, please see Note 4 in the [Mapping diagrams](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/wiki/Mapping-diagrams) section of this README.
 
 ## How to run the converters
 1. First, `git clone https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML.git`  
-2. Load the project in `code/` into an IDE such as Eclipse.  
+2. Load the project in `code/` into an IDE such as Eclipse. Add all the jar in /lib to build path. Note: `org.sbgn-m2.jar` is snapshot taken from the most recent commit on github.
 3. Go to the [sbml2sbgnml](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/tree/master/code/src/org/sbfc/converter/sbml2sbgnml) or the [sbgnml2sbml](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/tree/master/code/src/org/sbfc/converter/sbgnml2sbml) directory. Choose the converter to run. 
     1. `SBML 'core' <-> SBGN PD`:
         1. For `SBML 'core' -> SBGN PD`, use [SBML2SBGNML_2011.java](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/code/src/org/sbfc/converter/sbml2sbgnml/SBML2SBGNML_2011.java)
@@ -89,7 +89,7 @@ There is an alternative conversion `SBML 'qual' <- SBGN AF` for this example, pl
     2. `SBML 'layout'+'render' <-> SBGN PD`:
         1. For `SBML 'layout'+'render' -> SBGN PD`, use [SBML2SBGNML_GSOC2017.java](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/code/src/org/sbfc/converter/sbml2sbgnml/SBML2SBGNML_GSOC2017.java)
         2. For `SBML 'layout'+'render' <- SBGN PD`, use [SBGNML2SBML_GSOC2017.java](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/code/src/org/sbfc/converter/sbgnml2sbml/SBGNML2SBML_GSOC2017.java)
-    3. `SBML 'core' <-> SBGN AF` is at the initial stage of implementation. Please see the **Problems** section of this README.
+    3. `SBML 'core' <-> SBGN AF` is at the initial stage of implementation. Please see Note 3 of the [Mapping diagrams](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/wiki/Mapping-diagrams) section of this README.
     4. `SBML 'layout'+'render' <-> SBGN AF`:
         1. For `SBML 'layout'+'render' -> SBGN AF`, use [SBML2SBGNML_GSOC2017.java](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/code/src/org/sbfc/converter/sbml2sbgnml/SBML2SBGNML_GSOC2017.java), set the `toLanguage` to "activity flow"
         2. For `SBML 'layout'+'render' <- SBGN AF`, use [SBGNML2SBML_GSOC2017.java](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/code/src/org/sbfc/converter/sbgnml2sbml/SBGNML2SBML_GSOC2017.java)
@@ -177,14 +177,14 @@ The converted SBML model for or-simple.sbgn is [or-simple_SBML.xml](https://gith
 ### Note 2:
 For the converter `SBML 'core' -> SBGN PD`, we were concerned with not being able to store any 'layout' information contained inside an Event object in SBML 'core'. The approach that we plan to use, in the case where an Event changes the state of Species and Reactions, is to store multiple diagrams for different time points. An example is given below. This example was taken from [7.11 Example involving events](http://sbml.org/Special/specifications/sbml-level-3/version-1/core/release-2/sbml-level-3-version-1-core-release-2.pdf) in the SBML 'core' specification (with slight modifications).
 ![](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/documentation/note2.png)
-Consider a system with two genes, G1 and G2. G1 is initially on and G2 is initially off. When G1 is turned on, the two genes, together, lead to the production of two products, P1 and P2. When P1 reaches a given concentration (by some other reactions), G2 switches on.
+Consider a system with two genes, G1 and G2. G1 is initially on and G2 is initially off. When G2 is turned on, the two genes, together, lead to the production of two products, P1 and P2. When P1 reaches a given concentration (by some other reactions), G2 switches on.
 
 This idea has not been tested due to the lack of examples and a lack of time.
 
 ### Note 3:
-For the converter `SBML 'core' <- SBGN AF`, we are concerned with how to map SBGN 'Logic arc', 'Equivalence arc', 'And', 'Or', 'Not' to SBML 'layout' objects to SBML KineticLaw. We found that KineticLaw might be a suitable candidate, however there will not be a Reaction in the 'core' model. For example, consider the SBGN model [compartment_extended.sbgn](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/sbgnml_af_examples/compartment_extended.sbgn):
+For the converter `SBML 'core' <- SBGN AF`, we are concerned with how to map SBGN 'Logic arc', 'Equivalence arc', 'And', 'Or', 'Not' to SBML KineticLaw. We found that KineticLaw might be a suitable candidate, however there will not be a Reaction in the 'core' model. For example, consider the SBGN model [compartment_extended.sbgn](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/sbgnml_af_examples/compartment_extended.sbgn):
 ![compartment_extended.sbgn](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/sbgnml_af_examples/compartment_extended.png)
-The KineticLaw that describes the Logic circuit network from the "co-repressor", "co-activator", and the "RNA polymerase" to the "Gene transcription" is the following:
+The KineticLaw that describes the Logic circuit/network from the "co-repressor", "co-activator", and the "RNA polymerase" to the "Gene transcription" is the following:
 ```
           <kineticLaw>
             <math xmlns="http://www.w3.org/1998/Math/MathML">            
@@ -203,7 +203,7 @@ The KineticLaw that describes the Logic circuit network from the "co-repressor",
 The initial values of g2, g3, and g6 must be either True or False. This idea was not implemented due to the lack of time, however, the idea in Note 4 was implemented. 
 
 ### Note 4:
-For the converter `SBML 'qual' <-> SBGN AF`, we mapped SBGN 'Logic arc', 'Equivalence arc', 'And', 'Or', 'Not' to SBML 'qual' Transition, which stores a FunctionTerm. The example we worked with was [compartment_extended.sbgn](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/sbgnml_af_examples/compartment_extended.sbgn), it was converted using [SBGNML2SBMLQual.java](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/code/src/org/sbfc/converter/sbgnml2sbml/qual/SBGNML2SBMLQual.java). The converted SBML 'qual' model was [compartment_extended_SBML+qual.xml](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/sbgnml_af_examples_converted/compartment_extended_SBML%2Bqual.xml). Notice how the Logic circuit network was mapped to the following Transition:
+For the converter `SBML 'qual' <-> SBGN AF`, we mapped SBGN 'Logic arc', 'Equivalence arc', 'And', 'Or', 'Not' to SBML 'qual' Transition, which stores a FunctionTerm. The example we worked with was [compartment_extended.sbgn](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/sbgnml_af_examples/compartment_extended.sbgn), it was converted using [SBGNML2SBMLQual.java](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/code/src/org/sbfc/converter/sbgnml2sbml/qual/SBGNML2SBMLQual.java). The converted SBML 'qual' model was [compartment_extended_SBML+qual.xml](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/blob/master/sbgnml_af_examples_converted/compartment_extended_SBML%2Bqual.xml). Notice how the Logic circuit/network was mapped to the following Transition:
 ```
       <qual:transition qual:id="g7">
         <qual:listOfInputs>
@@ -618,49 +618,50 @@ Mapping SBGN `Arc`->SBML `ReferenceGlyph`
 ### SBGN->SBML
 1. The source and target reference of an Arc 
 2. compartmentRef of a Glyph
+3. and many more
 
 ## Problems
 The problems listed here also have a TODO task in the converter code. Please refer to the TODO tasks for detailed information.
-### Problem 1: SBML layout <- SBGN PD
+### Problem 1: SBML layout <- SBGN PD: mapping SBGN logic objects
 See Note 1 in [Mapping diagrams](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/wiki/Mapping-diagrams)
 
-### Problem 2: SBML layout+render <- SBGN PD
+### Problem 2: SBML layout+render <- SBGN PD: Clone marker text
 SBGN Clone markers cannot display text. See the 'labeledCloneMarker.sbgn' example in [Post #12](http://haleyyew-gsoc.blogspot.ca/2017/07/week-12.html) in the blog.
 
-### Problem 3: SBML layout+render <- SBGN PD
+### Problem 3: SBML layout+render <- SBGN PD: Glyph.orientation
 Does not consider the Glyph.orientation of the SBGN glyphs when creating 'layout', therefore Points that are not specified explicitly may get misplaced. See SBGNML2SBMLRender.findObjectRole for details.
 
-### Problem 4: SBML layout <- SBGN PD
+### Problem 4: SBML layout <- SBGN PD: assumption for Arc attributes
 We assume in SBGNML, Arc.start=Arc.source, Arc.end=Arc.target, but this might not be true. See SBGNML2SBML_GSOC2017.createOneModifierSpeciesReferenceGlyph for details.
 
 ### Problem 5: SBML layout <- SBGN PD
-Assume in SBML, ReferenceGlyph.glyph is SpeciesGlyph, ReferenceGlyph.reference is a ReactionGlyph, see SBGNML2SBML_GSOC2017.createOneReferenceGlyph for details.
+Assume in SBML, ReferenceGlyph.glyph is a SpeciesGlyph, and ReferenceGlyph.reference is a ReactionGlyph, see SBGNML2SBML_GSOC2017.createOneReferenceGlyph for details.
 
-### Problem 6: SBML layout+render <- SBGN PD
+### Problem 6: SBML layout+render <- SBGN PD: Ordering of CompartmentGlyph
 Ordering of CompartmentGlyphs is incorrect if rendered using the 'render' package. See [Post #12](http://haleyyew-gsoc.blogspot.ca/2017/07/week-12.html) in the blog and [GitHub Issue](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/issues/47) for details.
 
-### Problem 7: SBML 'core' -> SBGN PD
+### Problem 7: SBML 'core' -> SBGN PD: Event in SBML core
 See Note 2 in [Mapping diagrams](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/wiki/Mapping-diagrams)
 
-### Problem 8: SBML 'core' <- SBGN AF
+### Problem 8: SBML 'core' <- SBGN AF: mapping SBGN AF logic objects to KineticLaw 
 See Note 3 in [Mapping diagrams](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/wiki/Mapping-diagrams)
 
-### Problem 9: SBML 'qual' <-> SBGN AF
+### Problem 9: SBML 'qual' <-> SBGN AF: mapping SBGN AF logic objects to Transition 
 See Note 4 in [Mapping diagrams](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/wiki/Mapping-diagrams)
 
 ### Problem 10: Preserving information in models
 See Note 5 in [Mapping diagrams](https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML/wiki/Mapping-diagrams)
 
-### Problem 11:
+### Problem 11: SBGN compartmentRef
 When converting Species, all Species are placed in the DefaultCompartment. Need to check compartmentRef of the Sbgn glyph to find out which SBML compartment to contain the Species. See SBGNML2SBMLUtil.createDefaultCompartment for details.
 
-### Problem 12:
+### Problem 12: Incorrect mapping for SBGN AF
 Cannot find the correct 'clazz' for the Arc if we convert from SBML to SBGN AF. This is because there is only one type of Modulation in SBML, but there are many more 'clazz' for Modulation arcs in SBGN. See SBML2SBGNMLUtil.searchForReactionRole and SBML2SBGNML_GSOC2017.mapObjectRoleToClazz for details.
 
-### Problem 13:
-The splitting pattern to parse the id of an SBGN object is not correct, need a better splitting pattern. See SBML2SBGNML_GSOC2017.checkParentChildGlyph for details.
+### Problem 13: Splitting pattern to parse id
+The splitting pattern to parse the id of an SBGN object is not correct (currently, we split by _), need a better splitting pattern. See SBML2SBGNML_GSOC2017.checkParentChildGlyph for details.
 
-### Problem 14:
+### Problem 14: SWrapperGlyphEntityPool
 The architecture of SWrapperGlyphEntityPool needs to be changed. See SBML2SBGNML_GSOC2017.addCloneMarkers for details.
 
 ### Problem 15: Rendering Styles for SBML

@@ -1,0 +1,1 @@
+All examples in `sbml_layout_examples` were taken from the Examples section of the SBML Level 3 Version 1 'qual' specification. The purpose of these examples are to test the `SBML 'qual' -> SBGN PD` converter. Note that only `4.1 Simple Logical Regulatory Graph` was used as a test example. The other 2 examples were not tested.
