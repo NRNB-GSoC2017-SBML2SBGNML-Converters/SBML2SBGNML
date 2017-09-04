@@ -506,13 +506,13 @@ public class SBGNML2SBMLUtil {
 	 * @param labelBbox
 	 * @return
 	 */
-	public TextGlyph createJsbmlTextGlyph(GraphicalObject generalGlyph, String text, Bbox labelBbox) {
+	public static TextGlyph createJsbmlTextGlyph(GraphicalObject generalGlyph, String text, Bbox labelBbox) {
 		TextGlyph textGlyph;
 		String id;
 		BoundingBox boundingBoxText;
 		BoundingBox boundingBoxGeneralGlyph;
 		
-		textGlyph = new TextGlyph(level, version);
+		textGlyph = new TextGlyph(3, 1);
 		id = "TextGlyph_" + generalGlyph.getId();
 		textGlyph.setId(id);
 		textGlyph.setGraphicalObject(generalGlyph);

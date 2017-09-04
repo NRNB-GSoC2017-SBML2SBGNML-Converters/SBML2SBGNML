@@ -77,7 +77,6 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter {
 	  
 	}
 	
-	
 	/**
 	 * The constructor.
 	 * Creates 4 helper classes for the converter: SBGNML2SBMLOutput, SBGNML2SBMLUtil, 
@@ -88,6 +87,22 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter {
 		
 	}
 
+	public SWrapperModel getSWrapperModel(){
+		return sWrapperModel;
+	}
+	
+	public SBGNML2SBMLOutput getSOutput(){
+		return sOutput;
+	}
+	
+	public SBGNML2SBMLUtil getSUtil(){
+		return sUtil;
+	}
+	
+	public SBGNML2SBMLRender getSRender(){
+		return sRender;
+	}
+	
 	/**
 	 * Create all the elements of an SBML <code>Model</code>, 
 	 * these created objects correspond to objects in the <code>Map</code> of <code>Sbgn</code>. 
@@ -144,11 +159,11 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter {
 		sOutput.createCanvasDimensions();
 		
 		// Render all elements currently in the Model Layout
-		sRender.renderCompartmentGlyphs();
-		sRender.renderSpeciesGlyphs();
-		sRender.renderReactionGlyphs();
-		sRender.renderGeneralGlyphs();
-		sRender.renderTextGlyphs();
+		sRender.renderCompartmentGlyphs(sWrapperModel, sOutput);
+		sRender.renderSpeciesGlyphs(sWrapperModel, sOutput);
+		sRender.renderReactionGlyphs(sWrapperModel, sOutput);
+		sRender.renderGeneralGlyphs(sWrapperModel, sOutput);
+		sRender.renderTextGlyphs(sWrapperModel, sOutput);
 		
 		// Fill in missing information of the converted SBML Model objects (such as Species concentrations)
 		sOutput.completeModel();

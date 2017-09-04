@@ -14,6 +14,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 
 import org.sbfc.converter.sbgnml2sbml.qual.SWrapperQualitativeSpecies;
+import org.sbfc.converter.sbml2sbgnml.SBML2SBGNMLUtil;
 import org.sbgn.SbgnUtil;
 import org.sbgn.bindings.Arc;
 import org.sbgn.bindings.Bbox;
@@ -65,17 +66,17 @@ import org.sbml.jsbml.ext.render.VTextAnchor;
  *
  */
 public class SBGNML2SBMLRender {
-	SWrapperModel sWrapperModel;
-	SBGNML2SBMLOutput sOutput;
-	SBGNML2SBMLUtil sUtil;
+//	SWrapperModel sWrapperModel;
+//	SBGNML2SBMLOutput sOutput;
+//	SBGNML2SBMLUtil sUtil;
 	
 	public SBGNML2SBMLRender(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput, SBGNML2SBMLUtil sUtil) {
-		this.sWrapperModel = sWrapperModel;
-		this.sOutput = sOutput;
-		this.sUtil = sUtil;
+//		this.sWrapperModel = sWrapperModel;
+//		this.sOutput = sOutput;
+//		this.sUtil = sUtil;
 	}
 	
-	public void renderGeneralGlyphs() {
+	public void renderGeneralGlyphs(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput) {
 		SWrapperGeneralGlyph sWrapperGeneralGlyph;
 		
 		for (String key : sWrapperModel.listOfWrapperGeneralGlyphs.keySet()){
@@ -87,7 +88,7 @@ public class SBGNML2SBMLRender {
 				Glyph.Entity entity = sWrapperGeneralGlyph.glyph.getEntity();
 				auxiliaryClazz = entity.getName();
 			}
-			LocalStyle localStyle = createStyle(sWrapperGeneralGlyph.generalGlyph, sWrapperGeneralGlyph.clazz+auxiliaryClazz);
+			LocalStyle localStyle = createStyle(sWrapperGeneralGlyph.generalGlyph, sWrapperGeneralGlyph.clazz+auxiliaryClazz, sOutput);
 			
 			// annotation glyphs has an extra callout glyph
 			if (sWrapperGeneralGlyph.isAnnotation) {
@@ -99,33 +100,33 @@ public class SBGNML2SBMLRender {
 				createTriangle(localStyle, startPoint, endPoint1, endPoint2);
 			}
 			
-			renderReferenceGlyphs(sWrapperGeneralGlyph);
+			renderReferenceGlyphs(sWrapperGeneralGlyph, sOutput);
 		}
 		
 		for (String key : sWrapperModel.listOfWrapperReferenceGlyphs.keySet()){
 			SWrapperReferenceGlyph sWrapperReferenceGlyph = sWrapperModel.listOfWrapperReferenceGlyphs.get(key);
 			
-			LocalStyle localStyle = createStyle(sWrapperReferenceGlyph.referenceGlyph, sWrapperReferenceGlyph.arc.getClazz());
+			LocalStyle localStyle = createStyle(sWrapperReferenceGlyph.referenceGlyph, sWrapperReferenceGlyph.arc.getClazz(), sOutput);
 		}
 	}	
 		
-	public void renderCompartmentGlyphs() {
+	public void renderCompartmentGlyphs(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput) {
 		SWrapperCompartmentGlyph sWrapperCompartmentGlyph;
 		
 		// sorting is not needed
 		sWrapperModel.sortCompartmentOrderList();
 		for (String key : sWrapperModel.compartmentOrderList.keySet()){
 			sWrapperCompartmentGlyph = sWrapperModel.getWrapperCompartmentGlyph(key);
-			createStyle(sWrapperCompartmentGlyph.compartmentGlyph, sWrapperCompartmentGlyph.clazz);
+			createStyle(sWrapperCompartmentGlyph.compartmentGlyph, sWrapperCompartmentGlyph.clazz, sOutput);
 
 		}			
 	}
 	
-	public void renderSpeciesGlyphs() {
+	public void renderSpeciesGlyphs(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput) {
 		SWrapperSpeciesGlyph sWrapperSpeciesGlyph;
 		for (String key : sWrapperModel.listOfWrapperSpeciesGlyphs.keySet()){
 			sWrapperSpeciesGlyph = sWrapperModel.getWrapperSpeciesGlyph(key);
-			LocalStyle localStyle = createStyle(sWrapperSpeciesGlyph.speciesGlyph, sWrapperSpeciesGlyph.clazz);
+			LocalStyle localStyle = createStyle(sWrapperSpeciesGlyph.speciesGlyph, sWrapperSpeciesGlyph.clazz, sOutput);
 			
 			if (sWrapperSpeciesGlyph.hasClone){
 				// TODO: broken, need to fix
@@ -135,39 +136,39 @@ public class SBGNML2SBMLRender {
 		SWrapperQualitativeSpecies sWrapperQualitativeSpecies;
 		for (String key : sWrapperModel.listOfSWrapperQualitativeSpecies.keySet()){
 			sWrapperQualitativeSpecies = sWrapperModel.getSWrapperQualitativeSpecies(key);
-			createStyle(sWrapperQualitativeSpecies.speciesGlyph, sWrapperQualitativeSpecies.clazz);
+			createStyle(sWrapperQualitativeSpecies.speciesGlyph, sWrapperQualitativeSpecies.clazz, sOutput);
 		}	
 	}
 	
-	public void renderTextGlyphs() {
+	public void renderTextGlyphs(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput) {
 		
 		for (TextGlyph tg : sOutput.layout.getListOfTextGlyphs()){
 			if (sWrapperModel.textSourceMap.containsKey(tg.getId())){
 				//LocalStyle localStyle = createStyle(tg, "top_text");
-				LocalStyle localStyle = createStyle(tg, "text");
+				LocalStyle localStyle = createStyle(tg, "text", sOutput);
 			} else {
-				LocalStyle localStyle = createStyle(tg, "text");
+				LocalStyle localStyle = createStyle(tg, "text", sOutput);
 			}
 		}
 	}
 		
-	public void renderReactionGlyphs() {
+	public void renderReactionGlyphs(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput) {
 		SWrapperReactionGlyph sWrapperReactionGlyph;
 		for (String key : sWrapperModel.listOfWrapperReactionGlyphs.keySet()){
 			sWrapperReactionGlyph = sWrapperModel.getWrapperReactionGlyph(key);
-			createStyle(sWrapperReactionGlyph.reactionGlyph, sWrapperReactionGlyph.clazz);
-			renderSpeciesReferenceGlyphs(sWrapperReactionGlyph);
+			createStyle(sWrapperReactionGlyph.reactionGlyph, sWrapperReactionGlyph.clazz, sOutput);
+			renderSpeciesReferenceGlyphs(sWrapperReactionGlyph, sOutput);
 			
 			if (sWrapperReactionGlyph.clazz.equals("uncertain process")){
 				Bbox labelBbox = null;
 
-				TextGlyph tg = sUtil.createJsbmlTextGlyph(sWrapperReactionGlyph.reactionGlyph, "?", labelBbox);
+				TextGlyph tg = SBGNML2SBMLUtil.createJsbmlTextGlyph(sWrapperReactionGlyph.reactionGlyph, "?", labelBbox);
 				sOutput.addTextGlyph(tg);
 			}
 		}		
 	}
 	
-	public void renderSpeciesReferenceGlyphs(SWrapperReactionGlyph sWrapperReactionGlyph) {
+	public void renderSpeciesReferenceGlyphs(SWrapperReactionGlyph sWrapperReactionGlyph, SBGNML2SBMLOutput sOutput) {
 		Arc arc;
 		SpeciesReferenceGlyph speciesReferenceGlyph;
 
@@ -175,28 +176,28 @@ public class SBGNML2SBMLRender {
 			speciesReferenceGlyph = sWrapperReactionGlyph.speciesReferenceGlyphs.get(arcKey);
 			arc = sWrapperReactionGlyph.getArc(arcKey);
 
-			createStyle((GraphicalObject) speciesReferenceGlyph, arc);
+			createStyle((GraphicalObject) speciesReferenceGlyph, arc, sOutput);
 		}		
 	}
 	
-	public void renderReferenceGlyphs(SWrapperGeneralGlyph sWrapperGeneralGlyph) {
+	public void renderReferenceGlyphs(SWrapperGeneralGlyph sWrapperGeneralGlyph, SBGNML2SBMLOutput sOutput) {
 		Arc arc;
 		ReferenceGlyph referenceGlyph;
 		for (String arcKey : sWrapperGeneralGlyph.referenceGlyphs.keySet()){
 			referenceGlyph = sWrapperGeneralGlyph.referenceGlyphs.get(arcKey);
 			arc = sWrapperGeneralGlyph.arcs.get(arcKey).arc;
 			
-			createStyle((GraphicalObject) referenceGlyph, arc);
+			createStyle((GraphicalObject) referenceGlyph, arc, sOutput);
 		}		
 	}
 	
-	public LocalStyle createStyle(GraphicalObject graphicalObject, String clazz) {
+	public LocalStyle createStyle(GraphicalObject graphicalObject, String clazz, SBGNML2SBMLOutput sOutput) {
 		RenderGroup renderGroup;
 		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin;
 		LocalRenderInformation localRenderInformation = sOutput.localRenderInformation;
 		Layout layout = sOutput.layout;
 		
-		String styleId = findObjectRole(clazz);
+		String styleId = findObjectRole(clazz, sOutput);
 
 		renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) graphicalObject.getPlugin(RenderConstants.shortLabel);
 		renderGraphicalObjectPlugin.setObjectRole(styleId);		
@@ -210,20 +211,20 @@ public class SBGNML2SBMLRender {
 		return null;
 	}
 	
-	public void createStyle(GraphicalObject graphicalObject, Arc arc) {
+	public void createStyle(GraphicalObject graphicalObject, Arc arc, SBGNML2SBMLOutput sOutput) {
 		RenderGroup renderGroup;
 		LocalStyle localStyle;
 		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin;
 		LocalRenderInformation localRenderInformation = sOutput.localRenderInformation;
 		Layout layout = sOutput.layout;
 		
-		String styleId = findObjectRole(arc.getClazz());
+		String styleId = findObjectRole(arc.getClazz(), sOutput);
 		
 		renderGraphicalObjectPlugin = (RenderGraphicalObjectPlugin) graphicalObject.getPlugin(RenderConstants.shortLabel);
 		renderGraphicalObjectPlugin.setObjectRole(styleId);		
 	}	
 
-	public String findObjectRole(String clazz){
+	public String findObjectRole(String clazz, SBGNML2SBMLOutput sOutput){
 		String styleId = null;
 		
 		// TODO: horizontal or vertical orientation
@@ -488,7 +489,7 @@ public class SBGNML2SBMLRender {
 		return ellipse;
 	}
 	
-	public void createColourDefinitions() {
+	public void createColourDefinitions(SBGNML2SBMLOutput sOutput) {
 		LocalRenderInformation localRenderInformation = sOutput.localRenderInformation;
 		Layout layout = sOutput.layout;
 		
@@ -519,7 +520,7 @@ public class SBGNML2SBMLRender {
 	/**
 	 * For debugging
 	 */
-	public void display() {
+	public void display(SBGNML2SBMLOutput sOutput) {
 		for (LineEnding lineEnding: sOutput.listOfLineEndings) {
 			System.out.println("[renderGeneralGlyphs] lineEnding "+lineEnding.getId());
 		}		
