@@ -87,7 +87,7 @@ public class SBGNML2SBMLUtil {
 		this.version = version;
 	}
 
-	public Boolean isProcessNode(String clazz) {
+	public static Boolean isProcessNode(String clazz) {
 		if (clazz.equals("process")) {
 			return true;
 		} else if (clazz.equals("omitted process")) {
@@ -103,14 +103,14 @@ public class SBGNML2SBMLUtil {
 		}
 	}
 	
-	public Boolean isCompartment(String clazz) {
+	public static Boolean isCompartment(String clazz) {
 		if (clazz.equals("compartment")) {
 			return true;
 		}
 		return false;
 	}
 	
-	public Boolean isLogicOperator(String clazz) {
+	public static Boolean isLogicOperator(String clazz) {
 		if (clazz.equals("and")) {
 			return true;
 		} else if (clazz.equals("or")) {
@@ -123,7 +123,7 @@ public class SBGNML2SBMLUtil {
 		return false;
 	}
 	
-	public boolean isTag(String clazz) {
+	public static boolean isTag(String clazz) {
 		if (clazz.equals("tag")) {
 			return true;
 		} 
@@ -136,14 +136,14 @@ public class SBGNML2SBMLUtil {
 		return false;
 	}	
 	
-	public Boolean isAnnotation(String clazz) {
+	public static Boolean isAnnotation(String clazz) {
 		if (clazz.equals("annotation")) {
 			return true;
 		}
 		return false;
 	}
 	
-	public Boolean isEntityPoolNode(String clazz){
+	public static Boolean isEntityPoolNode(String clazz){
 		if (clazz.equals("unspecified entity")) {
 			return true;
 		} else if (clazz.equals("simple chemical")) {
@@ -181,7 +181,7 @@ public class SBGNML2SBMLUtil {
 		}		
 	}	
 	
-	public Boolean isLogicArc(Arc arc) {
+	public static Boolean isLogicArc(Arc arc) {
 		String clazz = arc.getClazz();
 		if (clazz.equals("logic arc")) {
 			return true;
@@ -191,7 +191,7 @@ public class SBGNML2SBMLUtil {
 		return false;
 	}
 	
-	public Boolean isModifierArc(String clazz) {
+	public static Boolean isModifierArc(String clazz) {
 		if (clazz.equals("stimulation")) {
 			return true;
 		} if (clazz.equals("catalysis")) {
@@ -210,7 +210,7 @@ public class SBGNML2SBMLUtil {
 		} 
 	}
 	
-	public Boolean isConsumptionArc(String clazz) {
+	public static Boolean isConsumptionArc(String clazz) {
 		if (clazz.equals("consumption")) {
 			return true;
 		}
@@ -219,7 +219,7 @@ public class SBGNML2SBMLUtil {
 		} 
 	}
 	
-	public Boolean isProductionArc(String clazz) {
+	public static Boolean isProductionArc(String clazz) {
 		if (clazz.equals("production")) {
 			return true;
 		} else {
@@ -232,7 +232,7 @@ public class SBGNML2SBMLUtil {
 	 * @param clazz
 	 * @return
 	 */
-	public SpeciesReferenceRole findReactionRole(String clazz) {
+	public static SpeciesReferenceRole findReactionRole(String clazz) {
 		SpeciesReferenceRole role = null;
 
 		if (clazz.equals("consumption")) {
@@ -261,7 +261,7 @@ public class SBGNML2SBMLUtil {
 	 * @param sbase
 	 * @param clazz
 	 */
-	public void addSBO(SBase sbase, String clazz){
+	public static void addSBO(SBase sbase, String clazz){
 		int sboTerm = -1;
 		
 		// Entity Pool
@@ -370,7 +370,7 @@ public class SBGNML2SBMLUtil {
 	 * @param clazz
 	 * @param qualifier
 	 */
-	public void addAnnotation(SBase sbase, String clazz, Qualifier qualifier) {
+	public static void addAnnotation(SBase sbase, String clazz, Qualifier qualifier) {
 		Annotation annotation;
 		CVTerm cvTerm;
 		
@@ -390,10 +390,10 @@ public class SBGNML2SBMLUtil {
 	 * @param addSBO
 	 * @return
 	 */
-	public Species createJsbmlSpecies(String speciesId, String name, String clazz, 
+	public static Species createJsbmlSpecies(String speciesId, String name, String clazz, 
 			boolean addAnnotation, boolean addSBO) {
 		Species species;
-		species = new Species(speciesId, name, level, version);
+		species = new Species(speciesId, name, 3, 1);
 		
 		// if no [] info provided
 		species.setInitialConcentration(1.0);
@@ -419,12 +419,12 @@ public class SBGNML2SBMLUtil {
 	 * @param bbox
 	 * @return
 	 */
-	public SpeciesGlyph createJsbmlSpeciesGlyph(String speciesId, String name, String clazz, 
+	public static SpeciesGlyph createJsbmlSpeciesGlyph(String speciesId, String name, String clazz, 
 			Species species, boolean createBoundingBox, Bbox bbox) {
 		SpeciesGlyph speciesGlyph;
 		BoundingBox boundingBox;
 		
-		speciesGlyph = new SpeciesGlyph(level, version);
+		speciesGlyph = new SpeciesGlyph(3, 1);
 		speciesGlyph.setId("SpeciesGlyph_" + speciesId);
 		
 		// QualitativeSpecies is not a Species, so its SpeciesGlyph does not have a Species
@@ -449,11 +449,11 @@ public class SBGNML2SBMLUtil {
 	 * @param bbox
 	 * @return
 	 */
-	public GeneralGlyph createJsbmlGeneralGlyph(String id, boolean createBoundingBox, Bbox bbox) {
+	public static GeneralGlyph createJsbmlGeneralGlyph(String id, boolean createBoundingBox, Bbox bbox) {
 		GeneralGlyph generalGlyph;
 		BoundingBox boundingBox;
 
-		generalGlyph = new GeneralGlyph(level, version);
+		generalGlyph = new GeneralGlyph(3, 1);
 		generalGlyph.setId("GeneralGlyph_" + id);
 		
 		if (createBoundingBox) {
@@ -471,13 +471,13 @@ public class SBGNML2SBMLUtil {
 	 * Create a TextGlyph using values from a <code>SpeciesGlyph</code> and its 
 	 * associated <code>Species</code>.
 	 */		
-	public TextGlyph createJsbmlTextGlyph(NamedSBase species, SpeciesGlyph speciesGlyph, Bbox labelBbox) {
+	public static TextGlyph createJsbmlTextGlyph(NamedSBase species, SpeciesGlyph speciesGlyph, Bbox labelBbox) {
 		TextGlyph textGlyph;
 		String id;
 		BoundingBox boundingBoxText;
 		BoundingBox boundingBoxSpecies;
 		
-		textGlyph = new TextGlyph(level, version);
+		textGlyph = new TextGlyph(3, 1);
 		id = "TextGlyph_" + species.getId();
 		textGlyph.setId(id);
 		textGlyph.setOriginOfText(species);
@@ -544,10 +544,10 @@ public class SBGNML2SBMLUtil {
 	 * @param addSBO
 	 * @return
 	 */
-	public QualitativeSpecies createQualitativeSpecies(String speciesId, String name, String clazz, 
+	public static QualitativeSpecies createQualitativeSpecies(String speciesId, String name, String clazz, 
 			boolean addAnnotation, boolean addSBO) {
 		QualitativeSpecies species;
-		species = new QualitativeSpecies(speciesId, name, level, version);
+		species = new QualitativeSpecies(speciesId, name, 3, 1);
 		
 		if (addAnnotation){
 			addAnnotation(species, clazz, Qualifier.BQB_IS_VERSION_OF);
@@ -564,7 +564,7 @@ public class SBGNML2SBMLUtil {
 	 * @param glyph
 	 * @return
 	 */
-	public String getText(Glyph glyph){
+	public static String getText(Glyph glyph){
 		if (glyph.getLabel() != null) {
 
 			return glyph.getLabel().getText();
@@ -588,7 +588,7 @@ public class SBGNML2SBMLUtil {
 	 * @param glyph
 	 * @return
 	 */
-	public String getClone(Glyph glyph) {
+	public static String getClone(Glyph glyph) {
 		String text = new String();
 		try {
 			Glyph.Clone clone = glyph.getClone();
@@ -613,10 +613,10 @@ public class SBGNML2SBMLUtil {
 	 * @param reactionId
 	 * @return
 	 */
-	public Reaction createJsbmlReaction(String reactionId) {
+	public static Reaction createJsbmlReaction(String reactionId) {
 		Reaction reaction;
 		
-		reaction = new Reaction(level, version);
+		reaction = new Reaction(3, 1);
 		reaction.setId(reactionId);
 				
 		return reaction;
@@ -632,12 +632,12 @@ public class SBGNML2SBMLUtil {
 	 * @param bbox
 	 * @return
 	 */
-	public ReactionGlyph createJsbmlReactionGlyph(String reactionId, String name, String clazz, 
+	public static ReactionGlyph createJsbmlReactionGlyph(String reactionId, String name, String clazz, 
 			Reaction reaction, boolean createBoundingBox, Bbox bbox) {
 		ReactionGlyph reactionGlyph;
 		BoundingBox boundingBox;
 		
-		reactionGlyph = new ReactionGlyph(level, version);
+		reactionGlyph = new ReactionGlyph(3, 1);
 		reactionGlyph.setId("ReactionGlyph_" + reactionId);
 		reactionGlyph.setReaction(reaction);
 		
@@ -657,7 +657,7 @@ public class SBGNML2SBMLUtil {
 	 * @param bbox
 	 * @return
 	 */
-	public Dimensions createDimensions(BoundingBox boundingBox, Bbox bbox){
+	public static Dimensions createDimensions(BoundingBox boundingBox, Bbox bbox){
 		Dimensions dimension;
 		
 		boundingBox.createDimensions(bbox.getW(), bbox.getH(), 0);
@@ -671,7 +671,7 @@ public class SBGNML2SBMLUtil {
 	 * @param bbox
 	 * @return
 	 */
-	public Point createPoint(BoundingBox boundingBox, Bbox bbox){
+	public static Point createPoint(BoundingBox boundingBox, Bbox bbox){
 		Point point;
 		
 		boundingBox.createPosition(bbox.getX(), bbox.getY(), 0);	
@@ -684,7 +684,7 @@ public class SBGNML2SBMLUtil {
 	 * @param graphicalObject
 	 * @param glyph
 	 */
-	public void createBoundingBox(GraphicalObject graphicalObject, Glyph glyph){
+	public static void createBoundingBox(GraphicalObject graphicalObject, Glyph glyph){
 		BoundingBox boundingBox = new BoundingBox();
 		Bbox bbox = glyph.getBbox();
 		
@@ -698,7 +698,7 @@ public class SBGNML2SBMLUtil {
 	 * This Curve has incorrect Start and End Points. 
 	 * The values of the <code>Curve</code> will be modified later;
 	 */	
-	public void createReactionGlyphCurve(ReactionGlyph reactionGlyph, Glyph glyph) {
+	public static void createReactionGlyphCurve(ReactionGlyph reactionGlyph, Glyph glyph) {
 		Curve curve;
 		CurveSegment curveSegment;
 		Point point;
@@ -720,11 +720,11 @@ public class SBGNML2SBMLUtil {
 	 * @param speciesReferenceId
 	 * @return
 	 */
-	public SpeciesReference createSpeciesReference(Reaction reaction, Species species, 
+	public static SpeciesReference createSpeciesReference(Reaction reaction, Species species, 
 			String speciesReferenceId) {
 		SpeciesReference speciesReference;
 		
-		speciesReference = new SpeciesReference(level, version);
+		speciesReference = new SpeciesReference(3, 1);
 		speciesReference.setId(speciesReferenceId);
 		speciesReference.setSpecies(species);
 	
@@ -738,11 +738,11 @@ public class SBGNML2SBMLUtil {
 	 * @param speciesReferenceId
 	 * @return
 	 */
-	public ModifierSpeciesReference createModifierSpeciesReference(Reaction reaction, Species species, 
+	public static ModifierSpeciesReference createModifierSpeciesReference(Reaction reaction, Species species, 
 			String speciesReferenceId) {
 		ModifierSpeciesReference speciesReference;
 		
-		speciesReference = new ModifierSpeciesReference(level, version);
+		speciesReference = new ModifierSpeciesReference(3, 1);
 		speciesReference.setId(speciesReferenceId);
 		speciesReference.setSpecies(species);
 	
@@ -756,9 +756,9 @@ public class SBGNML2SBMLUtil {
 	 * @param outputQualitativeSpecies
 	 * @return
 	 */
-	public Transition createTransition(String id, 
+	public static Transition createTransition(String id, 
 			QualitativeSpecies inputQualitativeSpecies, QualitativeSpecies outputQualitativeSpecies){
-		Transition transition = new Transition(level, version);
+		Transition transition = new Transition(3, 1);
 		Input input;
 		Output output;
 		String inputId;
@@ -796,8 +796,8 @@ public class SBGNML2SBMLUtil {
 	 * @param id
 	 * @return
 	 */
-	public Transition createTransition(String id){
-		Transition transition = new Transition(id, level, version);
+	public static Transition createTransition(String id){
+		Transition transition = new Transition(id, 3, 1);
 		
 		return transition;
 	}
@@ -808,7 +808,7 @@ public class SBGNML2SBMLUtil {
 	 * @param inputQualitativeSpecies
 	 * @return
 	 */
-	public Input addInputToTransition(Transition transition, QualitativeSpecies inputQualitativeSpecies){
+	public static Input addInputToTransition(Transition transition, QualitativeSpecies inputQualitativeSpecies){
 		Input input;
 		String inputId;		
 
@@ -825,7 +825,7 @@ public class SBGNML2SBMLUtil {
 	 * @param outputQualitativeSpecies
 	 * @return
 	 */
-	public Output addOutputToTransition(Transition transition, QualitativeSpecies outputQualitativeSpecies){
+	public static Output addOutputToTransition(Transition transition, QualitativeSpecies outputQualitativeSpecies){
 		Output output;
 		String outputId;
 		
@@ -843,7 +843,7 @@ public class SBGNML2SBMLUtil {
 	 * @param resultLevel
 	 * @return
 	 */
-	public FunctionTerm addFunctionTermToTransition(Transition transition, boolean setDefaultTerm, int resultLevel){
+	public static FunctionTerm addFunctionTermToTransition(Transition transition, boolean setDefaultTerm, int resultLevel){
 		FunctionTerm functionTerm;
 		
 		functionTerm = new FunctionTerm();
@@ -860,7 +860,7 @@ public class SBGNML2SBMLUtil {
 	 * @param type
 	 * @return
 	 */
-	public ASTNode createMath(ASTNode parentMath, String type){
+	public static ASTNode createMath(ASTNode parentMath, String type){
 		//ASTNode math = functionTerm.getMath();
 		ASTNode math = null;
 
@@ -883,7 +883,7 @@ public class SBGNML2SBMLUtil {
 	 * @param mathContainer
 	 * @return
 	 */
-	public ASTNode createMath(String type, FunctionTerm mathContainer){
+	public static ASTNode createMath(String type, FunctionTerm mathContainer){
 		//ASTNode math = functionTerm.getMath();
 		ASTNode math = null;
 
@@ -911,11 +911,11 @@ public class SBGNML2SBMLUtil {
 	 * @param <code>Glyph</code> speciesGlyph
 	 * @return <code>SpeciesReferenceGlyph</code> speciesReferenceGlyph
 	 */		
-	public SpeciesReferenceGlyph createOneSpeciesReferenceGlyph(String id, Arc arc, 
+	public static SpeciesReferenceGlyph createOneSpeciesReferenceGlyph(String id, Arc arc, 
 			SimpleSpeciesReference speciesReference, Glyph speciesGlyph, SBGNML2SBMLOutput sOutput) {
 		SpeciesReferenceGlyph speciesReferenceGlyph;
 		
-		speciesReferenceGlyph = new SpeciesReferenceGlyph(level, version);
+		speciesReferenceGlyph = new SpeciesReferenceGlyph(3, 1);
 		speciesReferenceGlyph.setId("SpeciesReferenceGlyph_"+id);
 		speciesReferenceGlyph.setRole(findReactionRole(arc.getClazz()));
 		speciesReferenceGlyph.setSpeciesGlyph("SpeciesGlyph_"+speciesGlyph.getId());
@@ -929,7 +929,7 @@ public class SBGNML2SBMLUtil {
 	 * Create an SBML <code>Curve</code> from values in an SBGN <code>Arc</code>. 
 	 * It creates both LineSegments as well as CurveSegments
 	 */		
-	public Curve createOneCurve(Arc arc) {
+	public static Curve createOneCurve(Arc arc) {
 		Curve curve;
 		CurveSegment curveSegment;
 		
@@ -1030,7 +1030,7 @@ public class SBGNML2SBMLUtil {
 		
 		// error
 		if (curve.getCurveSegmentCount() == 0){
-			createOneCurveError ++;
+			//createOneCurveError ++;
 			System.out.format("! createOneCurve sbml="+curvePoints.size());
 			for (Arc.Next next: listOfNext){
 				points = next.getPoint();
@@ -1050,8 +1050,8 @@ public class SBGNML2SBMLUtil {
 	 * @param name
 	 * @return
 	 */
-	public Compartment createJsbmlCompartment(String compartmentId, String name) {
-		Compartment compartment = new Compartment(compartmentId, name, level, version);
+	public static Compartment createJsbmlCompartment(String compartmentId, String name) {
+		Compartment compartment = new Compartment(compartmentId, name, 3, 1);
 		return compartment;
 	}
 	
@@ -1063,7 +1063,7 @@ public class SBGNML2SBMLUtil {
 	 * @param createBoundingBox
 	 * @return
 	 */
-	public CompartmentGlyph createJsbmlCompartmentGlyph(Glyph glyph, String compartmentId, Compartment compartment,
+	public static CompartmentGlyph createJsbmlCompartmentGlyph(Glyph glyph, String compartmentId, Compartment compartment,
 			boolean createBoundingBox) {
 		CompartmentGlyph compartmentGlyph;
 		Bbox bbox;
@@ -1089,7 +1089,7 @@ public class SBGNML2SBMLUtil {
 	 * @param compartmentGlyph
 	 * @param glyph
 	 */
-	public void setCompartmentOrder(CompartmentGlyph compartmentGlyph, Glyph glyph) {	
+	public static void setCompartmentOrder(CompartmentGlyph compartmentGlyph, Glyph glyph) {	
 		try {
 			float order = glyph.getCompartmentOrder();
 			if ((Object) order != null){
@@ -1106,7 +1106,7 @@ public class SBGNML2SBMLUtil {
 	 * TODO: move to a ModelCompleter
 	 * @param modelObject
 	 */
-	public void createDefaultCompartment(Model modelObject) {
+	public static void createDefaultCompartment(Model modelObject) {
 		String compartmentId = "DefaultCompartment_01";
 		Compartment compartment = new Compartment(compartmentId);
 		modelObject.getListOfCompartments().add(compartment);
@@ -1130,11 +1130,11 @@ public class SBGNML2SBMLUtil {
 	 * @param object
 	 * @return
 	 */
-	public ReferenceGlyph createOneReferenceGlyph(String id, Arc arc, ModifierSpeciesReference reference, 
+	public static ReferenceGlyph createOneReferenceGlyph(String id, Arc arc, ModifierSpeciesReference reference, 
 			SBase object) {
 		ReferenceGlyph referenceGlyph;
 		
-		referenceGlyph = new ReferenceGlyph(level, version);
+		referenceGlyph = new ReferenceGlyph(3, 1);
 		referenceGlyph.setId("ReferenceGlyph_" + id);
 
 		referenceGlyph.setGlyph(object.getId());
@@ -1151,28 +1151,28 @@ public class SBGNML2SBMLUtil {
 	 * @param arc
 	 * @return
 	 */
-	public Boolean isGlyphToGlyphArc(Arc arc) {
+	public static Boolean isGlyphToGlyphArc(Arc arc) {
 		if (arc.getTarget() instanceof Glyph && arc.getSource() instanceof Glyph) {
 			return true;
 		}
 		return false;
 	}
 	
-	public Boolean isPortToGlyphArc(Arc arc) {
+	public static Boolean isPortToGlyphArc(Arc arc) {
 		if (arc.getTarget() instanceof Port && arc.getSource() instanceof Glyph) {
 			return true;
 		}
 		return false;		
 	}
 	
-	public Boolean isGlyphToPortArc(Arc arc) {
+	public static Boolean isGlyphToPortArc(Arc arc) {
 		if (arc.getTarget() instanceof Glyph && arc.getSource() instanceof Port) {
 			return true;
 		}
 		return false;		
 	}
 
-	public Boolean isPortToPortArc(Arc arc) {
+	public static Boolean isPortToPortArc(Arc arc) {
 		if (arc.getTarget() instanceof Port && arc.getSource() instanceof Port) {
 			return true;
 		}		

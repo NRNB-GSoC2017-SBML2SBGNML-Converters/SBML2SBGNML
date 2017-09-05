@@ -107,7 +107,7 @@ public class SWrapperModel {
 		this.numberOfGlyphs = 0;
 				
 	}
-	
+		
 	public Model getModel() {
 		return model;
 	}

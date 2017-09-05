@@ -76,7 +76,7 @@ public class SBGNML2SBMLRender {
 //		this.sUtil = sUtil;
 	}
 	
-	public void renderGeneralGlyphs(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput) {
+	public static void renderGeneralGlyphs(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput) {
 		SWrapperGeneralGlyph sWrapperGeneralGlyph;
 		
 		for (String key : sWrapperModel.listOfWrapperGeneralGlyphs.keySet()){
@@ -110,7 +110,7 @@ public class SBGNML2SBMLRender {
 		}
 	}	
 		
-	public void renderCompartmentGlyphs(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput) {
+	public static void renderCompartmentGlyphs(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput) {
 		SWrapperCompartmentGlyph sWrapperCompartmentGlyph;
 		
 		// sorting is not needed
@@ -122,7 +122,7 @@ public class SBGNML2SBMLRender {
 		}			
 	}
 	
-	public void renderSpeciesGlyphs(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput) {
+	public static void renderSpeciesGlyphs(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput) {
 		SWrapperSpeciesGlyph sWrapperSpeciesGlyph;
 		for (String key : sWrapperModel.listOfWrapperSpeciesGlyphs.keySet()){
 			sWrapperSpeciesGlyph = sWrapperModel.getWrapperSpeciesGlyph(key);
@@ -140,7 +140,7 @@ public class SBGNML2SBMLRender {
 		}	
 	}
 	
-	public void renderTextGlyphs(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput) {
+	public static void renderTextGlyphs(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput) {
 		
 		for (TextGlyph tg : sOutput.layout.getListOfTextGlyphs()){
 			if (sWrapperModel.textSourceMap.containsKey(tg.getId())){
@@ -152,7 +152,7 @@ public class SBGNML2SBMLRender {
 		}
 	}
 		
-	public void renderReactionGlyphs(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput) {
+	public static void renderReactionGlyphs(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput) {
 		SWrapperReactionGlyph sWrapperReactionGlyph;
 		for (String key : sWrapperModel.listOfWrapperReactionGlyphs.keySet()){
 			sWrapperReactionGlyph = sWrapperModel.getWrapperReactionGlyph(key);
@@ -168,7 +168,7 @@ public class SBGNML2SBMLRender {
 		}		
 	}
 	
-	public void renderSpeciesReferenceGlyphs(SWrapperReactionGlyph sWrapperReactionGlyph, SBGNML2SBMLOutput sOutput) {
+	public static void renderSpeciesReferenceGlyphs(SWrapperReactionGlyph sWrapperReactionGlyph, SBGNML2SBMLOutput sOutput) {
 		Arc arc;
 		SpeciesReferenceGlyph speciesReferenceGlyph;
 
@@ -180,7 +180,7 @@ public class SBGNML2SBMLRender {
 		}		
 	}
 	
-	public void renderReferenceGlyphs(SWrapperGeneralGlyph sWrapperGeneralGlyph, SBGNML2SBMLOutput sOutput) {
+	public static void renderReferenceGlyphs(SWrapperGeneralGlyph sWrapperGeneralGlyph, SBGNML2SBMLOutput sOutput) {
 		Arc arc;
 		ReferenceGlyph referenceGlyph;
 		for (String arcKey : sWrapperGeneralGlyph.referenceGlyphs.keySet()){
@@ -191,7 +191,7 @@ public class SBGNML2SBMLRender {
 		}		
 	}
 	
-	public LocalStyle createStyle(GraphicalObject graphicalObject, String clazz, SBGNML2SBMLOutput sOutput) {
+	public static LocalStyle createStyle(GraphicalObject graphicalObject, String clazz, SBGNML2SBMLOutput sOutput) {
 		RenderGroup renderGroup;
 		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin;
 		LocalRenderInformation localRenderInformation = sOutput.localRenderInformation;
@@ -211,7 +211,7 @@ public class SBGNML2SBMLRender {
 		return null;
 	}
 	
-	public void createStyle(GraphicalObject graphicalObject, Arc arc, SBGNML2SBMLOutput sOutput) {
+	public static void createStyle(GraphicalObject graphicalObject, Arc arc, SBGNML2SBMLOutput sOutput) {
 		RenderGroup renderGroup;
 		LocalStyle localStyle;
 		RenderGraphicalObjectPlugin renderGraphicalObjectPlugin;
@@ -224,7 +224,7 @@ public class SBGNML2SBMLRender {
 		renderGraphicalObjectPlugin.setObjectRole(styleId);		
 	}	
 
-	public String findObjectRole(String clazz, SBGNML2SBMLOutput sOutput){
+	public static String findObjectRole(String clazz, SBGNML2SBMLOutput sOutput){
 		String styleId = null;
 		
 		// TODO: horizontal or vertical orientation
@@ -396,7 +396,7 @@ public class SBGNML2SBMLRender {
 		return styleId;
 	}
 	
-	public void createTriangle(LocalStyle localStyle, Point p1, Point p2, Point p3){
+	public static void createTriangle(LocalStyle localStyle, Point p1, Point p2, Point p3){
 		Polygon polygon = new Polygon();
 		ListOf<RenderPoint> elements = polygon.getListOfElements();
 				
@@ -408,7 +408,7 @@ public class SBGNML2SBMLRender {
 		renderGroup.addElement(polygon);
 	}
 	
-	public RenderPoint createRenderPoint(double x, double y, boolean absoluteX, boolean absoluteY){
+	public static RenderPoint createRenderPoint(double x, double y, boolean absoluteX, boolean absoluteY){
 		RenderPoint renderPoint = new RenderPoint();
 		renderPoint.setX(x);
 		renderPoint.setY(y);
@@ -437,7 +437,7 @@ public class SBGNML2SBMLRender {
 	 * @param speciesGlyph
 	 * @param cloneText
 	 */
-	public void addCloneText(LocalStyle localStyle, SpeciesGlyph speciesGlyph, String cloneText) {
+	public static void addCloneText(LocalStyle localStyle, SpeciesGlyph speciesGlyph, String cloneText) {
 		Text text = createText(0, 80, false, false);
 		text.setFontFamily(FontFamily.MONOSPACE);
 		text.setTextAnchor(HTextAnchor.MIDDLE);
@@ -489,7 +489,7 @@ public class SBGNML2SBMLRender {
 		return ellipse;
 	}
 	
-	public void createColourDefinitions(SBGNML2SBMLOutput sOutput) {
+	public static void createColourDefinitions(SBGNML2SBMLOutput sOutput) {
 		LocalRenderInformation localRenderInformation = sOutput.localRenderInformation;
 		Layout layout = sOutput.layout;
 		

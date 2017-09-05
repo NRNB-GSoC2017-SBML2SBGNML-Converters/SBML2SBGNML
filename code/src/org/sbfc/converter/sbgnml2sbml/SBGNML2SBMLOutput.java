@@ -364,7 +364,7 @@ public class SBGNML2SBMLOutput {
 	 * TODO: remove the hard-coded file names
 	 * @return
 	 */
-	public LocalRenderInformation loadTemplateFromFile() {
+	public static LocalRenderInformation loadTemplateFromFile() {
 		Properties properties = new Properties();	
 		InputStream inputProperties;	
 		SBMLDocument sbmlDocument;		
