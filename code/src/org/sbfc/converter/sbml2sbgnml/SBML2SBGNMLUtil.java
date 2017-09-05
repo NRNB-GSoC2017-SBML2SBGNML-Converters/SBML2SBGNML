@@ -67,11 +67,11 @@ public class SBML2SBGNMLUtil {
 	// for adding an XML Element to the Sbgn object's Extension
 	static final String SBFCANNO_PREFIX = "sbfcanno";
 	static final String SBFC_ANNO_NAMESPACE = "http://www.sbfc.org/sbfcanno";
-	Document document = null;
-	DocumentBuilder builder = null;
+	static Document document = null;
+	static DocumentBuilder builder = null;
 	
 	// for debugging
-	int debugMode = 0;
+	static int debugMode = 0;
 
 	SBML2SBGNMLUtil() {
 		// the DocumentBuilder is used to add an XML Element to the Sbgn object's Extension
@@ -101,7 +101,7 @@ public class SBML2SBGNMLUtil {
 	 * SBML <code>GraphicalObject</code>. 
 	 * 
 	 */		
-	public Glyph createGlyph(String id, String clazz, boolean setBbox, GraphicalObject sbmlGlyph,
+	public static Glyph createGlyph(String id, String clazz, boolean setBbox, GraphicalObject sbmlGlyph,
 			boolean setText, String text) {
 		Glyph glyph;
 		
@@ -126,7 +126,7 @@ public class SBML2SBGNMLUtil {
 	 * @param text
 	 * @return
 	 */
-	public Label setLabel(Glyph glyph, String text) {
+	public static Label setLabel(Glyph glyph, String text) {
 		Label label;
 		
 		label = new Label();
@@ -144,7 +144,7 @@ public class SBML2SBGNMLUtil {
 	 * @param boundingBox
 	 * @return
 	 */
-	public Label setLabel(Glyph glyph, String text, BoundingBox boundingBox ) {
+	public static Label setLabel(Glyph glyph, String text, BoundingBox boundingBox ) {
 		Label label;
 		
 		label = new Label();
@@ -184,7 +184,7 @@ public class SBML2SBGNMLUtil {
 	 * 
 	 * @return the created Process Node <code>Glyph</code>
 	 */			
-	public Arcgroup createOneProcessNode(String reactionId, Curve sbmlCurve, String clazz) {
+	public static Arcgroup createOneProcessNode(String reactionId, Curve sbmlCurve, String clazz) {
 		Glyph processNode;
 		Arc arc;
 		Arc.Start start;
@@ -329,7 +329,7 @@ public class SBML2SBGNMLUtil {
 	 * @param <code>CurveSegment</code> sbmlGlyph
 	 * @return the created <code>Arc</code>
 	 */		
-	public Arc createOneArc(CurveSegment sbmlGlyph) {
+	public static Arc createOneArc(CurveSegment sbmlGlyph) {
 		Arc arc = new Arc();
 		
 		Arc.Start start;
@@ -361,7 +361,7 @@ public class SBML2SBGNMLUtil {
 	 * @param curve
 	 * @return arc
 	 */
-	public Arc createOneArc(Curve curve){
+	public static Arc createOneArc(Curve curve){
 		Arc arc = new Arc();
 		
 		Arc.Start start;
@@ -464,7 +464,7 @@ public class SBML2SBGNMLUtil {
 	 * @param clazz
 	 * @return
 	 */
-	public Arcgroup createOneArcgroup(List<Glyph> listOfGlyphs, List<Arc> listOfArcs, String clazz) {
+	public static Arcgroup createOneArcgroup(List<Glyph> listOfGlyphs, List<Arc> listOfArcs, String clazz) {
 		Arcgroup arcgroup = new Arcgroup();
 		
 		arcgroup.setClazz(clazz);
@@ -481,7 +481,7 @@ public class SBML2SBGNMLUtil {
 	 * @param <code>Glyph</code> sbmlGlyph
 	 * @param <code>Glyph</code> sbgnGlyph
 	 */		
-	public void createBBox(GraphicalObject sbmlGlyph, Glyph sbgnGlyph) {
+	public static void createBBox(GraphicalObject sbmlGlyph, Glyph sbgnGlyph) {
 		Bbox bbox = new Bbox();
 		
 		BoundingBox boundingBox = sbmlGlyph.getBoundingBox();
@@ -510,7 +510,7 @@ public class SBML2SBGNMLUtil {
 	 * Create and set a Bbox for a glyph, the Bbox doesn't have valid values in its dimensions
 	 * @param g
 	 */
-	public void createVoidBBox(Glyph g) {
+	public static void createVoidBBox(Glyph g) {
 
 		Bbox bbox = new Bbox();
 		bbox.setX(0);
@@ -529,7 +529,7 @@ public class SBML2SBGNMLUtil {
 	 * @param <code>float</code> minCurveYCoord
 	 * @param <code>float</code> maxCurveYCoord
 	 */		
-	public void setBBoxDimensions(Glyph glyph, 
+	public static void setBBoxDimensions(Glyph glyph, 
 			float minCurveXCoord, float maxCurveXCoord, float minCurveYCoord, float maxCurveYCoord) {
 		
 		// assume bbox has already been set
@@ -551,8 +551,9 @@ public class SBML2SBGNMLUtil {
 	/**
 	 * Create and set Clone for the sbgnGlyph.
 	 * @param sbgnGlyph
+	 * @return 
 	 */
-	void setClone(Glyph sbgnGlyph){
+	static void setClone(Glyph sbgnGlyph){
 		org.sbgn.bindings.Glyph.Clone clone = null;
 
 		clone = new Glyph.Clone();
@@ -567,7 +568,7 @@ public class SBML2SBGNMLUtil {
 	 * @param id
 	 * @return glyph
 	 */ 
-	public Glyph searchForGlyph(List<Glyph> listOfGlyphs, String id) {
+	public static Glyph searchForGlyph(List<Glyph> listOfGlyphs, String id) {
 		Glyph glyph;
 		String glyphId;
 		
@@ -601,7 +602,7 @@ public class SBML2SBGNMLUtil {
 	 * @param <code>String</code> id
 	 * @return the index of the <code>Glyph</code> in listOfGlyphs
 	 */	
-	public int searchForIndex(List<Glyph> listOfGlyphs, String id) {
+	public static int searchForIndex(List<Glyph> listOfGlyphs, String id) {
 		Glyph glyph;
 		String glyphId;
 		
@@ -622,7 +623,7 @@ public class SBML2SBGNMLUtil {
 	 * @param speciesReferenceRole
 	 * @return
 	 */
-	public String searchForReactionRole(SpeciesReferenceRole speciesReferenceRole) {
+	public static String searchForReactionRole(SpeciesReferenceRole speciesReferenceRole) {
 		String sbgnClazz = null;
 		int sbo;
 		
@@ -661,7 +662,7 @@ public class SBML2SBGNMLUtil {
 	 * @param speciesReferenceRole
 	 * @return
 	 */
-	public String searchForReactionRole(String speciesReferenceRole) {
+	public static String searchForReactionRole(String speciesReferenceRole) {
 		String sbgnClazz = null;
 
 		if (speciesReferenceRole.equals("substrate")) {
@@ -706,7 +707,7 @@ public class SBML2SBGNMLUtil {
 	 * @param source
 	 * @param message
 	 */
-	public void printHelper(String source, String message){
+	public static void printHelper(String source, String message){
 		if (debugMode == 1){
 			System.out.println("[" + source + "] " + message);
 		}
@@ -741,7 +742,7 @@ public class SBML2SBGNMLUtil {
 	 * @param base
 	 * @param ud
 	 */
-	void addSbaseInExtension(SBGNBase base, UnitDefinition ud) {
+	static void addSbaseInExtension(SBGNBase base, UnitDefinition ud) {
 		Element extension = document.createElement(SBFCANNO_PREFIX + ":unitDefinition");
 		extension.setAttribute("xmlns:" + SBFCANNO_PREFIX, SBFC_ANNO_NAMESPACE);
 		extension.setAttribute(SBFCANNO_PREFIX + ":name", ud.getName());
@@ -779,7 +780,7 @@ public class SBML2SBGNMLUtil {
 	 * @param base
 	 * @param species
 	 */
-	void addSpeciesInformationInExtension(SBGNBase base, Species species) {
+	static void addSpeciesInformationInExtension(SBGNBase base, Species species) {
 		Element extension = document.createElement(SBFCANNO_PREFIX + ":species");
 		extension.setAttribute("xmlns:" + SBFCANNO_PREFIX, SBFC_ANNO_NAMESPACE);
 		extension.setAttribute(SBFCANNO_PREFIX + ":id", species.getId());
@@ -820,7 +821,7 @@ public class SBML2SBGNMLUtil {
 		base.setExtension(ex);		
 	}
 	
-	void addSboInExtension(SBGNBase base, String SBO){
+	static void addSboInExtension(SBGNBase base, String SBO){
 		
 	}
 	
@@ -832,7 +833,7 @@ public class SBML2SBGNMLUtil {
 	 * @param tr
 	 * @param ft
 	 */
-	public void addMathMLInExtension(Sbgn base, Transition tr, FunctionTerm ft) {
+	public static void addMathMLInExtension(Sbgn base, Transition tr, FunctionTerm ft) {
 		String elementString = ft.getMathMLString();
 
 		// we want to get rid of the "<?xml version='1.0' encoding='UTF-8'?>" before MathML

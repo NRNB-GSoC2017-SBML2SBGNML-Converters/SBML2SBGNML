@@ -84,20 +84,22 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	
 	// the SBGN language to convert into
 	// either "process description" or "activity flow"
-	public String toLanguage = "process description"; 
+	//public String toLanguage = "process description"; 
 
 	// The helper classes for conversion:
 	// SBML2SBGNMLUtil contains methods that do not depend on any information in the Sbgn model. 
 	// Example: finding a value from a given list.
-	public SBML2SBGNMLUtil sUtil;
+	//public SBML2SBGNMLUtil sUtil;
+	
 	// SBML2SBGNMLOutput contains all data structures retrieved from the SBML Model and 
 	// lists to create the output Sbgn document. 
-	public SBML2SBGNMLOutput sOutput;
+	//public SBML2SBGNMLOutput sOutput;
+	
 	// A SWrapperMap Sbgn.Map wrapper stores the Map as well as lists of glyphs and arcs contained in the Map. 
 	// SWrapperMap allows to retrieve information easily without having to search in the Map
 	// SWrapperMap stores SWrapperArc, SWrapperGlyphEntityPool, etc, which are Wrappers for Arc, Entity Pool Glyph, etc.
 	// SBML2SBGNML_GSOC2017 does not store any glyph and arcs while performing conversion.
-	public SWrapperMap sWrapperMap;
+	//public SWrapperMap sWrapperMap;
 	
 	// debugging
 	int generalGlyphErrors = 0;
@@ -107,12 +109,8 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * 
 	 * @param <code>SBMLDocument</code> sbmlDocument
 	 */	
-	public SBML2SBGNML_GSOC2017(SBMLDocument sbmlDocument) {
-		logger = Logger.getLogger(SBML2SBGNML_GSOC2017.class);
-		
-		sUtil = new SBML2SBGNMLUtil();
-		sOutput = new SBML2SBGNMLOutput(sbmlDocument);
-		sWrapperMap = new SWrapperMap(sOutput.map, sOutput.sbmlModel);
+	public SBML2SBGNML_GSOC2017() {
+
 	}
 	
 	/**
@@ -122,22 +120,27 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * @param <code>SBMLDocument</code> sbmlDocument
 	 * @return <code>Sbgn</code> sbgnObject
 	 */			
-	public Sbgn convertToSBGNML() throws SBMLException {
-	
+	public Sbgn convertToSBGNML(SBMLDocument sbmlDocument) throws SBMLException {
+		logger = Logger.getLogger(SBML2SBGNML_GSOC2017.class);
+		
+		//SBML2SBGNMLUtil sUtil = new SBML2SBGNMLUtil();
+		SBML2SBGNMLOutput sOutput = new SBML2SBGNMLOutput(sbmlDocument);
+		SWrapperMap sWrapperMap = new SWrapperMap(sOutput.map, sOutput.sbmlModel);
+		
 		if (sOutput.sbmlLayoutModel != null){
 			// Note: the order of execution matters
 			// convert CompartmentGlyphs to Encapsulation glyphs
-			createFromCompartmentGlyphs(sOutput.sbgnObject, sOutput.listOfCompartmentGlyphs);
+			createFromCompartmentGlyphs(sOutput, sWrapperMap, sOutput.sbgnObject, sOutput.listOfCompartmentGlyphs);
 			// convert SpeciesGlyphs to Entity Pool glyphs
-			createFromSpeciesGlyphs(sOutput.sbgnObject, sOutput.listOfSpeciesGlyphs);
+			createFromSpeciesGlyphs(sOutput, sWrapperMap, sOutput.sbgnObject, sOutput.listOfSpeciesGlyphs);
 			// for converting additional GraphicalObjects (including ReferenceGlyphs) to Auxiliary Units
-			createFromGeneralGlyphs(sOutput.sbgnObject, sOutput.listOfAdditionalGraphicalObjects);
+			createFromGeneralGlyphs(sOutput, sWrapperMap, sOutput.sbgnObject, sOutput.listOfAdditionalGraphicalObjects);
 			// for converting ReactionGlyphs (and SpeciesReferenceGlyphs) to Process glyphs (and Arcs)
-			createFromReactionGlyphs(sOutput.sbgnObject, sOutput.listOfReactionGlyphs);	
+			createFromReactionGlyphs(sOutput, sWrapperMap, sOutput.sbgnObject, sOutput.listOfReactionGlyphs);	
 			
 			// Add nested glyphs inside parent glyphs
 			// Example: add units of information of an Entity Pool glyph
-			addChildGlyphsToParent();
+			addChildGlyphsToParent(sWrapperMap);
 			
 			// for converting SBML ReferenceGlyphs to SBGN Arcs:
 			// add Port for each glyph that a converted Arc interacts with
@@ -145,22 +148,22 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			// then need to create a Port for the Logic Operator and a Port for the Entity Pool
 			for (String key: sWrapperMap.listOfSWrapperArcs.keySet()) {
 				SWrapperArc sWrapperArc = sWrapperMap.listOfSWrapperArcs.get(key);
-				addPortForArc(sWrapperArc.speciesReferenceGlyph, sWrapperArc.arc);
+				addPortForArc(sWrapperMap, sWrapperArc.speciesReferenceGlyph, sWrapperArc.arc);
 			}
 			
 			// convert TextGlyphs to Labels of a SBGN glyph 
-			createLabelsFromTextGlyphs(sOutput.sbgnObject, sOutput.listOfTextGlyphs);
+			createLabelsFromTextGlyphs(sOutput, sWrapperMap, sOutput.sbgnObject, sOutput.listOfTextGlyphs);
 			
 			// for each Species that has multiple SpeciesGlyph in the SBML Model, create an SBGN Glyph.Clone 
-			addCloneMarkers(sOutput.listOfSpeciesGlyphs);
+			addCloneMarkers(sOutput, sOutput.listOfSpeciesGlyphs);
 		}
 		
 		// preserve each Model information such as UnitDefinition, FunctionDefinition, Rules, etc in an SBGN Extension element
-		createExtensionsForModelObjects();
+		createExtensionsForModelObjects(sOutput);
 		
 		// preserve each Model's qual Plugin's information in an SBGN Extension element 
 		if (sOutput.listOfQualitativeSpecies != null){
-			createExtensionsForQualMathML();
+			createExtensionsForQualMathML(sOutput);
 		}
 
 		// print some statistics
@@ -184,7 +187,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		System.out.println(" generalGlyphErrors ="+generalGlyphErrors);
 
 		// set the language of the SBGN-ML (PD or AF)
-		sOutput.sbgnObject.getMap().setLanguage(toLanguage);
+		//sOutput.sbgnObject.getMap().setLanguage(toLanguage);
 		
 		// return one sbgnObject
 		return sOutput.sbgnObject;		
@@ -196,13 +199,13 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * @param <code>Sbgn</code> sbgnObject
 	 * @param <code>ListOf<CompartmentGlyph></code> listOfCompartmentGlyphs
 	 */			
-	public void createFromCompartmentGlyphs(Sbgn sbgnObject, ListOf<CompartmentGlyph> listOfCompartmentGlyphs) {
+	public void createFromCompartmentGlyphs(SBML2SBGNMLOutput sOutput, SWrapperMap sWrapperMap, Sbgn sbgnObject, ListOf<CompartmentGlyph> listOfCompartmentGlyphs) {
 		Glyph sbgnCompartmentGlyph;
 		
 		if (listOfCompartmentGlyphs == null){return;}
 		
 		for (CompartmentGlyph compartmentGlyph : listOfCompartmentGlyphs){
-			sbgnCompartmentGlyph = createFromOneCompartmentGlyph(sbgnObject, compartmentGlyph);
+			sbgnCompartmentGlyph = createFromOneCompartmentGlyph(sOutput, sWrapperMap, sbgnObject, compartmentGlyph);
 			
 			// add the created Glyph to the output
 			sOutput.addGlyphToMap(sbgnCompartmentGlyph);
@@ -216,24 +219,24 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * @param compartmentGlyph
 	 * @return sbgnCompartmentGlyph
 	 */
-	public Glyph createFromOneCompartmentGlyph(Sbgn sbgnObject, CompartmentGlyph compartmentGlyph){
+	public Glyph createFromOneCompartmentGlyph(SBML2SBGNMLOutput sOutput, SWrapperMap sWrapperMap, Sbgn sbgnObject, CompartmentGlyph compartmentGlyph){
 		Glyph sbgnCompartmentGlyph;
 		
 		// This step is optional, we already know the clazz will be "compartment"
-		String clazz = sUtil.sbu.getOutputFromClass(compartmentGlyph.getCompartmentInstance(), "compartment");
+		String clazz = SBML2SBGNMLUtil.sbu.getOutputFromClass(compartmentGlyph.getCompartmentInstance(), "compartment");
 		if (!clazz.equals("compartment")){
-			clazz = sUtil.sbu.getOutputFromClass(compartmentGlyph, "compartment");
+			clazz = SBML2SBGNMLUtil.sbu.getOutputFromClass(compartmentGlyph, "compartment");
 		}
 		
 		// create a new Glyph, set its Bbox, but don't set a Label (we'll set a Label later)
-		sbgnCompartmentGlyph = sUtil.createGlyph(compartmentGlyph.getId(), clazz, 
+		sbgnCompartmentGlyph = SBML2SBGNMLUtil.createGlyph(compartmentGlyph.getId(), clazz, 
 				true, compartmentGlyph, 
 				false, compartmentGlyph.getCompartment());	
 		
 		// if the compartmentGlyph has Annotation, we transfer the contents to the new glyph's Extension element
 		try {
-			sUtil.addAnnotationInExtension(sbgnCompartmentGlyph, compartmentGlyph.getAnnotation());
-			sUtil.addAnnotationInExtension(sbgnCompartmentGlyph, compartmentGlyph.getCompartmentInstance().getAnnotation());
+			SBML2SBGNMLUtil.addAnnotationInExtension(sbgnCompartmentGlyph, compartmentGlyph.getAnnotation());
+			SBML2SBGNMLUtil.addAnnotationInExtension(sbgnCompartmentGlyph, compartmentGlyph.getCompartmentInstance().getAnnotation());
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -248,14 +251,14 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * @param <code>Sbgn</code> sbgnObject
 	 * @param <code>ListOf<SpeciesGlyph></code> listOfSpeciesGlyphs
 	 */		
-	public void createFromSpeciesGlyphs(Sbgn sbgnObject, ListOf<SpeciesGlyph> listOfSpeciesGlyphs) {
+	public void createFromSpeciesGlyphs(SBML2SBGNMLOutput sOutput, SWrapperMap sWrapperMap, Sbgn sbgnObject, ListOf<SpeciesGlyph> listOfSpeciesGlyphs) {
 		SWrapperGlyphEntityPool sbgnSpeciesGlyph;
 		
 		if (listOfSpeciesGlyphs == null){return;}
 		
 		for (SpeciesGlyph speciesGlyph : listOfSpeciesGlyphs){
 			// create an Sbgn glyph using information in the speciesGlyph
-			sbgnSpeciesGlyph = createFromOneSpeciesGlyph(sbgnObject, speciesGlyph);
+			sbgnSpeciesGlyph = createFromOneSpeciesGlyph(sOutput, sbgnObject, speciesGlyph);
 			
 			// store the wrapper (containing the glyph we created as well as the speciesGlyph) so that we can access them later
 			sWrapperMap.listOfSWrapperGlyphEntityPools.put(sbgnSpeciesGlyph.id, sbgnSpeciesGlyph);
@@ -263,7 +266,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			// since we add the child glyphs near the end of the conversion, we store what we need, and use them later
 			// store the parent id so that we know who is the parent of the child glyph
 			boolean hasParent = false;
-			checkParentChildGlyph(sbgnSpeciesGlyph.species, speciesGlyph.getSpecies());
+			checkParentChildGlyph(sWrapperMap, sbgnSpeciesGlyph.species, speciesGlyph.getSpecies());
 			
 			// we only add the glyph to the output if it does not have a parent, we add child glyphs (such as units of information) later
 			if (!hasParent){
@@ -278,7 +281,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * @param speciesGlyph
 	 * @return sWrapperGlyphEntityPool
 	 */
-	public SWrapperGlyphEntityPool createFromOneSpeciesGlyph(Sbgn sbgnObject, SpeciesGlyph speciesGlyph){
+	public SWrapperGlyphEntityPool createFromOneSpeciesGlyph(SBML2SBGNMLOutput sOutput, Sbgn sbgnObject, SpeciesGlyph speciesGlyph){
 		Glyph sbgnSpeciesGlyph;
 		SWrapperGlyphEntityPool sWrapperGlyphEntityPool = null;
 		
@@ -298,11 +301,11 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		
 		// if unable to determine a clazz using render information, then try to determine using the Species object of the speciesGlyph
 		if (clazz.equals("unspecified entity")){
-			clazz = sUtil.sbu.getOutputFromClass(speciesGlyph.getSpeciesInstance(), "unspecified entity");
+			clazz = SBML2SBGNMLUtil.sbu.getOutputFromClass(speciesGlyph.getSpeciesInstance(), "unspecified entity");
 		}
 		// if unable to determine a clazz using the Species object of the speciesGlyph, then use the speciesGlyph
 		if (clazz.equals("unspecified entity")){
-			clazz = sUtil.sbu.getOutputFromClass(speciesGlyph, "unspecified entity");
+			clazz = SBML2SBGNMLUtil.sbu.getOutputFromClass(speciesGlyph, "unspecified entity");
 		}
 		
 		// this step is for roundtrip conversion (in the non-roundtrip case, there is a different mechanism to determine 
@@ -321,7 +324,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		}
 		
 		// create a new Glyph, set its Bbox, set a temporary Label (to be updated later)
-		sbgnSpeciesGlyph = sUtil.createGlyph(speciesGlyph.getId(), clazz, 
+		sbgnSpeciesGlyph = SBML2SBGNMLUtil.createGlyph(speciesGlyph.getId(), clazz, 
 				true, speciesGlyph, 
 				false, speciesGlyph.getSpecies());	
 		
@@ -344,8 +347,8 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		// if the speciesGlyph has Annotation, we transfer the contents to the new glyph's Extension element
 		// we want to preserve as much information as possible
 		try {
-			sUtil.addAnnotationInExtension(sbgnSpeciesGlyph, speciesGlyph.getAnnotation());
-			sUtil.addAnnotationInExtension(sbgnSpeciesGlyph, speciesGlyph.getSpeciesInstance().getAnnotation());
+			SBML2SBGNMLUtil.addAnnotationInExtension(sbgnSpeciesGlyph, speciesGlyph.getAnnotation());
+			SBML2SBGNMLUtil.addAnnotationInExtension(sbgnSpeciesGlyph, speciesGlyph.getSpeciesInstance().getAnnotation());
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -355,10 +358,10 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		// store the attributes of the Species into the new glyph's Extension element
 		// TODO: add other functions like this for ReactionGlyphs, SpeciesReferenceGlyphs, CompartmentGlyphs, etc.
 		if (speciesGlyph.getSpeciesInstance() instanceof Species){
-			sUtil.addSpeciesInformationInExtension(sbgnSpeciesGlyph, (Species) speciesGlyph.getSpeciesInstance());
+			SBML2SBGNMLUtil.addSpeciesInformationInExtension(sbgnSpeciesGlyph, (Species) speciesGlyph.getSpeciesInstance());
 		}
 		else if (speciesGlyph.getSpeciesInstance() instanceof QualitativeSpecies){
-//			sUtil.addSpeciesInformationInExtension(sbgnSpeciesGlyph, (QualitativeSpecies) speciesGlyph.getSpeciesInstance());
+//			SBML2SBGNMLUtil.addSpeciesInformationInExtension(sbgnSpeciesGlyph, (QualitativeSpecies) speciesGlyph.getSpeciesInstance());
 		}
 		
 		
@@ -371,7 +374,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * @param <code>Sbgn</code> sbgnObject
 	 * @param <code>ListOf<ReactionGlyph></code> listOfReactionGlyphs
 	 */			
-	public void createFromReactionGlyphs(Sbgn sbgnObject, ListOf<ReactionGlyph> listOfReactionGlyphs) {
+	public void createFromReactionGlyphs(SBML2SBGNMLOutput sOutput, SWrapperMap sWrapperMap, Sbgn sbgnObject, ListOf<ReactionGlyph> listOfReactionGlyphs) {
 		SWrapperArcGroup sbgnReactionGlyph;
 		SWrapperGlyphProcess sWrapperGlyphProcess;
 
@@ -382,7 +385,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		
 		for (ReactionGlyph reactionGlyph : listOfReactionGlyphs){
 			// create a Sbgn glyph from the information in the reactionGlyph
-			sbgnReactionGlyph = createFromOneReactionGlyph(sbgnObject, reactionGlyph);
+			sbgnReactionGlyph = createFromOneReactionGlyph(sOutput, sWrapperMap, sbgnObject, reactionGlyph);
 
 			if (sbgnReactionGlyph == null){
 				//System.out.println("! createFromReactionGlyphs id="+reactionGlyph.getId());
@@ -406,7 +409,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * @param <code>Sbgn</code> sbgnObject
 	 * @param <code>ReactionGlyph</code> reactionGlyph
 	 */		
-	public SWrapperArcGroup createFromOneReactionGlyph(Sbgn sbgnObject, ReactionGlyph reactionGlyph) {
+	public SWrapperArcGroup createFromOneReactionGlyph(SBML2SBGNMLOutput sOutput, SWrapperMap sWrapperMap, Sbgn sbgnObject, ReactionGlyph reactionGlyph) {
 		Arcgroup processNode = null;
 		Curve sbmlCurve;
 		ListOf<SpeciesReferenceGlyph> listOfSpeciesReferenceGlyphs;
@@ -437,17 +440,17 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 				
 		// if unable to determine a clazz using render information, then try to determine using the Reaction object of the reactionGlyph				
 		if (clazz.equals("unspecified entity")){
-			clazz = sUtil.sbu.getOutputFromClass(reactionGlyph.getReactionInstance(), "process");
+			clazz = SBML2SBGNMLUtil.sbu.getOutputFromClass(reactionGlyph.getReactionInstance(), "process");
 		}
 		// if unable to determine a clazz using the Reaction object of the reactionGlyph, then use the reactionGlyph
 		if (clazz.equals("process")){
-			clazz = sUtil.sbu.getOutputFromClass(reactionGlyph, "process");
+			clazz = SBML2SBGNMLUtil.sbu.getOutputFromClass(reactionGlyph, "process");
 		}
 			
 		// Create a Process glyph from dimensions of the Curve
 		// note: we don't need to know the dimensions of the curve to create a Process glyph
 		sbmlCurve = reactionGlyph.getCurve();
-		processNode = sUtil.createOneProcessNode(reactionGlyph.getReaction(), sbmlCurve, clazz);
+		processNode = SBML2SBGNMLUtil.createOneProcessNode(reactionGlyph.getReaction(), sbmlCurve, clazz);
 			
 		// failed to create a Process glyph
 		if (processNode == null){	
@@ -459,7 +462,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		// Process glyph created in createOneProcessNode, the style has an alternative appearance that resembles more to the
 		// layout of the SBML diagram)
 		if (reactionGlyph.getBoundingBox() != null){
-			sUtil.createBBox(reactionGlyph, processNode.getGlyph().get(0));	
+			SBML2SBGNMLUtil.createBBox(reactionGlyph, processNode.getGlyph().get(0));	
 		}
 		
 		// for now, we don't need all the extra things created by createOneProcessNode,
@@ -476,7 +479,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		// now, convert all the SpeciesReferenceGlyphs associated with the reactionGlyph to Sbgn Arcs
 		listOfSpeciesReferenceGlyphs = reactionGlyph.getListOfSpeciesReferenceGlyphs();
 		if (listOfSpeciesReferenceGlyphs.size() > 0) {
-			createFromSpeciesReferenceGlyphs(listOfSpeciesReferenceGlyphs, processNode.getGlyph().get(0));
+			createFromSpeciesReferenceGlyphs(sOutput, sWrapperMap, listOfSpeciesReferenceGlyphs, processNode.getGlyph().get(0));
 		}	
 		
 		// store the additional information contained in the SBML reaction into the SBGN glyph's Extension
@@ -484,14 +487,14 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		reaction = (Reaction) reactionGlyph.getReactionInstance();
 		if (reaction.getKineticLaw() != null && reactionGlyph.isSetCurve()) {
 			String math = reaction.getKineticLaw().getMathMLString();
-			sUtil.addExtensionElement(processNode, math);
+			SBML2SBGNMLUtil.addExtensionElement(processNode, math);
 		}
 
 		// if the reactionGlyph has Annotation, we transfer the contents to the new glyph's Extension element
 		// we want to preserve as much information as possible
 		try {
-			sUtil.addAnnotationInExtension(processNode, reactionGlyph.getAnnotation());
-			sUtil.addAnnotationInExtension(processNode, reactionGlyph.getReactionInstance().getAnnotation());
+			SBML2SBGNMLUtil.addAnnotationInExtension(processNode, reactionGlyph.getAnnotation());
+			SBML2SBGNMLUtil.addAnnotationInExtension(processNode, reactionGlyph.getReactionInstance().getAnnotation());
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -505,18 +508,18 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * @param listOfSpeciesReferenceGlyphs
 	 * @param reactionGlyph
 	 */
-	public void createFromSpeciesReferenceGlyphs(ListOf<SpeciesReferenceGlyph> listOfSpeciesReferenceGlyphs, Glyph reactionGlyph) {
+	public void createFromSpeciesReferenceGlyphs(SBML2SBGNMLOutput sOutput, SWrapperMap sWrapperMap, ListOf<SpeciesReferenceGlyph> listOfSpeciesReferenceGlyphs, Glyph reactionGlyph) {
 		Arc arc;
 		SWrapperArc sWrapperArc;
 		
 		if (listOfSpeciesReferenceGlyphs == null){return;}
 		
 		for (SpeciesReferenceGlyph speciesReferenceGlyph : listOfSpeciesReferenceGlyphs){
-			sUtil.printHelper("createGlyphFromReactionGlyph", 
+			SBML2SBGNMLUtil.printHelper("createGlyphFromReactionGlyph", 
 					String.format("speciesGlyph = %s, speciesReference = %s \n", 
 					speciesReferenceGlyph.getSpeciesGlyph(), speciesReferenceGlyph.getSpeciesReference()));
 			
-			sWrapperArc = createFromOneSpeciesReferenceGlyph(speciesReferenceGlyph, reactionGlyph);
+			sWrapperArc = createFromOneSpeciesReferenceGlyph(sOutput, sWrapperMap, speciesReferenceGlyph, reactionGlyph);
 			// store the created Arc into SBGN
 			sOutput.addArcToMap(sWrapperArc.arc);	
 			
@@ -530,7 +533,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * @param reactionGlyph an SBGN glyph
 	 * @return
 	 */
-	public SWrapperArc createFromOneSpeciesReferenceGlyph(SpeciesReferenceGlyph speciesReferenceGlyph, Glyph reactionGlyph){
+	public SWrapperArc createFromOneSpeciesReferenceGlyph(SBML2SBGNMLOutput sOutput, SWrapperMap sWrapperMap, SpeciesReferenceGlyph speciesReferenceGlyph, Glyph reactionGlyph){
 		Arc arc;
 		Curve sbmlCurve;
 		SWrapperArc sWrapperArc = null;
@@ -542,7 +545,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		// CubicBezier in SBML layout supports curved lines, these are preserved
 		// the source/target glyphs of arcs is set later
 		// the Port that the new Arc points to will be created later
-		arc = sUtil.createOneArc(sbmlCurve);
+		arc = SBML2SBGNMLUtil.createOneArc(sbmlCurve);
 		arc.setId(speciesReferenceGlyph.getSpeciesReference());
 		
 		// Set clazz of the Arc:
@@ -563,17 +566,17 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		// if the speciesReferenceGlyph contains attribute speciesReferenceRole, then determine the clazz using that
 		if (clazz.equals("unspecified entity")){
 			if (speciesReferenceGlyph.getSpeciesReferenceRole() != null){
-				clazz = sUtil.searchForReactionRole(speciesReferenceGlyph.getSpeciesReferenceRole());
+				clazz = SBML2SBGNMLUtil.searchForReactionRole(speciesReferenceGlyph.getSpeciesReferenceRole());
 			}
 		}
 		
 		// if still unable to determine a clazz, then try to determine using the speciesReferenceGlyph
 		if (clazz == null){
-			clazz = sUtil.sbu.getOutputFromClass(speciesReferenceGlyph, "modulation");
+			clazz = SBML2SBGNMLUtil.sbu.getOutputFromClass(speciesReferenceGlyph, "modulation");
 		}
 		// if unable to determine a clazz using the speciesReferenceGlyph, try SpeciesReference object of speciesReferenceGlyph
 		if (clazz.equals("modulation")){
-			clazz = sUtil.sbu.getOutputFromClass(speciesReferenceGlyph.getReferenceInstance(), "modulation");
+			clazz = SBML2SBGNMLUtil.sbu.getOutputFromClass(speciesReferenceGlyph.getReferenceInstance(), "modulation");
 		}
 		
 		// finally, set the clazz of the Sbgn glyph
@@ -644,8 +647,8 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		// if the speciesReferenceGlyph has Annotation, we transfer the contents to the new arc's Extension element
 		// we want to preserve as much information as possible
 		try {
-			sUtil.addAnnotationInExtension(arc, speciesReferenceGlyph.getAnnotation());
-			sUtil.addAnnotationInExtension(arc, speciesReferenceGlyph.getReferenceInstance().getAnnotation());
+			SBML2SBGNMLUtil.addAnnotationInExtension(arc, speciesReferenceGlyph.getAnnotation());
+			SBML2SBGNMLUtil.addAnnotationInExtension(arc, speciesReferenceGlyph.getReferenceInstance().getAnnotation());
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -660,12 +663,12 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * @param <code>Sbgn</code> sbgnObject
 	 * @param <code>ListOf<TextGlyph></code> listOfTextGlyphs
 	 */			
-	public void createLabelsFromTextGlyphs(Sbgn sbgnObject, ListOf<TextGlyph> listOfTextGlyphs) {
+	public void createLabelsFromTextGlyphs(SBML2SBGNMLOutput sOutput, SWrapperMap sWrapperMap, Sbgn sbgnObject, ListOf<TextGlyph> listOfTextGlyphs) {
 		
 		if (listOfTextGlyphs == null){return;}
 		
 		for (TextGlyph textGlyph : listOfTextGlyphs){	
-			createLabelFromOneTextGlyph(textGlyph);
+			createLabelFromOneTextGlyph(sOutput, sWrapperMap, textGlyph);
 		}
 	}
 	
@@ -674,7 +677,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * GraphicalObject is converted into, then set the glyph.Label using the text in textGlyph. 
 	 * @param textGlyph
 	 */
-	public void createLabelFromOneTextGlyph(TextGlyph textGlyph) {
+	public void createLabelFromOneTextGlyph(SBML2SBGNMLOutput sOutput, SWrapperMap sWrapperMap, TextGlyph textGlyph) {
 		Glyph sbgnGlyph;
 		String id = null;
 		String text;
@@ -696,18 +699,18 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			listOfGlyphs = sOutput.sbgnObject.getMap().getGlyph();
 			
 			// find the Glyph that should contain this text
-			sbgnGlyph = sUtil.searchForGlyph(listOfGlyphs, id);
+			sbgnGlyph = SBML2SBGNMLUtil.searchForGlyph(listOfGlyphs, id);
 			if (sbgnGlyph != null){
 				if ((!text.equals("")) || (sbgnGlyph.getLabel() == null)){
-					sUtil.setLabel(sbgnGlyph, text, textGlyph.getBoundingBox());
+					SBML2SBGNMLUtil.setLabel(sbgnGlyph, text, textGlyph.getBoundingBox());
 				}
 			} else {
 				// if we can't find the glyph, it means the glyph is a Auxiliary, we need to search in all the child glyphs of the Arcs
 				for (Arc a:  sOutput.sbgnObject.getMap().getArc()) {
 					listOfGlyphs = a.getGlyph();
-					sbgnGlyph = sUtil.searchForGlyph(listOfGlyphs, id);
+					sbgnGlyph = SBML2SBGNMLUtil.searchForGlyph(listOfGlyphs, id);
 					if (sbgnGlyph != null){
-						sUtil.setLabel(sbgnGlyph, text, textGlyph.getBoundingBox());
+						SBML2SBGNMLUtil.setLabel(sbgnGlyph, text, textGlyph.getBoundingBox());
 					}
 				}
 			}	
@@ -715,8 +718,8 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		} else {
 			// we should never reach here if the Model is well-formed
 			// clazz is unknown
-			sbgnGlyph = sUtil.createGlyph(textGlyph.getId(), "unspecified entity", false, null, true, text);
-			sUtil.createVoidBBox(sbgnGlyph);
+			sbgnGlyph = SBML2SBGNMLUtil.createGlyph(textGlyph.getId(), "unspecified entity", false, null, true, text);
+			SBML2SBGNMLUtil.createVoidBBox(sbgnGlyph);
 			// add this new glyph to Map
 			sOutput.addGlyphToMap(sbgnGlyph);		
 		}		
@@ -729,7 +732,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * @param <code>Sbgn</code> sbgnObject
 	 * @param <code>ListOf<GraphicalObject></code> listOfAdditionalGraphicalObjects
 	 */		
-	public void createFromGeneralGlyphs(Sbgn sbgnObject, ListOf<GraphicalObject> listOfAdditionalGraphicalObjects) {
+	public void createFromGeneralGlyphs(SBML2SBGNMLOutput sOutput, SWrapperMap sWrapperMap, Sbgn sbgnObject, ListOf<GraphicalObject> listOfAdditionalGraphicalObjects) {
 		GeneralGlyph generalGlyph;
 		BoundingBox bbox;
 		Arcgroup arcgroup;
@@ -742,12 +745,12 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			generalGlyph = (GeneralGlyph) graphicalObject;
 
 			// we create an ArcGroup for each GeneralGlyph
-			arcgroup = createFromOneGeneralGlyph(sbgnObject, generalGlyph);
+			arcgroup = createFromOneGeneralGlyph(sOutput, sWrapperMap, sbgnObject, generalGlyph);
 			if (arcgroup == null){continue;}
 			
 			// we get the meta information about the graphicalObject, whether it has a parent glyph or not
 			boolean hasParent = false;
-			checkParentChildGlyph(graphicalObject, graphicalObject.getId());
+			checkParentChildGlyph(sWrapperMap, graphicalObject, graphicalObject.getId());
 			
 			// we only add the glyph we created to output if it does not have a parent, otherwise, we add 
 			// it later, once all the parent glyphs are converted and stored
@@ -761,7 +764,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	/**
 	 * Create multiple SBGN <code>Glyph</code>s from an SBML <code>GeneralGlyph</code>. 
 	 */		
-	public Arcgroup createFromOneGeneralGlyph(Sbgn sbgnObject, GeneralGlyph generalGlyph){
+	public Arcgroup createFromOneGeneralGlyph(SBML2SBGNMLOutput sOutput, SWrapperMap sWrapperMap, Sbgn sbgnObject, GeneralGlyph generalGlyph){
 		ListOf<ReferenceGlyph> listOfReferenceGlyphs;
 		ListOf<GraphicalObject> listOfSubGlyphs;	
 		List<Glyph> listOfGlyphs = new ArrayList<Glyph>();
@@ -784,13 +787,13 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		
 		// if unable to determine a clazz using render information, then try to determine using the referenced object of the generalGlyph
 		if (generalGlyph.getReferenceInstance() != null){
-			clazz = sUtil.sbu.getOutputFromClass(generalGlyph.getReferenceInstance(), "unspecified entity");				
+			clazz = SBML2SBGNMLUtil.sbu.getOutputFromClass(generalGlyph.getReferenceInstance(), "unspecified entity");				
 		}
 		
 		// if unable to determine a clazz using the referenced object of the generalGlyph, then use the generalGlyph
 		if (clazz.equals("unspecified entity")){
 			try{
-			clazz = sUtil.sbu.getOutputFromClass(generalGlyph, "unspecified entity");
+			clazz = SBML2SBGNMLUtil.sbu.getOutputFromClass(generalGlyph, "unspecified entity");
 			} catch(Exception e){}
 		}
 		
@@ -798,24 +801,24 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		if (generalGlyph.isSetCurve()){
 			sbmlCurve = generalGlyph.getCurve();				// doesn't matter if the generalGlyph has a curve or not
 
-			//processNode = sUtil.createOneProcessNode(generalGlyph.getId(), sbmlCurve, clazz);
+			//processNode = SBML2SBGNMLUtil.createOneProcessNode(generalGlyph.getId(), sbmlCurve, clazz);
 			//sOutput.addArcgroupToMap(processNode);	
 			
 			// reset the style of the glyph using just a simple Bbox
-			//sUtil.createBBox(generalGlyph, processNode.getGlyph().get(0));
+			//SBML2SBGNMLUtil.createBBox(generalGlyph, processNode.getGlyph().get(0));
 		}
 		
 		// we want to create a glyph if there is a BoundingBox (this is a trick used in this converter for roundtrip conversion, 
 		// to avoid the extra GeneralGlyphs we created to resemble the center Curve of a ReactionGlyph)
 		if (generalGlyph.isSetBoundingBox()){
 			// create a glyph using information in the generalGlyph
-			glyph = createFromOneGraphicalObject(sbgnObject, generalGlyph);
+			glyph = createFromOneGraphicalObject(sOutput, sbgnObject, generalGlyph);
 			// this step is required
 			listOfGlyphs.add(glyph);
 
 			// since we add the child glyphs near the end of the conversion, we store what we need, and use them later
 			// store the parent id so that we know who is the parent of the child glyph
-			boolean hasParent = checkParentChildGlyph(generalGlyph, generalGlyph.getId());
+			boolean hasParent = checkParentChildGlyph(sWrapperMap, generalGlyph, generalGlyph.getId());
 			if (hasParent){
 				// TODO: need a better splitting pattern
 				String id = generalGlyph.getId().split("_")[1];
@@ -833,7 +836,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			
 			for (ReferenceGlyph referenceGlyph : listOfReferenceGlyphs) {
 				// create an Arc using information in the referenceGlyph
-				arc = createFromOneReferenceGlyph(referenceGlyph);
+				arc = createFromOneReferenceGlyph(sWrapperMap, referenceGlyph);
 				// this step is required
 				listOfArcs.add(arc);
 			}
@@ -845,21 +848,21 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			
 			for (GraphicalObject graphicalObject : listOfSubGlyphs) {
 				// create a glyph using information in the graphicalObject
-				glyph = createFromOneGraphicalObject(sbgnObject, graphicalObject);
+				glyph = createFromOneGraphicalObject(sOutput, sbgnObject, graphicalObject);
 				// this step is required
 				listOfGlyphs.add(glyph);
 			}
 		}	
 		
 		// we store all the glyphs and arcs we created earlier into an ArcGroup
-		arcgroup = sUtil.createOneArcgroup(listOfGlyphs, listOfArcs, generalGlyph.getId());
+		arcgroup = SBML2SBGNMLUtil.createOneArcgroup(listOfGlyphs, listOfArcs, generalGlyph.getId());
 
 		// if the generalGlyph has Annotation, we transfer the contents to the new arcgroup's Extension element
 		// we want to preserve as much information as possible
 		try {
-			sUtil.addAnnotationInExtension(arcgroup, generalGlyph.getAnnotation());
+			SBML2SBGNMLUtil.addAnnotationInExtension(arcgroup, generalGlyph.getAnnotation());
 			if (generalGlyph.getReferenceInstance() != null){
-				sUtil.addAnnotationInExtension(arcgroup, generalGlyph.getReferenceInstance().getAnnotation());
+				SBML2SBGNMLUtil.addAnnotationInExtension(arcgroup, generalGlyph.getReferenceInstance().getAnnotation());
 			}
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
@@ -874,7 +877,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * @param referenceGlyph
 	 * @return
 	 */
-	public Arc createFromOneReferenceGlyph(ReferenceGlyph referenceGlyph){
+	public Arc createFromOneReferenceGlyph(SWrapperMap sWrapperMap, ReferenceGlyph referenceGlyph){
 		Arc arc;
 		Curve sbmlCurve;
 		String referenceGlyphId;
@@ -887,12 +890,12 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		reference = referenceGlyph.getReference();
 		role = referenceGlyph.getRole();
 		
-//		sUtil.printHelper("createGlyphsFromGeneralGlyphs", 
+//		SBML2SBGNMLUtil.printHelper("createGlyphsFromGeneralGlyphs", 
 //				String.format("id=%s, glyph=%s, reference=%s, role=%s \n", 
 //				referenceGlyphId, glyph, reference, role));
 		
 		sbmlCurve = referenceGlyph.getCurve();
-		arc = sUtil.createOneArc(sbmlCurve);
+		arc = SBML2SBGNMLUtil.createOneArc(sbmlCurve);
 		
 		// Set clazz of the Arc:
 		// please see the detailed comments in createFromOneSpeciesReferenceGlyph
@@ -906,22 +909,22 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		}
 		if (clazz.equals("unspecified entity")){
 			if (role != null){
-				clazz = sUtil.searchForReactionRole(role);
+				clazz = SBML2SBGNMLUtil.searchForReactionRole(role);
 			}
 		}
 		if (clazz == null){
-			clazz = sUtil.sbu.getOutputFromClass(referenceGlyph, "unknown influence");
+			clazz = SBML2SBGNMLUtil.sbu.getOutputFromClass(referenceGlyph, "unknown influence");
 		} 
 		// a ReferenceGlyph does not have a referenced Object
 //		if (clazz.equals("unknown influence")){
-//			clazz = sUtil.sbu.getOutputFromClass(referenceGlyph.getReferenceInstance(), "unknown influence");
+//			clazz = SBML2SBGNMLUtil.sbu.getOutputFromClass(referenceGlyph.getReferenceInstance(), "unknown influence");
 //		}
 		arc.setClazz(clazz);
 
 		// if the referenceGlyph has Annotation, we transfer the contents to the new arc's Extension element
 		// we want to preserve as much information as possible			
 		try {
-			sUtil.addAnnotationInExtension(arc, referenceGlyph.getAnnotation());
+			SBML2SBGNMLUtil.addAnnotationInExtension(arc, referenceGlyph.getAnnotation());
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -929,7 +932,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		
 		// this step is critical, because we didn't create a wrapper for the arc we created here, therefore we didn't add 
 		// it to the so the listOfSWrapperArcs. The call to addPortForArc in convertToSBGNML skips all referenceGlyphs.
-		addPortForArc(referenceGlyph, arc);
+		addPortForArc(sWrapperMap, referenceGlyph, arc);
 			
 		return arc;
 	}
@@ -940,7 +943,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * @param graphicalObject
 	 * @return
 	 */
-	public Glyph createFromOneGraphicalObject(Sbgn sbgnObject, GraphicalObject graphicalObject){
+	public Glyph createFromOneGraphicalObject(SBML2SBGNMLOutput sOutput, Sbgn sbgnObject, GraphicalObject graphicalObject){
 		Glyph sbgnGlyph;
 		
 		// Set clazz of the Arc:
@@ -951,11 +954,11 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		}
 		String clazz = "unspecified entity";
 		try{
-			clazz = sUtil.sbu.getOutputFromClass(sbase, "unspecified entity");
+			clazz = SBML2SBGNMLUtil.sbu.getOutputFromClass(sbase, "unspecified entity");
 		} catch(Exception e){}
 		if (clazz.equals("unspecified entity")){
 			try{
-			clazz = sUtil.sbu.getOutputFromClass(graphicalObject, "unspecified entity");
+			clazz = SBML2SBGNMLUtil.sbu.getOutputFromClass(graphicalObject, "unspecified entity");
 			} catch(Exception e){}
 		}
 		if (clazz.equals("unspecified entity")){
@@ -969,15 +972,15 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		
 		
 		// create a new Glyph, set its Bbox, don't set a Label
-		sbgnGlyph = sUtil.createGlyph(graphicalObject.getId(), clazz, 
+		sbgnGlyph = SBML2SBGNMLUtil.createGlyph(graphicalObject.getId(), clazz, 
 				true, graphicalObject, 
 				false, null);	
 		
 		// if the graphicalObject has Annotation, we transfer the contents to the new sbgnGlyph's Extension element
 		// we want to preserve as much information as possible		
 		try {
-			sUtil.addAnnotationInExtension(sbgnGlyph, graphicalObject.getAnnotation());
-			sUtil.addAnnotationInExtension(sbgnGlyph, sbase.getAnnotation());
+			SBML2SBGNMLUtil.addAnnotationInExtension(sbgnGlyph, graphicalObject.getAnnotation());
+			SBML2SBGNMLUtil.addAnnotationInExtension(sbgnGlyph, sbase.getAnnotation());
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1138,7 +1141,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * @param childId
 	 * @return hasParent
 	 */
-	public boolean  checkParentChildGlyph(SBase sbmlGlyph, String childId){
+	public boolean  checkParentChildGlyph(SWrapperMap sWrapperMap, SBase sbmlGlyph, String childId){
 		boolean hasParent = false;
 		if (sbmlGlyph == null){
 			// we should never get an error like this
@@ -1179,7 +1182,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * 	 
 	 * @param listOfSpeciesGlyphs
 	 */
-	private void addCloneMarkers(ListOf<SpeciesGlyph> listOfSpeciesGlyphs) {
+	private void addCloneMarkers(SBML2SBGNMLOutput sOutput, ListOf<SpeciesGlyph> listOfSpeciesGlyphs) {
 
 		if (listOfSpeciesGlyphs == null){return;}
 		
@@ -1211,14 +1214,14 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 				// this is the name (the title) of the Element
 				String tagName = e.getTagName();
 				
-				if (tagName.equals(sUtil.SBFCANNO_PREFIX + ":species")){
-					String speciesId = e.getAttribute(sUtil.SBFCANNO_PREFIX + ":id");
+				if (tagName.equals(SBML2SBGNMLUtil.SBFCANNO_PREFIX + ":species")){
+					String speciesId = e.getAttribute(SBML2SBGNMLUtil.SBFCANNO_PREFIX + ":id");
 					
 					// if there are more than one SpeciesGlyphs for the Species in the Model
 					if (speciesMap.get(speciesId).size() > 1){
 
 						// add the Clone marker
-						sUtil.setClone(glyph);
+						SBML2SBGNMLUtil.setClone(glyph);
 						//System.out.println("addCloneMarkers species="+ speciesId + " glyph="+glyph.getId());
 					}
 				}
@@ -1230,7 +1233,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * Add all the stored child (in notAdded) glyphs to their associated parents, thus adding the child glyph to the output Sbgn Map
 	 * Note that this function is used in a roundtrip conversion.
 	 */
-	private void addChildGlyphsToParent() {
+	private void addChildGlyphsToParent(SWrapperMap sWrapperMap) {
 		
 		for (String key : sWrapperMap.notAdded.keySet()){
 			Glyph childGlyph;
@@ -1285,7 +1288,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	 * @param referenceGlyph
 	 * @param arc
 	 */
-	public void addPortForArc(GraphicalObject referenceGlyph, Arc arc){
+	public void addPortForArc(SWrapperMap sWrapperMap, GraphicalObject referenceGlyph, Arc arc){
 		String sourceId = null;
 		String targetId = null;
 		List<CVTerm> cvTerms = referenceGlyph.getAnnotation().getListOfCVTerms();
@@ -1394,7 +1397,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	/**
 	 * Preserve information stored in SBML core into the Sbgn object
 	 */
-	public void createExtensionsForModelObjects(){
+	public void createExtensionsForModelObjects(SBML2SBGNMLOutput sOutput){
 		ListOf<FunctionDefinition> listOfFunctionDefinitions = null;
 		ListOf<UnitDefinition> listOfUnitDefinitions = null;
 		ListOf<Parameter> listOfParameters = null;
@@ -1412,7 +1415,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		listOfConstraints = sOutput.listOfConstraints;
 		
 		for (UnitDefinition ud: listOfUnitDefinitions){
-			sUtil.addSbaseInExtension(sOutput.sbgnObject, ud);
+			SBML2SBGNMLUtil.addSbaseInExtension(sOutput.sbgnObject, ud);
 		}
 		
 		// TODO: add the rest
@@ -1422,14 +1425,14 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 	/**
 	 * Preserve information stored in SBML qual into the Sbgn object
 	 */
-	public void createExtensionsForQualMathML(){
+	public void createExtensionsForQualMathML(SBML2SBGNMLOutput sOutput){
 		ListOf<QualitativeSpecies> listOfQualitativeSpecies = null;
 		ListOf<Transition> listOfTransitions = null;
 		listOfTransitions = sOutput.listOfTransitions;
 		
 		for (Transition tr: listOfTransitions){
 			for (FunctionTerm ft: tr.getListOfFunctionTerms()){
-				sUtil.addMathMLInExtension(sOutput.sbgnObject, tr, ft);
+				SBML2SBGNMLUtil.addMathMLInExtension(sOutput.sbgnObject, tr, ft);
 			}
 		}		
 	}
@@ -1460,15 +1463,15 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			throw new FileNotFoundException("The SBMLDocument is null");
 		}
 			
-		sbml2sbgnml = new SBML2SBGNML_GSOC2017(sbmlDocument);
+		sbml2sbgnml = new SBML2SBGNML_GSOC2017();
 		// visualize JTree
 //		try {		
-//			sbml2sbgnml.sUtil.visualizeJTree(sbmlDocument);
+//			sbml2sbgnml.SBML2SBGNMLUtil.visualizeJTree(sbmlDocument);
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		}		
 		
-		sbgnObject = sbml2sbgnml.convertToSBGNML();	
+		sbgnObject = sbml2sbgnml.convertToSBGNML(sbmlDocument);	
 		
 		file = new File(sbgnFileNameOutput);
 		try {
@@ -1487,7 +1490,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		try {
 			inputModel = model;
 			SBMLDocument sbmlDoc = ((SBMLModel) model).getSBMLDocument();
-			Sbgn sbgnObj = convertToSBGNML();
+			Sbgn sbgnObj = convertToSBGNML(sbmlDoc);
 			SBGNModel outputModel = new SBGNModel(sbgnObj);
 			return outputModel;
 		} catch (SBMLException e) {
