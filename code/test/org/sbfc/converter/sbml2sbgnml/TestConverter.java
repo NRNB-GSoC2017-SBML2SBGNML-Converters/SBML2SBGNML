@@ -55,20 +55,21 @@ import org.sbml.jsbml.ext.render.Text;
 import org.sbml.jsbml.ext.render.VTextAnchor;
 
 public class TestConverter {
-	String sbmlFileNameInput = null;
-	String sbgnmlFileNameOutput = null;
-	File file = null;	
-	List<String> testFiles = new ArrayList<String>();
-	int numOfFilesConverted = 0;
-	
-	Properties properties = new Properties();	
-	InputStream inputProperties;
 
-	SBMLDocument sbmlDocument = null;
-	SBML2SBGNML_GSOC2017 converter = null;
-		
+	List<String> testFiles = new ArrayList<String>();
+
 	@Before
 	public void setUp(){
+		String sbmlFileNameInput = null;
+		String sbgnmlFileNameOutput = null;
+		File file = null;	
+				
+		Properties properties = new Properties();	
+		InputStream inputProperties;
+		
+		SBMLDocument sbmlDocument = null;
+		SBML2SBGNML_GSOC2017 converter = null;
+		
 		try {
 			inputProperties = new FileInputStream("sbml2sbgnml.properties");
 			properties.load(inputProperties);
@@ -83,7 +84,6 @@ public class TestConverter {
 		
 		try { 
 			sbmlDocument = SBML2SBGNMLUtil.getSBMLDocument(sbmlFileNameInput);
-			converter = new SBML2SBGNML_GSOC2017(sbmlDocument);
 		
 		} catch(Exception e) {
 			fail("Input file is not a regular SBML layout file.");
@@ -114,6 +114,8 @@ public class TestConverter {
 	@Test
 	public void testConvertToSBGNML() {	
 	
+		int numOfFilesConverted = 0;
+		
 		for (String sbmlFileName: testFiles){
 			//System.out.println(sbmlFileName);
 			String sbmlFileNameInput = sbmlFileName;
@@ -123,8 +125,8 @@ public class TestConverter {
 				
 			System.out.println("convertExampleFile "+ sbmlFileNameInput);
 			SBMLDocument sbmlDocument = SBML2SBGNMLUtil.getSBMLDocument(sbmlFileNameInput);
-			converter = new SBML2SBGNML_GSOC2017(sbmlDocument);
-			Sbgn sbgnObject = converter.convertToSBGNML();	
+			SBML2SBGNML_GSOC2017 converter = new SBML2SBGNML_GSOC2017();
+			Sbgn sbgnObject = converter.convertToSBGNML(sbmlDocument);	
 			file = new File(sbgnmlFileNameOutput);
 			try {
 				SbgnUtil.writeToFile(sbgnObject, file);
@@ -140,10 +142,42 @@ public class TestConverter {
 
 	@Test
 	public void testCreateBBox(){
-		GraphicalObject sbmlGlyph = converter.sOutput.listOfSpeciesGlyphs.get(0);
+		String sbmlFileNameInput = null;
+		String sbgnmlFileNameOutput = null;
+		File file = null;	
+				
+		Properties properties = new Properties();	
+		InputStream inputProperties;
+		
+		SBMLDocument sbmlDocument = null;
+		SBML2SBGNML_GSOC2017 converter = null;
+		
+		try {
+			inputProperties = new FileInputStream("sbml2sbgnml.properties");
+			properties.load(inputProperties);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		} catch (IOException e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+		sbmlFileNameInput = properties.getProperty("sbml2sbgnml.unittest_file.path");
+		
+		try { 
+			sbmlDocument = SBML2SBGNMLUtil.getSBMLDocument(sbmlFileNameInput);
+		
+		} catch(Exception e) {
+			fail("Input file is not a regular SBML layout file.");
+		}
+		
+		converter = new SBML2SBGNML_GSOC2017();
+		SBML2SBGNMLOutput sOutput = new SBML2SBGNMLOutput(sbmlDocument);
+		
+		GraphicalObject sbmlGlyph = sOutput.listOfSpeciesGlyphs.get(0);
 		Glyph sbgnGlyph = new Glyph();
 		
-		converter.sUtil.createBBox(sbmlGlyph, sbgnGlyph);
+		SBML2SBGNMLUtil.createBBox(sbmlGlyph, sbgnGlyph);
 		
 		BoundingBox boundingBox = sbmlGlyph.getBoundingBox();
 		Dimensions dimensions = boundingBox.getDimensions();
@@ -160,11 +194,43 @@ public class TestConverter {
 	
 	@Test
 	public void testSetBBoxDimensions(){
-		GraphicalObject sbmlGlyph = converter.sOutput.listOfSpeciesGlyphs.get(0);
+		String sbmlFileNameInput = null;
+		String sbgnmlFileNameOutput = null;
+		File file = null;	
+				
+		Properties properties = new Properties();	
+		InputStream inputProperties;
+		
+		SBMLDocument sbmlDocument = null;
+		SBML2SBGNML_GSOC2017 converter = null;
+		
+		try {
+			inputProperties = new FileInputStream("sbml2sbgnml.properties");
+			properties.load(inputProperties);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		} catch (IOException e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+		sbmlFileNameInput = properties.getProperty("sbml2sbgnml.unittest_file.path");
+		
+		try { 
+			sbmlDocument = SBML2SBGNMLUtil.getSBMLDocument(sbmlFileNameInput);
+		
+		} catch(Exception e) {
+			fail("Input file is not a regular SBML layout file.");
+		}
+		
+		converter = new SBML2SBGNML_GSOC2017();
+		SBML2SBGNMLOutput sOutput = new SBML2SBGNMLOutput(sbmlDocument);
+		
+		GraphicalObject sbmlGlyph = sOutput.listOfSpeciesGlyphs.get(0);
 		Glyph sbgnGlyph = new Glyph();
 		
-		converter.sUtil.createBBox(sbmlGlyph, sbgnGlyph);
-		converter.sUtil.setBBoxDimensions(sbgnGlyph, 0, 1, 0, 1);
+		SBML2SBGNMLUtil.createBBox(sbmlGlyph, sbgnGlyph);
+		SBML2SBGNMLUtil.setBBoxDimensions(sbgnGlyph, 0, 1, 0, 1);
 				
 		Bbox bbox = sbgnGlyph.getBbox();
 		
@@ -177,13 +243,46 @@ public class TestConverter {
 		
 	@Test
 	public void testCreateGlyphsFomCompartmentGlyphs(){
-		converter.createFromCompartmentGlyphs(converter.sOutput.sbgnObject, converter.sOutput.listOfCompartmentGlyphs);
-		int numOfGlyphs = converter.sOutput.sbgnObject.getMap().getGlyph().size();
+		String sbmlFileNameInput = null;
+		String sbgnmlFileNameOutput = null;
+		File file = null;	
+				
+		Properties properties = new Properties();	
+		InputStream inputProperties;
 		
-		assertEquals(converter.sOutput.listOfCompartmentGlyphs.size(), numOfGlyphs);
+		SBMLDocument sbmlDocument = null;
+		SBML2SBGNML_GSOC2017 converter = null;
 		
-		for (Glyph sbgnGlyph : converter.sOutput.sbgnObject.getMap().getGlyph()){
-			CompartmentGlyph sbmlGlyph = converter.sOutput.listOfCompartmentGlyphs.get(sbgnGlyph.getId());
+		try {
+			inputProperties = new FileInputStream("sbml2sbgnml.properties");
+			properties.load(inputProperties);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		} catch (IOException e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+		sbmlFileNameInput = properties.getProperty("sbml2sbgnml.unittest_file.path");
+		
+		try { 
+			sbmlDocument = SBML2SBGNMLUtil.getSBMLDocument(sbmlFileNameInput);
+		
+		} catch(Exception e) {
+			fail("Input file is not a regular SBML layout file.");
+		}
+		
+		converter = new SBML2SBGNML_GSOC2017();
+		SBML2SBGNMLOutput sOutput = new SBML2SBGNMLOutput(sbmlDocument);
+		SWrapperMap sWrapperMap = new SWrapperMap(sOutput.map, sOutput.sbmlModel);
+		
+		converter.createFromCompartmentGlyphs(sOutput, sWrapperMap, sOutput.sbgnObject, sOutput.listOfCompartmentGlyphs);
+		int numOfGlyphs = sOutput.sbgnObject.getMap().getGlyph().size();
+		
+		assertEquals(sOutput.listOfCompartmentGlyphs.size(), numOfGlyphs);
+		
+		for (Glyph sbgnGlyph : sOutput.sbgnObject.getMap().getGlyph()){
+			CompartmentGlyph sbmlGlyph = sOutput.listOfCompartmentGlyphs.get(sbgnGlyph.getId());
 
 			BoundingBox boundingBox = sbmlGlyph.getBoundingBox();
 			Dimensions dimensions = boundingBox.getDimensions();
@@ -200,33 +299,99 @@ public class TestConverter {
 		
 	@Test
 	public void testCreateGlyphsFromReactionGlyphs(){
-		converter.createFromReactionGlyphs(converter.sOutput.sbgnObject, converter.sOutput.listOfReactionGlyphs);
-		int numOfGlyphs = converter.sOutput.sbgnObject.getMap().getArcgroup().size();
+		String sbmlFileNameInput = null;
+		String sbgnmlFileNameOutput = null;
+		File file = null;	
+				
+		Properties properties = new Properties();	
+		InputStream inputProperties;
 		
-		assertEquals(converter.sOutput.listOfReactionGlyphs.size(), numOfGlyphs);
+		SBMLDocument sbmlDocument = null;
+		SBML2SBGNML_GSOC2017 converter = null;
+		
+		try {
+			inputProperties = new FileInputStream("sbml2sbgnml.properties");
+			properties.load(inputProperties);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		} catch (IOException e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+		sbmlFileNameInput = properties.getProperty("sbml2sbgnml.unittest_file.path");
+		
+		try { 
+			sbmlDocument = SBML2SBGNMLUtil.getSBMLDocument(sbmlFileNameInput);
+		
+		} catch(Exception e) {
+			fail("Input file is not a regular SBML layout file.");
+		}
+		
+		converter = new SBML2SBGNML_GSOC2017();
+		SBML2SBGNMLOutput sOutput = new SBML2SBGNMLOutput(sbmlDocument);
+		SWrapperMap sWrapperMap = new SWrapperMap(sOutput.map, sOutput.sbmlModel);
+		
+		converter.createFromReactionGlyphs(sOutput, sWrapperMap, sOutput.sbgnObject, sOutput.listOfReactionGlyphs);
+		int numOfGlyphs = sOutput.sbgnObject.getMap().getArcgroup().size();
+		
+		assertEquals(sOutput.listOfReactionGlyphs.size(), numOfGlyphs);
 	}	
 	
 	@Test
 	public void testCreateGlyphFromReactionGlyph(){
-		ReactionGlyph sbmlGlyph = converter.sOutput.listOfReactionGlyphs.get(0);
-		converter.createFromOneReactionGlyph(converter.sOutput.sbgnObject, sbmlGlyph);
+		String sbmlFileNameInput = null;
+		String sbgnmlFileNameOutput = null;
+		File file = null;	
+				
+		Properties properties = new Properties();	
+		InputStream inputProperties;
 		
-		converter.sOutput.sbgnObject.getMap().getGlyph();
-		converter.sOutput.sbgnObject.getMap().getArc();
+		SBMLDocument sbmlDocument = null;
+		SBML2SBGNML_GSOC2017 converter = null;
+		
+		try {
+			inputProperties = new FileInputStream("sbml2sbgnml.properties");
+			properties.load(inputProperties);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		} catch (IOException e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+		sbmlFileNameInput = properties.getProperty("sbml2sbgnml.unittest_file.path");
+		
+		try { 
+			sbmlDocument = SBML2SBGNMLUtil.getSBMLDocument(sbmlFileNameInput);
+		
+		} catch(Exception e) {
+			fail("Input file is not a regular SBML layout file.");
+		}
+		
+		converter = new SBML2SBGNML_GSOC2017();
+		SBML2SBGNMLOutput sOutput = new SBML2SBGNMLOutput(sbmlDocument);
+		SWrapperMap sWrapperMap = new SWrapperMap(sOutput.map, sOutput.sbmlModel);
+		
+		ReactionGlyph sbmlGlyph = sOutput.listOfReactionGlyphs.get(0);
+		converter.createFromOneReactionGlyph(sOutput, sWrapperMap, sOutput.sbgnObject, sbmlGlyph);
+		
+		sOutput.sbgnObject.getMap().getGlyph();
+		sOutput.sbgnObject.getMap().getArc();
 		
 		// process node created
 		if (sbmlGlyph.isSetCurve()) {
-			int numOfGlyphs = converter.sOutput.sbgnObject.getMap().getArcgroup().size();
+			int numOfGlyphs = sOutput.sbgnObject.getMap().getArcgroup().size();
 			assertEquals(1, numOfGlyphs);
 		}
 		
 		// same number of Arcs as number of SpeciesReference
 		ListOf<SpeciesReferenceGlyph> listOfSpeciesReferenceGlyphs = sbmlGlyph.getListOfSpeciesReferenceGlyphs();
-		int numOfArcs = converter.sOutput.sbgnObject.getMap().getArc().size();
+		int numOfArcs = sOutput.sbgnObject.getMap().getArc().size();
 		assertEquals(numOfArcs, listOfSpeciesReferenceGlyphs.size());
 		
 		for (SpeciesReferenceGlyph speciesReferenceGlyph : listOfSpeciesReferenceGlyphs){
-			String clazz = converter.sUtil.searchForReactionRole(speciesReferenceGlyph.getSpeciesReferenceRole());
+			String clazz = SBML2SBGNMLUtil.searchForReactionRole(speciesReferenceGlyph.getSpeciesReferenceRole());
 			// TODO: need to find the arc corresponding to a speciesReferenceGlyph, and test them
 		}
 		
@@ -246,13 +411,46 @@ public class TestConverter {
 	
 	@Test
 	public void testCreateGlyphsFromSpeciesGlyphs(){
-		converter.createFromSpeciesGlyphs(converter.sOutput.sbgnObject, converter.sOutput.listOfSpeciesGlyphs);
-		int numOfGlyphs = converter.sOutput.sbgnObject.getMap().getGlyph().size();
+		String sbmlFileNameInput = null;
+		String sbgnmlFileNameOutput = null;
+		File file = null;	
+				
+		Properties properties = new Properties();	
+		InputStream inputProperties;
 		
-		assertEquals(converter.sOutput.listOfSpeciesGlyphs.size(), numOfGlyphs);
+		SBMLDocument sbmlDocument = null;
+		SBML2SBGNML_GSOC2017 converter = null;
 		
-		for (Glyph sbgnGlyph : converter.sOutput.sbgnObject.getMap().getGlyph()){
-			SpeciesGlyph sbmlGlyph = converter.sOutput.listOfSpeciesGlyphs.get(sbgnGlyph.getId());
+		try {
+			inputProperties = new FileInputStream("sbml2sbgnml.properties");
+			properties.load(inputProperties);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		} catch (IOException e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+		sbmlFileNameInput = properties.getProperty("sbml2sbgnml.unittest_file.path");
+		
+		try { 
+			sbmlDocument = SBML2SBGNMLUtil.getSBMLDocument(sbmlFileNameInput);
+		
+		} catch(Exception e) {
+			fail("Input file is not a regular SBML layout file.");
+		}
+		
+		converter = new SBML2SBGNML_GSOC2017();
+		SBML2SBGNMLOutput sOutput = new SBML2SBGNMLOutput(sbmlDocument);
+		SWrapperMap sWrapperMap = new SWrapperMap(sOutput.map, sOutput.sbmlModel);
+		
+		converter.createFromSpeciesGlyphs(sOutput, sWrapperMap, sOutput.sbgnObject, sOutput.listOfSpeciesGlyphs);
+		int numOfGlyphs = sOutput.sbgnObject.getMap().getGlyph().size();
+		
+		assertEquals(sOutput.listOfSpeciesGlyphs.size(), numOfGlyphs);
+		
+		for (Glyph sbgnGlyph : sOutput.sbgnObject.getMap().getGlyph()){
+			SpeciesGlyph sbmlGlyph = sOutput.listOfSpeciesGlyphs.get(sbgnGlyph.getId());
 
 			BoundingBox boundingBox = sbmlGlyph.getBoundingBox();
 			Dimensions dimensions = boundingBox.getDimensions();
@@ -269,15 +467,48 @@ public class TestConverter {
 	
 	@Test
 	public void testCreateLabelsFromTextGlyphs(){
-		converter.createFromSpeciesGlyphs(converter.sOutput.sbgnObject, converter.sOutput.listOfSpeciesGlyphs);
-		converter.createLabelsFromTextGlyphs(converter.sOutput.sbgnObject, converter.sOutput.listOfTextGlyphs);
+		String sbmlFileNameInput = null;
+		String sbgnmlFileNameOutput = null;
+		File file = null;	
+				
+		Properties properties = new Properties();	
+		InputStream inputProperties;
 		
-		for (TextGlyph sbmlGlyph : converter.sOutput.listOfTextGlyphs){
+		SBMLDocument sbmlDocument = null;
+		SBML2SBGNML_GSOC2017 converter = null;
+		
+		try {
+			inputProperties = new FileInputStream("sbml2sbgnml.properties");
+			properties.load(inputProperties);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		} catch (IOException e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+		sbmlFileNameInput = properties.getProperty("sbml2sbgnml.unittest_file.path");
+		
+		try { 
+			sbmlDocument = SBML2SBGNMLUtil.getSBMLDocument(sbmlFileNameInput);
+		
+		} catch(Exception e) {
+			fail("Input file is not a regular SBML layout file.");
+		}
+		
+		converter = new SBML2SBGNML_GSOC2017();
+		SBML2SBGNMLOutput sOutput = new SBML2SBGNMLOutput(sbmlDocument);
+		SWrapperMap sWrapperMap = new SWrapperMap(sOutput.map, sOutput.sbmlModel);
+		
+		converter.createFromSpeciesGlyphs(sOutput, sWrapperMap, sOutput.sbgnObject, sOutput.listOfSpeciesGlyphs);
+		converter.createLabelsFromTextGlyphs(sOutput, sWrapperMap, sOutput.sbgnObject, sOutput.listOfTextGlyphs);
+		
+		for (TextGlyph sbmlGlyph : sOutput.listOfTextGlyphs){
 			if (sbmlGlyph.isSetGraphicalObject()) {
 				String speciesId = sbmlGlyph.getGraphicalObjectInstance().getId();
 				
-				List<Glyph> listOfGlyphs = converter.sOutput.sbgnObject.getMap().getGlyph();
-				int indexOfSpeciesGlyph = converter.sUtil.searchForIndex(listOfGlyphs, speciesId);
+				List<Glyph> listOfGlyphs = sOutput.sbgnObject.getMap().getGlyph();
+				int indexOfSpeciesGlyph = SBML2SBGNMLUtil.searchForIndex(listOfGlyphs, speciesId);
 				Glyph sbgnGlyph = listOfGlyphs.get(indexOfSpeciesGlyph);
 				
 				if (sbmlGlyph.isSetText()) {
@@ -324,7 +555,7 @@ public class TestConverter {
 		sbmlFileNameOutput = examplesDirectory + "Render_example_01.xml";
 		outputFile = new File(sbmlFileNameOutput);	
 		
-		SBGNML2SBMLOutput sOutput = new SBGNML2SBMLOutput(3, 1, "process description");
+		SBGNML2SBMLOutput sOutput = new SBGNML2SBMLOutput(3, 1);
 		LocalRenderInformation localRenderInformation = sOutput.localRenderInformation;
 
 		RenderGroup renderGroup;
@@ -423,16 +654,17 @@ public class TestConverter {
 		
 		sbmlFileNameInput = examplesDirectory + "Render_example_localRenderOnly.xml";
 		sbmlDocument = SBGNML2SBMLOutput.getSBMLDocument(sbmlFileNameInput);
-		SBML2SBGNML_GSOC2017 SBML2SBGNML = new SBML2SBGNML_GSOC2017(sbmlDocument);
+		SBML2SBGNML_GSOC2017 SBML2SBGNML = new SBML2SBGNML_GSOC2017();
+		SBML2SBGNMLOutput sOutput = new SBML2SBGNMLOutput(sbmlDocument);
 		
 		Model newModel = new Model(3, 1);
 		newModel.setNamespace("http://www.sbml.org/sbml/level3/version1/core");
 		
-		newModel.setListOfCompartments(SBML2SBGNML.sOutput.sbmlModel.getListOfCompartments());
-		newModel.setListOfSpecies(SBML2SBGNML.sOutput.sbmlModel.getListOfSpecies());
+		newModel.setListOfCompartments(sOutput.sbmlModel.getListOfCompartments());
+		newModel.setListOfSpecies(sOutput.sbmlModel.getListOfSpecies());
 		newModel.getListOfSpecies().remove("ATP");
 		newModel.getListOfSpecies().remove("ADP");
-		newModel.setListOfReactions(SBML2SBGNML.sOutput.sbmlModel.getListOfReactions());
+		newModel.setListOfReactions(sOutput.sbmlModel.getListOfReactions());
 		newModel.getListOfReactions().remove("Dephosphorylation");
 		newModel.getListOfReactions().get("Phosphorylation").getListOfReactants().remove("SpeciesReference_ATP");
 		newModel.getListOfReactions().get("Phosphorylation").getListOfProducts().remove("SpeciesReference_ADP");
@@ -440,20 +672,20 @@ public class TestConverter {
 		LayoutModelPlugin plugin = (LayoutModelPlugin) newModel.getPlugin("layout");
 		Layout newLayout = plugin.createLayout();
 		
-		newLayout.setDimensions(SBML2SBGNML.sOutput.layout.getDimensions());
-		newLayout.setListOfSpeciesGlyphs(SBML2SBGNML.sOutput.layout.getListOfSpeciesGlyphs());
+		newLayout.setDimensions(sOutput.layout.getDimensions());
+		newLayout.setListOfSpeciesGlyphs(sOutput.layout.getListOfSpeciesGlyphs());
 		newLayout.getListOfSpeciesGlyphs().remove("SpeciesGlyph_ATP");
 		newLayout.getListOfSpeciesGlyphs().remove("SpeciesGlyph_ADP");
 		newLayout.getListOfSpeciesGlyphs().remove("SpeciesGlyph_P");
 
-		newLayout.setListOfReactionGlyphs(SBML2SBGNML.sOutput.layout.getListOfReactionGlyphs());
+		newLayout.setListOfReactionGlyphs(sOutput.layout.getListOfReactionGlyphs());
 		newLayout.getListOfReactionGlyphs().remove("ReactionGlyph_Dephosphorylation");
 		ReactionGlyph reactionGlyph = newLayout.getListOfReactionGlyphs().get(0);
 		reactionGlyph.getListOfSpeciesReferenceGlyphs().remove("SpeciesReferenceGlyph_ATP");
 		reactionGlyph.getListOfSpeciesReferenceGlyphs().remove("SpeciesReferenceGlyph_ADP");
 		reactionGlyph.getListOfSpeciesReferenceGlyphs().remove("SpeciesReferenceGlyph_P");
 
-		newLayout.setListOfTextGlyphs(SBML2SBGNML.sOutput.layout.getListOfTextGlyphs());
+		newLayout.setListOfTextGlyphs(sOutput.layout.getListOfTextGlyphs());
 		newLayout.getListOfTextGlyphs().remove("TextGlyph_ATP");
 		newLayout.getListOfTextGlyphs().remove("TextGlyph_ADP");
 		newLayout.getListOfTextGlyphs().remove("TextGlyph_P");
@@ -494,7 +726,7 @@ public class TestConverter {
 		sbmlFileNameOutput = examplesDirectory + "Render_example_03.xml";
 		outputFile = new File(sbmlFileNameOutput);	
 
-		SBGNML2SBMLOutput sOutput = new SBGNML2SBMLOutput(3, 1, "process description");
+		SBGNML2SBMLOutput sOutput = new SBGNML2SBMLOutput(3, 1);
 		LocalRenderInformation localRenderInformation = sOutput.localRenderInformation;
 
 		RenderGroup renderGroup;

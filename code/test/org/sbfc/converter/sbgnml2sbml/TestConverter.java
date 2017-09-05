@@ -53,23 +53,24 @@ import org.sbml.jsbml.ext.render.Text;
 import org.sbml.jsbml.ext.render.VTextAnchor;
 
 public class TestConverter {
-	String sbgnFileNameInput;
-	String sbmlFileNameOutput;
-	File inputFile;
-	File outputFile;
+
 	List<String> testFiles = new ArrayList<String>();
-	int numOfFilesConverted = 0;
-	
-	Properties properties = new Properties();	
-	InputStream inputProperties;	
-	
-	Sbgn sbgnObject = null;
-	Map map;
-	SBGNML2SBML_GSOC2017 converter;
-	SBMLDocument sbmlDocument;
 		
 	@Before
 	public void setUp(){
+		String sbgnFileNameInput;
+		String sbmlFileNameOutput;
+		File inputFile;
+		File outputFile;
+		
+		Properties properties = new Properties();	
+		InputStream inputProperties;
+		
+		Sbgn sbgnObject = null;
+		Map map;
+		SBGNML2SBML_GSOC2017 converter;
+		SBMLDocument sbmlDocument;
+		
 		try {
 			inputProperties = new FileInputStream("sbgnml2sbml.properties");
 			properties.load(inputProperties);
@@ -135,12 +136,26 @@ public class TestConverter {
 			fail("Input file is not a regular SBGN-ML file.");
 		}
 
-		converter = new SBGNML2SBML_GSOC2017(map);		
-		converter.storeTemplateRenderInformation();
+		//converter = new SBGNML2SBML_GSOC2017(map);		
+		//converter.storeTemplateRenderInformation();
 	}
 	
 	@Test
 	public void testConvertToSBML() {
+		int numOfFilesConverted = 0;
+		
+		String sbgnFileNameInput;
+		String sbmlFileNameOutput;
+		File inputFile;
+		File outputFile;
+		
+		Properties properties = new Properties();	
+		InputStream inputProperties;
+		
+		Sbgn sbgnObject = null;
+		Map map = null;
+		SBGNML2SBML_GSOC2017 converter = new SBGNML2SBML_GSOC2017(map);
+		SBMLDocument sbmlDocument;
 		
 		for (String sbgnFileName: testFiles){
 			sbgnFileNameInput = sbgnFileName;
@@ -159,13 +174,15 @@ public class TestConverter {
 
 			converter = new SBGNML2SBML_GSOC2017(map);	
 			converter.fileName = sbgnFileName;
-			converter.storeTemplateRenderInformation();
+			//converter.storeTemplateRenderInformation();
+			SBGNML2SBMLOutput sOutput = new SBGNML2SBMLOutput(3, 1);
+			SWrapperModel sWrapperModel = new SWrapperModel(sOutput.getModel(), map);
 			
-			converter.convertToSBML();		
+			converter.convertToSBML(map);		
 			sbmlDocument = new SBMLDocument(3, 1);
-			sbmlDocument.setModel(converter.sWrapperModel.model);
-			Dimensions dimensions = new Dimensions(converter.sOutput.dimensionX, converter.sOutput.dimensionY, converter.sOutput.dimensionZ, 3, 1);
-			converter.sOutput.layout.setDimensions(dimensions);
+			sbmlDocument.setModel(sWrapperModel.model);
+			Dimensions dimensions = new Dimensions(sOutput.dimensionX, sOutput.dimensionY, sOutput.dimensionZ, 3, 1);
+			sOutput.layout.setDimensions(dimensions);
 			SBMLWriter sbmlWriter = new SBMLWriter();
 			
 			try {
@@ -183,18 +200,35 @@ public class TestConverter {
 	
 	@Test
 	public void testCreateCompartments(){
-		List<Glyph> listOfGlyphs = converter.sWrapperModel.map.getGlyph();
-		List<Arc> listOfArcs = converter.sWrapperModel.map.getArc();
-		List<Arcgroup> listOfArcgroups = converter.sWrapperModel.map.getArcgroup();
-
-		converter.addGlyphsToSWrapperModel(listOfGlyphs, listOfArcgroups);
+		String sbgnFileNameInput;
+		String sbmlFileNameOutput;
+		File inputFile;
+		File outputFile;
 		
-		converter.createCompartments();
-
-		ListOf<Compartment> listOfCompartments = converter.sWrapperModel.model.getListOfCompartments();
-		ListOf<CompartmentGlyph> listOfCompartmentGlyphs = converter.sOutput.layout.getListOfCompartmentGlyphs();
+		Properties properties = new Properties();	
+		InputStream inputProperties;
 		
-		List<Glyph> listOfGyphs = converter.sWrapperModel.map.getGlyph();
+		Sbgn sbgnObject = null;
+		Map map = null;
+		SBGNML2SBML_GSOC2017 converter;
+		SBMLDocument sbmlDocument;
+		
+		converter = new SBGNML2SBML_GSOC2017(map);	
+		SBGNML2SBMLOutput sOutput = new SBGNML2SBMLOutput(3, 1);
+		SWrapperModel sWrapperModel = new SWrapperModel(sOutput.getModel(), map);
+		
+		List<Glyph> listOfGlyphs = sWrapperModel.map.getGlyph();
+		List<Arc> listOfArcs = sWrapperModel.map.getArc();
+		List<Arcgroup> listOfArcgroups = sWrapperModel.map.getArcgroup();
+
+		converter.addGlyphsToSWrapperModel(sWrapperModel, listOfGlyphs, listOfArcgroups);
+		
+		converter.createCompartments(sWrapperModel, sOutput);
+
+		ListOf<Compartment> listOfCompartments = sWrapperModel.model.getListOfCompartments();
+		ListOf<CompartmentGlyph> listOfCompartmentGlyphs = sOutput.layout.getListOfCompartmentGlyphs();
+		
+		List<Glyph> listOfGyphs = sWrapperModel.map.getGlyph();
 		int numOfCompartments = 0;
 		
 		for (Glyph glyph: listOfGyphs){
@@ -236,23 +270,40 @@ public class TestConverter {
 	
 	@Test
 	public void testCreateSpecies(){
-		List<Glyph> listOfGlyphs = converter.sWrapperModel.map.getGlyph();
-		List<Arc> listOfArcs = converter.sWrapperModel.map.getArc();
-		List<Arcgroup> listOfArcgroups = converter.sWrapperModel.map.getArcgroup();
+		String sbgnFileNameInput;
+		String sbmlFileNameOutput;
+		File inputFile;
+		File outputFile;
+		
+		Properties properties = new Properties();	
+		InputStream inputProperties;
+		
+		Sbgn sbgnObject = null;
+		Map map = null;
+		SBGNML2SBML_GSOC2017 converter;
+		SBMLDocument sbmlDocument;
+		
+		converter = new SBGNML2SBML_GSOC2017(map);	
+		SBGNML2SBMLOutput sOutput = new SBGNML2SBMLOutput(3, 1);
+		SWrapperModel sWrapperModel = new SWrapperModel(sOutput.getModel(), map);
+		
+		List<Glyph> listOfGlyphs = sWrapperModel.map.getGlyph();
+		List<Arc> listOfArcs = sWrapperModel.map.getArc();
+		List<Arcgroup> listOfArcgroups = sWrapperModel.map.getArcgroup();
 
-		converter.addGlyphsToSWrapperModel(listOfGlyphs, listOfArcgroups);
+		converter.addGlyphsToSWrapperModel(sWrapperModel, listOfGlyphs, listOfArcgroups);
 		
-		converter.createSpecies();
+		converter.createSpecies(sWrapperModel, sOutput);
 		
-		ListOf<Species> listOfSpecies = converter.sWrapperModel.model.getListOfSpecies();
-		ListOf<SpeciesGlyph> listOfSpeciesGlyphs = converter.sOutput.layout.getListOfSpeciesGlyphs();			
+		ListOf<Species> listOfSpecies = sWrapperModel.model.getListOfSpecies();
+		ListOf<SpeciesGlyph> listOfSpeciesGlyphs = sOutput.layout.getListOfSpeciesGlyphs();			
 		
-		List<Glyph> listOfGyphs = converter.sWrapperModel.map.getGlyph();
+		List<Glyph> listOfGyphs = sWrapperModel.map.getGlyph();
 		int numOfEntities = 0;
 		
 		for (Glyph glyph: listOfGyphs){
 			String clazz = glyph.getClazz();
-			if (converter.sUtil.isEntityPoolNode(clazz) || converter.sUtil.isLogicOperator(clazz)) {
+			if (SBGNML2SBMLUtil.isEntityPoolNode(clazz) || SBGNML2SBMLUtil.isLogicOperator(clazz)) {
 				numOfEntities++;
 				
 				String id = glyph.getId();
@@ -282,27 +333,44 @@ public class TestConverter {
 	
 	@Test
 	public void testCreateTextGlyph(){
-		List<Glyph> listOfGlyphs = converter.sWrapperModel.map.getGlyph();
-		List<Arc> listOfArcs = converter.sWrapperModel.map.getArc();
-		List<Arcgroup> listOfArcgroups = converter.sWrapperModel.map.getArcgroup();
+		String sbgnFileNameInput;
+		String sbmlFileNameOutput;
+		File inputFile;
+		File outputFile;
+		
+		Properties properties = new Properties();	
+		InputStream inputProperties;
+		
+		Sbgn sbgnObject = null;
+		Map map = null;
+		SBGNML2SBML_GSOC2017 converter;
+		SBMLDocument sbmlDocument;
+		
+		converter = new SBGNML2SBML_GSOC2017(map);	
+		SBGNML2SBMLOutput sOutput = new SBGNML2SBMLOutput(3, 1);
+		SWrapperModel sWrapperModel = new SWrapperModel(sOutput.getModel(), map);
+		
+		List<Glyph> listOfGlyphs = sWrapperModel.map.getGlyph();
+		List<Arc> listOfArcs = sWrapperModel.map.getArc();
+		List<Arcgroup> listOfArcgroups = sWrapperModel.map.getArcgroup();
 
-		converter.addGlyphsToSWrapperModel(listOfGlyphs, listOfArcgroups);
+		converter.addGlyphsToSWrapperModel(sWrapperModel, listOfGlyphs, listOfArcgroups);
 		
-		converter.createSpecies();
+		converter.createSpecies(sWrapperModel, sOutput);
 		
-		ListOf<Species> listOfSpecies = converter.sWrapperModel.model.getListOfSpecies();
-		ListOf<SpeciesGlyph> listOfSpeciesGlyphs = converter.sOutput.layout.getListOfSpeciesGlyphs();			
+		ListOf<Species> listOfSpecies = sWrapperModel.model.getListOfSpecies();
+		ListOf<SpeciesGlyph> listOfSpeciesGlyphs = sOutput.layout.getListOfSpeciesGlyphs();			
 		
-		List<Glyph> listOfGyphs = converter.sWrapperModel.map.getGlyph();
+		List<Glyph> listOfGyphs = sWrapperModel.map.getGlyph();
 		
 		for (Glyph glyph: listOfGyphs){
 			String clazz = glyph.getClazz();
-			if (converter.sUtil.isEntityPoolNode(clazz)) {
+			if (SBGNML2SBMLUtil.isEntityPoolNode(clazz)) {
 				String id = glyph.getId();
 				Species species = listOfSpecies.get(id);
 				SpeciesGlyph speciesGlyph = listOfSpeciesGlyphs.get("SpeciesGlyph_"+id);					
 				
-				ListOf<TextGlyph> listOfTextGlyphs = converter.sOutput.layout.getListOfTextGlyphs();
+				ListOf<TextGlyph> listOfTextGlyphs = sOutput.layout.getListOfTextGlyphs();
 				TextGlyph textGlyph = listOfTextGlyphs.get( "TextGlyph_"+id );
 				
 				assertEquals(glyph.getLabel().getText(), textGlyph.getOriginOfTextInstance().getName());

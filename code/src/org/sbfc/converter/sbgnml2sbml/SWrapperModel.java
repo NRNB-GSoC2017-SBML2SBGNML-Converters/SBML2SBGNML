@@ -60,7 +60,7 @@ public class SWrapperModel {
 	public HashMap<String, SWrapperTransition> listOfSWrapperTransitions;
 	
 	// The model that we will use to generate the output converted file
-	Model model;
+	public Model model;
 	
 	// Stores mapping from a port id to a parent glyph id
 	HashMap<String, String> portGlyphMap = new HashMap<String, String>();
@@ -79,7 +79,7 @@ public class SWrapperModel {
 	// keep track of how many Glyphs are in Sbgn
 	int numberOfGlyphs;	
 	
-	SWrapperModel(Model model, Map map) {
+	public SWrapperModel(Model model, Map map) {
 		this.processNodes = new HashMap<String, Glyph>();
 		this.entityPoolNodes = new HashMap<String, Glyph>();
 		this.compartments = new HashMap<String, Glyph>();

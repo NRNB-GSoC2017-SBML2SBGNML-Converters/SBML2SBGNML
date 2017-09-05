@@ -821,7 +821,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			boolean hasParent = checkParentChildGlyph(sWrapperMap, generalGlyph, generalGlyph.getId());
 			if (hasParent){
 				// TODO: need a better splitting pattern
-				String id = generalGlyph.getId().split("_")[1];
+				String id = splitString(generalGlyph.getId(), 1);
 				
 				// we temporarily store this glyph in listOfSWrapperAuxiliary, and not add it to output,
 				// we will add the glyph later
@@ -1160,13 +1160,9 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 				// In this converter, we assume the String parent is of the form "SpeciesGlyph_parentId", so the parentId 
 				// can be found by splitting the string and taking the substring
 				// TODO: need a better splitting pattern
-				String[] array = parent.split("_");
-				if (array.length == 3){
-					sWrapperMap.notAdded.put(childId, array[1]+"_"+array[2]);
-				}
-				if (array.length == 2){
-					sWrapperMap.notAdded.put(childId, array[1]);
-				}
+				String parentId = splitString(parent, 1);
+				sWrapperMap.notAdded.put(childId, parentId);
+
 			}
 		}
 		return hasParent;
@@ -1437,7 +1433,19 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		}		
 	}
 	
-
+	public static String splitString(String input, int start){
+		// TODO: need a better splitting pattern
+		String[] array = input.split("_");
+		if (array.length == 3 && start == 1){
+			return array[1]+"_"+array[2];
+		}
+		if (array.length == 2 && start == 1){
+			return array[1];
+		}		
+		
+		return null;
+	}
+	
 	public static void main(String[] args) throws FileNotFoundException, SAXException, IOException {
 		
 		String sbmlFileNameInput;

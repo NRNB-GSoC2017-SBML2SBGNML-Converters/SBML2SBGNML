@@ -42,22 +42,22 @@ import org.sbml.jsbml.ext.qual.Transition;
  *
  */
 public class SBGNML2SBMLQual {
-	public SBGNML2SBML_GSOC2017 converter;
-	public SWrapperModel sWrapperModel;
-	public SBGNML2SBMLOutput sOutput;
-	public SBGNML2SBMLUtil sUtil;
-	public SBGNML2SBMLRender sRender;
+//	public SBGNML2SBML_GSOC2017 converter;
+//	public SWrapperModel sWrapperModel;
+//	public SBGNML2SBMLOutput sOutput;
+//	public SBGNML2SBMLUtil sUtil;
+//	public SBGNML2SBMLRender sRender;
 	
 	/**
 	 * The constructor inherits objects from the SBGNML2SBML_GSOC2017 converter, and the SBGNML2SBML_GSOC2017 converter itself
 	 * @param converter
 	 */
-	SBGNML2SBMLQual(SBGNML2SBML_GSOC2017 converter){
-		this.converter = converter;
-		this.sWrapperModel = converter.sWrapperModel;
-		this.sOutput = converter.sOutput;
-		this.sUtil = converter.sUtil;
-		this.sRender = converter.sRender;
+	SBGNML2SBMLQual(){
+//		this.converter = converter;
+//		this.sWrapperModel = converter.sWrapperModel;
+//		this.sOutput = converter.sOutput;
+//		this.sUtil = converter.sUtil;
+//		this.sRender = converter.sRender;
 	}
 	
 	/**
@@ -66,40 +66,52 @@ public class SBGNML2SBMLQual {
 	 * i.e. each <code>Glyph</code> or <code>Arc</code> of the <code>Map</code> 
 	 * is mapped to some elements of the SBML <code>Model</code>.
 	 */	
-	public void convertToSBMLQual(){
+	public SWrapperModel convertToSBMLQual(Map map){
+		SBGNML2SBML_GSOC2017 converter;
+		
+		// Create a new converter
+		converter = new SBGNML2SBML_GSOC2017();
+
+		SBGNML2SBMLOutput sOutput = new SBGNML2SBMLOutput(3, 1);
+		SWrapperModel sWrapperModel = new SWrapperModel(sOutput.getModel(), map);
+		
+		// Load a template file containing predefined RenderInformation
+		converter.storeTemplateRenderInformation(sOutput);
 		
 		// For more comments of the code below, please refer to SBGNML2SBML_GSOC2017.convertToSBML()
-		List<Glyph> listOfGlyphs = converter.sWrapperModel.map.getGlyph();
-		List<Arc> listOfArcs = converter.sWrapperModel.map.getArc();
-		List<Arcgroup> listOfArcgroups = converter.sWrapperModel.map.getArcgroup();
+		List<Glyph> listOfGlyphs = sWrapperModel.map.getGlyph();
+		List<Arc> listOfArcs = sWrapperModel.map.getArc();
+		List<Arcgroup> listOfArcgroups = sWrapperModel.map.getArcgroup();
 	
-		converter.addGlyphsToSWrapperModel(listOfGlyphs, listOfArcgroups);
+		converter.addGlyphsToSWrapperModel(sWrapperModel, listOfGlyphs, listOfArcgroups);
 
-		converter.createCompartments();
+		converter.createCompartments(sWrapperModel, sOutput);
 		// Note that we create QualitativeSpecies instead of Species.
 		//createSpecies();	
-		createQualitativeSpecies();
+		createQualitativeSpecies(sWrapperModel, sOutput);
 		
-		converter.sUtil.createDefaultCompartment(converter.sOutput.model);
+		SBGNML2SBMLUtil.createDefaultCompartment(sOutput.model);
 	
-		converter.addArcsToSWrapperModel(listOfArcs, listOfArcgroups);
+		converter.addArcsToSWrapperModel(sWrapperModel, listOfArcs, listOfArcgroups);
 		
-		createTransitions();
-		createCompleteTransitions();
+		createTransitions(sWrapperModel, sOutput, converter);
+		createCompleteTransitions(sWrapperModel, sOutput);
 		// Note that there are no ReactionGlyphs in SBGN AF
 		//converter.createReactions();
 		//converter.createGeneralGlyphs();
 
-		converter.sOutput.createCanvasDimensions();
+		sOutput.createCanvasDimensions();
 		
-		converter.sRender.renderCompartmentGlyphs();
-		converter.sRender.renderSpeciesGlyphs();
-		converter.sRender.renderReactionGlyphs();
-		converter.sRender.renderGeneralGlyphs();
-		converter.sRender.renderTextGlyphs();
+		SBGNML2SBMLRender.renderCompartmentGlyphs(sWrapperModel, sOutput);
+		SBGNML2SBMLRender.renderSpeciesGlyphs(sWrapperModel, sOutput);
+		SBGNML2SBMLRender.renderReactionGlyphs(sWrapperModel, sOutput);
+		SBGNML2SBMLRender.renderGeneralGlyphs(sWrapperModel, sOutput);
+		SBGNML2SBMLRender.renderTextGlyphs(sWrapperModel, sOutput);
 		
-		converter.sOutput.completeModel();
-		converter.sOutput.removeExtraStyles();		
+		sOutput.completeModel();
+		sOutput.removeExtraStyles();	
+		
+		return sWrapperModel;
 	}
 	
 	/**
@@ -107,7 +119,7 @@ public class SBGNML2SBMLQual {
 	 * @param glyph
 	 * @return sWrapperQualitativeSpecies
 	 */
-	public SWrapperQualitativeSpecies createOneQualitativeSpecies(Glyph glyph) {
+	public SWrapperQualitativeSpecies createOneQualitativeSpecies(SBGNML2SBMLOutput sOutput, Glyph glyph) {
 		QualitativeSpecies qualitativeSpecies;
 		SpeciesGlyph speciesGlyph;
 		String speciesId;
@@ -117,22 +129,22 @@ public class SBGNML2SBMLQual {
 		TextGlyph textGlyph;
 		SWrapperQualitativeSpecies sWrapperQualitativeSpecies;
 		
-		name = sUtil.getText(glyph);
+		name = SBGNML2SBMLUtil.getText(glyph);
 		clazz = glyph.getClazz();
 		speciesId = glyph.getId();
 		
 		// create a QualitativeSpecies, add it to the output
-		qualitativeSpecies = sUtil.createQualitativeSpecies(speciesId, name, clazz, false, true);
+		qualitativeSpecies = SBGNML2SBMLUtil.createQualitativeSpecies(speciesId, name, clazz, false, true);
 		sOutput.addQualitativeSpecies(qualitativeSpecies);
 		
 		// create a SpeciesGlyph, add it to the output 
 		bbox = glyph.getBbox();
-		speciesGlyph = sUtil.createJsbmlSpeciesGlyph(speciesId, name, clazz, null, true, bbox);
+		speciesGlyph = SBGNML2SBMLUtil.createJsbmlSpeciesGlyph(speciesId, name, clazz, null, true, bbox);
 		sOutput.addSpeciesGlyph(speciesGlyph);
 		
 		// create TextGlyph for the SpeciesGlyph, add it to the output 
 		Bbox labelBbox = glyph.getLabel().getBbox();
-		textGlyph = sUtil.createJsbmlTextGlyph(speciesGlyph, qualitativeSpecies.getName(), labelBbox);
+		textGlyph = SBGNML2SBMLUtil.createJsbmlTextGlyph(speciesGlyph, qualitativeSpecies.getName(), labelBbox);
 		sOutput.addTextGlyph(textGlyph);
 		
 		// create a new SWrapperSpeciesGlyph class to store the created QualitativeSpecies, SpeciesGlyph, and TextGlyph
@@ -144,12 +156,12 @@ public class SBGNML2SBMLQual {
 	/**
 	 * Create all the QualitativeSpecies and SpeciesGlyph in the model
 	 */
-	public void createQualitativeSpecies(){
+	public void createQualitativeSpecies(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput){
 		SWrapperQualitativeSpecies sWrapperQualitativeSpecies;
 		Glyph glyph;
 		for (String key : sWrapperModel.entityPoolNodes.keySet()) {
 			glyph = sWrapperModel.getGlyph(key);
-			sWrapperQualitativeSpecies = createOneQualitativeSpecies(glyph);
+			sWrapperQualitativeSpecies = createOneQualitativeSpecies(sOutput, glyph);
 			sWrapperModel.addSWrapperQualitativeSpecies(key, sWrapperQualitativeSpecies);
 		}
 	}
@@ -160,7 +172,7 @@ public class SBGNML2SBMLQual {
 	 * @param sWrapperArc
 	 * @return
 	 */
-	public SWrapperTransition createOneTransition(SWrapperArc sWrapperArc) {
+	public SWrapperTransition createOneTransition(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput, SBGNML2SBML_GSOC2017 converter, SWrapperArc sWrapperArc) {
 		SWrapperGeneralGlyph sWrapperGeneralGlyph;
 		SWrapperReferenceGlyph sWrapperReferenceGlyph;
 		
@@ -181,16 +193,16 @@ public class SBGNML2SBMLQual {
 		
 		// Create a Transition
 		// No BoundingBox for this special case because we have only an arc in this transition
-		transition = sUtil.createTransition(sWrapperArc.arcId, 
+		transition = SBGNML2SBMLUtil.createTransition(sWrapperArc.arcId, 
 				sWrapperModel.getSWrapperQualitativeSpecies(sourceId).qualitativeSpecies,
 				sWrapperModel.getSWrapperQualitativeSpecies(targetId).qualitativeSpecies);
 		sOutput.addTransition(transition);
 
 		// this arc will be converted to a GeneralGlyph containing one ReferenceGlyph
-		sWrapperGeneralGlyph = converter.createOneGeneralGlyph(sWrapperArc);
+		sWrapperGeneralGlyph = converter.createOneGeneralGlyph(sWrapperModel, sOutput, sWrapperArc);
 		
 		// Create a ReferenceGlyph
-		sWrapperReferenceGlyph = converter.createOneReferenceGlyph(sWrapperArc, sWrapperModel.getSWrapperQualitativeSpecies(sourceId).qualitativeSpecies);
+		sWrapperReferenceGlyph = converter.createOneReferenceGlyph(sWrapperModel, sOutput, sWrapperArc, sWrapperModel.getSWrapperQualitativeSpecies(sourceId).qualitativeSpecies);
 		// Add the ReferenceGlyph to the generalGlyph
 		sOutput.addReferenceGlyph(sWrapperGeneralGlyph.generalGlyph, sWrapperReferenceGlyph.referenceGlyph);
 
@@ -213,7 +225,7 @@ public class SBGNML2SBMLQual {
 	 * @param sWrapperGeneralGlyph
 	 * @return
 	 */
-	public SWrapperTransition createOneTransition(Glyph logicOperator, SWrapperGeneralGlyph sWrapperGeneralGlyph){
+	public SWrapperTransition createOneTransition(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput, Glyph logicOperator, SWrapperGeneralGlyph sWrapperGeneralGlyph){
 		String clazz;
 		String id;
 		Transition transition;
@@ -222,7 +234,7 @@ public class SBGNML2SBMLQual {
 		clazz = logicOperator.getClazz();
 		id = logicOperator.getId();
 		
-		transition = sUtil.createTransition(id);
+		transition = SBGNML2SBMLUtil.createTransition(id);
 		sOutput.addTransition(transition);	
 		
 		sWrapperTransition = new SWrapperTransition(id, transition, sWrapperGeneralGlyph, logicOperator, sWrapperModel);
@@ -241,7 +253,7 @@ public class SBGNML2SBMLQual {
 	 * 		CreateGeneralGlyphs in SBGNML2SBML_GSOC2017 for more detail)
 	 * @return
 	 */
-	public int createTransitions() {
+	public int createTransitions(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput, SBGNML2SBML_GSOC2017 converter) {
 		Arc arc;
 		String objectId;
 		SpeciesGlyph speciesGlyph;
@@ -256,17 +268,17 @@ public class SBGNML2SBMLQual {
 		for (String key : sWrapperModel.logicOperators.keySet()) {
 			glyph = sWrapperModel.getGlyph(key);
 			// create a new GeneralGlyph, don't add to output.
-			sWrapperGeneralGlyph = converter.createOneGeneralGlyph(glyph, null, true, false);
+			sWrapperGeneralGlyph = converter.createOneGeneralGlyph(sWrapperModel, sOutput, glyph, null, true, false);
 			sWrapperModel.listOfWrapperGeneralGlyphs.put(key, sWrapperGeneralGlyph);
 			
 			// cannot add text to GeneralGlyph (this is a bug), so here a workaround:
 			// we create a SpeciesGlyph instead of a GeneralGlyph
 			Bbox bbox = glyph.getBbox();
-			speciesGlyph = sUtil.createJsbmlSpeciesGlyph(glyph.getId(), null, glyph.getClazz(), null, true, bbox);
+			speciesGlyph = SBGNML2SBMLUtil.createJsbmlSpeciesGlyph(glyph.getId(), null, glyph.getClazz(), null, true, bbox);
 			sOutput.addSpeciesGlyph(speciesGlyph);
 			
 			// create a TextGlyph
-			TextGlyph textGlyph = sUtil.createJsbmlTextGlyph(speciesGlyph, glyph.getClazz().toUpperCase(), null);
+			TextGlyph textGlyph = SBGNML2SBMLUtil.createJsbmlTextGlyph(speciesGlyph, glyph.getClazz().toUpperCase(), null);
 			sOutput.addTextGlyph(textGlyph);
 			
 			sWrapperModel.listOfWrapperSpeciesGlyphs.put(glyph.getId(), new SWrapperSpeciesGlyph(null, speciesGlyph, glyph, textGlyph));
@@ -280,7 +292,7 @@ public class SBGNML2SBMLQual {
 			// Create a transition of each modifier arc (that means, when we see a modifier arc, we will be have a set of
 			// logic operators and arcs that forms a transition. And though the modifier arc, connects to the output)
 			// assume: each Transition has a single output
-			sWrapperTransition = createOneTransition(sWrapperArc);
+			sWrapperTransition = createOneTransition(sWrapperModel, sOutput, converter, sWrapperArc);
 			
 			// check if we have the special case (the Arc is not connected to a Logic Operator)
 			if (sWrapperTransition != null){
@@ -291,7 +303,7 @@ public class SBGNML2SBMLQual {
 				// we have the special case, so createOneTransition() returned null
 				objectId = sWrapperArc.targetId;
 				sWrapperQualitativeSpecies = sWrapperModel.listOfSWrapperQualitativeSpecies.get(objectId);
-				sWrapperReferenceGlyph = converter.createOneReferenceGlyph(sWrapperArc, sWrapperQualitativeSpecies.speciesGlyph);
+				sWrapperReferenceGlyph = converter.createOneReferenceGlyph(sWrapperModel, sOutput, sWrapperArc, sWrapperQualitativeSpecies.speciesGlyph);
 				sWrapperModel.listOfWrapperReferenceGlyphs.put(key, sWrapperReferenceGlyph);
 				sOutput.addGraphicalObject(sWrapperReferenceGlyph.referenceGlyph);
 				
@@ -310,11 +322,11 @@ public class SBGNML2SBMLQual {
 			// the ReferenceGlyph.glyph could be set to a GeneralGlyph or a SpeciesGlyph, it depends on what object type (a GeneralGlyph or a 
 			// SpeciesGlyph) we created earlier
 			if (sWrapperGeneralGlyph != null){
-				sWrapperReferenceGlyph = converter.createOneReferenceGlyph(sWrapperArc, sWrapperGeneralGlyph.generalGlyph);
+				sWrapperReferenceGlyph = converter.createOneReferenceGlyph(sWrapperModel, sOutput, sWrapperArc, sWrapperGeneralGlyph.generalGlyph);
 				
 			} else {
 				sWrapperQualitativeSpecies = sWrapperModel.listOfSWrapperQualitativeSpecies.get(objectId);
-				sWrapperReferenceGlyph = converter.createOneReferenceGlyph(sWrapperArc, sWrapperQualitativeSpecies.speciesGlyph);
+				sWrapperReferenceGlyph = converter.createOneReferenceGlyph(sWrapperModel, sOutput, sWrapperArc, sWrapperQualitativeSpecies.speciesGlyph);
 								
 			}
 			
@@ -334,8 +346,8 @@ public class SBGNML2SBMLQual {
 			for (Arc candidate: allArcs){
 				Object source = candidate.getSource();
 				Object target = candidate.getTarget();
-				Arc tagArc = converter.checkArcConnectsToLogicOperator(connectedPoints, source, key, candidate, "source");
-				tagArc = converter.checkArcConnectsToLogicOperator(connectedPoints, target, key, candidate, "target");
+				Arc tagArc = converter.checkArcConnectsToLogicOperator(sWrapperModel, connectedPoints, source, key, candidate, "source");
+				tagArc = converter.checkArcConnectsToLogicOperator(sWrapperModel, connectedPoints, target, key, candidate, "target");
 			}
 			
 			Curve curve = new Curve();
@@ -362,7 +374,7 @@ public class SBGNML2SBMLQual {
 	 * so that the ASTNode tree in MathML can be of any depth)
 	 * For example, convert compartment_extended.sbgn 
 	 */
-	public void createCompleteTransitions(){
+	public void createCompleteTransitions(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput){
 		SWrapperGeneralGlyph sWrapperGeneralGlyph;
 		SWrapperTransition sWrapperTransition;
 		
@@ -384,7 +396,7 @@ public class SBGNML2SBMLQual {
 			// run the recursive functions to find all the objects in a logic network of the transition
 			// then create a Transition wrapper and add it to the model wrapper
 			// note that the Transition does not have any values stored, we need to add them in the next step 
-			createOneCompleteTransition(sWrapperGeneralGlyph, listOfWGeneralGlyphs, listOfWReferenceGlyphs);
+			createOneCompleteTransition(sWrapperModel, sOutput, sWrapperGeneralGlyph, listOfWGeneralGlyphs, listOfWReferenceGlyphs);
 		}
 		
 		// Add the input and output QualitativeSpecies, FunctionTerm, and MathML to the transition
@@ -396,7 +408,7 @@ public class SBGNML2SBMLQual {
 			
 			for (String inputId : sWrapperTransition.inputs.keySet()){
 				SWrapperQualitativeSpecies input = sWrapperTransition.inputs.get(inputId);
-				Input tInput = sUtil.addInputToTransition(sWrapperTransition.transition, input.qualitativeSpecies);
+				Input tInput = SBGNML2SBMLUtil.addInputToTransition(sWrapperTransition.transition, input.qualitativeSpecies);
 				
 				// create a ASTNode for each input QualitativeSpecies, so that we can add them to the MathML later
 				ASTNode functionTermMath = new ASTNode(tInput.getId());
@@ -405,7 +417,7 @@ public class SBGNML2SBMLQual {
 			
 			for (String outputId : sWrapperTransition.outputs.keySet()){
 				SWrapperQualitativeSpecies output = sWrapperTransition.outputs.get(outputId);
-				sUtil.addOutputToTransition(sWrapperTransition.transition, output.qualitativeSpecies);
+				SBGNML2SBMLUtil.addOutputToTransition(sWrapperTransition.transition, output.qualitativeSpecies);
 			}
 			
 			// guess the resultLevel of the functionTerms we create 
@@ -426,24 +438,24 @@ public class SBGNML2SBMLQual {
 			
 			// create empty functionTerms
 			// add a defaultTerm
-			sUtil.addFunctionTermToTransition(sWrapperTransition.transition, true, resultLevel == 1 ? 0 : 1);	
+			SBGNML2SBMLUtil.addFunctionTermToTransition(sWrapperTransition.transition, true, resultLevel == 1 ? 0 : 1);	
 			// functionTerm
 			FunctionTerm functionTerm;
-			functionTerm = sUtil.addFunctionTermToTransition(sWrapperTransition.transition, false, resultLevel == 1 ? 1 : 0);
+			functionTerm = SBGNML2SBMLUtil.addFunctionTermToTransition(sWrapperTransition.transition, false, resultLevel == 1 ? 1 : 0);
 			
 			// get the logicOperator that immediately precedes the output modifier Arc
 			String rootId = sWrapperTransition.outputModifierArc.sWrapperArc.sourceId;
 			String rootClazz = sWrapperTransition.listOfWrapperGeneralGlyphs.get(rootId).clazz;
 			
 			// create the root ASTNode, set its container to the functionTerm
-			ASTNode rootNode = sUtil.createMath(rootClazz, functionTerm);
+			ASTNode rootNode = SBGNML2SBMLUtil.createMath(rootClazz, functionTerm);
 			sWrapperTransition.rootFunctionTerm = rootNode;
 						
 			// get the root's children, by finding all the Arcs connected to the root node, they are stored in sWrapperGeneralGlyph
 			sWrapperGeneralGlyph = sWrapperTransition.listOfWrapperGeneralGlyphs.get(rootId);
 			
 			// create the MathML using all the provided information we have in the sWrapperGeneralGlyph
-			buildTree(sWrapperGeneralGlyph, rootId, rootNode, leaves);
+			buildTree(sWrapperModel, sWrapperGeneralGlyph, rootId, rootNode, leaves);
 
 			functionTerm.setMath(rootNode);
 		}
@@ -456,7 +468,7 @@ public class SBGNML2SBMLQual {
 	 * @param parent
 	 * @param leaves
 	 */
-	public void buildTree(SWrapperGeneralGlyph sWrapperGeneralGlyph, String parentId, ASTNode parent, 
+	public void buildTree(SWrapperModel sWrapperModel, SWrapperGeneralGlyph sWrapperGeneralGlyph, String parentId, ASTNode parent, 
 			HashMap<String, ASTNode> leaves){
 
 		// finding all the Arcs connected to the parent node
@@ -473,16 +485,16 @@ public class SBGNML2SBMLQual {
 					parent.addChild(leaves.get(childId));
 				} else {
 					// create a new ASTNode, and add to parent
-					ASTNode childNode = sUtil.createMath(parent, sWrapperModel.listOfWrapperGeneralGlyphs.get(childId).clazz);
+					ASTNode childNode = SBGNML2SBMLUtil.createMath(parent, sWrapperModel.listOfWrapperGeneralGlyphs.get(childId).clazz);
 					
 					// recurse
-					buildTree(sWrapperGeneralGlyph, childId, childNode, leaves);
+					buildTree(sWrapperModel, sWrapperGeneralGlyph, childId, childNode, leaves);
 				}
 			}
 		}		
 	}
 	
-	public SWrapperQualitativeSpecies isQualitativeSpecies(String id){
+	public SWrapperQualitativeSpecies isQualitativeSpecies(SWrapperModel sWrapperModel, String id){
 		for (String key : sWrapperModel.listOfSWrapperQualitativeSpecies.keySet()){
 			SWrapperQualitativeSpecies sWrapperQualitativeSpecies = sWrapperModel.listOfSWrapperQualitativeSpecies.get(key);
 			if (key.equals(id)){
@@ -503,7 +515,7 @@ public class SBGNML2SBMLQual {
 	 * @param listOfWReferenceGlyphs
 	 * @return
 	 */
-	public SWrapperTransition createOneCompleteTransition(SWrapperGeneralGlyph sWrapperGeneralGlyph,
+	public SWrapperTransition createOneCompleteTransition(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput, SWrapperGeneralGlyph sWrapperGeneralGlyph,
 			HashMap<String, SWrapperGeneralGlyph> listOfWGeneralGlyphs,
 			HashMap<String, SWrapperReferenceGlyph> listOfWReferenceGlyphs){
 		
@@ -535,8 +547,8 @@ public class SBGNML2SBMLQual {
 				}
 				
 				// the output QualitativeSpecies and the output modifier ReferenceGlyph
-				if (isQualitativeSpecies(targetId) != null){
-					output = isQualitativeSpecies(targetId);
+				if (isQualitativeSpecies(sWrapperModel, targetId) != null){
+					output = isQualitativeSpecies(sWrapperModel, targetId);
 					outputModifierArc = sWrapperReferenceGlyph;
 				}
 				
@@ -548,11 +560,11 @@ public class SBGNML2SBMLQual {
 		// Create a new Transition, run the recursive createOneCompleteTransition() to find all objects (logic operators and logic arcs)
 		// involved in the Transition and add them to the Transition wrapper.
 		if (createANewTransition){
-			SWrapperTransition sWrapperTransition = createOneTransition(sWrapperGeneralGlyph.glyph, sWrapperGeneralGlyph);
+			SWrapperTransition sWrapperTransition = createOneTransition(sWrapperModel, sOutput, sWrapperGeneralGlyph.glyph, sWrapperGeneralGlyph);
 			sWrapperModel.addSWrapperTransition(sWrapperGeneralGlyph.id, sWrapperTransition);
 			
 			// recursively store objects into sWrapperTransition
-			createOneCompleteTransition(sWrapperTransition, sWrapperGeneralGlyph, listOfWGeneralGlyphs, listOfWReferenceGlyphs);
+			createOneCompleteTransition(sWrapperModel, sWrapperTransition, sWrapperGeneralGlyph, listOfWGeneralGlyphs, listOfWReferenceGlyphs);
 			
 			if (output != null){
 				sWrapperTransition.outputs.put(output.qualitativeSpecies.getId(), output);
@@ -576,7 +588,7 @@ public class SBGNML2SBMLQual {
 	 * @param listOfWGeneralGlyphs store all the logic operators we added to the transition
 	 * @param listOfWReferenceGlyphs store all the logic arcs we added to the transition
 	 */
-	public void createOneCompleteTransition(SWrapperTransition sWrapperTransition,
+	public void createOneCompleteTransition(SWrapperModel sWrapperModel, SWrapperTransition sWrapperTransition,
 			SWrapperGeneralGlyph sWrapperGeneralGlyph,
 			HashMap<String, SWrapperGeneralGlyph> listOfWGeneralGlyphs,
 			HashMap<String, SWrapperReferenceGlyph> listOfWReferenceGlyphs){
@@ -613,7 +625,7 @@ public class SBGNML2SBMLQual {
 				}
 				
 				// recurse
-				createOneCompleteTransition(sWrapperTransition, sWrapperReferenceGlyph, listOfWGeneralGlyphs, listOfWReferenceGlyphs);
+				createOneCompleteTransition(sWrapperModel, sWrapperTransition, sWrapperReferenceGlyph, listOfWGeneralGlyphs, listOfWReferenceGlyphs);
 				
 				// we store the sWrapperReferenceGlyph to the sWrapperGeneralGlyph
 				sWrapperGeneralGlyph.addSpeciesReferenceGlyph(key, sWrapperReferenceGlyph, sWrapperReferenceGlyph.sWrapperArc);
@@ -632,7 +644,7 @@ public class SBGNML2SBMLQual {
 	 * @param listOfWGeneralGlyphs store all the logic operators we added to the transition
 	 * @param listOfWReferenceGlyphs store all the logic arcs we added to the transition
 	 */
-	public void createOneCompleteTransition(SWrapperTransition sWrapperTransition,
+	public void createOneCompleteTransition(SWrapperModel sWrapperModel, SWrapperTransition sWrapperTransition,
 			SWrapperReferenceGlyph sWrapperReferenceGlyph,
 			HashMap<String, SWrapperGeneralGlyph> listOfWGeneralGlyphs,
 			HashMap<String, SWrapperReferenceGlyph> listOfWReferenceGlyphs){
@@ -664,7 +676,7 @@ public class SBGNML2SBMLQual {
 				}
 				
 				// recurse
-				createOneCompleteTransition(sWrapperTransition, sWrapperGeneralGlyph, listOfWGeneralGlyphs, listOfWReferenceGlyphs);
+				createOneCompleteTransition(sWrapperModel, sWrapperTransition, sWrapperGeneralGlyph, listOfWGeneralGlyphs, listOfWReferenceGlyphs);
 				
 			} else {
 				continue;
@@ -694,22 +706,17 @@ public class SBGNML2SBMLQual {
 		sbgnObject = SBGNML2SBMLUtil.readSbgnFile(sbgnFileNameInput);
 
 		Map map;
-		SBGNML2SBML_GSOC2017 converter;		
+		map = sbgnObject.getMap();
 		
-		map = sbgnObject.getMap();	
+		SBGNML2SBMLQual converterQual = new SBGNML2SBMLQual();
+		// Convert the file	
+		SWrapperModel sWrapperModel = converterQual.convertToSBMLQual(map);
+			
 		// optional
 		//SBGNML2SBMLUtil.debugSbgnObject(map);
 		
-		// Create a new converter
-		converter = new SBGNML2SBML_GSOC2017(map);
-		// Load a template file containing predefined RenderInformation
-		converter.storeTemplateRenderInformation();
-		// Convert the file	
-		SBGNML2SBMLQual converterQual = new SBGNML2SBMLQual(converter);
-		converterQual.convertToSBMLQual();
-		
 		// Write converted SBML file
-		SBGNML2SBMLUtil.writeSbmlFile(sbmlFileNameOutput, converter.sOutput.model);
+		SBGNML2SBMLUtil.writeSbmlFile(sbmlFileNameOutput, sWrapperModel.model);
 	}
 		
 }

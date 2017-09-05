@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import javax.xml.bind.JAXBException;
 
+import org.sbfc.converter.sbml2sbgnml.SBML2SBGNMLOutput;
 import org.sbfc.converter.sbml2sbgnml.SBML2SBGNMLUtil;
 import org.sbfc.converter.sbml2sbgnml.SBML2SBGNML_GSOC2017;
 import org.sbgn.SbgnUtil;
@@ -37,11 +38,13 @@ import org.sbml.jsbml.AbstractMathContainer;
  */
 public class SBML2SBGNMLQual {
 	
-	public static void toStringDebug(SBML2SBGNML_GSOC2017 sbml2sbgnml){
+	public static void toStringDebug(SBMLDocument sbmlDocument){
 
-		ListOf<QualitativeSpecies> listOfQualitativeSpecies = sbml2sbgnml.sOutput.listOfQualitativeSpecies;
-		ListOf<Compartment> listOfCompartments = sbml2sbgnml.sOutput.listOfCompartments;
-		ListOf<Transition> listOfTransitions = sbml2sbgnml.sOutput.listOfTransitions;
+		SBML2SBGNMLOutput sOutput = new SBML2SBGNMLOutput(sbmlDocument);
+		
+		ListOf<QualitativeSpecies> listOfQualitativeSpecies = sOutput.listOfQualitativeSpecies;
+		ListOf<Compartment> listOfCompartments = sOutput.listOfCompartments;
+		ListOf<Transition> listOfTransitions = sOutput.listOfTransitions;
 	
 		String id; 
 		String name;
@@ -163,7 +166,6 @@ public class SBML2SBGNMLQual {
 		String sbmlFileNameInput;
 		String sbgnFileNameOutput;
 		SBMLDocument sbmlDocument;
-		SBML2SBGNML_GSOC2017 sbml2sbgnml;
 		Sbgn sbgnObject;
 		File file;
 		
@@ -183,15 +185,15 @@ public class SBML2SBGNMLQual {
 			throw new FileNotFoundException("The SBMLDocument is null");
 		}
 			
-		sbml2sbgnml = new SBML2SBGNML_GSOC2017(sbmlDocument);
 		// visualize JTree
 		try {		
-			sbml2sbgnml.sUtil.visualizeJTree(sbmlDocument);
+			SBML2SBGNMLUtil sUtil = new SBML2SBGNMLUtil();
+			sUtil.visualizeJTree(sbmlDocument);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}		
 
-		toStringDebug(sbml2sbgnml);
+		toStringDebug(sbmlDocument);
 		
 	}	
 }

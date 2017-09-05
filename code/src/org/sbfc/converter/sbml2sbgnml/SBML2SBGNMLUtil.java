@@ -73,7 +73,7 @@ public class SBML2SBGNMLUtil {
 	// for debugging
 	static int debugMode = 0;
 
-	SBML2SBGNMLUtil() {
+	public SBML2SBGNMLUtil() {
 		// the DocumentBuilder is used to add an XML Element to the Sbgn object's Extension
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder constructeur;
