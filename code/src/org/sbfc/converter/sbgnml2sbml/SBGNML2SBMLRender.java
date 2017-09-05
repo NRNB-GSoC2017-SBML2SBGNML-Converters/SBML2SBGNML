@@ -143,7 +143,7 @@ public class SBGNML2SBMLRender {
 	public static void renderTextGlyphs(SWrapperModel sWrapperModel, SBGNML2SBMLOutput sOutput) {
 		
 		for (TextGlyph tg : sOutput.layout.getListOfTextGlyphs()){
-			if (sWrapperModel.textSourceMap.containsKey(tg.getId())){
+			if (sWrapperModel.getTextSourceMap().containsKey(tg.getId())){
 				//LocalStyle localStyle = createStyle(tg, "top_text");
 				LocalStyle localStyle = createStyle(tg, "text", sOutput);
 			} else {

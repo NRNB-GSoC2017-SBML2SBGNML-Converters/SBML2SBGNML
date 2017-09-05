@@ -379,7 +379,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter {
 		
 		// optional. 
 		if (glyph.getGlyph().size() != 0){
-			sWrapperModel.textSourceMap.put(textGlyph.getId(), glyph.getId());
+			sWrapperModel.getTextSourceMap().put(textGlyph.getId(), glyph.getId());
 		}
 		
 		// create a new SWrapperSpeciesGlyph class, store a list of GeneralGlyphs if present
@@ -980,7 +980,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter {
 		TextGlyph textGlyph = SBGNML2SBMLUtil.createJsbmlTextGlyph(compartmentGlyph, glyph.getLabel().getText(), labelBbox);
 		sOutput.addTextGlyph(textGlyph);
 		// optional
-		sWrapperModel.textSourceMap.put(textGlyph.getId(), key);
+		sWrapperModel.getTextSourceMap().put(textGlyph.getId(), key);
 		
 		return new SWrapperCompartmentGlyph(compartment, compartmentGlyph, glyph);
 	}	

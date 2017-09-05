@@ -72,7 +72,7 @@ public class SWrapperModel {
 	HashMap<String, String> generalGlyphTransitionMap = new HashMap<String, String>();
 	
 	// Maps a TextGlyph id to the layout Glyph that contains the text.
-	HashMap<String, String> textSourceMap = new HashMap<String, String>();
+	private HashMap<String, String> textSourceMap = new HashMap<String, String>();
 	
 	// keep track of how many Arcs are in Sbgn
 	int numberOfArcs;
@@ -111,6 +111,11 @@ public class SWrapperModel {
 	public Model getModel() {
 		return model;
 	}
+	
+	public HashMap<String, String> getTextSourceMap(){
+		return textSourceMap;
+	}
+	
 	
 	public Glyph getGlyph(String key) {
 		Glyph glyph = entityPoolNodes.get(key);
