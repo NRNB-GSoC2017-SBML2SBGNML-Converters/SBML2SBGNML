@@ -5,6 +5,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.sbfc.converter.GeneralConverter;
+import org.sbfc.converter.exceptions.ConversionException;
+import org.sbfc.converter.exceptions.ReadModelException;
+import org.sbfc.converter.models.GeneralModel;
+import org.sbfc.converter.models.SBGNModel;
+import org.sbfc.converter.models.SBMLModel;
 import org.sbfc.converter.sbgnml2sbml.SBGNML2SBMLOutput;
 import org.sbfc.converter.sbgnml2sbml.SBGNML2SBMLRender;
 import org.sbfc.converter.sbgnml2sbml.SBGNML2SBMLUtil;
@@ -21,6 +27,7 @@ import org.sbgn.bindings.Glyph;
 import org.sbgn.bindings.Map;
 import org.sbgn.bindings.Sbgn;
 import org.sbml.jsbml.ASTNode;
+import org.sbml.jsbml.SBMLDocument;
 import org.sbml.jsbml.ext.layout.Curve;
 import org.sbml.jsbml.ext.layout.GeneralGlyph;
 import org.sbml.jsbml.ext.layout.LineSegment;
@@ -41,7 +48,7 @@ import org.sbml.jsbml.ext.qual.Transition;
  * @author haoran
  *
  */
-public class SBGNML2SBMLQual {
+public class SBGNML2SBMLQual   extends GeneralConverter{
 //	public SBGNML2SBML_GSOC2017 converter;
 //	public SWrapperModel sWrapperModel;
 //	public SBGNML2SBMLOutput sOutput;
@@ -717,6 +724,49 @@ public class SBGNML2SBMLQual {
 		
 		// Write converted SBML file
 		SBGNML2SBMLUtil.writeSbmlFile(sbmlFileNameOutput, sWrapperModel.model);
+	}
+
+	@Override
+	public GeneralModel convert(GeneralModel sbgn) throws ConversionException,
+			ReadModelException {
+	  if (sbgn instanceof SBGNModel) {
+		    SBGNModel sbgnSbfcModel = (SBGNModel) sbgn; 
+		    
+		    SWrapperModel sWrapperModel = convertToSBMLQual(sbgnSbfcModel.getSbgnModel().getMap());
+
+		    SBMLDocument sbmlDocument = new SBMLDocument(3, 1);
+	        sbmlDocument.setModel(sWrapperModel.model);
+	        
+		     return new SBMLModel(sbmlDocument);
+
+		  } else {
+		    throw new ConversionException("We expect an SBGNML model as input, got '" + sbgn.getClass().getSimpleName() + "'.");
+		  }
+
+	}
+
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getHtmlDescription() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getResultExtension() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 		
 }

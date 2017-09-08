@@ -608,6 +608,9 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			glyph = sWrapperMap.listOfSWrapperGlyphEntityPools.get(speciesId).glyph;
 		} catch (Exception e){}
 		
+		arc.setSource(null);
+		arc.setTarget(null);
+		
 		if (clazz.equals("production")){
 			sourceTargetType="reactionToSpecies";
 
@@ -652,6 +655,12 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		
+		if (arc.getSource() == null || arc.getTarget() == null){
+			System.out.println("createFromOneSpeciesReferenceGlyph" + arc.getId());
+		} else {
+			//System.out.println("createFromOneSpeciesReferenceGlyph" + arc.getId() + "sourceId "+ " targetId ");
 		}
 
 		return sWrapperArc;
@@ -759,6 +768,7 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 			}	
 						
 		}
+
 	}
 	
 	/**
@@ -1289,6 +1299,15 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 		String targetId = null;
 		List<CVTerm> cvTerms = referenceGlyph.getAnnotation().getListOfCVTerms();
 		boolean hasPort = false;
+		
+		if (arc.getSource() == null || arc.getTarget() == null){
+			System.out.println("createFromOneReferenceGlyph no source or target: " + arc.getId());
+		} else {
+			// it's okay, this happens for ReactionsGlyphs. They are not stored in listOfSWrapperGlyphEntityPools, but 
+			// we already added the Port to the Reaction earlier
+			return;
+		}
+		
 		arc.setTarget(null);
 		arc.setSource(null);
 		
@@ -1387,7 +1406,11 @@ public class SBML2SBGNML_GSOC2017 extends GeneralConverter {
 				targetGlyph.getPort().add(port);
 				arc.setTarget(port);
 			}
-		}		
+			
+
+		}
+		
+
 	}
 	
 	/**

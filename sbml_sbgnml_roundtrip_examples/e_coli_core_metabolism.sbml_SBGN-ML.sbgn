@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <sbgn xmlns="http://sbgn.org/libsbgn/0.2">
-    <map language="process description">
+    <map>
         <glyph class="simple chemical" id="_1576485">
             <extension>
                 <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="c" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="true" sbfcanno:id="atp_c" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="NaN" sbfcanno:name="ATP" sbfcanno:substanceUnits=""/>

@@ -67,13 +67,20 @@ public class SBML2SBGNMLUtil {
 	// for adding an XML Element to the Sbgn object's Extension
 	static final String SBFCANNO_PREFIX = "sbfcanno";
 	static final String SBFC_ANNO_NAMESPACE = "http://www.sbfc.org/sbfcanno";
-	static Document document = null;
+	static Document document = init();
 	static DocumentBuilder builder = null;
 	
 	// for debugging
 	static int debugMode = 0;
 
+
 	public SBML2SBGNMLUtil() {
+
+	}
+	
+	public static Document init(){
+		Document document = null;
+		
 		// the DocumentBuilder is used to add an XML Element to the Sbgn object's Extension
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder constructeur;
@@ -92,8 +99,11 @@ public class SBML2SBGNMLUtil {
 			builder = builderFactory.newDocumentBuilder();  // Create the parser
 		} catch(ParserConfigurationException exception) {
 			exception.printStackTrace();
-		}
+		}		
+		
+		return document;
 	}
+	
 	
 	/**
 	 * Create a new <code>Glyph</code> with its <code>clazz</code>.

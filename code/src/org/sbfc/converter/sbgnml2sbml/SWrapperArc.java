@@ -17,8 +17,8 @@ public class SWrapperArc {
 	public String sourceId;
 	//targetId is the Glyph id of the Target, even if the Arc points to a Port
 	public String targetId;
-	Object source;
-	Object target;
+	Object source = null;
+	Object target = null;
 	
 	public SWrapperArc(Arc arc, String sourceTargetType, String sourceId, String targetId, Object source, Object target){
 		this.arc = arc;
@@ -29,5 +29,7 @@ public class SWrapperArc {
 		this.targetId = targetId;
 		this.source = source;
 		this.target = target;
+		
+		//System.out.println("sourceId "+ sourceId + " targetId "+ targetId);
 	}
 }

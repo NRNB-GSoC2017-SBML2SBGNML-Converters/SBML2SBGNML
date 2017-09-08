@@ -2,27 +2,40 @@
 <sbgn xmlns="http://sbgn.org/libsbgn/0.2">
     <map>
         <glyph class="compartment" id="CompartmentGlyph_glyph1">
+            <extension/>
             <label text="Compartement">
                 <bbox w="139.0" h="25.0" x="716.5" y="26.0"/>
             </label>
             <bbox w="1538.0" h="1350.0" x="17.0" y="18.0"/>
         </glyph>
         <glyph class="source and sink" id="SpeciesGlyph_glyph20">
+            <extension>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph20" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="" sbfcanno:substanceUnits=""/>
+            </extension>
             <bbox w="60.0" h="60.0" x="810.0" y="954.3333"/>
         </glyph>
         <glyph class="unspecified entity" id="SpeciesGlyph_glyph9">
+            <extension>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph9" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="unspecified entity" sbfcanno:substanceUnits=""/>
+            </extension>
             <label text="unspecified entity">
                 <bbox w="208.0" h="72.0" x="1229.3334" y="948.3333"/>
             </label>
             <bbox w="208.0" h="72.0" x="1229.3334" y="948.3333"/>
         </glyph>
         <glyph class="perturbing agent" id="SpeciesGlyph_glyph8">
+            <extension>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph8" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="perturbation" sbfcanno:substanceUnits=""/>
+            </extension>
             <label text="perturbation">
                 <bbox w="214.0" h="88.0" x="1096.6666" y="145.0"/>
             </label>
             <bbox w="214.0" h="88.0" x="1096.6666" y="145.0"/>
         </glyph>
         <glyph class="simple chemical" id="SpeciesGlyph_glyph13">
+            <extension>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph13" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="simple chemical" sbfcanno:substanceUnits=""/>
+            </extension>
             <label text="simple chemical">
                 <bbox w="170.0" h="68.0" x="629.0" y="274.0"/>
             </label>
@@ -30,12 +43,18 @@
             <bbox w="170.0" h="68.0" x="629.0" y="274.0"/>
         </glyph>
         <glyph class="nucleic acid feature multimer" id="SpeciesGlyph_glyph5">
+            <extension>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph5" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="multimer nucleic acid feature" sbfcanno:substanceUnits=""/>
+            </extension>
             <label text="multimer nucleic acid feature">
                 <bbox w="278.0" h="80.0" x="61.0" y="732.0"/>
             </label>
             <bbox w="278.0" h="80.0" x="61.0" y="732.0"/>
         </glyph>
         <glyph class="complex multimer" id="SpeciesGlyph_glyph4">
+            <extension>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph4" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="multimer complex" sbfcanno:substanceUnits=""/>
+            </extension>
             <label text="multimer complex">
                 <bbox w="161.0" h="25.0" x="1147.1666" y="646.8333"/>
             </label>
@@ -60,18 +79,27 @@
             </glyph>
         </glyph>
         <glyph class="simple chemical multimer" id="SpeciesGlyph_glyph7">
+            <extension>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph7" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="multimer simple chemical" sbfcanno:substanceUnits=""/>
+            </extension>
             <label text="multimer simple chemical">
                 <bbox w="268.0" h="64.0" x="244.0" y="276.0"/>
             </label>
             <bbox w="268.0" h="64.0" x="244.0" y="276.0"/>
         </glyph>
         <glyph class="macromolecule multimer" id="SpeciesGlyph_glyph6">
+            <extension>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph6" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="multimer macromolecule" sbfcanno:substanceUnits=""/>
+            </extension>
             <label text="multimer macromolecule">
                 <bbox w="244.0" h="84.0" x="77.0" y="508.0"/>
             </label>
             <bbox w="244.0" h="84.0" x="77.0" y="508.0"/>
         </glyph>
         <glyph class="simple chemical" id="SpeciesGlyph_glyph12">
+            <extension>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph12" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="simple chemical" sbfcanno:substanceUnits=""/>
+            </extension>
             <label text="simple chemical">
                 <bbox w="170.0" h="68.0" x="629.0" y="63.0"/>
             </label>
@@ -79,6 +107,9 @@
             <bbox w="170.0" h="68.0" x="629.0" y="63.0"/>
         </glyph>
         <glyph class="complex" id="SpeciesGlyph_glyph3">
+            <extension>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph3" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="complex" sbfcanno:substanceUnits=""/>
+            </extension>
             <label text="complex">
                 <bbox w="81.0" h="25.0" x="822.5" y="527.3333"/>
             </label>
@@ -90,6 +121,7 @@
                             <sbfcanno:resource sbfcanno:urn="SpeciesGlyph_glyph3"/>
                         </sbfcanno:isPartOf>
                     </sbfcanno:annotation>
+                    <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph10" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="nucleic acid feature" sbfcanno:substanceUnits=""/>
                 </extension>
                 <label text="nucleic acid feature">
                     <bbox w="186.0" h="78.0" x="774.0" y="579.0"/>
@@ -103,6 +135,7 @@
                             <sbfcanno:resource sbfcanno:urn="SpeciesGlyph_glyph3"/>
                         </sbfcanno:isPartOf>
                     </sbfcanno:annotation>
+                    <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph11" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="macromolecule" sbfcanno:substanceUnits=""/>
                 </extension>
                 <label text="macromolecule">
                     <bbox w="174.0" h="72.0" x="778.0" y="697.0"/>
@@ -135,6 +168,7 @@
                         <sbfcanno:resource sbfcanno:urn="SpeciesGlyph_glyph3"/>
                     </sbfcanno:isPartOf>
                 </sbfcanno:annotation>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph11" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="macromolecule" sbfcanno:substanceUnits=""/>
             </extension>
             <label text="macromolecule">
                 <bbox w="174.0" h="72.0" x="778.0" y="697.0"/>
@@ -166,6 +200,7 @@
                         <sbfcanno:resource sbfcanno:urn="SpeciesGlyph_glyph3"/>
                     </sbfcanno:isPartOf>
                 </sbfcanno:annotation>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph10" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="nucleic acid feature" sbfcanno:substanceUnits=""/>
             </extension>
             <label text="nucleic acid feature">
                 <bbox w="186.0" h="78.0" x="774.0" y="579.0"/>
@@ -173,6 +208,9 @@
             <bbox w="186.0" h="78.0" x="774.0" y="579.0"/>
         </glyph>
         <glyph class="submap" id="SpeciesGlyph_glyph2">
+            <extension>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph2" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="submap" sbfcanno:substanceUnits=""/>
+            </extension>
             <label text="submap">
                 <bbox w="380.0" h="204.0" x="346.0" y="873.0"/>
             </label>
@@ -184,6 +222,7 @@
                             <sbfcanno:resource sbfcanno:urn="SpeciesGlyph_glyph2"/>
                         </sbfcanno:isPartOf>
                     </sbfcanno:annotation>
+                    <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph14" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="multimer nucleic &#xA;acid feature" sbfcanno:substanceUnits=""/>
                 </extension>
                 <label text="multimer nucleic &#xA;acid feature">
                     <bbox w="139.0" h="60.0" x="345.5" y="883.0"/>
@@ -197,6 +236,7 @@
                             <sbfcanno:resource sbfcanno:urn="SpeciesGlyph_glyph2"/>
                         </sbfcanno:isPartOf>
                     </sbfcanno:annotation>
+                    <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph18" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name=" source &#xA; and &#xA; sink" sbfcanno:substanceUnits=""/>
                 </extension>
                 <label text=" source &#xA; and &#xA; sink">
                     <bbox w="60.0" h="108.0" x="435.0" y="969.0"/>
@@ -210,6 +250,7 @@
                             <sbfcanno:resource sbfcanno:urn="SpeciesGlyph_glyph2"/>
                         </sbfcanno:isPartOf>
                     </sbfcanno:annotation>
+                    <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph15" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="phenotype" sbfcanno:substanceUnits=""/>
                 </extension>
                 <label text="phenotype">
                     <bbox w="108.0" h="60.0" x="617.5" y="1009.0"/>
@@ -223,6 +264,7 @@
                             <sbfcanno:resource sbfcanno:urn="SpeciesGlyph_glyph2"/>
                         </sbfcanno:isPartOf>
                     </sbfcanno:annotation>
+                    <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph16" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="complex" sbfcanno:substanceUnits=""/>
                 </extension>
                 <label text="complex">
                     <bbox w="60.0" h="108.0" x="598.0" y="872.5"/>
@@ -237,6 +279,7 @@
                         <sbfcanno:resource sbfcanno:urn="SpeciesGlyph_glyph2"/>
                     </sbfcanno:isPartOf>
                 </sbfcanno:annotation>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph14" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="multimer nucleic &#xA;acid feature" sbfcanno:substanceUnits=""/>
             </extension>
             <label text="multimer nucleic &#xA;acid feature">
                 <bbox w="139.0" h="60.0" x="345.5" y="883.0"/>
@@ -250,6 +293,7 @@
                         <sbfcanno:resource sbfcanno:urn="SpeciesGlyph_glyph2"/>
                     </sbfcanno:isPartOf>
                 </sbfcanno:annotation>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph15" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="phenotype" sbfcanno:substanceUnits=""/>
             </extension>
             <label text="phenotype">
                 <bbox w="108.0" h="60.0" x="617.5" y="1009.0"/>
@@ -263,6 +307,7 @@
                         <sbfcanno:resource sbfcanno:urn="SpeciesGlyph_glyph2"/>
                     </sbfcanno:isPartOf>
                 </sbfcanno:annotation>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph16" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="complex" sbfcanno:substanceUnits=""/>
             </extension>
             <label text="complex">
                 <bbox w="60.0" h="108.0" x="598.0" y="872.5"/>
@@ -276,6 +321,7 @@
                         <sbfcanno:resource sbfcanno:urn="SpeciesGlyph_glyph2"/>
                     </sbfcanno:isPartOf>
                 </sbfcanno:annotation>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph18" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name=" source &#xA; and &#xA; sink" sbfcanno:substanceUnits=""/>
             </extension>
             <label text=" source &#xA; and &#xA; sink">
                 <bbox w="60.0" h="108.0" x="435.0" y="969.0"/>
@@ -283,15 +329,24 @@
             <bbox w="60.0" h="108.0" x="435.0" y="969.0"/>
         </glyph>
         <glyph class="phenotype" id="SpeciesGlyph_glyph17">
+            <extension>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph17" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="phenotype" sbfcanno:substanceUnits=""/>
+            </extension>
             <label text="phenotype">
                 <bbox w="108.0" h="60.0" x="1279.3334" y="1247.0"/>
             </label>
             <bbox w="108.0" h="60.0" x="1279.3334" y="1247.0"/>
         </glyph>
         <glyph class="source and sink" id="SpeciesGlyph_glyph19">
+            <extension>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph19" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="" sbfcanno:substanceUnits=""/>
+            </extension>
             <bbox w="60.0" h="60.0" x="435.0" y="1127.3334"/>
         </glyph>
         <glyph class="not" id="SpeciesGlyph_glyph21">
+            <extension>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph21" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="" sbfcanno:substanceUnits=""/>
+            </extension>
             <label text="NOT">
                 <bbox w="42.0" h="42.0" x="1312.3334" y="1113.0"/>
             </label>
@@ -300,6 +355,9 @@
             <port id="Port_glyph21_glyph17" x="1333.3334" y="1176.0"/>
         </glyph>
         <glyph class="or" id="SpeciesGlyph_glyph22">
+            <extension>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph22" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="" sbfcanno:substanceUnits=""/>
+            </extension>
             <label text="OR">
                 <bbox w="42.0" h="42.0" x="1031.5" y="760.0"/>
             </label>
@@ -309,6 +367,9 @@
             <port id="Port_glyph22_glyph24" x="1052.5" y="823.0"/>
         </glyph>
         <glyph class="and" id="SpeciesGlyph_glyph23">
+            <extension>
+                <sbfcanno:species xmlns:sbfcanno="http://www.sbfc.org/sbfcanno" sbfcanno:boundaryCondition="false" sbfcanno:compartment="DefaultCompartment_01" sbfcanno:constant="false" sbfcanno:hasOnlySubstanceUnits="false" sbfcanno:id="glyph23" sbfcanno:initialAmount="NaN" sbfcanno:initialConcentration="1.0" sbfcanno:name="" sbfcanno:substanceUnits=""/>
+            </extension>
             <label text="AND">
                 <bbox w="42.0" h="42.0" x="520.5" y="444.0"/>
             </label>
@@ -317,7 +378,7 @@
             <port id="Port_glyph7_glyph23" x="541.5" y="423.0"/>
             <port id="Port_glyph23_glyph26" x="541.5" y="507.0"/>
         </glyph>
-        <arc class="consumption" id="arc1" source="SpeciesGlyph_glyph20" target="Port_glyph20_glyph24">
+        <arc class="consumption" id="arc1">
             <extension>
                 <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                     <sbfcanno:hasProperty>
@@ -329,7 +390,7 @@
             <start x="870.0" y="984.3333"/>
             <end x="1028.5" y="984.3333"/>
         </arc>
-        <arc class="production" id="arc2" source="Port_glyph24_glyph9" target="SpeciesGlyph_glyph9">
+        <arc class="production" id="arc2">
             <extension>
                 <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                     <sbfcanno:hasProperty>
@@ -353,7 +414,7 @@
             <start x="1052.5" y="823.0"/>
             <end x="1052.5" y="972.3333"/>
         </arc>
-        <arc class="consumption" id="arc16" source="SpeciesGlyph_glyph13" target="Port_glyph13_glyph25">
+        <arc class="consumption" id="arc16">
             <extension>
                 <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                     <sbfcanno:hasProperty>
@@ -365,7 +426,7 @@
             <start x="798.9998" y="308.07303"/>
             <end x="1179.6666" y="309.0"/>
         </arc>
-        <arc class="production" id="arc14" source="Port_glyph25_glyph4" target="SpeciesGlyph_glyph4">
+        <arc class="production" id="arc14">
             <extension>
                 <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                     <sbfcanno:hasProperty>
@@ -377,7 +438,7 @@
             <start x="1227.6666" y="309.0"/>
             <end x="1223.5563" y="599.3333"/>
         </arc>
-        <arc class="unknown influence" id="arc13" source="SpeciesGlyph_glyph8" target="Port_glyph8_glyph25">
+        <arc class="unknown influence" id="arc13">
             <extension>
                 <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                     <sbfcanno:hasProperty>
@@ -389,7 +450,7 @@
             <start x="1203.6666" y="233.0"/>
             <end x="1203.6666" y="297.0"/>
         </arc>
-        <arc class="consumption" id="arc9" source="SpeciesGlyph_glyph6" target="Port_glyph6_glyph26">
+        <arc class="consumption" id="arc9">
             <extension>
                 <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                     <sbfcanno:hasProperty>
@@ -401,7 +462,7 @@
             <start x="321.0" y="591.87964"/>
             <end x="517.5" y="659.3333"/>
         </arc>
-        <arc class="consumption" id="arc10" source="SpeciesGlyph_glyph5" target="Port_glyph5_glyph26">
+        <arc class="consumption" id="arc10">
             <extension>
                 <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                     <sbfcanno:hasProperty>
@@ -413,7 +474,7 @@
             <start x="312.7219" y="732.0"/>
             <end x="517.5" y="659.3333"/>
         </arc>
-        <arc class="production" id="arc11" source="Port_glyph26_glyph3" target="SpeciesGlyph_glyph3">
+        <arc class="production" id="arc11">
             <extension>
                 <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                     <sbfcanno:hasProperty>
@@ -437,7 +498,7 @@
             <start x="541.5" y="507.0"/>
             <end x="541.5" y="647.3333"/>
         </arc>
-        <arc class="consumption" id="arc15" source="SpeciesGlyph_glyph7" target="Port_glyph7_glyph27">
+        <arc class="consumption" id="arc15">
             <extension>
                 <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                     <sbfcanno:hasProperty>
@@ -449,7 +510,7 @@
             <start x="422.0" y="276.0"/>
             <end x="521.0" y="204.0"/>
         </arc>
-        <arc class="production" id="arc17" source="Port_glyph27_glyph13" target="SpeciesGlyph_glyph13">
+        <arc class="production" id="arc17">
             <extension>
                 <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                     <sbfcanno:hasProperty>
@@ -479,7 +540,7 @@
             <start x="569.0" y="204.0"/>
             <end x="641.6091" y="290.1807"/>
         </arc>
-        <arc class="production" id="arc19" source="Port_glyph27_glyph12" target="SpeciesGlyph_glyph12">
+        <arc class="production" id="arc19">
             <extension>
                 <sbfcanno:annotation xmlns:sbfcanno="http://www.sbfc.org/sbfcanno">
                     <sbfcanno:hasProperty>
@@ -599,6 +660,7 @@
                 </extension>
                 <start x="200.0" y="812.0"/>
                 <next x="200.0" y="914.5"/>
+                <next x="200.0" y="914.5"/>
                 <end x="345.5" y="913.48486"/>
             </arc>
         </arcgroup>
@@ -622,6 +684,8 @@
                 </extension>
                 <start x="628.0" y="872.5"/>
                 <next x="628.0" y="829.0"/>
+                <next x="628.0" y="829.0"/>
+                <next x="862.0" y="829.0"/>
                 <next x="862.0" y="829.0"/>
                 <end x="862.2102" y="793.3333"/>
             </arc>
@@ -668,6 +732,8 @@
                 </extension>
                 <start x="1279.3334" y="1277.0"/>
                 <next x="776.0" y="1277.0"/>
+                <next x="776.0" y="1277.0"/>
+                <next x="776.0" y="1039.0"/>
                 <next x="776.0" y="1039.0"/>
                 <end x="725.5" y="1039.0"/>
             </arc>
@@ -715,6 +781,21 @@
                 <start x="465.0" y="1127.3334"/>
                 <end x="465.0" y="1077.0"/>
             </arc>
+        </arcgroup>
+        <arcgroup class="GeneralGlyph_glyph21">
+            <glyph class="unspecified entity" id="GeneralGlyph_glyph21">
+                <bbox w="42.0" h="42.0" x="1312.3334" y="1113.0"/>
+            </glyph>
+        </arcgroup>
+        <arcgroup class="GeneralGlyph_glyph22">
+            <glyph class="unspecified entity" id="GeneralGlyph_glyph22">
+                <bbox w="42.0" h="42.0" x="1031.5" y="760.0"/>
+            </glyph>
+        </arcgroup>
+        <arcgroup class="GeneralGlyph_glyph23">
+            <glyph class="unspecified entity" id="GeneralGlyph_glyph23">
+                <bbox w="42.0" h="42.0" x="520.5" y="444.0"/>
+            </glyph>
         </arcgroup>
         <arcgroup>
             <glyph class="omitted process" id="glyph24">

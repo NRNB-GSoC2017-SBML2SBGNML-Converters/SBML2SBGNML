@@ -252,7 +252,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter {
 			id = arc.getId();
 			// create a Wrapper for each arc, the Wrapper stores additional information about the Arc
 			sWrapperArc = createWrapperArc(sWrapperModel, arc);
-			
+						
 			if (SBGNML2SBMLUtil.isLogicArc(arc)){
 				sWrapperModel.addLogicArc(id, sWrapperArc);
 			} else if (sWrapperModel.getWrapperSpeciesGlyph(sWrapperArc.sourceId) != null &&
@@ -607,7 +607,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter {
 		
 		source = arc.getSource();
 		target = arc.getTarget();
-		
+
 		// There are 4 types of Arcs, each will end up being converted to a different type of SBML glyph: 
 		// the glyphToPortArc has source from a Glyph and has target to a Port
 		// the portToGlyphArc has source from a Port and has target to a Glyph
@@ -644,6 +644,7 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter {
 			targetReactionId = sWrapperModel.findGlyphFromPort(targetPort);		
 			return new SWrapperArc(arc, "PortToPort", sourceReactionId, targetReactionId, source, target);
 		}
+		
 		return null;
 	}
 		
