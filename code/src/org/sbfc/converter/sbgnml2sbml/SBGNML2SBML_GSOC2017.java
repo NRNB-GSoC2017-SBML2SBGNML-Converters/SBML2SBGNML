@@ -1406,13 +1406,13 @@ public class SBGNML2SBML_GSOC2017  extends GeneralConverter {
 	@Override
 	public String getDescription() {
 		// TODO Auto-generated method stub
-		return null;
+		return "";
 	}
 
 	@Override
 	public String getHtmlDescription() {
 		// TODO Auto-generated method stub
-		return null;
+		return "";
 	}
 
 	@Override

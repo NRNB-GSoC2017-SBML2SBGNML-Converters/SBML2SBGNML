@@ -748,25 +748,23 @@ public class SBGNML2SBMLQual   extends GeneralConverter{
 	@Override
 	public String getDescription() {
 		// TODO Auto-generated method stub
-		return null;
+		return "";
 	}
 
 	@Override
 	public String getHtmlDescription() {
 		// TODO Auto-generated method stub
-		return null;
+		return "";
 	}
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return "SBGNML2SBML+qual";
 	}
 
 	@Override
 	public String getResultExtension() {
-		// TODO Auto-generated method stub
-		return null;
+		return "-sbml.xml";
 	}
 		
 }
