@@ -1,6 +1,6 @@
 # SBML-SBGNML Converters
 Welcome to the SBML2SBGNML wiki! \
-GSoC project link: https://summerofcode.withgoogle.com/projects/#6351966180474880 \
+GSoC project link: https://summerofcode.withgoogle.com/archive/2017/projects/6428665978028032/ \
 Blog link: https://haleyyew-gsoc.blogspot.ca/ \
 Repository link: https://github.com/NRNB-GSoC2017-SBML2SBGNML-Converters/SBML2SBGNML 
 
